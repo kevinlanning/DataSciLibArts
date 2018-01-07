@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
+<link rel="prev" href="resources.html">
 
-<link rel="next" href="setting-up-your-computer.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -155,85 +155,119 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Data Science for the Liberal Arts</h1>
-<h4 class="author"><em>Kevin Lanning</em></h4>
-<h4 class="date"><em>2018-01-07</em></h4>
+<div id="etc" class="section level1">
+<h1><span class="header-section-number">48</span> Etc</h1>
+<div id="what-will-be-in-the-class" class="section level2">
+<h2><span class="header-section-number">48.1</span> What will be in the class?</h2>
+<p><strong>R</strong></p>
+<p>In my rough survey of introductory data science courses, I saw a pretty even split between those which begin with Python and those which begin with the statistical programming language R. This difference corresponds, loosely, to the split noted above: Computer science based approaches to data science are frequently grounded in Python, while stats based approaches are generally grounded in R. Our course, like those for most of the syllabi and courses linked above, will be based in R.</p>
+<p><strong>Reproducible science</strong></p>
+<p>The course will provide an introduction to some of the methods and tools of reproducible science. We will consider the replication crisis in the natural and social sciences, and then consider three distinct approaches which serve as partial solutions to the crisis. The first of these is training in a notebook-based approach to writing analyses, reports and projects (using R markdown). The second is using public repositories (such as the <a href="https://osf.io/">Open Science Framework</a> and <a href="https://github.com/">GitHub</a>) to provide snapshots of projects over time. Finally, the third is to consider the place of significance testing in the age of Big Data, and to provide training in the use of descriptive, exploratory techniques of data analysis.</p>
+<p><strong>Good visualizations</strong></p>
+<p>Part of Type C data science is communication, and this includes not just writing up results, but also designing data displays that incisively convey the key ideas or features in a flood of data. We’ll examine and develop data visualizations such as plots, networks and text clouds. More advanced topics may include maps, interactive displays, and animations.</p>
+<p><strong><del>All</del> <em>Some of</em> the data</strong></p>
+<p>It’s been <a href="https://www.udemy.com/datascience/learn/v4/t/lecture/3473822?start=379">argued</a> that in the last dozen years, humans have produced more than 60 times as much information as existed in the entire previous history of humankind. (It sounds like hyperbole, but even if it’s off by an order of magnitude it’s still amazing). There are plenty of data sources for us to examine, and we’ll consider existing datasets from disciplines ranging from literature to economics to public health, with sizes ranging from a few dozen to millions of data points. We will also clean and create new datasets.</p>
+<p><strong><del>All</del> <em>Some of</em> the meaning</strong></p>
+<p>Data matter, can save, enhance, or destroy human lives. (This is a crummy sentence: My pedantic insistence on treating the term “data” as plural rather than singular likely distracted you from the substance of my message. I’ll leave it here as a reminder that we can all become better writers). Back to my point: In this class, we’ll explore approaches to analyzing the meaning of data in areas including the analyses of simple texts and data journalism.</p>
+<p><strong><del>All</del> <em>Some of</em> the skills</strong></p>
+<p>The skills required to extract meaning from data include an understanding of classical statistical principles (e.g., probability theory and sampling theory), core statistical techniques (regression), and the extension of these core principles and basic techniques to problems in natural language processing, the analysis of social networks, and machine learning and classification.</p>
+<p><strong><del>All</del> <em>Some of</em> the tools</strong></p>
+<p>In addition to R, we’ll use a range of other tools: We’ll communicate on the Slack platform. We’ll write using markdown editors such as <a href="https://typora.io/">Typora</a>. We’ll certainly use spreadsheets such as Excel or Google Sheets. We <em>may</em> use additional tools for visualizing data such as Gephi and Tableau.</p>
+<p><strong>Hands-on computing</strong></p>
+<p>We had initially anticipated that the lectures would include discussion, and that the computing part of the class would occur just in the lab. But, in the course of examining syllabi at other schools, it became apparent to me that <strong>there will be computing throughout the course</strong>, not just in the lab.</p>
+<p><strong>What will be in the lab?</strong></p>
+<p>The labs will have two features. First, they will allow for a project-based approach, focused on the collaborative analysis of problems of your own choosing. Second, these projects will include a deeper dive into some of the topics and problems above. Here are a few examples of how the treatment in the lecture and the lab are likely to differ:</p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Topic</th>
+<th align="center">Lecture</th>
+<th align="center">Lab: Deeper dive</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Introduction</td>
+<td align="center">Stephens-Davidowitz book; Google trends</td>
+<td align="center">Examining one or more scholarly papers in data journalism, computational science, or computational social science</td>
+</tr>
+<tr class="even">
+<td align="center">Getting data</td>
+<td align="center">Extant data</td>
+<td align="center">Using APIs to scrape social media</td>
+</tr>
+<tr class="odd">
+<td align="center">Sharing science</td>
+<td align="center">Setting up account on OSF</td>
+<td align="center">Using GitHub, Becoming a Repo <del>Man</del> <em>person</em></td>
+</tr>
+<tr class="even">
+<td align="center">Exploratory data analysis / Data visualization</td>
+<td align="center">Static data displays</td>
+<td align="center">Interactive plots (r Shiny), animated displays?, Tableau?</td>
+</tr>
+<tr class="odd">
+<td align="center">Sampling theory</td>
+<td align="center">Test vs training datasets</td>
+<td align="center">k-fold cross-validation</td>
+</tr>
+<tr class="even">
+<td align="center">Regression and classification</td>
+<td align="center">Linear and logistic regression</td>
+<td align="center">Machine learning: Robust techniques / regularized regression Supervised prediction, possibly semi-supervised and unsupervised regression</td>
+</tr>
+<tr class="odd">
+<td align="center">Graph theory and network analysis</td>
+<td align="center">Introduction to centrality, community structure, contagion</td>
+<td align="center">Network robustness, different approaches to centrality &amp; community structure</td>
+</tr>
+<tr class="even">
+<td align="center">Analyzing texts</td>
+<td align="center">Word clouds</td>
+<td align="center">Text mining, natural language analysis</td>
+</tr>
+<tr class="odd">
+<td align="center">Generating products</td>
+<td align="center">Team project in class</td>
+<td align="center">Project in class and poster</td>
+</tr>
+</tbody>
+</table>
+
+<div id="refs" class="references">
+<div>
+<p>Baumer, Ben, Mine Cetinkaya-Rundel, Andrew Bray, Linda Loi, and Nicholas J Horton. 2014. “R Markdown: Integrating a Reproducible Analysis Tool into Introductory Statistics.” <em>arXiv Preprint arXiv:1402.1894</em>.</p>
 </div>
-<div id="data-science-for-the-liberal-arts" class="section level1">
-<h1><span class="header-section-number">1</span> Data science for the liberal arts</h1>
-<p>What is data science?</p>
-<div id="data-science-statistics-overstimulation-insufficient-arousal" class="section level2">
-<h2><span class="header-section-number">1.1</span> Data science: statistics ~ Overstimulation: insufficient arousal</h2>
-<p>It has been said (by whom?) that the biggest difference between traditional stats and data science is that the former is typically concerned with making inferences from datasets that are too small, while the latter is concerned with extracting a signal from data that is or are too big.</p>
-<p>This is the question of the age.</p>
-<p>I’m not saying that statistics is boring
-On needles in haystacks, ADHD, and why data science is fundamental
-Primacy of editing, attention, especially today.
-How do you decide what matters?
-difference between statistics and data science and the challenge of editing, finding needles in the haystack of the world</p>
+<div>
+<p>Broman, Karl W, and Kara H Woo. 2017. “Data Organization in Spreadsheets.” <em>The American Statistician</em>, nos. just-accepted. Taylor &amp; Francis.</p>
 </div>
-<div id="the-venn-diagram-model" class="section level2">
-<h2><span class="header-section-number">1.2</span> The Venn diagram model</h2>
-<p>Hochster (in <a href="https://arxiv.org/ftp/arxiv/papers/1612/1612.07140.pdf">Hicks &amp; Irizarry, 2017</a>) describes two broad types of data scientists: Type A (Analysis) data scientists, whose skills are like those of an applied <strong>statistician</strong>, and Type B (Building) data scientists, whose skills lie in problem solving or coding, using the skills of the <strong>computer scientist</strong>. Hochster’s view of data science arguably omits a critical component of the field. Data science is driven not just by statistics and computer science, but also by “domain expertise:”</p>
-<p><img src = "https://4.bp.blogspot.com/-0cbXveb1J_0/V-FtjJZ4rqI/AAAAAAAAMHM/bS32Pio2a1IFOyp5T86S0jiyB-3KAN1iwCEw/s1600/download%2B%25281%2529.png" width = "300px" /></p>
+<div>
+<p>Domingos, Pedro. 2012. “A Few Useful Things to Know About Machine Learning.” <em>Communications of the ACM</em> 55 (10). ACM:78–87.</p>
 </div>
-<div id="type-c-data-science" class="section level2">
-<h2><span class="header-section-number">1.3</span> Type C data science</h2>
-<p>The iconic <a href="https://www.google.com/search?q=venn+diagram+model+of+data+science&amp;newwindow=1&amp;safe=active&amp;rlz=1C1CHBF_enUS762US763&amp;tbm=isch&amp;tbo=u&amp;source=univ&amp;sa=X&amp;ved=0ahUKEwiM_abBtY7XAhXDQCYKHdgyB58QsAQIOg&amp;biw=1378">Venn diagram model of data science</a> suggests what we can call a “Type C data science.” It begins with “domain expertise” in your <strong>concentration</strong> in the arts, humanities, social and/or natural sciences, it both informs and can be informed by new methods and tools of data analysis, and it includes such things as <strong>communication</strong> (including writing and the design and display of quantitative data), <strong>collaboration</strong> (making use of the tools of team science), and <strong>citizenship</strong> (serving the public good, overcoming the digital divide, furthering social justice, increasing public health, diminishing human suffering, and making the world a more beautiful place). It’s shaped, too, by an awareness of the <strong>creepiness</strong> of living increasingly in a measured, observed world.</p>
+<div>
+<p>Freeman, Michael, and Joel Ross. 2017. <em>Technical Founrdaions of Informatics</em>. https://info201.github.io/.</p>
 </div>
-<div id="limits-of-the-venn-model-aspects-or-features-of-data-science" class="section level2">
-<h2><span class="header-section-number">1.4</span> Limits of the Venn model: Aspects or features of Data Science</h2>
-<div id="statistics" class="section level3">
-<h3><span class="header-section-number">1.4.1</span> Statistics</h3>
+<div>
+<p>Gelman, Andrew. 2011. “Tables as Graphs: The Ramanujan Principle.” <em>Significance</em> 8 (4). Wiley Online Library:183–83.</p>
 </div>
-<div id="computing" class="section level3">
-<h3><span class="header-section-number">1.4.2</span> Computing</h3>
+<div>
+<p>Lazer, David, Ryan Kennedy, Gary King, and Alessandro Vespignani. 2014. “The Parable of Google Flu: Traps in Big Data Analysis.” <em>Science</em> 343 (6176). American Association for the Advancement of Science:1203–5.</p>
 </div>
-<div id="substantive-knowledge---multifaceted" class="section level3">
-<h3><span class="header-section-number">1.4.3</span> Substantive knowledge - multifaceted</h3>
-<div id="medicine-literature-etc" class="section level4">
-<h4><span class="header-section-number">1.4.3.1</span> medicine, literature, etc</h4>
-<p>This suggests a type c data science. but there is more.</p>
+<div>
+<p>Peng, Roger D. 2015. <em>R Programming for Data Science</em>. Lulu. com.</p>
+</div>
+<div>
+<p>Stephens-Davidowitz, Seth. 2017. “Everybody Lies: Big Data, New Data and What the Internet Can Tell Us About Who We Really Are.” New York: HarperCollins.</p>
+</div>
+<div>
+<p>Xie, Yihui. 2017. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown" class="uri">https://CRAN.R-project.org/package=bookdown</a>.</p>
 </div>
 </div>
-<div id="collaboration" class="section level3">
-<h3><span class="header-section-number">1.4.4</span> Collaboration</h3>
-<div id="includes-team-science-working-groups" class="section level4">
-<h4><span class="header-section-number">1.4.4.1</span> includes team science, working groups</h4>
-</div>
-</div>
-<div id="communication" class="section level3">
-<h3><span class="header-section-number">1.4.5</span> Communication</h3>
-<div id="open-science-reproducibility" class="section level4">
-<h4><span class="header-section-number">1.4.5.1</span> open science, reproducibility</h4>
-</div>
-<div id="writing" class="section level4">
-<h4><span class="header-section-number">1.4.5.2</span> writing</h4>
-</div>
-<div id="data-viz" class="section level4">
-<h4><span class="header-section-number">1.4.5.3</span> data viz</h4>
-</div>
-</div>
-<div id="pragmatism-applications-towards-real-world-goals" class="section level3">
-<h3><span class="header-section-number">1.4.6</span> Pragmatism: Applications towards real-world goals</h3>
-<div id="ethical-concerns-and-data-for-good" class="section level4">
-<h4><span class="header-section-number">1.4.6.1</span> Ethical concerns and data for good</h4>
-</div>
-</div>
-</div>
-<div id="the-expertise-dimension" class="section level2">
-<h2><span class="header-section-number">1.5</span> The expertise dimension</h2>
-<p>literacy (can understand) to fluency (can practice) to leadership (can create new solutions or methods).</p>
-<p>Type C data science can also be characterized by a <em>continuum</em> of knowledge, skills, interests, and goals, ranging from that which characterizes the data <em>consumer</em> to the data <em>citizen</em> to the data science <em>contributor</em></p>
-<p>Google and the liberal arts</p>
-<p><a href="https://www.washingtonpost.com/news/answer-sheet/wp/2017/12/20/the-surprising-thing-google-learned-about-its-employees-and-what-it-means-for-todays-students/?sw_bypass=true&amp;utm_term=.23e48235d66e" class="uri">https://www.washingtonpost.com/news/answer-sheet/wp/2017/12/20/the-surprising-thing-google-learned-about-its-employees-and-what-it-means-for-todays-students/?sw_bypass=true&amp;utm_term=.23e48235d66e</a></p>
-<p>A challenge: Can you improve upon the venn diagram?</p>
-</div>
-<div id="reviewing-the-syllabus" class="section level2">
-<h2><span class="header-section-number">1.6</span> Reviewing the syllabus</h2>
-<p>notion of progress rather than achievement</p>
-<p>what are your own goals for the class, in terms of the model described above?</p>
 </div>
 </div>
             </section>
@@ -241,8 +275,8 @@ difference between statistics and data science and the challenge of editing, fin
           </div>
         </div>
       </div>
+<a href="resources.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="setting-up-your-computer.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

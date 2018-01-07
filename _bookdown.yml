@@ -2,5 +2,6 @@ book_filename: "DataSciLibArts"
 delete_merged_file: true
 language:
   ui:
-    chapter_name: "Module"
+    chapter_name: ""
 output_dir: "docs"
+
