@@ -8,6 +8,8 @@ output:
             download: null
             fontsettings:
                 theme: night 
+                family: sans
+                size: 2
         highlight: pygments
 #  bookdown::html_book:
 #   highlight: pygments
@@ -15,7 +17,7 @@ output:
 #  html_document:
 #    df_print: paged
 site: bookdown::bookdown_site
-bibliography: dataSciRefs.bib
+bibliography: ../dataSciRefs.bib
 description: 
 documentclass: book
 link-citations: yes
@@ -25,30 +27,11 @@ biblio-style: apalike
 
 # (PART) Part I Introduction {-}
 
-
 This work-in-progress includes the notes for [*_Introduction to Data Science_*](https://kevinlanning.github.io/DataSciSpring2018/) at the Wilkes Honors College of Florida Atlantic University. It's written using the R package Bookdown [@R-bookdown]. 
 
 # Data science for the liberal arts
 
-What is data science?
-
-
-## Data science: statistics ~ Overstimulation: insufficient arousal
-
-It has been said (by whom?) that the biggest difference between traditional stats and data science is that the former is typically concerned with making inferences from datasets that are too small, while the latter is concerned with extracting a signal from data that is or are too big. 
-
-This is the question of the age.
-
-I'm not saying that statistics is boring
-On needles in haystacks, ADHD, and why data science is fundamental 
-Primacy of editing, attention, especially today.
-How do you decide what matters?
-difference between statistics and data science and the challenge of editing, finding needles in the haystack of the world
-
-
-## The Venn diagram model
-
-Hochster (in [Hicks & Irizarry, 2017](https://arxiv.org/ftp/arxiv/papers/1612/1612.07140.pdf)) describes two broad types of data scientists: Type A (Analysis) data scientists, whose skills are like those of an applied **statistician**, and Type B (Building) data scientists, whose skills lie in problem solving or coding, using the skills of the **computer scientist**.  Hochster's view of data science arguably omits a critical component of the field.  Data science is driven not just by statistics and computer science, but also by "domain expertise:"
+Hochster (in @hicks2017guide) describes two broad types of data scientists: Type A (Analysis) data scientists, whose skills are like those of an applied **statistician**, and Type B (Building) data scientists, whose skills lie in problem solving or coding, using the skills of the **computer scientist**.  Hochster's view of data science arguably omits a critical component of the field.  Data science is driven not just by statistics and computer science, but also by "domain expertise:"
 
 <img src = "https://4.bp.blogspot.com/-0cbXveb1J_0/V-FtjJZ4rqI/AAAAAAAAMHM/bS32Pio2a1IFOyp5T86S0jiyB-3KAN1iwCEw/s1600/download%2B%25281%2529.png" width = "300px" />
 
@@ -56,490 +39,42 @@ Hochster (in [Hicks & Irizarry, 2017](https://arxiv.org/ftp/arxiv/papers/1612/16
 
 The iconic [Venn diagram model of data science](https://www.google.com/search?q=venn+diagram+model+of+data+science&newwindow=1&safe=active&rlz=1C1CHBF_enUS762US763&tbm=isch&tbo=u&source=univ&sa=X&ved=0ahUKEwiM_abBtY7XAhXDQCYKHdgyB58QsAQIOg&biw=1378) suggests what we can call a "Type C data science." It begins with "domain expertise" in your **concentration** in the arts, humanities, social and/or natural sciences, it both informs and can be informed by new methods and tools of data analysis, and it includes such things as **communication** (including writing and the design and display of quantitative data), **collaboration** (making use of the tools of team science), and **citizenship** (serving the public good, overcoming the digital divide, furthering social justice, increasing public health, diminishing human suffering, and making the world a more beautiful place).  It's shaped, too, by an awareness of the **creepiness** of living increasingly in a measured, observed world.
 
+## The incompleteness of the Venn diagram
 
-## Limits of the Venn model: Aspects or features of Data Science
+The Venn diagram model is incomplete.  In addition to *statistics, computing/hacking,* and *domain expertise,* a number of additional skills contribute to the success of the data scientist.
 
-### Statistics
+These include *collaboration,* which is arguably the most distinctive feature of contemporary scholarship in the natural and social sciences as well as in the private sector [@isaacson2014innovators].
 
-### Computing
+*Communication* is central to data science because results are inconsequential unless they are recognized, understood, and built upon; facets of communication include oral presentations, written texts and, too, clear data visualizations.
 
-### Substantive knowledge - multifaceted
+*Reproducibility* is related to both communication and collaboration. There has been something of a crisis in recent years in the social and natural sciences as many results initially characterized as "statistically significant" have been found not to replicate.  The reasons for this are multiple and presently contentious, but one path towards better science includes the public sharing of methods and data, ideally before experiments are undertaken.  Reproducible methods are a key feature of contemporary data science. 
 
-#### medicine, literature, etc
-
-This suggests a type c data science. but there is more.
-
-### Collaboration 
-
-#### includes team science, working groups
-
-### Communication
-
-#### open science, reproducibility
-
-#### writing
-
-#### data viz
-
-### Pragmatism: Applications towards real-world goals
-
-#### Ethical concerns and data for good
+*Pragmatism* refers to the relevance of work towards real-world goals.  Ideally, these pragmatic concerns take into account *ethical concerns* as well.
 
 ## The expertise dimension
 
-literacy (can understand) to fluency (can practice) to leadership (can create new solutions or methods). 
+Cutting across these eight facets (statistics, computing, domain expertise, collaboration, communication, reproducibility, pragmatism, and ethics), a second dimension can be articulated. No one of us can excel in all eight domains, rather, we might aim towards goals ranging from *literacy* (can understand) through *proficiency* (can get by) to *fluency* (can practice) to *leadership* (can create new solutions or methods).  
 
-Type C data science can also be characterized by a *continuum* of knowledge, skills, interests, and goals, ranging from that which characterizes the data *consumer* to the data *citizen* to the data science *contributor*
+That is, we can think of a *continuum* of knowledge, skills, interests, and goals, ranging from that which characterizes the data *consumer* to the data *citizen* to the data science *contributor.* A Type C data science includes this dimension as well.
 
-Google and the liberal arts
+## Google and the liberal arts
 
-https://www.washingtonpost.com/news/answer-sheet/wp/2017/12/20/the-surprising-thing-google-learned-about-its-employees-and-what-it-means-for-todays-students/?sw_bypass=true&utm_term=.23e48235d66e
+Data science is at its core empirical, and all of this rhetoric would be meaningless if not grounded in real world findings.  Although it was recently reported that [soft skills rather than STEM training were the most important predictors of success among Google employees](https://www.washingtonpost.com/news/answer-sheet/wp/2017/12/20/the-surprising-thing-google-learned-about-its-employees-and-what-it-means-for-todays-students/?sw_bypass=true&utm_term=.23e48235d66e), it's difficult to know whether these results would generalize to a less select group.  Nonetheless, there is a clear need for individuals with well-rounded training in the liberal arts in data science positions and, conversely, learning data science is arguably a key part of a contemporary liberal arts education.
 
-A challenge: Can you improve upon the venn diagram?
+## Data sci and TMI
+
+It has been said (by whom?) that the biggest difference between traditional stats and data science is that the former is typically concerned with making inferences from datasets that are too *small*, while the latter is concerned with extracting a signal from data that is or are too *big*. 
+
+The struggle to extract meaning from a sea of information - of finding needles in haystacks, of finding faint signals in a cacophany of overstimulation - is arguably the question of the age.  It is a question we deal with as individuals on a moment-by-moment basis. It is a challenge I face as I wade through the many things that I could include in this class and these notes.
+
+The *primacy of editing* or selection lies at the essence of human perception and the creation of art forms ranging from novels to film.  And it is a key challenge for the data scientist faces as well.
 
 ## Reviewing the syllabus
 
-notion of progress rather than achievement
+Note the notion of progress rather than achievement. 
 
-what are your own goals for the class, in terms of the model described above?
+## Assignment
 
-# Setting up your computer
+Please consider, and be prepared to discuss in class: What are your own goals for the class, in terms of the model described above?
 
-# Pretest
-
-What do you know about data science, and what are your goals for the term?  Express these in terms of the matrix described above.
-" Your grade in the class will be based not just on what you know at the end of the term, but how much you have learned.
-
-Is it possible to incentivize students to do as well as they can on this first exam - to use our honor code to insure that they don't 'cheat down' as they would not 'cheat up'?
-
-Thinking that residualized final exam performance will be worth x % of grade (i.e., that students who have learned more than the typical student will receive a boost. Might fold this in to a participation/effort score).
-
-Better still is to use the pretest to identify students with expertise in particular areas - these students can earn points by helping others.
-
-So you can earn points by (a) learning more about particular topics than most of your classmates and/or by (b) helping your classmates with particular topics.
-
-Because the range of expertise required in the course is broad, every student will be identified as having one or more strengths,  
-
-# Some basic tools: Slack, Markdown, and Google Docs
-
-Markdown, Slack, and Google Docs/Sheets/Forms 
-
-(@freeman2017informatics, Chapter 3)
-
-Gephi, Tableau, Github as optional.
-
-# An introduction to R 
-
-R is a system for Reproducible science. Reproducibility is essential @baumer2014r
-R is a system for Representing data in cool, insight-facilitating ways.
-R is Really popular, and really gRowing.
-Historically, R grew out of S which could stand for Statistics. In the univeRse of data science classes, R is closeR to statistics than computer science. 
-LeaRning R is woRthwhile and it will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.
-But "learning R" is a misnomer, as it implies a discrete accomplishment that one can master, Rather, R is a system of applications and tools which is so vast that there is always more that one can achieve.
-
-There are many tools out there that can help you learn R, including SwirlR, DataCamp, the Data Science Certificate Program at Hopkins, your classmates, and the present text.
-
-R syntax is finicky.  You will make errors constantly, but because so many other people are using R, you can generally find answers quickly with a Google search. (This achievement of scale is a characteristic feature of many aspects of our data-connected world, one in which popular restaraunts, hotels, ... )
-
-SwirlR lessons, @peng2015r,
-
-# Finding help
-
-using google searches wisely
-
-generating reproducible errors
-
-# (PART) Part II Towards data literacy  {-}
-
-# Empiricism > intuition
-
-(which chapters and assignments from Bit by Bit?)
-
-A revolution in the social sciences. 
-
-also @lazer2014parable 
-
-Introduction: Power of Google trends (which example is most compelling?). 
-
-Chapters 1 and 2: Thinking like a data scientist. Empiricism > intuition. Four powers of Big Data. 
-
-P(player in NBA) doubles with each additional inch. 
-
-# The ubiquity of data
-
-Chapter 3: reimagining data,
-
-Chapter 4 what google searches can tell us
-
-https://medium.com/@PaulStollery/all-of-the-fucks-given-online-in-2016-58c60edd6e44
-
-Chapter 3-4: The internet as a network. Google searches and the Page Rank algorithm. Google flu. 
-
-Google as a datasource (https://medium.com/@pewresearch/using-google-trends-data-for-research-here-are-6-questions-to-ask-a7097f5fb526)
-
-autocomplete (use an anonymous/incognito window?)
-
-Searches for is my son ... vs is my daughter...
-
-trends
-
-correlate
-
-books: https://books.google.com/ngrams
-
-> Google correlate (I tried this but it is finicky / weeks must begin on a sunday - enter a time series, see what correlates with it.) *Data challenge: Find an interesting time series, use google correlate to find something that it is associated with* 
-
-Predicting success of horses: Reminiscent of Binet's method, finds enlarged left ventricle associated with success. [but now that others know this, left ventricle will not distinguish winners from losers.]
-
-First law of viticulture
-
-Text as data; shift from United states are to united states is. / Word clouds, gender and age / Sentiment analysis of books, movies / differential language use /.
-
-[note Gentzkow and Shapiro study of 2005 congressional record]
-
-New approaches for measuring economic development including lights from space, cell phone snaps at fruitstands.
-
-Searches re Child abuse go up in recessions, but child protective services get fewer calls.  
-
-[@stephens2017everybody]
-
-# Counting and predicting
-
-class 1 from Salgarnik, also chapter 2 of his book: http://www.bitbybitbook.com/en/observing-behavior/
-
-# Principles of data visualization
-
-Tufte principles
-
-tables as graphs: @gelman2011tables
-
-My bad and better vizzes
-
-Schmidt's visualization of Rate My Professor language: http://benschmidt.org/profGender
-
-and jobs by major: http://benschmidt.org/jobs/
-
-references for visualizations include policyviz podcast 32, data stories 110: What's going on in this graph, and NYT edu series
-
-R4ds, Chapter 3
-
-Kennedy Elliott 39 studies 
-
-https://medium.com/@kennelliott/39-studies-about-human-perception-in-30-minutes-4728f9e31a73
-
-https://www.youtube.com/watch?v=s0J6EDvlN30 ?
-
-# Probability
-
-See http://datasciencelabs.github.io/pages/lectures.html
-
-Stats: CLT, Hypothesis testing via simulation, Bayesian inference (https://www2.stat.duke.edu/courses/Fall15/sta112.01/)
-
-see JHU 6 inference
-
-Bayes Theorem
-
-Binomial, normal, and poisson distributions
-
-(funny image on tuna sales from economist, check dropbox)
-
-(some distributions)
-
-# Inference
-
-See http://datasciencelabs.github.io/pages/lectures.html
-
-see jhu6inference.pdf
-
-law of large numbers and CLT
-
-Confidence intervals
-
-hypothesis testing
-
-multiple tests
-
-(possibly power, bootstrapping, bayesian inference)
-
-# Reproducibility and the replication crisis
-
-```
-  1. use of code rather than GUIs for data manipulation
-  2. use of large samples
-  3. use of exploratory, descriptive techniques
-```
-
-replication crisis: https://www.nature.com/polopoly_fs/1.17412!/menu/main/topColumns/topLeftColumn/pdf/520612a.pdf
-
-discuss preregistration here
-
-introduce OSF
-
-# (PART) Part III Towards data proficiency  {-}
-
-# Literate programming with R markdown
-
-R4DS 6 and 27
-
-Projects in R4DS 8
-
-https://dcl-2017-04.github.io/curriculum/rmarkdown-basics.html (r4ds-27)
-
-also possibly scripts:  r4ds 6
-
-# Data visualization in R with ggplot2
-
-(another lecture here?)
-
-r4ds chapter 3
-
-# Exploratory Data Analysis
-
-r4ds, Chapter 3 continued - 3.4 is help and problems
-
-r4ds, chapter 7
-
-# Tidy data and the tidyverse
-
-r4ds 9, 10
-
-# Messy data: Cleaning and curation
-
-r4ds 11 getting data
-
-r4ds 12.1 12.2
-
-Some best practices in coding and storing
-
-From hand-tally to calculator to spreadsheet
-
-Data wrangling: some problems in data https://github.com/Quartz/bad-data-guide
-
-Best practices for data in spreadsheets [@broman2017data]. 
-
-Code style chapter 4 r4ds
-
-Handling missing values
-
-Advantages and disadvantages of working with spreadsheets. Tidy, rectangular data allows people and computers to see data in the same way.
-
-Spreadsheets are great, but limited in some ways.  They are good at showing us raw data, but not the history of how it has been transformed or analyzed. They can be cumbersome for working with large datasets, too.
-
-# Selecting data in R with dplyr
-
-r4ds 5, 5.1-5.4
-
-# Manipulating data in R with dplyr
-
-Chapter 5, sections 5.5-5.7
-
-# Working with relational data
-
-Chapter 13
-
-data wrangling http://www.hcbravo.org/IntroDataSci/calendar/ (SQL)
-
-Databases, SQL, join
-
-# Working with strings, factors, dates and times
-
-Chapters 14-16
-
-issues with text data, maybe silge book?
-
-# Working with lists
-
-r4ds 20
-
-# Open science 
-
-OSF ()http://www.gastonsanchez.com/stat259/lectures/
-
-Reproducibility and R http://ropensci.github.io/reproducibility-guide/
-
-@baumer2014r
-
-Workflowshttp://www.gastonsanchez.com/stat259/lectures/01-introduction/
-
-preregistration
-
-# (PART) Part IV Towards data fluency  {-}
-
-# Writing functions
-
-# Writing loops
-
-# Getting data: Web scraping and APIs 
-
-web scraping and APIs (https://github.com/MUSA-620-Spring-2017)
-
-# Linear and multiple regression
-
-Regression and Classification, http://www.hcbravo.org/IntroDataSci/calendar/
-
-# Logistic regression
-
-# Classification and types of errors
-
-Bayes, ROC curves, measures of error. see jhu8ml
-
-# Cross-validation
-
-# Some machine learning techniques
-
-@domingos2012few
-
-# Concepts in computational linguistics
-
-# Analyzing text data
-
-danescu2013politeness
-
-(see https://github.com/jacobeisenstein/gt-css-class/blob/master/2015-files/schedule.md for lectures on networks)
-
-text analysis, LIWC
-
-# From graphs to networks 
-
-(see https://github.com/jacobeisenstein/gt-css-class/blob/master/2015-files/schedule.md for lectures on networks)
-
-network analysis, Gephi
-
-# Empirical finsings in network analysis 
-
-# Analyzing networks 
-
-# Categories and classification 
-
-# Making interactive visualizations with R Shiny
-
-Interactive visualizations with Shiny http://www.hcbravo.org/IntroDataSci/calendar/
-
-# (PART) Part V Towards data leadership {-}
-
-# The significance of scalability 
-
-big data - efficient code - relative directories...
-
-# Digital humanities and data science
-
-network effects vs biology in gender inequalities in diversity in tech
-
-data journalism Refs at https://github.com/sarahcnyt/stabile/blob/master/docs/bulletproof.md
-
-for readings, ideas see https://aleszu.github.io/digisoc/index.html#weekly_schedule_and_readings
-
-# Humility and teamwork
-
-mesearch and my own limitations
-
-# Ethics and data responsibility
-
-http://randomwalker.info/publications/no-silver-bullet-de-identification.pdf https://github.com/jacobeisenstein/gt-css-class/blob/master/2015-files/schedule.md
-
-# *Lab*
-
-project group at UCSB https://github.com/raviolli77/dataScience-UCSBProjectGroup-Syllabus
-
-# *Challenges*
-
-maps (leaflet), googlevis, plotly, tableau, sentiment analysis
-
-see NotesonSalgarnik
-
-Lightning talks (http://www.gastonsanchez.com/stat259/labs/03-data-talks/)
-
-https://github.com/datasciencelabs/2017/blob/master/lectures/git-and-github/setting-up-github.rmd
-
-https://www.kaggle.com/competitions?segment=inClass
-
-Version control with Git
-
-https://try.github.io/levels/1/challenges/1 & duke first or second class
-
-http://www.hcbravo.org/IntroDataSci/projects/Project1/ for project 
-
-# *Data sources*
-
-Chetty econ/big data: <http://www.equality-of-opportunity.org/bigdatacourse/>
-
-census data https://github.com/MUSA-620-Spring-2017/Course-Materials
-
-NYC taxi data
-
-http://gss.norc.org/, https://github.com/UC-MACSS/persp-analysis/blob/master/assignments/exploratory-data-analysis/README.md
-
-https://github.com/fivethirtyeight/data
-
-https://data.worldbank.org/data-catalog/world-development-indicators
-
-http://ropengov.github.io/projects/
-
-https://grouplens.org/datasets/movielens/
-
-Seth's book site
-
-# *Resources*
-
-Software carpentry (focus on code, programming, including git and R): https://software-carpentry.org/lessons/
-
-Data carpentry and data literacy (focus on data cleaning, visualization, etc): 
-
-Data carpentry for biologists http://www.datacarpentry.org/semester-biology/START-for-self-guided-students/ includes SQL
-
-other areas including genomics, ecology can be found at http://www.datacarpentry.org/lessons/
-
-additional resource for R, text analysis, etc: https://github.com/rochelleterman/PS239T/blob/master/C_resources.md
-
-# Etc
-## What will be in the class?
-
-**R**
-
-In my rough survey of introductory data science courses, I saw a pretty even split between those which begin with Python and those which begin with the statistical programming language R. This difference corresponds, loosely, to the split noted above: Computer science based approaches to data science are frequently grounded in Python, while stats based approaches are generally grounded in R. Our course, like those for most of the syllabi and courses linked above, will be based in R.
-
-**Reproducible science**
-
-The course will provide an introduction to some of the methods and tools of reproducible science. We will consider the replication crisis in the natural and social sciences, and then consider three distinct approaches which serve as partial solutions to the crisis.  The first of these is training in a notebook-based approach to writing analyses, reports and projects (using R markdown). The second is using public repositories (such as the [Open Science Framework](https://osf.io/) and [GitHub](https://github.com/)) to provide snapshots of projects over time. Finally, the third is to consider the place of significance testing in the age of Big Data, and to provide training in the use of descriptive, exploratory techniques of data analysis.
-
-**Good visualizations**
-
-Part of Type C data science is communication, and this includes not just writing up results, but also designing data displays that incisively convey the key ideas or features in a flood of data. We'll examine and develop data visualizations such as plots, networks and text clouds. More advanced topics may include maps, interactive displays, and animations.
-
-**~~All~~ *Some of* the data**
-
-It's been [argued](https://www.udemy.com/datascience/learn/v4/t/lecture/3473822?start=379) that in the last dozen years, humans have produced more than 60 times as much information as existed in the entire previous history of humankind. (It sounds like hyperbole, but even if it's off by an order of magnitude it's still amazing).  There are plenty of data sources for us to examine, and we'll consider existing datasets from disciplines ranging from literature to economics to public health, with sizes ranging from a few dozen to millions of data points.  We will also clean and create new datasets.
-
-**~~All~~ *Some of* the meaning**
-
-Data matter, can save, enhance, or destroy human lives. (This is a crummy sentence: My pedantic insistence on treating the term "data" as plural rather than singular likely distracted you from the substance of my message. I'll leave it here as a reminder that we can all become better writers). Back to my point: In this class, we'll explore approaches to analyzing the meaning of data in areas including the analyses of simple texts and data journalism.
-
-**~~All~~ *Some of* the skills**
-
-The skills required to extract meaning from data include an understanding of classical statistical principles (e.g., probability theory and sampling theory), core statistical techniques (regression), and the extension of these core principles and basic techniques to problems in natural language processing, the analysis of social networks, and machine learning and classification.
-
-**~~All~~ *Some of* the tools**
-
-In addition to R, we'll use a range of other tools: We'll communicate on the Slack platform. We'll write using markdown editors such as [Typora](https://typora.io/). We'll certainly use spreadsheets such as Excel or Google Sheets. We *may* use additional tools for visualizing data such as Gephi and Tableau. 
-
-**Hands-on computing**
-
-We had initially anticipated that the lectures would include discussion, and that the computing part of the class would occur just in the lab.  But, in the course of examining syllabi at other schools, it became apparent to me that **there will be computing throughout the course**, not just in the lab.
-
-**What will be in the lab?**
-
-The labs will have two features.  First, they will allow for a project-based approach, focused on the collaborative analysis of problems of your own choosing. Second, these projects will include a deeper dive into some of the topics and problems above.  Here are a few examples of how the treatment in the lecture and the lab are likely to differ:
-
-|                  Topic                   |                 Lecture                  |             Lab: Deeper dive             |
-| :--------------------------------------: | :--------------------------------------: | :--------------------------------------: |
-|               Introduction               | Stephens-Davidowitz book; Google trends  | Examining one or more scholarly papers in data journalism, computational science, or computational social science |
-|               Getting data               |               Extant data                |    Using APIs to scrape social media     |
-|             Sharing science              |        Setting up account on OSF         | Using GitHub, Becoming a Repo ~~Man~~ *person* |
-| Exploratory data analysis / Data visualization |           Static data displays           | Interactive plots (r Shiny), animated  displays?, Tableau? |
-|             Sampling theory              |        Test vs training datasets         |         k-fold cross-validation          |
-|      Regression and classification       |      Linear and logistic regression      | Machine learning: Robust techniques / regularized regression  Supervised prediction, possibly semi-supervised and unsupervised regression |
-|    Graph theory and network analysis     | Introduction to centrality, community structure, contagion | Network robustness, different approaches to centrality & community structure |
-|             Analyzing texts              |               Word clouds                |  Text mining, natural language analysis  |
-|           Generating products            |          Team project in class           |       Project in class and poster        |
-
-
+Read the first chapter of @wickham2016r, and install R and R studio on your own laptop.  If you get stuck, reach out to others on Slack; if you don't get stuck, help your classmates.
