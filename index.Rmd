@@ -69,12 +69,16 @@ The struggle to extract meaning from a sea of information - of finding needles i
 
 The *primacy of editing* or selection lies at the essence of human perception and the creation of art forms ranging from novels to film.  And it is a key challenge for the data scientist faces as well.
 
-## Reviewing the syllabus
+## A challenge
 
-Note the notion of progress rather than achievement. 
+Imagine it is ten years from today. You are working in a cool job (yay). How, ideally, would 'data science' inform your professional contributions?
 
-## Assignment
+More proximally (closer to today) - what are your own goals for progress in data science, in terms of the model described above?
 
-Please consider, and be prepared to discuss in class: What are your own goals for the class, in terms of the model described above?
+# Some basic tools: Slack, Markdown, and Google Docs
 
-Read the first chapter of @wickham2016r, and install R and R studio on your own laptop.  If you get stuck, reach out to others on Slack; if you don't get stuck, help your classmates.
+On Markdown, see (@freeman2017informatics, Chapter 3). Some Markdown editors include Typora, Atom, and Ghostwriter. There is a simple markdown editor in Slack (for 'posts').
+
+For beginning with R markdown, consider [Carmichael (2017) Getting started](https://idc9.github.io/stor390/notes/getting_started/getting_started.html) as well as the first chapter of @wickham2016r. Install R and R studio on your own laptop.  If you get stuck, reach out to others on Slack; if you don't get stuck, help your classmates.
+
+# References
