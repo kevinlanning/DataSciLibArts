@@ -171,6 +171,203 @@ To get a sense of some of the ways you can get help in R studio (and to see how 
 
 For us, the key ideas in "looking for help" will include not just the tools on the R Studio IDE, but also (a) using google searches wisely, and (b) reaching out to your classmates on Slack. At the next level, the search for help should be built around reproducible errors. There is a [package](https://cran.r-project.org/web/packages/reprex/index.html) for this.
 
+# Empiricism > intuition
+
+Thoughts on the first four chapters of @stephens2017everybody. Note that **Italicized blocks are exact quotes pulled off Kindle**
+
+## Health: Internet (search) data can illuminate medical syndromes
+
+### Pancreatic cancer
+
+*Searching for back pain and then yellowing skin turned out to be a sign of pancreatic cancer; searching for just back pain alone made it unlikely someone had pancreatic cancer. Similarly, searching for indigestion and then abdominal pain was evidence of pancreatic cancer, while searching for just indigestion without abdominal pain meant a person was unlikely to have it. ... a clear example of rigorous data science and computers teaching us things our gut alone could never find. This is also one case where the size of the dataset matters. Sometimes there is insufficient experience for our unaided gut to draw upon. It is unlikely that you—or your close friends or family members—have seen enough cases of pancreatic cancer to tease out the difference between indigestion followed by abdominal pain compared to indigestion alone.* 
+
+**Intuition isn't really the problem:** For Stephens-Davidowitz, the problem is not "intuition," or what Kahneman would refer to as Type I thinking, but "intuition based on limited data"
+
+### Depression
+
+Seasonal Affective Disorder (SAD) is a real thing.  It's evidenced in search data too.
+
+*In winter months, warm climates, such as that of Honolulu, Hawaii, have 40 percent fewer depression searches than cold climates, such as that of Chicago, Illinois. Just how significant is this effect? An optimistic read of the effectiveness of antidepressants would find that the most effective drugs decrease the incidence of depression by only about 20 percent. To judge from the Google numbers, a Chicago-to-Honolulu move would be at least twice as effective as medication for your winter blues.*
+
+## The NBA
+
+This is really clever in several ways. First, the question. As a social scientist, @stephens2017everybody addresses this empirically
+
+### Are you more likely to make it in the NBA if you grow up poor?** 
+
+#### An empirical approach
+
+This is arguably a little weak, in that it is indirect.
+
+*It was suggested in a paper by two economists, Roland Fryer and Steven Levitt, that a black person’s first name is an indication of his socioeconomic background. Fryer and Levitt studied birth certificates in California in the 1980s and found that, among African-Americans, poor, uneducated, and single moms tend to give their kids different names than do middle-class, educated, and married parents.* ... California-born NBA players were half as likely to have unique names as the average black male, a statistically significant difference.*
+
+#### Applying decision analysis : Looking at both types of 'errors'
+
+**The miss (rough/no NBA):** *Let’s look at the story of **Doug Wrenn**, one of the most talented basketball prospects in the 1990s. His college coach, Jim Calhoun at the University of Connecticut, who has trained future NBA all-stars, claimed Wrenn jumped the highest of any man he had ever worked with. But Wrenn had a challenging upbringing. He was raised by a single mother in Blood Alley, one of the roughest neighborhoods in Seattle. In Connecticut, he consistently clashed with those around him. He would taunt players, question coaches, and wear loose-fitting clothes in violation of team rules. He also had legal troubles—he stole shoes from a store and snapped at police officers. Calhoun finally had enough and kicked him off the team. Wrenn got a second chance at the University of Washington. But there, too, an inability to get along with people derailed him. He fought with his coach over playing time and shot selection and was kicked off this team as well. Wrenn went undrafted by the NBA, bounced around lower leagues, moved in with his mother, and was eventually imprisoned for assault. “My career is over,” Wrenn told the Seattle Times in 2009. “My dreams, my aspirations are over. Doug Wrenn is dead. That basketball player, that dude is dead. It’s over.” Wrenn had the talent not just to be an NBA player, but to be a great, even a legendary player. But he never developed the temperament to even stay on a college team.* 
+
+**The false positive (supportive/NBA):** *Perhaps if he’d had a stable early life, he could have been the next Michael Jordan. Michael Jordan, of course, also had an impressive vertical leap. Plus a large ego and intense competitiveness—a personality at times that was not unlike Wrenn’s. Jordan could be a difficult kid. At the age of twelve, he was kicked out of school for fighting. But he had at least one thing that Wrenn lacked: a stable, middle-class upbringing. His father was an equipment supervisor for General Electric, his mother a banker. And they helped him navigate his career.*
+
+*In fact, Jordan’s life is filled with stories of his family guiding him away from the traps that a great, competitive talent can fall into. After Jordan was kicked out of school, his mother responded by taking him with her to work. He was not allowed to leave the car and instead had to sit there in the parking lot reading books. After he was drafted by the Chicago Bulls, his parents and siblings took turns visiting him to make sure he avoided the temptations that come with fame and money. Jordan’s career did not end like Wrenn’s, with a little-read quote in the Seattle Times. It ended with a speech upon induction into the Basketball Hall of Fame that was watched by millions of people. In his speech, Jordan said he tried to stay “focused on the good things about life—you know how people perceive you, how you respect them . . . how you are perceived publicly. Take a pause and think about the things that you do. And that all came from my parents.” The data tells us Jordan is absolutely right to thank his middle-class, married parents. The data tells us that in worse-off families, in worse-off communities, there are NBA-level talents who are not in the NBA. These men had the genes, had the ambition, but never developed the temperament to become basketball superstars. And no—whatever we might intuit—being in circumstances so desperate that basketball seems “a matter of life or death” does not help. Stories like that of Doug Wrenn can help illustrate this. And data proves it.*
+
+**The hit (poor/NBA)** *In June 2013, **LeBron James** was interviewed on television after winning his second NBA championship. (He has since won a third.) “I’m LeBron James,” he announced. “From Akron, Ohio. From the inner city. I am not even supposed to be here.” Twitter and other social networks erupted with criticism. How could such a supremely gifted person, identified from an absurdly young age as the future of basketball, claim to be an underdog? In fact, anyone from a difficult environment, no matter his athletic prowess, has the odds stacked against him. James’s accomplishments, in other words, are even more exceptional than they appear to be at first. Data proves that, too.*
+
+#### The power of brute force facts: The effect of height
+
+*How much does height matter? NBA players sometimes fib a little about their height, and there is no listing of the complete height distribution of American males. But working with a rough mathematical estimate of what this distribution might look like and the NBA’s own numbers, it is easy to confirm that the effects of height are enormous—maybe even more than we might have suspected. I estimate that each additional inch roughly doubles your odds of making it to the NBA. And this is true throughout the height distribution. A 5’11” man has twice the odds of reaching the NBA as a 5’10” man. A 6’11” man has twice the odds of reaching the NBA as a 6’10” man. It appears that, among men less than six feet tall, only about one in two million reach the NBA. Among those over seven feet tall, I and others have estimated, something like one in five reach the NBA.* 
+
+## Sex
+
+New methods of analysis can help examine hypotheses regarding, for example, psychoanalysis.  Note the cleverness of the methods here as well as the results.
+
+### Dreams, misspellings, and Freudian slips
+
+Freud argued that all behavior is meaningful and can help reveal the nature of the mind.  Dreams, misrememberings, misspellings, and so forth are not random, but reveal the presence of (sexualized) unconscious motives. 
+
+### Looking at Freud 1: Phallic objects
+
+Stephens-Davidowitz argues that errors in writing and the reported content of dreams do not support simple 'Freudian slips.'  One method is to look at the popularity of "phallic objects" in dreams, e.g., 
+
+*So what about phallic-shaped foods? Do they sneak into our dreams with unexpected frequency? Nope. Bananas are the second most common fruit to appear in dreams. But they are also the second most commonly consumed fruit. So we don’t need Freud to explain how often we dream about bananas. Cucumbers are the seventh most common vegetable to appear in dreams. They are the seventh most consumed vegetable. So again their shape isn’t necessary to explain their presence in our minds as we sleep. Hot dogs are dreamed of far less frequently than hamburgers. This is true even controlling for the fact that people eat more burgers than dogs. Overall, using a regression analysis (a method that allows social scientists to tease apart the impact of multiple factors) across all fruits and vegetables, I found that a food’s being shaped like a phallus did not give it more likelihood of appearing in dreams than would be expected by its popularity. This theory of Freud’s is falsifiable—and, at least according to my look at the data, false. (47-48)*
+
+<img src="C:\Users\the_l\Dropbox\00 Current teaching\dataScience\DataSciLibArts\images\campanile.jpg" height="400px"/>
+
+### Looking at Freud 2: Misspellings
+
+A more powerful, and perhaps less subjective method, is to systematically study a large sample of human behavior to see if, for example, misspellings are biased towards the sexually symbolic.
+
+*I studied a dataset of more than 40,000 typing errors collected by Microsoft researchers. The dataset included mistakes that people make but then immediately correct. In these tens of thousands of errors, there were plenty of individuals committing errors of a sexual sort. There was the aforementioned “penistrian.” There was also someone who typed “sexurity” instead of “security” and “cocks” instead of “rocks.” But there were also plenty of innocent slips. People wrote of “pindows” and “fegetables,” “aftermoons” and “refriderators.” So was the number of sexual slips unusual? To test this, I first used the Microsoft dataset to model how frequently people mistakenly switch particular letters. I calculated how often they replace a t with an s, a g with an h. I then created a computer program that made mistakes in the way that people do. We might call it Error Bot. Error Bot replaced a t with an s with the same frequency that humans in the Microsoft study did. It replaced a g with an h as often as they did. And so on. I ran the program on the same words people had gotten wrong in the Microsoft study. In other words, the bot tried to spell “pedestrian” and “rocks,” “windows” and “refrigerator.” But it switched an r with a t as often as people do and wrote, for example, “tocks.” It switched an r with a c as often as humans do and wrote “cocks.” So what do we learn from comparing Error Bot with normally careless humans? After making a few million errors, just from misplacing letters in the ways that humans do, Error Bot had made numerous mistakes of a Freudian nature. It misspelled “seashell” as “sexshell,” “lipstick” as “lipsdick,” and “luckiest” as “fuckiest,” along with many other similar mistakes. And—here’s the key point—Error Bot, which of course does not have a subconscious, was just as likely to make errors that could be perceived as sexual as real people were. With the caveat, as we social scientists like to say, that there needs to be more research, this means that sexually oriented errors are no more likely for humans to make than can be expected by chance. In other words, for people to make errors such as “penistrian,” “sexurity,” and “cocks,” it is not necessary to have some connection between mistakes and the forbidden, some theory of the mind where people reveal their secret desires via their errors.* (p. 48-49)
+
+### Looking at Freud 3: On the 'Oedipus complex'
+
+##### What PornHub tells us. 
+
+*a shocking number of people visiting mainstream porn sites are looking for portrayals of incest. Of the top hundred searches by men on PornHub, one of the most popular porn sites, sixteen are looking for incest-themed videos. Fair warning—this is going to get a little graphic: they include “brother and sister,” “step mom fucks son,” “mom and son,” “mom fucks son,” and “real brother and sister.” The plurality of male incestuous searches are for scenes featuring mothers and sons. And women? Nine of the top hundred searches by women on PornHub are for incest-themed videos, and they feature similar imagery—though with the gender of any parent and child who is mentioned usually reversed. Thus the plurality of incestuous searches made by women are for scenes featuring fathers and daughters.* (p. 50)
+
+Stephens-Davidowitz goes on to argue that, in addition to this seeming support for the centrality (though not universality) of the Oedipus complex, there is additional support for a more generalized notion of infantile sexuality, that is, that many of the sex fantasies for people of all ages invlve themes or ideas from childhood.
+
+### Looking at Freud 4: On the hydraulic nature of drives
+
+One other Freudian idea is supported by more recent PornHub data. Freud argued for a hydraulic model of drives, that is, that drives were bottled up and that sexual and aggressive energy could be released through catharsis. While this appears not to be true for aggression (that is, behaving aggressively does not reduce subsequent aggression), it is, at some level, supported for sex.
+
+At 8:07 on the morning of January 13, cellphones throughout Hawaii received an alert warning that a missile attack was imminent.  Thirty-eight minutes later, Hawaiians (and visitors) received a second alert, saying that it was a false alarm.  
+
+![pornHubHawaii](C:\Users\the_l\Dropbox\00 Current teaching\dataScience\DataSciLibArts\images\pornHubHawaii.png)
+
+What is interesting here is not that PornHub traffic dropped during the missile alert, but that it increased afterwards - as if the average Hawaiian (and tourist) more or less made up for lost time afterwards. (Data are pageviews compared to the previous two Saturdays).
+
+# The ubiquity of data
+
+
+
+![Francis_Galton_1850s](C:\Users\the_l\Dropbox\00 Current teaching\dataScience\DataSciLibArts\images\Francis_Galton_1850s.jpg)
+
+
+
+## IQ, whinnies and wines
+
+Empiricism is at the core of science.  In psychology, the empirical measurement of intelligence, vocational interest, and personality transformed ideas about "individual differences" from speculation to science.  
+
+Data Science is not new.  A good beginning point is Sir Frances Galton (above), who in the late 19th C is alleged to have declared "whenever you can, *count*." At about the same time, the French psychologist Alfred Binet sought to better identify schoolchildren with special needs who would particularly benefit from smaller classes. His method was to examine differences between children identified as better versus slower learners on a wide range of tests which might be related to school performance; he combined the successful ones to create the prototype for the modern intelligence test.
+
+As @stephens2017everybody recounts, Jeff Seder applies a similar logic to examine the characteristics of horses associated with success. Reminiscent of Binet's method, Seder finds enlarged left ventricle associated with success. [but now that others know this, left ventricle will not distinguish winners from losers.]
+
+*There it was, stark and clear, the reason that Seder and his team had become so obsessed with No. 85. His left ventricle was in the 99.61st percentile! Not only that, but all his other important organs, including the rest of his heart and spleen, were exceptionally large as well. Generally speaking, when it comes to racing, Seder had found, the bigger the left ventricle, the better. But a left ventricle as big as this can be a sign of illness if the other organs are tiny. In American Pharoah, all the key organs were bigger than average, and the left ventricle was enormous. The data screamed that No. 85 was a 1-in-100,000 or even a one-in-a-million horse.* (p. 70-71).
+
+This method has been referred to as "brute force empiricism." The question here is what works, not why.  We may find it interesting to speculate why Strawberry Pop-Tarts are particularly popular in hurricanes (p. 71), but from the standpoint of Wal-Mart and its customers, this is less important than stocking the shelves to satisfy the demand that exists.
+
+To predict the quality (as indexed by the price) of Bordeaux wines, a regression equation works well:
+
+Price = 12.145 + 0.00117 winter rainfall + 0.0614 average growing season temperature – 0.00386 harvest rainfall. (p. 73)
+
+## The success of Google and the nature of networks
+
+Analyses of Google searches can reveal the flu and, perhaps, the unemployment rate. (which is correlated with searches for porn sites and solitaire). Google searches return an ordered list of sites based on a modified Page Rank algorithm, which is a measure of network centrality. Page Rank is what made Google better than early search engines such as Alta Vista.
+
+Google as a datasource (<https://medium.com/>@pewresearch/using-google-trends-data-for-research-here-are-6-questions-to-ask-a7097f5fb526). Includes Google Trends, Google Correlate, and Google books (https://books.google.com/ngrams).
+
+> Google correlate (I tried this but it is finicky / weeks must begin on a sunday - enter a time series, see what correlates with it.) *Data challenge: Find an interesting time series, use google correlate to find something that it is associated with* 
+
+## Words as data
+
+Differences between liberals and conservatives, men and women, the old and young, and extraverts and introverts can be informed by texts ranging from the content of digitized books (Google Ngrams) to posts on social media. Culturenomics (check spelling) can be revealing but is challenging. Historians claim that the Civil War marked a transition from thinking (or writing) about the US as a plural (*The United States are...*) to a singular (*The United States is...*). But analyses of the content of books in the Google Ngram corpus revealed that the shift occurred a generation later.
+
+There are two lessons here, the specific one about how the image of the US changed more slowly than believed, the other, more general one is that disciplines outside of the sciences are also increasingly informed by the new empiricism. This is true not just for history but also for literature; sentiment analysis can be applied to reveal the structure of stories. (And analyses of Kindle data can reveal just where people stop reading.  I'm not sure if contemporary literature is auto-tuned to this, but it is just a matter of time.)
+
+[note Gentzkow and Shapiro study of 2005 congressional record]
+
+## Pictures as data
+
+Scanned yearbooks from US High schools since 1905 show an increasing number of smiles.
+
+New approaches for measuring economic development include lights from space, cell phone snaps at fruit stands. 
+
+*These days, a data scientist must not limit herself to a narrow or traditional view of data. These days, photographs of supermarket lines are valuable data. The fullness of supermarket bins is data. The ripeness of apples is data. Photos from outer space are data. The curvature of lips is data. Everything is data!* (p. 104)
+
+# The 'honesty' of data
+
+In Chapter 4, @stephens2017everybody argues that making the private public overcomes the limitations of traditional self-report data.
+
+*People consistently gave wrong information, in ways that made them look good. Fewer than 2 percent reported that they graduated with lower than a 2.5 GPA. (In reality, about 11 percent did.) And 44 percent said they had donated to the university in the past year. (In reality, about 28 percent did.)* 
+
+**There are two types of lying that are conflated - lying to ourselves and lying to others.**
+
+*Lying to oneself may explain why so many people say they are above average. How big is this problem? More than 40 percent of one company’s engineers said they are in the top 5 percent. More than 90 percent of college professors say they do above-average work. One-quarter of high school seniors think they are in the top 1 percent in their ability to get along with other people.* (p. 107-108). 
+
+On the Internet... are we more truthful? *Google can display a bias toward unseemly thoughts, thoughts people feel they can’t discuss with anyone else.* (p. 111). 
+
+Topics associated with shame and guilt are particularly likely to show a difference between the private and the public.
+
+## Sex
+
+**What percent of people are gay?** Surveys suggest differences between states.  But differences in searches for gay porn are far smaller. Many men are in the closet, hiding even from their wives: *“Gay” is 10 percent more likely to complete searches that begin “Is my husband . . .” than the second-place word, “cheating.” It is eight times more common than “an alcoholic” and ten times more common than “depressed.” Most tellingly perhaps, searches questioning a husband’s sexuality are far more prevalent in the least tolerant regions. The states with the highest percentage of women asking this question are South Carolina and Louisiana.* (p. 116-117).
+
+**How often do people have sex?** *On Google, there are sixteen times more complaints about a spouse not wanting sex than about a married partner not being willing to talk. There are five and a half times more complaints about an unmarried partner not wanting sex than an unmarried partner refusing to text back. And Google searches suggest a surprising culprit for many of these sexless relationships. There are twice as many complaints that a boyfriend won’t have sex than that a girlfriend won’t have sex. By far, the number one search complaint about a boyfriend is “My boyfriend won’t have sex with me.”* (p. 122-123)
+
+**What are other people's sex lives like?** *when men do look for tips on how to give oral sex, they are frequently not looking for ways of pleasing another person. Men make as many searches looking for ways to perform oral sex on themselves as they do how to give a woman an orgasm. (128)*
+
+## Hate and prejudice
+
+Stereotypes about other groups as evidenced by autocompletes for "why are [Black] people ..." Do these lie in a two dimensional space (competent-incompetent and warm-cold)?
+
+Areas where Obama underperformed in 2008 and 2012, relative to Kerry 4 years before, are those where people search for n------ on Google (e.g., n---- jokes). Similarly, in the 2016 Republican Primary, In 2016, support for Trump in the Republican Primary was predicted by searches for n----. (From my standpoint, this was perhaps Stephens-Davidowitz most important work). These searches outperformed, for example, the performance of regions on the IAT. 
+
+## The internet and division
+
+People are more likely to encounter someone with different political beliefs on the internet than in many other settings.  This is partly because we are likely to have more Facebook than real-world friends, and the "weak ties" between different groups are especially important in conveying information. (I hope that we'll return to this later when we talk about networks).
+
+## Child abuse and abortion
+
+Searches re Child abuse ("my dad hit me) go up in recessions, but child protective services get fewer calls.  
+
+*In 2015, in the United States, there were more than 700,000 Google searches looking into self-induced abortions... there were some 4,000 searches looking for directions on coat hanger abortions, including about 1,300 for the exact phrase “how to do a coat hanger abortion.” There were also a few hundred looking into abortion through bleaching one’s uterus and punching one’s stomach.*
+
+*Search rates for self-induced abortion were fairly steady from 2004 through 2007. They began to rise in late 2008, coinciding with the financial crisis and the recession that followed. They took a big leap in 2011, jumping 40 percent. The Guttmacher Institute, a reproductive rights organization, singles out 2011 as the beginning of the country’s recent crackdown on abortion; ninety-two state provisions that restrict access to abortion were enacted. Looking by comparison at Canada, which has not seen a crackdown on reproductive rights, there was no comparable increase in searches for self-induced abortions during this time. The state with the highest rate of Google searches for self-induced abortions is Mississippi, a state with roughly three million people and, now, just one abortion clinic.* (p. 147-48)
+
+## Be skeptical of the public self: Lesson from Facebook
+
+Different sources of Big Data tell different stories, and are susceptible to different biases. Twitter streams, for example, include many bots, and weeding these out from humans can be challenging (and will continue to be challenging as there is likely to be an arms race between bots and algorithms for detecting them).
+
+Google searches may be biased toward questions and topics we would be unlikely to share with others, towards the darker aspects of personality.
+
+And Facebook data is, in some respects, just the opposite of this, presenting an overly rosy picture of who we are.  The notion that our internet self is distorted is not new - the iconic Peter Steiner cartoon below dates from 1993.
+
+![Internet_dog](C:\Users\the_l\Dropbox\00 Current teaching\dataScience\DataSciLibArts\images\Internet_dog.jpg) d
+
+@stephens2017everybody illustrates some of the ways in which our social media selves are distorted - we read the *Atlantic* rather than the *National Enquirer* for example. Facebook is, he writes "*digital brag-to-my-friends-about-how-good-my-life-is serum.* (p. 152).
+
+Spending time on social media is associated with depressed mood.
+
+## Customers: Lessons from Netflix
+
+Behavior is more telling than self report, and as a result, algorithms may know us better than we know ourselves. Netflix no longer asks you to create a queue of movies you would like to watch, because these "aspirational" choices correspond poorly with what we will in fact watch.
+
+*Netflix learned a similar lesson early on in its life cycle: don’t trust what people tell you; trust what they do. Originally, the company allowed users to create a queue of movies they wanted to watch in the future but didn’t have time for at the moment. This way, when they had more time, Netflix could remind them of those movies. However, Netflix noticed something odd in the data. Users were filling their queues with plenty of movies. But days later, when they were reminded of the movies on the queue, they rarely clicked. What was the problem? Ask users what movies they plan to watch in a few days, and they will fill the queue with aspirational, highbrow films, such as black-and-white World War II documentaries or serious foreign films. A few days later, however, they will want to watch the same movies they usually want to watch: lowbrow comedies or romance films. People were consistently lying to themselves. Faced with this disparity, Netflix stopped asking people to tell them what they wanted to see in the future and started building a model based on millions of clicks and views from similar customers. The company began greeting its users with suggested lists of films based not on what they claimed to like but on what the data said they were likely to view. The result: customers visited Netflix more frequently and watched more movies. “The algorithms know you better than you know yourself,” says Xavier Amatriain, a former data scientist at Netflix.* (p. 156-157)
+
+## Can we handle the truth?
+
+Should we take this as good news or as bad? @stephens2017everybody suggests that much of this can be comforting - that seeing that others are insecure, are struggling with their sexualities, or are concerned with the mundane rather than profound.  It can open our eyes to hidden problems of abuse, and, perhaps most importantly, can point us towards interventions that can reduce hatred.(But political language can be tailored to empirically divide us rather than bring us together as well).
+
 # (PART) Part II Towards data literacy  {-}
 
 # References
+

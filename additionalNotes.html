@@ -1,0 +1,337 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>additionalNotes.md</title><link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}.CodeMirror { height: auto; }
+.CodeMirror-scroll { overflow-y: hidden; overflow-x: auto; }
+.CodeMirror-lines { padding: 4px 0px; }
+.CodeMirror pre { }
+.CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler { background-color: white; }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background-color: rgb(247, 247, 247); white-space: nowrap; }
+.CodeMirror-linenumbers { }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.CodeMirror div.CodeMirror-cursor { border-left: 1px solid black; z-index: 3; }
+.CodeMirror div.CodeMirror-secondarycursor { border-left: 1px solid silver; }
+.CodeMirror.cm-keymap-fat-cursor div.CodeMirror-cursor { width: auto; border: 0px; background: rgb(119, 238, 119); z-index: 1; }
+.CodeMirror div.CodeMirror-cursor.CodeMirror-overwrite { }
+.cm-tab { display: inline-block; }
+.cm-s-typora-default .cm-header, .cm-s-typora-default .cm-property { color: rgb(217, 79, 138); }
+.cm-s-typora-default pre.cm-header1:not(.cm-atom) :not(.cm-overlay) { font-size: 2rem; line-height: 2rem; }
+.cm-s-typora-default pre.cm-header2:not(.cm-atom) :not(.cm-overlay) { font-size: 1.4rem; line-height: 1.4rem; }
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number { color: rgb(149, 132, 134); }
+.cm-s-typora-default .cm-table-row, .cm-s-typora-default .cm-block-start { font-family: monospace; }
+.cm-s-typora-default .cm-comment, .cm-s-typora-default .cm-code { color: rgb(74, 90, 159); font-family: monospace; }
+.cm-s-typora-default .cm-tag { color: rgb(169, 68, 66); }
+.cm-s-typora-default .cm-string { color: rgb(126, 134, 169); }
+.cm-s-typora-default .cm-link { color: rgb(196, 122, 15); text-decoration: underline; }
+.cm-s-typora-default .cm-variable-2, .cm-s-typora-default .cm-variable-1 { color: inherit; }
+.cm-s-typora-default .cm-overlay { font-family: monospace; }
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor { border-left: 3px solid rgb(228, 98, 154); }
+.cm-s-typora-default .CodeMirror-activeline-background { left: -60px; right: -30px; background: rgba(204, 204, 204, 0.2); }
+.cm-s-typora-default .CodeMirror-gutters { border-right: none; background-color: inherit; }
+.cm-s-typora-default .cm-trailing-space-new-line::after, .cm-startspace::after, .cm-starttab .cm-tab::after { content: "•"; position: absolute; left: 0px; opacity: 0; font-family: LetterGothicStd, monospace; }
+.os-windows .cm-startspace::after, .os-windows .cm-starttab .cm-tab::after { left: -0.1em; }
+.cm-starttab .cm-tab::after { content: " "; }
+.cm-startspace, .cm-tab, .cm-starttab, .cm-trailing-space-a, .cm-trailing-space-b, .cm-trailing-space-new-line { font-family: monospace; position: relative; }
+.cm-s-typora-default .cm-trailing-space-new-line::after { content: "↓"; opacity: 0.3; }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: black; }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-property { color: black; }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: blue; }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: bold; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: rgb(255, 0, 0); }
+.cm-invalidchar { color: rgb(255, 0, 0); }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { margin-bottom: -30px; margin-right: -30px; padding-bottom: 30px; padding-right: 30px; height: 100%; outline: none; position: relative; box-sizing: content-box; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow-x: hidden; overflow-y: scroll; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow-y: hidden; overflow-x: scroll; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: none !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: transparent; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; word-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { word-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-widget { }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.CodeMirror-selected { background: rgb(217, 217, 217); }
+.CodeMirror-focused .CodeMirror-selected { background: rgb(215, 212, 240); }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+.CodeMirror span { }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+.CodeMirror-lint-markers { width: 16px; }
+.CodeMirror-lint-tooltip { background-color: infobackground; border: 1px solid black; border-radius: 4px; color: infotext; font-family: monospace; overflow: hidden; padding: 2px 5px; position: fixed; white-space: pre-wrap; z-index: 10000; max-width: 600px; opacity: 0; transition: opacity 0.4s; font-size: 0.8em; }
+.CodeMirror-lint-mark-error, .CodeMirror-lint-mark-warning { background-position: left bottom; background-repeat: repeat-x; }
+.CodeMirror-lint-mark-error { background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAYAAAC09K7GAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sJDw4cOCW1/KIAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAHElEQVQI12NggIL/DAz/GdA5/xkY/qPKMDAwAADLZwf5rvm+LQAAAABJRU5ErkJggg=="); }
+.CodeMirror-lint-marker-error, .CodeMirror-lint-marker-warning { background-position: center center; background-repeat: no-repeat; cursor: pointer; display: inline-block; height: 16px; width: 16px; vertical-align: middle; position: relative; }
+.CodeMirror-lint-message-error, .CodeMirror-lint-message-warning { padding-left: 18px; background-position: left top; background-repeat: no-repeat; }
+.CodeMirror-lint-marker-error, .CodeMirror-lint-message-error { background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAHlBMVEW7AAC7AACxAAC7AAC7AAAAAAC4AAC5AAD///+7AAAUdclpAAAABnRSTlMXnORSiwCK0ZKSAAAATUlEQVR42mWPOQ7AQAgDuQLx/z8csYRmPRIFIwRGnosRrpamvkKi0FTIiMASR3hhKW+hAN6/tIWhu9PDWiTGNEkTtIOucA5Oyr9ckPgAWm0GPBog6v4AAAAASUVORK5CYII="); }
+.CodeMirror-lint-marker-warning, .CodeMirror-lint-message-warning { background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAANlBMVEX/uwDvrwD/uwD/uwD/uwD/uwD/uwD/uwD/uwD6twD/uwAAAADurwD2tQD7uAD+ugAAAAD/uwDhmeTRAAAADHRSTlMJ8mN1EYcbmiixgACm7WbuAAAAVklEQVR42n3PUQqAIBBFUU1LLc3u/jdbOJoW1P08DA9Gba8+YWJ6gNJoNYIBzAA2chBth5kLmG9YUoG0NHAUwFXwO9LuBQL1giCQb8gC9Oro2vp5rncCIY8L8uEx5ZkAAAAASUVORK5CYII="); }
+.CodeMirror-lint-marker-multiple { background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAMAAADzjKfhAAAACVBMVEUAAAAAAAC/v7914kyHAAAAAXRSTlMAQObYZgAAACNJREFUeNo1ioEJAAAIwmz/H90iFFSGJgFMe3gaLZ0od+9/AQZ0ADosbYraAAAAAElFTkSuQmCC"); background-repeat: no-repeat; background-position: right bottom; width: 100%; height: 100%; }
+
+
+:root { --bg-color: #ffffff; --text-color: #333333; --code-block-bg-color: inherit; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { background: rgb(181, 214, 252); text-shadow: none; }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; padding-bottom: 70px; white-space: pre-wrap; overflow-x: visible; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+.typora-export #write { margin: 0px auto; }
+#write > p:first-child, #write > ul:first-child, #write > ol:first-child, #write > pre:first-child, #write > blockquote:first-child, #write > div:first-child, #write > table:first-child { margin-top: 30px; }
+#write li > table:first-child { margin-top: -20px; }
+img { max-width: 100%; vertical-align: middle; }
+input, button, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+::before, ::after, * { box-sizing: border-box; }
+#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write div, #write pre { width: inherit; }
+#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6 { position: relative; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+p { -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
+.typora-export p { white-space: normal; }
+.mathjax-block { margin-top: 0px; margin-bottom: 0px; -webkit-margin-before: 0rem; -webkit-margin-after: 0rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: bold; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; margin: 4px 0px 0px; }
+figure { max-width: 100%; overflow-x: auto; margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 80px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+pre { white-space: pre-wrap; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: var(--code-block-bg-color); position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+.md-fences .CodeMirror.CodeMirror-wrap { top: -1.6em; margin-bottom: -1.6em; }
+.md-fences.mock-cm { white-space: pre-wrap; }
+.show-fences-line-number .md-fences { padding-left: 0px; }
+.show-fences-line-number .md-fences.mock-cm { padding-left: 40px; }
+.CodeMirror-line { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; padding-top: 1em; padding-bottom: 1em; }
+.footnotes + .footnotes { margin-top: -1em; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: transparent; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: normal; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li p, li .mathjax-block { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; }
+@media print {
+  html, body { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid-page; orphans: 2; }
+  p { orphans: 4; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 1cm; padding-right: 1cm; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  @page { margin: 20mm 0mm; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 2.86rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > img:only-child { display: block; margin: auto; }
+p .md-image:only-child { display: inline-block; width: 100%; text-align: center; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.mathjax-block { white-space: pre; overflow: hidden; width: 100%; }
+p + .mathjax-block { margin-top: -1.143rem; }
+.mathjax-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: none; box-shadow: none; }
+.task-list { list-style-type: none; }
+.task-list-item { position: relative; padding-left: 1em; }
+.task-list-item input { position: absolute; top: 0px; left: 0px; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc::after, .md-toc-content::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: bold; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+.md-tag { opacity: 0.5; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: monospace; }
+code { text-align: left; }
+h1 .md-tag, h2 .md-tag, h3 .md-tag, h4 .md-tag, h5 .md-tag, h6 .md-tag { font-weight: initial; opacity: 0.35; }
+a.md-print-anchor { border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: none !important; background: transparent !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.mathjax-block .MathJax_SVG_Display { text-align: center; margin: 1em 0em; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: monospace; }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: normal; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; }
+
+
+:root { --side-bar-bg-color: #fafafa; --control-text-color: #777; }
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: normal; src: local("Open Sans Regular"), url("./github/400.woff") format("woff"); }
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: normal; src: local("Open Sans Italic"), url("./github/400i.woff") format("woff"); }
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: bold; src: local("Open Sans Bold"), url("./github/700.woff") format("woff"); }
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: bold; src: local("Open Sans Bold Italic"), url("./github/700i.woff") format("woff"); }
+html { font-size: 16px; }
+body { font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(51, 51, 51); line-height: 1.6; }
+#write { max-width: 860px; margin: 0px auto; padding: 20px 30px 100px; }
+#write > ul:first-child, #write > ol:first-child { margin-top: 30px; }
+body > :first-child { margin-top: 0px !important; }
+body > :last-child { margin-bottom: 0px !important; }
+a { color: rgb(65, 131, 196); }
+h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; line-height: 1.4; cursor: text; }
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor { text-decoration: none; }
+h1 tt, h1 code { font-size: inherit; }
+h2 tt, h2 code { font-size: inherit; }
+h3 tt, h3 code { font-size: inherit; }
+h4 tt, h4 code { font-size: inherit; }
+h5 tt, h5 code { font-size: inherit; }
+h6 tt, h6 code { font-size: inherit; }
+h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+h3 { font-size: 1.5em; line-height: 1.43; }
+h4 { font-size: 1.25em; }
+h5 { font-size: 1em; }
+h6 { font-size: 1em; color: rgb(119, 119, 119); }
+p, blockquote, ul, ol, dl, table { margin: 0.8em 0px; }
+li > ol, li > ul { margin: 0px; }
+hr { height: 4px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border-width: 0px 0px 1px; border-style: none none solid; border-top-color: initial; border-right-color: initial; border-left-color: initial; border-image: initial; overflow: hidden; box-sizing: content-box; border-bottom-color: rgb(221, 221, 221); }
+body > h2:first-child { margin-top: 0px; padding-top: 0px; }
+body > h1:first-child { margin-top: 0px; padding-top: 0px; }
+body > h1:first-child + h2 { margin-top: 0px; padding-top: 0px; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child { margin-top: 0px; padding-top: 0px; }
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 { margin-top: 0px; padding-top: 0px; }
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p { margin-top: 0px; }
+li p.first { display: inline-block; }
+ul, ol { padding-left: 30px; }
+ul:first-child, ol:first-child { margin-top: 0px; }
+ul:last-child, ol:last-child { margin-bottom: 0px; }
+blockquote { border-left: 4px solid rgb(221, 221, 221); padding: 0px 15px; color: rgb(119, 119, 119); }
+blockquote blockquote { padding-right: 0px; }
+table { padding: 0px; word-break: initial; }
+table tr { border-top: 1px solid rgb(204, 204, 204); margin: 0px; padding: 0px; }
+table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+table tr th { font-weight: bold; border: 1px solid rgb(204, 204, 204); text-align: left; margin: 0px; padding: 6px 13px; }
+table tr td { border: 1px solid rgb(204, 204, 204); text-align: left; margin: 0px; padding: 6px 13px; }
+table tr th:first-child, table tr td:first-child { margin-top: 0px; }
+table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); }
+.md-fences, code, tt { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 4px 0px; font-size: 0.9em; }
+.md-fences { margin-bottom: 15px; margin-top: 15px; padding: 8px 1em 6px; }
+.task-list { padding-left: 0px; }
+.task-list-item { padding-left: 32px; }
+.task-list-item input { top: 3px; left: 8px; }
+@media screen and (min-width: 914px) {
+}
+@media print {
+  html { font-size: 13px; }
+  table, pre { break-inside: avoid; }
+  pre { word-wrap: break-word; }
+}
+.md-fences { background-color: rgb(248, 248, 248); }
+#write pre.md-meta-block { padding: 1rem; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border: 0px; border-radius: 3px; color: rgb(119, 119, 119); margin-top: 0px !important; }
+.mathjax-block > .code-tooltip { bottom: 0.375rem; }
+#write > h3.md-focus::before { left: -1.5625rem; top: 0.375rem; }
+#write > h4.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+#write > h5.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+#write > h6.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+.md-image > .md-meta { border: 1px solid rgb(221, 221, 221); border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 4px 0px; font-size: 0.9em; color: inherit; }
+.md-tag { color: inherit; }
+.md-toc { margin-top: 20px; padding-bottom: 20px; }
+.sidebar-tabs { border-bottom: none; }
+#typora-quick-open { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); }
+#typora-quick-open-item { background-color: rgb(250, 250, 250); border-color: rgb(254, 254, 254) rgb(229, 229, 229) rgb(229, 229, 229) rgb(238, 238, 238); border-style: solid; border-width: 1px; }
+#md-notification::before { top: 10px; }
+.on-focus-mode blockquote { border-left-color: rgba(85, 85, 85, 0.12); }
+header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Arial, sans-serif; }
+.file-node-content:hover .file-node-icon, .file-node-content:hover .file-node-open-state { visibility: visible; }
+.mac-seamless-mode #typora-sidebar { background-color: var(--side-bar-bg-color); }
+.md-lang { color: rgb(180, 101, 77); }
+
+
+
+
+
+
+</style>
+</head>
+<body class='typora-export' >
+<div  id='write'  class = 'is-node'><h1><a name='header-n0' class='md-header-anchor '></a>Empiricism &gt; intuition</h1><p>On @stephens2017everybody. <strong>Italicized = Exact quotes pulled off Kindle</strong></p><h4><a name='header-n4' class='md-header-anchor '></a>Pancreatic cancer</h4><p><em>Searching for back pain and then yellowing skin turned out to be a sign of pancreatic cancer; searching for just back pain alone made it unlikely someone had pancreatic cancer. Similarly, searching for indigestion and then abdominal pain was evidence of pancreatic cancer, while searching for just indigestion without abdominal pain meant a person was unlikely to have it. (p. 28-29).</em></p><p><em>a clear example of rigorous data science and computers teaching us things our gut alone could never find. This is also one case where the size of the dataset matters. Sometimes there is insufficient experience for our unaided gut to draw upon. It is unlikely that you—or your close friends or family members—have seen enough cases of pancreatic cancer to tease out the difference between indigestion followed by abdominal pain compared to indigestion alone.</em> </p><p>For Stephens-Davidowitz, the problem is not &quot;intuition,&quot; or what Kahneman would refer to as Type I thinking, but &quot;intuition based on limited data&quot;</p><h4><a name='header-n11' class='md-header-anchor '></a>Depression</h4><p><em>In winter months, warm climates, such as that of Honolulu, Hawaii, have 40 percent fewer depression searches than cold climates, such as that of Chicago, Illinois. Just how significant is this effect? An optimistic read of the effectiveness of antidepressants would find that the most effective drugs decrease the incidence of depression by only about 20 percent. To judge from the Google numbers, a Chicago-to-Honolulu move would be at least twice as effective as medication for your winter blues.</em></p><h4><a name='header-n14' class='md-header-anchor '></a>The NBA</h4><p><em>Are you more likely to make it in the NBA if you grow up poor or middle-class?</em> </p><h5><a name='header-n17' class='md-header-anchor '></a>An empirical approach</h5><p><em>one more data point that can provide telling clues to a man’s background. It was suggested in a paper by two economists, Roland Fryer and Steven Levitt, that a black person’s first name is an indication of his socioeconomic background. Fryer and Levitt studied birth certificates in California in the 1980s and found that, among African-Americans, poor, uneducated, and single moms tend to give their kids different names than do middle-class, educated, and married parents.</em> </p><p><em>... California-born NBA players were half as likely to have unique names as the average black male, a statistically significant difference.</em></p><h5><a name='header-n22' class='md-header-anchor '></a>Looking at individual cases: Consider all of the cells</h5><p><em>Let’s look at the story of <strong>Doug Wrenn</strong>, one of the most talented basketball prospects in the 1990s. His college coach, Jim Calhoun at the University of Connecticut, who has trained future NBA all-stars, claimed Wrenn jumped the highest of any man he had ever worked with. But Wrenn had a challenging upbringing. He was raised by a single mother in Blood Alley, one of the roughest neighborhoods in Seattle. In Connecticut, he consistently clashed with those around him. He would taunt players, question coaches, and wear loose-fitting clothes in violation of team rules. He also had legal troubles—he stole shoes from a store and snapped at police officers. Calhoun finally had enough and kicked him off the team. Wrenn got a second chance at the University of Washington. But there, too, an inability to get along with people derailed him. He fought with his coach over playing time and shot selection and was kicked off this team as well. Wrenn went undrafted by the NBA, bounced around lower leagues, moved in with his mother, and was eventually imprisoned for assault. “My career is over,” Wrenn told the Seattle Times in 2009. “My dreams, my aspirations are over. Doug Wrenn is dead. That basketball player, that dude is dead. It’s over.” Wrenn had the talent not just to be an NBA player, but to be a great, even a legendary player. But he never developed the temperament to even stay on a college team.</em> </p><p><strong><em>Michael Jordan.</em></strong> <em>Perhaps if he’d had a stable early life, he could have been the next Michael Jordan. Michael Jordan, of course, also had an impressive vertical leap. Plus a large ego and intense competitiveness—a personality at times that was not unlike Wrenn’s. Jordan could be a difficult kid. At the age of twelve, he was kicked out of school for fighting. But he had at least one thing that Wrenn lacked: a stable, middle-class upbringing. His father was an equipment supervisor for General Electric, his mother a banker. And they helped him navigate his career.</em></p><p><em>In fact, Jordan’s life is filled with stories of his family guiding him away from the traps that a great, competitive talent can fall into. After Jordan was kicked out of school, his mother responded by taking him with her to work. He was not allowed to leave the car and instead had to sit there in the parking lot reading books. After he was drafted by the Chicago Bulls, his parents and siblings took turns visiting him to make sure he avoided the temptations that come with fame and money. Jordan’s career did not end like Wrenn’s, with a little-read quote in the Seattle Times. It ended with a speech upon induction into the Basketball Hall of Fame that was watched by millions of people. In his speech, Jordan said he tried to stay “focused on the good things about life—you know how people perceive you, how you respect them . . . how you are perceived publicly. Take a pause and think about the things that you do. And that all came from my parents.” The data tells us Jordan is absolutely right to thank his middle-class, married parents. The data tells us that in worse-off families, in worse-off communities, there are NBA-level talents who are not in the NBA. These men had the genes, had the ambition, but never developed the temperament to become basketball superstars. And no—whatever we might intuit—being in circumstances so desperate that basketball seems “a matter of life or death” does not help. Stories like that of Doug Wrenn can help illustrate this. And data proves it. In June 2013, <strong>LeBron James</strong> was interviewed on television after winning his second NBA championship. (He has since won a third.) “I’m LeBron James,” he announced. “From Akron, Ohio. From the inner city. I am not even supposed to be here.” Twitter and other social networks erupted with criticism. How could such a supremely gifted person, identified from an absurdly young age as the future of basketball, claim to be an underdog? In fact, anyone from a difficult environment, no matter his athletic prowess, has the odds stacked against him. James’s accomplishments, in other words, are even more exceptional than they appear to be at first. Data proves that, too.</em></p><h5><a name='header-n29' class='md-header-anchor '></a>The effect of height</h5><p><em>How much does height matter? NBA players sometimes fib a little about their height, and there is no listing of the complete height distribution of American males. But working with a rough mathematical estimate of what this distribution might look like and the NBA’s own numbers, it is easy to confirm that the effects of height are enormous—maybe even more than we might have suspected. I estimate that each additional inch roughly doubles your odds of making it to the NBA. And this is true throughout the height distribution. A 5’11” man has twice the odds of reaching the NBA as a 5’10” man. A 6’11” man has twice the odds of reaching the NBA as a 6’10” man. It appears that, among men less than six feet tall, only about one in two million reach the NBA. Among those over seven feet tall, I and others have estimated, something like one in five reach the NBA.</em> </p><h3><a name='header-n32' class='md-header-anchor '></a>The power of big data</h3><p>New methods of analysis can help examine hypotheses regarding, for example, psychoanalysis.  Note the cleverness of the methods here as well as the results.</p><h5><a name='header-n620' class='md-header-anchor '></a>Dreams, misspellings, and Freudian slips</h5><p>Freud argued that all behavior is meaningful and can help reveal the nature of the mind.  Dreams, misrememberings, misspellings, and so forth are not random, but reveal the presence of (sexualized) unconscious motives. </p><p>Stephens-Davidowitz argues that errors in writing and the reported content of dreams do not support simple &#39;Freudian slips.&#39;  One method is to look at the popularity of &quot;phallic objects&quot; in dreams, e.g., </p><p><em>So what about phallic-shaped foods? Do they sneak into our dreams with unexpected frequency? Nope. Bananas are the second most common fruit to appear in dreams. But they are also the second most commonly consumed fruit. So we don’t need Freud to explain how often we dream about bananas. Cucumbers are the seventh most common vegetable to appear in dreams. They are the seventh most consumed vegetable. So again their shape isn’t necessary to explain their presence in our minds as we sleep. Hot dogs are dreamed of far less frequently than hamburgers. This is true even controlling for the fact that people eat more burgers than dogs. Overall, using a regression analysis (a method that allows social scientists to tease apart the impact of multiple factors) across all fruits and vegetables, I found that a food’s being shaped like a phallus did not give it more likelihood of appearing in dreams than would be expected by its popularity. This theory of Freud’s is falsifiable—and, at least according to my look at the data, false. (47-48)</em></p><p><img src="C:\Users\the_l\Dropbox\00 Current teaching\dataScience\DataSciLibArts\images\campanile.jpg" height="400px"/></p><p>A more powerful, and perhaps less subjective method, is to systematically study a large sample of human behavior to see if, for example, misspellings are biased towards the sexually symbolic.</p><p><em>I studied a dataset of more than 40,000 typing errors collected by Microsoft researchers. The dataset included mistakes that people make but then immediately correct. In these tens of thousands of errors, there were plenty of individuals committing errors of a sexual sort. There was the aforementioned “penistrian.” There was also someone who typed “sexurity” instead of “security” and “cocks” instead of “rocks.” But there were also plenty of innocent slips. People wrote of “pindows” and “fegetables,” “aftermoons” and “refriderators.” So was the number of sexual slips unusual? To test this, I first used the Microsoft dataset to model how frequently people mistakenly switch particular letters. I calculated how often they replace a t with an s, a g with an h. I then created a computer program that made mistakes in the way that people do. We might call it Error Bot. Error Bot replaced a t with an s with the same frequency that humans in the Microsoft study did. It replaced a g with an h as often as they did. And so on. I ran the program on the same words people had gotten wrong in the Microsoft study. In other words, the bot tried to spell “pedestrian” and “rocks,” “windows” and “refrigerator.” But it switched an r with a t as often as people do and wrote, for example, “tocks.” It switched an r with a c as often as humans do and wrote “cocks.” So what do we learn from comparing Error Bot with normally careless humans? After making a few million errors, just from misplacing letters in the ways that humans do, Error Bot had made numerous mistakes of a Freudian nature. It misspelled “seashell” as “sexshell,” “lipstick” as “lipsdick,” and “luckiest” as “fuckiest,” along with many other similar mistakes. And—here’s the key point—Error Bot, which of course does not have a subconscious, was just as likely to make errors that could be perceived as sexual as real people were. With the caveat, as we social scientists like to say, that there needs to be more research, this means that sexually oriented errors are no more likely for humans to make than can be expected by chance. In other words, for people to make errors such as “penistrian,” “sexurity,” and “cocks,” it is not necessary to have some connection between mistakes and the forbidden, some theory of the mind where people reveal their secret desires via their errors.</em> (p. 48-49)</p><h5><a name='header-n436' class='md-header-anchor '></a>But PornHub data supports other aspects of Freud&#39;s theories</h5><p><em>a shocking number of people visiting mainstream porn sites are looking for portrayals of incest. Of the top hundred searches by men on PornHub, one of the most popular porn sites, sixteen are looking for incest-themed videos. Fair warning—this is going to get a little graphic: they include “brother and sister,” “step mom fucks son,” “mom and son,” “mom fucks son,” and “real brother and sister.” The plurality of male incestuous searches are for scenes featuring mothers and sons. And women? Nine of the top hundred searches by women on PornHub are for incest-themed videos, and they feature similar imagery—though with the gender of any parent and child who is mentioned usually reversed. Thus the plurality of incestuous searches made by women are for scenes featuring fathers and daughters.</em> (p. 50)</p><p>Stephens-Davidowitz goes on to argue that, in addition to this seeming support for the centrality (though not universality) of the Oedipus complex, there is additional support for a more generalized notion of infantile sexuality, that is, that many of the sex fantasies for people of all ages invlve themes or ideas from childhood.</p><p>One other Freudian idea is supported by more recent PornHub data. Freud argued for a hydraulic model of drives, that is, that drives were bottled up and that sexual and aggressive energy could be released through catharsis. While this appears not to be true for aggression (that is, behaving aggressively does not reduce subsequent aggression), it is, at some level, supported for sex.</p><p>&nbsp;</p><p><img src='' alt='https://bs.phncdn.com/insights-static//wp-content/uploads/2018/01/pornhub-insights-hawaii-missile-alert-traffic.png' /></p><p>&nbsp;</p><p>A revolution in the social sciences. </p><p>also @lazer2014parable </p><p>Introduction: Power of Google trends (which example is most compelling?). </p><p>Chapters 1 and 2: Thinking like a data scientist. Empiricism &gt; intuition. </p><p>Four powers of Big Data. </p><h1><a name='header-n42' class='md-header-anchor '></a>The ubiquity of data</h1><p>Chapter 3: reimagining data,</p><p>Chapter 4 what google searches can tell us</p><p><a href='https://medium.com/' target='_blank' >https://medium.com/</a>@PaulStollery/all-of-the-fucks-given-online-in-2016-58c60edd6e44</p><p>Chapter 3-4: The internet as a network. Google searches and the Page Rank algorithm. Google flu. </p><p>Google as a datasource (<a href='https://medium.com/' target='_blank' >https://medium.com/</a>@pewresearch/using-google-trends-data-for-research-here-are-6-questions-to-ask-a7097f5fb526)</p><p>autocomplete (use an anonymous/incognito window?)</p><p>Searches for is my son ... vs is my daughter...</p><p>trends</p><p>correlate</p><p>books: <a href='https://books.google.com/ngrams' target='_blank' >https://books.google.com/ngrams</a></p><blockquote><p>Google correlate (I tried this but it is finicky / weeks must begin on a sunday - enter a time series, see what correlates with it.) <em>Data challenge: Find an interesting time series, use google correlate to find something that it is associated with</em> </p></blockquote><p>Predicting success of horses: Reminiscent of Binet&#39;s method, finds enlarged left ventricle associated with success. [but now that others know this, left ventricle will not distinguish winners from losers.]</p><p>First law of viticulture</p><p>Text as data; shift from United states are to united states is. / Word clouds, gender and age / Sentiment analysis of books, movies / differential language use /.</p><p>[note Gentzkow and Shapiro study of 2005 congressional record]</p><p>New approaches for measuring economic development including lights from space, cell phone snaps at fruitstands.</p><p>Searches re Child abuse go up in recessions, but child protective services get fewer calls.<br/></p><p>[@stephens2017everybody]</p><h1><a name='header-n80' class='md-header-anchor '></a>Counting and predicting</h1><p>class 1 from Salgarnik, also chapter 2 of his book: <a href='http://www.bitbybitbook.com/en/observing-behavior/' target='_blank' >http://www.bitbybitbook.com/en/observing-behavior/</a></p><h1><a name='header-n83' class='md-header-anchor '></a>Principles of data visualization</h1><p>Tufte principles</p><p>tables as graphs: @gelman2011tables</p><p>My bad and better vizzes</p><p>Schmidt&#39;s visualization of Rate My Professor language: <a href='http://benschmidt.org/profGender' target='_blank' >http://benschmidt.org/profGender</a></p><p>and jobs by major: <a href='http://benschmidt.org/jobs/' target='_blank' >http://benschmidt.org/jobs/</a></p><p>references for visualizations include policyviz podcast 32, data stories 110: What&#39;s going on in this graph, and NYT edu series</p><p>R4ds, Chapter 3</p><p>Kennedy Elliott 39 studies </p><p><a href='https://medium.com/' target='_blank' >https://medium.com/</a>@kennelliott/39-studies-about-human-perception-in-30-minutes-4728f9e31a73</p><p><a href='https://www.youtube.com/watch?v=s0J6EDvlN30' target='_blank' >https://www.youtube.com/watch?v=s0J6EDvlN30</a> ?</p><h1><a name='header-n104' class='md-header-anchor '></a>Probability</h1><p>See <a href='http://datasciencelabs.github.io/pages/lectures.html' target='_blank' >http://datasciencelabs.github.io/pages/lectures.html</a></p><p>Stats: CLT, Hypothesis testing via simulation, Bayesian inference (<a href='https://www2.stat.duke.edu/courses/Fall15/sta112.01/' target='_blank' >https://www2.stat.duke.edu/courses/Fall15/sta112.01/</a>)</p><p>see JHU 6 inference</p><p>Bayes Theorem</p><p>Binomial, normal, and poisson distributions</p><p>(funny image on tuna sales from economist, check dropbox)</p><p>(some distributions)</p><h1><a name='header-n119' class='md-header-anchor '></a>Inference</h1><p>See <a href='http://datasciencelabs.github.io/pages/lectures.html' target='_blank' >http://datasciencelabs.github.io/pages/lectures.html</a></p><p>see jhu6inference.pdf</p><p>law of large numbers and CLT</p><p>Confidence intervals</p><p>hypothesis testing</p><p>multiple tests</p><p>(possibly power, bootstrapping, bayesian inference)</p><h1><a name='header-n134' class='md-header-anchor '></a>Reproducibility and the replication crisis</h1><pre class="md-fences md-end-block" lang=""> <div class="CodeMirror cm-s-inner CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4px;"></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 30px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  1. use of code rather than GUIs for data manipulation</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  2. use of large samples</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  3. use of exploratory, descriptive techniques</span></pre></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; border-bottom: 0px solid transparent; top: 69px;"></div><div class="CodeMirror-gutters" style="display: none; height: 99px;"></div></div></div></pre><p>replication crisis: <a href='https://www.nature.com/polopoly_fs/1.17412' target='_blank' >https://www.nature.com/polopoly_fs/1.17412</a>!/menu/main/topColumns/topLeftColumn/pdf/520612a.pdf</p><p>discuss preregistration here</p><p>introduce OSF</p><h1><a name='header-n142' class='md-header-anchor '></a>(PART) Part III Towards data proficiency  {-}</h1><h1><a name='header-n143' class='md-header-anchor '></a>Literate programming with R markdown</h1><p>R4DS 6 and 27</p><p>Projects in R4DS 8</p><p><a href='https://dcl-2017-04.github.io/curriculum/rmarkdown-basics.html' target='_blank' >https://dcl-2017-04.github.io/curriculum/rmarkdown-basics.html</a> (r4ds-27)</p><p>also possibly scripts:  r4ds 6</p><h1><a name='header-n152' class='md-header-anchor '></a>Data visualization in R with ggplot2</h1><p>(another lecture here?)</p><p>r4ds chapter 3</p><h1><a name='header-n157' class='md-header-anchor '></a>Exploratory Data Analysis</h1><p>r4ds, Chapter 3 continued - 3.4 is help and problems</p><p>r4ds, chapter 7</p><h1><a name='header-n162' class='md-header-anchor '></a>Tidy data and the tidyverse</h1><p>r4ds 9, 10</p><h1><a name='header-n165' class='md-header-anchor '></a>Messy data: Cleaning and curation</h1><p>r4ds 11 getting data</p><p>r4ds 12.1 12.2</p><p>Some best practices in coding and storing</p><p>From hand-tally to calculator to spreadsheet</p><p>Data wrangling: some problems in data <a href='https://github.com/Quartz/bad-data-guide' target='_blank' >https://github.com/Quartz/bad-data-guide</a></p><p>Best practices for data in spreadsheets [@broman2017data]. </p><p>Code style chapter 4 r4ds</p><p>Handling missing values</p><p>Advantages and disadvantages of working with spreadsheets. Tidy, rectangular data allows people and computers to see data in the same way.</p><p>Spreadsheets are great, but limited in some ways.  They are good at showing us raw data, but not the history of how it has been transformed or analyzed. They can be cumbersome for working with large datasets, too.</p><h1><a name='header-n186' class='md-header-anchor '></a>Selecting data in R with dplyr</h1><p>r4ds 5, 5.1-5.4</p><h1><a name='header-n189' class='md-header-anchor '></a>Manipulating data in R with dplyr</h1><p>Chapter 5, sections 5.5-5.7</p><h1><a name='header-n192' class='md-header-anchor '></a>Working with relational data</h1><p>Chapter 13</p><p>data wrangling <a href='http://www.hcbravo.org/IntroDataSci/calendar/' target='_blank' >http://www.hcbravo.org/IntroDataSci/calendar/</a> (SQL)</p><p>Databases, SQL, join</p><h1><a name='header-n199' class='md-header-anchor '></a>Working with strings, factors, dates and times</h1><p>Chapters 14-16</p><p>issues with text data, maybe silge book?</p><h1><a name='header-n204' class='md-header-anchor '></a>Working with lists</h1><p>r4ds 20</p><h1><a name='header-n207' class='md-header-anchor '></a>Open science</h1><p>OSF ()<a href='http://www.gastonsanchez.com/stat259/lectures/' target='_blank' >http://www.gastonsanchez.com/stat259/lectures/</a></p><p>Reproducibility and R <a href='http://ropensci.github.io/reproducibility-guide/' target='_blank' >http://ropensci.github.io/reproducibility-guide/</a></p><p>@baumer2014r</p><p>Workflows<a href='http://www.gastonsanchez.com/stat259/lectures/01-introduction/' target='_blank' >http://www.gastonsanchez.com/stat259/lectures/01-introduction/</a></p><p>preregistration</p><h1><a name='header-n218' class='md-header-anchor '></a>(PART) Part IV Towards data fluency  {-}</h1><h1><a name='header-n219' class='md-header-anchor '></a>Writing functions</h1><h1><a name='header-n220' class='md-header-anchor '></a>Writing loops</h1><h1><a name='header-n221' class='md-header-anchor '></a>Getting data: Web scraping and APIs</h1><p>web scraping and APIs (<a href='https://github.com/MUSA-620-Spring-2017' target='_blank' >https://github.com/MUSA-620-Spring-2017</a>)</p><h1><a name='header-n224' class='md-header-anchor '></a>Linear and multiple regression</h1><p>Regression and Classification, <a href='http://www.hcbravo.org/IntroDataSci/calendar/' target='_blank' >http://www.hcbravo.org/IntroDataSci/calendar/</a></p><h1><a name='header-n227' class='md-header-anchor '></a>Logistic regression</h1><h1><a name='header-n228' class='md-header-anchor '></a>Classification and types of errors</h1><p>Bayes, ROC curves, measures of error. see jhu8ml</p><h1><a name='header-n231' class='md-header-anchor '></a>Cross-validation</h1><h1><a name='header-n232' class='md-header-anchor '></a>Some machine learning techniques</h1><p>@domingos2012few</p><h1><a name='header-n235' class='md-header-anchor '></a>Concepts in computational linguistics</h1><h1><a name='header-n236' class='md-header-anchor '></a>Analyzing text data</h1><p>danescu2013politeness</p><p>(see <a href='https://github.com/jacobeisenstein/gt-css-class/blob/master/2015-files/schedule.md' target='_blank' >https://github.com/jacobeisenstein/gt-css-class/blob/master/2015-files/schedule.md</a> for lectures on networks)</p><p>text analysis, LIWC</p><h1><a name='header-n243' class='md-header-anchor '></a>From graphs to networks</h1><p>(see <a href='https://github.com/jacobeisenstein/gt-css-class/blob/master/2015-files/schedule.md' target='_blank' >https://github.com/jacobeisenstein/gt-css-class/blob/master/2015-files/schedule.md</a> for lectures on networks)</p><p>network analysis, Gephi</p><h1><a name='header-n248' class='md-header-anchor '></a>Empirical findings in network analysis</h1><h1><a name='header-n249' class='md-header-anchor '></a>Analyzing networks</h1><h1><a name='header-n250' class='md-header-anchor '></a>Categories and classification</h1><h1><a name='header-n251' class='md-header-anchor '></a>Making interactive visualizations with R Shiny</h1><p>Interactive visualizations with Shiny <a href='http://www.hcbravo.org/IntroDataSci/calendar/' target='_blank' >http://www.hcbravo.org/IntroDataSci/calendar/</a></p><h1><a name='header-n254' class='md-header-anchor '></a>(PART) Part V Towards data leadership {-}</h1><h1><a name='header-n255' class='md-header-anchor '></a>The significance of scalability</h1><p>big data - efficient code - relative directories...</p><h1><a name='header-n258' class='md-header-anchor '></a>Digital humanities and data science</h1><p>network effects vs biology in gender inequalities in diversity in tech</p><p>data journalism Refs at <a href='https://github.com/sarahcnyt/stabile/blob/master/docs/bulletproof.md' target='_blank' >https://github.com/sarahcnyt/stabile/blob/master/docs/bulletproof.md</a></p><p>for readings, ideas see <a href='https://aleszu.github.io/digisoc/index.html#weekly_schedule_and_readings' target='_blank' >https://aleszu.github.io/digisoc/index.html#weekly_schedule_and_readings</a></p><h1><a name='header-n265' class='md-header-anchor '></a>Humility and teamwork</h1><p>mesearch and my own limitations</p><h1><a name='header-n268' class='md-header-anchor '></a>Ethics and data responsibility</h1><p><a href='http://randomwalker.info/publications/no-silver-bullet-de-identification.pdf' target='_blank' >http://randomwalker.info/publications/no-silver-bullet-de-identification.pdf</a> <a href='https://github.com/jacobeisenstein/gt-css-class/blob/master/2015-files/schedule.md' target='_blank' >https://github.com/jacobeisenstein/gt-css-class/blob/master/2015-files/schedule.md</a></p><h1><a name='header-n271' class='md-header-anchor '></a><em>Lab</em></h1><p>project group at UCSB <a href='https://github.com/raviolli77/dataScience-UCSBProjectGroup-Syllabus' target='_blank' >https://github.com/raviolli77/dataScience-UCSBProjectGroup-Syllabus</a></p><h1><a name='header-n274' class='md-header-anchor '></a><em>Challenges</em></h1><p>maps (leaflet), googlevis, plotly, tableau, sentiment analysis</p><p>see NotesonSalgarnik</p><p>Lightning talks (<a href='http://www.gastonsanchez.com/stat259/labs/03-data-talks/' target='_blank' >http://www.gastonsanchez.com/stat259/labs/03-data-talks/</a>)</p><p><a href='https://github.com/datasciencelabs/2017/blob/master/lectures/git-and-github/setting-up-github.rmd' target='_blank' >https://github.com/datasciencelabs/2017/blob/master/lectures/git-and-github/setting-up-github.rmd</a></p><p><a href='https://www.kaggle.com/competitions?segment=inClass' target='_blank' >https://www.kaggle.com/competitions?segment=inClass</a></p><p>Version control with Git</p><p><a href='https://try.github.io/levels/1/challenges/1' target='_blank' >https://try.github.io/levels/1/challenges/1</a> &amp; duke first or second class</p><p><a href='http://www.hcbravo.org/IntroDataSci/projects/Project1/' target='_blank' >http://www.hcbravo.org/IntroDataSci/projects/Project1/</a> for project </p><h1><a name='header-n291' class='md-header-anchor '></a><em>Data sources</em></h1><p>Chetty econ/big data: <a href='http://www.equality-of-opportunity.org/bigdatacourse/' target='_blank' >http://www.equality-of-opportunity.org/bigdatacourse/</a></p><p>census data <a href='https://github.com/MUSA-620-Spring-2017/Course-Materials' target='_blank' >https://github.com/MUSA-620-Spring-2017/Course-Materials</a></p><p>NYC taxi data</p><p><a href='http://gss.norc.org/' target='_blank' >http://gss.norc.org/</a>, <a href='https://github.com/UC-MACSS/persp-analysis/blob/master/assignments/exploratory-data-analysis/README.md' target='_blank' >https://github.com/UC-MACSS/persp-analysis/blob/master/assignments/exploratory-data-analysis/README.md</a></p><p><a href='https://github.com/fivethirtyeight/data' target='_blank' >https://github.com/fivethirtyeight/data</a></p><p><a href='https://data.worldbank.org/data-catalog/world-development-indicators' target='_blank' >https://data.worldbank.org/data-catalog/world-development-indicators</a></p><p><a href='http://ropengov.github.io/projects/' target='_blank' >http://ropengov.github.io/projects/</a></p><p><a href='https://grouplens.org/datasets/movielens/' target='_blank' >https://grouplens.org/datasets/movielens/</a></p><p>Seth&#39;s book site</p><h1><a name='header-n310' class='md-header-anchor '></a><em>Resources</em></h1><p>Software carpentry (focus on code, programming, including git and R): <a href='https://software-carpentry.org/lessons/' target='_blank' >https://software-carpentry.org/lessons/</a></p><p>Data carpentry and data literacy (focus on data cleaning, visualization, etc): </p><p>Data carpentry for biologists <a href='http://www.datacarpentry.org/semester-biology/START-for-self-guided-students/' target='_blank' >http://www.datacarpentry.org/semester-biology/START-for-self-guided-students/</a> includes SQL</p><p>other areas including genomics, ecology can be found at <a href='http://www.datacarpentry.org/lessons/' target='_blank' >http://www.datacarpentry.org/lessons/</a></p><p>additional resource for R, text analysis, etc: <a href='https://github.com/rochelleterman/PS239T/blob/master/C_resources.md' target='_blank' >https://github.com/rochelleterman/PS239T/blob/master/C_resources.md</a></p><h1><a name='header-n321' class='md-header-anchor '></a>Etc</h1><h2><a name='header-n322' class='md-header-anchor '></a>What will be in the class?</h2><p><strong>R</strong></p><p>In my rough survey of introductory data science courses, I saw a pretty even split between those which begin with Python and those which begin with the statistical programming language R. This difference corresponds, loosely, to the split noted above: Computer science based approaches to data science are frequently grounded in Python, while stats based approaches are generally grounded in R. Our course, like those for most of the syllabi and courses linked above, will be based in R.</p><p><strong>Reproducible science</strong></p><p>The course will provide an introduction to some of the methods and tools of reproducible science. We will consider the replication crisis in the natural and social sciences, and then consider three distinct approaches which serve as partial solutions to the crisis.  The first of these is training in a notebook-based approach to writing analyses, reports and projects (using R markdown). The second is using public repositories (such as the <a href='https://osf.io/'>Open Science Framework</a> and <a href='https://github.com/'>GitHub</a>) to provide snapshots of projects over time. Finally, the third is to consider the place of significance testing in the age of Big Data, and to provide training in the use of descriptive, exploratory techniques of data analysis.</p><p><strong>Good visualizations</strong></p><p>Part of Type C data science is communication, and this includes not just writing up results, but also designing data displays that incisively convey the key ideas or features in a flood of data. We&#39;ll examine and develop data visualizations such as plots, networks and text clouds. More advanced topics may include maps, interactive displays, and animations.</p><p><strong><del>All</del> <em>Some of</em> the data</strong></p><p>It&#39;s been <a href='https://www.udemy.com/datascience/learn/v4/t/lecture/3473822?start=379'>argued</a> that in the last dozen years, humans have produced more than 60 times as much information as existed in the entire previous history of humankind. (It sounds like hyperbole, but even if it&#39;s off by an order of magnitude it&#39;s still amazing).  There are plenty of data sources for us to examine, and we&#39;ll consider existing datasets from disciplines ranging from literature to economics to public health, with sizes ranging from a few dozen to millions of data points.  We will also clean and create new datasets.</p><p><strong><del>All</del> <em>Some of</em> the meaning</strong></p><p>Data matter, can save, enhance, or destroy human lives. (This is a crummy sentence: My pedantic insistence on treating the term &quot;data&quot; as plural rather than singular likely distracted you from the substance of my message. I&#39;ll leave it here as a reminder that we can all become better writers). Back to my point: In this class, we&#39;ll explore approaches to analyzing the meaning of data in areas including the analyses of simple texts and data journalism.</p><p><strong><del>All</del> <em>Some of</em> the skills</strong></p><p>The skills required to extract meaning from data include an understanding of classical statistical principles (e.g., probability theory and sampling theory), core statistical techniques (regression), and the extension of these core principles and basic techniques to problems in natural language processing, the analysis of social networks, and machine learning and classification.</p><p><strong><del>All</del> <em>Some of</em> the tools</strong></p><p>In addition to R, we&#39;ll use a range of other tools: We&#39;ll communicate on the Slack platform. We&#39;ll write using markdown editors such as <a href='https://typora.io/'>Typora</a>. We&#39;ll certainly use spreadsheets such as Excel or Google Sheets. We <em>may</em> use additional tools for visualizing data such as Gephi and Tableau. </p><p><strong>Hands-on computing</strong></p><p>We had initially anticipated that the lectures would include discussion, and that the computing part of the class would occur just in the lab.  But, in the course of examining syllabi at other schools, it became apparent to me that <strong>there will be computing throughout the course</strong>, not just in the lab.</p><p><strong>What will be in the lab?</strong></p><p>The labs will have two features.  First, they will allow for a project-based approach, focused on the collaborative analysis of problems of your own choosing. Second, these projects will include a deeper dive into some of the topics and problems above.  Here are a few examples of how the treatment in the lecture and the lab are likely to differ:</p><figure><table><thead><tr><th style='text-align:center;' >Topic</th><th style='text-align:center;' >Lecture</th><th style='text-align:center;' >Lab: Deeper dive</th></tr></thead><tbody><tr><td style='text-align:center;' >Introduction</td><td style='text-align:center;' >Stephens-Davidowitz book; Google trends</td><td style='text-align:center;' >Examining one or more scholarly papers in data journalism, computational science, or computational social science</td></tr><tr><td style='text-align:center;' >Getting data</td><td style='text-align:center;' >Extant data</td><td style='text-align:center;' >Using APIs to scrape social media</td></tr><tr><td style='text-align:center;' >Sharing science</td><td style='text-align:center;' >Setting up account on OSF</td><td style='text-align:center;' >Using GitHub, Becoming a Repo <del>Man</del> <em>person</em></td></tr><tr><td style='text-align:center;' >Exploratory data analysis / Data visualization</td><td style='text-align:center;' >Static data displays</td><td style='text-align:center;' >Interactive plots (r Shiny), animated  displays?, Tableau?</td></tr><tr><td style='text-align:center;' >Sampling theory</td><td style='text-align:center;' >Test vs training datasets</td><td style='text-align:center;' >k-fold cross-validation</td></tr><tr><td style='text-align:center;' >Regression and classification</td><td style='text-align:center;' >Linear and logistic regression</td><td style='text-align:center;' >Machine learning: Robust techniques / regularized regression  Supervised prediction, possibly semi-supervised and unsupervised regression</td></tr><tr><td style='text-align:center;' >Graph theory and network analysis</td><td style='text-align:center;' >Introduction to centrality, community structure, contagion</td><td style='text-align:center;' >Network robustness, different approaches to centrality &amp; community structure</td></tr><tr><td style='text-align:center;' >Analyzing texts</td><td style='text-align:center;' >Word clouds</td><td style='text-align:center;' >Text mining, natural language analysis</td></tr><tr><td style='text-align:center;' >Generating products</td><td style='text-align:center;' >Team project in class</td><td style='text-align:center;' >Project in class and poster</td></tr></tbody></table></figure><p>&nbsp;</p></div>
+</body>
+</html>

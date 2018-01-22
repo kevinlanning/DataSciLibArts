@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="setting-up-your-computer.html">
-<link rel="next" href="some-basic-tools-slack-markdown-google-docs.html">
+<link rel="prev" href="empiricism-intuition.html">
+<link rel="next" href="the-honesty-of-data.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -140,17 +140,47 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pretest" class="section level1">
-<h1><span class="header-section-number">3</span> Pretest</h1>
-<p>Reflect on your own knowledge of data science, including the necessary-but-not-sufficient areas of computer programming and statistics.</p>
-<p>You may know more than you think you do. Even if you haven’t had formal programming, you may well have experience with spreadsheets such as Excel or Google Sheets? What does ‘=SUM (A1:A15)’ mean? In a spreadsheet, if ‘=SUM (A1:A15)’ was in cell A16, and you copied this to cell B16, what would the result be?</p>
-<p>Statistics is, of course, relevant in a myriad of ways. Consider, for example, the prospects for Susie, a young woman who is applying to two Med schools. At School A, 25% of students are accepted, and at School B, 25% are accepted as well.</p>
-<p>You are Susie. Are you going to get in to at least one of these programs? What is the probability? Does your estimate depend upon any assumptions?</p>
-<div id="a-thought-experiment" class="section level2">
-<h2><span class="header-section-number">3.1</span> A thought experiment</h2>
-<p>Would it be possible to assign grades in a class based not just on what students know at the end of the term, but also on how much they have learned?</p>
-<p>You could, in principle, do this using regression analysis. That is, you could predict final exam scores from pretest scores, and use the residuals - the extent to which students did better or worse than expected - as a contributor to final exam grades.</p>
-<p>Interestingly, there would be an unusual incentive for students on this ‘pretest’ to do, seemingly perversely, as poorly as possible. How might you address this?</p>
+<div id="the-ubiquity-of-data" class="section level1">
+<h1><span class="header-section-number">8</span> The ubiquity of data</h1>
+<div class="figure">
+<img src="images/Francis_Galton_1850s.jpg" alt="Francis_Galton_1850s" />
+<p class="caption">Francis_Galton_1850s</p>
+</div>
+<div id="iq-whinnies-and-wines" class="section level2">
+<h2><span class="header-section-number">8.1</span> IQ, whinnies and wines</h2>
+<p>Empiricism is at the core of science. In psychology, the empirical measurement of intelligence, vocational interest, and personality transformed ideas about “individual differences” from speculation to science.</p>
+<p>Data Science is not new. A good beginning point is Sir Frances Galton (above), who in the late 19th C is alleged to have declared “whenever you can, <em>count</em>.” At about the same time, the French psychologist Alfred Binet sought to better identify schoolchildren with special needs who would particularly benefit from smaller classes. His method was to examine differences between children identified as better versus slower learners on a wide range of tests which might be related to school performance; he combined the successful ones to create the prototype for the modern intelligence test.</p>
+<p>As <span class="citation">Stephens-Davidowitz (<a href="#ref-stephens2017everybody">2017</a>)</span> recounts, Jeff Seder applies a similar logic to examine the characteristics of horses associated with success. Reminiscent of Binet’s method, Seder finds enlarged left ventricle associated with success. [but now that others know this, left ventricle will not distinguish winners from losers.]</p>
+<p><em>There it was, stark and clear, the reason that Seder and his team had become so obsessed with No. 85. His left ventricle was in the 99.61st percentile! Not only that, but all his other important organs, including the rest of his heart and spleen, were exceptionally large as well. Generally speaking, when it comes to racing, Seder had found, the bigger the left ventricle, the better. But a left ventricle as big as this can be a sign of illness if the other organs are tiny. In American Pharoah, all the key organs were bigger than average, and the left ventricle was enormous. The data screamed that No. 85 was a 1-in-100,000 or even a one-in-a-million horse.</em> (p. 70-71).</p>
+<p>This method has been referred to as “brute force empiricism.” The question here is what works, not why. We may find it interesting to speculate why Strawberry Pop-Tarts are particularly popular in hurricanes (p. 71), but from the standpoint of Wal-Mart and its customers, this is less important than stocking the shelves to satisfy the demand that exists.</p>
+<p>To predict the quality (as indexed by the price) of Bordeaux wines, a regression equation works well:</p>
+<p>Price = 12.145 + 0.00117 winter rainfall + 0.0614 average growing season temperature – 0.00386 harvest rainfall. (p. 73)</p>
+</div>
+<div id="the-success-of-google-and-the-nature-of-networks" class="section level2">
+<h2><span class="header-section-number">8.2</span> The success of Google and the nature of networks</h2>
+<p>Analyses of Google searches can reveal the flu and, perhaps, the unemployment rate. (which is correlated with searches for porn sites and solitaire). Google searches return an ordered list of sites based on a modified Page Rank algorithm, which is a measure of network centrality. Page Rank is what made Google better than early search engines such as Alta Vista.</p>
+<p>Google as a datasource (<a href="https://medium.com/" class="uri">https://medium.com/</a><span class="citation">(<span class="citeproc-not-found" data-reference-id="pewresearch/using-google-trends-data-for-research-here-are-6-questions-to-ask-a7097f5fb526"><strong>???</strong></span>)</span>). Includes Google Trends, Google Correlate, and Google books (<a href="https://books.google.com/ngrams" class="uri">https://books.google.com/ngrams</a>).</p>
+<blockquote>
+<p>Google correlate (I tried this but it is finicky / weeks must begin on a sunday - enter a time series, see what correlates with it.) <em>Data challenge: Find an interesting time series, use google correlate to find something that it is associated with</em></p>
+</blockquote>
+</div>
+<div id="words-as-data" class="section level2">
+<h2><span class="header-section-number">8.3</span> Words as data</h2>
+<p>Differences between liberals and conservatives, men and women, the old and young, and extraverts and introverts can be informed by texts ranging from the content of digitized books (Google Ngrams) to posts on social media. Culturenomics (check spelling) can be revealing but is challenging. Historians claim that the Civil War marked a transition from thinking (or writing) about the US as a plural (<em>The United States are…</em>) to a singular (<em>The United States is…</em>). But analyses of the content of books in the Google Ngram corpus revealed that the shift occurred a generation later.</p>
+<p>There are two lessons here, the specific one about how the image of the US changed more slowly than believed, the other, more general one is that disciplines outside of the sciences are also increasingly informed by the new empiricism. This is true not just for history but also for literature; sentiment analysis can be applied to reveal the structure of stories. (And analyses of Kindle data can reveal just where people stop reading. I’m not sure if contemporary literature is auto-tuned to this, but it is just a matter of time.)</p>
+<p>[note Gentzkow and Shapiro study of 2005 congressional record]</p>
+</div>
+<div id="pictures-as-data" class="section level2">
+<h2><span class="header-section-number">8.4</span> Pictures as data</h2>
+<p>Scanned yearbooks from US High schools since 1905 show an increasing number of smiles.</p>
+<p>New approaches for measuring economic development include lights from space, cell phone snaps at fruit stands.</p>
+<p><em>These days, a data scientist must not limit herself to a narrow or traditional view of data. These days, photographs of supermarket lines are valuable data. The fullness of supermarket bins is data. The ripeness of apples is data. Photos from outer space are data. The curvature of lips is data. Everything is data!</em> (p. 104)</p>
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-stephens2017everybody">
+<p>Stephens-Davidowitz, Seth. 2017. “Everybody Lies: Big Data, New Data and What the Internet Can Tell Us About Who We Really Are.” New York: HarperCollins.</p>
 </div>
 </div>
             </section>
@@ -158,8 +188,8 @@
           </div>
         </div>
       </div>
-<a href="setting-up-your-computer.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="some-basic-tools-slack-markdown-google-docs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="empiricism-intuition.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="the-honesty-of-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

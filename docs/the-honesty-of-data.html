@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="setting-up-your-computer.html">
-<link rel="next" href="some-basic-tools-slack-markdown-google-docs.html">
+<link rel="prev" href="the-ubiquity-of-data.html">
+<link rel="next" href="references.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -140,17 +140,61 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pretest" class="section level1">
-<h1><span class="header-section-number">3</span> Pretest</h1>
-<p>Reflect on your own knowledge of data science, including the necessary-but-not-sufficient areas of computer programming and statistics.</p>
-<p>You may know more than you think you do. Even if you haven’t had formal programming, you may well have experience with spreadsheets such as Excel or Google Sheets? What does ‘=SUM (A1:A15)’ mean? In a spreadsheet, if ‘=SUM (A1:A15)’ was in cell A16, and you copied this to cell B16, what would the result be?</p>
-<p>Statistics is, of course, relevant in a myriad of ways. Consider, for example, the prospects for Susie, a young woman who is applying to two Med schools. At School A, 25% of students are accepted, and at School B, 25% are accepted as well.</p>
-<p>You are Susie. Are you going to get in to at least one of these programs? What is the probability? Does your estimate depend upon any assumptions?</p>
-<div id="a-thought-experiment" class="section level2">
-<h2><span class="header-section-number">3.1</span> A thought experiment</h2>
-<p>Would it be possible to assign grades in a class based not just on what students know at the end of the term, but also on how much they have learned?</p>
-<p>You could, in principle, do this using regression analysis. That is, you could predict final exam scores from pretest scores, and use the residuals - the extent to which students did better or worse than expected - as a contributor to final exam grades.</p>
-<p>Interestingly, there would be an unusual incentive for students on this ‘pretest’ to do, seemingly perversely, as poorly as possible. How might you address this?</p>
+<div id="the-honesty-of-data" class="section level1">
+<h1><span class="header-section-number">9</span> The ‘honesty’ of data</h1>
+<p>In Chapter 4, <span class="citation">Stephens-Davidowitz (<a href="#ref-stephens2017everybody">2017</a>)</span> argues that making the private public overcomes the limitations of traditional self-report data.</p>
+<p><em>People consistently gave wrong information, in ways that made them look good. Fewer than 2 percent reported that they graduated with lower than a 2.5 GPA. (In reality, about 11 percent did.) And 44 percent said they had donated to the university in the past year. (In reality, about 28 percent did.)</em></p>
+<p><strong>There are two types of lying that are conflated - lying to ourselves and lying to others.</strong></p>
+<p><em>Lying to oneself may explain why so many people say they are above average. How big is this problem? More than 40 percent of one company’s engineers said they are in the top 5 percent. More than 90 percent of college professors say they do above-average work. One-quarter of high school seniors think they are in the top 1 percent in their ability to get along with other people.</em> (p. 107-108).</p>
+<p>On the Internet… are we more truthful? <em>Google can display a bias toward unseemly thoughts, thoughts people feel they can’t discuss with anyone else.</em> (p. 111).</p>
+<p>Topics associated with shame and guilt are particularly likely to show a difference between the private and the public.</p>
+<div id="sex-1" class="section level2">
+<h2><span class="header-section-number">9.1</span> Sex</h2>
+<p><strong>What percent of people are gay?</strong> Surveys suggest differences between states. But differences in searches for gay porn are far smaller. Many men are in the closet, hiding even from their wives: <em>“Gay” is 10 percent more likely to complete searches that begin “Is my husband . . .” than the second-place word, “cheating.” It is eight times more common than “an alcoholic” and ten times more common than “depressed.” Most tellingly perhaps, searches questioning a husband’s sexuality are far more prevalent in the least tolerant regions. The states with the highest percentage of women asking this question are South Carolina and Louisiana.</em> (p. 116-117).</p>
+<p><strong>How often do people have sex?</strong> <em>On Google, there are sixteen times more complaints about a spouse not wanting sex than about a married partner not being willing to talk. There are five and a half times more complaints about an unmarried partner not wanting sex than an unmarried partner refusing to text back. And Google searches suggest a surprising culprit for many of these sexless relationships. There are twice as many complaints that a boyfriend won’t have sex than that a girlfriend won’t have sex. By far, the number one search complaint about a boyfriend is “My boyfriend won’t have sex with me.”</em> (p. 122-123)</p>
+<p><strong>What are other people’s sex lives like?</strong> <em>when men do look for tips on how to give oral sex, they are frequently not looking for ways of pleasing another person. Men make as many searches looking for ways to perform oral sex on themselves as they do how to give a woman an orgasm. (128)</em></p>
+</div>
+<div id="hate-and-prejudice" class="section level2">
+<h2><span class="header-section-number">9.2</span> Hate and prejudice</h2>
+<p>Stereotypes about other groups as evidenced by autocompletes for “why are [Black] people …” Do these lie in a two dimensional space (competent-incompetent and warm-cold)?</p>
+<p>Areas where Obama underperformed in 2008 and 2012, relative to Kerry 4 years before, are those where people search for n—— on Google (e.g., n—- jokes). Similarly, in the 2016 Republican Primary, In 2016, support for Trump in the Republican Primary was predicted by searches for n—-. (From my standpoint, this was perhaps Stephens-Davidowitz most important work). These searches outperformed, for example, the performance of regions on the IAT.</p>
+</div>
+<div id="the-internet-and-division" class="section level2">
+<h2><span class="header-section-number">9.3</span> The internet and division</h2>
+<p>People are more likely to encounter someone with different political beliefs on the internet than in many other settings. This is partly because we are likely to have more Facebook than real-world friends, and the “weak ties” between different groups are especially important in conveying information. (I hope that we’ll return to this later when we talk about networks).</p>
+</div>
+<div id="child-abuse-and-abortion" class="section level2">
+<h2><span class="header-section-number">9.4</span> Child abuse and abortion</h2>
+<p>Searches re Child abuse (“my dad hit me) go up in recessions, but child protective services get fewer calls.</p>
+<p><em>In 2015, in the United States, there were more than 700,000 Google searches looking into self-induced abortions… there were some 4,000 searches looking for directions on coat hanger abortions, including about 1,300 for the exact phrase “how to do a coat hanger abortion.” There were also a few hundred looking into abortion through bleaching one’s uterus and punching one’s stomach.</em></p>
+<p><em>Search rates for self-induced abortion were fairly steady from 2004 through 2007. They began to rise in late 2008, coinciding with the financial crisis and the recession that followed. They took a big leap in 2011, jumping 40 percent. The Guttmacher Institute, a reproductive rights organization, singles out 2011 as the beginning of the country’s recent crackdown on abortion; ninety-two state provisions that restrict access to abortion were enacted. Looking by comparison at Canada, which has not seen a crackdown on reproductive rights, there was no comparable increase in searches for self-induced abortions during this time. The state with the highest rate of Google searches for self-induced abortions is Mississippi, a state with roughly three million people and, now, just one abortion clinic.</em> (p. 147-48)</p>
+</div>
+<div id="be-skeptical-of-the-public-self-lesson-from-facebook" class="section level2">
+<h2><span class="header-section-number">9.5</span> Be skeptical of the public self: Lesson from Facebook</h2>
+<p>Different sources of Big Data tell different stories, and are susceptible to different biases. Twitter streams, for example, include many bots, and weeding these out from humans can be challenging (and will continue to be challenging as there is likely to be an arms race between bots and algorithms for detecting them).</p>
+<p>Google searches may be biased toward questions and topics we would be unlikely to share with others, towards the darker aspects of personality.</p>
+<p>And Facebook data is, in some respects, just the opposite of this, presenting an overly rosy picture of who we are. The notion that our internet self is distorted is not new - the iconic Peter Steiner cartoon below dates from 1993.</p>
+<p><img src="images/Internet_dog.jpg" alt="Internet_dog" /> d</p>
+<p><span class="citation">Stephens-Davidowitz (<a href="#ref-stephens2017everybody">2017</a>)</span> illustrates some of the ways in which our social media selves are distorted - we read the <em>Atlantic</em> rather than the <em>National Enquirer</em> for example. Facebook is, he writes “<em>digital brag-to-my-friends-about-how-good-my-life-is serum.</em> (p. 152).</p>
+<p>Spending time on social media is associated with depressed mood.</p>
+</div>
+<div id="customers-lessons-from-netflix" class="section level2">
+<h2><span class="header-section-number">9.6</span> Customers: Lessons from Netflix</h2>
+<p>Behavior is more telling than self report, and as a result, algorithms may know us better than we know ourselves. Netflix no longer asks you to create a queue of movies you would like to watch, because these “aspirational” choices correspond poorly with what we will in fact watch.</p>
+<p><em>Netflix learned a similar lesson early on in its life cycle: don’t trust what people tell you; trust what they do. Originally, the company allowed users to create a queue of movies they wanted to watch in the future but didn’t have time for at the moment. This way, when they had more time, Netflix could remind them of those movies. However, Netflix noticed something odd in the data. Users were filling their queues with plenty of movies. But days later, when they were reminded of the movies on the queue, they rarely clicked. What was the problem? Ask users what movies they plan to watch in a few days, and they will fill the queue with aspirational, highbrow films, such as black-and-white World War II documentaries or serious foreign films. A few days later, however, they will want to watch the same movies they usually want to watch: lowbrow comedies or romance films. People were consistently lying to themselves. Faced with this disparity, Netflix stopped asking people to tell them what they wanted to see in the future and started building a model based on millions of clicks and views from similar customers. The company began greeting its users with suggested lists of films based not on what they claimed to like but on what the data said they were likely to view. The result: customers visited Netflix more frequently and watched more movies. “The algorithms know you better than you know yourself,” says Xavier Amatriain, a former data scientist at Netflix.</em> (p. 156-157)</p>
+</div>
+<div id="can-we-handle-the-truth" class="section level2">
+<h2><span class="header-section-number">9.7</span> Can we handle the truth?</h2>
+<p>Should we take this as good news or as bad? <span class="citation">Stephens-Davidowitz (<a href="#ref-stephens2017everybody">2017</a>)</span> suggests that much of this can be comforting - that seeing that others are insecure, are struggling with their sexualities, or are concerned with the mundane rather than profound. It can open our eyes to hidden problems of abuse, and, perhaps most importantly, can point us towards interventions that can reduce hatred.(But political language can be tailored to empirically divide us rather than bring us together as well).</p>
+</div>
+</div>
+
+
+
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-stephens2017everybody">
+<p>Stephens-Davidowitz, Seth. 2017. “Everybody Lies: Big Data, New Data and What the Internet Can Tell Us About Who We Really Are.” New York: HarperCollins.</p>
 </div>
 </div>
             </section>
@@ -158,8 +202,8 @@
           </div>
         </div>
       </div>
-<a href="setting-up-your-computer.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="some-basic-tools-slack-markdown-google-docs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="the-ubiquity-of-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
