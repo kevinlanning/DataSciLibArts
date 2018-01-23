@@ -367,6 +367,106 @@ Behavior is more telling than self report, and as a result, algorithms may know 
 
 Should we take this as good news or as bad? @stephens2017everybody suggests that much of this can be comforting - that seeing that others are insecure, are struggling with their sexualities, or are concerned with the mundane rather than profound.  It can open our eyes to hidden problems of abuse, and, perhaps most importantly, can point us towards interventions that can reduce hatred.(But political language can be tailored to empirically divide us rather than bring us together as well).
 
+# Approaches to prediction
+
+In Chapter 5, Stephens-Davidowitz examines what he calls the "third power of Big Data." That is, large data allows closer examination of small subsets of humans (by looking at a large set of data for each of them)
+
+## Imprinting
+
+Why does one like a certain team - such as the Mets?  @stephens2017everybody presents evidence in support of an *imprinting hypothesis* - that there is a critical age. Specifically, the Mets are very popular among those born in 1962 and in 1978 - and the Mets won the World Series in 1968 and 1986. This suggests a critical age of 7 or 8.
+
+He considers a study by Ghitza and Gelman, which finds some evidence for a similar effect for politics - that the relevant age is between 14 and 24, at which point the popularity of the incumbent president will shape political ideology for life.
+
+What other things might show some imprinting effects, and how might this be assessed?
+
+## Regional effects and contagion
+
+Differences between countries in economic mobility are large, and the US does badly, but there are pockets within the US in which this is less true.  Why?
+
+For the wealthy, life expectancy is not highly related to where one lives.  For the poor, however, it is.  @stephens2017everybody argues that a good predictor of life expectancy among poor city-dwellers is the "number of rich people who live there." He argues that this is due to contagion.
+
+A more convincing contagion effect is seen in the study of IRS data. People are likely to report self-reported income that maximizes their tax refund; but this effect is highly localized, much more prevalent in places like Miami (30%) than Philadephia (2%)*.*
+
+*What predicts who is going to cheat? What is it about places that have the greater number of cheaters and those that have lower numbers? We can correlate rates of cheating with other city-level demographics and it turns out that there are two strong predictors: a high concentration of people in the area qualifying for the Earned Income Tax Credit and a high concentration of tax professionals in the neighborhood. What do these factors indicate? Chetty and the authors had an explanation. The key motivator for cheating on your taxes in this manner was information. Most self-employed one-kid taxpayers simply did not know that the magic number for getting a big fat check from the government was $9,000. But living near others who might—either their neighbors or tax assisters—dramatically increased the odds that they would learn about it.* (p. 189-190).
+
+@stephens2017everybody goes on to examine data such as Wikipedia listings by geographical area, then between-country data on beliefs and concerns about pregnancy.
+
+He stratifies data by time, too, and finds that violence rates go *down,* not up, when violent movies appear.  A closer examination of the data revealed that this was particularly true when the young men who were their audience were likely to be in the theater.
+
+## Nearest neighbor analysis
+
+PECOTA and baseball doppelgangers.
+
+This could, and will, make a difference in the prediciton of health outcomes in the years to come.
+
+# Experiments on us
+
+In Chapter 6, @stephens2017everybody turns to the fourth power of Big Data - rapid controlled experiments that tell us what works and what does not.
+
+## A/B testing
+
+What color is the web, and why? 
+
+Obama campaign and choice of slogan.
+
+*The lesson of A/B testing, to a large degree, is to be wary of general lessons. Clark Benson is the CEO of ranker.com, a news and entertainment site that relies heavily on A/B testing to choose headlines and site design. “At the end of the day, you can’t assume anything,” Benson says. “Test literally everything.”* (p. 216-217)
+
+The web you see on your phones and on your PCs is a web that is experimentally designed to hold your attention as effectively and powerfully as possible. You are not immune to this. (Alter, 2016)
+
+## Natural experiments
+
+The value of Super Bowl ads - although they cost millions, there is a ROI of 2 or 3 to 1 : *we looked at whether when a company advertises a movie in the Super Bowl, they see a big jump in ticket sales in the cities that had higher viewership for the game.* (p. 224)
+
+When government or insurance companies change their compensation rates for certain procedures, those procedures change in frequency. Patients derive little if any added benefit from these.
+
+### Do schools matter?
+
+Effects of prestigious schools is less than it seems...
+
+*“Elite Illusion.” The effects of Stuyvesant High School? Nil. Nada. Zero. Bupkus. Students on either side of the cutoff ended up with indistinguishable AP scores and indistinguishable SAT scores and attended indistinguishably prestigious universities. The entire reason that Stuy students achieve more in life than non-Stuy students, the researchers concluded, is that better students attend Stuyvesant in the first place. Stuy does not cause you to perform better on AP tests, do better on your SATs, or end up at a better college.* (p. 236)
+
+But my analysis of Psych licensing scores.
+
+# Limits of Big data
+
+Remaining chapters of @stephens2017everybody
+
+Begins with a discussion of Larry Summers. Mentions the differential variability hypothesis (see also Dangerous idea paper). Then moves on to the question of whether Big Data can predict the stock market - the answer is no.
+
+## The curse of dimensionality
+
+With many predictors, some will appear effective by chance.  This infects the search for causal and robust relationships, both in scientific hypothesis testing and in everyday life.
+
+## The overemphasis on the measurable
+
+Not just pedometers, but baseball offense as opposed to defense, and ways of thinking in which there are right as opposed to insightful and creative answers. In school, the emphasis on speed rather than thoughfulness.
+
+## Ethical concerns
+
+*Do corporations have the right to judge our fitness for their services based on abstract but statistically predictive criteria not directly related to those services?* (p. 261)
+
+Casinos know that (problem) gamblers have pain points, points at which their losses will be so large that they will be unlikely to come back to the casino.  Casinos will be successful if they can stop gamblers from getting to (rather beyond) this point.
+
+*Scott Gnau, general manager of Terabyte, explains, in the excellent book Super Crunchers, what casino managers do when they see a regular customer nearing their pain point: “They come out and say, ‘I see you’re having a rough day. I know you like our steakhouse. Here, I’d like you to take your wife to dinner on us right now.’ ”* (p. 264)
+
+With more data, more companies will price discriminate, charging not just what the market will bear, but what they can get from us, based upon analysis of 'doppelgangers' or nearest neighbors...
+
+## Individual versus group level predictions
+
+At an individual level, search data may be effectively useless.
+
+## Conclusion: Data and science
+
+*Frankly, the overwhelming majority of academics have ignored the data explosion caused by the digital age. The world’s most famous sex researchers stick with the tried and true...for every idea I have talked about in this book, there are a hundred ideas just as important ready to be tackled.*
+
+*For any disease, we can explore Google search data or other digital health data...we can find if there are any tiny pockets of the world where prevalence of this disease is unusually high or unusually low.*
+
+*We might call this—taking a simple method and utilizing Big Data to perform an analysis several hundred times in a short period of time—science at scale.* 
+
+*A/B testing can be used to uncover things more fundamental—and socially valuable—than an arrow that gets people to click on an ad. Benjamin F. Jones ... has helped create a platform, EDU STAR, which allows for schools to randomly test different lesson plans. ... students log in to a computer and are randomly exposed to different lesson plans. Then they take short tests to see how well they learned the material. Schools, in other words, learn what software works best for helping students grasp material.* (p. 274-276).
+
+
+
 # (PART) Part II Towards data literacy  {-}
 
 # References
