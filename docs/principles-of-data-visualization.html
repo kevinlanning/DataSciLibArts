@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="pretest.html">
+<link rel="prev" href="limits-of-big-data.html">
+<link rel="next" href="references.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -167,17 +167,88 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="setting-up-your-computer" class="section level1">
-<h1><span class="header-section-number">2</span> Setting up your computer</h1>
-<p>Install R and R studio on your own laptop. If you get stuck, reach out to others on Slack; if you don’t get stuck, help your classmates.</p>
+<div id="principles-of-data-visualization" class="section level1">
+<h1><span class="header-section-number">13</span> Principles of data visualization</h1>
+<div id="opening-thoughts" class="section level2">
+<h2><span class="header-section-number">13.1</span> Opening thoughts</h2>
+<p>Graphs aren’t just to inform, but to make you reflect.</p>
+<p>We are concerned not just with the design of graphs, but with our role in society as leaders, as arbiters of facts, as educators. We want to foster data literacy.</p>
+<p>How do people understand graphs? (NY Times series for schools).</p>
+<p>How can you use graphs to tell people the truth in a way that they understand?</p>
+<p>When you see a graph, what do you notice, what do you wonder, and what is the story? Is “story telling” what visualizations should be about?</p>
+<p>A graph might begin with perception and understanding (the consumer), with knowledge and design values (the producer), but it also reflects the truth of the data. How much is each?</p>
+</div>
+<div id="some-early-graphs" class="section level2">
+<h2><span class="header-section-number">13.2</span> Some early graphs</h2>
+<ol style="list-style-type: decimal">
+<li>Early graphs: Visual displays of information reach back to prehistoric times; modern graphs date back, arguably, to Playfair’s 1786 <em>Political Atlas</em> - in which</li>
+</ol>
+<p>*“… spatial dimensions were used to represent nonspatial, quantitative, idiographic, empirical data. Although it now seems natural to represent, for example, rising and falling imports over time as a rising and falling line, it does not seem to have been done before that time and was quite an accomplishment. Notably, in addition to the statistical line chart, Playfair at one fell swoop single-handedly invented most of the remaining forms of the statistical graphic repertoire used today-the bar chart and histogram, the surface chart, and the circle diagram or”pie chart.“*</p>
+<div class="figure">
+<img src="C:\Users\lanning\Dropbox\00%20Current%20teaching\DataScience\DataSciLibArts\images\playfair1786.PNG" alt="playfair1786" />
+<p class="caption">playfair1786</p>
+</div>
+<p>sources: <a href="https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march" class="uri">https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march</a></p>
+<hr />
+<ol start="2" style="list-style-type: decimal">
+<li>The most important early graph is that of Minard. In class, we’ll listen to the 1812 Overture while discussing this.</li>
+</ol>
+<p>“*Czar Alexander of Russia sees that Napoleon was becoming too powerful, so he refuses to participate in this embargo. Angry at Czar Alexander’s decision, Napoleon gathers a massive army of over 400,000 to attack Russia in June of 1812. While Russia’s troops are not as numerous as France’s, Russia has a plan. Russian troops keep retreating as Napoleon’s troops move forward, burning everything they pass, ensuring that the French forces could not take anything from their environment. Eventually the French army follows the Russian army all the way to Moscow during October, suffering major losses from lack of food. By the time Napoleon gets to Moscow, he knows he has to retreat. As winter settles into Europe and the temperature drops, Napoleon’s troops suffer even more losses, returning to France from lack of food, disease, and weather conditions.“*</p>
+<p>(The battle of Borodino, immortalized in Tolstoy’s War and Peace, occurs just before Moscow; the French army loses about 30000. Five cannon shots in the overture mark this. And when Napoleon gets to Moscow, he finds that the Russians had razed it before hand, so that there was nothing there for them. Eleven more cannon here.)</p>
+<div class="figure">
+<img src="C:\Users\lanning\Dropbox\00%20Current%20teaching\DataScience\DataSciLibArts\images\minard1812.PNG" alt="minard1812" />
+<p class="caption">minard1812</p>
+</div>
+<p>also see <a href="https://datavizblog.com/2013/05/30/dataviz-history-charles-minards-flow-map-of-napoleons-russian-campaign-of-1812-polotsk-smolensk-and-on-to-borodino/" class="uri">https://datavizblog.com/2013/05/30/dataviz-history-charles-minards-flow-map-of-napoleons-russian-campaign-of-1812-polotsk-smolensk-and-on-to-borodino/</a></p>
+<hr />
+</div>
+<div id="tukeys-contributions" class="section level2">
+<h2><span class="header-section-number">13.3</span> Tukey’s contributions</h2>
+<p>Tukey and EDA. Begins with Tukey 1962 “Future of Data Analysis,” continues with his ultimate publication of EDA in 1977.</p>
+<p>Tukey decries tallies (prone to error), and shows <strong>stem and leaf displays</strong>, then box plots. argues for transforming data to linearity then examining residuals.</p>
+</div>
+<div id="should-graphs-begin-with-psychology" class="section level2">
+<h2><span class="header-section-number">13.4</span> Should graphs begin with psychology?</h2>
+<p>Wainer and Thissen’s (1981) use of Chernoff’s faces to represent multivariate data. Grounded in a psychological premise. Why does it fail?</p>
+<div class="figure">
+<img src="C:\Users\lanning\Dropbox\00%20Current%20teaching\DataScience\DataSciLibArts\images\Chernoff.PNG" alt="tufteChallenger" />
+<p class="caption">tufteChallenger</p>
+</div>
+<p><em>Population the number of faces/state-The number of faces is proportional to the log of the population.</em> Literacy rate 􀁸 size of the eyes (bigger = higher). % HS graduates 􀁹 slant of the eyes (the more slanted the better). <em>Life expectancy 􀁷 the length of the mouth (the longer the better).</em> Homicide rate 􀀜 the width of the nose (the wider the nose the lower the homicide rate). Income 􀀜 the curvature of the mouth (the bigger the smile the higher the income). Temperature 􀀜 the shape of the face (the more like a peanut the warmer, the more like a football the colder Longitude and latitude 􀅈 The X and Y position of the face on the cooridinate axes of the paper represent the position of the state*</p>
+</div>
+<div id="tufte-first-principles" class="section level2">
+<h2><span class="header-section-number">13.5</span> Tufte: First principles</h2>
+<div class="figure">
+<img src="C:\Users\lanning\Dropbox\00%20Current%20teaching\DataScience\DataSciLibArts\images\tuftequote.PNG" alt="tuftequote" />
+<p class="caption">tuftequote</p>
+</div>
+<div class="figure">
+<img src="C:\Users\lanning\Dropbox\00%20Current%20teaching\DataScience\DataSciLibArts\images\tuftePrinciples2.PNG" alt="tuftePrinciples2" />
+<p class="caption">tuftePrinciples2</p>
+</div>
+<hr />
+<div id="the-challenger-disaster" class="section level3">
+<h3><span class="header-section-number">13.5.1</span> The Challenger disaster</h3>
+<div class="figure">
+<img src="C:\Users\lanning\Dropbox\00%20Current%20teaching\DataScience\DataSciLibArts\images\mortonthiokolChallenger.PNG" alt="tufteChallenger" />
+<p class="caption">tufteChallenger</p>
+</div>
+<hr />
+<div class="figure">
+<img src="C:\Users\lanning\Dropbox\00%20Current%20teaching\DataScience\DataSciLibArts\images\tufteChallenger.PNG" alt="tufteChallenger" />
+<p class="caption">tufteChallenger</p>
+</div>
+<hr />
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="pretest.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="limits-of-big-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
