@@ -493,9 +493,10 @@ A graph might begin with perception and understanding (the consumer), with knowl
 
 *"... spatial dimensions were used to represent nonspatial, quantitative, idiographic, empirical data. Although it now seems natural to represent, for example, rising and falling imports over time as a rising and falling line, it does not seem to have been done before that time and was quite an accomplishment. Notably, in addition to the statistical line chart, Playfair at one fell swoop single-handedly invented most of the remaining forms of the statistical graphic repertoire used today-the bar chart and histogram, the surface chart, and the circle diagram or "pie chart."*
 
-![playfair1786](C:\Users\lanning\Dropbox\00 Current teaching\DataScience\DataSciLibArts\images\playfair1786.PNG)
+![playfair1786](C:\Users\the_l\Dropbox\00 Current teaching\DataScience\DataSciLibArts\images\playfair1786.PNG)
 
 sources: https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march
+
 
 ----
 
@@ -505,7 +506,7 @@ sources: https://robots.thoughtbot.com/analyzing-minards-visualization-of-napole
 
 (The battle of Borodino, immortalized in Tolstoy's War and Peace, occurs just before Moscow; the French army loses about 30000. Five cannon shots in the overture mark this. And when Napoleon gets to Moscow, he finds that the Russians had razed it before hand, so that there was nothing there for them.  Eleven more cannon here.)
 
-![minard1812](C:\Users\lanning\Dropbox\00 Current teaching\DataScience\DataSciLibArts\images\minard1812.PNG)
+![minard1812](C:\Users\the_l\Dropbox\00 Current teaching\DataScience\DataSciLibArts\images\minard1812.PNG)
 
 also see  https://datavizblog.com/2013/05/30/dataviz-history-charles-minards-flow-map-of-napoleons-russian-campaign-of-1812-polotsk-smolensk-and-on-to-borodino/
 
@@ -521,29 +522,26 @@ Tukey decries tallies (prone to error), and shows **stem and leaf displays**, th
 
 Wainer and Thissen's (1981) use of Chernoff's faces to represent multivariate data. Grounded in a psychological premise. Why does it fail?
 
-![tufteChallenger](C:\Users\lanning\Dropbox\00 Current teaching\DataScience\DataSciLibArts\images\Chernoff.PNG)
+![tufteChallenger](C:\Users\the_l\Dropbox\00 Current teaching\DataScience\DataSciLibArts\images\Chernoff.PNG)
 
 *Population the number of faces/state-The number of faces is proportional to the log of the population.* Literacy rate 􀁸 size of the eyes (bigger = higher). % HS graduates 􀁹 slant of the eyes (the more slanted the better). *Life expectancy 􀁷 the length of the mouth (the longer the better).* Homicide rate 􀀜 the width of the nose (the wider the nose the lower the homicide rate). Income 􀀜 the curvature of the mouth (the bigger the smile the higher the income). Temperature 􀀜 the shape of the face (the more like a peanut the warmer, the more like a football the colder Longitude and latitude 􀅈 The X and Y position of the face on the cooridinate axes of the paper represent the position of the state*
 
 ## Tufte: First principles
 
+![tuftequote](C:\Users\the_l\Dropbox\00 Current teaching\DataScience\DataSciLibArts\images\tuftequote.PNG)
 
 
-![tuftequote](C:\Users\lanning\Dropbox\00 Current teaching\DataScience\DataSciLibArts\images\tuftequote.PNG)
-
-
-
-![tuftePrinciples2](C:\Users\lanning\Dropbox\00 Current teaching\DataScience\DataSciLibArts\images\tuftePrinciples2.PNG)
+![tuftePrinciples2](C:\Users\the_l\Dropbox\00 Current teaching\DataScience\DataSciLibArts\images\tuftePrinciples2.PNG)
 
 ---
 
 ### The Challenger disaster 
 
-![tufteChallenger](C:\Users\lanning\Dropbox\00 Current teaching\DataScience\DataSciLibArts\images\mortonthiokolChallenger.PNG)
+![tufteChallenger](C:\Users\the_l\Dropbox\00 Current teaching\DataScience\DataSciLibArts\images\mortonthiokolChallenger.PNG)
 
 ---
 
-![tufteChallenger](C:\Users\lanning\Dropbox\00 Current teaching\DataScience\DataSciLibArts\images\tufteChallenger.PNG)
+![tufteChallenger](C:\Users\the_l\Dropbox\00 Current teaching\DataScience\DataSciLibArts\images\tufteChallenger.PNG)
 
 ----
 
