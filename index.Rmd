@@ -31,7 +31,7 @@ This work-in-progress includes the notes for [*_Introduction to Data Science_*](
 
 # Data science for the liberal arts
 
-Hochster (in @hicks2017guide) describes two broad types of data scientists: Type A (Analysis) data scientists, whose skills are like those of an applied **statistician**, and Type B (Building) data scientists, whose skills lie in problem solving or coding, using the skills of the **computer scientist**.  Hochster's view of data science arguably omits a critical component of the field.  Data science is driven not just by statistics and computer science, but also by "domain expertise:"
+Hochster, in @hicks2017guide, describes two broad types of data scientists: Type A (Analysis) data scientists, whose skills are like those of an applied **statistician**, and Type B (Building) data scientists, whose skills lie in problem solving or coding, using the skills of the **computer scientist**.  Hochster's view of data science arguably omits a critical component of the field.  Data science is driven not just by statistics and computer science, but also by "domain expertise:"
 
 <img src = "https://4.bp.blogspot.com/-0cbXveb1J_0/V-FtjJZ4rqI/AAAAAAAAMHM/bS32Pio2a1IFOyp5T86S0jiyB-3KAN1iwCEw/s1600/download%2B%25281%2529.png" width = "300px" />
 
@@ -99,7 +99,7 @@ Interestingly, there would be an unusual incentive for students on this 'pretest
 
 # Some basic tools: Slack, Markdown, Google Docs
 
-On Markdown, see ([@freeman2017informatics, Chapter 3)](https://info201.github.io/markdown.html). Some Markdown editors include Typora, Atom, and Ghostwriter.
+On Markdown, see @freeman2017informatics, Chapter 3). Some Markdown editors include Typora, Atom, and Ghostwriter.
 
 R markdown is a 'flavor' of - wait for it - markdown. For beginning with R markdown, consider [Carmichael (2017) Getting started](https://idc9.github.io/stor390/notes/getting_started/getting_started.html) as well as the first chapter of @wickham2016r. 
 
@@ -117,7 +117,7 @@ We'll be talking about the challenge of version control throughout this text - a
 
 # An introduction to R
 
-R is a system for reproducible science (and reproducibility is essential [@baumer2014r]). R is a system for Representing data in cool, insight-facilitating ways. R is really popular, and really growing. Learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.
+R is a system for reproducible science, and reproducibility is essential [@baumer2014r]. R is a system for Representing data in cool, insight-facilitating ways. R is really popular, and really growing. Learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.
 
 ### One does not 'learn R'
 
@@ -134,7 +134,7 @@ R might stand for *relatively high level.* Programming languages can be describe
 R stands, in part, for *resources.* There are many resources, including, for example - 
 
 - Online resources include the simple (and less simple) lessons of [SwirlR](http://swirlstats.com/), which offers the possibility of "learning R in R," as well as [DataCamp](https://www.datacamp.com/home), the [Data Science Certificate Program at Johns Hopkins,](https://www.coursera.org/specializations/jhu-data-science) and other MOOCs.  
-- Books include [@peng2015r] - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and [@wickham2016r].
+- Books include @peng2015r - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and @wickham2016r.
 - You'll also learn (more directly) from people, including your classmates, as well as the broader community of people around the world. There are hundreds if not thousands of people, young and old, who are on the road with you. As I am, just a step or two (hopefully) ahead.
 
 ### On R Studio and commercial vs. open software
@@ -153,11 +153,11 @@ Until, that is, they are hacked.
 
 Who should be the guardians of the net linking cars?  Should this be closed (with Ford having it's own safeguards), or public?
 
-### Some features of R (from [@peng2015r]).
+### A few characteristics of R
 
-R includes the base plus thousands of **packages**. These packages are customised add-ons which simplify certain tasks, such as text analysis.  But there are at least [40 different packages for this]() - where do you begin?  The most recent answer, and where we will start, is the curated list of packages which jointly comprise the tidyverse.
+R includes the base plus thousands of **packages**. These packages are customized add-ons which simplify certain tasks, such as text analysis.  But there are at least [40 different packages for this]() - where do you begin?  The most recent answer, and where we will start, is the curated list of packages which jointly comprise the tidyverse [@wickham2016r].
 
-Peng speculated that "it would be straightforward to build an R package for ordering pizza." Does one exist now?
+@peng2015r speculated that "it would be straightforward to build an R package for ordering pizza." Does one exist now?
 
 R is an object-oriented language. At an atomic level, these include *characters, real numbers, integers, complex numbers, and logical.* These atoms are combined into vectors, which (unless they are lists) include objects of the same type [@peng2015r].  Missing values may be characterized by NA (not available) or NaN (not a number, implying an undefined or  impossible value). Attributes of R include such things as name, dimensions (for vectors and arrays), class (that's the atomic thing), length, etc. Vectors can be combined into a **data frame** (or, in a simplified form, a *tibble*), which greatly facilitates statistical analysis.
 
@@ -199,7 +199,7 @@ This is really clever in several ways. First, the question. As a social scientis
 
 This is arguably a little weak, in that it is indirect.
 
-*It was suggested in a paper by two economists, Roland Fryer and Steven Levitt, that a black person’s first name is an indication of his socioeconomic background. Fryer and Levitt studied birth certificates in California in the 1980s and found that, among African-Americans, poor, uneducated, and single moms tend to give their kids different names than do middle-class, educated, and married parents.* ... California-born NBA players were half as likely to have unique names as the average black male, a statistically significant difference.*
+*It was suggested in a paper by two economists, Roland Fryer and Steven Levitt, that a black person’s first name is an indication of his socioeconomic background. Fryer and Levitt studied birth certificates in California in the 1980s and found that, among African-Americans, poor, uneducated, and single moms tend to give their kids different names than do middle-class, educated, and married parents...California-born NBA players were half as likely to have unique names as the average black male, a statistically significant difference.*
 
 #### Applying decision analysis : Looking at both types of 'errors'
 
@@ -210,6 +210,8 @@ This is arguably a little weak, in that it is indirect.
 *In fact, Jordan’s life is filled with stories of his family guiding him away from the traps that a great, competitive talent can fall into. After Jordan was kicked out of school, his mother responded by taking him with her to work. He was not allowed to leave the car and instead had to sit there in the parking lot reading books. After he was drafted by the Chicago Bulls, his parents and siblings took turns visiting him to make sure he avoided the temptations that come with fame and money. Jordan’s career did not end like Wrenn’s, with a little-read quote in the Seattle Times. It ended with a speech upon induction into the Basketball Hall of Fame that was watched by millions of people. In his speech, Jordan said he tried to stay “focused on the good things about life—you know how people perceive you, how you respect them . . . how you are perceived publicly. Take a pause and think about the things that you do. And that all came from my parents.” The data tells us Jordan is absolutely right to thank his middle-class, married parents. The data tells us that in worse-off families, in worse-off communities, there are NBA-level talents who are not in the NBA. These men had the genes, had the ambition, but never developed the temperament to become basketball superstars. And no—whatever we might intuit—being in circumstances so desperate that basketball seems “a matter of life or death” does not help. Stories like that of Doug Wrenn can help illustrate this. And data proves it.*
 
 **The hit (poor/NBA)** *In June 2013, **LeBron James** was interviewed on television after winning his second NBA championship. (He has since won a third.) “I’m LeBron James,” he announced. “From Akron, Ohio. From the inner city. I am not even supposed to be here.” Twitter and other social networks erupted with criticism. How could such a supremely gifted person, identified from an absurdly young age as the future of basketball, claim to be an underdog? In fact, anyone from a difficult environment, no matter his athletic prowess, has the odds stacked against him. James’s accomplishments, in other words, are even more exceptional than they appear to be at first. Data proves that, too.*
+
+**The correct rejection (privileged/no NBA)** @stephens2017everybody is, perhaps, too polite to say this, but this would be me.  :)
 
 #### The power of brute force facts: The effect of height
 
@@ -283,7 +285,7 @@ Price = 12.145 + 0.00117 winter rainfall + 0.0614 average growing season tempera
 
 Analyses of Google searches can reveal the flu and, perhaps, the unemployment rate. (which is correlated with searches for porn sites and solitaire). Google searches return an ordered list of sites based on a modified Page Rank algorithm, which is a measure of network centrality. Page Rank is what made Google better than early search engines such as Alta Vista.
 
-Google as a datasource (<https://medium.com/>@pewresearch/using-google-trends-data-for-research-here-are-6-questions-to-ask-a7097f5fb526). Includes Google Trends, Google Correlate, and Google books (https://books.google.com/ngrams).
+Google as a datasource [(<https://medium.com/>@pewresearch/using-google-trends-data-for-research-here-are-6-questions-to-ask-a7097f5fb526]()). Includes Google Trends, Google Correlate, and Google books (https://books.google.com/ngrams).
 
 > Google correlate (I tried this but it is finicky / weeks must begin on a sunday - enter a time series, see what correlates with it.) *Data challenge: Find an interesting time series, use google correlate to find something that it is associated with* 
 
@@ -293,7 +295,7 @@ Differences between liberals and conservatives, men and women, the old and young
 
 There are two lessons here, the specific one about how the image of the US changed more slowly than believed, the other, more general one is that disciplines outside of the sciences are also increasingly informed by the new empiricism. This is true not just for history but also for literature; sentiment analysis can be applied to reveal the structure of stories. (And analyses of Kindle data can reveal just where people stop reading.  I'm not sure if contemporary literature is auto-tuned to this, but it is just a matter of time.)
 
-[note Gentzkow and Shapiro study of 2005 congressional record]
+**[note Gentzkow and Shapiro study of 2005 congressional record]**
 
 ## Pictures as data
 
@@ -353,7 +355,7 @@ And Facebook data is, in some respects, just the opposite of this, presenting an
 
 ![Internet_dog](C:\Users\the_l\Dropbox\00 Current teaching\dataScience\DataSciLibArts\images\Internet_dog.jpg) d
 
-@stephens2017everybody illustrates some of the ways in which our social media selves are distorted - we read the *Atlantic* rather than the *National Enquirer* for example. Facebook is, he writes "*digital brag-to-my-friends-about-how-good-my-life-is serum.* (p. 152).
+@stephens2017everybody illustrates some of the ways in which our social media selves are distorted - we read the *Atlantic* rather than the *National Enquirer* for example. Facebook is, he writes "*digital brag-to-my-friends-about-how-good-my-life-is serum*" (p. 152).
 
 Spending time on social media is associated with depressed mood.
 
@@ -401,7 +403,7 @@ This could, and will, make a difference in the prediciton of health outcomes in 
 
 # Experiments on us
 
-In Chapter 6, @stephens2017everybody turns to the fourth power of Big Data - rapid controlled experiments that tell us what works and what does not.
+In Chapter 6, @stephens2017everybody turns to the fourth power of Big Data - rapid controlled experiments which tell us what works and what does not.
 
 ## A/B testing
 
@@ -411,7 +413,7 @@ Obama campaign and choice of slogan.
 
 *The lesson of A/B testing, to a large degree, is to be wary of general lessons. Clark Benson is the CEO of ranker.com, a news and entertainment site that relies heavily on A/B testing to choose headlines and site design. “At the end of the day, you can’t assume anything,” Benson says. “Test literally everything.”* (p. 216-217)
 
-The web you see on your phones and on your PCs is a web that is experimentally designed to hold your attention as effectively and powerfully as possible. You are not immune to this. (Alter, 2016)
+The web you see on your phones and on your PCs is a web that is experimentally designed to hold your attention as effectively and powerfully as possible. You are not immune to this [@alter2017irresistible].
 
 ## Natural experiments
 
@@ -423,7 +425,7 @@ When government or insurance companies change their compensation rates for certa
 
 Effects of prestigious schools is less than it seems...
 
-*“Elite Illusion.” The effects of Stuyvesant High School? Nil. Nada. Zero. Bupkus. Students on either side of the cutoff ended up with indistinguishable AP scores and indistinguishable SAT scores and attended indistinguishably prestigious universities. The entire reason that Stuy students achieve more in life than non-Stuy students, the researchers concluded, is that better students attend Stuyvesant in the first place. Stuy does not cause you to perform better on AP tests, do better on your SATs, or end up at a better college.* (p. 236)
+“Elite Illusion.” The effects of Stuyvesant High School? Nil. Nada. Zero. Bupkus. Students on either side of the cutoff ended up with indistinguishable AP scores and indistinguishable SAT scores and attended indistinguishably prestigious universities. The entire reason that Stuy students achieve more in life than non-Stuy students, the researchers concluded, is that better students attend Stuyvesant in the first place. Stuy does not cause you to perform better on AP tests, do better on your SATs, or end up at a better college.* (p. 236)
 
 But my analysis of Psych licensing scores.
 
@@ -465,6 +467,8 @@ At an individual level, search data may be effectively useless.
 
 *A/B testing can be used to uncover things more fundamental—and socially valuable—than an arrow that gets people to click on an ad. Benjamin F. Jones ... has helped create a platform, EDU STAR, which allows for schools to randomly test different lesson plans. ... students log in to a computer and are randomly exposed to different lesson plans. Then they take short tests to see how well they learned the material. Schools, in other words, learn what software works best for helping students grasp material.* (p. 274-276).
 
+ 
+
 
 
 # (PART) Part II Towards data literacy  {-}
@@ -489,64 +493,99 @@ A graph might begin with perception and understanding (the consumer), with knowl
 
 ## Some early graphs
 
-1) Early graphs: Visual displays of information reach back to prehistoric times; modern graphs date back, arguably, to Playfair's 1786 *Political Atlas* - in which  
+Visual displays of information reach back to prehistoric times; modern graphs date back, arguably, to Playfair's 1786 *Political Atlas* - in which  
 
 *"... spatial dimensions were used to represent nonspatial, quantitative, idiographic, empirical data. Although it now seems natural to represent, for example, rising and falling imports over time as a rising and falling line, it does not seem to have been done before that time and was quite an accomplishment. Notably, in addition to the statistical line chart, Playfair at one fell swoop single-handedly invented most of the remaining forms of the statistical graphic repertoire used today-the bar chart and histogram, the surface chart, and the circle diagram or "pie chart."*
 
 ![playfair1786](C:\Users\the_l\Dropbox\00 Current teaching\dataScience\DataSciLibArts\images\playfair1786.png)
 
-sources: https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march
-
+[source](https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march)
 
 ----
 
-2) The most important early graph is that of Minard. In class, we'll listen to the 1812 Overture while discussing this.
+2) The most important early graph is that of Minard. In class, we listened to the 1812 Overture while discussing this. Here's some background:
 
 "*Czar Alexander of Russia sees that Napoleon was becoming too powerful, so he refuses to participate in this embargo. Angry at Czar Alexander’s decision, Napoleon gathers a massive army of over 400,000 to attack Russia in June of 1812. While Russia’s troops are not as numerous as France’s, Russia has a plan. Russian troops keep retreating as Napoleon’s troops move forward, burning everything they pass, ensuring that the French forces could not take anything from their environment. Eventually the French army follows the Russian army all the way to Moscow during October, suffering major losses from lack of food. By the time Napoleon gets to Moscow, he knows he has to retreat. As winter settles into Europe and the temperature drops, Napoleon’s troops suffer even more losses, returning to France from lack of food, disease, and weather conditions."*
 
-(The battle of Borodino, immortalized in Tolstoy's War and Peace, occurs just before Moscow; the French army loses about 30000. Five cannon shots in the overture mark this. And when Napoleon gets to Moscow, he finds that the Russians had razed it before hand, so that there was nothing there for them.  Eleven more cannon here.)
+(The battle of Borodino, immortalized in Tolstoy's War and Peace, occurs just before Moscow; the French army loses about 30000 men. Five cannon shots in the overture mark this. And when Napoleon gets to Moscow, he finds that the Russians had razed it before hand, so that there was nothing there for them.  Eleven more cannon here.)
+
+
 
 ![minard1812](C:\Users\the_l\Dropbox\00 Current teaching\dataScience\DataSciLibArts\images\minard1812.png)
 
-also see  https://datavizblog.com/2013/05/30/dataviz-history-charles-minards-flow-map-of-napoleons-russian-campaign-of-1812-polotsk-smolensk-and-on-to-borodino/
+[source](https://datavizblog.com/2013/05/30/dataviz-history-charles-minards-flow-map-of-napoleons-russian-campaign-of-1812-polotsk-smolensk-and-on-to-borodino/) 
 
 ------
 
 ## Tukey's contributions
 
-Tukey and EDA. Begins with Tukey 1962 "Future of Data Analysis," continues with his ultimate publication of EDA in 1977. 
+Tukey and Exploratory Data Analysis (EDA). Begins with Tukey 1962 "Future of Data Analysis," continues with his ultimate publication of EDA in 1977. 
 
-Tukey decries tallies (prone to error), and shows **stem and leaf displays**, then box plots. argues for transforming data to linearity then examining residuals.
+Tukey decries tallies (prone to error), and shows **stem and leaf displays**, then box plots. He argues for transforming data to linearity to uncover meaningful relationships, then to examine residuals to look more closely.
 
-## Should graphs begin with psychology?
+## Approaches to graphs
 
-Wainer and Thissen's (1981) use of Chernoff's faces to represent multivariate data. Grounded in a psychological premise. Why does it fail?
+A graph might begin with perception and understanding (the consumer), with knowledge and design values (the producer), but it also reflects the truth of the data. How much is each?
 
-![tufteChallenger](C:\Users\the_l\Dropbox\00 Current teaching\dataScience\DataSciLibArts\images\Chernoff.png)
-
-*Population the number of faces/state-The number of faces is proportional to the log of the population.* Literacy rate 􀁸 size of the eyes (bigger = higher). % HS graduates 􀁹 slant of the eyes (the more slanted the better). *Life expectancy 􀁷 the length of the mouth (the longer the better).* Homicide rate 􀀜 the width of the nose (the wider the nose the lower the homicide rate). Income 􀀜 the curvature of the mouth (the bigger the smile the higher the income). Temperature 􀀜 the shape of the face (the more like a peanut the warmer, the more like a football the colder Longitude and latitude 􀅈 The X and Y position of the face on the cooridinate axes of the paper represent the position of the state *
+In thinking about how to design graphs, we can begin with abstract theory, with principles of design informed by our understanding of perception, or with empirical analyses of understanding and memory. 
 
 ## Tufte: First principles
 
-![tuftequote](C:\Users\the_l\Dropbox\00 Current teaching\dataScience\DataSciLibArts\images\tuftequote.png)
+@tufte2001visual describes **Graphical Excellence**. Graphs should, among other things, "Induce the viewer to think about the substance, rather than about methodology, graphic design, the technology of graphic productions, or something else." Graphs should "Present many numbers in a small space, make large data sets coherent, and encourage the eye to compare different pieces of data."  Graphs should "serve a reasonably clear purpose: description, exploration, tabulation, or decoration [and] be closely integrated with the statistical and verbal descriptions of a data set.""
+
+Tufte concludes with the following Principles of Graphical Excellence, which I quote verbatim:
+***Graphical excellence is the well-designed presentation of interesting data—a***
+***matter of substance, of statistics, and of design.***
+***Graphical excellence consists of complex ideas communicated with clarity,***
+***precision and efficiency.***
+***Graphical excellence is that which gives to the viewer the greatest number of***
+***ideas in the shortest time with the least ink in the smallest space.***
+***Graphical excellence is nearly always multivariate.***
+***And graphical excellence requires telling the truth.*** 
 
 
-![tuftePrinciples2](C:\Users\the_l\Dropbox\00 Current teaching\dataScience\DataSciLibArts\images\tuftePrinciples2.png)
+
+**![tuftequote](C:\Users\the_l\Dropbox\00 Current teaching\dataScience\DataSciLibArts\images\tuftequote.png)
+
+
+
 
 ---
 
-### The Challenger disaster 
+### An illustration of the cost of bad graphs: The Challenger disaster 
 
 ![tufteChallenger](C:\Users\the_l\Dropbox\00 Current teaching\dataScience\DataSciLibArts\images\mortonthiokolChallenger.png)
 
 ---
-C:\Users\the_l\Dropbox\00 Current teaching\dataScience\DataSciLibArts\images\campanile.jpg
+
 
 ![tufteChallenger](C:\Users\the_l\Dropbox\00 Current teaching\dataScience\DataSciLibArts\images\tufteChallenger.png)
 
 ----
 
+## Should graphs begin with psychology?
 
+@wainer1981graphical used Chernoff's faces to represent multivariate data. Grounded in a psychological premise. Did they succeed? Why or why not?
+
+![tufteChallenger](C:\Users\the_l\Dropbox\00 Current teaching\dataScience\DataSciLibArts\images\Chernoff.png)
+
+Population - the (log) number of faces/state
+
+Literacy rate - size of the eyes (bigger = higher). 
+
+% HS graduates - slant of the eyes (the more slanted = higher). 
+
+Life expectancy - the length of the mouth (the longer = longer).
+
+Homicide rate - the width of the nose (the wider the nose the lower). 
+
+Income - the curvature of the mouth (the bigger the smile the higher the income). 
+
+Temperature - the shape of the face (peanut= warmer, football= colder) 
+
+Longitude and latitude - The X and Y position of the face on the coordinate axes of the paper represent the position of the state 
+
+## 
 
 # References
 

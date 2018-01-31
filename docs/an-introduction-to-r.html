@@ -25,7 +25,7 @@
 <meta name="author" content="Kevin Lanning">
 
 
-<meta name="date" content="2018-01-30">
+<meta name="date" content="2018-01-31">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -84,7 +84,7 @@
 <li class="chapter" data-level="5.0.1" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#one-does-not-learn-r"><i class="fa fa-check"></i><b>5.0.1</b> One does not ‘learn R’</a></li>
 <li class="chapter" data-level="5.0.2" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#what-r-stands-for"><i class="fa fa-check"></i><b>5.0.2</b> What R stands for</a></li>
 <li class="chapter" data-level="5.0.3" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#on-r-studio-and-commercial-vs.open-software"><i class="fa fa-check"></i><b>5.0.3</b> On R Studio and commercial vs. open software</a></li>
-<li class="chapter" data-level="5.0.4" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#some-features-of-r-from-peng2015r."><i class="fa fa-check"></i><b>5.0.4</b> Some features of R (from <span class="citation">(Peng <a href="#ref-peng2015r">2015</a>)</span>).</a></li>
+<li class="chapter" data-level="5.0.4" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#a-few-characteristics-of-r"><i class="fa fa-check"></i><b>5.0.4</b> A few characteristics of R</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="finding-help.html"><a href="finding-help.html"><i class="fa fa-check"></i><b>6</b> Finding help</a></li>
 <li class="chapter" data-level="7" data-path="empiricism-intuition.html"><a href="empiricism-intuition.html"><i class="fa fa-check"></i><b>7</b> Empiricism &gt; intuition</a><ul>
@@ -141,10 +141,12 @@
 <li class="chapter" data-level="13.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#opening-thoughts"><i class="fa fa-check"></i><b>13.1</b> Opening thoughts</a></li>
 <li class="chapter" data-level="13.2" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#some-early-graphs"><i class="fa fa-check"></i><b>13.2</b> Some early graphs</a></li>
 <li class="chapter" data-level="13.3" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#tukeys-contributions"><i class="fa fa-check"></i><b>13.3</b> Tukey’s contributions</a></li>
-<li class="chapter" data-level="13.4" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#should-graphs-begin-with-psychology"><i class="fa fa-check"></i><b>13.4</b> Should graphs begin with psychology?</a></li>
+<li class="chapter" data-level="13.4" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#approaches-to-graphs"><i class="fa fa-check"></i><b>13.4</b> Approaches to graphs</a></li>
 <li class="chapter" data-level="13.5" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#tufte-first-principles"><i class="fa fa-check"></i><b>13.5</b> Tufte: First principles</a><ul>
-<li class="chapter" data-level="13.5.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#the-challenger-disaster"><i class="fa fa-check"></i><b>13.5.1</b> The Challenger disaster</a></li>
+<li class="chapter" data-level="13.5.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#an-illustration-of-the-cost-of-bad-graphs-the-challenger-disaster"><i class="fa fa-check"></i><b>13.5.1</b> An illustration of the cost of bad graphs: The Challenger disaster</a></li>
 </ul></li>
+<li class="chapter" data-level="13.6" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#should-graphs-begin-with-psychology"><i class="fa fa-check"></i><b>13.6</b> Should graphs begin with psychology?</a></li>
+<li class="chapter" data-level="13.7" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#section"><i class="fa fa-check"></i><b>13.7</b> </a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>14</b> References</a></li>
 <li class="divider"></li>
@@ -169,7 +171,7 @@
             <section class="normal" id="section-">
 <div id="an-introduction-to-r" class="section level1">
 <h1><span class="header-section-number">5</span> An introduction to R</h1>
-<p>R is a system for reproducible science (and reproducibility is essential <span class="citation">(Baumer et al. <a href="#ref-baumer2014r">2014</a>)</span>). R is a system for Representing data in cool, insight-facilitating ways. R is really popular, and really growing. Learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.</p>
+<p>R is a system for reproducible science, and reproducibility is essential <span class="citation">(Baumer et al. <a href="#ref-baumer2014r">2014</a>)</span>. R is a system for Representing data in cool, insight-facilitating ways. R is really popular, and really growing. Learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.</p>
 <div id="one-does-not-learn-r" class="section level3">
 <h3><span class="header-section-number">5.0.1</span> One does not ‘learn R’</h3>
 <p>Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one masters and then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn.</p>
@@ -183,7 +185,7 @@
 <ul>
 <li>Online resources include the simple (and less simple) lessons of <a href="http://swirlstats.com/">SwirlR</a>, which offers the possibility of “learning R in R,” as well as <a href="https://www.datacamp.com/home">DataCamp</a>, the <a href="https://www.coursera.org/specializations/jhu-data-science">Data Science Certificate Program at Johns Hopkins,</a> and other MOOCs.<br />
 </li>
-<li>Books include <span class="citation">(Peng <a href="#ref-peng2015r">2015</a>)</span> - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and <span class="citation">(Wickham and Grolemund <a href="#ref-wickham2016r">2016</a>)</span>.</li>
+<li>Books include <span class="citation">Peng (<a href="#ref-peng2015r">2015</a>)</span> - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and <span class="citation">Wickham and Grolemund (<a href="#ref-wickham2016r">2016</a>)</span>.</li>
 <li>You’ll also learn (more directly) from people, including your classmates, as well as the broader community of people around the world. There are hundreds if not thousands of people, young and old, who are on the road with you. As I am, just a step or two (hopefully) ahead.</li>
 </ul>
 </div>
@@ -199,10 +201,10 @@
 <p>Who should be the guardians of the net linking cars? Should this be closed (with Ford having it’s own safeguards), or public?</p>
 </div>
 </div>
-<div id="some-features-of-r-from-peng2015r." class="section level3">
-<h3><span class="header-section-number">5.0.4</span> Some features of R (from <span class="citation">(Peng <a href="#ref-peng2015r">2015</a>)</span>).</h3>
-<p>R includes the base plus thousands of <strong>packages</strong>. These packages are customised add-ons which simplify certain tasks, such as text analysis. But there are at least <a href="">40 different packages for this</a> - where do you begin? The most recent answer, and where we will start, is the curated list of packages which jointly comprise the tidyverse.</p>
-<p>Peng speculated that “it would be straightforward to build an R package for ordering pizza.” Does one exist now?</p>
+<div id="a-few-characteristics-of-r" class="section level3">
+<h3><span class="header-section-number">5.0.4</span> A few characteristics of R</h3>
+<p>R includes the base plus thousands of <strong>packages</strong>. These packages are customized add-ons which simplify certain tasks, such as text analysis. But there are at least <a href="">40 different packages for this</a> - where do you begin? The most recent answer, and where we will start, is the curated list of packages which jointly comprise the tidyverse <span class="citation">(Wickham and Grolemund <a href="#ref-wickham2016r">2016</a>)</span>.</p>
+<p><span class="citation">Peng (<a href="#ref-peng2015r">2015</a>)</span> speculated that “it would be straightforward to build an R package for ordering pizza.” Does one exist now?</p>
 <p>R is an object-oriented language. At an atomic level, these include <em>characters, real numbers, integers, complex numbers, and logical.</em> These atoms are combined into vectors, which (unless they are lists) include objects of the same type <span class="citation">(Peng <a href="#ref-peng2015r">2015</a>)</span>. Missing values may be characterized by NA (not available) or NaN (not a number, implying an undefined or impossible value). Attributes of R include such things as name, dimensions (for vectors and arrays), class (that’s the atomic thing), length, etc. Vectors can be combined into a <strong>data frame</strong> (or, in a simplified form, a <em>tibble</em>), which greatly facilitates statistical analysis.</p>
 </div>
 </div>

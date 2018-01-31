@@ -25,7 +25,7 @@
 <meta name="author" content="Kevin Lanning">
 
 
-<meta name="date" content="2018-01-30">
+<meta name="date" content="2018-01-31">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -84,7 +84,7 @@
 <li class="chapter" data-level="5.0.1" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#one-does-not-learn-r"><i class="fa fa-check"></i><b>5.0.1</b> One does not ‘learn R’</a></li>
 <li class="chapter" data-level="5.0.2" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#what-r-stands-for"><i class="fa fa-check"></i><b>5.0.2</b> What R stands for</a></li>
 <li class="chapter" data-level="5.0.3" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#on-r-studio-and-commercial-vs.open-software"><i class="fa fa-check"></i><b>5.0.3</b> On R Studio and commercial vs. open software</a></li>
-<li class="chapter" data-level="5.0.4" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#some-features-of-r-from-peng2015r."><i class="fa fa-check"></i><b>5.0.4</b> Some features of R (from <span class="citation">(Peng <a href="#ref-peng2015r">2015</a>)</span>).</a></li>
+<li class="chapter" data-level="5.0.4" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#a-few-characteristics-of-r"><i class="fa fa-check"></i><b>5.0.4</b> A few characteristics of R</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="finding-help.html"><a href="finding-help.html"><i class="fa fa-check"></i><b>6</b> Finding help</a></li>
 <li class="chapter" data-level="7" data-path="empiricism-intuition.html"><a href="empiricism-intuition.html"><i class="fa fa-check"></i><b>7</b> Empiricism &gt; intuition</a><ul>
@@ -141,10 +141,12 @@
 <li class="chapter" data-level="13.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#opening-thoughts"><i class="fa fa-check"></i><b>13.1</b> Opening thoughts</a></li>
 <li class="chapter" data-level="13.2" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#some-early-graphs"><i class="fa fa-check"></i><b>13.2</b> Some early graphs</a></li>
 <li class="chapter" data-level="13.3" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#tukeys-contributions"><i class="fa fa-check"></i><b>13.3</b> Tukey’s contributions</a></li>
-<li class="chapter" data-level="13.4" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#should-graphs-begin-with-psychology"><i class="fa fa-check"></i><b>13.4</b> Should graphs begin with psychology?</a></li>
+<li class="chapter" data-level="13.4" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#approaches-to-graphs"><i class="fa fa-check"></i><b>13.4</b> Approaches to graphs</a></li>
 <li class="chapter" data-level="13.5" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#tufte-first-principles"><i class="fa fa-check"></i><b>13.5</b> Tufte: First principles</a><ul>
-<li class="chapter" data-level="13.5.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#the-challenger-disaster"><i class="fa fa-check"></i><b>13.5.1</b> The Challenger disaster</a></li>
+<li class="chapter" data-level="13.5.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#an-illustration-of-the-cost-of-bad-graphs-the-challenger-disaster"><i class="fa fa-check"></i><b>13.5.1</b> An illustration of the cost of bad graphs: The Challenger disaster</a></li>
 </ul></li>
+<li class="chapter" data-level="13.6" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#should-graphs-begin-with-psychology"><i class="fa fa-check"></i><b>13.6</b> Should graphs begin with psychology?</a></li>
+<li class="chapter" data-level="13.7" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#section"><i class="fa fa-check"></i><b>13.7</b> </a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>14</b> References</a></li>
 <li class="divider"></li>
@@ -180,73 +182,91 @@
 </div>
 <div id="some-early-graphs" class="section level2">
 <h2><span class="header-section-number">13.2</span> Some early graphs</h2>
-<ol style="list-style-type: decimal">
-<li>Early graphs: Visual displays of information reach back to prehistoric times; modern graphs date back, arguably, to Playfair’s 1786 <em>Political Atlas</em> - in which</li>
-</ol>
+<p>Visual displays of information reach back to prehistoric times; modern graphs date back, arguably, to Playfair’s 1786 <em>Political Atlas</em> - in which</p>
 <p>*“… spatial dimensions were used to represent nonspatial, quantitative, idiographic, empirical data. Although it now seems natural to represent, for example, rising and falling imports over time as a rising and falling line, it does not seem to have been done before that time and was quite an accomplishment. Notably, in addition to the statistical line chart, Playfair at one fell swoop single-handedly invented most of the remaining forms of the statistical graphic repertoire used today-the bar chart and histogram, the surface chart, and the circle diagram or”pie chart.“*</p>
 <div class="figure">
 <img src="images/playfair1786.png" alt="playfair1786" />
 <p class="caption">playfair1786</p>
 </div>
-<p>sources: <a href="https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march" class="uri">https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march</a></p>
+<p><a href="https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march">source</a></p>
 <hr />
 <ol start="2" style="list-style-type: decimal">
-<li>The most important early graph is that of Minard. In class, we’ll listen to the 1812 Overture while discussing this.</li>
+<li>The most important early graph is that of Minard. In class, we listened to the 1812 Overture while discussing this. Here’s some background:</li>
 </ol>
 <p>“*Czar Alexander of Russia sees that Napoleon was becoming too powerful, so he refuses to participate in this embargo. Angry at Czar Alexander’s decision, Napoleon gathers a massive army of over 400,000 to attack Russia in June of 1812. While Russia’s troops are not as numerous as France’s, Russia has a plan. Russian troops keep retreating as Napoleon’s troops move forward, burning everything they pass, ensuring that the French forces could not take anything from their environment. Eventually the French army follows the Russian army all the way to Moscow during October, suffering major losses from lack of food. By the time Napoleon gets to Moscow, he knows he has to retreat. As winter settles into Europe and the temperature drops, Napoleon’s troops suffer even more losses, returning to France from lack of food, disease, and weather conditions.“*</p>
-<p>(The battle of Borodino, immortalized in Tolstoy’s War and Peace, occurs just before Moscow; the French army loses about 30000. Five cannon shots in the overture mark this. And when Napoleon gets to Moscow, he finds that the Russians had razed it before hand, so that there was nothing there for them. Eleven more cannon here.)</p>
+<p>(The battle of Borodino, immortalized in Tolstoy’s War and Peace, occurs just before Moscow; the French army loses about 30000 men. Five cannon shots in the overture mark this. And when Napoleon gets to Moscow, he finds that the Russians had razed it before hand, so that there was nothing there for them. Eleven more cannon here.)</p>
 <div class="figure">
 <img src="images/minard1812.png" alt="minard1812" />
 <p class="caption">minard1812</p>
 </div>
-<p>also see <a href="https://datavizblog.com/2013/05/30/dataviz-history-charles-minards-flow-map-of-napoleons-russian-campaign-of-1812-polotsk-smolensk-and-on-to-borodino/" class="uri">https://datavizblog.com/2013/05/30/dataviz-history-charles-minards-flow-map-of-napoleons-russian-campaign-of-1812-polotsk-smolensk-and-on-to-borodino/</a></p>
+<p><a href="https://datavizblog.com/2013/05/30/dataviz-history-charles-minards-flow-map-of-napoleons-russian-campaign-of-1812-polotsk-smolensk-and-on-to-borodino/">source</a></p>
 <hr />
 </div>
 <div id="tukeys-contributions" class="section level2">
 <h2><span class="header-section-number">13.3</span> Tukey’s contributions</h2>
-<p>Tukey and EDA. Begins with Tukey 1962 “Future of Data Analysis,” continues with his ultimate publication of EDA in 1977.</p>
-<p>Tukey decries tallies (prone to error), and shows <strong>stem and leaf displays</strong>, then box plots. argues for transforming data to linearity then examining residuals.</p>
+<p>Tukey and Exploratory Data Analysis (EDA). Begins with Tukey 1962 “Future of Data Analysis,” continues with his ultimate publication of EDA in 1977.</p>
+<p>Tukey decries tallies (prone to error), and shows <strong>stem and leaf displays</strong>, then box plots. He argues for transforming data to linearity to uncover meaningful relationships, then to examine residuals to look more closely.</p>
 </div>
-<div id="should-graphs-begin-with-psychology" class="section level2">
-<h2><span class="header-section-number">13.4</span> Should graphs begin with psychology?</h2>
-<p>Wainer and Thissen’s (1981) use of Chernoff’s faces to represent multivariate data. Grounded in a psychological premise. Why does it fail?</p>
-<div class="figure">
-<img src="images/Chernoff.png" alt="tufteChallenger" />
-<p class="caption">tufteChallenger</p>
-</div>
-<p><em>Population the number of faces/state-The number of faces is proportional to the log of the population.</em> Literacy rate 􀁸 size of the eyes (bigger = higher). % HS graduates 􀁹 slant of the eyes (the more slanted the better). <em>Life expectancy 􀁷 the length of the mouth (the longer the better).</em> Homicide rate 􀀜 the width of the nose (the wider the nose the lower the homicide rate). Income 􀀜 the curvature of the mouth (the bigger the smile the higher the income). Temperature 􀀜 the shape of the face (the more like a peanut the warmer, the more like a football the colder Longitude and latitude 􀅈 The X and Y position of the face on the cooridinate axes of the paper represent the position of the state *</p>
+<div id="approaches-to-graphs" class="section level2">
+<h2><span class="header-section-number">13.4</span> Approaches to graphs</h2>
+<p>A graph might begin with perception and understanding (the consumer), with knowledge and design values (the producer), but it also reflects the truth of the data. How much is each?</p>
+<p>In thinking about how to design graphs, we can begin with abstract theory, with principles of design informed by our understanding of perception, or with empirical analyses of understanding and memory.</p>
 </div>
 <div id="tufte-first-principles" class="section level2">
 <h2><span class="header-section-number">13.5</span> Tufte: First principles</h2>
-<div class="figure">
-<img src="images/tuftequote.png" alt="tuftequote" />
-<p class="caption">tuftequote</p>
-</div>
-<div class="figure">
-<img src="images/tuftePrinciples2.png" alt="tuftePrinciples2" />
-<p class="caption">tuftePrinciples2</p>
-</div>
+<p><span class="citation">Tufte (<a href="#ref-tufte2001visual">2001</a>)</span> describes <strong>Graphical Excellence</strong>. Graphs should, among other things, “Induce the viewer to think about the substance, rather than about methodology, graphic design, the technology of graphic productions, or something else.” Graphs should “Present many numbers in a small space, make large data sets coherent, and encourage the eye to compare different pieces of data.” Graphs should “serve a reasonably clear purpose: description, exploration, tabulation, or decoration [and] be closely integrated with the statistical and verbal descriptions of a data set.”&quot;</p>
+<p>Tufte concludes with the following Principles of Graphical Excellence, which I quote verbatim:
+<strong><em>Graphical excellence is the well-designed presentation of interesting data—a</em></strong>
+<strong><em>matter of substance, of statistics, and of design.</em></strong>
+<strong><em>Graphical excellence consists of complex ideas communicated with clarity,</em></strong>
+<strong><em>precision and efficiency.</em></strong>
+<strong><em>Graphical excellence is that which gives to the viewer the greatest number of</em></strong>
+<strong><em>ideas in the shortest time with the least ink in the smallest space.</em></strong>
+<strong><em>Graphical excellence is nearly always multivariate.</em></strong>
+<strong><em>And graphical excellence requires telling the truth.</em></strong></p>
+<p>**<img src="images/tuftequote.png" alt="tuftequote" /></p>
 <hr />
-<div id="the-challenger-disaster" class="section level3">
-<h3><span class="header-section-number">13.5.1</span> The Challenger disaster</h3>
+<div id="an-illustration-of-the-cost-of-bad-graphs-the-challenger-disaster" class="section level3">
+<h3><span class="header-section-number">13.5.1</span> An illustration of the cost of bad graphs: The Challenger disaster</h3>
 <div class="figure">
 <img src="images/mortonthiokolChallenger.png" alt="tufteChallenger" />
 <p class="caption">tufteChallenger</p>
 </div>
-<table style="width:4%;">
-<colgroup>
-<col width="4%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>C:_l\00 Current teaching.jpg</td>
-</tr>
-<tr class="even">
-<td><img src="images/tufteChallenger.png" alt="tufteChallenger" /></td>
-</tr>
-</tbody>
-</table>
+<hr />
+<div class="figure">
+<img src="images/tufteChallenger.png" alt="tufteChallenger" />
+<p class="caption">tufteChallenger</p>
 </div>
+<hr />
+</div>
+</div>
+<div id="should-graphs-begin-with-psychology" class="section level2">
+<h2><span class="header-section-number">13.6</span> Should graphs begin with psychology?</h2>
+<p><span class="citation">Wainer and Thissen (<a href="#ref-wainer1981graphical">1981</a>)</span> used Chernoff’s faces to represent multivariate data. Grounded in a psychological premise. Did they succeed? Why or why not?</p>
+<div class="figure">
+<img src="images/Chernoff.png" alt="tufteChallenger" />
+<p class="caption">tufteChallenger</p>
+</div>
+<p>Population - the (log) number of faces/state</p>
+<p>Literacy rate - size of the eyes (bigger = higher).</p>
+<p>% HS graduates - slant of the eyes (the more slanted = higher).</p>
+<p>Life expectancy - the length of the mouth (the longer = longer).</p>
+<p>Homicide rate - the width of the nose (the wider the nose the lower).</p>
+<p>Income - the curvature of the mouth (the bigger the smile the higher the income).</p>
+<p>Temperature - the shape of the face (peanut= warmer, football= colder)</p>
+<p>Longitude and latitude - The X and Y position of the face on the coordinate axes of the paper represent the position of the state</p>
+</div>
+<div id="section" class="section level2">
+<h2><span class="header-section-number">13.7</span> </h2>
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-tufte2001visual">
+<p>Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information</em>. 2nd ed. Cheshire, CT: Graphics Press.</p>
+</div>
+<div id="ref-wainer1981graphical">
+<p>Wainer, Howard, and David Thissen. 1981. “Graphical Data Analysis.” <em>ETS Research Report Series</em> 1981 (1). Wiley Online Library:191–241.</p>
 </div>
 </div>
             </section>
