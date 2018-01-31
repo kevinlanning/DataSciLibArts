@@ -203,15 +203,17 @@ This is arguably a little weak, in that it is indirect.
 
 #### Applying decision analysis : Looking at both types of 'errors'
 
-**The miss (rough/no NBA):** *Let’s look at the story of **Doug Wrenn**, one of the most talented basketball prospects in the 1990s. His college coach, Jim Calhoun at the University of Connecticut, who has trained future NBA all-stars, claimed Wrenn jumped the highest of any man he had ever worked with. But Wrenn had a challenging upbringing. He was raised by a single mother in Blood Alley, one of the roughest neighborhoods in Seattle. In Connecticut, he consistently clashed with those around him. He would taunt players, question coaches, and wear loose-fitting clothes in violation of team rules. He also had legal troubles—he stole shoes from a store and snapped at police officers. Calhoun finally had enough and kicked him off the team. Wrenn got a second chance at the University of Washington. But there, too, an inability to get along with people derailed him. He fought with his coach over playing time and shot selection and was kicked off this team as well. Wrenn went undrafted by the NBA, bounced around lower leagues, moved in with his mother, and was eventually imprisoned for assault. “My career is over,” Wrenn told the Seattle Times in 2009. “My dreams, my aspirations are over. Doug Wrenn is dead. That basketball player, that dude is dead. It’s over.” Wrenn had the talent not just to be an NBA player, but to be a great, even a legendary player. But he never developed the temperament to even stay on a college team.* 
+In making decisions on the basis of imperfect information - such as *should we give chemotherapy?*, *should we accept this person into our grad program?* - it's often useful to think in terms of a fourfold table, in which cells describe two types of correct decisions and two types of errors. 
+
+***The* miss (rough/no NBA):** *Let’s look at the story of **Doug Wrenn**, one of the most talented basketball prospects in the 1990s. His college coach, Jim Calhoun at the University of Connecticut, who has trained future NBA all-stars, claimed Wrenn jumped the highest of any man he had ever worked with. But Wrenn had a challenging upbringing. He was raised by a single mother in Blood Alley, one of the roughest neighborhoods in Seattle. In Connecticut, he consistently clashed with those around him. He would taunt players, question coaches, and wear loose-fitting clothes in violation of team rules. He also had legal troubles—he stole shoes from a store and snapped at police officers. Calhoun finally had enough and kicked him off the team. Wrenn got a second chance at the University of Washington. But there, too, an inability to get along with people derailed him. He fought with his coach over playing time and shot selection and was kicked off this team as well. Wrenn went undrafted by the NBA, bounced around lower leagues, moved in with his mother, and was eventually imprisoned for assault. “My career is over,” Wrenn told the Seattle Times in 2009. “My dreams, my aspirations are over. Doug Wrenn is dead. That basketball player, that dude is dead. It’s over.” Wrenn had the talent not just to be an NBA player, but to be a great, even a legendary player. But he never developed the temperament to even stay on a college team.* 
 
 **The false positive (supportive/NBA):** *Perhaps if he’d had a stable early life, he could have been the next Michael Jordan. Michael Jordan, of course, also had an impressive vertical leap. Plus a large ego and intense competitiveness—a personality at times that was not unlike Wrenn’s. Jordan could be a difficult kid. At the age of twelve, he was kicked out of school for fighting. But he had at least one thing that Wrenn lacked: a stable, middle-class upbringing. His father was an equipment supervisor for General Electric, his mother a banker. And they helped him navigate his career.*
 
 *In fact, Jordan’s life is filled with stories of his family guiding him away from the traps that a great, competitive talent can fall into. After Jordan was kicked out of school, his mother responded by taking him with her to work. He was not allowed to leave the car and instead had to sit there in the parking lot reading books. After he was drafted by the Chicago Bulls, his parents and siblings took turns visiting him to make sure he avoided the temptations that come with fame and money. Jordan’s career did not end like Wrenn’s, with a little-read quote in the Seattle Times. It ended with a speech upon induction into the Basketball Hall of Fame that was watched by millions of people. In his speech, Jordan said he tried to stay “focused on the good things about life—you know how people perceive you, how you respect them . . . how you are perceived publicly. Take a pause and think about the things that you do. And that all came from my parents.” The data tells us Jordan is absolutely right to thank his middle-class, married parents. The data tells us that in worse-off families, in worse-off communities, there are NBA-level talents who are not in the NBA. These men had the genes, had the ambition, but never developed the temperament to become basketball superstars. And no—whatever we might intuit—being in circumstances so desperate that basketball seems “a matter of life or death” does not help. Stories like that of Doug Wrenn can help illustrate this. And data proves it.*
 
-**The hit (poor/NBA)** *In June 2013, **LeBron James** was interviewed on television after winning his second NBA championship. (He has since won a third.) “I’m LeBron James,” he announced. “From Akron, Ohio. From the inner city. I am not even supposed to be here.” Twitter and other social networks erupted with criticism. How could such a supremely gifted person, identified from an absurdly young age as the future of basketball, claim to be an underdog? In fact, anyone from a difficult environment, no matter his athletic prowess, has the odds stacked against him. James’s accomplishments, in other words, are even more exceptional than they appear to be at first. Data proves that, too.*
+**The hit (rough/NBA)** *In June 2013, **LeBron James** was interviewed on television after winning his second NBA championship. (He has since won a third.) “I’m LeBron James,” he announced. “From Akron, Ohio. From the inner city. I am not even supposed to be here.” Twitter and other social networks erupted with criticism. How could such a supremely gifted person, identified from an absurdly young age as the future of basketball, claim to be an underdog? In fact, anyone from a difficult environment, no matter his athletic prowess, has the odds stacked against him. James’s accomplishments, in other words, are even more exceptional than they appear to be at first. Data proves that, too.*
 
-**The correct rejection (privileged/no NBA)** @stephens2017everybody is, perhaps, too polite to say this, but this would be me.  :)
+**The correct rejection (supportive/no NBA)** Think about this fourth cell.  What or who would define it? How would you statistically summarize results from such a table?
 
 #### The power of brute force facts: The effect of height
 
@@ -549,7 +551,6 @@ Tufte concludes with the following Principles of Graphical Excellence, which I q
 
 
 
-
 ---
 
 ### An illustration of the cost of bad graphs: The Challenger disaster 
@@ -563,7 +564,7 @@ Tufte concludes with the following Principles of Graphical Excellence, which I q
 
 ----
 
-## Should graphs begin with psychology?
+## Should graphs begin with psychological theory?
 
 @wainer1981graphical used Chernoff's faces to represent multivariate data. Grounded in a psychological premise. Did they succeed? Why or why not?
 
@@ -585,7 +586,9 @@ Temperature - the shape of the face (peanut= warmer, football= colder)
 
 Longitude and latitude - The X and Y position of the face on the coordinate axes of the paper represent the position of the state 
 
-## 
+## Further reading and resources
+
+This is only the beginning of a discussion of data visualizations.  @healy2018viz presents a more expanded discussion of this treatment. He addresses the limitations of infographics, in which the design purveys style over substance (this is what we may do in designing presentations as well), and includes a rationale for a grammar of graphics, as instantiated in the ggplot package in R that we will be working with [@wickham2016r]. @cleveland1985graphical examines graphs from a more rigorous psychological and empirical viewpoint.  The [Data Stories podcasts](http://datastori.es/) are often excellent, despite the challenge of an auditory medium for visual displays. And your classmates on the Slack #dataviz channel have things to say as well. 
 
 # References
 
