@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Data Science for the Liberal Arts</title>
   <meta name="description" content="Data Science for the Liberal Arts">
-  <meta name="generator" content="bookdown 0.5.15 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
 
   <meta property="og:title" content="Data Science for the Liberal Arts" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Kevin Lanning">
 
 
-<meta name="date" content="2018-01-31">
+<meta name="date" content="2018-02-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="limits-of-big-data.html">
-<link rel="next" href="references.html">
+<link rel="next" href="statistics-probability-and-inference.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -148,7 +148,18 @@
 <li class="chapter" data-level="13.6" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#should-graphs-begin-with-psychological-theory"><i class="fa fa-check"></i><b>13.6</b> Should graphs begin with psychological theory?</a></li>
 <li class="chapter" data-level="13.7" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#further-reading-and-resources"><i class="fa fa-check"></i><b>13.7</b> Further reading and resources</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>14</b> References</a></li>
+<li class="chapter" data-level="14" data-path="statistics-probability-and-inference.html"><a href="statistics-probability-and-inference.html"><i class="fa fa-check"></i><b>14</b> Statistics: Probability and inference</a><ul>
+<li class="chapter" data-level="14.1" data-path="statistics-probability-and-inference.html"><a href="statistics-probability-and-inference.html#more-on-probability"><i class="fa fa-check"></i><b>14.1</b> More on probability</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html"><i class="fa fa-check"></i><b>15</b> Reproducibility and the replication crisis</a><ul>
+<li class="chapter" data-level="15.0.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-i-on-nhst"><i class="fa fa-check"></i><b>15.0.1</b> Answers to the reproducibility crisis I: On NHST</a></li>
+<li class="chapter" data-level="15.0.2" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-ii-pre-registration"><i class="fa fa-check"></i><b>15.0.2</b> Answers to the reproducibility crisis II: Pre-registration</a></li>
+</ul></li>
+<li class="part"><span><b>III Part III Towards data proficiency</b></span></li>
+<li class="chapter" data-level="16" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html"><i class="fa fa-check"></i><b>16</b> Literate programming with R markdown</a><ul>
+<li class="chapter" data-level="16.1" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#a-challenge-1"><i class="fa fa-check"></i><b>16.1</b> A challenge</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>17</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -185,7 +196,7 @@
 <p>Visual displays of information reach back to prehistoric times; modern graphs date back, arguably, to Playfair’s 1786 <em>Political Atlas</em> - in which</p>
 <p>*“… spatial dimensions were used to represent nonspatial, quantitative, idiographic, empirical data. Although it now seems natural to represent, for example, rising and falling imports over time as a rising and falling line, it does not seem to have been done before that time and was quite an accomplishment. Notably, in addition to the statistical line chart, Playfair at one fell swoop single-handedly invented most of the remaining forms of the statistical graphic repertoire used today-the bar chart and histogram, the surface chart, and the circle diagram or”pie chart.“*</p>
 <div class="figure">
-<img src="images/playfair1786.png" alt="playfair1786" />
+<img src="C:/Users/the_l/Dropbox/00%20Current%20teaching/dataScience/DataSciLibArts/images/playfair1786.png" alt="playfair1786" />
 <p class="caption">playfair1786</p>
 </div>
 <p><a href="https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march">source</a></p>
@@ -196,7 +207,7 @@
 <p>“*Czar Alexander of Russia sees that Napoleon was becoming too powerful, so he refuses to participate in this embargo. Angry at Czar Alexander’s decision, Napoleon gathers a massive army of over 400,000 to attack Russia in June of 1812. While Russia’s troops are not as numerous as France’s, Russia has a plan. Russian troops keep retreating as Napoleon’s troops move forward, burning everything they pass, ensuring that the French forces could not take anything from their environment. Eventually the French army follows the Russian army all the way to Moscow during October, suffering major losses from lack of food. By the time Napoleon gets to Moscow, he knows he has to retreat. As winter settles into Europe and the temperature drops, Napoleon’s troops suffer even more losses, returning to France from lack of food, disease, and weather conditions.“*</p>
 <p>(The battle of Borodino, immortalized in Tolstoy’s War and Peace, occurs just before Moscow; the French army loses about 30000 men. Five cannon shots in the overture mark this. And when Napoleon gets to Moscow, he finds that the Russians had razed it before hand, so that there was nothing there for them. Eleven more cannon here.)</p>
 <div class="figure">
-<img src="images/minard1812.png" alt="minard1812" />
+<img src="C:/Users/the_l/Dropbox/00%20Current%20teaching/dataScience/DataSciLibArts/images/minard1812.png" alt="minard1812" />
 <p class="caption">minard1812</p>
 </div>
 <p><a href="https://datavizblog.com/2013/05/30/dataviz-history-charles-minards-flow-map-of-napoleons-russian-campaign-of-1812-polotsk-smolensk-and-on-to-borodino/">source</a></p>
@@ -215,26 +226,18 @@
 <div id="tufte-first-principles" class="section level2">
 <h2><span class="header-section-number">13.5</span> Tufte: First principles</h2>
 <p><span class="citation">Tufte (<a href="#ref-tufte2001visual">2001</a>)</span> describes <strong>Graphical Excellence</strong>. Graphs should, among other things, “Induce the viewer to think about the substance, rather than about methodology, graphic design, the technology of graphic productions, or something else.” Graphs should “Present many numbers in a small space, make large data sets coherent, and encourage the eye to compare different pieces of data.” Graphs should “serve a reasonably clear purpose: description, exploration, tabulation, or decoration [and] be closely integrated with the statistical and verbal descriptions of a data set.”&quot;</p>
-<p>Tufte concludes with the following Principles of Graphical Excellence, which I quote verbatim:
-<strong><em>Graphical excellence is the well-designed presentation of interesting data—a</em></strong>
-<strong><em>matter of substance, of statistics, and of design.</em></strong>
-<strong><em>Graphical excellence consists of complex ideas communicated with clarity,</em></strong>
-<strong><em>precision and efficiency.</em></strong>
-<strong><em>Graphical excellence is that which gives to the viewer the greatest number of</em></strong>
-<strong><em>ideas in the shortest time with the least ink in the smallest space.</em></strong>
-<strong><em>Graphical excellence is nearly always multivariate.</em></strong>
-<strong><em>And graphical excellence requires telling the truth.</em></strong></p>
-<p>**<img src="images/tuftequote.png" alt="tuftequote" /></p>
+<p>Tufte concludes with the following Principles of Graphical Excellence, which I quote verbatim: <strong><em>Graphical excellence is the well-designed presentation of interesting data—a</em></strong> <strong><em>matter of substance, of statistics, and of design.</em></strong> <strong><em>Graphical excellence consists of complex ideas communicated with clarity,</em></strong> <strong><em>precision and efficiency.</em></strong> <strong><em>Graphical excellence is that which gives to the viewer the greatest number of</em></strong> <strong><em>ideas in the shortest time with the least ink in the smallest space.</em></strong> <strong><em>Graphical excellence is nearly always multivariate.</em></strong> <strong><em>And graphical excellence requires telling the truth.</em></strong></p>
+<p>**<img src="C:/Users/the_l/Dropbox/00%20Current%20teaching/dataScience/DataSciLibArts/images/tuftequote.png" alt="tuftequote" /></p>
 <hr />
 <div id="an-illustration-of-the-cost-of-bad-graphs-the-challenger-disaster" class="section level3">
 <h3><span class="header-section-number">13.5.1</span> An illustration of the cost of bad graphs: The Challenger disaster</h3>
 <div class="figure">
-<img src="images/mortonthiokolChallenger.png" alt="tufteChallenger" />
+<img src="C:/Users/the_l/Dropbox/00%20Current%20teaching/dataScience/DataSciLibArts/images/mortonthiokolChallenger.png" alt="tufteChallenger" />
 <p class="caption">tufteChallenger</p>
 </div>
 <hr />
 <div class="figure">
-<img src="images/tufteChallenger.png" alt="tufteChallenger" />
+<img src="C:/Users/the_l/Dropbox/00%20Current%20teaching/dataScience/DataSciLibArts/images/tufteChallenger.png" alt="tufteChallenger" />
 <p class="caption">tufteChallenger</p>
 </div>
 <hr />
@@ -244,7 +247,7 @@
 <h2><span class="header-section-number">13.6</span> Should graphs begin with psychological theory?</h2>
 <p><span class="citation">Wainer and Thissen (<a href="#ref-wainer1981graphical">1981</a>)</span> used Chernoff’s faces to represent multivariate data. Grounded in a psychological premise. Did they succeed? Why or why not?</p>
 <div class="figure">
-<img src="images/Chernoff.png" alt="tufteChallenger" />
+<img src="C:/Users/the_l/Dropbox/00%20Current%20teaching/dataScience/DataSciLibArts/images/Chernoff.PNG" alt="tufteChallenger" />
 <p class="caption">tufteChallenger</p>
 </div>
 <p>Population - the (log) number of faces/state</p>
@@ -267,7 +270,7 @@
 <p>Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information</em>. 2nd ed. Cheshire, CT: Graphics Press.</p>
 </div>
 <div id="ref-wainer1981graphical">
-<p>Wainer, Howard, and David Thissen. 1981. “Graphical Data Analysis.” <em>ETS Research Report Series</em> 1981 (1). Wiley Online Library:191–241.</p>
+<p>Wainer, Howard, and David Thissen. 1981. “Graphical Data Analysis.” <em>ETS Research Report Series</em> 1981 (1). Wiley Online Library: 191–241.</p>
 </div>
 <div id="ref-healy2018viz">
 <p>Healy, Kieran. 2017. “Data Visualization for Social Science: A Practical Introduction with R and Ggplot2.” <a href="https://socviz.co" class="uri">https://socviz.co</a>.</p>
@@ -276,7 +279,7 @@
 <p>Wickham, Hadley, and Garrett Grolemund. 2016. “R for Data Science.” Sebastopol, CA: O’Reilly. http://​ r4ds.​ had.​ co.​ nz.</p>
 </div>
 <div id="ref-cleveland1985graphical">
-<p>Cleveland, William S, and Robert McGill. 1985. “Graphical Perception and Graphical Methods for Analyzing Scientific Data.” <em>Science</em> 229 (4716). American Association for the Advancement of Science:828–33.</p>
+<p>Cleveland, William S, and Robert McGill. 1985. “Graphical Perception and Graphical Methods for Analyzing Scientific Data.” <em>Science</em> 229 (4716). American Association for the Advancement of Science: 828–33.</p>
 </div>
 </div>
             </section>
@@ -285,7 +288,7 @@
         </div>
       </div>
 <a href="limits-of-big-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="statistics-probability-and-inference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

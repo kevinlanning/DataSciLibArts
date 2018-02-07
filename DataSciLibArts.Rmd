@@ -638,7 +638,7 @@ Here's a video which provides some more context for the crisis: https://www.yout
 
 The first cluster of responses addresses problems with Null Hypothesis Significance Testing (NHST). These include (a) justifying one's alpha - making it more stringent, for example, for counter-intuitive claims [@grange2018justify], (b) changing the default p value from .05 to .005 [@benjamin2017redefine], and (c) abandon significance testing altogether [@mcshane2017abandon]. 
 
-@szucs2017null goes into some of these issues in more detail and discusses other limitations of significance testing, including the dichotomous, all-or-none silliness of the accept/reject decision.  (If you play the NHST game, there is no 'almost' significant, 'approached significance,' etc.).
+@szucs2017null discusses other limitations of significance testing, including the dichotomous, all-or-none silliness of the accept/reject decision.  (If you play the NHST game, there is no 'almost' significant, 'approached significance,' etc.).
 
 @leek2015statistics argue that the problems are not merely with NHST, but with the whole of data analysis. They maintain that better training in data science - courses like ours, perhaps, are part of the answer.
 
@@ -685,4 +685,7 @@ Prepare a presentation using Rpres which summarizes your argument and findings. 
 (One starting point: the aforementioned r markdown document discussing basic laws of probability at Harvard's datasciencelabs repository: https://github.com/datasciencelabs/2017/blob/master/lectures/prob/discrete-probability.Rmd. 
 
 # References
+
+
+<!--chapter:end:index.Rmd-->
 
