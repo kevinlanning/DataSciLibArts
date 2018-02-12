@@ -12,7 +12,7 @@
   <meta property="og:title" content="Data Science for the Liberal Arts" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:image" content="images/diffprop_cloud_250_sm.png" />
+  
   
   
 
@@ -20,12 +20,12 @@
   <meta name="twitter:title" content="Data Science for the Liberal Arts" />
   
   
-  <meta name="twitter:image" content="images/diffprop_cloud_250_sm.png" />
+  
 
 <meta name="author" content="Kevin Lanning">
 
 
-<meta name="date" content="2018-02-07">
+<meta name="date" content="2018-02-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -158,8 +158,20 @@
 <li class="part"><span><b>III Part III Towards data proficiency</b></span></li>
 <li class="chapter" data-level="16" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html"><i class="fa fa-check"></i><b>16</b> Literate programming with R markdown</a><ul>
 <li class="chapter" data-level="16.1" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#a-challenge-1"><i class="fa fa-check"></i><b>16.1</b> A challenge</a></li>
+<li class="chapter" data-level="16.2" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#r-markdown"><i class="fa fa-check"></i><b>16.2</b> r markdown</a></li>
+<li class="chapter" data-level="16.3" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#univariate-data"><i class="fa fa-check"></i><b>16.3</b> univariate data</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>17</b> References</a></li>
+<li class="chapter" data-level="17" data-path="ggplot2.html"><a href="ggplot2.html"><i class="fa fa-check"></i><b>17</b> ggplot2</a><ul>
+<li class="chapter" data-level="17.1" data-path="ggplot2.html"><a href="ggplot2.html#r-dialects"><i class="fa fa-check"></i><b>17.1</b> r dialects</a></li>
+<li class="chapter" data-level="17.2" data-path="ggplot2.html"><a href="ggplot2.html#logic-of-ggplot"><i class="fa fa-check"></i><b>17.2</b> logic of ggplot</a><ul>
+<li class="chapter" data-level="17.2.1" data-path="ggplot2.html"><a href="ggplot2.html#the-data-visualization-cheatsheet-on-slack"><i class="fa fa-check"></i><b>17.2.1</b> the <strong>data visualization cheatsheet</strong> (on Slack)</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="ggplot2.html"><a href="ggplot2.html#playing-with-ggplot2"><i class="fa fa-check"></i><b>17.3</b> playing with ggplot2</a></li>
+<li class="chapter" data-level="17.4" data-path="ggplot2.html"><a href="ggplot2.html#playing-with-new-data"><i class="fa fa-check"></i><b>17.4</b> playing with new data</a><ul>
+<li class="chapter" data-level="17.4.1" data-path="ggplot2.html"><a href="ggplot2.html#multivariate-data"><i class="fa fa-check"></i><b>17.4.1</b> 3.4 multivariate data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>18</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -204,7 +216,7 @@
 <div id="answers-to-the-reproducibility-crisis-i-on-nhst" class="section level3">
 <h3><span class="header-section-number">15.0.1</span> Answers to the reproducibility crisis I: On NHST</h3>
 <p>The first cluster of responses addresses problems with Null Hypothesis Significance Testing (NHST). These include (a) justifying one’s alpha - making it more stringent, for example, for counter-intuitive claims <span class="citation">(Grange et al. <a href="#ref-grange2018justify">2018</a>)</span>, (b) changing the default p value from .05 to .005 <span class="citation">(Benjamin et al. <a href="#ref-benjamin2017redefine">2017</a>)</span>, and (c) abandon significance testing altogether <span class="citation">(McShane et al. <a href="#ref-mcshane2017abandon">2017</a>)</span>.</p>
-<p><span class="citation">Szucs and Ioannidis (<a href="#ref-szucs2017null">2017</a>)</span> discusses other limitations of significance testing, including the dichotomous, all-or-none silliness of the accept/reject decision. (If you play the NHST game, there is no ‘almost’ significant, ‘approached significance,’ etc.).</p>
+<p><span class="citation">Szucs and Ioannidis (<a href="#ref-szucs2017null">2017</a>)</span> goes into some of these issues in more detail and discusses other limitations of significance testing, including the dichotomous, all-or-none silliness of the accept/reject decision. (If you play the NHST game, there is no ‘almost’ significant, ‘approached significance,’ etc.).</p>
 <p><span class="citation">Leek and Peng (<a href="#ref-leek2015statistics">2015</a>)</span> argue that the problems are not merely with NHST, but with the whole of data analysis. They maintain that better training in data science - courses like ours, perhaps, are part of the answer.</p>
 <p><img src="images/leek2015pipeline.PNG" alt="leek2015pipeline" /> (figure)</p>
 <div id="munafo2017manifesto-also-argue-that-threats-to-reproducible-science-occur-at-a-number-of-places-in-science-not-just-with-the-evaluation-of-hypotheses." class="section level6">
@@ -296,7 +308,7 @@ gitbook.start({
 "all": ["facebook", "google", "twitter", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "night",
+"theme": "white",
 "family": "sans",
 "size": 2
 },
@@ -304,7 +316,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["DataSciLibArts.pdf", "DataSciLibArts.epub"],
 "toc": {
 "collapse": "subsection"
 }

@@ -3,25 +3,25 @@ title: "Data Science for the Liberal Arts"
 author: "Kevin Lanning"
 date: "`r Sys.Date()`"
 output:
-    bookdown::gitbook:
-        config:
-            download: null
-            fontsettings:
-                theme: night 
-                family: sans
-                size: 2
-        highlight: pygments
-#  bookdown::html_book:
-#   highlight: pygments
-#  pdf_document: default
-#  html_document:
-#    df_print: paged
+ #   bookdown::gitbook:
+ #       config:
+ #           download: null
+ #           fontsettings:
+ #               theme: night 
+ #               family: sans
+ #               size: 2
+ #       highlight: pygments
+ # bookdown::html_book: 
+ #   highlight: pygments
+ # pdf_document: default
+  html_document:
+    df_print: paged
 site: bookdown::bookdown_site
 bibliography: ../dataSciRefs.bib
 description: 
 documentclass: book
 link-citations: yes
-cover-image: images/diffprop_cloud_250_sm.png
+#cover-image: images/diffprop_cloud_250_sm.png
 biblio-style: apalike
 ---
 
@@ -547,7 +547,7 @@ Tufte concludes with the following Principles of Graphical Excellence, which I q
 
 
 
-**![tuftequote](C:\Users\the_l\Dropbox\00 Current teaching\dataScience\DataSciLibArts\images\tuftequote.png)
+![tuftequote](C:\Users\the_l\Dropbox\00 Current teaching\dataScience\DataSciLibArts\images\tuftequote.png)
 
 
 
@@ -668,11 +668,13 @@ In this part of the class we will get into the nuts and bolts of R.
 
 # Literate programming with R markdown
 
+A note from chapter 4 (coding basics): use assignment (x < - 3+4) rather than x = 3 + 4 because it is more clear.
+
 Showing your work - for you as well as others - is another part of reproducible science.  R Markdown documents allow you to include comments, scripts, and results in a single place. 
 
 We begin R4DS 6 (*Workflow: Scripts*, p. 110) which shows the R studio interface and encourages you to save your work using *scripts*. 
 
-You will save your work in *projects* - which isolate your work, setup files, etc., into different directories. (See r4ds, chapter 8)
+You will save your work in *projects* - which isolate your work, setup files, etc., into different directories. (See r4ds, chapter 8). To reinforce the idea that your unit of analysis in R is "the project" rather than "the script", consider associating your Rmd filetype with your markdown editor, and only your Rproj filetype with R studio.
 
 The R markdown language is discussed in R4ds, Chapter 27 (p. 505).
 
@@ -684,5 +686,59 @@ Prepare a presentation using Rpres which summarizes your argument and findings. 
 
 (One starting point: the aforementioned r markdown document discussing basic laws of probability at Harvard's datasciencelabs repository: https://github.com/datasciencelabs/2017/blob/master/lectures/prob/discrete-probability.Rmd. 
 
-# References
+## r markdown 
 
+Goals and functions
+
+ - one goal is making your work clear to others, and to a later you
+
+Parts
+
+ - YAML header: Some output formats
+ - Text formatted in markdown
+ - R code (chunks) surrounded by code fences
+ - (occasionally, inline code)
+
+See **Rmd cheatsheet (on Slack)**
+
+## univariate data
+
+kable and other approaches to generating output
+
+exercise 27.4.7 2 (https://raw.githubusercontent.com/hadley/r4ds/master/rmarkdown/diamond-sizes.Rmd)
+
+(make a report)
+
+# ggplot2
+
+## r dialects
+
+Several approaches to graphics (and everything else!) in r; see **syntax cheatsheet** (on Slack)
+
+## logic of ggplot
+
+### the **data visualization cheatsheet** (on Slack)
+
+a layered system of graphics. goal is to come up with some rules for good graphs, and a syntax with which to understand it
+
+## playing with ggplot2
+
+play along with Chapter 3
+
+get ggplot2 to work
+
+exercises 3.2.4 (what do you see?)
+
+exercises 3.3.1 (a little further)
+
+## playing with new data
+
+get data - sources include https://github.com/idc9/stor390 and online data sets in R
+
+pull out no more than five variables from the dataset
+
+### 3.4 multivariate data
+
+exercises 3.5.1
+
+# References

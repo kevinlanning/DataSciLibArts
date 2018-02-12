@@ -84,7 +84,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2018-02-07}
+  \date{2018-02-12}
 
 \usepackage{booktabs}
 
@@ -1368,7 +1368,11 @@ least ink in the smallest space.}} \textbf{\emph{Graphical excellence is
 nearly always multivariate.}} \textbf{\emph{And graphical excellence
 requires telling the truth.}}
 
-**\includegraphics{C:/Users/the_l/Dropbox/00 Current teaching/dataScience/DataSciLibArts/images/tuftequote.png}
+\begin{figure}
+\centering
+\includegraphics{C:/Users/the_l/Dropbox/00 Current teaching/dataScience/DataSciLibArts/images/tuftequote.png}
+\caption{tuftequote}
+\end{figure}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -1581,10 +1585,11 @@ making it more stringent, for example, for counter-intuitive claims
 .005 \citep{benjamin2017redefine}, and (c) abandon significance testing
 altogether \citep{mcshane2017abandon}.
 
-\citet{szucs2017null} discusses other limitations of significance
-testing, including the dichotomous, all-or-none silliness of the
-accept/reject decision. (If you play the NHST game, there is no `almost'
-significant, `approached significance,' etc.).
+\citet{szucs2017null} goes into some of these issues in more detail and
+discusses other limitations of significance testing, including the
+dichotomous, all-or-none silliness of the accept/reject decision. (If
+you play the NHST game, there is no `almost' significant, `approached
+significance,' etc.).
 
 \citet{leek2015statistics} argue that the problems are not merely with
 NHST, but with the whole of data analysis. They maintain that better
@@ -1637,6 +1642,9 @@ In this part of the class we will get into the nuts and bolts of R.
 \chapter{Literate programming with R
 markdown}\label{literate-programming-with-r-markdown}
 
+A note from chapter 4 (coding basics): use assignment (x \textless{} -
+3+4) rather than x = 3 + 4 because it is more clear.
+
 Showing your work - for you as well as others - is another part of
 reproducible science. R Markdown documents allow you to include
 comments, scripts, and results in a single place.
@@ -1646,7 +1654,10 @@ studio interface and encourages you to save your work using
 \emph{scripts}.
 
 You will save your work in \emph{projects} - which isolate your work,
-setup files, etc., into different directories. (See r4ds, chapter 8)
+setup files, etc., into different directories. (See r4ds, chapter 8). To
+reinforce the idea that your unit of analysis in R is ``the project''
+rather than ``the script'', consider associating your Rmd filetype with
+your markdown editor, and only your Rproj filetype with R studio.
 
 The R markdown language is discussed in R4ds, Chapter 27 (p.~505).
 
@@ -1665,6 +1676,78 @@ findings. Present this in class on 2/26.
 (One starting point: the aforementioned r markdown document discussing
 basic laws of probability at Harvard's datasciencelabs repository:
 \url{https://github.com/datasciencelabs/2017/blob/master/lectures/prob/discrete-probability.Rmd}.
+
+\section{r markdown}\label{r-markdown}
+
+Goals and functions
+
+\begin{itemize}
+\tightlist
+\item
+  one goal is making your work clear to others, and to a later you
+\end{itemize}
+
+Parts
+
+\begin{itemize}
+\tightlist
+\item
+  YAML header: Some output formats
+\item
+  Text formatted in markdown
+\item
+  R code (chunks) surrounded by code fences
+\item
+  (occasionally, inline code)
+\end{itemize}
+
+See \textbf{Rmd cheatsheet (on Slack)}
+
+\section{univariate data}\label{univariate-data}
+
+kable and other approaches to generating output
+
+exercise 27.4.7 2
+(\url{https://raw.githubusercontent.com/hadley/r4ds/master/rmarkdown/diamond-sizes.Rmd})
+
+(make a report)
+
+\chapter{ggplot2}\label{ggplot2}
+
+\section{r dialects}\label{r-dialects}
+
+Several approaches to graphics (and everything else!) in r; see
+\textbf{syntax cheatsheet} (on Slack)
+
+\section{logic of ggplot}\label{logic-of-ggplot}
+
+\subsection{\texorpdfstring{the \textbf{data visualization cheatsheet}
+(on
+Slack)}{the data visualization cheatsheet (on Slack)}}\label{the-data-visualization-cheatsheet-on-slack}
+
+a layered system of graphics. goal is to come up with some rules for
+good graphs, and a syntax with which to understand it
+
+\section{playing with ggplot2}\label{playing-with-ggplot2}
+
+play along with Chapter 3
+
+get ggplot2 to work
+
+exercises 3.2.4 (what do you see?)
+
+exercises 3.3.1 (a little further)
+
+\section{playing with new data}\label{playing-with-new-data}
+
+get data - sources include \url{https://github.com/idc9/stor390} and
+online data sets in R
+
+pull out no more than five variables from the dataset
+
+\subsection{3.4 multivariate data}\label{multivariate-data}
+
+exercises 3.5.1
 
 \chapter{References}\label{references}
 

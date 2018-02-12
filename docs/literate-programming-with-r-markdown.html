@@ -12,7 +12,7 @@
   <meta property="og:title" content="Data Science for the Liberal Arts" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:image" content="images/diffprop_cloud_250_sm.png" />
+  
   
   
 
@@ -20,12 +20,12 @@
   <meta name="twitter:title" content="Data Science for the Liberal Arts" />
   
   
-  <meta name="twitter:image" content="images/diffprop_cloud_250_sm.png" />
+  
 
 <meta name="author" content="Kevin Lanning">
 
 
-<meta name="date" content="2018-02-07">
+<meta name="date" content="2018-02-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="reproducibility-and-the-replication-crisis.html">
-<link rel="next" href="references.html">
+<link rel="next" href="ggplot2.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -158,8 +158,20 @@
 <li class="part"><span><b>III Part III Towards data proficiency</b></span></li>
 <li class="chapter" data-level="16" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html"><i class="fa fa-check"></i><b>16</b> Literate programming with R markdown</a><ul>
 <li class="chapter" data-level="16.1" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#a-challenge-1"><i class="fa fa-check"></i><b>16.1</b> A challenge</a></li>
+<li class="chapter" data-level="16.2" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#r-markdown"><i class="fa fa-check"></i><b>16.2</b> r markdown</a></li>
+<li class="chapter" data-level="16.3" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#univariate-data"><i class="fa fa-check"></i><b>16.3</b> univariate data</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>17</b> References</a></li>
+<li class="chapter" data-level="17" data-path="ggplot2.html"><a href="ggplot2.html"><i class="fa fa-check"></i><b>17</b> ggplot2</a><ul>
+<li class="chapter" data-level="17.1" data-path="ggplot2.html"><a href="ggplot2.html#r-dialects"><i class="fa fa-check"></i><b>17.1</b> r dialects</a></li>
+<li class="chapter" data-level="17.2" data-path="ggplot2.html"><a href="ggplot2.html#logic-of-ggplot"><i class="fa fa-check"></i><b>17.2</b> logic of ggplot</a><ul>
+<li class="chapter" data-level="17.2.1" data-path="ggplot2.html"><a href="ggplot2.html#the-data-visualization-cheatsheet-on-slack"><i class="fa fa-check"></i><b>17.2.1</b> the <strong>data visualization cheatsheet</strong> (on Slack)</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="ggplot2.html"><a href="ggplot2.html#playing-with-ggplot2"><i class="fa fa-check"></i><b>17.3</b> playing with ggplot2</a></li>
+<li class="chapter" data-level="17.4" data-path="ggplot2.html"><a href="ggplot2.html#playing-with-new-data"><i class="fa fa-check"></i><b>17.4</b> playing with new data</a><ul>
+<li class="chapter" data-level="17.4.1" data-path="ggplot2.html"><a href="ggplot2.html#multivariate-data"><i class="fa fa-check"></i><b>17.4.1</b> 3.4 multivariate data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>18</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -182,15 +194,37 @@
             <section class="normal" id="section-">
 <div id="literate-programming-with-r-markdown" class="section level1">
 <h1><span class="header-section-number">16</span> Literate programming with R markdown</h1>
+<p>A note from chapter 4 (coding basics): use assignment (x &lt; - 3+4) rather than x = 3 + 4 because it is more clear.</p>
 <p>Showing your work - for you as well as others - is another part of reproducible science. R Markdown documents allow you to include comments, scripts, and results in a single place.</p>
 <p>We begin R4DS 6 (<em>Workflow: Scripts</em>, p. 110) which shows the R studio interface and encourages you to save your work using <em>scripts</em>.</p>
-<p>You will save your work in <em>projects</em> - which isolate your work, setup files, etc., into different directories. (See r4ds, chapter 8)</p>
+<p>You will save your work in <em>projects</em> - which isolate your work, setup files, etc., into different directories. (See r4ds, chapter 8). To reinforce the idea that your unit of analysis in R is “the project” rather than “the script”, consider associating your Rmd filetype with your markdown editor, and only your Rproj filetype with R studio.</p>
 <p>The R markdown language is discussed in R4ds, Chapter 27 (p. 505).</p>
 <div id="a-challenge-1" class="section level2">
 <h2><span class="header-section-number">16.1</span> A challenge</h2>
 <p>Working with two of your classmates, write an R markdown document titled “The most dangerous equation?” which (a) in the introduction, discusses <span class="citation">Wainer (<a href="#ref-wainer2007most">2007</a>)</span>, (b) then illustrates regression to the mean and (c) deMoivre’s equation, ideally (d) using the examples of ‘punishment’ and ‘sex differences in variability’ discussed in class and the text, respectively.</p>
 <p>Prepare a presentation using Rpres which summarizes your argument and findings. Present this in class on 2/26.</p>
 <p>(One starting point: the aforementioned r markdown document discussing basic laws of probability at Harvard’s datasciencelabs repository: <a href="https://github.com/datasciencelabs/2017/blob/master/lectures/prob/discrete-probability.Rmd" class="uri">https://github.com/datasciencelabs/2017/blob/master/lectures/prob/discrete-probability.Rmd</a>.</p>
+</div>
+<div id="r-markdown" class="section level2">
+<h2><span class="header-section-number">16.2</span> r markdown</h2>
+<p>Goals and functions</p>
+<ul>
+<li>one goal is making your work clear to others, and to a later you</li>
+</ul>
+<p>Parts</p>
+<ul>
+<li>YAML header: Some output formats</li>
+<li>Text formatted in markdown</li>
+<li>R code (chunks) surrounded by code fences</li>
+<li>(occasionally, inline code)</li>
+</ul>
+<p>See <strong>Rmd cheatsheet (on Slack)</strong></p>
+</div>
+<div id="univariate-data" class="section level2">
+<h2><span class="header-section-number">16.3</span> univariate data</h2>
+<p>kable and other approaches to generating output</p>
+<p>exercise 27.4.7 2 (<a href="https://raw.githubusercontent.com/hadley/r4ds/master/rmarkdown/diamond-sizes.Rmd" class="uri">https://raw.githubusercontent.com/hadley/r4ds/master/rmarkdown/diamond-sizes.Rmd</a>)</p>
+<p>(make a report)</p>
 </div>
 </div>
 <h3> References</h3>
@@ -205,7 +239,7 @@
         </div>
       </div>
 <a href="reproducibility-and-the-replication-crisis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="ggplot2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -229,7 +263,7 @@ gitbook.start({
 "all": ["facebook", "google", "twitter", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "night",
+"theme": "white",
 "family": "sans",
 "size": 2
 },
@@ -237,7 +271,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["DataSciLibArts.pdf", "DataSciLibArts.epub"],
 "toc": {
 "collapse": "subsection"
 }
