@@ -3,6 +3,7 @@ delete_merged_file: true
 language:
   ui:
     chapter_name: ""
+# rmd_files: ["index.Rmd", "00-Introduction.Rmd", "01-DataSci.Rmd"]
 output_dir: "docs"
-# new_session: yes
+new_session: yes
 

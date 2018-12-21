@@ -1,0 +1,52 @@
+---
+title: "02-Setup"
+author: "Kevin Lanning"
+date: "December 21, 2018"
+output:
+  pdf_document: default
+  html_document: default
+---
+# pretest and setup
+
+Reflect on your own knowledge of data science, including the necessary-but-not-sufficient areas of computer programming and statistics. 
+
+You may know more than you think you do.  Even if you haven't had formal programming, you may well have experience with spreadsheets such as Excel or Google Sheets.
+
+*What does '=SUM (A1:A15)' mean? In a spreadsheet, if '=SUM (A1:A15)' was in cell A16, and you copied this to cell B16, what would the result be?*
+
+Statistics is, of course, relevant in a myriad of ways. Consider, for example, the prospects for Susie:
+
+*Susie is applying to two med schools. At School A, 25% of students are accepted, and at School B, 25% are accepted as well. You are Susie. Are you going to get in to at least one of these programs?  What is the probability?  Does your estimate depend upon any assumptions?*
+
+Questions like these are important for us. If the combined probability is low, it *likely* (another probability concept) makes sense for Susie to apply to additional programs. If it is high, it may not. But problems like this are hard - our estimates of probability are frequently poorly calibrated, and combining probability estimates is challenging (see, e.g., @tversky1974judgment, and consider taking a course in *Behavioral Economics* or *Thinking and Decision Making* to learn more).
+
+## a thought experiment
+
+Would it be possible to assign grades in a class based not just on what students know at the end of the term, but also on how much they have learned?
+
+You could, in principle, do this using regression analysis.  That is, you could predict final exam scores from pretest scores, and use the residuals - the extent to which students did better or worse than expected - as a contributor to final exam grades. 
+
+Interestingly, there would be an unusual incentive for students on this 'pretest' to do, seemingly perversely, as poorly as possible. How might you address this?
+
+## setup
+
+Install R and R studio on your own laptop.  If you get stuck, reach out to others on Slack; if you don't get stuck, help your classmates.
+
+### Some basic tools: Slack, Markdown, Google Docs
+
+Slack is a messaging and collaboration platform.  There is a simple *markdown* editor in Slack (for 'posts').
+
+You can find a simple introduction to markdown syntax in Chapter 3 of @freeman2017informatics. Some Markdown editors include Typora, Atom, and Ghostwriter.
+
+R markdown is a 'flavor' of - wait for it - markdown. For beginning with R markdown, consider [Carmichael (2017) Getting started](https://idc9.github.io/stor390/notes/getting_started/getting_started.html) as well as the first chapter of @wickham2016r. 
+
+You are likely to be familiar with Google Docs as well. One interesting feature of Google Docs is that it provides some basic tools for *version control,* a critical skill in information management particularly (but not only) for collaborative work. You can learn more about how to see and revert to prior versions of a project  in Google Docs [here](https://sites.google.com/site/scriptsexamples/home/announcements/named-versions-new-version-history-google-docs) . 
+
+Version control can help you avoid the chaos and confusion of having a computer full of files that look like Cham's (2012) comic:     
+
+<img src = "http://www.phdcomics.com/comics/archive/phd101212s.gif" width = "300px" />. 
+
+Never call anything 'final.doc'.
+
+We'll be talking about the challenge of version control throughout this text - and I am hoping that my own habits in file management can improve as we move forward together.
+

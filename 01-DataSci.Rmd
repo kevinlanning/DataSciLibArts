@@ -1,0 +1,58 @@
+---
+title: "01-DataSci"
+author: "Kevin Lanning"
+date: "December 21, 2018"
+output:
+  pdf_document: default
+  word_document: default
+  html_document: default
+---
+# (PART) Introduction {-}
+# data science for the liberal arts
+
+Hochster, in @hicks2017guide, describes two broad types of data scientists: Type A (Analysis) data scientists, whose skills are like those of an applied **statistician**, and Type B (Building) data scientists, whose skills lie in problem solving or coding, using the skills of the **computer scientist**.  This view arguably omits a critical component of the field, as data science is driven not just by statistics and computer science, but also by "domain expertise:"
+
+<img src = "http://bit.ly/2EqXM61" width = "300px" />
+
+## type C data science = data science for the liberal arts
+
+The iconic [Venn diagram model of data science](https://www.google.com/search?q=venn+diagram+model+of+data+science&newwindow=1&safe=active&rlz=1C1CHBF_enUS762US763&tbm=isch&tbo=u&source=univ&sa=X&ved=0ahUKEwiM_abBtY7XAhXDQCYKHdgyB58QsAQIOg&biw=1378) shown above suggests what we will call "Type C data science." It begins with "domain expertise" in your **concentration** in the arts, humanities, social and/or natural sciences, it both informs and can be informed by new methods and tools of data analysis, and it includes such things as **communication** (including writing and the design and display of quantitative data), **collaboration** (making use of the tools of team science), and **citizenship** (serving the public good, overcoming the digital divide, furthering social justice, increasing public health, diminishing human suffering, and making the world a more beautiful place).  It's shaped, too, by an awareness of the fact that the world and workforce are undergoing massive **change**: This puts the classic liberal arts focus of "learning how to learn" (as opposed to memorization) at center stage. And Type C data science is shaped, not least, by the **creepiness** of living increasingly in a measured, observed world.  
+
+Type C data science does not merely integrate 'domain expertise' with statistics and computing, it places content squarely at the center.  We can appreciate the compelling logic and power of statistics as well as the elegance of well-written code, but for the purposes of this book, these are means to an end. Programming and statistics are tools in the service of social and scientific problems and cultural concerns. Type C data science aims for work which is not merely cool, efficient, or elegant but responsible and meaningful.
+
+## the incompleteness of the data science Venn diagram
+
+Data visualizations are starting points which can provide insights, typically highlighting big truths or effects by obscuring other, presumably smaller ones.  The Venn diagram model of data science is no exception: As with other graphs, figures, and maps, it allows us to see by showing only part of the picture. What does it omit?  That is, beyond  *statistics, computing/hacking,* and *domain expertise,* what other skills contribute to the success of the data scientist?
+
+The complexity of data science is such that individuals typically have expertise in some but not all facets of the area. Consequently, problem solving requires *collaboration.* Collaboration, even more than statistical and technical sophistication, is arguably the most distinctive feature of contemporary scholarship in the natural and social sciences as well as in the private sector [@isaacson2014innovators].
+
+*Communication* is central to data science because results are inconsequential unless they are recognized, understood, and built upon; facets of communication include oral presentations, written texts and, too, clear data visualizations.
+
+*Reproducibility* is related to both communication and collaboration. There has been something of a crisis in recent years in the social and natural sciences as many results initially characterized as "statistically significant" have been found not to replicate.  The reasons for this are multiple and presently contentious, but one path towards better science includes the public sharing of methods and data, ideally before experiments are undertaken.  Reproducible methods are a key feature of contemporary data science. 
+
+*Pragmatism* refers to the relevance of work towards real-world goals.  
+
+Ideally, these pragmatic concerns take into account *ethical concerns* as well.
+
+## a dimension of depth
+
+Cutting across these eight facets (statistics, computing, domain expertise, collaboration, communication, reproducibility, pragmatism, and ethics), a second dimension can be articulated. No one of us can excel in all eight domains, rather, we might aim towards goals ranging from *literacy* (can understand) through *proficiency* (can get by) to *fluency* (can practice) to *leadership* (can create new solutions or methods).  
+
+That is, we can think of a *continuum* of knowledge, skills, interests, and goals, ranging from that which characterizes the data *consumer* to the data *citizen* to the data science *contributor.* A Type C data science includes this dimension of 'depth' as well.
+
+## Google and the liberal arts
+
+Data science is at its core empirical, and all of this rhetoric would be meaningless if not grounded in real world findings.  Although it was recently reported that [soft skills rather than STEM training were the most important predictors of success among Google employees](https://www.washingtonpost.com/news/answer-sheet/wp/2017/12/20/the-surprising-thing-google-learned-about-its-employees-and-what-it-means-for-todays-students/?sw_bypass=true&utm_term=.23e48235d66e), it's difficult to know whether these results would generalize to a less select group.  Nonetheless, there is a clear need for individuals with well-rounded training in the liberal arts in data science positions and, conversely, learning data science is arguably a key part of a contemporary liberal arts education.
+
+## data sci and TMI
+
+One difference between traditional statistics and data science is that the former is typically concerned with making inferences from datasets that are too *small*, while the latter is concerned with extracting a signal from data that is or are too *big* (@donoho2015fifty).  
+The struggle to extract meaning from a sea of information - of finding needles in haystacks, of finding faint signals in a cacophany of overstimulation - is arguably the question of the age.  It is a question we deal with as individuals on a moment-by-moment basis. It is a challenge I face as I wade through the many things that I could include in this class and these notes.
+
+The *primacy of editing* or selection lies at the essence of human perception and the creation of art forms ranging from novels to film.  And it is a key challenge for the data scientist faces as well.
+
+## a challenge
+
+Imagine it is ten years from today. You are working in a cool job (yay). How, ideally, would 'data science' inform your professional contributions?
+
+More proximally (closer to today) - what are your own goals for progress in data science, in terms of the model described above?

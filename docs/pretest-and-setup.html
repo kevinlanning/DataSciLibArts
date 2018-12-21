@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Data science for the liberal arts</title>
+  <title>2 pretest and setup | Data science for the liberal arts</title>
   <meta name="description" content="Test">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Data science for the liberal arts" />
+  <meta property="og:title" content="2 pretest and setup | Data science for the liberal arts />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/diffprop_cloud_250_sm.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Data science for the liberal arts" />
+  <meta name="twitter:title" content="2 pretest and setup | Data science for the liberal arts />
   
   <meta name="twitter:description" content="Test" />
   <meta name="twitter:image" content="images/diffprop_cloud_250_sm.png" />
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="an-invitation.html">
+<link rel="prev" href="data-science-for-the-liberal-arts.html">
+<link rel="next" href="an-introduction-to-r.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -108,22 +108,56 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Data science for the liberal arts</h1>
-<p class="author"><em>Kevin Lanning</em></p>
-<p class="date"><em>2018-12-21</em></p>
+<div id="pretest-and-setup" class="section level1">
+<h1><span class="header-section-number">2</span> pretest and setup</h1>
+<p>Reflect on your own knowledge of data science, including the necessary-but-not-sufficient areas of computer programming and statistics.</p>
+<p>You may know more than you think you do. Even if you haven’t had formal programming, you may well have experience with spreadsheets such as Excel or Google Sheets.</p>
+<p><em>What does ‘=SUM (A1:A15)’ mean? In a spreadsheet, if ‘=SUM (A1:A15)’ was in cell A16, and you copied this to cell B16, what would the result be?</em></p>
+<p>Statistics is, of course, relevant in a myriad of ways. Consider, for example, the prospects for Susie:</p>
+<p><em>Susie is applying to two med schools. At School A, 25% of students are accepted, and at School B, 25% are accepted as well. You are Susie. Are you going to get in to at least one of these programs? What is the probability? Does your estimate depend upon any assumptions?</em></p>
+<p>Questions like these are important for us. If the combined probability is low, it <em>likely</em> (another probability concept) makes sense for Susie to apply to additional programs. If it is high, it may not. But problems like this are hard - our estimates of probability are frequently poorly calibrated, and combining probability estimates is challenging (see, e.g., <span class="citation">Tversky and Kahneman (<a href="#ref-tversky1974judgment">1974</a>)</span>, and consider taking a course in <em>Behavioral Economics</em> or <em>Thinking and Decision Making</em> to learn more).</p>
+<div id="a-thought-experiment" class="section level2">
+<h2><span class="header-section-number">2.1</span> a thought experiment</h2>
+<p>Would it be possible to assign grades in a class based not just on what students know at the end of the term, but also on how much they have learned?</p>
+<p>You could, in principle, do this using regression analysis. That is, you could predict final exam scores from pretest scores, and use the residuals - the extent to which students did better or worse than expected - as a contributor to final exam grades.</p>
+<p>Interestingly, there would be an unusual incentive for students on this ‘pretest’ to do, seemingly perversely, as poorly as possible. How might you address this?</p>
 </div>
-<div id="section" class="section level1 unnumbered">
-<h1></h1>
+<div id="setup" class="section level2">
+<h2><span class="header-section-number">2.2</span> setup</h2>
+<p>Install R and R studio on your own laptop. If you get stuck, reach out to others on Slack; if you don’t get stuck, help your classmates.</p>
+<div id="some-basic-tools-slack-markdown-google-docs" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Some basic tools: Slack, Markdown, Google Docs</h3>
+<p>Slack is a messaging and collaboration platform. There is a simple <em>markdown</em> editor in Slack (for ‘posts’).</p>
+<p>You can find a simple introduction to markdown syntax in Chapter 3 of <span class="citation">Freeman and Ross (<a href="#ref-freeman2017informatics">2017</a>)</span>. Some Markdown editors include Typora, Atom, and Ghostwriter.</p>
+<p>R markdown is a ‘flavor’ of - wait for it - markdown. For beginning with R markdown, consider <a href="https://idc9.github.io/stor390/notes/getting_started/getting_started.html">Carmichael (2017) Getting started</a> as well as the first chapter of <span class="citation">Wickham and Grolemund (<a href="#ref-wickham2016r">2016</a>)</span>.</p>
+<p>You are likely to be familiar with Google Docs as well. One interesting feature of Google Docs is that it provides some basic tools for <em>version control,</em> a critical skill in information management particularly (but not only) for collaborative work. You can learn more about how to see and revert to prior versions of a project in Google Docs <a href="https://sites.google.com/site/scriptsexamples/home/announcements/named-versions-new-version-history-google-docs">here</a> .</p>
+<p>Version control can help you avoid the chaos and confusion of having a computer full of files that look like Cham’s (2012) comic:</p>
+<p><img src = "http://www.phdcomics.com/comics/archive/phd101212s.gif" width = "300px" />.</p>
+<p>Never call anything ‘final.doc’.</p>
+<p>We’ll be talking about the challenge of version control throughout this text - and I am hoping that my own habits in file management can improve as we move forward together.</p>
 
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-tversky1974judgment">
+<p>Tversky, Amos, and Daniel Kahneman. 1974. “Judgment Under Uncertainty: Heuristics and Biases.” <em>Science</em> 185 (4157). American association for the advancement of science: 1124–31.</p>
+</div>
+<div id="ref-freeman2017informatics">
+<p>Freeman, Michael, and Joel Ross. 2017. <em>Technical Foundations of Informatics, U Washington Info 201</em>. <a href="https://info201.github.io" class="uri">https://info201.github.io</a>.</p>
+</div>
+<div id="ref-wickham2016r">
+<p>Wickham, Hadley, and Garrett Grolemund. 2016. “R for Data Science.” Sebastopol, CA: O’Reilly. http://​ r4ds.​ had.​ co.​ nz.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="an-invitation.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-science-for-the-liberal-arts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="an-introduction-to-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

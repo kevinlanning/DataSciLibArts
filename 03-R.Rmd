@@ -1,0 +1,61 @@
+---
+title: "03-R"
+author: "Kevin Lanning"
+date: "December 21, 2018"
+output: html_document
+---
+# an introduction to R
+
+R is a system for reproducible science, and reproducibility is essential [@baumer2014r]. R is a system for Representing data in cool, insight-facilitating ways. R is really popular, and really growing. Learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.
+
+## um. it's not possible to 'learn R' 
+
+Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one can be said to have mastered and from which one then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn.  
+
+## what R stands for
+
+Historically, R grew out of S which could stand for Statistics. But what does R stand for? 
+
+R does not stand for '[argh](https://www.urbandictionary.com/define.php?term=ARGH),' although you may proclaim this in frustration ('arggh, why can't I get this to work?) or, perhaps, in satisfaction ('arggh, matey, that be a clever way of doing this'). 
+
+R might stand for *relatively high level.* Programming languages can be described along a continuum from high to low level, the former (like R) are more accessible to humans, the latter (like assembly language) more accessible to machines. Python, Java, and C++ are all more towards the middle of this continuum.
+
+R stands, in part, for *resources.* There are many resources, including, for example - 
+
+- Online resources include the simple (and less simple) lessons of [SwirlR](http://swirlstats.com/), which offers the possibility of "learning R in R," as well as [DataCamp](https://www.datacamp.com/home), the [Data Science Certificate Program at Johns Hopkins,](https://www.coursera.org/specializations/jhu-data-science) and other MOOCs.  
+- Books include @peng2015r - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and @wickham2016r.
+- You'll also learn (more directly) from people, including your classmates, as well as the broader community of people around the world. There are hundreds if not thousands of people, young and old, who are on the road with you. As I am, just a step or two (hopefully) ahead.
+
+## a digression on R Studio and commercial vs. open software
+
+R Studio is a commercial enterprise whose business model, judged from afar, is an important one in the world of technology and open science.  Most of what R Studio offers is free (97% according to Garrett Grolemund in the video below). The commercial product they offer makes sense for a relative few, but it is sufficiently lucrative to fund the enterprise.  The free product helps to drive the popularity of R studio; this widespread use, in turn, makes it increasingly essential for businesses to use.
+
+This mixed free/premium model characterizes Slack as well, but while [the ratio of free to paid users of Slack is on the order of 3:1](https://www.statista.com/statistics/652779/worldwide-slack-users-total-vs-paid/), for R it is, I am guessing, an order of magnitude higher than this. 
+
+The openness of R is an important feature, not just because it saves you money, but because contributing to the world of R is an act of digital democracy, for in contributing to the world of R we open up knowledge to others who may lack our privileges.   The corporate clients of R studio, in essence, support the rest of us.
+
+## another digression and thought experiment
+
+All contemporary cars have computers. Many of these are quite sophisticated, allowing cars to drive themselves in increasingly autonomous ways.  But the potential of autonomous cars will not be realized until they are connected on the 'net. Communication with other cars, stoplights, etc. will reduce travel times, increase fuel efficiency, and increase safety, too.
+
+Until, that is, they are hacked. 
+
+Who should be the guardians of the net linking cars?  Should this be closed (with Ford having it's own safeguards), or public?
+
+## a few characteristics of R
+
+R includes the base plus thousands of **packages**. These packages are customized add-ons which simplify certain tasks, such as text analysis.  But there are at least [40 different packages for this]() - where do you begin?  The most recent answer, and where we will start, is the curated list of packages which jointly comprise the tidyverse [@wickham2016r].
+
+@peng2015r speculated that "it would be straightforward to build an R package for ordering pizza." Does one exist now?
+
+R is an object-oriented language. At an atomic level, these include *characters, real numbers, integers, complex numbers, and logical.* These atoms are combined into vectors, which (unless they are lists) include objects of the same type [@peng2015r].  Missing values may be characterized by NA (not available) or NaN (not a number, implying an undefined or  impossible value). Attributes of R include such things as name, dimensions (for vectors and arrays), class (that's the atomic thing), length, etc. Vectors can be combined into a **data frame** (or, in a simplified form, a *tibble*), which greatly facilitates statistical analysis.
+
+
+## finding help
+
+To get a sense of some of the ways you can get help in R studio (and to see how a master uses the R Studio interface), consider the video at [RStudio Essentials Webinar Series – Programming Part 1 – RStudio ](https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-part-1/?wvideo=k8kz4e0p2v)
+
+For us, the key ideas in "looking for help" will include not just the tools on the R Studio IDE, but also (a) using google searches wisely, and (b) reaching out to your classmates on Slack. 
+
+There is an etiquette for help-seeking here as in the real world.  Your search for help should begin by making sure that others will encounter the same result, then by stripping the problem down to its essence. Once you have reduced the problem to this *minimal, reproducible* essence, you will often be able to spot the problem yourself - and, if not, you will make it easier for others to help you.  There is an R package (reprex) which will likely facilitate this, but I haven't tried it yet.  [Here](https://www.tidyverse.org/help/) is a good introduction.
+

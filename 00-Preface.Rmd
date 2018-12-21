@@ -1,0 +1,56 @@
+---
+title: "00-invitation"
+author: "Kevin Lanning"
+date: "December 20, 2018"
+output:
+  pdf_document: default
+  word_document: default
+  html_document: default
+---
+
+# an invitation {-}
+
+This work-in-progress includes my notes for [*_Introduction to Data Science_*](https://kevinlanning.github.io/DataSciSpring2019/) at the Wilkes Honors College of Florida Atlantic University.  
+
+Data science is still a new field of study, and there are multiple approaches to teaching it and to its place in the college curriculum. This course is like those at the universities of [North Carolina](https://idc9.github.io/stor390/), [British Columbia](https://github.com/STAT545-UBC/STAT545-UBC.github.io), [Duke](https://www2.stat.duke.edu/courses/Fall15/sta112.01/), [Maryland](http://www.hcbravo.org/IntroDataSci/calendar/), [Wisconsin](http://pages.stat.wisc.edu/~yandell/R_for_data_sciences/syllabus.html), [Stanford](https://github.com/dcl-2017-04/curriculum), [BYU](https://byuistats.github.io/M335/syllabus.html), [Harvard](http://datasciencelabs.github.io/), [Pennsylvania](https://github.com/MUSA-620-Spring-2017/Course-Materials), and [UC Berkeley](https://github.com/FAUDataScience/stat259) (and will likely draw from all of these) in that it is closer to Statistics than to Computer Science. 
+
+But if our approach is closer to statistics than to programming, it is particularly close to statistics in its most applied and pragmatic form. The choice of statistical methods should follow from the data and problem at hand - or, as @loevinger1957objective once put it, statistics should be the handmaiden of real-world concerns rather than technology.
+
+This pragmatic focus is not unique. Courses with similar goals (which we may again draw from) include those at [Chicago](https://github.com/UC-MACSS/persp-analysis), [Georgia Tech](https://github.com/jacobeisenstein/gt-css-class), [UC Santa Barbara](https://github.com/raviolli77/dataScience-UCSBProjectGroup-Syllabus), [Princeton](http://www.princeton.edu/~mjs3/soc596_f2016/), [UC Berkeley](https://github.com/rochelleterman/PS239T), at [Berlin's Hertie School of Governance](https://github.com/HertieDataScience/SyllabusAndLectures), and in [Columbia's School of Journalism](https://github.com/tommeagher/data1-fall2015).
+
+## what will be in the class? {-}
+
+**R**
+
+In my 2017 survey of introductory data science courses, I saw a pretty even split between those which begin with Python and those which begin with the statistical programming language R. This difference corresponds, loosely, to the split noted above: Computer science based approaches to data science are frequently grounded in Python, while stats based approaches are generally grounded in R. Our course, like those for most of the syllabi and courses linked above, will be based in R. 
+
+**Reproducible science**
+
+The course will provide an introduction to some of the methods and tools of reproducible science. We will consider the replication crisis in the natural and social sciences, and then consider three distinct approaches which serve as partial solutions to the crisis.  The first of these is training in a notebook-based approach to writing analyses, reports and projects (using R markdown). The second is using public repositories (such as the [Open Science Framework](https://osf.io/) and [GitHub](https://github.com/)) to provide snapshots of projects over time. Finally, the third is to consider the place of significance testing in the age of Big Data, and to provide training in the use of descriptive, exploratory techniques of data analysis.
+
+**Good visualizations**
+
+Part of Type C data science is communication, and this includes not just writing up results, but also designing data displays that incisively convey the key ideas or features in a flood of data. We'll examine and develop data visualizations such as plots, networks and text clouds. More advanced topics may include maps, interactive displays, and animations.
+
+**~~All~~ *Some of* the data**
+
+It's been [argued](https://www.udemy.com/datascience/learn/v4/t/lecture/3473822?start=379) that in the last dozen years, humans have produced more than 60 times as much information as existed in the entire previous history of humankind. (It sounds like hyperbole, but even if it's off by an order of magnitude it's still amazing).  There are plenty of data sources for us to examine, and we'll consider existing datasets from disciplines ranging from literature to economics to public health, with sizes ranging from a few dozen to millions of data points.  We will also clean and create new datasets.
+
+**~~All~~ *Some of* the tools**
+
+In addition to R, we'll use a range of other tools: We'll communicate on the Slack platform. We'll write using markdown editors such as [Typora](https://typora.io/). We'll certainly use spreadsheets such as Excel or Google Sheets. We *may* use additional tools for visualizing data such as Gephi and Tableau.  In any event, **there will be computing throughout the course.** You will be expected to bring a laptop every day. (Please let Dr. Lanning know ASAP if you don't have access to this).
+
+**The place of data science in the WHC (and FAU) curriculum**
+
+At this writing, there is enthusiasm across units of FAU and its affiliated institutes, including Max Planck and FAU's Colleges of Science and Engineering as well as the WHC, for integrating data science into our curriculum. Within the WHC, a data science minor and a multi-track concentration are under development.  Until these proposals have been formally approved, students interested in concentrating in Data Science are encouraged to pursue an individual concentration (see Dr. Lanning for details). 
+
+In addition, there are several integrated '4 + 1' pathways which will lead to a master's degree in the College of Engineering. These programs are also in progress; again, see Dr. Lanning for additional details.   
+
+## should you enroll? {-}
+
+It's my intention that this course should serve every Wilkes Honors College student, regardless of concentration. The WHC was built and funded by the state of Florida to train tomorrow's leaders. That's you. The skills and insights that you will gain in this course will help you in graduate and professional schools, will help you in your careers, and will help you in your goal of making a better world. And it will help you train the next generation of data scientists, too.
+
+**How do I sign up?**
+
+If you are interested in taking the class, complete the Google form [here](https://goo.gl/forms/kXGAOTShcOLPwjPH2). Note that enrollment in the class and lab will be limited to 30.
+
