@@ -1,7 +1,7 @@
 ---
 title: "01-DataSci"
 author: "Kevin Lanning"
-date: "December 21, 2018"
+date: "January 4, 2019"
 output:
   pdf_document: default
   word_document: default
@@ -22,21 +22,21 @@ Type C data science does not merely integrate 'domain expertise' with statistics
 
 ## the incompleteness of the data science Venn diagram
 
-Data visualizations are starting points which can provide insights, typically highlighting big truths or effects by obscuring other, presumably smaller ones.  The Venn diagram model of data science is no exception: As with other graphs, figures, and maps, it allows us to see by showing only part of the picture. What does it omit?  That is, beyond  *statistics, computing/hacking,* and *domain expertise,* what other skills contribute to the success of the data scientist?
+Data visualizations are starting points which can provide insights, typically highlighting big truths or effects by obscuring other, presumably smaller ones.  The Venn diagram model of data science is no exception: As with other graphs, figures, and maps, it allows us to see by showing only part of the picture. What does it omit?  That is, beyond **statistics**, **computing/hacking**, and **domain expertise**, what other skills contribute to the success of the data scientist?
 
-The complexity of data science is such that individuals typically have expertise in some but not all facets of the area. Consequently, problem solving requires *collaboration.* Collaboration, even more than statistical and technical sophistication, is arguably the most distinctive feature of contemporary scholarship in the natural and social sciences as well as in the private sector [@isaacson2014innovators].
+The complexity of data science is such that individuals typically have expertise in some but not all facets of the area. Consequently, problem solving requires **collaboration**. Collaboration, even more than statistical and technical sophistication, is arguably the most distinctive feature of contemporary scholarship in the natural and social sciences as well as in the private sector [@isaacson2014innovators].
 
-*Communication* is central to data science because results are inconsequential unless they are recognized, understood, and built upon; facets of communication include oral presentations, written texts and, too, clear data visualizations.
+**Communication** is central to data science because results are inconsequential unless they are recognized, understood, and built upon; facets of communication include oral presentations, written texts and, too, clear data visualizations.
 
-*Reproducibility* is related to both communication and collaboration. There has been something of a crisis in recent years in the social and natural sciences as many results initially characterized as "statistically significant" have been found not to replicate.  The reasons for this are multiple and presently contentious, but one path towards better science includes the public sharing of methods and data, ideally before experiments are undertaken.  Reproducible methods are a key feature of contemporary data science. 
+**Reproducibility** is related to both communication and collaboration. There has been something of a crisis in recent years in the social and natural sciences as many results initially characterized as "statistically significant" have been found not to replicate.  The reasons for this are multiple and presently contentious, but one path towards better science includes the public sharing of methods and data, ideally before experiments are undertaken.  Reproducible methods are a key feature of contemporary data science. 
 
-*Pragmatism* refers to the relevance of work towards real-world goals.  
+**Pragmatism** refers to the relevance of work towards real-world goals.  
 
-Ideally, these pragmatic concerns take into account *ethical concerns* as well.
+Ideally, these pragmatic concerns take into account **ethical concerns** as well.
 
 ## a dimension of depth
 
-Cutting across these eight facets (statistics, computing, domain expertise, collaboration, communication, reproducibility, pragmatism, and ethics), a second dimension can be articulated. No one of us can excel in all eight domains, rather, we might aim towards goals ranging from *literacy* (can understand) through *proficiency* (can get by) to *fluency* (can practice) to *leadership* (can create new solutions or methods).  
+Cutting across these eight facets (statistics, computing, domain expertise, collaboration, communication, reproducibility, pragmatism, and ethics), a second dimension can be articulated. No one of us can excel in all eight domains, rather, we might aim towards goals ranging from **literacy** (can understand) through **proficiency** (can get by) to **fluency** (can practice) to **leadership** (can create new solutions or methods).  
 
 That is, we can think of a *continuum* of knowledge, skills, interests, and goals, ranging from that which characterizes the data *consumer* to the data *citizen* to the data science *contributor.* A Type C data science includes this dimension of 'depth' as well.
 
@@ -46,12 +46,13 @@ Data science is at its core empirical, and all of this rhetoric would be meaning
 
 ## data sci and TMI
 
-One difference between traditional statistics and data science is that the former is typically concerned with making inferences from datasets that are too *small*, while the latter is concerned with extracting a signal from data that is or are too *big* (@donoho2015fifty).  
-The struggle to extract meaning from a sea of information - of finding needles in haystacks, of finding faint signals in a cacophany of overstimulation - is arguably the question of the age.  It is a question we deal with as individuals on a moment-by-moment basis. It is a challenge I face as I wade through the many things that I could include in this class and these notes.
+One difference between traditional statistics and data science is that the former is typically concerned with making inferences from datasets that are too *small*, while the latter is concerned with extracting a signal from data that is or are too *big* (@donoho2015fifty). 
 
-The *primacy of editing* or selection lies at the essence of human perception and the creation of art forms ranging from novels to film.  And it is a key challenge for the data scientist faces as well.
+The struggle to extract meaning from a sea of information - of finding needles in haystacks, of finding faint signals in a cacophony of overstimulation - is arguably the question of the age.  It is a question we deal with as individuals on a moment-by-moment basis. It is a challenge I face as I wade through the many things that I could include in this class and these notes.
 
-## a challenge
+The *primacy of editing* or selection lies at the essence of human perception and the creation of art forms ranging from novels to film.  And it is a key challenge that the data scientist faces as well.
+
+## discussion: what will you do with data science?
 
 Imagine it is ten years from today. You are working in a cool job (yay). How, ideally, would 'data science' inform your professional contributions?
 

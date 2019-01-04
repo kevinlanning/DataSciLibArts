@@ -1,14 +1,17 @@
 ---
 title: "03-R"
 author: "Kevin Lanning"
-date: "December 21, 2018"
-output: html_document
+date: "January 4, 2019"
+output:
+  pdf_document: default
+  word_document: default
+  html_document: default
 ---
 # an introduction to R
 
-R is a system for reproducible science, and reproducibility is essential [@baumer2014r]. R is a system for Representing data in cool, insight-facilitating ways. R is really popular, and really growing. Learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.
+R is a system for *Reproducible* science, and reproducibility is essential [@baumer2014r]. R is a system for *Representing data* in cool, insight-facilitating ways. R is *Really popular*, and really growing. Learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.
 
-## um. it's not possible to 'learn R' 
+## um. in a sense, it's not possible to 'learn R' 
 
 Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one can be said to have mastered and from which one then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn.  
 
@@ -18,37 +21,30 @@ Historically, R grew out of S which could stand for Statistics. But what does R 
 
 R does not stand for '[argh](https://www.urbandictionary.com/define.php?term=ARGH),' although you may proclaim this in frustration ('arggh, why can't I get this to work?) or, perhaps, in satisfaction ('arggh, matey, that be a clever way of doing this'). 
 
-R might stand for *relatively high level.* Programming languages can be described along a continuum from high to low level, the former (like R) are more accessible to humans, the latter (like assembly language) more accessible to machines. Python, Java, and C++ are all more towards the middle of this continuum.
+R might stand for *Relatively high level.* Programming languages can be described along a continuum from high to low level, the former (like R) are more accessible to humans, the latter (like assembly language) more accessible to machines. Python, Java, and C++ are all more towards the middle of this continuum.
 
-R stands, in part, for *resources.* There are many resources, including, for example - 
+R stands, in part, for *Resources.* Because R is popular, there are many resources, including, for example - 
 
 - Online resources include the simple (and less simple) lessons of [SwirlR](http://swirlstats.com/), which offers the possibility of "learning R in R," as well as [DataCamp](https://www.datacamp.com/home), the [Data Science Certificate Program at Johns Hopkins,](https://www.coursera.org/specializations/jhu-data-science) and other MOOCs.  
 - Books include @peng2015r - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and @wickham2016r.
-- You'll also learn (more directly) from people, including your classmates, as well as the broader community of people around the world. There are hundreds if not thousands of people, young and old, who are on the road with you. As I am, just a step or two (hopefully) ahead.
+- You'll also learn (more directly) from people, including your classmates, as well as the broader community of people around the world. There are hundreds if not thousands of people, young and old, who are on the road with you. I am as well, just a step or two (hopefully) ahead.
 
-## a digression on R Studio and commercial vs. open software
+Most importantly, I hope and expect that you'll find that R stands for ***Rewarding***. A language is a way of thinking about the world, and this is true for computer languages as well.  You'll be challenged by its complexity, its idiosyncracy, its alien logic.  But you will succeed, and you will find that you can do things that you did not believe possible.
 
-R Studio is a commercial enterprise whose business model, judged from afar, is an important one in the world of technology and open science.  Most of what R Studio offers is free (97% according to Garrett Grolemund in the video below). The commercial product they offer makes sense for a relative few, but it is sufficiently lucrative to fund the enterprise.  The free product helps to drive the popularity of R studio; this widespread use, in turn, makes it increasingly essential for businesses to use.
-
-This mixed free/premium model characterizes Slack as well, but while [the ratio of free to paid users of Slack is on the order of 3:1](https://www.statista.com/statistics/652779/worldwide-slack-users-total-vs-paid/), for R it is, I am guessing, an order of magnitude higher than this. 
-
-The openness of R is an important feature, not just because it saves you money, but because contributing to the world of R is an act of digital democracy, for in contributing to the world of R we open up knowledge to others who may lack our privileges.   The corporate clients of R studio, in essence, support the rest of us.
-
-## another digression and thought experiment
-
-All contemporary cars have computers. Many of these are quite sophisticated, allowing cars to drive themselves in increasingly autonomous ways.  But the potential of autonomous cars will not be realized until they are connected on the 'net. Communication with other cars, stoplights, etc. will reduce travel times, increase fuel efficiency, and increase safety, too.
-
-Until, that is, they are hacked. 
-
-Who should be the guardians of the net linking cars?  Should this be closed (with Ford having it's own safeguards), or public?
+**R Studio,** the environment we will use to write, test, and run R code, is a commercial enterprise whose business model, judged from afar, is an important one in the world of technology.  Most of what R Studio offers is free (97% according to Garrett Grolemund in the video below). The commercial product they offer makes sense for a relative few, but it is sufficiently lucrative to fund the enterprise.  The free product helps to drive the popularity of R studio; this widespread use, in turn, makes it increasingly essential for businesses to use. This mixed free/premium, or 'freemium,' model characterizes Slack as well, but while [the ratio of free to paid users of Slack is on the order of 3:1](https://www.statista.com/statistics/652779/worldwide-slack-users-total-vs-paid/), for R it is, I am guessing, an order of magnitude higher than this. 
 
 ## a few characteristics of R
 
-R includes the base plus thousands of **packages**. These packages are customized add-ons which simplify certain tasks, such as text analysis.  But there are at least [40 different packages for this]() - where do you begin?  The most recent answer, and where we will start, is the curated list of packages which jointly comprise the tidyverse [@wickham2016r].
+R includes the base plus thousands of **packages**. These packages are customized add-ons which simplify certain tasks, such as text analysis.  But there are, at this writing, [over 50 different packages for text analysis](https://cran.r-project.org/web/views/NaturalLanguageProcessing.html) - so where do you begin?  One recent answer, and where we will start, is the curated list of packages which jointly comprise the tidyverse [@wickham2016r].
 
-@peng2015r speculated that "it would be straightforward to build an R package for ordering pizza." Does one exist now?
+> A few years ago, @peng2015r speculated that "it would be straightforward to build an R package for ordering pizza." Does one exist now?
+>
 
-R is an object-oriented language. At an atomic level, these include *characters, real numbers, integers, complex numbers, and logical.* These atoms are combined into vectors, which (unless they are lists) include objects of the same type [@peng2015r].  Missing values may be characterized by NA (not available) or NaN (not a number, implying an undefined or  impossible value). Attributes of R include such things as name, dimensions (for vectors and arrays), class (that's the atomic thing), length, etc. Vectors can be combined into a **data frame** (or, in a simplified form, a *tibble*), which greatly facilitates statistical analysis.
+R is an **object-oriented** language - one conceptually organized around objects and data rather than actions and logic. In R, at the atomic level, objects include *characters, real numbers, integers, complex numbers, and logical.* These atoms are combined into vectors, which generally include objects of the same type [one kind of object, 'lists,' is an exception to this; @peng2015r].  Vectors can be further combined into **data frames**, which are two-dimensional tables or arrays. A **tibble** is a particular type of data frame which is, in some ways, handier to work with than other data frames.  We'll be working extensively with data frames in general, and tibbles in particular, as we move forward.
+
+Objects have attributes. Attributes of R include such things as name, dimensions (for vectors and arrays), class (that's the atomic thing), length, etc. 
+
+Real world data sets are messy, and frequently have **missing values.** In R, missing values may be characterized by NA (not available) or NaN (not a number, implying an undefined or  impossible value). 
 
 
 ## finding help
@@ -59,3 +55,14 @@ For us, the key ideas in "looking for help" will include not just the tools on t
 
 There is an etiquette for help-seeking here as in the real world.  Your search for help should begin by making sure that others will encounter the same result, then by stripping the problem down to its essence. Once you have reduced the problem to this *minimal, reproducible* essence, you will often be able to spot the problem yourself - and, if not, you will make it easier for others to help you.  There is an R package (reprex) which will likely facilitate this, but I haven't tried it yet.  [Here](https://www.tidyverse.org/help/) is a good introduction.
 
+## discussion: is open-source software secure?
+
+Perhaps the most important feature of R is that it is open-source software. This is important not just because it saves you money, but because contributing to the world of R is an act of digital democracy. In using and contributing to the world of R we open up knowledge to others who may lack our privileges. R, like Android or Wikipedia, is a tool for all of us, maintained and continually improved upon by the crowd.
+
+But is open-source software safe? More generally, in a data-dependent world, who should be the guardians of the code that connects us? 
+
+**Securing the Internet of Vehicles**. To consider just one example, the computer systems in modern cars typically run millions of lines of code. As cars become increasingly autonomous, this complexity will only increase. (Incidentally, the Society of Automotive Engineers, or SAE, describes 6 levels of 'auto autonomy.' At this writing, the most sophisticated systems available to consumers, such as Tesla Autopilot, are at level 2. What lies ahead are cars which are self-driving on carefully selected, geo-fenced roads, and ultimately cars "[which can operate on any road... a human driver could negotiate](https://www.caranddriver.com/features/a15079828/autonomous-self-driving-car-levels-car-levels/)"). Our roads and highways will become an Internet of Vehicles (IOV), which will include not just connections between cars and an intelligent *cloud* 'above us' but also direct links between a distributed system of intelligent cars, stoplights, and road sensors in a *fog* 'around us' [@bonomi2012fog]. **Fog computing** and the IOV will reduce travel times and increase both fuel efficiency and automotive safety.
+
+Obviously, there are **cybersecurity** concerns. While the prospects for [a chaotic, choreographed hack of hundreds of vehicles on the streets of Manhattan](https://www.youtube.com/watch?v=OvewYslou9g), such as that in the 2017 movie "The Fate of the Furious", are remote at best (or worst), there have been examples of "white-hat hackers" who have successfully infiltrated (and thereby helped secure) car information systems.
+
+As the IOV develops, there will be vulnerabilities to privacy as well as safety, and the security of the system will be paramount. Different car manufacturers are taking different approaches to developing secure information systems, with many using a closed or proprietary approach. But the scope of the problem is so large that there is a movement towards pooling resources and encouraging collaboration among industry partners, academics, and citizen scientists in the development of an open-source autonomous driving platform, such as [Apollo](http://apollo.auto/). Perhaps counterintuitively, there may be significant security advantages to using source code that is open to all [@clarke2009open, @fitzgerald2016open].
