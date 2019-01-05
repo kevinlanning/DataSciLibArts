@@ -40,11 +40,15 @@ Questions like these are important for us. If the combined probability is low, i
  You may have worked with **data** in spreadsheets such as Excel or Google Sheets.
 
 >   **Exercise 2_2** 
->   Open the Google Sheet at http://bit.ly/dslaX2_1. Save a copy and edit it, entering the following in cell A6: 
+>   Open the Google Sheet at http://bit.ly/dslaX2_1. Save a copy and edit it, entering the following in cell B7: 
 >
->   *=SUM (A1:A5)* 
+>   *=SUM (B2:B6)* 
 >
->   What is the result? **If you copy cell A6 to B6, what happens and why?**
+>   What is the result? 
+>
+>   Now **copy cell B7 to C7**
+>
+>   What happens? Is this the result you expected? Would another approach be more useful?**
 
 In data science, spreadsheets are used largely to store data rather than to analyze it. Some *best practices* for using spreadsheets in data science are given in @broman2017data.   
 
