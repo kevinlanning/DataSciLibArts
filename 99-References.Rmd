@@ -1,0 +1,10 @@
+---
+title: '"99-AllRefs"'
+author: "Kevin Lanning"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  word_document: default
+  html_document: default
+---
+# references

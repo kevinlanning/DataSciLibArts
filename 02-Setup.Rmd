@@ -1,7 +1,7 @@
 ---
 title: "02-Setup"
 author: "Kevin Lanning"
-date: "January 4, 2019"
+date: "`r Sys.Date()`"
 output:
   pdf_document: default
   word_document: default

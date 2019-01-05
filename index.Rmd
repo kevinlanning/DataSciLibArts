@@ -3,13 +3,12 @@ title: "Data science for the liberal arts"
 author: "Kevin Lanning"
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
-# output: "bookdown::gitbook"
 output:
     bookdown::gitbook:
         config:
             download: null
             fontsettings:
-                theme: night 
+                theme: sepia 
                 family: sans
                 size: 2
         highlight: pygments
@@ -21,11 +20,10 @@ output:
     df_print: paged
 documentclass: "book"
 bibliography: ../9Bibliography/dataSciRefs.bib
-biblio-style: apalike
-link-citations: yes
+biblio-style: "apalike"
+link-citations: true
 description: "Test"
 cover-image: images/diffprop_cloud_250_sm.png
-github-repo: rstudio/bookdown-demo
-
+github-repo: kevinlanning/DataSciLibArts
 ---
 # {-} 

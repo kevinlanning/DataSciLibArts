@@ -1,7 +1,7 @@
 ---
 title: "03-R"
 author: "Kevin Lanning"
-date: "January 4, 2019"
+date: "`r Sys.Date()`"
 output:
   pdf_document: default
   word_document: default
@@ -65,4 +65,4 @@ But is open-source software safe? More generally, in a data-dependent world, who
 
 Obviously, there are **cybersecurity** concerns. While the prospects for [a chaotic, choreographed hack of hundreds of vehicles on the streets of Manhattan](https://www.youtube.com/watch?v=OvewYslou9g), such as that in the 2017 movie "The Fate of the Furious", are remote at best (or worst), there have been examples of "white-hat hackers" who have successfully infiltrated (and thereby helped secure) car information systems.
 
-As the IOV develops, there will be vulnerabilities to privacy as well as safety, and the security of the system will be paramount. Different car manufacturers are taking different approaches to developing secure information systems, with many using a closed or proprietary approach. But the scope of the problem is so large that there is a movement towards pooling resources and encouraging collaboration among industry partners, academics, and citizen scientists in the development of an open-source autonomous driving platform, such as [Apollo](http://apollo.auto/). Perhaps counterintuitively, there may be significant security advantages to using source code that is open to all [@clarke2009open, @fitzgerald2016open].
+As the IOV develops, there will be vulnerabilities to privacy as well as safety, and the security of the system will be paramount. Different car manufacturers are taking different approaches to developing secure information systems, with many using a closed or proprietary approach. But the scope of the problem is so large that there is a movement towards pooling resources and encouraging collaboration among industry partners, academics, and citizen scientists in the development of an open-source autonomous driving platform, such as [Apollo](http://apollo.auto/). Perhaps counterintuitively, there may be significant security advantages to using source code that is open to all [@clarke2009open; @fitzgerald2016open].
