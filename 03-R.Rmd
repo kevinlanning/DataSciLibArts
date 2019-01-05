@@ -8,17 +8,17 @@ output:
 ---
 # an introduction to R
 
-R is a system for *Reproducible* science, and reproducibility is essential [@baumer2014r]. R is a system for *Representing data* in cool, insight-facilitating ways. R is *Really popular*, and really growing. Learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.
+R is a system for **Reproducible research**, and reproducibility is essential [@gandrud2016reproducible]. 
 
-## um. in a sense, it's not possible to 'learn R' 
+>   Research is often presented in very selective containers: slideshows, journal articles, books, or maybe even websites... these documents are not the research [rather] these documents are the “advertising”. The research is the “full software environment, code, and data that produced the results” [Buckheit and Donoho, 1995, Donoho, 2010, 385]. When we separate the research from its advertisement we are making it difficult for others to verify the findings by reproducing them.
 
-Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one can be said to have mastered and from which one then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn.  
+R markdown documents (like Jupyter notebooks in the Python world) facilitate reproducible research, as they include comments or explanations, code, links to data, and results.  
 
-## what R stands for
+## some other things that R stands for
 
 Historically, R grew out of S which could stand for Statistics. But what does R stand for? 
 
-R does not stand for '[argh](https://www.urbandictionary.com/define.php?term=ARGH),' although you may proclaim this in frustration ('arggh, why can't I get this to work?) or, perhaps, in satisfaction ('arggh, matey, that be a clever way of doing this'). 
+R is a system for *Representing data* in cool, insight-facilitating ways. R is *Really popular*, and really growing. Learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.
 
 R might stand for *Relatively high level.* Programming languages can be described along a continuum from high to low level, the former (like R) are more accessible to humans, the latter (like assembly language) more accessible to machines. Python, Java, and C++ are all more towards the middle of this continuum.
 
@@ -28,9 +28,7 @@ R stands, in part, for *Resources.* Because R is popular, there are many resourc
 - Books include @peng2015r - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and @wickham2016r.
 - You'll also learn (more directly) from people, including your classmates, as well as the broader community of people around the world. There are hundreds if not thousands of people, young and old, who are on the road with you. I am as well, just a step or two (hopefully) ahead.
 
-Most importantly, I hope and expect that you'll find that R stands for ***Rewarding***. A language is a way of thinking about the world, and this is true for computer languages as well.  You'll be challenged by its complexity, its idiosyncracy, its alien logic.  But you will succeed, and you will find that you can do things that you did not believe possible.
-
-**R Studio,** the environment we will use to write, test, and run R code, is a commercial enterprise whose business model, judged from afar, is an important one in the world of technology.  Most of what R Studio offers is free (97% according to Garrett Grolemund in the video below). The commercial product they offer makes sense for a relative few, but it is sufficiently lucrative to fund the enterprise.  The free product helps to drive the popularity of R studio; this widespread use, in turn, makes it increasingly essential for businesses to use. This mixed free/premium, or 'freemium,' model characterizes Slack as well, but while [the ratio of free to paid users of Slack is on the order of 3:1](https://www.statista.com/statistics/652779/worldwide-slack-users-total-vs-paid/), for R it is, I am guessing, an order of magnitude higher than this. 
+R does not stand for '[argh](https://www.urbandictionary.com/define.php?term=ARGH),' although you may proclaim this in frustration ('arggh, why can't I get this to work?) or, perhaps, in satisfaction ('arggh, matey, that be a clever way of doing this').  But R does stand for ***Rewarding***. A language is a way of thinking about the world, and this is true for computer languages as well.  You'll be challenged by its complexity, its idiosyncracy, its alien logic.  But you will succeed, and you will find that you can do things that you did not believe possible.
 
 ## a few characteristics of R
 
@@ -45,14 +43,23 @@ Objects have attributes. Attributes of R include such things as name, dimensions
 
 Real world data sets are messy, and frequently have **missing values.** In R, missing values may be characterized by NA (not available) or NaN (not a number, implying an undefined or  impossible value). 
 
+**R Studio,** the environment we will use to write, test, and run R code, is a commercial enterprise whose business model, judged from afar, is an important one in the world of technology.  Most of what R Studio offers is free (97% according to Garrett Grolemund in the video below). The commercial product they offer makes sense for a relative few, but it is sufficiently lucrative to fund the enterprise.  The free product helps to drive the popularity of R studio; this widespread use, in turn, makes it increasingly essential for businesses to use. This mixed free/premium, or 'freemium,' model characterizes Slack as well, but while [the ratio of free to paid users of Slack is on the order of 3:1](https://www.statista.com/statistics/652779/worldwide-slack-users-total-vs-paid/), for R it is, I am guessing, an order of magnitude higher than this. 
 
 ## finding help
 
-To get a sense of some of the ways you can get help in R studio (and to see how a master uses the R Studio interface), consider the video at [RStudio Essentials Webinar Series – Programming Part 1 – RStudio ](https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-part-1/?wvideo=k8kz4e0p2v)
+**one does not simply 'learn R.'** Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one can be said to have mastered and from which one then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn.  
+
+So all of us will need help. 
 
 For us, the key ideas in "looking for help" will include not just the tools on the R Studio IDE, but also (a) using google searches wisely, and (b) reaching out to your classmates on Slack. 
 
 There is an etiquette for help-seeking here as in the real world.  Your search for help should begin by making sure that others will encounter the same result, then by stripping the problem down to its essence. Once you have reduced the problem to this *minimal, reproducible* essence, you will often be able to spot the problem yourself - and, if not, you will make it easier for others to help you.  There is an R package (reprex) which will likely facilitate this, but I haven't tried it yet.  [Here](https://www.tidyverse.org/help/) is a good introduction.
+
+Finally, to get a sense of some of the ways you can get help in R studio (and to see how a master uses the R Studio interface), consider this video:
+
+[![RStudio Essentials Webinar Series – Programming Part 1 – RStudio](https://embedwistia-a.akamaihd.net/deliveries/85f90f89c20cf329c8e6091508fe44c045e70167.jpg?image_play_button_size=2x&amp;image_crop_resized=960x585&amp;image_play_button=1&amp;image_play_button_color=4287c7e0)](https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-part-1/?wvideo=k8kz4e0p2v)
+*Video 3.1: Garret Grolemund of [R Studio](https://www.rstudio.com/)*
+
 
 ## discussion: is open-source software secure?
 
@@ -65,3 +72,4 @@ But is open-source software safe? More generally, in a data-dependent world, who
 Obviously, there are **cybersecurity** concerns. While the prospects for [a chaotic, choreographed hack of hundreds of vehicles on the streets of Manhattan](https://www.youtube.com/watch?v=OvewYslou9g), such as that in the 2017 movie "The Fate of the Furious", are remote at best (or worst), there have been examples of "white-hat hackers" who have successfully infiltrated (and thereby helped secure) car information systems.
 
 As the IOV develops, there will be vulnerabilities to privacy as well as safety, and the security of the system will be paramount. Different car manufacturers are taking different approaches to developing secure information systems, with many using a closed or proprietary approach. But the scope of the problem is so large that there is a movement towards pooling resources and encouraging collaboration among industry partners, academics, and citizen scientists in the development of an open-source autonomous driving platform, such as [Apollo](http://apollo.auto/). Perhaps counterintuitively, there may be significant security advantages to using source code that is open to all [@clarke2009open; @fitzgerald2016open].
+

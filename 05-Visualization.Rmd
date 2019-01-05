@@ -1,0 +1,126 @@
+---
+title: "Data Visualization"
+author: "Lanning"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# (PART) Part II Towards data literacy  {-}
+
+# Principles of data visualization
+* CITATIONS NEEDED HERE *
+## Opening thoughts
+
+Graphs aren't just to inform, but to make you reflect. 
+
+We are concerned not just with the design of graphs, but with our role in society as leaders, as arbiters of facts, as educators. We want to foster data literacy.
+
+How do people understand graphs? (NY Times series for schools). 
+
+How can you use graphs to tell people the truth in a way that they understand?
+
+When you see a graph, what do you notice, what do you wonder, and what is the story? Is "story telling" what visualizations should be about?
+
+A graph might begin with perception and understanding (the consumer), with knowledge and design values (the producer), but it also reflects the truth of the data. How much is each?
+
+## Some early graphs
+
+Visual displays of information reach back to prehistoric times; modern graphs date back, arguably, to Playfair's 1786 *Political Atlas* - in which  
+
+*"... spatial dimensions were used to represent nonspatial, quantitative, idiographic, empirical data. Although it now seems natural to represent, for example, rising and falling imports over time as a rising and falling line, it does not seem to have been done before that time and was quite an accomplishment. Notably, in addition to the statistical line chart, Playfair at one fell swoop single-handedly invented most of the remaining forms of the statistical graphic repertoire used today-the bar chart and histogram, the surface chart, and the circle diagram or "pie chart."*
+
+![Fig 5.1: Playfair's 1786 analysis of trade deficits.](playfair1786.PNG)[source](https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march)
+
+
+----
+
+2) The most important early graph is that of Minard. Here's some background:
+
+"*Czar Alexander of Russia sees that Napoleon was becoming too powerful, so he refuses to participate in this embargo. Angry at Czar Alexander’s decision, Napoleon gathers a massive army of over 400,000 to attack Russia in June of 1812. While Russia’s troops are not as numerous as France’s, Russia has a plan. Russian troops keep retreating as Napoleon’s troops move forward, burning everything they pass, ensuring that the French forces could not take anything from their environment. Eventually the French army follows the Russian army all the way to Moscow during October, suffering major losses from lack of food. By the time Napoleon gets to Moscow, he knows he has to retreat. As winter settles into Europe and the temperature drops, Napoleon’s troops suffer even more losses, returning to France from lack of food, disease, and weather conditions."*
+
+In class, we listened to the 1812 Overture while discussing this. 
+
+(The battle of Borodino, immortalized in Tolstoy's War and Peace, occurs just before Moscow; the French army loses about 30000 men. Five cannon shots in the overture mark this. And when Napoleon gets to Moscow, he finds that the Russians had razed it before hand, so that there was nothing there for them.  Eleven more cannon here.)
+
+![Fig 5.2: Minard's display of Napolean's catastrophic assault on Moscow, 1812](minard1812.PNG)[source](https://datavizblog.com/2013/05/30/dataviz-history-charles-minards-flow-map-of-napoleons-russian-campaign-of-1812-polotsk-smolensk-and-on-to-borodino/) 
+
+------
+
+## Tukey's contributions
+
+Tukey and Exploratory Data Analysis (EDA). Begins with Tukey 1962 "Future of Data Analysis," continues with his ultimate publication of EDA in 1977. 
+
+Tukey decries tallies (prone to error), and shows **stem and leaf displays**, then box plots. He argues for transforming data to linearity to uncover meaningful relationships, then to examine residuals to look more closely.
+
+## Approaches to graphs
+
+A graph might begin with perception and understanding (the consumer), with knowledge and design values (the producer), but it also reflects the truth of the data. How much is each?
+
+In thinking about how to design graphs, we can begin with abstract theory, with principles of design informed by our understanding of perception, or with empirical analyses of understanding and memory. 
+
+## Tufte: First principles
+
+@tufte2001visual describes **Graphical Excellence**. Graphs should, among other things, "Induce the viewer to think about the substance, rather than about methodology, graphic design, the technology of graphic productions, or something else." Graphs should "Present many numbers in a small space, make large data sets coherent, and encourage the eye to compare different pieces of data."  Graphs should "serve a reasonably clear purpose: description, exploration, tabulation, or decoration [and] be closely integrated with the statistical and verbal descriptions of a data set.""
+
+Tufte concludes with the following Principles of Graphical Excellence, which I quote verbatim:
+***Graphical excellence is the well-designed presentation of interesting data—a***
+***matter of substance, of statistics, and of design.***
+***Graphical excellence consists of complex ideas communicated with clarity,***
+***precision and efficiency.***
+***Graphical excellence is that which gives to the viewer the greatest number of***
+***ideas in the shortest time with the least ink in the smallest space.***
+***Graphical excellence is nearly always multivariate.***
+***And graphical excellence requires telling the truth.*** 
+
+---
+
+### An illustration of the cost of bad graphs: The Challenger disaster
+
+![Figure 5.3: What Motron Thiokol engineers saw prior to deciding to launch the Challenger Space Shuttle in January, 1986](mortonthiokolChallenger.PNG)
+
+
+
+![Figure 5.4: What the engineers could have seen, perhaps, with a better graph.](tufteChallenger.PNG)
+
+
+
+### Should graphs begin with psychological theory?
+
+@wainer1981graphical used Chernoff's faces to represent multivariate data. Grounded in a psychological premise. Did they succeed? Why or why not?
+
+![Figure 5.5: Chernoff's too-clever faces](Chernoff.PNG)
+
+Population - the (log) number of faces/state
+
+Literacy rate - size of the eyes (bigger = higher). 
+
+% HS graduates - slant of the eyes (the more slanted = higher). 
+
+Life expectancy - the length of the mouth (the longer = longer).
+
+Homicide rate - the width of the nose (the wider the nose the lower). 
+
+Income - the curvature of the mouth (the bigger the smile the higher the income). 
+
+Temperature - the shape of the face (peanut= warmer, football= colder) 
+
+Longitude and latitude - The X and Y position of the face on the coordinate axes of the paper represent the position of the state 
+
+### The power of animation
+
+This section concludes with two brief (< 5 minutes) animated data displays, each powerful in its own way, and each giving the viewer an appreciation of an important social phenomenon.
+
+The first is from the late Hans Rosling, and summarizes a chunk of the Gapminder data.  There is a Gapminder package in R if you would like to explore the data further, and perhaps become the next Rosling:
+
+[![Rosling](https://img.youtube.com/vi/jbkSRLYSojo/0.jpg)](https://youtu.be/jbkSRLYSojo).
+*Video 5.6: Rosling and Gapminder*
+
+The second is from Kim Rees and her ex-colleagues at [Periscopic](https://periscopic.com/) (Rees is now at CapitalOne).  For me, it's an important graphic because it shows an approach to overcoming what has been called "psychic numbing" - we are sensitive to the individual case, but lose our perspective when faced with large-scale tragedies, so that effectively the more lives lost... the less we care  [@slovic2013psychic].
+
+[![lostlives](https://img.youtube.com/vi/8R8UOjMy-5k/0.jpg)](https://youtu.be/8R8UOjMy-5k).
+*Video 5.7: Rees and lives lost*
+
+## Further reading and resources
+
+This is only the beginning of a discussion of data visualizations.  @healy2018viz presents a more expanded discussion of this treatment. He addresses the limitations of infographics, in which the design purveys style over substance (this is what we may do in designing presentations as well), and includes a rationale for a grammar of graphics, as instantiated in the ggplot package in R that we will be working with beginning next week [@wickham2016r]. @cleveland1985graphical examines graphs from a more rigorous psychological and empirical viewpoint.  The [Data Stories podcasts](http://datastori.es/) are often excellent, despite the challenge of an auditory medium for visual display. And your classmates and instructors have things to say as well. 
+

@@ -88,7 +88,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-01-04}
+    \date{2019-01-05}
 
 \usepackage{booktabs}
 
@@ -162,6 +162,12 @@ If you are interested in taking the class, complete the Google form \href{https:
 \chapter{data science for the liberal arts}\label{data-science-for-the-liberal-arts}}
 
 Hochster, in \citet{hicks2017guide}, describes two broad types of data scientists: Type A (Analysis) data scientists, whose skills are like those of an applied \textbf{statistician}, and Type B (Building) data scientists, whose skills lie in problem solving or coding, using the skills of the \textbf{computer scientist}. This view arguably omits a critical component of the field, as data science is driven not just by statistics and computer science, but also by ``domain expertise:''
+
+\begin{figure}
+\centering
+\includegraphics{dataVenn.png}
+\caption{\emph{Fig 1.1 - The iconic data science Venn diagram}}
+\end{figure}
 
 \hypertarget{type-c-data-science-data-science-for-the-liberal-arts}{%
 \section{type C data science = data science for the liberal arts}\label{type-c-data-science-data-science-for-the-liberal-arts}}
@@ -272,13 +278,15 @@ Slack includes a simple \emph{markdown} editor (for `posts'). You can find an in
 
 Install \textbf{R} (\url{https://cran.rstudio.com/}) then \textbf{R studio} (\url{https://www.rstudio.com/products/rstudio/\#Desktop}) on your own Windows or Mac laptop. If you get stuck, reach out to others on Slack; if you don't get stuck, help your classmates. We'll use R studio as a front end (an `integrated development environment', or IDE) for R, and will write most of our code in R markdown which is, not surprisingly, a `flavor' of markdown. We'll go into R in increasing depth beginning in the next chapter; if you want to get a head start, consider \href{https://idc9.github.io/stor390/notes/getting_started/getting_started.html}{Carmichael (2017) Getting started} and the first chapter of \citet{wickham2016r}. (Those documents, like this one, are all written in R markdown).
 
-Finally, \textbf{Google Docs} is free and is convenient for collaborative work. One other important feature of Google Docs is that it provides a framework for \emph{version control,} a critical skill in information management. You can learn more about how to see and revert to prior versions of a project in Google Docs \href{https://sites.google.com/site/scriptsexamples/home/announcements/named-versions-new-version-history-google-docs}{here} .
+Finally, \textbf{Google Docs} is free and is convenient for collaborative work. One other important feature of Google Docs is that it provides a framework for \emph{version control,} a critical skill in information management. You can learn more about how to see and revert to prior versions of a project in Google Docs \href{https://sites.google.com/site/scriptsexamples/home/announcements/named-versions-new-version-history-google-docs}{here}.
 
-Version control can help you avoid the chaos and confusion of having a computer (or several computers) full of files that look like Cham's (2012) comic:
+\textbf{Never call anything `final.doc'.} Version control can help you avoid the chaos and confusion of having a computer (or several computers) full of files that look like Cham's (2012) comic:
 
-.
-
-Never call anything `final.doc'.
+\begin{figure}
+\centering
+\includegraphics{final.jpg}
+\caption{final}
+\end{figure}
 
 We'll be talking about the challenge of version control throughout this text - and I am hoping that my own habits in file management can improve as we move forward together.
 
@@ -294,19 +302,20 @@ Another problem with this approach is that there may be `ceiling effects' - stud
 \hypertarget{an-introduction-to-r}{%
 \chapter{an introduction to R}\label{an-introduction-to-r}}
 
-R is a system for \emph{Reproducible} science, and reproducibility is essential \citep{baumer2014r}. R is a system for \emph{Representing data} in cool, insight-facilitating ways. R is \emph{Really popular}, and really growing. Learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.
+R is a system for \textbf{Reproducible research}, and reproducibility is essential \citep{gandrud2016reproducible}.
 
-\hypertarget{um.-in-a-sense-its-not-possible-to-learn-r}{%
-\section{um. in a sense, it's not possible to `learn R'}\label{um.-in-a-sense-its-not-possible-to-learn-r}}
+\begin{quote}
+Research is often presented in very selective containers: slideshows, journal articles, books, or maybe even websites\ldots{} these documents are not the research {[}rather{]} these documents are the ``advertising''. The research is the ``full software environment, code, and data that produced the results'' {[}Buckheit and Donoho, 1995, Donoho, 2010, 385{]}. When we separate the research from its advertisement we are making it difficult for others to verify the findings by reproducing them.
+\end{quote}
 
-Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one can be said to have mastered and from which one then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn.
+R markdown documents (like Jupyter notebooks in the Python world) facilitate reproducible research, as they include comments or explanations, code, links to data, and results.
 
-\hypertarget{what-r-stands-for}{%
-\section{what R stands for}\label{what-r-stands-for}}
+\hypertarget{some-other-things-that-r-stands-for}{%
+\section{some other things that R stands for}\label{some-other-things-that-r-stands-for}}
 
 Historically, R grew out of S which could stand for Statistics. But what does R stand for?
 
-R does not stand for `\href{https://www.urbandictionary.com/define.php?term=ARGH}{argh},' although you may proclaim this in frustration (`arggh, why can't I get this to work?) or, perhaps, in satisfaction ('arggh, matey, that be a clever way of doing this').
+R is a system for \emph{Representing data} in cool, insight-facilitating ways. R is \emph{Really popular}, and really growing. Learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.
 
 R might stand for \emph{Relatively high level.} Programming languages can be described along a continuum from high to low level, the former (like R) are more accessible to humans, the latter (like assembly language) more accessible to machines. Python, Java, and C++ are all more towards the middle of this continuum.
 
@@ -322,9 +331,7 @@ R stands, in part, for \emph{Resources.} Because R is popular, there are many re
   You'll also learn (more directly) from people, including your classmates, as well as the broader community of people around the world. There are hundreds if not thousands of people, young and old, who are on the road with you. I am as well, just a step or two (hopefully) ahead.
 \end{itemize}
 
-Most importantly, I hope and expect that you'll find that R stands for \textbf{\emph{Rewarding}}. A language is a way of thinking about the world, and this is true for computer languages as well. You'll be challenged by its complexity, its idiosyncracy, its alien logic. But you will succeed, and you will find that you can do things that you did not believe possible.
-
-\textbf{R Studio,} the environment we will use to write, test, and run R code, is a commercial enterprise whose business model, judged from afar, is an important one in the world of technology. Most of what R Studio offers is free (97\% according to Garrett Grolemund in the video below). The commercial product they offer makes sense for a relative few, but it is sufficiently lucrative to fund the enterprise. The free product helps to drive the popularity of R studio; this widespread use, in turn, makes it increasingly essential for businesses to use. This mixed free/premium, or `freemium,' model characterizes Slack as well, but while \href{https://www.statista.com/statistics/652779/worldwide-slack-users-total-vs-paid/}{the ratio of free to paid users of Slack is on the order of 3:1}, for R it is, I am guessing, an order of magnitude higher than this.
+R does not stand for `\href{https://www.urbandictionary.com/define.php?term=ARGH}{argh},' although you may proclaim this in frustration (`arggh, why can't I get this to work?) or, perhaps, in satisfaction ('arggh, matey, that be a clever way of doing this'). But R does stand for \textbf{\emph{Rewarding}}. A language is a way of thinking about the world, and this is true for computer languages as well. You'll be challenged by its complexity, its idiosyncracy, its alien logic. But you will succeed, and you will find that you can do things that you did not believe possible.
 
 \hypertarget{a-few-characteristics-of-r}{%
 \section{a few characteristics of R}\label{a-few-characteristics-of-r}}
@@ -341,14 +348,22 @@ Objects have attributes. Attributes of R include such things as name, dimensions
 
 Real world data sets are messy, and frequently have \textbf{missing values.} In R, missing values may be characterized by NA (not available) or NaN (not a number, implying an undefined or impossible value).
 
+\textbf{R Studio,} the environment we will use to write, test, and run R code, is a commercial enterprise whose business model, judged from afar, is an important one in the world of technology. Most of what R Studio offers is free (97\% according to Garrett Grolemund in the video below). The commercial product they offer makes sense for a relative few, but it is sufficiently lucrative to fund the enterprise. The free product helps to drive the popularity of R studio; this widespread use, in turn, makes it increasingly essential for businesses to use. This mixed free/premium, or `freemium,' model characterizes Slack as well, but while \href{https://www.statista.com/statistics/652779/worldwide-slack-users-total-vs-paid/}{the ratio of free to paid users of Slack is on the order of 3:1}, for R it is, I am guessing, an order of magnitude higher than this.
+
 \hypertarget{finding-help}{%
 \section{finding help}\label{finding-help}}
 
-To get a sense of some of the ways you can get help in R studio (and to see how a master uses the R Studio interface), consider the video at \href{https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-part-1/?wvideo=k8kz4e0p2v}{RStudio Essentials Webinar Series -- Programming Part 1 -- RStudio}
+\textbf{one does not simply `learn R.'} Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one can be said to have mastered and from which one then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn.
+
+So all of us will need help.
 
 For us, the key ideas in ``looking for help'' will include not just the tools on the R Studio IDE, but also (a) using google searches wisely, and (b) reaching out to your classmates on Slack.
 
 There is an etiquette for help-seeking here as in the real world. Your search for help should begin by making sure that others will encounter the same result, then by stripping the problem down to its essence. Once you have reduced the problem to this \emph{minimal, reproducible} essence, you will often be able to spot the problem yourself - and, if not, you will make it easier for others to help you. There is an R package (reprex) which will likely facilitate this, but I haven't tried it yet. \href{https://www.tidyverse.org/help/}{Here} is a good introduction.
+
+Finally, to get a sense of some of the ways you can get help in R studio (and to see how a master uses the R Studio interface), consider this video:
+
+\href{https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-part-1/?wvideo=k8kz4e0p2v}{\includegraphics{https://embedwistia-a.akamaihd.net/deliveries/85f90f89c20cf329c8e6091508fe44c045e70167.jpg?image_play_button_size=2x\&image_crop_resized=960x585\&image_play_button=1\&image_play_button_color=4287c7e0}}
 
 \hypertarget{discussion-is-open-source-software-secure}{%
 \section{discussion: is open-source software secure?}\label{discussion-is-open-source-software-secure}}
@@ -362,6 +377,237 @@ But is open-source software safe? More generally, in a data-dependent world, who
 Obviously, there are \textbf{cybersecurity} concerns. While the prospects for \href{https://www.youtube.com/watch?v=OvewYslou9g}{a chaotic, choreographed hack of hundreds of vehicles on the streets of Manhattan}, such as that in the 2017 movie ``The Fate of the Furious'', are remote at best (or worst), there have been examples of ``white-hat hackers'' who have successfully infiltrated (and thereby helped secure) car information systems.
 
 As the IOV develops, there will be vulnerabilities to privacy as well as safety, and the security of the system will be paramount. Different car manufacturers are taking different approaches to developing secure information systems, with many using a closed or proprietary approach. But the scope of the problem is so large that there is a movement towards pooling resources and encouraging collaboration among industry partners, academics, and citizen scientists in the development of an open-source autonomous driving platform, such as \href{http://apollo.auto/}{Apollo}. Perhaps counterintuitively, there may be significant security advantages to using source code that is open to all \citep{clarke2009open, fitzgerald2016open}.
+
+\hypertarget{hello-world}{%
+\chapter{hello world}\label{hello-world}}
+
+It's time to start moving ahead with R. You can expect a few moments where you feel like you are drawing an owl (origin unknown), but persist!
+
+\begin{figure}
+\centering
+\includegraphics{InkedrCr9A_LI.jpg}
+\caption{InkedrCr9A\_LI}
+\end{figure}
+
+\hypertarget{wickham-and-r-for-data-science}{%
+\section{Wickham and R for Data Science}\label{wickham-and-r-for-data-science}}
+
+The first chapter of the Wickham text provides a framework for his approach and a brief introduction to the \emph{tidyverse.}
+
+After you have read this, please \textbf{spend at least 90 mins} exploring at least one of the following. Be prepared to discuss your progress next class (you will be asked which source(s) you used, what you struggled with, and whether you would recommend it to your classmates:
+
+\hypertarget{additional-sources}{%
+\section{Additional sources:}\label{additional-sources}}
+
+\hypertarget{carmichael}{%
+\subsection{Carmichael}\label{carmichael}}
+
+Iain Carmichael prepared the following for his Intro to Data Science course at UNC-Chapel Hill. I think it is a great place to start: \url{https://idc9.github.io/stor390/notes/getting_started/getting_started.html}
+
+\hypertarget{datacamp}{%
+\subsection{DataCamp}\label{datacamp}}
+
+Many folks swear by (and others, I presume, at) DataCamp, which kind of gamifies learning software. As a student in this class, you have access to all of their stuff\ldots{} free. You can even do lessons on your phone.
+
+\hypertarget{swirl-swirlstats}{%
+\subsection{Swirl (Swirlstats)}\label{swirl-swirlstats}}
+
+I, like thousands of others, learned R in the process of completing the Johns Hopkins \href{https://jhudatascience.org/courses.html}{Data Science Specialization} offered through Coursera. The sequence can be challenging, but their introduction to R used an accessible, interactive R package called \emph{Swirl.} You can read about swirl (``learn R in R'') at \url{https://swirlstats.com/}.
+
+\textbf{Using Swirl.} After loading R (and opening R studio), you will get to the Swirl lessons with the following steps:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Install the Swirl package on your computer (you only need to do this once). Type the following into your console window in R studio (typically left hand side of your screen or lower left)
+\end{enumerate}
+
+\begin{quote}
+install.packages(``swirl'')
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Then load the package into your workspace (you'll need to do this at the beginning of every session you use Swirl)
+\end{enumerate}
+
+\begin{quote}
+library (swirl)
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Then run it!
+\end{enumerate}
+
+\begin{quote}
+swirl ()
+\end{quote}
+
+Swirl will ask a few questions then give you the option of choosing one of several courses. You'll choose the R Programming option, which leads to 15 separate lessons.
+
+At the end of each lesson, you'll be asked
+
+\begin{quote}
+\emph{Would you like to receive credit for completing this course on Coursera.org?}
+\end{quote}
+
+Answer no\ldots{} then do another lesson.
+
+\hypertarget{peng-text-and-videos}{%
+\subsection{Peng text and videos}\label{peng-text-and-videos}}
+
+Finally, consider the text and videos from the Coursera R class. Most of the material from that class can be found in \citet{peng2015r}. A slightly updated version of the text can be found at \url{https://bookdown.org/rdpeng/rprogdatascience/}, and the videos in the series may be found by clicking on the following:
+
+\href{https://youtu.be/wy0h1f5awRI}{\includegraphics{https://img.youtube.com/vi/wy0h1f5awRI/0.jpg}}.
+
+\hypertarget{part-part-ii-towards-data-literacy}{%
+\part{Part II Towards data literacy}\label{part-part-ii-towards-data-literacy}}
+
+\hypertarget{principles-of-data-visualization}{%
+\chapter{Principles of data visualization}\label{principles-of-data-visualization}}
+
+\hypertarget{opening-thoughts}{%
+\section{Opening thoughts}\label{opening-thoughts}}
+
+Graphs aren't just to inform, but to make you reflect.
+
+We are concerned not just with the design of graphs, but with our role in society as leaders, as arbiters of facts, as educators. We want to foster data literacy.
+
+How do people understand graphs? (NY Times series for schools).
+
+How can you use graphs to tell people the truth in a way that they understand?
+
+When you see a graph, what do you notice, what do you wonder, and what is the story? Is ``story telling'' what visualizations should be about?
+
+A graph might begin with perception and understanding (the consumer), with knowledge and design values (the producer), but it also reflects the truth of the data. How much is each?
+
+\hypertarget{some-early-graphs}{%
+\section{Some early graphs}\label{some-early-graphs}}
+
+Visual displays of information reach back to prehistoric times; modern graphs date back, arguably, to Playfair's 1786 \emph{Political Atlas} - in which
+
+\emph{``\ldots{} spatial dimensions were used to represent nonspatial, quantitative, idiographic, empirical data. Although it now seems natural to represent, for example, rising and falling imports over time as a rising and falling line, it does not seem to have been done before that time and was quite an accomplishment. Notably, in addition to the statistical line chart, Playfair at one fell swoop single-handedly invented most of the remaining forms of the statistical graphic repertoire used today-the bar chart and histogram, the surface chart, and the circle diagram or''pie chart."}
+
+\includegraphics{playfair1786.PNG}\href{https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march}{source}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  The most important early graph is that of Minard. Here's some background:
+\end{enumerate}
+
+"\emph{Czar Alexander of Russia sees that Napoleon was becoming too powerful, so he refuses to participate in this embargo. Angry at Czar Alexander's decision, Napoleon gathers a massive army of over 400,000 to attack Russia in June of 1812. While Russia's troops are not as numerous as France's, Russia has a plan. Russian troops keep retreating as Napoleon's troops move forward, burning everything they pass, ensuring that the French forces could not take anything from their environment. Eventually the French army follows the Russian army all the way to Moscow during October, suffering major losses from lack of food. By the time Napoleon gets to Moscow, he knows he has to retreat. As winter settles into Europe and the temperature drops, Napoleon's troops suffer even more losses, returning to France from lack of food, disease, and weather conditions."}
+
+In class, we listened to the 1812 Overture while discussing this.
+
+(The battle of Borodino, immortalized in Tolstoy's War and Peace, occurs just before Moscow; the French army loses about 30000 men. Five cannon shots in the overture mark this. And when Napoleon gets to Moscow, he finds that the Russians had razed it before hand, so that there was nothing there for them. Eleven more cannon here.)
+
+\includegraphics{minard1812.PNG}\href{https://datavizblog.com/2013/05/30/dataviz-history-charles-minards-flow-map-of-napoleons-russian-campaign-of-1812-polotsk-smolensk-and-on-to-borodino/}{source}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{tukeys-contributions}{%
+\section{Tukey's contributions}\label{tukeys-contributions}}
+
+Tukey and Exploratory Data Analysis (EDA). Begins with Tukey 1962 ``Future of Data Analysis,'' continues with his ultimate publication of EDA in 1977.
+
+Tukey decries tallies (prone to error), and shows \textbf{stem and leaf displays}, then box plots. He argues for transforming data to linearity to uncover meaningful relationships, then to examine residuals to look more closely.
+
+\hypertarget{approaches-to-graphs}{%
+\section{Approaches to graphs}\label{approaches-to-graphs}}
+
+A graph might begin with perception and understanding (the consumer), with knowledge and design values (the producer), but it also reflects the truth of the data. How much is each?
+
+In thinking about how to design graphs, we can begin with abstract theory, with principles of design informed by our understanding of perception, or with empirical analyses of understanding and memory.
+
+\hypertarget{tufte-first-principles}{%
+\section{Tufte: First principles}\label{tufte-first-principles}}
+
+\citet{tufte2001visual} describes \textbf{Graphical Excellence}. Graphs should, among other things, ``Induce the viewer to think about the substance, rather than about methodology, graphic design, the technology of graphic productions, or something else.'' Graphs should ``Present many numbers in a small space, make large data sets coherent, and encourage the eye to compare different pieces of data.'' Graphs should ``serve a reasonably clear purpose: description, exploration, tabulation, or decoration {[}and{]} be closely integrated with the statistical and verbal descriptions of a data set.''"
+
+Tufte concludes with the following Principles of Graphical Excellence, which I quote verbatim:
+\textbf{\emph{Graphical excellence is the well-designed presentation of interesting data---a}}
+\textbf{\emph{matter of substance, of statistics, and of design.}}
+\textbf{\emph{Graphical excellence consists of complex ideas communicated with clarity,}}
+\textbf{\emph{precision and efficiency.}}
+\textbf{\emph{Graphical excellence is that which gives to the viewer the greatest number of}}
+\textbf{\emph{ideas in the shortest time with the least ink in the smallest space.}}
+\textbf{\emph{Graphical excellence is nearly always multivariate.}}
+\textbf{\emph{And graphical excellence requires telling the truth.}}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{an-illustration-of-the-cost-of-bad-graphs-the-challenger-disaster}{%
+\subsection{An illustration of the cost of bad graphs: The Challenger disaster}\label{an-illustration-of-the-cost-of-bad-graphs-the-challenger-disaster}}
+
+\begin{figure}
+\centering
+\includegraphics{mortonthiokolChallenger.PNG}
+\caption{mortonthiokolChallenger}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{tufteChallenger.PNG}
+\caption{tufteChallenger}
+\end{figure}
+
+\hypertarget{should-graphs-begin-with-psychological-theory}{%
+\subsection{Should graphs begin with psychological theory?}\label{should-graphs-begin-with-psychological-theory}}
+
+\citet{wainer1981graphical} used Chernoff's faces to represent multivariate data. Grounded in a psychological premise. Did they succeed? Why or why not?
+
+\begin{figure}
+\centering
+\includegraphics{Chernoff.PNG}
+\caption{Chernoff}
+\end{figure}
+
+Population - the (log) number of faces/state
+
+Literacy rate - size of the eyes (bigger = higher).
+
+\% HS graduates - slant of the eyes (the more slanted = higher).
+
+Life expectancy - the length of the mouth (the longer = longer).
+
+Homicide rate - the width of the nose (the wider the nose the lower).
+
+Income - the curvature of the mouth (the bigger the smile the higher the income).
+
+Temperature - the shape of the face (peanut= warmer, football= colder)
+
+Longitude and latitude - The X and Y position of the face on the coordinate axes of the paper represent the position of the state
+
+\hypertarget{the-power-of-animation}{%
+\subsection{The power of animation}\label{the-power-of-animation}}
+
+This section concludes with two brief (\textless{} 5 minutes) animated data displays, each powerful in its own way, and each giving the viewer an appreciation of an important social phenomenon.
+
+The first is from the late Hans Rosling, and summarizes a chunk of the Gapminder data. There is a Gapminder package in R if you would like to explore the data further, and perhaps become the next Rosling:
+
+\href{https://youtu.be/jbkSRLYSojo}{\includegraphics{https://img.youtube.com/vi/jbkSRLYSojo/0.jpg}}.
+
+The second is from Kim Rees and her ex-colleagues at \href{https://periscopic.com/}{Periscopic} (Rees is now at CapitalOne). For me, it's an important graphic because it shows an approach to overcoming what has been called ``psychic numbing'' - we are sensitive to the individual case, but lose our perspective when faced with large-scale tragedies, so that effectively the \citep{slovic2013psychic}
+
+\href{https://youtu.be/8R8UOjMy-5k}{\includegraphics{https://img.youtube.com/vi/8R8UOjMy-5k/0.jpg}}.
+
+\hypertarget{further-reading-and-resources}{%
+\section{Further reading and resources}\label{further-reading-and-resources}}
+
+This is only the beginning of a discussion of data visualizations. \citet{healy2018viz} presents a more expanded discussion of this treatment. He addresses the limitations of infographics, in which the design purveys style over substance (this is what we may do in designing presentations as well), and includes a rationale for a grammar of graphics, as instantiated in the ggplot package in R that we will be working with beginning next week \citep{wickham2016r}. \citet{cleveland1985graphical} examines graphs from a more rigorous psychological and empirical viewpoint. The \href{http://datastori.es/}{Data Stories podcasts} are often excellent, despite the challenge of an auditory medium for visual display. And your classmates and instructors have things to say as well.
 
 \hypertarget{references}{%
 \chapter{references}\label{references}}

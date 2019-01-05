@@ -11,7 +11,7 @@ output:
 
 Hochster, in @hicks2017guide, describes two broad types of data scientists: Type A (Analysis) data scientists, whose skills are like those of an applied **statistician**, and Type B (Building) data scientists, whose skills lie in problem solving or coding, using the skills of the **computer scientist**.  This view arguably omits a critical component of the field, as data science is driven not just by statistics and computer science, but also by "domain expertise:"
 
-<img src = "http://bit.ly/2EqXM61" width = "300px" />
+![*Fig 1.1 - The iconic data science Venn diagram*](dataVenn.png)
 
 ## type C data science = data science for the liberal arts
 

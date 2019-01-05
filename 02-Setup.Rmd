@@ -56,13 +56,11 @@ Slack includes a simple *markdown* editor (for 'posts').  You can find an introd
 
 Install **R** (https://cran.rstudio.com/) then **R studio** (https://www.rstudio.com/products/rstudio/#Desktop) on your own Windows or Mac laptop.  If you get stuck, reach out to others on Slack; if you don't get stuck, help your classmates.  We'll use R studio as a front end (an 'integrated development environment', or IDE) for R, and will write most of our code in R markdown which is, not surprisingly, a 'flavor' of markdown. We'll go into R in increasing depth beginning in the next chapter; if you want to get a head start, consider [Carmichael (2017) Getting started](https://idc9.github.io/stor390/notes/getting_started/getting_started.html) and the first chapter of @wickham2016r. (Those documents, like this one, are all written in R markdown).  
 
-Finally, **Google Docs** is free and is convenient for collaborative work. One other important feature of Google Docs is that it provides a framework for *version control,* a critical skill in information management. You can learn more about how to see and revert to prior versions of a project in Google Docs [here](https://sites.google.com/site/scriptsexamples/home/announcements/named-versions-new-version-history-google-docs) . 
+Finally, **Google Docs** is free and is convenient for collaborative work. One other important feature of Google Docs is that it provides a framework for *version control,* a critical skill in information management. You can learn more about how to see and revert to prior versions of a project in Google Docs [here](https://sites.google.com/site/scriptsexamples/home/announcements/named-versions-new-version-history-google-docs).  
 
 Version control can help you avoid the chaos and confusion of having a computer (or several computers) full of files that look like Cham's (2012) comic:     
 
-<img src = "http://www.phdcomics.com/comics/archive/phd101212s.gif" width = "300px" />. 
-
-Never call anything 'final.doc'.
+![*Fig 2.1: Never call anything 'final.doc'.*](final.jpg)
 
 We'll be talking about the challenge of version control throughout this text - and I am hoping that my own habits in file management can improve as we move forward together.
 
