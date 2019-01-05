@@ -1,6 +1,4 @@
 bookdown::gitbook:
-  split_by: "section"
-  split_bib: no
   css: style.css
   config:
     toc:
@@ -8,19 +6,19 @@ bookdown::gitbook:
         <li><a href="./">Data Science for the Liberal Arts</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    download: [["dsla2019.pdf", "PDF"],["dsla2019.epub", "EPUB"]]
-    search: true
+    download: [["DataSciLibArts.pdf", "pdf"],["DataSciLibArts.epub","epub"]]
     fontsettings:
-      theme: white
+      theme: sepia
       family: sans
       size: 2
-    sharing:
-      facebook: yes
-      twitter: yes
+    search: yes
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
   latex_engine: xelatex
   citation_package: natbib
   keep_tex: yes
-bookdown::epub_book: default
+# bookdown::epub_book: default
+
+
+ 
