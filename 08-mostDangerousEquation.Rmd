@@ -1,0 +1,12 @@
+---
+title: "08-the most dangerous equation"
+author: "Lanning"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# the most dangerous equation
+
+[@wainer2007dangerous] argues that deMoivre's equation is the most dangerous equation - this equation (for the standard error) shows that variability decreases with the square root of sample size.  Other nominees include the linear regression equation (and, in particular, how coefficients may change or reverse when new variables are added) and regression to the mean.  Regarding linear regression, we discussed (a little) Simpson's paradox, that is, that the direction of regression coefficients may change when additional variables are added.
+
+I argued that, from the standpoint of psychology, ignorance of regression to the mean was arguably more 'dangerous' than ignorance about the central limit theorem and standard error, in particular because regression effects contribute to an overestimate of the effectiveness of punishment and an under-appreciation of the effectiveness of positive reinforcement as tools for behavior change [@hastie2010rational].

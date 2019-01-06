@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>3 an introduction to R | Data science for the liberal arts</title>
+  <title>10 Literate programming with R markdown | Data science for the liberal arts</title>
   <meta name="description" content="Test">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="3 an introduction to R | Data science for the liberal arts />
+  <meta property="og:title" content="10 Literate programming with R markdown | Data science for the liberal arts />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/diffprop_cloud_250_sm.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 an introduction to R | Data science for the liberal arts />
+  <meta name="twitter:title" content="10 Literate programming with R markdown | Data science for the liberal arts />
   
   <meta name="twitter:description" content="Test" />
   <meta name="twitter:image" content="images/diffprop_cloud_250_sm.png" />
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="getting-started.html">
-<link rel="next" href="now-draw-the-rest-of-the-owl.html">
+<link rel="prev" href="reproducibility-and-the-replication-crisis.html">
+<link rel="next" href="some-tidyverse-tricks.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -250,81 +250,504 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="an-introduction-to-r" class="section level1">
-<h1><span class="header-section-number">3</span> an introduction to R</h1>
-<p>R is a system for <strong>Reproducible research</strong>, and reproducibility is essential <span class="citation">(Gandrud <a href="#ref-gandrud2016reproducible">2016</a>)</span>.</p>
-<blockquote>
-<p>Research is often presented in very selective containers: slideshows, journal articles, books, or maybe even websites… these documents are not the research [rather] these documents are the “advertising”. The research is the “full software environment, code, and data that produced the results” [Buckheit and Donoho, 1995, Donoho, 2010, 385]. When we separate the research from its advertisement we are making it difficult for others to verify the findings by reproducing them.</p>
-</blockquote>
-<p>R markdown documents (like Jupyter notebooks in the Python world) facilitate reproducible research, as they include comments or explanations, code, links to data, and results.</p>
-<div id="some-other-things-that-r-stands-for" class="section level2">
-<h2><span class="header-section-number">3.1</span> some other things that R stands for</h2>
-<p>Historically, R grew out of S which could stand for Statistics. But what does R stand for?</p>
-<p>R is a system for <em>Representing data</em> in cool, insight-facilitating ways. R is <em>Really popular</em>, and really growing. Learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.</p>
-<p>R might stand for <em>Relatively high level.</em> Programming languages can be described along a continuum from high to low level, the former (like R) are more accessible to humans, the latter (like assembly language) more accessible to machines. Python, Java, and C++ are all more towards the middle of this continuum.</p>
-<p>R stands, in part, for <em>Resources.</em> Because R is popular, there are many resources, including, for example -</p>
+<div id="literate-programming-with-r-markdown" class="section level1">
+<h1><span class="header-section-number">10</span> Literate programming with R markdown</h1>
+<p>A note from chapter 4 (coding basics): use assignment (x &lt; - 3+4) rather than x = 3 + 4 because it is more clear.</p>
+<p>Showing your work - for you as well as others - is another part of reproducible science. R Markdown documents allow you to include comments, scripts, and results in a single place.</p>
+<p>We begin R4DS 6 (<em>Workflow: Scripts</em>, p. 110) which shows the R studio interface and encourages you to save your work using <em>scripts</em>.</p>
+<p>You will save your work in <em>projects</em> - which isolate your work, setup files, etc., into different directories. (See r4ds, chapter 8). To reinforce the idea that your unit of analysis in R is “the project” rather than “the script”, consider associating your Rmd filetype with your markdown editor, and only your Rproj filetype with R studio.</p>
+<p>The R markdown language is discussed in R4ds, Chapter 27 (p. 505).</p>
+<div id="a-challenge" class="section level2">
+<h2><span class="header-section-number">10.1</span> A challenge</h2>
+<p>Working with two of your classmates, write an R markdown document titled “The most dangerous equation?” which (a) in the introduction, discusses <span class="citation">Wainer (<a href="#ref-wainer2007most">2007</a><a href="#ref-wainer2007most">b</a>)</span>, (b) then illustrates regression to the mean and (c) deMoivre’s equation, ideally (d) using the examples of ‘punishment’ and ‘sex differences in variability’ discussed in class and the text, respectively.</p>
+<p>Prepare a presentation using Rpres which summarizes your argument and findings. Present this in class on 2/26.</p>
+<p>(One starting point: the aforementioned r markdown document discussing basic laws of probability at Harvard’s datasciencelabs repository: <a href="https://github.com/datasciencelabs/2017/blob/master/lectures/prob/discrete-probability.Rmd" class="uri">https://github.com/datasciencelabs/2017/blob/master/lectures/prob/discrete-probability.Rmd</a>.</p>
+</div>
+<div id="r-markdown" class="section level2">
+<h2><span class="header-section-number">10.2</span> r markdown</h2>
+<p>Goals and functions</p>
 <ul>
-<li>Online resources include the simple (and less simple) lessons of <a href="http://swirlstats.com/">SwirlR</a>, which offers the possibility of “learning R in R,” as well as <a href="https://www.datacamp.com/home">DataCamp</a>, the <a href="https://www.coursera.org/specializations/jhu-data-science">Data Science Certificate Program at Johns Hopkins,</a> and other MOOCs.<br />
-</li>
-<li>Books include <span class="citation">Peng (<a href="#ref-peng2015r">2015</a>)</span> - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and <span class="citation">Wickham and Grolemund (<a href="#ref-wickham2016r">2016</a>)</span>.</li>
-<li>You’ll also learn (more directly) from people, including your classmates, as well as the broader community of people around the world. There are hundreds if not thousands of people, young and old, who are on the road with you. I am as well, just a step or two (hopefully) ahead.</li>
+<li>one goal is making your work clear to others, and to a later you</li>
 </ul>
-<p>R does not stand for ‘<a href="https://www.urbandictionary.com/define.php?term=ARGH">argh</a>,’ although you may proclaim this in frustration (‘arggh, why can’t I get this to work?) or, perhaps, in satisfaction (’arggh, matey, that be a clever way of doing this’). But R does stand for <strong><em>Rewarding</em></strong>. A language is a way of thinking about the world, and this is true for computer languages as well. You’ll be challenged by its complexity, its idiosyncracy, its alien logic. But you will succeed, and you will find that you can do things that you did not believe possible.</p>
+<p>Parts</p>
+<ul>
+<li>YAML header: Some output formats</li>
+<li>Text formatted in markdown</li>
+<li>R code (chunks) surrounded by code fences</li>
+<li>(occasionally, inline code)</li>
+</ul>
+<p>See <strong>Rmd cheatsheet (on Slack)</strong></p>
 </div>
-<div id="a-few-characteristics-of-r" class="section level2">
-<h2><span class="header-section-number">3.2</span> a few characteristics of R</h2>
-<p>R includes the base plus thousands of <strong>packages</strong>. These packages are customized add-ons which simplify certain tasks, such as text analysis. But there are, at this writing, <a href="https://cran.r-project.org/web/views/NaturalLanguageProcessing.html">over 50 different packages for text analysis</a> - so where do you begin? One recent answer, and where we will start, is the curated list of packages which jointly comprise the tidyverse <span class="citation">(Wickham and Grolemund <a href="#ref-wickham2016r">2016</a>)</span>.</p>
-<blockquote>
-<p>A few years ago, <span class="citation">Peng (<a href="#ref-peng2015r">2015</a>)</span> speculated that “it would be straightforward to build an R package for ordering pizza.” Does one exist now?</p>
-</blockquote>
-<p>R is an <strong>object-oriented</strong> language - one conceptually organized around objects and data rather than actions and logic. In R, at the atomic level, objects include <em>characters, real numbers, integers, complex numbers, and logical.</em> These atoms are combined into vectors, which generally include objects of the same type <span class="citation">(one kind of object, “lists,” is an exception to this; Peng <a href="#ref-peng2015r">2015</a>)</span>. Vectors can be further combined into <strong>data frames</strong>, which are two-dimensional tables or arrays. A <strong>tibble</strong> is a particular type of data frame which is, in some ways, handier to work with than other data frames. We’ll be working extensively with data frames in general, and tibbles in particular, as we move forward.</p>
-<p>Objects have <strong>attributes</strong>. Attributes of R include such things as name, dimensions (for vectors and arrays), class (that’s the type of object described in the previous paragraph), length, etc.</p>
-<p>Real world data sets are messy, and frequently have <strong>missing values.</strong> In R, missing values may be characterized by NA (not available) or NaN (not a number, implying an undefined or impossible value).</p>
-<p><strong>R Studio,</strong> the environment we will use to write, test, and run R code, is a commercial enterprise whose business model, judged from afar, is an important one in the world of technology. Most of what R Studio offers is free (97% according to Garrett Grolemund in the video below). The commercial product they offer makes sense for a relative few, but it is sufficiently lucrative to fund the enterprise. The free product helps to drive the popularity of R studio; this widespread use, in turn, makes it increasingly essential for businesses to use. This mixed free/premium, or ‘freemium,’ model characterizes Slack as well, but while <a href="https://www.statista.com/statistics/652779/worldwide-slack-users-total-vs-paid/">the ratio of free to paid users of Slack is on the order of 3:1</a>, for R it is, I am guessing, an order of magnitude higher than this.</p>
+<div id="univariate-data" class="section level2">
+<h2><span class="header-section-number">10.3</span> univariate data</h2>
+<p>kable and other approaches to generating output</p>
+<p>exercise 27.4.7 2 (<a href="https://raw.githubusercontent.com/hadley/r4ds/master/rmarkdown/diamond-sizes.Rmd" class="uri">https://raw.githubusercontent.com/hadley/r4ds/master/rmarkdown/diamond-sizes.Rmd</a>)</p>
 </div>
-<div id="finding-help" class="section level2">
-<h2><span class="header-section-number">3.3</span> finding help</h2>
-<p><strong>one does not simply ‘learn R.’</strong> Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one can be said to have mastered and from which one then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn. And, the complexity of R syntax is such that, for almost all of us, we will need help for coding on any non-trivial task.</p>
-<p>For us, the key ideas in “looking for help” will include not just the tools on the R Studio IDE, but also (a) using google searches wisely, and (b) reaching out to your classmates on Slack.</p>
-<p>Here, as in the real world, there is an etiquette for help-seeking which is based on consideration. Your search for help should begin by making sure that others will encounter the same result, then by stripping the problem down to its essence. Once you have reduced the problem to this <em>minimal, reproducible</em> essence, you will often be able to spot the problem yourself - and, if not, you will make it easier for others to help you. There is an R package (reprex) which will likely facilitate this, but I haven’t tried it yet. <a href="https://www.tidyverse.org/help/">Here</a> is a good introduction.</p>
-<p>Finally, to get a sense of some of the ways you can get help in R studio (and to see how a master uses the R Studio interface), consider this video:</p>
-<p><a href="https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-part-1/?wvideo=k8kz4e0p2v"><img src="https://embedwistia-a.akamaihd.net/deliveries/85f90f89c20cf329c8e6091508fe44c045e70167.jpg?image_play_button_size=2x&amp;image_crop_resized=960x585&amp;image_play_button=1&amp;image_play_button_color=4287c7e0" alt="RStudio Essentials Webinar Series – Programming Part 1 – RStudio" /></a>
-<em>Video 3.1: Garret Grolemund of <a href="https://www.rstudio.com/">R Studio</a></em></p>
+<div id="homework-due-feb-14-with-a-solution." class="section level2">
+<h2><span class="header-section-number">10.4</span> Homework due Feb 14 (with a solution).</h2>
+<hr />
+<div id="diamond-sizes-27.4.7---2" class="section level3">
+<h3><span class="header-section-number">10.4.1</span> “Diamond sizes” (27.4.7 - #2)</h3>
+<p>This is from Hadley’s book, with an initial shot at the code from Reilly.</p>
+<p>“Download diamond-sizes.Rmd from <a href="https://github.com/hadley/r4ds/tree/master/rmarkdown" class="uri">https://github.com/hadley/r4ds/tree/master/rmarkdown</a>. Add a section that describes the largest 20 diamonds, including a table that displays their most important attributes”</p>
+<p>We copied the text of this into the present file, saving it as an ‘r markdown’ file.</p>
 </div>
-<div id="wickham-and-r-for-data-science" class="section level2">
-<h2><span class="header-section-number">3.4</span> Wickham and R for Data Science</h2>
-<p><a href="https://r4ds.had.co.nz/introduction.html">The first chapter of the Wickham text</a> <span class="citation">(Wickham and Grolemund <a href="#ref-wickham2016r">2016</a>)</span> provides a framework for his approach and a brief introduction to the <em>tidyverse</em> which will be the dialect of R we will study in the weeks ahead.</p>
-<p>Please read it now.</p>
+<div id="downloaded-file-block-1" class="section level3">
+<h3><span class="header-section-number">10.4.2</span> Downloaded file block 1</h3>
+<ol style="list-style-type: decimal">
+<li><strong>What does this block do?</strong></li>
+</ol>
+<p><strong>This block loads needed libraries, then takes the diamond dataset and creates a smaller one which includes only diamonds &lt;= 2.5 carats.</strong></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(dplyr)
+smaller &lt;-<span class="st"> </span>diamonds <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(carat <span class="op">&lt;=</span><span class="st"> </span><span class="fl">2.5</span>)</code></pre>
 </div>
-<div id="discussion-is-open-source-software-secure" class="section level2">
-<h2><span class="header-section-number">3.5</span> discussion: is open-source software secure?</h2>
-<p>Perhaps the most important feature of R is that it is open-source software. This is important not just because it saves you money, but because contributing to the world of R is an act of digital democracy. In using and contributing to the world of R we open up knowledge to others who may lack our privileges. R, like Android or Wikipedia, is a tool for all of us, maintained and continually improved upon by the crowd.</p>
-<p>But is open-source software safe? More generally, in a data-dependent world, who should be the guardians of the code that connects us?</p>
-<p><strong>Securing the Internet of Vehicles</strong>. To consider just one example, the computer systems in modern cars typically run millions of lines of code. As cars become increasingly autonomous, this complexity will only increase. (Incidentally, the Society of Automotive Engineers, or SAE, describes 6 levels of ‘auto autonomy.’ At this writing, the most sophisticated systems available to consumers, such as Tesla Autopilot, are at level 2. What lies ahead are cars which are self-driving on carefully selected, geo-fenced roads, and ultimately cars “<a href="https://www.caranddriver.com/features/a15079828/autonomous-self-driving-car-levels-car-levels/">which can operate on any road… a human driver could negotiate</a>”). Our roads and highways will become an Internet of Vehicles (IOV), which will include not just connections between cars and an intelligent <em>cloud</em> ‘above us’ but also direct links between a distributed system of intelligent cars, stoplights, and road sensors in a <em>fog</em> ‘around us’ <span class="citation">(Bonomi et al. <a href="#ref-bonomi2012fog">2012</a>)</span>. <strong>Fog computing</strong> and the IOV will reduce travel times and increase both fuel efficiency and automotive safety.</p>
-<p>Obviously, there are <strong>cybersecurity</strong> concerns. While the prospects for <a href="https://www.youtube.com/watch?v=OvewYslou9g">a chaotic, choreographed hack of hundreds of vehicles on the streets of Manhattan</a>, such as that in the 2017 movie “The Fate of the Furious”, are remote at best (or worst), there have been examples of “white-hat hackers” who have successfully infiltrated (and thereby helped secure) car information systems.</p>
-<p>As the IOV develops, there will be vulnerabilities to privacy as well as safety, and the security of the system will be paramount. Different car manufacturers are taking different approaches to developing secure information systems, with many using a closed or proprietary approach. But the scope of the problem is so large that there is a movement towards pooling resources and encouraging collaboration among industry partners, academics, and citizen scientists in the development of an open-source autonomous driving platform, such as <a href="http://apollo.auto/">Apollo</a>. Perhaps counterintuitively, there may be significant security advantages to using source code that is open to all <span class="citation">(Clarke, Dorwin, and Nash <a href="#ref-clarke2009open">2009</a>; FitzGerald, Levin, and Parziale <a href="#ref-fitzgerald2016open">2016</a>)</span>.</p>
+<div id="downloaded-text-block" class="section level3">
+<h3><span class="header-section-number">10.4.3</span> Downloaded text block</h3>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>This section illustrates inline code.</strong></li>
+</ol>
+<p>We have data about 53940 diamonds. Only
+126 are larger than
+2.5 carats. The distribution of the remainder is shown
+below:</p>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>This block makes a chart, with bins of .01, showing the frequency of different size diamonds</strong></li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r">smaller <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(carat)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_freqpoly</span>(<span class="dt">binwidth =</span> <span class="fl">0.01</span>)</code></pre>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+</div>
+<div id="my-revised-graph" class="section level3">
+<h3><span class="header-section-number">10.4.4</span> My revised graph</h3>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Change 1 or more parameters of this graph to make it more useful. Describe your changes here</strong></li>
+</ol>
+<p><strong>I re-binned the x axis and labeled modal values</strong></p>
+<pre class="sourceCode r"><code class="sourceCode r">smaller <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(carat)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_freqpoly</span>(<span class="dt">binwidth =</span> <span class="fl">.125</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_x_continuous</span>(
+        <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">.375</span>, <span class="fl">.75</span>, <span class="dv">1</span>, <span class="fl">1.25</span>, <span class="fl">1.5</span>, <span class="dv">2</span>, <span class="dv">3</span>))</code></pre>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<div id="syntax-for-table-kable" class="section level3">
+<h3><span class="header-section-number">10.4.5</span> Syntax for table (kable)</h3>
+<p>In class, Lanning showed how to use kable to generate a nicer looking table, of just the first five rows (observations) and columns (variables or attributes).</p>
+<pre class="sourceCode r"><code class="sourceCode r">smallest &lt;-<span class="st"> </span>smaller [<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]
+<span class="co"># smallest # this would generate an ugly table - remove the first hashtag if you don&#39;t believe me</span>
+<span class="co"># str(diamonds)</span>
+knitr<span class="op">::</span><span class="kw">kable</span>(smallest, 
+  <span class="dt">caption =</span> <span class="st">&quot;Five rows and columns of the diamonds frame.&quot;</span>
+)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-3">Table 10.1: </span>Five rows and columns of the diamonds frame.</caption>
+<thead>
+<tr class="header">
+<th align="right">carat</th>
+<th align="left">cut</th>
+<th align="left">color</th>
+<th align="left">clarity</th>
+<th align="right">depth</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0.23</td>
+<td align="left">Ideal</td>
+<td align="left">E</td>
+<td align="left">SI2</td>
+<td align="right">61.5</td>
+</tr>
+<tr class="even">
+<td align="right">0.21</td>
+<td align="left">Premium</td>
+<td align="left">E</td>
+<td align="left">SI1</td>
+<td align="right">59.8</td>
+</tr>
+<tr class="odd">
+<td align="right">0.23</td>
+<td align="left">Good</td>
+<td align="left">E</td>
+<td align="left">VS1</td>
+<td align="right">56.9</td>
+</tr>
+<tr class="even">
+<td align="right">0.29</td>
+<td align="left">Premium</td>
+<td align="left">I</td>
+<td align="left">VS2</td>
+<td align="right">62.4</td>
+</tr>
+<tr class="odd">
+<td align="right">0.31</td>
+<td align="left">Good</td>
+<td align="left">J</td>
+<td align="left">SI2</td>
+<td align="right">63.3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="the-assignment" class="section level3">
+<h3><span class="header-section-number">10.4.6</span> The assignment …</h3>
+<p>The assignment is to ‘Add a section that describes the largest 20 diamonds, including a table that displays their most important attributes’</p>
+<p>One way to do this is
+- (a) sort the file by size [Google ‘sort r data frame by a variable.’],
+- (b) save this sorted file with just the 20 largest diamonds [see the code block above for an example], and,
+- (c) choose the most important variables [you’ll have to make a judgement call here, then use the above]; then make a new table.</p>
+<ol start="5" style="list-style-type: decimal">
+<li><strong>Insert your code here</strong></li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attach</span>(smaller)
+rankedDiamonds&lt;-smaller[<span class="kw">order</span>(<span class="op">-</span>carat),]
+rankedDiamonds&lt;-rankedDiamonds[<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dv">7</span>)]
+knitr<span class="op">::</span><span class="kw">kable</span>(rankedDiamonds, 
+  <span class="dt">caption =</span> <span class="st">&quot;20 largest diamonds, select columns&quot;</span>)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-4">Table 10.2: </span>20 largest diamonds, select columns</caption>
+<thead>
+<tr class="header">
+<th align="right">carat</th>
+<th align="left">cut</th>
+<th align="left">color</th>
+<th align="left">clarity</th>
+<th align="right">price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">2.50</td>
+<td align="left">Fair</td>
+<td align="left">G</td>
+<td align="left">I1</td>
+<td align="right">7854</td>
+</tr>
+<tr class="even">
+<td align="right">2.50</td>
+<td align="left">Premium</td>
+<td align="left">H</td>
+<td align="left">I1</td>
+<td align="right">8467</td>
+</tr>
+<tr class="odd">
+<td align="right">2.50</td>
+<td align="left">Fair</td>
+<td align="left">G</td>
+<td align="left">I1</td>
+<td align="right">8711</td>
+</tr>
+<tr class="even">
+<td align="right">2.50</td>
+<td align="left">Premium</td>
+<td align="left">H</td>
+<td align="left">SI2</td>
+<td align="right">12071</td>
+</tr>
+<tr class="odd">
+<td align="right">2.50</td>
+<td align="left">Fair</td>
+<td align="left">H</td>
+<td align="left">SI2</td>
+<td align="right">13278</td>
+</tr>
+<tr class="even">
+<td align="right">2.50</td>
+<td align="left">Fair</td>
+<td align="left">H</td>
+<td align="left">SI2</td>
+<td align="right">13278</td>
+</tr>
+<tr class="odd">
+<td align="right">2.50</td>
+<td align="left">Fair</td>
+<td align="left">G</td>
+<td align="left">SI2</td>
+<td align="right">14194</td>
+</tr>
+<tr class="even">
+<td align="right">2.50</td>
+<td align="left">Ideal</td>
+<td align="left">J</td>
+<td align="left">SI2</td>
+<td align="right">14502</td>
+</tr>
+<tr class="odd">
+<td align="right">2.50</td>
+<td align="left">Fair</td>
+<td align="left">J</td>
+<td align="left">SI2</td>
+<td align="right">14652</td>
+</tr>
+<tr class="even">
+<td align="right">2.50</td>
+<td align="left">Ideal</td>
+<td align="left">J</td>
+<td align="left">SI2</td>
+<td align="right">15246</td>
+</tr>
+<tr class="odd">
+<td align="right">2.50</td>
+<td align="left">Premium</td>
+<td align="left">H</td>
+<td align="left">SI2</td>
+<td align="right">15934</td>
+</tr>
+<tr class="even">
+<td align="right">2.50</td>
+<td align="left">Ideal</td>
+<td align="left">J</td>
+<td align="left">SI2</td>
+<td align="right">15990</td>
+</tr>
+<tr class="odd">
+<td align="right">2.50</td>
+<td align="left">Ideal</td>
+<td align="left">I</td>
+<td align="left">VS2</td>
+<td align="right">16955</td>
+</tr>
+<tr class="even">
+<td align="right">2.50</td>
+<td align="left">Very Good</td>
+<td align="left">J</td>
+<td align="left">SI1</td>
+<td align="right">17028</td>
+</tr>
+<tr class="odd">
+<td align="right">2.50</td>
+<td align="left">Fair</td>
+<td align="left">F</td>
+<td align="left">SI2</td>
+<td align="right">17405</td>
+</tr>
+<tr class="even">
+<td align="right">2.50</td>
+<td align="left">Good</td>
+<td align="left">J</td>
+<td align="left">VS2</td>
+<td align="right">18325</td>
+</tr>
+<tr class="odd">
+<td align="right">2.50</td>
+<td align="left">Premium</td>
+<td align="left">I</td>
+<td align="left">SI2</td>
+<td align="right">18447</td>
+</tr>
+<tr class="even">
+<td align="right">2.49</td>
+<td align="left">Fair</td>
+<td align="left">J</td>
+<td align="left">I1</td>
+<td align="right">6289</td>
+</tr>
+<tr class="odd">
+<td align="right">2.49</td>
+<td align="left">Ideal</td>
+<td align="left">J</td>
+<td align="left">SI1</td>
+<td align="right">16915</td>
+</tr>
+<tr class="even">
+<td align="right">2.49</td>
+<td align="left">Premium</td>
+<td align="left">I</td>
+<td align="left">SI2</td>
+<td align="right">18325</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="if-at-first-you-dont-succeed" class="section level3">
+<h3><span class="header-section-number">10.4.7</span> If at first you don’t succeed</h3>
+<p>How hard did you try?</p>
+<ol start="6" style="list-style-type: decimal">
+<li><strong>Document that you tried for at least 30 minutes, where you looked, and what you learned in your struggles</strong></li>
+</ol>
+</div>
+<div id="if-you-get-this-far" class="section level3">
+<h3><span class="header-section-number">10.4.8</span> If you get this far</h3>
+<p>Now rewrite your code in as few lines as possible. (I do NOT mean omitting comments. Which of the above steps is necessary to answer the assignment?)</p>
+<p>Here’s one answer - using ‘arrange’ instead of order…</p>
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">arrange</span>(smaller,<span class="op">-</span>carat)[<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dv">7</span>)])</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">carat</th>
+<th align="left">cut</th>
+<th align="left">color</th>
+<th align="left">clarity</th>
+<th align="right">price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">2.50</td>
+<td align="left">Fair</td>
+<td align="left">G</td>
+<td align="left">I1</td>
+<td align="right">7854</td>
+</tr>
+<tr class="even">
+<td align="right">2.50</td>
+<td align="left">Premium</td>
+<td align="left">H</td>
+<td align="left">I1</td>
+<td align="right">8467</td>
+</tr>
+<tr class="odd">
+<td align="right">2.50</td>
+<td align="left">Fair</td>
+<td align="left">G</td>
+<td align="left">I1</td>
+<td align="right">8711</td>
+</tr>
+<tr class="even">
+<td align="right">2.50</td>
+<td align="left">Premium</td>
+<td align="left">H</td>
+<td align="left">SI2</td>
+<td align="right">12071</td>
+</tr>
+<tr class="odd">
+<td align="right">2.50</td>
+<td align="left">Fair</td>
+<td align="left">H</td>
+<td align="left">SI2</td>
+<td align="right">13278</td>
+</tr>
+<tr class="even">
+<td align="right">2.50</td>
+<td align="left">Fair</td>
+<td align="left">H</td>
+<td align="left">SI2</td>
+<td align="right">13278</td>
+</tr>
+<tr class="odd">
+<td align="right">2.50</td>
+<td align="left">Fair</td>
+<td align="left">G</td>
+<td align="left">SI2</td>
+<td align="right">14194</td>
+</tr>
+<tr class="even">
+<td align="right">2.50</td>
+<td align="left">Ideal</td>
+<td align="left">J</td>
+<td align="left">SI2</td>
+<td align="right">14502</td>
+</tr>
+<tr class="odd">
+<td align="right">2.50</td>
+<td align="left">Fair</td>
+<td align="left">J</td>
+<td align="left">SI2</td>
+<td align="right">14652</td>
+</tr>
+<tr class="even">
+<td align="right">2.50</td>
+<td align="left">Ideal</td>
+<td align="left">J</td>
+<td align="left">SI2</td>
+<td align="right">15246</td>
+</tr>
+<tr class="odd">
+<td align="right">2.50</td>
+<td align="left">Premium</td>
+<td align="left">H</td>
+<td align="left">SI2</td>
+<td align="right">15934</td>
+</tr>
+<tr class="even">
+<td align="right">2.50</td>
+<td align="left">Ideal</td>
+<td align="left">J</td>
+<td align="left">SI2</td>
+<td align="right">15990</td>
+</tr>
+<tr class="odd">
+<td align="right">2.50</td>
+<td align="left">Ideal</td>
+<td align="left">I</td>
+<td align="left">VS2</td>
+<td align="right">16955</td>
+</tr>
+<tr class="even">
+<td align="right">2.50</td>
+<td align="left">Very Good</td>
+<td align="left">J</td>
+<td align="left">SI1</td>
+<td align="right">17028</td>
+</tr>
+<tr class="odd">
+<td align="right">2.50</td>
+<td align="left">Fair</td>
+<td align="left">F</td>
+<td align="left">SI2</td>
+<td align="right">17405</td>
+</tr>
+<tr class="even">
+<td align="right">2.50</td>
+<td align="left">Good</td>
+<td align="left">J</td>
+<td align="left">VS2</td>
+<td align="right">18325</td>
+</tr>
+<tr class="odd">
+<td align="right">2.50</td>
+<td align="left">Premium</td>
+<td align="left">I</td>
+<td align="left">SI2</td>
+<td align="right">18447</td>
+</tr>
+<tr class="even">
+<td align="right">2.49</td>
+<td align="left">Fair</td>
+<td align="left">J</td>
+<td align="left">I1</td>
+<td align="right">6289</td>
+</tr>
+<tr class="odd">
+<td align="right">2.49</td>
+<td align="left">Ideal</td>
+<td align="left">J</td>
+<td align="left">SI1</td>
+<td align="right">16915</td>
+</tr>
+<tr class="even">
+<td align="right">2.49</td>
+<td align="left">Premium</td>
+<td align="left">I</td>
+<td align="left">SI2</td>
+<td align="right">18325</td>
+</tr>
+</tbody>
+</table>
+<p>Finally, generate HTML, Word, and PDF versions of this document.</p>
+<ol start="8" style="list-style-type: decimal">
+<li><strong>Are these different output formats useful for you? explain</strong> &lt;- replace this line with an answer</li>
+</ol>
+</div>
+</div>
+<div id="what-to-do-when-you-are-stuck" class="section level2">
+<h2><span class="header-section-number">10.5</span> What to do when you are stuck</h2>
+<ul>
+<li><p>google. pay attention to your error messages</p></li>
+<li><p>ask for help, make your questions clear and reproducible (see R4DS Chapter 1)</p></li>
+<li><p>take a break, think outside the box and <a href="https://www.google.com/search?newwindow=1&amp;safe=active&amp;rlz=1C1SQJL_enUS782US782&amp;q=Dictionary#dobs=kludge">kludge</a> something together if you have to</p></li>
+<li><p>document your struggle and your cleverness for a future you</p></li>
+</ul>
 
 </div>
 </div>
 <h3> references</h3>
 <div id="refs" class="references">
-<div id="ref-gandrud2016reproducible">
-<p>Gandrud, Christopher. 2016. <em>Reproducible Research with R and R Studio</em>. CRC Press.</p>
-</div>
-<div id="ref-peng2015r">
-<p>Peng, Roger D. 2015. <em>R Programming for Data Science</em>. Lulu. com.</p>
-</div>
-<div id="ref-wickham2016r">
-<p>Wickham, Hadley, and Garrett Grolemund. 2016. “R for Data Science.” Sebastopol, CA: O’Reilly. http://​ r4ds.​ had.​ co.​ nz.</p>
-</div>
-<div id="ref-bonomi2012fog">
-<p>Bonomi, Flavio, Rodolfo Milito, Jiang Zhu, and Sateesh Addepalli. 2012. “Fog Computing and Its Role in the Internet of Things.” In <em>Proceedings of the First Edition of the Mcc Workshop on Mobile Cloud Computing</em>, 13–16. ACM.</p>
-</div>
-<div id="ref-clarke2009open">
-<p>Clarke, Russell, David Dorwin, and Rob Nash. 2009. “Is Open Source Software More Secure?” <em>Homeland Security/Cyber Security</em>.</p>
-</div>
-<div id="ref-fitzgerald2016open">
-<p>FitzGerald, Ben, Peter L Levin, and Jacqueline Parziale. 2016. <em>Open Source Software &amp; the Department of Defense</em>. Center for a New American Security.</p>
+<div id="ref-wainer2007most">
+<p>Wainer, Howard. 2007b. “The Most Dangerous Equation.” <em>American Scientist</em> 95 (3). Sigma XI-The Scientific Research Society: 249.</p>
 </div>
 </div>
             </section>
@@ -332,8 +755,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="getting-started.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="now-draw-the-rest-of-the-owl.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="reproducibility-and-the-replication-crisis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="some-tidyverse-tricks.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

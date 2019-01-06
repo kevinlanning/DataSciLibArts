@@ -1,0 +1,23 @@
+---
+title: "07-probability and inference"
+author: "Lanning"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# probability and inference
+
+Begin with a discussion of @anscombe1973graphs and his quartet, and how visualizing data is valuable. 
+
+## On probability
+
+Discrete probability is used to understand the likelihood of categorical events.  We can think of initial estimates of probability as subjective or personal. For some events (*what is the probability this plane will crash?*), an estimate of probability can be drawn from a base rate or relative frequency (e.g., *p(this plane will crash) = (number of flights with crashes/ number of flights)*). For other events (what is the probability that the US President will resign or be impeached before completing his term of office?), it may be hard to arrive at a suitable base rate. Here, a number of subjective beliefs or principles may be combined to arrive at a subjective or personal probability. In a sense, all probability estimates begin with a personal belief such as this, in part because the choice of the most informative base rate is often not self-evident - in the plane crash example, maybe we should consider a reference group rates such as 'for this airline' etc.  [@lanning1987some]. The personal origins of probability estimates should become less important as we are exposed to data and revise our estimates in accordance with Bayes theorem.  But over the last 45 years, a substantial body of evidence has demonstrates that, under at least some circumstances, we don't make estimates of probability in this way.
+
+There is a nice r markdown document discussing basic laws of probability at Harvard's datasciencelabs repository: https://github.com/datasciencelabs/2017/blob/master/lectures/prob/discrete-probability.Rmd. 
+
+We can also use probability with continuous variables such as systolic blood pressure (that's the first one), which has a mean of  approximately 120 and a standard deviation of 15. Continuous probability distributions are handy tools for thinking about the meaning of scores, particularly when we express scores in standard deviations from the mean (z scores). More to the point, this way of thinking about probability is widely used in questions of scientific inference, as, for example, in testing hypotheses such that "the average systolic blood pressure among a group of people studying at Crux (hence caffeinated) will be significantly greater than that of the population as a whole."
+
+This is the logic of **Null Hypothesis Significance Testing (NHST)** - if the result in my Crux sample is sufficiently high, then I say that I have rejected the null hypothesis, and found data which support the hypothesis of interest.  
+
+###### *Let's write up a sample study, describing the methods we would use to test this.*
+

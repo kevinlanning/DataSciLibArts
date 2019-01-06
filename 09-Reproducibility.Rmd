@@ -1,0 +1,58 @@
+---
+title: "09-Reproducibility"
+author: "Kevin Lanning"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+---
+# Reproducibility and the replication crisis
+
+Probability theory is elegant, and the logic of NHST is compelling. But philosophers of science have long recognized that this is not how science works [@lakatos1969falsification]. (Consider, for example, a simple test of whether gravity exists).
+
+In recent years, the tension between **the false ideal of NHST** and the real world of science has become increasingly evident. Within psychology, experimental studies have often - even typically - failed to replicate [@open2015estimating].  It's not just psychology [@baker2016reproducibility]. One of the first important papers to shine light in the area  [@ioannidis2005most] came from medicine; it suggested six contributing factors, which I quote verbatim here: 
+
+*The smaller the studies conducted in a scientific field, the less likely the research findings are to be true.* 
+
+- This stems directly from our discussion of the central limit theorem and the instability of results from small samples.
+
+*The smaller the effect sizes in a scientific field, the less likely the research findings are to be true*
+
+- We'll talk about effect size below.
+
+*The greater the number and the lesser the selection of tested relationships in a scientific field, the less likely the research findings are to be true.* (and) *The greater the flexibility in designs, definitions, outcomes, and analytical modes in a scientific field, the less likely the research findings are to be true.*
+
+- The "problem" of analytic flexibility leads to 'p-hacking'
+
+*The greater the financial and other interests and prejudices in a scientific field, the less likely the research findings are to be true* and *The hotter a scientific field (with more scientific teams involved), the less likely the research findings are to be true.* 
+
+- Positive findings rise, and negative ones are ignored.  And scientists are human, and subject to incentives. 
+
+Here's a video which provides some more context for the crisis: https://www.youtube.com/watch?v=42QuXLucH3Q (12 mins)
+
+## Answers to the reproducibility crisis I: On NHST
+
+The first cluster of responses addresses problems with Null Hypothesis Significance Testing (NHST). These include (a) justifying one's alpha - making it more stringent, for example, for counter-intuitive claims [@grange2018justify], (b) changing the default p value from .05 to .005 [@benjamin2017redefine], and (c) abandon significance testing altogether [@mcshane2017abandon]. 
+
+@szucs2017null goes into some of these issues in more detail and discusses other limitations of significance testing, including the dichotomous, all-or-none silliness of the accept/reject decision.  (If you play the NHST game, there is no 'almost' significant, 'approached significance,' etc.).
+
+@leek2015statistics argue that the problems are not merely with NHST, but with the whole of data analysis. They maintain that better training in data science - courses like ours, perhaps, are part of the answer.
+
+![leek2015pipeline](leek2015pipeline.PNG) (figure) 
+
+### @munafo2017manifesto also argue that threats to reproducible science occur at a number of places in science, not just with the evaluation of hypotheses. 
+
+![munafo2017threats](munafo2017threats.PNG)
+
+## Answers to the reproducibility crisis II: Pre-registration
+
+The second type of response includes (d) preregistering your work [@miguel2014promoting]. There's a video here: https://www.futurelearn.com/courses/open-social-science-research/0/steps/31436 (5 mins). For randomized controlled trials, consider socialscienceregistry.org, and for more general use, use the open science framework page. Incidentally, you can post your theses after they are finished at https://thesiscommons.org.
+
+garden of the forking paths
+
+There's a collection of papers here... https://www.nature.com/collections/prbfkwmwvz/
+
+Showing exactly what you have done and how (and why) you got there is at the core of reproducible science.  
+
+### *What would results for our sample study look like? How many of these problems would it face? What should we do about it?*
+

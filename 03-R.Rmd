@@ -39,7 +39,7 @@ R includes the base plus thousands of **packages**. These packages are customize
 
 R is an **object-oriented** language - one conceptually organized around objects and data rather than actions and logic. In R, at the atomic level, objects include *characters, real numbers, integers, complex numbers, and logical.* These atoms are combined into vectors, which generally include objects of the same type [one kind of object, 'lists,' is an exception to this; @peng2015r].  Vectors can be further combined into **data frames**, which are two-dimensional tables or arrays. A **tibble** is a particular type of data frame which is, in some ways, handier to work with than other data frames.  We'll be working extensively with data frames in general, and tibbles in particular, as we move forward.
 
-Objects have attributes. Attributes of R include such things as name, dimensions (for vectors and arrays), class (that's the atomic thing), length, etc. 
+Objects have **attributes**. Attributes of R include such things as name, dimensions (for vectors and arrays), class (that's the type of object described in the previous paragraph), length, etc. 
 
 Real world data sets are messy, and frequently have **missing values.** In R, missing values may be characterized by NA (not available) or NaN (not a number, implying an undefined or  impossible value). 
 
@@ -47,17 +47,22 @@ Real world data sets are messy, and frequently have **missing values.** In R, mi
 
 ## finding help
 
-**one does not simply 'learn R.'** Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one can be said to have mastered and from which one then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn.  And, the complexity of R syntax is such that, for almost all of us, we will need help for coding just about any non-trivial task. 
+**one does not simply 'learn R.'** Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one can be said to have mastered and from which one then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn.  And, the complexity of R syntax is such that, for almost all of us, we will need help for coding on any non-trivial task. 
 
 For us, the key ideas in "looking for help" will include not just the tools on the R Studio IDE, but also (a) using google searches wisely, and (b) reaching out to your classmates on Slack. 
 
-There is an etiquette for help-seeking here as in the real world.  Your search for help should begin by making sure that others will encounter the same result, then by stripping the problem down to its essence. Once you have reduced the problem to this *minimal, reproducible* essence, you will often be able to spot the problem yourself - and, if not, you will make it easier for others to help you.  There is an R package (reprex) which will likely facilitate this, but I haven't tried it yet.  [Here](https://www.tidyverse.org/help/) is a good introduction.
+Here, as in the real world, there is an etiquette for help-seeking which is based on consideration.  Your search for help should begin by making sure that others will encounter the same result, then by stripping the problem down to its essence. Once you have reduced the problem to this *minimal, reproducible* essence, you will often be able to spot the problem yourself - and, if not, you will make it easier for others to help you.  There is an R package (reprex) which will likely facilitate this, but I haven't tried it yet.  [Here](https://www.tidyverse.org/help/) is a good introduction.
 
 Finally, to get a sense of some of the ways you can get help in R studio (and to see how a master uses the R Studio interface), consider this video:
 
 [![RStudio Essentials Webinar Series – Programming Part 1 – RStudio](https://embedwistia-a.akamaihd.net/deliveries/85f90f89c20cf329c8e6091508fe44c045e70167.jpg?image_play_button_size=2x&image_crop_resized=960x585&image_play_button=1&image_play_button_color=4287c7e0)](https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-part-1/?wvideo=k8kz4e0p2v)
 *Video 3.1: Garret Grolemund of [R Studio](https://www.rstudio.com/)*
 
+## Wickham and R for Data Science
+
+[The first chapter of the Wickham text](https://r4ds.had.co.nz/introduction.html) [@wickham2016r] provides a framework for his approach and a brief introduction to the *tidyverse* which will be the dialect of R we will study in the weeks ahead.
+
+Please read it now. 
 
 ## discussion: is open-source software secure?
 

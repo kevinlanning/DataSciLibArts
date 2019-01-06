@@ -1,0 +1,10 @@
+---
+title: "12-messy data"
+author: "Kevin Lanning"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+---
+# Messy data: Cleaning and curation
+

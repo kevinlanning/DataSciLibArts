@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>3 an introduction to R | Data science for the liberal arts</title>
+  <title>11 some tidyverse tricks | Data science for the liberal arts</title>
   <meta name="description" content="Test">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="3 an introduction to R | Data science for the liberal arts />
+  <meta property="og:title" content="11 some tidyverse tricks | Data science for the liberal arts />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/diffprop_cloud_250_sm.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 an introduction to R | Data science for the liberal arts />
+  <meta name="twitter:title" content="11 some tidyverse tricks | Data science for the liberal arts />
   
   <meta name="twitter:description" content="Test" />
   <meta name="twitter:image" content="images/diffprop_cloud_250_sm.png" />
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="getting-started.html">
-<link rel="next" href="now-draw-the-rest-of-the-owl.html">
+<link rel="prev" href="literate-programming-with-r-markdown.html">
+<link rel="next" href="messy-data-cleaning-and-curation.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -250,81 +250,197 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="an-introduction-to-r" class="section level1">
-<h1><span class="header-section-number">3</span> an introduction to R</h1>
-<p>R is a system for <strong>Reproducible research</strong>, and reproducibility is essential <span class="citation">(Gandrud <a href="#ref-gandrud2016reproducible">2016</a>)</span>.</p>
-<blockquote>
-<p>Research is often presented in very selective containers: slideshows, journal articles, books, or maybe even websites… these documents are not the research [rather] these documents are the “advertising”. The research is the “full software environment, code, and data that produced the results” [Buckheit and Donoho, 1995, Donoho, 2010, 385]. When we separate the research from its advertisement we are making it difficult for others to verify the findings by reproducing them.</p>
-</blockquote>
-<p>R markdown documents (like Jupyter notebooks in the Python world) facilitate reproducible research, as they include comments or explanations, code, links to data, and results.</p>
-<div id="some-other-things-that-r-stands-for" class="section level2">
-<h2><span class="header-section-number">3.1</span> some other things that R stands for</h2>
-<p>Historically, R grew out of S which could stand for Statistics. But what does R stand for?</p>
-<p>R is a system for <em>Representing data</em> in cool, insight-facilitating ways. R is <em>Really popular</em>, and really growing. Learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.</p>
-<p>R might stand for <em>Relatively high level.</em> Programming languages can be described along a continuum from high to low level, the former (like R) are more accessible to humans, the latter (like assembly language) more accessible to machines. Python, Java, and C++ are all more towards the middle of this continuum.</p>
-<p>R stands, in part, for <em>Resources.</em> Because R is popular, there are many resources, including, for example -</p>
-<ul>
-<li>Online resources include the simple (and less simple) lessons of <a href="http://swirlstats.com/">SwirlR</a>, which offers the possibility of “learning R in R,” as well as <a href="https://www.datacamp.com/home">DataCamp</a>, the <a href="https://www.coursera.org/specializations/jhu-data-science">Data Science Certificate Program at Johns Hopkins,</a> and other MOOCs.<br />
-</li>
-<li>Books include <span class="citation">Peng (<a href="#ref-peng2015r">2015</a>)</span> - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and <span class="citation">Wickham and Grolemund (<a href="#ref-wickham2016r">2016</a>)</span>.</li>
-<li>You’ll also learn (more directly) from people, including your classmates, as well as the broader community of people around the world. There are hundreds if not thousands of people, young and old, who are on the road with you. I am as well, just a step or two (hopefully) ahead.</li>
-</ul>
-<p>R does not stand for ‘<a href="https://www.urbandictionary.com/define.php?term=ARGH">argh</a>,’ although you may proclaim this in frustration (‘arggh, why can’t I get this to work?) or, perhaps, in satisfaction (’arggh, matey, that be a clever way of doing this’). But R does stand for <strong><em>Rewarding</em></strong>. A language is a way of thinking about the world, and this is true for computer languages as well. You’ll be challenged by its complexity, its idiosyncracy, its alien logic. But you will succeed, and you will find that you can do things that you did not believe possible.</p>
+<div id="some-tidyverse-tricks" class="section level1">
+<h1><span class="header-section-number">11</span> some tidyverse tricks</h1>
+<p>“Excerpts from <em>Data Science in the Tidyverse</em>” - Sections 0 - 2
+<!-- 
+This file Creative Commons Attribution 4.0 International License. 
+See details at https://github.com/hadley/data-science-in-tidyverse 
+--></p>
+<div id="from-sections-00-and-01" class="section level2">
+<h2><span class="header-section-number">11.1</span> From sections 00 and 01:</h2>
+<p>Setup chunk will run any time any chunk is run.</p>
+<p>Do you get an error? Can you fix it?</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre>
+<pre><code>## -- Attaching packages ------------</code></pre>
+<pre><code>## v tibble  1.4.2     v purrr   0.2.5
+## v tidyr   0.8.2     v stringr 1.3.1
+## v readr   1.3.0     v forcats 0.3.0</code></pre>
+<pre><code>## -- Conflicts ---------------------
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gapminder)</code></pre>
+<p>Simple plot syntax</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy))</code></pre>
+<p><img src="DataSciLibArts_files/figure-html/plot-1.png" width="672" /></p>
 </div>
-<div id="a-few-characteristics-of-r" class="section level2">
-<h2><span class="header-section-number">3.2</span> a few characteristics of R</h2>
-<p>R includes the base plus thousands of <strong>packages</strong>. These packages are customized add-ons which simplify certain tasks, such as text analysis. But there are, at this writing, <a href="https://cran.r-project.org/web/views/NaturalLanguageProcessing.html">over 50 different packages for text analysis</a> - so where do you begin? One recent answer, and where we will start, is the curated list of packages which jointly comprise the tidyverse <span class="citation">(Wickham and Grolemund <a href="#ref-wickham2016r">2016</a>)</span>.</p>
-<blockquote>
-<p>A few years ago, <span class="citation">Peng (<a href="#ref-peng2015r">2015</a>)</span> speculated that “it would be straightforward to build an R package for ordering pizza.” Does one exist now?</p>
-</blockquote>
-<p>R is an <strong>object-oriented</strong> language - one conceptually organized around objects and data rather than actions and logic. In R, at the atomic level, objects include <em>characters, real numbers, integers, complex numbers, and logical.</em> These atoms are combined into vectors, which generally include objects of the same type <span class="citation">(one kind of object, “lists,” is an exception to this; Peng <a href="#ref-peng2015r">2015</a>)</span>. Vectors can be further combined into <strong>data frames</strong>, which are two-dimensional tables or arrays. A <strong>tibble</strong> is a particular type of data frame which is, in some ways, handier to work with than other data frames. We’ll be working extensively with data frames in general, and tibbles in particular, as we move forward.</p>
-<p>Objects have <strong>attributes</strong>. Attributes of R include such things as name, dimensions (for vectors and arrays), class (that’s the type of object described in the previous paragraph), length, etc.</p>
-<p>Real world data sets are messy, and frequently have <strong>missing values.</strong> In R, missing values may be characterized by NA (not available) or NaN (not a number, implying an undefined or impossible value).</p>
-<p><strong>R Studio,</strong> the environment we will use to write, test, and run R code, is a commercial enterprise whose business model, judged from afar, is an important one in the world of technology. Most of what R Studio offers is free (97% according to Garrett Grolemund in the video below). The commercial product they offer makes sense for a relative few, but it is sufficiently lucrative to fund the enterprise. The free product helps to drive the popularity of R studio; this widespread use, in turn, makes it increasingly essential for businesses to use. This mixed free/premium, or ‘freemium,’ model characterizes Slack as well, but while <a href="https://www.statista.com/statistics/652779/worldwide-slack-users-total-vs-paid/">the ratio of free to paid users of Slack is on the order of 3:1</a>, for R it is, I am guessing, an order of magnitude higher than this.</p>
+<div id="from-section-02---transform" class="section level2">
+<h2><span class="header-section-number">11.2</span> From section 02 - Transform</h2>
+<p>Here’s Gapminder data (summarized in the Hans Rosling video). We’ll play with it a little.</p>
+<pre class="sourceCode r"><code class="sourceCode r">gapminder</code></pre>
+<pre><code>## # A tibble: 1,704 x 6
+##    country     continent  year lifeExp      pop gdpPercap
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8  8425333      779.
+##  2 Afghanistan Asia       1957    30.3  9240934      821.
+##  3 Afghanistan Asia       1962    32.0 10267083      853.
+##  4 Afghanistan Asia       1967    34.0 11537966      836.
+##  5 Afghanistan Asia       1972    36.1 13079460      740.
+##  6 Afghanistan Asia       1977    38.4 14880372      786.
+##  7 Afghanistan Asia       1982    39.9 12881816      978.
+##  8 Afghanistan Asia       1987    40.8 13867957      852.
+##  9 Afghanistan Asia       1992    41.7 16317921      649.
+## 10 Afghanistan Asia       1997    41.8 22227415      635.
+## # ... with 1,694 more rows</code></pre>
 </div>
-<div id="finding-help" class="section level2">
-<h2><span class="header-section-number">3.3</span> finding help</h2>
-<p><strong>one does not simply ‘learn R.’</strong> Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one can be said to have mastered and from which one then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn. And, the complexity of R syntax is such that, for almost all of us, we will need help for coding on any non-trivial task.</p>
-<p>For us, the key ideas in “looking for help” will include not just the tools on the R Studio IDE, but also (a) using google searches wisely, and (b) reaching out to your classmates on Slack.</p>
-<p>Here, as in the real world, there is an etiquette for help-seeking which is based on consideration. Your search for help should begin by making sure that others will encounter the same result, then by stripping the problem down to its essence. Once you have reduced the problem to this <em>minimal, reproducible</em> essence, you will often be able to spot the problem yourself - and, if not, you will make it easier for others to help you. There is an R package (reprex) which will likely facilitate this, but I haven’t tried it yet. <a href="https://www.tidyverse.org/help/">Here</a> is a good introduction.</p>
-<p>Finally, to get a sense of some of the ways you can get help in R studio (and to see how a master uses the R Studio interface), consider this video:</p>
-<p><a href="https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-part-1/?wvideo=k8kz4e0p2v"><img src="https://embedwistia-a.akamaihd.net/deliveries/85f90f89c20cf329c8e6091508fe44c045e70167.jpg?image_play_button_size=2x&amp;image_crop_resized=960x585&amp;image_play_button=1&amp;image_play_button_color=4287c7e0" alt="RStudio Essentials Webinar Series – Programming Part 1 – RStudio" /></a>
-<em>Video 3.1: Garret Grolemund of <a href="https://www.rstudio.com/">R Studio</a></em></p>
+<div id="dplyr" class="section level2">
+<h2><span class="header-section-number">11.3</span> Dplyr</h2>
+<div id="filter" class="section level3">
+<h3><span class="header-section-number">11.3.1</span> Filter</h3>
+<ol style="list-style-type: decimal">
+<li>Use filter to show the data for United States. (Here and in the following sections, Remove the octothorpe and replace the three dots with your own code.)</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># filter(gapminder...)</span></code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Same for NZ after 2000</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># filter(gapminder...)</span></code></pre>
 </div>
-<div id="wickham-and-r-for-data-science" class="section level2">
-<h2><span class="header-section-number">3.4</span> Wickham and R for Data Science</h2>
-<p><a href="https://r4ds.had.co.nz/introduction.html">The first chapter of the Wickham text</a> <span class="citation">(Wickham and Grolemund <a href="#ref-wickham2016r">2016</a>)</span> provides a framework for his approach and a brief introduction to the <em>tidyverse</em> which will be the dialect of R we will study in the weeks ahead.</p>
-<p>Please read it now.</p>
 </div>
-<div id="discussion-is-open-source-software-secure" class="section level2">
-<h2><span class="header-section-number">3.5</span> discussion: is open-source software secure?</h2>
-<p>Perhaps the most important feature of R is that it is open-source software. This is important not just because it saves you money, but because contributing to the world of R is an act of digital democracy. In using and contributing to the world of R we open up knowledge to others who may lack our privileges. R, like Android or Wikipedia, is a tool for all of us, maintained and continually improved upon by the crowd.</p>
-<p>But is open-source software safe? More generally, in a data-dependent world, who should be the guardians of the code that connects us?</p>
-<p><strong>Securing the Internet of Vehicles</strong>. To consider just one example, the computer systems in modern cars typically run millions of lines of code. As cars become increasingly autonomous, this complexity will only increase. (Incidentally, the Society of Automotive Engineers, or SAE, describes 6 levels of ‘auto autonomy.’ At this writing, the most sophisticated systems available to consumers, such as Tesla Autopilot, are at level 2. What lies ahead are cars which are self-driving on carefully selected, geo-fenced roads, and ultimately cars “<a href="https://www.caranddriver.com/features/a15079828/autonomous-self-driving-car-levels-car-levels/">which can operate on any road… a human driver could negotiate</a>”). Our roads and highways will become an Internet of Vehicles (IOV), which will include not just connections between cars and an intelligent <em>cloud</em> ‘above us’ but also direct links between a distributed system of intelligent cars, stoplights, and road sensors in a <em>fog</em> ‘around us’ <span class="citation">(Bonomi et al. <a href="#ref-bonomi2012fog">2012</a>)</span>. <strong>Fog computing</strong> and the IOV will reduce travel times and increase both fuel efficiency and automotive safety.</p>
-<p>Obviously, there are <strong>cybersecurity</strong> concerns. While the prospects for <a href="https://www.youtube.com/watch?v=OvewYslou9g">a chaotic, choreographed hack of hundreds of vehicles on the streets of Manhattan</a>, such as that in the 2017 movie “The Fate of the Furious”, are remote at best (or worst), there have been examples of “white-hat hackers” who have successfully infiltrated (and thereby helped secure) car information systems.</p>
-<p>As the IOV develops, there will be vulnerabilities to privacy as well as safety, and the security of the system will be paramount. Different car manufacturers are taking different approaches to developing secure information systems, with many using a closed or proprietary approach. But the scope of the problem is so large that there is a movement towards pooling resources and encouraging collaboration among industry partners, academics, and citizen scientists in the development of an open-source autonomous driving platform, such as <a href="http://apollo.auto/">Apollo</a>. Perhaps counterintuitively, there may be significant security advantages to using source code that is open to all <span class="citation">(Clarke, Dorwin, and Nash <a href="#ref-clarke2009open">2009</a>; FitzGerald, Levin, and Parziale <a href="#ref-fitzgerald2016open">2016</a>)</span>.</p>
+<div id="pipe" class="section level2">
+<h2><span class="header-section-number">11.4</span> Pipe</h2>
+<p>The pipe allows us to chain multiple operations,</p>
+</div>
+<div id="mutate" class="section level2">
+<h2><span class="header-section-number">11.5</span> Mutate</h2>
+<p>… while mutate creates new variables.</p>
+<p>What would you expect this to do? (There’s one way to find out!)</p>
+<p>gapminder %&gt;%
+mutate(size = ifelse(pop &lt; 10e06, “small”, “large”))</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># gapminder </span></code></pre>
+<p>Now use the pipe and mutate to create a new variable of your own that describes something meaningful in the dataset.</p>
+<p>Describe it here:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># gapminder </span></code></pre>
+</div>
+<div id="summarizse" class="section level2">
+<h2><span class="header-section-number">11.6</span> Summariz(s)e</h2>
+<p>Reduces a variable to one or more values.</p>
+<p>Use summarise() to compute the earliest (minimum) year in the dataset</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># gapminder </span></code></pre>
+</div>
+<div id="group-by" class="section level2">
+<h2><span class="header-section-number">11.7</span> Group by</h2>
+<p>Summarize is really useful with group by, and group by is really useful for categorical variables.</p>
+<p>Find the median life expectancy by continent in 2007, or another comparison between groups (such as continent or year).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># gapminder </span></code></pre>
+</div>
+<div id="joins" class="section level2">
+<h2><span class="header-section-number">11.8</span> Joins</h2>
+<p>You often need to combine different datasets.</p>
+<p>One way is to add new rows (observations) for your current set of variables.</p>
+<p>Another is to add new columns (measures or variables) for your current set of observations.</p>
+<p>Consider the following…</p>
+<pre class="sourceCode r"><code class="sourceCode r">country_codes</code></pre>
+<pre><code>## # A tibble: 187 x 3
+##    country     iso_alpha iso_num
+##    &lt;chr&gt;       &lt;chr&gt;       &lt;int&gt;
+##  1 Afghanistan AFG             4
+##  2 Albania     ALB             8
+##  3 Algeria     DZA            12
+##  4 Angola      AGO            24
+##  5 Argentina   ARG            32
+##  6 Armenia     ARM            51
+##  7 Aruba       ABW           533
+##  8 Australia   AUS            36
+##  9 Austria     AUT            40
+## 10 Azerbaijan  AZE            31
+## # ... with 177 more rows</code></pre>
+<p>We can combine it with the gapminder data using a version of join, for example, …</p>
+<pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(country_codes)</code></pre>
+<pre><code>## Joining, by = &quot;country&quot;</code></pre>
+<pre><code>## Warning: Column `country` joining factor and character vector, coercing
+## into character vector</code></pre>
+<pre><code>## # A tibble: 1,704 x 8
+##    country     continent  year lifeExp      pop gdpPercap iso_alpha iso_num
+##    &lt;chr&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;int&gt;
+##  1 Afghanistan Asia       1952    28.8  8425333      779. AFG             4
+##  2 Afghanistan Asia       1957    30.3  9240934      821. AFG             4
+##  3 Afghanistan Asia       1962    32.0 10267083      853. AFG             4
+##  4 Afghanistan Asia       1967    34.0 11537966      836. AFG             4
+##  5 Afghanistan Asia       1972    36.1 13079460      740. AFG             4
+##  6 Afghanistan Asia       1977    38.4 14880372      786. AFG             4
+##  7 Afghanistan Asia       1982    39.9 12881816      978. AFG             4
+##  8 Afghanistan Asia       1987    40.8 13867957      852. AFG             4
+##  9 Afghanistan Asia       1992    41.7 16317921      649. AFG             4
+## 10 Afghanistan Asia       1997    41.8 22227415      635. AFG             4
+## # ... with 1,694 more rows</code></pre>
+<p>Note that join is smart enough to match the two files on the variable they share…</p>
+<p>Excerpts from <em>Data Science in the Tidyverse</em> - Sections 5</p>
+<p>Note the fivethirtyeight package. Install, open, and play with it as you would a birthday present.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(lubridate)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     date</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(fivethirtyeight)</code></pre>
+</div>
+<div id="from-section-05---data-types" class="section level2">
+<h2><span class="header-section-number">11.9</span> From section 05 - Data-Types</h2>
+<p>Find and open the General Social Survey data.</p>
+<p>Find the average hours of tv watched (<code>tvhours</code>) for each category of marital status (<code>marital</code>).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># why doesn&#39;t this work?</span>
+<span class="co">#div &lt;- filter(gss_cat, marital==&quot;Divorced&quot;)</span>
+<span class="co">#div</span>
+<span class="co">#x = div[3]</span>
+<span class="co">#x &lt;- as.numeric(x[[1]])</span>
+<span class="co">#mean(x)</span>
+<span class="co"># one method</span>
+(by_marital &lt;-<span class="st"> </span><span class="kw">group_by</span>(gss_cat, marital))</code></pre>
+<pre><code>## # A tibble: 21,483 x 9
+## # Groups:   marital [6]
+##     year marital     age race  rincome   partyid    relig   denom   tvhours
+##    &lt;int&gt; &lt;fct&gt;     &lt;int&gt; &lt;fct&gt; &lt;fct&gt;     &lt;fct&gt;      &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;
+##  1  2000 Never ma~    26 White $8000 to~ Ind,near ~ Protes~ Southe~      12
+##  2  2000 Divorced     48 White $8000 to~ Not str r~ Protes~ Baptis~      NA
+##  3  2000 Widowed      67 White Not appl~ Independe~ Protes~ No den~       2
+##  4  2000 Never ma~    39 White Not appl~ Ind,near ~ Orthod~ Not ap~       4
+##  5  2000 Divorced     25 White Not appl~ Not str d~ None    Not ap~       1
+##  6  2000 Married      25 White $20000 -~ Strong de~ Protes~ Southe~      NA
+##  7  2000 Never ma~    36 White $25000 o~ Not str r~ Christ~ Not ap~       3
+##  8  2000 Divorced     44 White $7000 to~ Ind,near ~ Protes~ Luther~      NA
+##  9  2000 Married      44 White $25000 o~ Not str d~ Protes~ Other         0
+## 10  2000 Married      47 White $25000 o~ Strong re~ Protes~ Southe~       3
+## # ... with 21,473 more rows</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summarise</span>(by_marital, <span class="dt">avetvhours =</span> <span class="kw">mean</span>(tvhours, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</code></pre>
+<pre><code>## # A tibble: 6 x 2
+##   marital       avetvhours
+##   &lt;fct&gt;              &lt;dbl&gt;
+## 1 No answer           2.56
+## 2 Never married       3.11
+## 3 Separated           3.55
+## 4 Divorced            3.09
+## 5 Widowed             3.91
+## 6 Married             2.65</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># pipe method</span>
+gss_cat<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(marital) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">summarise</span>(<span class="dt">means=</span><span class="kw">mean</span>(tvhours,<span class="dt">na.rm=</span><span class="ot">TRUE</span>))</code></pre>
+<pre><code>## # A tibble: 6 x 2
+##   marital       means
+##   &lt;fct&gt;         &lt;dbl&gt;
+## 1 No answer      2.56
+## 2 Never married  3.11
+## 3 Separated      3.55
+## 4 Divorced       3.09
+## 5 Widowed        3.91
+## 6 Married        2.65</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># gss_cat</span>
+<span class="co"># etc</span></code></pre>
+<p>How did you handle missing values?</p>
 
-</div>
-</div>
-<h3> references</h3>
-<div id="refs" class="references">
-<div id="ref-gandrud2016reproducible">
-<p>Gandrud, Christopher. 2016. <em>Reproducible Research with R and R Studio</em>. CRC Press.</p>
-</div>
-<div id="ref-peng2015r">
-<p>Peng, Roger D. 2015. <em>R Programming for Data Science</em>. Lulu. com.</p>
-</div>
-<div id="ref-wickham2016r">
-<p>Wickham, Hadley, and Garrett Grolemund. 2016. “R for Data Science.” Sebastopol, CA: O’Reilly. http://​ r4ds.​ had.​ co.​ nz.</p>
-</div>
-<div id="ref-bonomi2012fog">
-<p>Bonomi, Flavio, Rodolfo Milito, Jiang Zhu, and Sateesh Addepalli. 2012. “Fog Computing and Its Role in the Internet of Things.” In <em>Proceedings of the First Edition of the Mcc Workshop on Mobile Cloud Computing</em>, 13–16. ACM.</p>
-</div>
-<div id="ref-clarke2009open">
-<p>Clarke, Russell, David Dorwin, and Rob Nash. 2009. “Is Open Source Software More Secure?” <em>Homeland Security/Cyber Security</em>.</p>
-</div>
-<div id="ref-fitzgerald2016open">
-<p>FitzGerald, Ben, Peter L Levin, and Jacqueline Parziale. 2016. <em>Open Source Software &amp; the Department of Defense</em>. Center for a New American Security.</p>
 </div>
 </div>
             </section>
@@ -332,8 +448,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="getting-started.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="now-draw-the-rest-of-the-owl.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="literate-programming-with-r-markdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="messy-data-cleaning-and-curation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

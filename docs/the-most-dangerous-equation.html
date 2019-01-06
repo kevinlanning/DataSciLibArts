@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>3 an introduction to R | Data science for the liberal arts</title>
+  <title>8 the most dangerous equation | Data science for the liberal arts</title>
   <meta name="description" content="Test">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="3 an introduction to R | Data science for the liberal arts />
+  <meta property="og:title" content="8 the most dangerous equation | Data science for the liberal arts />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/diffprop_cloud_250_sm.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 an introduction to R | Data science for the liberal arts />
+  <meta name="twitter:title" content="8 the most dangerous equation | Data science for the liberal arts />
   
   <meta name="twitter:description" content="Test" />
   <meta name="twitter:image" content="images/diffprop_cloud_250_sm.png" />
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="getting-started.html">
-<link rel="next" href="now-draw-the-rest-of-the-owl.html">
+<link rel="prev" href="probability-and-inference.html">
+<link rel="next" href="reproducibility-and-the-replication-crisis.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -250,81 +250,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="an-introduction-to-r" class="section level1">
-<h1><span class="header-section-number">3</span> an introduction to R</h1>
-<p>R is a system for <strong>Reproducible research</strong>, and reproducibility is essential <span class="citation">(Gandrud <a href="#ref-gandrud2016reproducible">2016</a>)</span>.</p>
-<blockquote>
-<p>Research is often presented in very selective containers: slideshows, journal articles, books, or maybe even websites… these documents are not the research [rather] these documents are the “advertising”. The research is the “full software environment, code, and data that produced the results” [Buckheit and Donoho, 1995, Donoho, 2010, 385]. When we separate the research from its advertisement we are making it difficult for others to verify the findings by reproducing them.</p>
-</blockquote>
-<p>R markdown documents (like Jupyter notebooks in the Python world) facilitate reproducible research, as they include comments or explanations, code, links to data, and results.</p>
-<div id="some-other-things-that-r-stands-for" class="section level2">
-<h2><span class="header-section-number">3.1</span> some other things that R stands for</h2>
-<p>Historically, R grew out of S which could stand for Statistics. But what does R stand for?</p>
-<p>R is a system for <em>Representing data</em> in cool, insight-facilitating ways. R is <em>Really popular</em>, and really growing. Learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.</p>
-<p>R might stand for <em>Relatively high level.</em> Programming languages can be described along a continuum from high to low level, the former (like R) are more accessible to humans, the latter (like assembly language) more accessible to machines. Python, Java, and C++ are all more towards the middle of this continuum.</p>
-<p>R stands, in part, for <em>Resources.</em> Because R is popular, there are many resources, including, for example -</p>
-<ul>
-<li>Online resources include the simple (and less simple) lessons of <a href="http://swirlstats.com/">SwirlR</a>, which offers the possibility of “learning R in R,” as well as <a href="https://www.datacamp.com/home">DataCamp</a>, the <a href="https://www.coursera.org/specializations/jhu-data-science">Data Science Certificate Program at Johns Hopkins,</a> and other MOOCs.<br />
-</li>
-<li>Books include <span class="citation">Peng (<a href="#ref-peng2015r">2015</a>)</span> - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and <span class="citation">Wickham and Grolemund (<a href="#ref-wickham2016r">2016</a>)</span>.</li>
-<li>You’ll also learn (more directly) from people, including your classmates, as well as the broader community of people around the world. There are hundreds if not thousands of people, young and old, who are on the road with you. I am as well, just a step or two (hopefully) ahead.</li>
-</ul>
-<p>R does not stand for ‘<a href="https://www.urbandictionary.com/define.php?term=ARGH">argh</a>,’ although you may proclaim this in frustration (‘arggh, why can’t I get this to work?) or, perhaps, in satisfaction (’arggh, matey, that be a clever way of doing this’). But R does stand for <strong><em>Rewarding</em></strong>. A language is a way of thinking about the world, and this is true for computer languages as well. You’ll be challenged by its complexity, its idiosyncracy, its alien logic. But you will succeed, and you will find that you can do things that you did not believe possible.</p>
-</div>
-<div id="a-few-characteristics-of-r" class="section level2">
-<h2><span class="header-section-number">3.2</span> a few characteristics of R</h2>
-<p>R includes the base plus thousands of <strong>packages</strong>. These packages are customized add-ons which simplify certain tasks, such as text analysis. But there are, at this writing, <a href="https://cran.r-project.org/web/views/NaturalLanguageProcessing.html">over 50 different packages for text analysis</a> - so where do you begin? One recent answer, and where we will start, is the curated list of packages which jointly comprise the tidyverse <span class="citation">(Wickham and Grolemund <a href="#ref-wickham2016r">2016</a>)</span>.</p>
-<blockquote>
-<p>A few years ago, <span class="citation">Peng (<a href="#ref-peng2015r">2015</a>)</span> speculated that “it would be straightforward to build an R package for ordering pizza.” Does one exist now?</p>
-</blockquote>
-<p>R is an <strong>object-oriented</strong> language - one conceptually organized around objects and data rather than actions and logic. In R, at the atomic level, objects include <em>characters, real numbers, integers, complex numbers, and logical.</em> These atoms are combined into vectors, which generally include objects of the same type <span class="citation">(one kind of object, “lists,” is an exception to this; Peng <a href="#ref-peng2015r">2015</a>)</span>. Vectors can be further combined into <strong>data frames</strong>, which are two-dimensional tables or arrays. A <strong>tibble</strong> is a particular type of data frame which is, in some ways, handier to work with than other data frames. We’ll be working extensively with data frames in general, and tibbles in particular, as we move forward.</p>
-<p>Objects have <strong>attributes</strong>. Attributes of R include such things as name, dimensions (for vectors and arrays), class (that’s the type of object described in the previous paragraph), length, etc.</p>
-<p>Real world data sets are messy, and frequently have <strong>missing values.</strong> In R, missing values may be characterized by NA (not available) or NaN (not a number, implying an undefined or impossible value).</p>
-<p><strong>R Studio,</strong> the environment we will use to write, test, and run R code, is a commercial enterprise whose business model, judged from afar, is an important one in the world of technology. Most of what R Studio offers is free (97% according to Garrett Grolemund in the video below). The commercial product they offer makes sense for a relative few, but it is sufficiently lucrative to fund the enterprise. The free product helps to drive the popularity of R studio; this widespread use, in turn, makes it increasingly essential for businesses to use. This mixed free/premium, or ‘freemium,’ model characterizes Slack as well, but while <a href="https://www.statista.com/statistics/652779/worldwide-slack-users-total-vs-paid/">the ratio of free to paid users of Slack is on the order of 3:1</a>, for R it is, I am guessing, an order of magnitude higher than this.</p>
-</div>
-<div id="finding-help" class="section level2">
-<h2><span class="header-section-number">3.3</span> finding help</h2>
-<p><strong>one does not simply ‘learn R.’</strong> Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one can be said to have mastered and from which one then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn. And, the complexity of R syntax is such that, for almost all of us, we will need help for coding on any non-trivial task.</p>
-<p>For us, the key ideas in “looking for help” will include not just the tools on the R Studio IDE, but also (a) using google searches wisely, and (b) reaching out to your classmates on Slack.</p>
-<p>Here, as in the real world, there is an etiquette for help-seeking which is based on consideration. Your search for help should begin by making sure that others will encounter the same result, then by stripping the problem down to its essence. Once you have reduced the problem to this <em>minimal, reproducible</em> essence, you will often be able to spot the problem yourself - and, if not, you will make it easier for others to help you. There is an R package (reprex) which will likely facilitate this, but I haven’t tried it yet. <a href="https://www.tidyverse.org/help/">Here</a> is a good introduction.</p>
-<p>Finally, to get a sense of some of the ways you can get help in R studio (and to see how a master uses the R Studio interface), consider this video:</p>
-<p><a href="https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-part-1/?wvideo=k8kz4e0p2v"><img src="https://embedwistia-a.akamaihd.net/deliveries/85f90f89c20cf329c8e6091508fe44c045e70167.jpg?image_play_button_size=2x&amp;image_crop_resized=960x585&amp;image_play_button=1&amp;image_play_button_color=4287c7e0" alt="RStudio Essentials Webinar Series – Programming Part 1 – RStudio" /></a>
-<em>Video 3.1: Garret Grolemund of <a href="https://www.rstudio.com/">R Studio</a></em></p>
-</div>
-<div id="wickham-and-r-for-data-science" class="section level2">
-<h2><span class="header-section-number">3.4</span> Wickham and R for Data Science</h2>
-<p><a href="https://r4ds.had.co.nz/introduction.html">The first chapter of the Wickham text</a> <span class="citation">(Wickham and Grolemund <a href="#ref-wickham2016r">2016</a>)</span> provides a framework for his approach and a brief introduction to the <em>tidyverse</em> which will be the dialect of R we will study in the weeks ahead.</p>
-<p>Please read it now.</p>
-</div>
-<div id="discussion-is-open-source-software-secure" class="section level2">
-<h2><span class="header-section-number">3.5</span> discussion: is open-source software secure?</h2>
-<p>Perhaps the most important feature of R is that it is open-source software. This is important not just because it saves you money, but because contributing to the world of R is an act of digital democracy. In using and contributing to the world of R we open up knowledge to others who may lack our privileges. R, like Android or Wikipedia, is a tool for all of us, maintained and continually improved upon by the crowd.</p>
-<p>But is open-source software safe? More generally, in a data-dependent world, who should be the guardians of the code that connects us?</p>
-<p><strong>Securing the Internet of Vehicles</strong>. To consider just one example, the computer systems in modern cars typically run millions of lines of code. As cars become increasingly autonomous, this complexity will only increase. (Incidentally, the Society of Automotive Engineers, or SAE, describes 6 levels of ‘auto autonomy.’ At this writing, the most sophisticated systems available to consumers, such as Tesla Autopilot, are at level 2. What lies ahead are cars which are self-driving on carefully selected, geo-fenced roads, and ultimately cars “<a href="https://www.caranddriver.com/features/a15079828/autonomous-self-driving-car-levels-car-levels/">which can operate on any road… a human driver could negotiate</a>”). Our roads and highways will become an Internet of Vehicles (IOV), which will include not just connections between cars and an intelligent <em>cloud</em> ‘above us’ but also direct links between a distributed system of intelligent cars, stoplights, and road sensors in a <em>fog</em> ‘around us’ <span class="citation">(Bonomi et al. <a href="#ref-bonomi2012fog">2012</a>)</span>. <strong>Fog computing</strong> and the IOV will reduce travel times and increase both fuel efficiency and automotive safety.</p>
-<p>Obviously, there are <strong>cybersecurity</strong> concerns. While the prospects for <a href="https://www.youtube.com/watch?v=OvewYslou9g">a chaotic, choreographed hack of hundreds of vehicles on the streets of Manhattan</a>, such as that in the 2017 movie “The Fate of the Furious”, are remote at best (or worst), there have been examples of “white-hat hackers” who have successfully infiltrated (and thereby helped secure) car information systems.</p>
-<p>As the IOV develops, there will be vulnerabilities to privacy as well as safety, and the security of the system will be paramount. Different car manufacturers are taking different approaches to developing secure information systems, with many using a closed or proprietary approach. But the scope of the problem is so large that there is a movement towards pooling resources and encouraging collaboration among industry partners, academics, and citizen scientists in the development of an open-source autonomous driving platform, such as <a href="http://apollo.auto/">Apollo</a>. Perhaps counterintuitively, there may be significant security advantages to using source code that is open to all <span class="citation">(Clarke, Dorwin, and Nash <a href="#ref-clarke2009open">2009</a>; FitzGerald, Levin, and Parziale <a href="#ref-fitzgerald2016open">2016</a>)</span>.</p>
+<div id="the-most-dangerous-equation" class="section level1">
+<h1><span class="header-section-number">8</span> the most dangerous equation</h1>
+<p><span class="citation">(Wainer <a href="#ref-wainer2007dangerous">2007</a><a href="#ref-wainer2007dangerous">a</a>)</span> argues that deMoivre’s equation is the most dangerous equation - this equation (for the standard error) shows that variability decreases with the square root of sample size. Other nominees include the linear regression equation (and, in particular, how coefficients may change or reverse when new variables are added) and regression to the mean. Regarding linear regression, we discussed (a little) Simpson’s paradox, that is, that the direction of regression coefficients may change when additional variables are added.</p>
+<p>I argued that, from the standpoint of psychology, ignorance of regression to the mean was arguably more ‘dangerous’ than ignorance about the central limit theorem and standard error, in particular because regression effects contribute to an overestimate of the effectiveness of punishment and an under-appreciation of the effectiveness of positive reinforcement as tools for behavior change <span class="citation">(Hastie and Dawes <a href="#ref-hastie2010rational">2010</a>)</span>.</p>
 
-</div>
 </div>
 <h3> references</h3>
 <div id="refs" class="references">
-<div id="ref-gandrud2016reproducible">
-<p>Gandrud, Christopher. 2016. <em>Reproducible Research with R and R Studio</em>. CRC Press.</p>
+<div id="ref-wainer2007dangerous">
+<p>Wainer, Howard. 2007a. “The Most Dangerous Equation.” <em>American Scientist</em> 95 (3): 249.</p>
 </div>
-<div id="ref-peng2015r">
-<p>Peng, Roger D. 2015. <em>R Programming for Data Science</em>. Lulu. com.</p>
-</div>
-<div id="ref-wickham2016r">
-<p>Wickham, Hadley, and Garrett Grolemund. 2016. “R for Data Science.” Sebastopol, CA: O’Reilly. http://​ r4ds.​ had.​ co.​ nz.</p>
-</div>
-<div id="ref-bonomi2012fog">
-<p>Bonomi, Flavio, Rodolfo Milito, Jiang Zhu, and Sateesh Addepalli. 2012. “Fog Computing and Its Role in the Internet of Things.” In <em>Proceedings of the First Edition of the Mcc Workshop on Mobile Cloud Computing</em>, 13–16. ACM.</p>
-</div>
-<div id="ref-clarke2009open">
-<p>Clarke, Russell, David Dorwin, and Rob Nash. 2009. “Is Open Source Software More Secure?” <em>Homeland Security/Cyber Security</em>.</p>
-</div>
-<div id="ref-fitzgerald2016open">
-<p>FitzGerald, Ben, Peter L Levin, and Jacqueline Parziale. 2016. <em>Open Source Software &amp; the Department of Defense</em>. Center for a New American Security.</p>
+<div id="ref-hastie2010rational">
+<p>Hastie, Reid, and Robyn M Dawes. 2010. <em>Rational Choice in an Uncertain World: The Psychology of Judgment and Decision Making</em>. Sage.</p>
 </div>
 </div>
             </section>
@@ -332,8 +270,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="getting-started.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="now-draw-the-rest-of-the-owl.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="probability-and-inference.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="reproducibility-and-the-replication-crisis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

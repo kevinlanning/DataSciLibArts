@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>3 an introduction to R | Data science for the liberal arts</title>
+  <title>9 Reproducibility and the replication crisis | Data science for the liberal arts</title>
   <meta name="description" content="Test">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="3 an introduction to R | Data science for the liberal arts />
+  <meta property="og:title" content="9 Reproducibility and the replication crisis | Data science for the liberal arts />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/diffprop_cloud_250_sm.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 an introduction to R | Data science for the liberal arts />
+  <meta name="twitter:title" content="9 Reproducibility and the replication crisis | Data science for the liberal arts />
   
   <meta name="twitter:description" content="Test" />
   <meta name="twitter:image" content="images/diffprop_cloud_250_sm.png" />
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="getting-started.html">
-<link rel="next" href="now-draw-the-rest-of-the-owl.html">
+<link rel="prev" href="the-most-dangerous-equation.html">
+<link rel="next" href="literate-programming-with-r-markdown.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -250,81 +250,91 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="an-introduction-to-r" class="section level1">
-<h1><span class="header-section-number">3</span> an introduction to R</h1>
-<p>R is a system for <strong>Reproducible research</strong>, and reproducibility is essential <span class="citation">(Gandrud <a href="#ref-gandrud2016reproducible">2016</a>)</span>.</p>
-<blockquote>
-<p>Research is often presented in very selective containers: slideshows, journal articles, books, or maybe even websites… these documents are not the research [rather] these documents are the “advertising”. The research is the “full software environment, code, and data that produced the results” [Buckheit and Donoho, 1995, Donoho, 2010, 385]. When we separate the research from its advertisement we are making it difficult for others to verify the findings by reproducing them.</p>
-</blockquote>
-<p>R markdown documents (like Jupyter notebooks in the Python world) facilitate reproducible research, as they include comments or explanations, code, links to data, and results.</p>
-<div id="some-other-things-that-r-stands-for" class="section level2">
-<h2><span class="header-section-number">3.1</span> some other things that R stands for</h2>
-<p>Historically, R grew out of S which could stand for Statistics. But what does R stand for?</p>
-<p>R is a system for <em>Representing data</em> in cool, insight-facilitating ways. R is <em>Really popular</em>, and really growing. Learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.</p>
-<p>R might stand for <em>Relatively high level.</em> Programming languages can be described along a continuum from high to low level, the former (like R) are more accessible to humans, the latter (like assembly language) more accessible to machines. Python, Java, and C++ are all more towards the middle of this continuum.</p>
-<p>R stands, in part, for <em>Resources.</em> Because R is popular, there are many resources, including, for example -</p>
+<div id="reproducibility-and-the-replication-crisis" class="section level1">
+<h1><span class="header-section-number">9</span> Reproducibility and the replication crisis</h1>
+<p>Probability theory is elegant, and the logic of NHST is compelling. But philosophers of science have long recognized that this is not how science works <span class="citation">(Lakatos <a href="#ref-lakatos1969falsification">1969</a>)</span>. (Consider, for example, a simple test of whether gravity exists).</p>
+<p>In recent years, the tension between <strong>the false ideal of NHST</strong> and the real world of science has become increasingly evident. Within psychology, experimental studies have often - even typically - failed to replicate <span class="citation">(Collaboration and others <a href="#ref-open2015estimating">2015</a>)</span>. It’s not just psychology <span class="citation">(Baker <a href="#ref-baker2016reproducibility">2016</a>)</span>. One of the first important papers to shine light in the area <span class="citation">(Ioannidis <a href="#ref-ioannidis2005most">2005</a>)</span> came from medicine; it suggested six contributing factors, which I quote verbatim here:</p>
+<p><em>The smaller the studies conducted in a scientific field, the less likely the research findings are to be true.</em></p>
 <ul>
-<li>Online resources include the simple (and less simple) lessons of <a href="http://swirlstats.com/">SwirlR</a>, which offers the possibility of “learning R in R,” as well as <a href="https://www.datacamp.com/home">DataCamp</a>, the <a href="https://www.coursera.org/specializations/jhu-data-science">Data Science Certificate Program at Johns Hopkins,</a> and other MOOCs.<br />
-</li>
-<li>Books include <span class="citation">Peng (<a href="#ref-peng2015r">2015</a>)</span> - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and <span class="citation">Wickham and Grolemund (<a href="#ref-wickham2016r">2016</a>)</span>.</li>
-<li>You’ll also learn (more directly) from people, including your classmates, as well as the broader community of people around the world. There are hundreds if not thousands of people, young and old, who are on the road with you. I am as well, just a step or two (hopefully) ahead.</li>
+<li>This stems directly from our discussion of the central limit theorem and the instability of results from small samples.</li>
 </ul>
-<p>R does not stand for ‘<a href="https://www.urbandictionary.com/define.php?term=ARGH">argh</a>,’ although you may proclaim this in frustration (‘arggh, why can’t I get this to work?) or, perhaps, in satisfaction (’arggh, matey, that be a clever way of doing this’). But R does stand for <strong><em>Rewarding</em></strong>. A language is a way of thinking about the world, and this is true for computer languages as well. You’ll be challenged by its complexity, its idiosyncracy, its alien logic. But you will succeed, and you will find that you can do things that you did not believe possible.</p>
+<p><em>The smaller the effect sizes in a scientific field, the less likely the research findings are to be true</em></p>
+<ul>
+<li>We’ll talk about effect size below.</li>
+</ul>
+<p><em>The greater the number and the lesser the selection of tested relationships in a scientific field, the less likely the research findings are to be true.</em> (and) <em>The greater the flexibility in designs, definitions, outcomes, and analytical modes in a scientific field, the less likely the research findings are to be true.</em></p>
+<ul>
+<li>The “problem” of analytic flexibility leads to ‘p-hacking’</li>
+</ul>
+<p><em>The greater the financial and other interests and prejudices in a scientific field, the less likely the research findings are to be true</em> and <em>The hotter a scientific field (with more scientific teams involved), the less likely the research findings are to be true.</em></p>
+<ul>
+<li>Positive findings rise, and negative ones are ignored. And scientists are human, and subject to incentives.</li>
+</ul>
+<p>Here’s a video which provides some more context for the crisis: <a href="https://www.youtube.com/watch?v=42QuXLucH3Q" class="uri">https://www.youtube.com/watch?v=42QuXLucH3Q</a> (12 mins)</p>
+<div id="answers-to-the-reproducibility-crisis-i-on-nhst" class="section level2">
+<h2><span class="header-section-number">9.1</span> Answers to the reproducibility crisis I: On NHST</h2>
+<p>The first cluster of responses addresses problems with Null Hypothesis Significance Testing (NHST). These include (a) justifying one’s alpha - making it more stringent, for example, for counter-intuitive claims <span class="citation">(Grange et al. <a href="#ref-grange2018justify">2018</a>)</span>, (b) changing the default p value from .05 to .005 <span class="citation">(Benjamin et al. <a href="#ref-benjamin2017redefine">2017</a>)</span>, and (c) abandon significance testing altogether <span class="citation">(McShane et al. <a href="#ref-mcshane2017abandon">2017</a>)</span>.</p>
+<p><span class="citation">Szucs and Ioannidis (<a href="#ref-szucs2017null">2017</a>)</span> goes into some of these issues in more detail and discusses other limitations of significance testing, including the dichotomous, all-or-none silliness of the accept/reject decision. (If you play the NHST game, there is no ‘almost’ significant, ‘approached significance,’ etc.).</p>
+<p><span class="citation">Leek and Peng (<a href="#ref-leek2015statistics">2015</a>)</span> argue that the problems are not merely with NHST, but with the whole of data analysis. They maintain that better training in data science - courses like ours, perhaps, are part of the answer.</p>
+<p><img src="leek2015pipeline.PNG" alt="leek2015pipeline" /> (figure)</p>
+<div id="munafo2017manifesto-also-argue-that-threats-to-reproducible-science-occur-at-a-number-of-places-in-science-not-just-with-the-evaluation-of-hypotheses." class="section level3">
+<h3><span class="header-section-number">9.1.1</span> <span class="citation">Munafò et al. (<a href="#ref-munafo2017manifesto">2017</a>)</span> also argue that threats to reproducible science occur at a number of places in science, not just with the evaluation of hypotheses.</h3>
+<div class="figure">
+<img src="munafo2017threats.PNG" alt="munafo2017threats" />
+<p class="caption">munafo2017threats</p>
 </div>
-<div id="a-few-characteristics-of-r" class="section level2">
-<h2><span class="header-section-number">3.2</span> a few characteristics of R</h2>
-<p>R includes the base plus thousands of <strong>packages</strong>. These packages are customized add-ons which simplify certain tasks, such as text analysis. But there are, at this writing, <a href="https://cran.r-project.org/web/views/NaturalLanguageProcessing.html">over 50 different packages for text analysis</a> - so where do you begin? One recent answer, and where we will start, is the curated list of packages which jointly comprise the tidyverse <span class="citation">(Wickham and Grolemund <a href="#ref-wickham2016r">2016</a>)</span>.</p>
-<blockquote>
-<p>A few years ago, <span class="citation">Peng (<a href="#ref-peng2015r">2015</a>)</span> speculated that “it would be straightforward to build an R package for ordering pizza.” Does one exist now?</p>
-</blockquote>
-<p>R is an <strong>object-oriented</strong> language - one conceptually organized around objects and data rather than actions and logic. In R, at the atomic level, objects include <em>characters, real numbers, integers, complex numbers, and logical.</em> These atoms are combined into vectors, which generally include objects of the same type <span class="citation">(one kind of object, “lists,” is an exception to this; Peng <a href="#ref-peng2015r">2015</a>)</span>. Vectors can be further combined into <strong>data frames</strong>, which are two-dimensional tables or arrays. A <strong>tibble</strong> is a particular type of data frame which is, in some ways, handier to work with than other data frames. We’ll be working extensively with data frames in general, and tibbles in particular, as we move forward.</p>
-<p>Objects have <strong>attributes</strong>. Attributes of R include such things as name, dimensions (for vectors and arrays), class (that’s the type of object described in the previous paragraph), length, etc.</p>
-<p>Real world data sets are messy, and frequently have <strong>missing values.</strong> In R, missing values may be characterized by NA (not available) or NaN (not a number, implying an undefined or impossible value).</p>
-<p><strong>R Studio,</strong> the environment we will use to write, test, and run R code, is a commercial enterprise whose business model, judged from afar, is an important one in the world of technology. Most of what R Studio offers is free (97% according to Garrett Grolemund in the video below). The commercial product they offer makes sense for a relative few, but it is sufficiently lucrative to fund the enterprise. The free product helps to drive the popularity of R studio; this widespread use, in turn, makes it increasingly essential for businesses to use. This mixed free/premium, or ‘freemium,’ model characterizes Slack as well, but while <a href="https://www.statista.com/statistics/652779/worldwide-slack-users-total-vs-paid/">the ratio of free to paid users of Slack is on the order of 3:1</a>, for R it is, I am guessing, an order of magnitude higher than this.</p>
 </div>
-<div id="finding-help" class="section level2">
-<h2><span class="header-section-number">3.3</span> finding help</h2>
-<p><strong>one does not simply ‘learn R.’</strong> Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one can be said to have mastered and from which one then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn. And, the complexity of R syntax is such that, for almost all of us, we will need help for coding on any non-trivial task.</p>
-<p>For us, the key ideas in “looking for help” will include not just the tools on the R Studio IDE, but also (a) using google searches wisely, and (b) reaching out to your classmates on Slack.</p>
-<p>Here, as in the real world, there is an etiquette for help-seeking which is based on consideration. Your search for help should begin by making sure that others will encounter the same result, then by stripping the problem down to its essence. Once you have reduced the problem to this <em>minimal, reproducible</em> essence, you will often be able to spot the problem yourself - and, if not, you will make it easier for others to help you. There is an R package (reprex) which will likely facilitate this, but I haven’t tried it yet. <a href="https://www.tidyverse.org/help/">Here</a> is a good introduction.</p>
-<p>Finally, to get a sense of some of the ways you can get help in R studio (and to see how a master uses the R Studio interface), consider this video:</p>
-<p><a href="https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-part-1/?wvideo=k8kz4e0p2v"><img src="https://embedwistia-a.akamaihd.net/deliveries/85f90f89c20cf329c8e6091508fe44c045e70167.jpg?image_play_button_size=2x&amp;image_crop_resized=960x585&amp;image_play_button=1&amp;image_play_button_color=4287c7e0" alt="RStudio Essentials Webinar Series – Programming Part 1 – RStudio" /></a>
-<em>Video 3.1: Garret Grolemund of <a href="https://www.rstudio.com/">R Studio</a></em></p>
 </div>
-<div id="wickham-and-r-for-data-science" class="section level2">
-<h2><span class="header-section-number">3.4</span> Wickham and R for Data Science</h2>
-<p><a href="https://r4ds.had.co.nz/introduction.html">The first chapter of the Wickham text</a> <span class="citation">(Wickham and Grolemund <a href="#ref-wickham2016r">2016</a>)</span> provides a framework for his approach and a brief introduction to the <em>tidyverse</em> which will be the dialect of R we will study in the weeks ahead.</p>
-<p>Please read it now.</p>
-</div>
-<div id="discussion-is-open-source-software-secure" class="section level2">
-<h2><span class="header-section-number">3.5</span> discussion: is open-source software secure?</h2>
-<p>Perhaps the most important feature of R is that it is open-source software. This is important not just because it saves you money, but because contributing to the world of R is an act of digital democracy. In using and contributing to the world of R we open up knowledge to others who may lack our privileges. R, like Android or Wikipedia, is a tool for all of us, maintained and continually improved upon by the crowd.</p>
-<p>But is open-source software safe? More generally, in a data-dependent world, who should be the guardians of the code that connects us?</p>
-<p><strong>Securing the Internet of Vehicles</strong>. To consider just one example, the computer systems in modern cars typically run millions of lines of code. As cars become increasingly autonomous, this complexity will only increase. (Incidentally, the Society of Automotive Engineers, or SAE, describes 6 levels of ‘auto autonomy.’ At this writing, the most sophisticated systems available to consumers, such as Tesla Autopilot, are at level 2. What lies ahead are cars which are self-driving on carefully selected, geo-fenced roads, and ultimately cars “<a href="https://www.caranddriver.com/features/a15079828/autonomous-self-driving-car-levels-car-levels/">which can operate on any road… a human driver could negotiate</a>”). Our roads and highways will become an Internet of Vehicles (IOV), which will include not just connections between cars and an intelligent <em>cloud</em> ‘above us’ but also direct links between a distributed system of intelligent cars, stoplights, and road sensors in a <em>fog</em> ‘around us’ <span class="citation">(Bonomi et al. <a href="#ref-bonomi2012fog">2012</a>)</span>. <strong>Fog computing</strong> and the IOV will reduce travel times and increase both fuel efficiency and automotive safety.</p>
-<p>Obviously, there are <strong>cybersecurity</strong> concerns. While the prospects for <a href="https://www.youtube.com/watch?v=OvewYslou9g">a chaotic, choreographed hack of hundreds of vehicles on the streets of Manhattan</a>, such as that in the 2017 movie “The Fate of the Furious”, are remote at best (or worst), there have been examples of “white-hat hackers” who have successfully infiltrated (and thereby helped secure) car information systems.</p>
-<p>As the IOV develops, there will be vulnerabilities to privacy as well as safety, and the security of the system will be paramount. Different car manufacturers are taking different approaches to developing secure information systems, with many using a closed or proprietary approach. But the scope of the problem is so large that there is a movement towards pooling resources and encouraging collaboration among industry partners, academics, and citizen scientists in the development of an open-source autonomous driving platform, such as <a href="http://apollo.auto/">Apollo</a>. Perhaps counterintuitively, there may be significant security advantages to using source code that is open to all <span class="citation">(Clarke, Dorwin, and Nash <a href="#ref-clarke2009open">2009</a>; FitzGerald, Levin, and Parziale <a href="#ref-fitzgerald2016open">2016</a>)</span>.</p>
+<div id="answers-to-the-reproducibility-crisis-ii-pre-registration" class="section level2">
+<h2><span class="header-section-number">9.2</span> Answers to the reproducibility crisis II: Pre-registration</h2>
+<p>The second type of response includes (d) preregistering your work <span class="citation">(Miguel et al. <a href="#ref-miguel2014promoting">2014</a>)</span>. There’s a video here: <a href="https://www.futurelearn.com/courses/open-social-science-research/0/steps/31436" class="uri">https://www.futurelearn.com/courses/open-social-science-research/0/steps/31436</a> (5 mins). For randomized controlled trials, consider socialscienceregistry.org, and for more general use, use the open science framework page. Incidentally, you can post your theses after they are finished at <a href="https://thesiscommons.org" class="uri">https://thesiscommons.org</a>.</p>
+<p>garden of the forking paths</p>
+<p>There’s a collection of papers here… <a href="https://www.nature.com/collections/prbfkwmwvz/" class="uri">https://www.nature.com/collections/prbfkwmwvz/</a></p>
+<p>Showing exactly what you have done and how (and why) you got there is at the core of reproducible science.</p>
+<div id="what-would-results-for-our-sample-study-look-like-how-many-of-these-problems-would-it-face-what-should-we-do-about-it" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> <em>What would results for our sample study look like? How many of these problems would it face? What should we do about it?</em></h3>
 
 </div>
 </div>
+</div>
+
+
+
+</div>
 <h3> references</h3>
 <div id="refs" class="references">
-<div id="ref-gandrud2016reproducible">
-<p>Gandrud, Christopher. 2016. <em>Reproducible Research with R and R Studio</em>. CRC Press.</p>
+<div id="ref-lakatos1969falsification">
+<p>Lakatos, Imre. 1969. “Falsification and the Methodology of Scientific Research Programmes.” <em>Criticism and the Growth of Knowledge. Cambridge University Press: Cambridge</em>.</p>
 </div>
-<div id="ref-peng2015r">
-<p>Peng, Roger D. 2015. <em>R Programming for Data Science</em>. Lulu. com.</p>
+<div id="ref-open2015estimating">
+<p>Collaboration, Open Science, and others. 2015. “Estimating the Reproducibility of Psychological Science.” <em>Science</em> 349 (6251). American Association for the Advancement of Science: aac4716.</p>
 </div>
-<div id="ref-wickham2016r">
-<p>Wickham, Hadley, and Garrett Grolemund. 2016. “R for Data Science.” Sebastopol, CA: O’Reilly. http://​ r4ds.​ had.​ co.​ nz.</p>
+<div id="ref-baker2016reproducibility">
+<p>Baker, Monya. 2016. “Is There a Reproducibility Crisis?” <em>Nature</em> 533: 26.</p>
 </div>
-<div id="ref-bonomi2012fog">
-<p>Bonomi, Flavio, Rodolfo Milito, Jiang Zhu, and Sateesh Addepalli. 2012. “Fog Computing and Its Role in the Internet of Things.” In <em>Proceedings of the First Edition of the Mcc Workshop on Mobile Cloud Computing</em>, 13–16. ACM.</p>
+<div id="ref-ioannidis2005most">
+<p>Ioannidis, John PA. 2005. “Why Most Published Research Findings Are False.” <em>PLoS Medicine</em> 2 (8). Public Library of Science: e124.</p>
 </div>
-<div id="ref-clarke2009open">
-<p>Clarke, Russell, David Dorwin, and Rob Nash. 2009. “Is Open Source Software More Secure?” <em>Homeland Security/Cyber Security</em>.</p>
+<div id="ref-grange2018justify">
+<p>Grange, JA, D Lakens, F Adolfi, C Albers, F Anvari, M Apps, S Argamon, et al. 2018. “Justify Your Alpha.” <em>Nature Human Behavior</em>. Nature.</p>
 </div>
-<div id="ref-fitzgerald2016open">
-<p>FitzGerald, Ben, Peter L Levin, and Jacqueline Parziale. 2016. <em>Open Source Software &amp; the Department of Defense</em>. Center for a New American Security.</p>
+<div id="ref-benjamin2017redefine">
+<p>Benjamin, Daniel J, James O Berger, Magnus Johannesson, Brian A Nosek, E-J Wagenmakers, Richard Berk, Kenneth A Bollen, et al. 2017. “Redefine Statistical Significance.” <em>Nature Human Behaviour</em>. Nature Publishing Group, 1.</p>
+</div>
+<div id="ref-mcshane2017abandon">
+<p>McShane, Blakeley B, David Gal, Andrew Gelman, Christian Robert, and Jennifer L Tackett. 2017. “Abandon Statistical Significance.” <em>arXiv Preprint arXiv:1709.07588</em>.</p>
+</div>
+<div id="ref-szucs2017null">
+<p>Szucs, Denes, and John Ioannidis. 2017. “When Null Hypothesis Significance Testing Is Unsuitable for Research: A Reassessment.” <em>Frontiers in Human Neuroscience</em> 11. Frontiers: 390.</p>
+</div>
+<div id="ref-leek2015statistics">
+<p>Leek, Jeffrey T, and Roger D Peng. 2015. “Statistics: P Values Are Just the Tip of the Iceberg.” <em>Nature</em> 520 (7549): 612.</p>
+</div>
+<div id="ref-munafo2017manifesto">
+<p>Munafò, Marcus R, Brian A Nosek, Dorothy VM Bishop, Katherine S Button, Christopher D Chambers, Nathalie Percie du Sert, Uri Simonsohn, Eric-Jan Wagenmakers, Jennifer J Ware, and John PA Ioannidis. 2017. “A Manifesto for Reproducible Science.” <em>Nature Human Behaviour</em> 1. Nature Publishing Group: 0021.</p>
+</div>
+<div id="ref-miguel2014promoting">
+<p>Miguel, Edward, Colin Camerer, Katherine Casey, Joshua Cohen, Kevin M Esterling, Alan Gerber, Rachel Glennerster, et al. 2014. “Promoting Transparency in Social Science Research.” <em>Science</em> 343 (6166). American Association for the Advancement of Science: 30–31.</p>
 </div>
 </div>
             </section>
@@ -332,8 +342,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="getting-started.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="now-draw-the-rest-of-the-owl.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="the-most-dangerous-equation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="literate-programming-with-r-markdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
