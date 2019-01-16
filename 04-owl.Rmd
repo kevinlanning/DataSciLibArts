@@ -59,6 +59,40 @@ Finally, consider the text and videos from the Coursera R class.  Most of the ma
 
 The something else category includes Datacarpentry.org, which is aimed at fostering data literacy and provides free lessons in areas such as Genomics and Geospatial data analysis. Of particular interest is the social science lessons, which include a basic introduction to R and data science based on the "[Studying African Farmer-led Irrigation (SAFI)" dataset](https://datacarpentry.org/socialsci-workshop/).
 
+## Exercise
 
+Review Carmichael's [Getting started with R](https://idc9.github.io/stor390/notes/getting_started/getting_started.html).  Open R studio, and create a new R script called myMovies. Using his code as a reference, do each of the following
 
+1. Work in your source window. On the first line, enter the command to install the tidyverse. (If you already have done this, you can comment out the command ...)
 
+   ```
+   # install.packages ("tidyverse")
+   ```
+
+   Hit ctrl+enter to run this line. Then, comment it out if you haven't already done so (why)?
+
+2. Load the tidyverse into your workspace. 
+
+3. Load the movies/IMDB dataset.
+
+4. Start exploring the data
+
+   1. Apply the str (structure), head, and summary commands. When are each of these useful?
+   2. Double-click the movies dataset in your environment tab in R studio. Click on a few columns to sort the data.
+   3. In the data, what does 'spilled' mean? How did you find out?
+
+5. How many rows and columns are in the data 
+6. We can think about the movies dataset as a matrix with rows and columns, and *subset* it using the following. 
+   ```
+   # data.frame[rownumber,colnumber]
+   # data.frame["rowname", "colname"]
+   # data.frame[rowname, c("colname, colname")]
+   movies["title"]
+   movies[title]
+   movies[title,]
+   ```
+7. Ask a question about the data, and enter it as a comment in your code, e.g., 
+
+   ``` # how long was the movie 42-up? ```
+
+8. Try to find the answer, ideally using reproducible code, and be prepared to share it with the class.
