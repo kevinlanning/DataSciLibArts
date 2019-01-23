@@ -115,7 +115,89 @@ To further illustrate the idea of uncertainty, data visualizations may be animat
 
 During the 2016 US Presidential Election, the NY Times graphics presented the range of likely possibilities (here, between the 25th and 75th percentiles) as a dynamically changing ["jittery gauge"](https://www.vis4.net/blog/images/old/jitter4.gif) . Following the election, there was some criticism of these gauges, as readers claimed that they tended to make them anxious.  However, it appears that at least some of the anxiety was attributable not to the gauges themselves, but to the [electoral outcome itself](https://www.vis4.net/blog/2016/11/jittery-gauges-election-forecast/). The gauges were back in 2018, and will likely be used again in the future.
 
-Finally, animation may be used not just to display uncertainty or a possible range, but also data displays which both carry a great deal of information and unfold over time, such as [the language of personality development](http://wise.fau.edu/~lanning/EgoDevelopmentsmallest.gif) in my own work 
+Finally, animation may be used not just to display uncertainty or a possible range, but also data displays which both carry a great deal of information and unfold over time, such as [the language of personality development](http://wise.fau.edu/~lanning/EgoDevelopmentsmallest.gif) in my own work.
+
+## A Supplement: Code for Asymmetrical Euler/Venn diagrams
+
+What follows is part of the code I used in a recent talk about asymmetries in set sizes [@lanning2018data].
+
+### Setup
+
+In the first block, I load libraries, generate palette. Palette for Venn is a little weird as must be (a) visible for colorblind, (b) intersections of colors should be distinguishable, and (c) not ugly. So I fiddled here.
+```{r, warning = FALSE, message = FALSE}
+
+    library(dplyr)
+    library(tidytext)
+    library(tidyverse)
+    library(eulerr)
+    library(grid)
+    library(gridExtra)
+    library(RColorBrewer)
+    cbPalette <- brewer.pal(9,"PuBuGn")
+    threeColors <- cbPalette[c(9,7,5)]
+    fourColors <- cbPalette[c(9,7,6,4)]
+    
+    eulerr_options(pointsize = 16,
+                   fills = list(fill = threeColors),
+                   edges = list (lty = 1, col = "blue"),
+                   labels = list(fontfamily = 'sans',
+                                 font = 1,
+                                 col = "yellow"),
+                   quantities = list (fontfamily = 'sans',
+                                      font = 3,
+                                      col = "yellow"))
+    savePlot <- function(myPlot,filename) {
+            png(filename)
+            print(myPlot)
+            dev.off()
+    }
+
+```
+
+### CPI- CQ
+
+This examines the reciprocal predictability of two personality measures, the California Psychological Inventory and the California Q-set.
+```{r}
+
+    CPIArea <- 1
+    CQArea <- 154/107 # Ratio of Rsq from article
+    fit3 <- euler(c ("A"=CPIArea, "B"=CQArea, "A&B"=.107), 
+                  shape = "ellipse")
+    plot(fit3, labels = c("CPI", "CQ-Set"))
+```
+
+### Scholarly communities
+
+Here, I generate proportional Venn for scholarly communities. First for personality v social. Counts are n members in Lanning (2018) Collabra
+```{r}
+
+    # order of sets is shifted to put
+    # earliest level at 12 o'clock
+    personality <- 12
+    self_reg <- 7
+    attitudes <- 13
+    fit4 <- euler(c ("A"=personality,
+                     "B"=self_reg,
+                     "C"=attitudes,
+                     "A&B" = 1,
+                     "A&C" = 0,
+                     "B&C" = 1,
+                     "A&B&C" = 0), 
+                  shape = "ellipse")
+    eulerr_options(pointsize = 12,
+                   fills = list(fill = threeColors),
+                   edges = list (lty = 1, col = "blue"),
+                   labels = list(fontfamily = 'sans',
+                                 font = 1,
+                                 col = "yellow"),
+                   quantities = list (fontfamily = 'sans',
+                                      font = 3,
+                                      col = "yellow"))
+    plot(fit4, 
+              labels = c("Personality",
+                         "Self-Regulation",
+                         "Attitudes"))
+```
 
 ## Further reading and resources
 
