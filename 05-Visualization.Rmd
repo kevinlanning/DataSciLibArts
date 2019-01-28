@@ -110,7 +110,7 @@ In this figure, from @wainer1981graphical, (Chernoff's) faces are used to repres
 
 ### The power of animation
 
-This section concludes with two brief (< 5 minutes) animated data displays, each powerful in its own way, and each giving the viewer an appreciation of an important social phenomenon.
+Animated data displays bring the dimension of time into data visualization. Here are two brief (< 5 minutes) animated data displays, each powerful in its own way, and each of which gives the viewer an appreciation of an important social phenomenon.
 
 The first is from the late Hans Rosling, and summarizes a chunk of the Gapminder data.  There is a Gapminder package in R if you would like to explore the data further, and perhaps become the next Rosling:
 
@@ -118,7 +118,7 @@ The first is from the late Hans Rosling, and summarizes a chunk of the Gapminder
 
 *Video 5.6: Rosling and social progress*
 
-The second is from Kim Rees and her ex-colleagues at [Periscopic](https://periscopic.com/) (Rees is now at CapitalOne).  For me, it's an important graphic because it shows an approach to overcoming what has been called "psychic numbing" - we are sensitive to the individual case, but lose our perspective when faced with large-scale tragedies, so that effectively the more lives lost... the less we care  [@slovic2013psychic].
+The second is from Kim Rees and her ex-colleagues at [Periscopic](https://periscopic.com/) (Rees is now at CapitalOne).  For me, it's an important graphic because it tries to overcome what has been called "psychic numbing" - we are sensitive to the individual case, but lose our perspective when faced with large-scale tragedies, so that effectively the more lives lost... the less we care [@slovic2013psychic].
 
 [![lostlives](https://img.youtube.com/vi/8R8UOjMy-5k/0.jpg)](https://youtu.be/8R8UOjMy-5k)
 
@@ -140,7 +140,7 @@ Finally, animation may be used not just to display uncertainty or a possible ran
 
 ## a supplement: Code for Asymmetrical Euler/Venn diagrams
 
-What follows is part of the code I used in a recent talk about asymmetries in set sizes [@lanning2018data].
+Finally, for those who want to fiddle with a simpler problem in R, I present some of the code I used in a recent talk about asymmetries in set sizes [@lanning2018data].  The argument is that asymmetries in statistical relationships are common, yet poorly understood.
 
 ### Setup
 
@@ -177,7 +177,7 @@ In the first block, I load libraries, generate a palette. Palette for Venn is a 
 
 ### CPI- CQ
 
-This examines the reciprocal predictability of two personality measures, the California Psychological Inventory and the California Q-set.
+This first examines the reciprocal predictability of two personality measures, the California Psychological Inventory and the California Q-set - the second (the Q-set) accounts for more of the variance in the first than vice-versa [@lanning1991shared]:
 ```{r}
 
     CPIArea <- 1
@@ -189,7 +189,7 @@ This examines the reciprocal predictability of two personality measures, the Cal
 
 ### Scholarly communities
 
-Here, I generate proportional Venn for scholarly communities. First for personality v social. Counts describe the number of community members in [@lanning2017relationship].
+The second generates proportional Venn for scholarly communities, in particular, three regions with the domain of personality and social psychology. The counts describe the number of scholarly papers in various regions as reported in @lanning2017relationship.
 ```{r}
 
     # order of sets is shifted to put

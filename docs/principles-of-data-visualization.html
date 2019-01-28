@@ -25,7 +25,7 @@
 <meta name="author" content="Kevin Lanning">
 
 
-<meta name="date" content="2019-01-27">
+<meta name="date" content="2019-01-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -53,7 +53,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -66,13 +66,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -199,7 +197,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8" data-path="the-most-dangerous-equation.html"><a href="the-most-dangerous-equation.html"><i class="fa fa-check"></i><b>8</b> the most dangerous equation</a></li>
 <li class="chapter" data-level="9" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html"><i class="fa fa-check"></i><b>9</b> Reproducibility and the replication crisis</a><ul>
 <li class="chapter" data-level="9.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-i-on-nhst"><i class="fa fa-check"></i><b>9.1</b> Answers to the reproducibility crisis I: On NHST</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#munafo2017manifesto-also-argue-that-threats-to-reproducible-science-occur-at-a-number-of-places-in-science-not-just-with-the-evaluation-of-hypotheses."><i class="fa fa-check"></i><b>9.1.1</b> <span class="citation">Munafò et al. (<a href="#ref-munafo2017manifesto">2017</a>)</span> also argue that threats to reproducible science occur at a number of places in science, not just with the evaluation of hypotheses.</a></li>
+<li class="chapter" data-level="9.1.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#munafo2017manifesto-also-argue-that-threats-to-reproducible-science-occur-at-a-number-of-places-in-science-not-just-with-the-evaluation-of-hypotheses."><i class="fa fa-check"></i><b>9.1.1</b> <span class="citation">Munafò et al. (<span>2017</span>)</span> also argue that threats to reproducible science occur at a number of places in science, not just with the evaluation of hypotheses.</a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-ii-pre-registration"><i class="fa fa-check"></i><b>9.2</b> Answers to the reproducibility crisis II: Pre-registration</a><ul>
 <li class="chapter" data-level="9.2.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#what-would-results-for-our-sample-study-look-like-how-many-of-these-problems-would-it-face-what-should-we-do-about-it"><i class="fa fa-check"></i><b>9.2.1</b> <em>What would results for our sample study look like? How many of these problems would it face? What should we do about it?</em></a></li>
@@ -271,7 +269,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.2</span> Some early graphs</h2>
 <p>Visual displays of information reach back to prehistoric times; modern graphs date back, arguably, to Playfair’s 1786 <em>Political Atlas</em> - in which</p>
 <blockquote>
-<p><em>“… spatial dimensions were used to represent nonspatial, quantitative, idiographic, empirical data. Although it now seems natural to represent, for example, rising and falling imports over time as a rising and falling line, it does not seem to have been done before that time and was quite an accomplishment. Notably, in addition to the statistical line chart, Playfair at one fell swoop single-handedly invented most of the remaining forms of the statistical graphic repertoire used today-the bar chart and histogram, the surface chart, and the circle diagram or”pie chart.&quot;</em> <span class="citation">(Wainer and Thissen <a href="#ref-wainer1981graphical">1981</a>)</span></p>
+<p><em>“… spatial dimensions were used to represent nonspatial, quantitative, idiographic, empirical data. Although it now seems natural to represent, for example, rising and falling imports over time as a rising and falling line, it does not seem to have been done before that time and was quite an accomplishment. Notably, in addition to the statistical line chart, Playfair at one fell swoop single-handedly invented most of the remaining forms of the statistical graphic repertoire used today-the bar chart and histogram, the surface chart, and the circle diagram or”pie chart."</em> <span class="citation">(Wainer and Thissen <a href="#ref-wainer1981graphical">1981</a>)</span></p>
 </blockquote>
 <p><img src="playfair1786.PNG" alt="Fig 5.1: Playfair’s 1786 analysis of trade deficits." /><a href="https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march">source</a></p>
 <hr />
@@ -280,7 +278,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>The visualization depicts the size, latitude, and longitude of Napoleon’s army as they moved towards (tan line) then away (black line) from Moscow; temperature during the retreat is plotted as well. Further, vertical lines linking the temperature display to the number of troops indicate the often perilous river crossings which further decimated Napoleon’s troops). <a href="https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march">Cheng (2014)</a> decomposes the graph and provides some simpler visualizations; she also provides the following background:</p>
 <blockquote>
-<p>&quot;<em>Czar Alexander of Russia sees that Napoleon was becoming too powerful, so he refuses to participate in this embargo [against the UK]. Angry at Czar Alexander’s decision, Napoleon gathers a massive army of over 400,000 to attack Russia in June of 1812. While Russia’s troops are not as numerous as France’s, Russia has a plan. Russian troops keep retreating as Napoleon’s troops move forward, burning everything they pass, ensuring that the French forces could not take anything from their environment. Eventually the French army follows the Russian army all the way to Moscow during October, suffering major losses from lack of food. By the time Napoleon gets to Moscow, he knows he has to retreat. As winter settles into Europe and the temperature drops, Napoleon’s troops suffer even more losses, returning to France from lack of food, disease, and weather conditions.&quot;</em></p>
+<p>"<em>Czar Alexander of Russia sees that Napoleon was becoming too powerful, so he refuses to participate in this embargo [against the UK]. Angry at Czar Alexander’s decision, Napoleon gathers a massive army of over 400,000 to attack Russia in June of 1812. While Russia’s troops are not as numerous as France’s, Russia has a plan. Russian troops keep retreating as Napoleon’s troops move forward, burning everything they pass, ensuring that the French forces could not take anything from their environment. Eventually the French army follows the Russian army all the way to Moscow during October, suffering major losses from lack of food. By the time Napoleon gets to Moscow, he knows he has to retreat. As winter settles into Europe and the temperature drops, Napoleon’s troops suffer even more losses, returning to France from lack of food, disease, and weather conditions."</em></p>
 </blockquote>
 <p>Of course, the casualties and retreat of Napoleon’s army are immortalized not just in this graph, but also in Russian literature (Tolstoy’s <em>War and Peace</em>) and music (Tchaikovsky’s 1812 overture, in which five cannon shots mark the battle of Borodino and eleven more mark the arrival of Napoleon in the now-razed city of Moscow).</p>
 </div>
@@ -347,11 +345,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="the-power-of-animation" class="section level3">
 <h3><span class="header-section-number">5.5.4</span> The power of animation</h3>
-<p>This section concludes with two brief (&lt; 5 minutes) animated data displays, each powerful in its own way, and each giving the viewer an appreciation of an important social phenomenon.</p>
+<p>Animated data displays bring the dimension of time into data visualization. Here are two brief (&lt; 5 minutes) animated data displays, each powerful in its own way, and each of which gives the viewer an appreciation of an important social phenomenon.</p>
 <p>The first is from the late Hans Rosling, and summarizes a chunk of the Gapminder data. There is a Gapminder package in R if you would like to explore the data further, and perhaps become the next Rosling:</p>
 <p><a href="https://youtu.be/jbkSRLYSojo"><img src="https://img.youtube.com/vi/jbkSRLYSojo/0.jpg" alt="Rosling" /></a></p>
 <p><em>Video 5.6: Rosling and social progress</em></p>
-<p>The second is from Kim Rees and her ex-colleagues at <a href="https://periscopic.com/">Periscopic</a> (Rees is now at CapitalOne). For me, it’s an important graphic because it shows an approach to overcoming what has been called “psychic numbing” - we are sensitive to the individual case, but lose our perspective when faced with large-scale tragedies, so that effectively the more lives lost… the less we care <span class="citation">(Slovic et al. <a href="#ref-slovic2013psychic">2013</a>)</span>.</p>
+<p>The second is from Kim Rees and her ex-colleagues at <a href="https://periscopic.com/">Periscopic</a> (Rees is now at CapitalOne). For me, it’s an important graphic because it tries to overcome what has been called “psychic numbing” - we are sensitive to the individual case, but lose our perspective when faced with large-scale tragedies, so that effectively the more lives lost… the less we care <span class="citation">(Slovic et al. <a href="#ref-slovic2013psychic">2013</a>)</span>.</p>
 <p><a href="https://youtu.be/8R8UOjMy-5k"><img src="https://img.youtube.com/vi/8R8UOjMy-5k/0.jpg" alt="lostlives" /></a></p>
 <p><em>Video 5.7: Rees and stolen years</em></p>
 </div>
@@ -372,7 +370,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="a-supplement-code-for-asymmetrical-eulervenn-diagrams" class="section level2">
 <h2><span class="header-section-number">5.7</span> a supplement: Code for Asymmetrical Euler/Venn diagrams</h2>
-<p>What follows is part of the code I used in a recent talk about asymmetries in set sizes <span class="citation">(Lanning <a href="#ref-lanning2018data">2018</a>)</span>.</p>
+<p>Finally, for those who want to fiddle with a simpler problem in R, I present some of the code I used in a recent talk about asymmetries in set sizes <span class="citation">(Lanning <a href="#ref-lanning2018data">2018</a>)</span>. The argument is that asymmetries in statistical relationships are common, yet poorly understood.</p>
 <div id="setup" class="section level3">
 <h3><span class="header-section-number">5.7.1</span> Setup</h3>
 <p>In the first block, I load libraries, generate a palette. Palette for Venn is a little weird as must be (a) visible for colorblind, (b) intersections of colors should be distinguishable, and (c) not ugly. So I fiddled here.</p>
@@ -404,7 +402,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="cpi--cq" class="section level3">
 <h3><span class="header-section-number">5.7.2</span> CPI- CQ</h3>
-<p>This examines the reciprocal predictability of two personality measures, the California Psychological Inventory and the California Q-set.</p>
+<p>This first examines the reciprocal predictability of two personality measures, the California Psychological Inventory and the California Q-set - the second (the Q-set) accounts for more of the variance in the first than vice-versa <span class="citation">(Lanning and Gough <a href="#ref-lanning1991shared">1991</a>)</span>:</p>
 <pre class="sourceCode r"><code class="sourceCode r">    CPIArea &lt;-<span class="st"> </span><span class="dv">1</span>
     CQArea &lt;-<span class="st"> </span><span class="dv">154</span><span class="op">/</span><span class="dv">107</span> <span class="co"># Ratio of Rsq from article</span>
     fit3 &lt;-<span class="st"> </span><span class="kw">euler</span>(<span class="kw">c</span> (<span class="st">&quot;A&quot;</span>=CPIArea, <span class="st">&quot;B&quot;</span>=CQArea, <span class="st">&quot;A&amp;B&quot;</span>=.<span class="dv">107</span>), 
@@ -414,7 +412,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="scholarly-communities" class="section level3">
 <h3><span class="header-section-number">5.7.3</span> Scholarly communities</h3>
-<p>Here, I generate proportional Venn for scholarly communities. First for personality v social. Counts describe the number of community members in <span class="citation">(Lanning <a href="#ref-lanning2017relationship">2017</a>)</span>.</p>
+<p>The second generates proportional Venn for scholarly communities, in particular, three regions with the domain of personality and social psychology. The counts describe the number of scholarly papers in various regions as reported in <span class="citation">Lanning (<a href="#ref-lanning2017relationship">2017</a>)</span>.</p>
 <pre class="sourceCode r"><code class="sourceCode r">    <span class="co"># order of sets is shifted to put</span>
     <span class="co"># earliest level at 12 o&#39;clock</span>
     personality &lt;-<span class="st"> </span><span class="dv">12</span>
@@ -453,13 +451,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-wainer1981graphical">
-<p>Wainer, Howard, and David Thissen. 1981. “Graphical Data Analysis.” <em>ETS Research Report Series</em> 1981 (1). Wiley Online Library: 191–241.</p>
+<p>Wainer, Howard, and David Thissen. 1981. “Graphical Data Analysis.” <em>ETS Research Report Series</em> 1981 (1): 191–241.</p>
 </div>
 <div id="ref-donoho2015fifty">
 <p>Donoho, David. 2017. “50 Years of Data Science.” In <em>Princeton Nj, Tukey Centennial Workshop</em>.</p>
 </div>
 <div id="ref-tukey1962future">
-<p>Tukey, John W. 1962. “The Future of Data Analysis.” <em>The Annals of Mathematical Statistics</em> 33 (1). JSTOR: 1–67.</p>
+<p>Tukey, John W. 1962. “The Future of Data Analysis.” <em>The Annals of Mathematical Statistics</em> 33 (1): 1–67.</p>
 </div>
 <div id="ref-tukey1977eda">
 <p>Tukey, John W. 1977. “EDA: Exploratory Data Analysis.” <em>Reading, Mass</em>.</p>
@@ -471,25 +469,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Thies, Justus, Michael Zollhöfer, Matthias Nießner, Levi Valgaerts, Marc Stamminger, and Christian Theobalt. 2015. “Real-Time Expression Transfer for Facial Reenactment.” <em>ACM Trans. Graph.</em> 34 (6): 183–1.</p>
 </div>
 <div id="ref-slovic2013psychic">
-<p>Slovic, Paul, David Zionts, Andrew K Woods, Ryan Goodman, and Derek Jinks. 2013. “Psychic Numbing and Mass Atrocity.” <em>The Behavioral Foundations of Public Policy</em>. Princeton University Press. NYU School of Law, Public Law Research Paper No …, 126–42.</p>
+<p>Slovic, Paul, David Zionts, Andrew K Woods, Ryan Goodman, and Derek Jinks. 2013. “Psychic Numbing and Mass Atrocity.” <em>The Behavioral Foundations of Public Policy</em>, 126–42.</p>
 </div>
 <div id="ref-cox2013visualizing">
-<p>Cox, Jonathan, and Michael Lindell. 2013. “Visualizing Uncertainty in Predicted Hurricane Tracks.” <em>International Journal for Uncertainty Quantification</em> 3 (2). Begel House Inc.</p>
+<p>Cox, Jonathan, and Michael Lindell. 2013. “Visualizing Uncertainty in Predicted Hurricane Tracks.” <em>International Journal for Uncertainty Quantification</em> 3 (2).</p>
 </div>
 <div id="ref-hullman2015hypothetical">
-<p>Hullman, Jessica, Paul Resnick, and Eytan Adar. 2015. “Hypothetical Outcome Plots Outperform Error Bars and Violin Plots for Inferences About Reliability of Variable Ordering.” <em>PloS One</em> 10 (11). Public Library of Science: e0142444.</p>
+<p>Hullman, Jessica, Paul Resnick, and Eytan Adar. 2015. “Hypothetical Outcome Plots Outperform Error Bars and Violin Plots for Inferences About Reliability of Variable Ordering.” <em>PloS One</em> 10 (11): e0142444.</p>
 </div>
 <div id="ref-lanning2018data">
 <p>Lanning, Kevin. 2018. “Data Visualizations in Personality and Social Psychology: Challenges in Representing Taxonomic, Community, and Developmental Structures.”</p>
 </div>
+<div id="ref-lanning1991shared">
+<p>Lanning, Kevin, and Harrison G Gough. 1991. “Shared Variance in the California Psychological Inventory and the California Q-Set.” <em>Journal of Personality and Social Psychology</em> 60 (4): 596.</p>
+</div>
 <div id="ref-lanning2017relationship">
-<p>Lanning, Kevin. 2017. “What Is the Relationship Between ‘Personality’ and ‘Social’ Psychologies? Network, Community, and Whole Text Analyses of the Structure of Contemporary Scholarship.” <em>Collabra: Psychology</em> 3 (1). The Regents of the University of California.</p>
+<p>Lanning, Kevin. 2017. “What Is the Relationship Between ‘Personality’ and ‘Social’ Psychologies? Network, Community, and Whole Text Analyses of the Structure of Contemporary Scholarship.” <em>Collabra: Psychology</em> 3 (1).</p>
 </div>
 <div id="ref-cleveland1985graphical">
-<p>Cleveland, William S, and Robert McGill. 1985. “Graphical Perception and Graphical Methods for Analyzing Scientific Data.” <em>Science</em> 229 (4716). American Association for the Advancement of Science: 828–33.</p>
+<p>Cleveland, William S, and Robert McGill. 1985. “Graphical Perception and Graphical Methods for Analyzing Scientific Data.” <em>Science</em> 229 (4716): 828–33.</p>
 </div>
 <div id="ref-healy2018viz">
-<p>Healy, Kieran. 2017. “Data Visualization for Social Science: A Practical Introduction with R and Ggplot2.” <a href="https://socviz.co" class="uri">https://socviz.co</a>.</p>
+<p>Healy, Kieran. 2017. “Data Visualization for Social Science: A Practical Introduction with R and Ggplot2.” <a href="https://socviz.co">https://socviz.co</a>.</p>
 </div>
 <div id="ref-wickham2016r">
 <p>Wickham, Hadley, and Garrett Grolemund. 2016. “R for Data Science.” Sebastopol, CA: O’Reilly. http://​ r4ds.​ had.​ co.​ nz.</p>
