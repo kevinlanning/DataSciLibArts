@@ -2,45 +2,87 @@
 title: "06-ggplot"
 author: "Lanning"
 date: "`r Sys.Date()`"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 # visualization in R with ggplot
 
-## r dialects
+In the last chapter, we introduced data visualization, citing vision-aries including Edward Tufte and Hans Rosling, inspired works such as Minard's *Carte Figurative* and Periscopic's *stolen years*, as well as a few  cautionary tales of misleading and confusing graphs. 
 
-There are several approaches to graphics (and everything else!) in r; see [syntax cheatsheet](http://www.science.smith.edu/~amcnamara/Syntax-cheatsheet.pdf).  
+Here, in playing with and learning the R package **ggplot**, we begin to move from consumers to creators of data visualizations.
 
-The layout of this sheet is informative (one, two, and many variables X continuous vs categorical/discrete), and it provides a nice way of mapping out the domain. 
+As the first visualization in @wickham2016r reminds us, data visualization is at the core of exploratory data analysis: ![Fig 6.1: Data visualization is at the core of data analysis (@wickham2016r)](dataviscycle.PNG)
 
-Base R includes one syntax for plotting which is still in wide use.  ggplot2, part of the tidyverse, is a second approach and the one we will consider here.see R4DS, Chapters 2 and 3
+In the world of data science, statistical programming is about discovering and communicating truths within your data. This exploratory data analysis is the corner of science, particularly at a time in which confirmatory studies are increasingly found to be unreproducible. 
 
-this will take two meetings
+Most of your reading will be from Chapter 3 of @wickham2016r, this is intended only as a supplement. 
 
+## picture > (words, numbers)?
 
+The chapter begins with a quote from John Tukey about the importance of graphs.  Yet there is a tendency among some statisticians and scientists to consider graphic representations of data as less valuable than statistical ones.  
 
-## ggplot
+Perhaps, if a picture is worth a thousand words, a graph can likewise tell us more than good solid numbers. Consider 'Anscombe's quartet': 
 
-(see the **data visualization cheatsheet** on Slack)
+![spreadsheet61](spreadsheet61.PNG)
 
-Ggplot is a layered system of graphics. goal is to come up with some rules for good graphs, and a syntax with which to understand it
+>   **Exercise 6_1** 
+>   *Consider the spreadsheet chunk presented above, which I am (fictionally) characterizing as data collected on a sample of ten primary school children at recess on four consecutive days. Working with your classmates, compute the mean, standard deviation, and correlation between the two measures for one day. Share your results with the class.* 
 
-## playing with ggplot2
+The four pairs of variables in @anscombe1973american appear statistically "the same," yet the data suggest something else.  Later, we'll try to plot these. Perhaps graphs can reveal truths that statistics can hide.  
 
-play along with Chapter 3
+## your ggplots
 
-get ggplot2 to work
+In class, we will review and recreate the plots in section 3.2 of @wickham2016r and exercises in 3.2.4. 
 
-exercises 3.2.4 (what do you see?)
+On your laptop, within Rstudio, consider reading about the mpg data in the 'help' panel, and pulling up the mpg data in a view window. Click in various places (the stars) in each window to see what happens:
 
-exercises 3.3.1 (a little further)
+![Fig. 6.1: Some data](rstudio62.PNG)
 
-## playing with new data
+If you haven't already done so, you should be able to successfully recreate the plots in sections 3.2 through 3.4.
 
-get data - sources include https://github.com/idc9/stor390 and online data sets in R
+## facets - displaying the Anscombe data
 
-pull out no more than five variables from the dataset
+When we get to section 5 (facets), it may occur to you that this would be a nice way to display the Anscombe data. Fortunately, they are already, like many other datasets, stored in R. 
 
-### 3.4 multivariate data
+```{r, warning=FALSE, message=FALSE}
+library (tidyverse)
+# to get a list of preloaded datasets, uncomment this line
+# data()
+data(anscombe)
+str(anscombe)
+head(anscombe)
+```
 
-exercises 3.5.1
+Unfortunately, the Anscombe data in R have a different structure. Here's one way to reshape it:
+```{r}
+anscombe$kid <- c("Al", "Barb",
+                   "Cathy", "Dirk",
+                   "Edwin", "Flo",
+                   "George", "Henry",
+                   "Isaiah", "Jim",
+                   "Ken") 
+# make a file anscombe2 from anscombe
+anscombe2 <- anscombe %>%
+# make a new variable called x from x1:x4    
+    gather(x,levelx,x1,x2,x3,x4,
+# don't mess with the other variables
+           -c(y1,y2,y3,y4,kid))
+# to peek at it, uncomment the next line.
+# head(anscombe2)
+anscombe2 <- anscombe2 %>% 
+    gather(y,levely,y1,y2,y3,y4,
+           -c(x,levelx,kid)) %>% 
+# keep only pairs where the x and y vars are the same
+    filter (substr(x,2,2) == substr(y,2,2)) %>% 
+# drop one of these 
+    select (-y) %>% 
+    mutate(x = recode(x,
+                      x1="Mon",x2 = "Tue",
+                      x3 = "Wed", x4 = "Thu"))
+head(anscombe2)
+str(anscombe2)
+```
+
+Copy this code into your console, then try applying the code in 3.5 to the Anscombe data. Keep track of your challenges...and save your work.
