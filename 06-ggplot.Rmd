@@ -13,7 +13,9 @@ In the last chapter, we introduced data visualization, citing vision-aries inclu
 
 Here, in playing with and learning the R package **ggplot**, we begin to move from consumers to creators of data visualizations.
 
-As the first visualization in @wickham2016r reminds us, data visualization is at the core of exploratory data analysis: ![Fig 6.1: Data visualization is at the core of data analysis (@wickham2016r)](dataviscycle.PNG)
+As the first visualization in @wickham2016r reminds us, data visualization is at the core of exploratory data analysis: 
+
+![Fig 6.1: Data visualization is at the core of data analysis (@wickham2016r)](dataviscycle.PNG)
 
 In the world of data science, statistical programming is about discovering and communicating truths within your data. This **exploratory data analysis is the corner of science, particularly at a time in which confirmatory studies are increasingly found to be unreproducible**. 
 
@@ -25,7 +27,7 @@ The chapter begins with a quote from John Tukey about the importance of graphs. 
 
 Perhaps, if a picture is worth a thousand words, a graph can likewise tell us more than good solid numbers. Consider 'Anscombe's quartet' (screenshot below, live at http://bit.ly/anscombe2019):
 
-![An adaptation of Anscombe's "quartet" [@anscombe1973american]](spreadsheet61.PNG)
+![Table 6.1: An adaptation of Anscombe's "quartet" [@anscombe1973american]](spreadsheet61.PNG)
 
 >   **Exercise 6_1** 
 >   *Consider the spreadsheet chunk presented above, which I am characterizing as data collected on a sample of ten primary school children at recess on four consecutive days. Working with your classmates, compute the mean, standard deviation, and correlation between the two measures for one day. Share your results with the class.* 
@@ -38,8 +40,7 @@ In class, we will review and recreate the plots in section 3.2 of @wickham2016r 
 
 Savor this section, reading slowly, and playing around with the RStudio interface.  For example, read about the mpg data in the 'help' panel, pull up the mpg data in a view window, and sort through it by clicking on various columns. 
 
-![Fig. 6.1: Some data](rstudio62.PNG)
-
+![Fig. 6.2: A screenshot from RStudio, showing the mpg dataset](rstudio62.PNG)
 
 
 ## facets - displaying the Anscombe data
@@ -87,3 +88,19 @@ str(anscombe2)
 
 Copy this code into your console, then try applying the code in 3.5 to the Anscombe data. Keep track of your challenges...and save your work.
 
+## exploring more data
+
+Choose one of the datasets in R, pull out a few variables, and explore these.  
+
+Try to make a cool graph - one that informs the viewer, and, to paraphrase Tukey, helps us see what we don't expect.
+
+Try several different displays. Which fail?  Which succeed? Be prepared to share your efforts on Wednesday.
+
+Don't be afraid to screw up. What's the worst that can happen?
+
+## R is the bomb
+
+This is the worst that can happen. It probably won't, today at least, maybe not this term.  But in your fiddling, exploring, and messing around, you may tax your machine or even find a bug.  Saving your work, in R as in other things, is always a good idea.
+
+
+![Fig 6.3: Yes, R is the bomb](C:\Users\lanning\Dropbox\0DataSciLibArts\risthebomb.PNG)
