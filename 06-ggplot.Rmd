@@ -15,7 +15,7 @@ Here, in playing with and learning the R package **ggplot**, we begin to move fr
 
 As the first visualization in @wickham2016r reminds us, data visualization is at the core of exploratory data analysis: ![Fig 6.1: Data visualization is at the core of data analysis (@wickham2016r)](dataviscycle.PNG)
 
-In the world of data science, statistical programming is about discovering and communicating truths within your data. This exploratory data analysis is the corner of science, particularly at a time in which confirmatory studies are increasingly found to be unreproducible. 
+In the world of data science, statistical programming is about discovering and communicating truths within your data. This **exploratory data analysis is the corner of science, particularly at a time in which confirmatory studies are increasingly found to be unreproducible**. 
 
 Most of your reading will be from Chapter 3 of @wickham2016r, this is intended only as a supplement. 
 
@@ -23,24 +23,24 @@ Most of your reading will be from Chapter 3 of @wickham2016r, this is intended o
 
 The chapter begins with a quote from John Tukey about the importance of graphs.  Yet there is a tendency among some statisticians and scientists to consider graphic representations of data as less valuable than statistical ones.  
 
-Perhaps, if a picture is worth a thousand words, a graph can likewise tell us more than good solid numbers. Consider 'Anscombe's quartet': 
+Perhaps, if a picture is worth a thousand words, a graph can likewise tell us more than good solid numbers. Consider 'Anscombe's quartet' (screenshot below, live at http://bit.ly/anscombe2019):
 
-![spreadsheet61](spreadsheet61.PNG)
+![An adaptation of Anscombe's "quartet" [@anscombe1973american]](spreadsheet61.PNG)
 
 >   **Exercise 6_1** 
->   *Consider the spreadsheet chunk presented above, which I am (fictionally) characterizing as data collected on a sample of ten primary school children at recess on four consecutive days. Working with your classmates, compute the mean, standard deviation, and correlation between the two measures for one day. Share your results with the class.* 
+>   *Consider the spreadsheet chunk presented above, which I am characterizing as data collected on a sample of ten primary school children at recess on four consecutive days. Working with your classmates, compute the mean, standard deviation, and correlation between the two measures for one day. Share your results with the class.* 
 
 The four pairs of variables in @anscombe1973american appear statistically "the same," yet the data suggest something else.  Later, we'll try to plot these. Perhaps graphs can reveal truths that statistics can hide.  
 
 ## your ggplots
 
-In class, we will review and recreate the plots in section 3.2 of @wickham2016r and exercises in 3.2.4. 
+In class, we will review and recreate the plots in section 3.2 of @wickham2016r and exercises through 3.4. 
 
-On your laptop, within Rstudio, consider reading about the mpg data in the 'help' panel, and pulling up the mpg data in a view window. Click in various places (the stars) in each window to see what happens:
+Savor this section, reading slowly, and playing around with the RStudio interface.  For example, read about the mpg data in the 'help' panel, pull up the mpg data in a view window, and sort through it by clicking on various columns. 
 
 ![Fig. 6.1: Some data](rstudio62.PNG)
 
-If you haven't already done so, you should be able to successfully recreate the plots in sections 3.2 through 3.4.
+
 
 ## facets - displaying the Anscombe data
 
@@ -86,3 +86,4 @@ str(anscombe2)
 ```
 
 Copy this code into your console, then try applying the code in 3.5 to the Anscombe data. Keep track of your challenges...and save your work.
+
