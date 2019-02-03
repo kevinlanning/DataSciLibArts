@@ -69,7 +69,7 @@ We copied the text of this into the present file, saving it as an 'r markdown' f
 
 **This block loads needed libraries, then takes the diamond dataset and creates a smaller one which includes only diamonds <= 2.5 carats.** 
 
-```{r setup1, echo=TRUE, message=FALSE}
+```{r setup091, echo=TRUE, message=FALSE}
 library(ggplot2)
 library(dplyr)
 smaller <- diamonds %>% 

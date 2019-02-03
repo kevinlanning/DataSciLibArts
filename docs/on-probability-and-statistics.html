@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>7 on probability and statistics | Data science for the liberal arts</title>
+  <meta name="description" content="Test">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="7 on probability and statistics | Data science for the liberal arts" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/diffprop_cloud_250_sm.png" />
+  <meta property="og:description" content="Test" />
+  <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 on probability and statistics | Data science for the liberal arts" />
+  
+  <meta name="twitter:description" content="Test" />
+  <meta name="twitter:image" content="images/diffprop_cloud_250_sm.png" />
+
+<meta name="author" content="Kevin Lanning">
+
+
+<meta name="date" content="2019-02-03">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="visualization-in-r-with-ggplot.html">
+<link rel="next" href="reproducibility-and-the-replication-crisis.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Science for the Liberal Arts</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="" data-path="an-invitation.html"><a href="an-invitation.html"><i class="fa fa-check"></i>an invitation</a><ul>
+<li class="chapter" data-level="" data-path="an-invitation.html"><a href="an-invitation.html#what-will-be-in-the-class"><i class="fa fa-check"></i>what will be in the class?</a></li>
+<li class="chapter" data-level="" data-path="an-invitation.html"><a href="an-invitation.html#should-you-enroll"><i class="fa fa-check"></i>should you enroll?</a></li>
+</ul></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html"><i class="fa fa-check"></i><b>1</b> data science for the liberal arts</a><ul>
+<li class="chapter" data-level="1.1" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#type-c-data-science-data-science-for-the-liberal-arts"><i class="fa fa-check"></i><b>1.1</b> type C data science = data science for the liberal arts</a></li>
+<li class="chapter" data-level="1.2" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#the-incompleteness-of-the-data-science-venn-diagram"><i class="fa fa-check"></i><b>1.2</b> the incompleteness of the data science Venn diagram</a></li>
+<li class="chapter" data-level="1.3" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#a-dimension-of-depth"><i class="fa fa-check"></i><b>1.3</b> a dimension of depth</a></li>
+<li class="chapter" data-level="1.4" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#google-and-the-liberal-arts"><i class="fa fa-check"></i><b>1.4</b> Google and the liberal arts</a></li>
+<li class="chapter" data-level="1.5" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#data-sci-and-tmi"><i class="fa fa-check"></i><b>1.5</b> data sci and TMI</a></li>
+<li class="chapter" data-level="1.6" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#discussion-what-will-you-do-with-data-science"><i class="fa fa-check"></i><b>1.6</b> discussion: what will you do with data science?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>2</b> getting started</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-started.html"><a href="getting-started.html#are-you-already-a-programmer-and-statistician"><i class="fa fa-check"></i><b>2.1</b> are you already a programmer and statistician?</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started.html"><a href="getting-started.html#setting-up-your-machine-some-basic-tools"><i class="fa fa-check"></i><b>2.2</b> setting up your machine: some basic tools</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started.html"><a href="getting-started.html#discussion-who-deserves-a-good-grade"><i class="fa fa-check"></i><b>2.3</b> discussion: who deserves a good grade?</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html"><i class="fa fa-check"></i><b>3</b> an introduction to R</a><ul>
+<li class="chapter" data-level="3.1" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#some-other-things-that-r-stands-for"><i class="fa fa-check"></i><b>3.1</b> some other things that R stands for</a></li>
+<li class="chapter" data-level="3.2" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#a-few-characteristics-of-r"><i class="fa fa-check"></i><b>3.2</b> a few characteristics of R</a></li>
+<li class="chapter" data-level="3.3" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#finding-help"><i class="fa fa-check"></i><b>3.3</b> finding help</a></li>
+<li class="chapter" data-level="3.4" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#wickham-and-r-for-data-science"><i class="fa fa-check"></i><b>3.4</b> Wickham and R for Data Science</a></li>
+<li class="chapter" data-level="3.5" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#discussion-is-open-source-software-secure"><i class="fa fa-check"></i><b>3.5</b> discussion: is open-source software secure?</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html"><i class="fa fa-check"></i><b>4</b> now draw the rest of the owl</a><ul>
+<li class="chapter" data-level="4.1" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#carmichael"><i class="fa fa-check"></i><b>4.1</b> Carmichael</a></li>
+<li class="chapter" data-level="4.2" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#datacamp"><i class="fa fa-check"></i><b>4.2</b> DataCamp</a></li>
+<li class="chapter" data-level="4.3" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#swirl-swirlstats"><i class="fa fa-check"></i><b>4.3</b> Swirl (Swirlstats)</a></li>
+<li class="chapter" data-level="4.4" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#peng-text-and-videos"><i class="fa fa-check"></i><b>4.4</b> Peng text and videos</a></li>
+<li class="chapter" data-level="4.5" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#something-else"><i class="fa fa-check"></i><b>4.5</b> Something else</a></li>
+<li class="chapter" data-level="4.6" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#exercise"><i class="fa fa-check"></i><b>4.6</b> Exercise</a></li>
+</ul></li>
+<li class="part"><span><b>II Part II Towards data literacy</b></span></li>
+<li class="chapter" data-level="5" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html"><i class="fa fa-check"></i><b>5</b> Principles of data visualization</a><ul>
+<li class="chapter" data-level="5.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#some-opening-thoughts"><i class="fa fa-check"></i><b>5.1</b> Some opening thoughts</a></li>
+<li class="chapter" data-level="5.2" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#some-early-graphs"><i class="fa fa-check"></i><b>5.2</b> Some early graphs</a></li>
+<li class="chapter" data-level="5.3" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#tukey-and-eda"><i class="fa fa-check"></i><b>5.3</b> Tukey and EDA</a></li>
+<li class="chapter" data-level="5.4" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#approaches-to-graphs"><i class="fa fa-check"></i><b>5.4</b> Approaches to graphs</a></li>
+<li class="chapter" data-level="5.5" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#tufte-first-principles"><i class="fa fa-check"></i><b>5.5</b> Tufte: First principles</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#the-cost-of-poor-design-i-space-shuttle-challenger"><i class="fa fa-check"></i><b>5.5.1</b> The cost of poor design I: Space Shuttle Challenger</a></li>
+<li class="chapter" data-level="5.5.2" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#the-cost-of-poor-design-ii-an-uninformed-or-misinformed-world."><i class="fa fa-check"></i><b>5.5.2</b> The cost of poor design II: An uninformed or misinformed world.</a></li>
+<li class="chapter" data-level="5.5.3" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#should-graphs-begin-with-psychological-theory"><i class="fa fa-check"></i><b>5.5.3</b> Should graphs begin with psychological theory?</a></li>
+<li class="chapter" data-level="5.5.4" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#the-power-of-animation"><i class="fa fa-check"></i><b>5.5.4</b> The power of animation</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#telling-the-truth-when-the-truth-is-unclear"><i class="fa fa-check"></i><b>5.6</b> Telling the truth, when the truth is unclear</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#animated-approaches"><i class="fa fa-check"></i><b>5.6.1</b> Animated approaches</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#a-supplement-code-for-asymmetrical-eulervenn-diagrams"><i class="fa fa-check"></i><b>5.7</b> a supplement: Code for Asymmetrical Euler/Venn diagrams</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#setup"><i class="fa fa-check"></i><b>5.7.1</b> setup</a></li>
+<li class="chapter" data-level="5.7.2" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#cpi--cq"><i class="fa fa-check"></i><b>5.7.2</b> CPI- CQ</a></li>
+<li class="chapter" data-level="5.7.3" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#scholarly-communities"><i class="fa fa-check"></i><b>5.7.3</b> scholarly communities</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#further-reading-and-resources"><i class="fa fa-check"></i><b>5.8</b> further reading and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html"><i class="fa fa-check"></i><b>6</b> visualization in R with ggplot</a><ul>
+<li class="chapter" data-level="6.1" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#picture-words-numbers"><i class="fa fa-check"></i><b>6.1</b> picture &gt; (words, numbers)?</a></li>
+<li class="chapter" data-level="6.2" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#your-ggplots"><i class="fa fa-check"></i><b>6.2</b> your ggplots</a></li>
+<li class="chapter" data-level="6.3" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#facets---displaying-the-anscombe-data"><i class="fa fa-check"></i><b>6.3</b> facets - displaying the Anscombe data</a></li>
+<li class="chapter" data-level="6.4" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#exploring-more-data"><i class="fa fa-check"></i><b>6.4</b> exploring more data</a></li>
+<li class="chapter" data-level="6.5" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#r-is-the-bomb"><i class="fa fa-check"></i><b>6.5</b> R is the bomb</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html"><i class="fa fa-check"></i><b>7</b> on probability and statistics</a><ul>
+<li class="chapter" data-level="7.1" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#on-probability"><i class="fa fa-check"></i><b>7.1</b> on probability</a></li>
+<li class="chapter" data-level="7.2" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#the-rules-of-probability"><i class="fa fa-check"></i><b>7.2</b> the rules of probability</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#keeping-conditional-probabilities-straight"><i class="fa fa-check"></i><b>7.2.1</b> keeping conditional probabilities straight</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#continuous-probability-distributions"><i class="fa fa-check"></i><b>7.3</b> continuous probability distributions</a></li>
+<li class="chapter" data-level="7.4" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#the-most-dangerous-equation"><i class="fa fa-check"></i><b>7.4</b> the most dangerous equation</a></li>
+<li class="chapter" data-level="7.5" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#appendix-notes-on-discrete-probability"><i class="fa fa-check"></i><b>7.5</b> appendix: notes on discrete probability</a></li>
+<li class="chapter" data-level="7.6" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#discrete-probability-see-attribution-in-7.5"><i class="fa fa-check"></i><b>7.6</b> Discrete Probability (see attribution in 7.5)</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#relative-frequency"><i class="fa fa-check"></i><b>7.6.1</b> Relative Frequency</a></li>
+<li class="chapter" data-level="7.6.2" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#notation"><i class="fa fa-check"></i><b>7.6.2</b> Notation</a></li>
+<li class="chapter" data-level="7.6.3" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#monte-carlo-simulations"><i class="fa fa-check"></i><b>7.6.3</b> Monte Carlo Simulations</a></li>
+<li class="chapter" data-level="7.6.4" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#with-and-without-replacement"><i class="fa fa-check"></i><b>7.6.4</b> With and without replacement</a></li>
+<li class="chapter" data-level="7.6.5" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#probability-distributions"><i class="fa fa-check"></i><b>7.6.5</b> Probability Distributions</a></li>
+<li class="chapter" data-level="7.6.6" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#independence"><i class="fa fa-check"></i><b>7.6.6</b> Independence</a></li>
+<li class="chapter" data-level="7.6.7" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#conditional-probabilities"><i class="fa fa-check"></i><b>7.6.7</b> Conditional Probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#multiplication-rule-see-attribution-in-7.5"><i class="fa fa-check"></i><b>7.7</b> Multiplication rule (see attribution in 7.5)</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#combinations-and-permutations"><i class="fa fa-check"></i><b>7.7.1</b> Combinations and Permutations</a></li>
+<li class="chapter" data-level="7.7.2" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#birthday-problem"><i class="fa fa-check"></i><b>7.7.2</b> Birthday Problem</a></li>
+<li class="chapter" data-level="7.7.3" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#sapply-a-better-way-to-do-for-loops"><i class="fa fa-check"></i><b>7.7.3</b> sapply: a better way to do for loops</a></li>
+<li class="chapter" data-level="7.7.4" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#how-many-monte-carlo-experiments-are-enough"><i class="fa fa-check"></i><b>7.7.4</b> How many Monte Carlo experiments are enough</a></li>
+<li class="chapter" data-level="7.7.5" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#addition-rule"><i class="fa fa-check"></i><b>7.7.5</b> Addition Rule</a></li>
+<li class="chapter" data-level="7.7.6" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#monty-hall-problem"><i class="fa fa-check"></i><b>7.7.6</b> Monty Hall Problem</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html"><i class="fa fa-check"></i><b>8</b> Reproducibility and the replication crisis</a><ul>
+<li class="chapter" data-level="8.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-i-on-nhst"><i class="fa fa-check"></i><b>8.1</b> Answers to the reproducibility crisis I: On NHST</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#munafo2017manifesto-also-argue-that-threats-to-reproducible-science-occur-at-a-number-of-places-in-science-not-just-with-the-evaluation-of-hypotheses."><i class="fa fa-check"></i><b>8.1.1</b> <span class="citation">Munafò et al. (<span>2017</span>)</span> also argue that threats to reproducible science occur at a number of places in science, not just with the evaluation of hypotheses.</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-ii-pre-registration"><i class="fa fa-check"></i><b>8.2</b> Answers to the reproducibility crisis II: Pre-registration</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#what-would-results-for-our-sample-study-look-like-how-many-of-these-problems-would-it-face-what-should-we-do-about-it"><i class="fa fa-check"></i><b>8.2.1</b> <em>What would results for our sample study look like? How many of these problems would it face? What should we do about it?</em></a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Part III Towards data proficiency</b></span></li>
+<li class="chapter" data-level="9" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html"><i class="fa fa-check"></i><b>9</b> Literate programming with R markdown</a><ul>
+<li class="chapter" data-level="9.1" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#a-challenge"><i class="fa fa-check"></i><b>9.1</b> A challenge</a></li>
+<li class="chapter" data-level="9.2" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#r-markdown"><i class="fa fa-check"></i><b>9.2</b> r markdown</a></li>
+<li class="chapter" data-level="9.3" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#univariate-data"><i class="fa fa-check"></i><b>9.3</b> univariate data</a></li>
+<li class="chapter" data-level="9.4" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#homework-due-feb-14-with-a-solution."><i class="fa fa-check"></i><b>9.4</b> Homework due Feb 14 (with a solution).</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#diamond-sizes-27.4.7---2"><i class="fa fa-check"></i><b>9.4.1</b> “Diamond sizes” (27.4.7 - #2)</a></li>
+<li class="chapter" data-level="9.4.2" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#downloaded-file-block-1"><i class="fa fa-check"></i><b>9.4.2</b> Downloaded file block 1</a></li>
+<li class="chapter" data-level="9.4.3" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#downloaded-text-block"><i class="fa fa-check"></i><b>9.4.3</b> Downloaded text block</a></li>
+<li class="chapter" data-level="9.4.4" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#my-revised-graph"><i class="fa fa-check"></i><b>9.4.4</b> My revised graph</a></li>
+<li class="chapter" data-level="9.4.5" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#syntax-for-table-kable"><i class="fa fa-check"></i><b>9.4.5</b> Syntax for table (kable)</a></li>
+<li class="chapter" data-level="9.4.6" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#the-assignment"><i class="fa fa-check"></i><b>9.4.6</b> The assignment …</a></li>
+<li class="chapter" data-level="9.4.7" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#if-at-first-you-dont-succeed"><i class="fa fa-check"></i><b>9.4.7</b> If at first you don’t succeed</a></li>
+<li class="chapter" data-level="9.4.8" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#if-you-get-this-far"><i class="fa fa-check"></i><b>9.4.8</b> If you get this far</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#what-to-do-when-you-are-stuck"><i class="fa fa-check"></i><b>9.5</b> What to do when you are stuck</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html"><i class="fa fa-check"></i><b>10</b> some tidyverse tricks</a><ul>
+<li class="chapter" data-level="10.1" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html#from-sections-00-and-01"><i class="fa fa-check"></i><b>10.1</b> From sections 00 and 01:</a></li>
+<li class="chapter" data-level="10.2" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html#from-section-02---transform"><i class="fa fa-check"></i><b>10.2</b> From section 02 - Transform</a></li>
+<li class="chapter" data-level="10.3" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html#dplyr"><i class="fa fa-check"></i><b>10.3</b> Dplyr</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html#filter"><i class="fa fa-check"></i><b>10.3.1</b> Filter</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html#pipe"><i class="fa fa-check"></i><b>10.4</b> Pipe</a></li>
+<li class="chapter" data-level="10.5" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html#mutate"><i class="fa fa-check"></i><b>10.5</b> Mutate</a></li>
+<li class="chapter" data-level="10.6" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html#summarizse"><i class="fa fa-check"></i><b>10.6</b> Summariz(s)e</a></li>
+<li class="chapter" data-level="10.7" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html#group-by"><i class="fa fa-check"></i><b>10.7</b> Group by</a></li>
+<li class="chapter" data-level="10.8" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html#joins"><i class="fa fa-check"></i><b>10.8</b> Joins</a></li>
+<li class="chapter" data-level="10.9" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html#from-section-05---data-types"><i class="fa fa-check"></i><b>10.9</b> From section 05 - Data-Types</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html"><i class="fa fa-check"></i><b>11</b> Messy data: Cleaning and curation</a></li>
+<li class="chapter" data-level="12" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>12</b> references</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data science for the liberal arts</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="on-probability-and-statistics" class="section level1">
+<h1><span class="header-section-number">7</span> on probability and statistics</h1>
+<p>Last week, we considered <span class="citation">Anscombe (<a href="#ref-anscombe1973graphs">1973</a>)</span> and his quartet, and how visualizing data is valuable. This week, we move to a brief discussion of principles of statistics.</p>
+<div id="on-probability" class="section level2">
+<h2><span class="header-section-number">7.1</span> on probability</h2>
+<p><strong>Discrete</strong> probability is used to understand the likelihood of categorical events. We can think of initial estimates of probability as subjective or personal. For some events (<em>what is the probability this plane will crash?</em>), an estimate of probability can be drawn from a base rate or relative frequency (e.g., <em>p(this plane will crash) = (number of flights with crashes/ number of flights)</em>). For other events (what is the probability that the US President will resign or be impeached before completing his term of office?), it may be hard to arrive at a suitable base rate. Here, a number of subjective beliefs or principles may be combined to arrive at a subjective or personal probability. In a sense, all probability estimates begin with a personal belief such as this, in part because the choice of the most informative base rate is often not self-evident - in the plane crash example, maybe we should consider a reference group rates such as ‘for this airline’ etc. <span class="citation">(Lanning <a href="#ref-lanning1987some">1987</a>)</span>. The personal origins of probability estimates should become less important as we are exposed to data and revise our estimates in accordance with Bayes theorem. But over the last 45 years, a substantial body of evidence has demonstrates that, under at least some circumstances, we don’t make estimates of probability in this way. (This material is discussed in the Thinking and Decision Making/Behavioral Economics class).</p>
+<p>There is a nice r markdown document discussing basic laws of probability at Harvard’s datasciencelabs repository: <a href="https://github.com/datasciencelabs/2018/blob/master/lectures/prob/discrete-probability.Rmd" class="uri">https://github.com/datasciencelabs/2018/blob/master/lectures/prob/discrete-probability.Rmd</a>; I include this here as an appendix to this chapter.</p>
+</div>
+<div id="the-rules-of-probability" class="section level2">
+<h2><span class="header-section-number">7.2</span> the rules of probability</h2>
+<p>Here’s an introduction to the principles of probability. These are presented, with examples and code, in the appendix at the end of the chapter.</p>
+<blockquote>
+<p><strong>I. For any event A, 0 &lt;= P (A) &lt;= 1</strong></p>
+<p><strong>II. Let S be the sample space, or set of all possible outcomes. Then P(S) = 1, and P (not S) = 0.</strong></p>
+<p><strong>III. If P (A and B) = 0, then P (A or B) = P (A) + P (B).</strong></p>
+<p><strong>IV. P (A|B) = P (A and B)/ P (B)</strong></p>
+</blockquote>
+<p>Principle III applies for <strong>mutually exclusive</strong> events, such as A = you are here this morning, B = you are at the beach this morning. For mutually exclusive (disjoint, disjunctive) events, the union is the sum of the two events. This is called the addition rule for disjoint events.</p>
+<p>A different rule applies for events that are <strong>mutually independent</strong>, such as (A = I toss a coin and it lands on ‘Heads’) and (B = it will rain tomorrow). What we mean by independent is that our estimates of the probability of one don’t change based on the state of the other - your estimate of the likelihood of rain shouldn’t depend on my coin flip. Here, you multiply rather than add:</p>
+<blockquote>
+<p><strong>If P (A|B) = P (A), then P (A and B) = P (A) P (B).</strong></p>
+</blockquote>
+<p>In words - if the probability of A given B equals the probability of A, then the probability of both A and B equals the probability of A times the probability of B.</p>
+<p>Ask yourself - are mutually exclusive events independent? Come up with your own examples.</p>
+<p>This <strong>multiplication rule</strong> is handy for estimating the probability of an outcome that happens following a chain of independent events, such as the probability that the next eight times I toss a coin it will land on “tails” every time:</p>
+<blockquote>
+<p>P (TTTTTTTT) = P (T) P (T) P (T) P (T) P (T) P (T) P (T) P (T). = .58 = 1/256.</p>
+</blockquote>
+<p>Many sets of events are neither disjoint nor independent, so we need more general ways of thinking about pairs of events. For most of us, Venn diagrams are useful to think about combining probabilities. The <strong>union or P (A U B)</strong> describes the probability that A, B, or both of these will occur. Here, you will use the <strong>general addition rule:</strong></p>
+<blockquote>
+<p><strong>P (A or B) = P (A) + P (B) - P (A and B)</strong></p>
+</blockquote>
+<p>(the probability of A or B is the probability of A plus the probability of B minus the probability of both A and B).</p>
+<p>For the <strong>intersection or P (A ∩ B)</strong>, we need to consider <strong>conditional probabilities</strong>. Think of the probability of two events sequentially: First, what’s the probability of A? Second, what’s the probability of B, given that A has occurred? Multiply these to get the likelihood of A and B:</p>
+<blockquote>
+<p><strong>P (A and B) = P (A) P (B|A).</strong></p>
+</blockquote>
+<p><em>Example: The probability of you and your roommate both getting mononucleosis equals the probability of your getting mono times the probability that your roommate gets it, given that you have it also.</em></p>
+<p>This is the <strong>general multiplication rule</strong>. In this abstract example, the order is irrelevant. To estimate the likelihood of A and B, we could as easily take the probability of B, and multiply it by the conditional probability of A given B</p>
+<blockquote>
+<p><strong>P (A and B) = P (B) P (A|B).</strong></p>
+</blockquote>
+<p><em>Use the mono example again. What are A and B here? Does it still make sense? When might P (B|A) make more sense than P (A|B)?</em></p>
+<p>We are often interested in estimating conditional probabilities, in which case we’ll use the same equation, but solve instead for P (A|B). This leads us back to principle IV:</p>
+<blockquote>
+<p><strong>IV. P (A|B) = P (A and B)/ P (B)</strong></p>
+</blockquote>
+<blockquote>
+<p><em>What is the likelihood of getting in an accident (A), given that one is driving on I-95 (B)? How would you estimate this? If there are fewer accidents on Military Trail, does this mean that you would be safer there?</em></p>
+</blockquote>
+<div id="keeping-conditional-probabilities-straight" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> keeping conditional probabilities straight</h3>
+<p>In general, P (B|A) and P (A|B) are not equivalent. Moore’s (2000) <em>Basic Practice of Statistics</em> gives the example of</p>
+<blockquote>
+<p>P (Police car | Crown Victoria) = .7, and P (Crown Vic | Police car) = .85.</p>
+</blockquote>
+<p>Here, one could use an asymmetrical Venn diagram (see the code at the end of Chapter 5) to model this asymmetry. Consider adapting that code for this problem, or at the very least make a rough sketch that can help you answer the following question:
+&gt; In general, if P (A|B) &lt; P (B|A), what must be true of the relationship of P (A) to P (B)?</p>
+</div>
+</div>
+<div id="continuous-probability-distributions" class="section level2">
+<h2><span class="header-section-number">7.3</span> continuous probability distributions</h2>
+<p>We can also use probability with <strong>continuous</strong> variables such as systolic blood pressure (that’s the first one), which has a mean of approximately 120 and a standard deviation of 15. Continuous probability distributions are handy tools for thinking about the meaning of scores, particularly when we express scores in standard deviations from the mean (z scores). More to the point, this way of thinking about probability is widely used in questions of scientific inference, as, for example, in testing hypotheses such that “the average systolic blood pressure among a group of people studying at Crux (hence caffeinated) will be significantly greater than that of the population as a whole.”</p>
+<p>This is part of the logic of <strong>Null Hypothesis Significance Testing (NHST)</strong> - if the result in my Crux sample is sufficiently high, then I say that I have rejected the null hypothesis, and found data which support the hypothesis of interest.</p>
+</div>
+<div id="the-most-dangerous-equation" class="section level2">
+<h2><span class="header-section-number">7.4</span> the most dangerous equation</h2>
+<p>Just as <span class="citation">Tufte (<a href="#ref-tufte2001visual">2001</a>)</span> demonstrated that poor data visualizations can be dangerous, leading, for example, to the loss of life in the Challenger disaster, <span class="citation">Wainer (<a href="#ref-wainer2007dangerous">2007</a>)</span> shows that a lack of statistical literacy is also “dangerous.”</p>
+<p>He argues that deMoivre’s equation is the most dangerous equation - this equation (for the standard error) shows that variability decreases with the square root of sample size. Other nominees include the linear regression equation (and, in particular, how coefficients may change or reverse when new variables are added) and regression to the mean. Regarding linear regression, we discussed (a little) Simpson’s paradox, that is, that the direction of regression coefficients may change when additional variables are added.</p>
+<p>I argued that, from the standpoint of psychology, ignorance of regression to the mean was arguably more ‘dangerous’ than ignorance about the central limit theorem and standard error, in particular because regression effects contribute to an overestimate of the effectiveness of punishment and an under-appreciation of the effectiveness of positive reinforcement as tools for behavior change <span class="citation">(Hastie and Dawes <a href="#ref-hastie2010rational">2010</a>)</span>.</p>
+</div>
+<div id="appendix-notes-on-discrete-probability" class="section level2">
+<h2><span class="header-section-number">7.5</span> appendix: notes on discrete probability</h2>
+<p><strong>This section was downloaded from <a href="https://github.com/datasciencelabs/2018/blob/master/prob/discrete-probability.Rmd" class="uri">https://github.com/datasciencelabs/2018/blob/master/prob/discrete-probability.Rmd</a> and run in R on February 3, 2019. They have licensed this material under <a href="https://creativecommons.org/licenses/by/3.0/" class="uri">https://creativecommons.org/licenses/by/3.0/</a>, allowing it to be shared with attribution.</strong></p>
+<p><strong>I have made minor changes to correct typos (e.g., republican -&gt; Republican), but haven’t upoaded these back to GitHub.</strong></p>
+</div>
+<div id="discrete-probability-see-attribution-in-7.5" class="section level2">
+<h2><span class="header-section-number">7.6</span> Discrete Probability (see attribution in 7.5)</h2>
+<p>We will now transition to probability and statistical inference. We start by covering some basic principles related to categorical data. The subset of probability is referred to as <em>discrete probability</em>. It will help us understand the probability theory we will later introduce for numeric and continuous data, which is much more common in data science applications. Discrete probability is more useful in card games and other games of chance and we use these as examples.</p>
+<div id="relative-frequency" class="section level3">
+<h3><span class="header-section-number">7.6.1</span> Relative Frequency</h3>
+<p>The word probability is used in everyday language. For example, Google’s auto-complete of “What are the chances of” give us “getting pregnant”, “having twins”, and “rain today”. Answering questions about probability is often hard if not impossible. Here we discuss a mathematical definition of <em>probability</em> that does permit us to give precise answers to certain questions.</p>
+<p>For example, if I have 2 red beads and 3 blue beads inside an urn and I pick one at random, what is the probability of picking a red one? Our intuition tells us that the answer is 2/5 or 40%. A precise definition can be given by noting that there are five possible outcomes of which two satisfy the condition necessary for the event “pick a red bead”. Because each of the five outcomes has the same chance of occurring we conclude that the probability is 0.4 for red and 0.6 for blue.</p>
+<p>A more tangible way to think about the probability of an event is as the proportion of times the event occurs when we repeat the experiment over and over, independently, and under the same conditions.</p>
+</div>
+<div id="notation" class="section level3">
+<h3><span class="header-section-number">7.6.2</span> Notation</h3>
+<p>We use the notation <span class="math inline">\(\mbox{Pr}(A)\)</span> to denote the probability of event <span class="math inline">\(A\)</span> happening. We use the very general term <em>event</em> to refer to things that can happen when something happens by chance. For example, in our previous example the event was “picking a red bead”. In a political poll in which we call 100 likely voters at random, an example of an event is “calling 48 Democrats and 52 Republicans”.</p>
+<p>In data science applications, we will often deal with continuous variables. In these cases events will often be things like “is this person taller than 6 feet”. In this case we write events in a more mathematical form: <span class="math inline">\(X \geq 6\)</span>. We will see more of these examples later. Here we focus on categorical data.</p>
+</div>
+<div id="monte-carlo-simulations" class="section level3">
+<h3><span class="header-section-number">7.6.3</span> Monte Carlo Simulations</h3>
+<p>Computers provide a way to actually perform the simple random experiment described above: pick a bead at random from a bag with three blue beads and two red ones. Random number generators permit us to mimic the process of picking at random.</p>
+<p>An example is the <code>sample</code> function in R. We demonstrate its use in the code below. First, we use the function <code>rep</code> to generate the urn:</p>
+<pre class="sourceCode r"><code class="sourceCode r">beads &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="dt">times =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))
+beads</code></pre>
+<pre><code>## [1] &quot;red&quot;  &quot;red&quot;  &quot;blue&quot; &quot;blue&quot; &quot;blue&quot;</code></pre>
+<p>and then use <code>sample</code> to pick a bead at random:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(beads, <span class="dv">1</span>)</code></pre>
+<pre><code>## [1] &quot;blue&quot;</code></pre>
+<p>This line of code produces one random outcome. We want to repeat this experiment “over and over”. However, it is of course impossible to repeat forever. Instead, we repeat the experiment a large enough number of times to make the results practically equivalent. This is an example of a <em>Monte Carlo</em> simulation.</p>
+<p>Note that much of what mathematical and theoretical statisticians study, something we do not cover in this course, relates to providing rigorous definitions of “practically equivalent” as well as studying how close a large number of experiments gets us to what happens in the limit. Later in this lecture we provide a practical approach to deciding what is “large enough”.</p>
+<p>To perform our first Monte Carlo simulation we use the <code>replicate</code> function, which permits us to repeat the same task any number of times. Here we repeat the random event <span class="math inline">\(B=\)</span> 10,000 times:</p>
+<pre class="sourceCode r"><code class="sourceCode r">B &lt;-<span class="st"> </span><span class="dv">10000</span>
+events &lt;-<span class="st"> </span><span class="kw">replicate</span>(B, <span class="kw">sample</span>(beads, <span class="dv">1</span>))</code></pre>
+<p>We can now see if in fact, our definition is in agreement with this Monte Carlo simulation approximation. We can use <code>table</code> to see the distribution:</p>
+<pre class="sourceCode r"><code class="sourceCode r">tab &lt;-<span class="st"> </span><span class="kw">table</span>(events)
+tab</code></pre>
+<pre><code>## events
+## blue  red 
+## 5999 4001</code></pre>
+<p>and <code>prop.table</code> gives us the proportions:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.table</span>(tab)</code></pre>
+<pre><code>## events
+##   blue    red 
+## 0.5999 0.4001</code></pre>
+<p>The numbers above are the estimated probabilities provided by this Monte Carlo simulation. Statistical theory, not covered here, tells us the as <span class="math inline">\(B\)</span> gets larger, the estimates get closer to 3/5 = 0.6 for blue and 2/5 = 0.4 for red.</p>
+<p>This is a simple and not very useful example, but we will use Monte Carlo simulation to estimate probabilities in cases in which it is harder to compute the exact ones. Before we go into more complex examples we use simple ones to demonstrate the computing tools available in R.</p>
+</div>
+<div id="with-and-without-replacement" class="section level3">
+<h3><span class="header-section-number">7.6.4</span> With and without replacement</h3>
+<p>The function <code>sample</code> has an argument that permits us to pick more than one element from the urn. However, by default, this selection occurs <em>without replacement</em>: after a bead is selected, it is not put back in the bag. Note what happens when we ask to randomly select five beads:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(beads, <span class="dv">5</span>)</code></pre>
+<pre><code>## [1] &quot;blue&quot; &quot;blue&quot; &quot;red&quot;  &quot;red&quot;  &quot;blue&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(beads, <span class="dv">5</span>)</code></pre>
+<pre><code>## [1] &quot;red&quot;  &quot;blue&quot; &quot;blue&quot; &quot;red&quot;  &quot;blue&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(beads, <span class="dv">5</span>)</code></pre>
+<pre><code>## [1] &quot;red&quot;  &quot;red&quot;  &quot;blue&quot; &quot;blue&quot; &quot;blue&quot;</code></pre>
+<p>This results in re-arrangements that always have three blue and two red beads. If we ask that six beads be selected, we get an error</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(beads, <span class="dv">6</span>)</code></pre>
+<p><code>Error in sample.int(length(x), size, replace, prob) :    cannot take a sample larger than the population when 'replace = FALSE'</code></p>
+<p>However, the <code>sample</code> function can be used directly, without the use of <code>replicate</code>, to repeat the same experiment of picking one out of the 5 beads, over and over, under the same conditions. To do this we sample <em>with replacement</em>: return the bead back to the urn after selecting it.</p>
+<p>We can tell <code>sample</code> to do this by changing the <code>replace</code> argument, which defaults as <code>FALSE</code>, to <code>replace = TRUE</code>:</p>
+<pre class="sourceCode r"><code class="sourceCode r">events &lt;-<span class="st"> </span><span class="kw">sample</span>(beads, B, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
+<span class="kw">prop.table</span>(<span class="kw">table</span>(events))</code></pre>
+<pre><code>## events
+##   blue    red 
+## 0.5986 0.4014</code></pre>
+<p>Note that, not surprisingly, we get results very similar to
+those previously obtained with <code>replicate</code>.</p>
+</div>
+<div id="probability-distributions" class="section level3">
+<h3><span class="header-section-number">7.6.5</span> Probability Distributions</h3>
+<p>Defining a distribution for categorical outcomes is relatively straight forward. We simply assign a probability to each category.
+In cases that can be thought of as beads in an urn, for each bead type their proportion defines the distribution.</p>
+<p>If we are randomly calling likely voters from a population that is 44% Democrat, 44% Republican, 10% undecided and 2% Green party, these proportions define the probability for each group. The probability distribution is:</p>
+<p><span class="math display">\[
+\mbox{Pr}(\mbox{picking a Republican})=0.44\\ \mbox{Pr}(\mbox{picking a Democrat})=0.44\\
+\mbox{Pr}(\mbox{picking an undecided})=0.10\\
+\mbox{Pr}(\mbox{picking a Green})=0.02\\
+\]</span></p>
+</div>
+<div id="independence" class="section level3">
+<h3><span class="header-section-number">7.6.6</span> Independence</h3>
+<p>We say two events are independent if the outcome of one does not affect the other. The classic example are coin tosses. Every time we toss a fair coin the probability of seeing heads is 1/2 regardless of what previous tosses have revealed. The same is true when we pick beads from an urn with replacement. In the example above the probability of red is 0.40 regardless of previous draws.</p>
+<p>Many examples of events that are not independent come from card games. When we deal the first card, the probability of getting a king is 1/13 since there are 13 possibilities: Ace, Deuce, Three, <span class="math inline">\(\dots\)</span>, Ten, Jack, Queen, and King, and there are 4 of each possibility (for the 4 suits hearts, spades, diamonds, and clubs), totaling 52 cards. Now if we deal a king for the first card, and don’t replace it into the deck, the probability of a second card being a king is less because there are only three kings left: the probability is 3 out of 51. These events are therefore <strong>not independent</strong>. The first outcome affects the next.</p>
+<p>To see an extreme case of non-independent events, consider our example of drawing five beads at random <strong>without</strong> replacement:</p>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">sample</span>(beads, <span class="dv">5</span>)</code></pre>
+<p>If you have to guess the color of the first bead you predict blue since blue has a 60% chance. But if I show you the result of the last four outcomes:</p>
+<pre class="sourceCode r"><code class="sourceCode r">x[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>]</code></pre>
+<pre><code>## [1] &quot;blue&quot; &quot;blue&quot; &quot;blue&quot; &quot;red&quot;</code></pre>
+<p>would you still guess blue? Of course not. Now you know that the probability of red is 1 since only a red bead remains. The events are not independent so the probabilities change.</p>
+</div>
+<div id="conditional-probabilities" class="section level3">
+<h3><span class="header-section-number">7.6.7</span> Conditional Probabilities</h3>
+<p>When events are not independent, <em>conditional probabilities</em> are useful. We already saw an example of a conditional probability: we computed the probability that a second dealt card is a king given that the first was a king. In probability we use the following notation:</p>
+<p><span class="math display">\[
+\mbox{Pr}(\mbox{Card 2 is a king} \mid \mbox{Card 1 is a king}) = 3/51
+\]</span></p>
+<p>We use the <span class="math inline">\(\mid\)</span> as shorthand for “given that” or “conditional on”.</p>
+<p>Note that when two events, say <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, are independent we have</p>
+<p><span class="math display">\[
+\mbox{Pr}(A \mid B) = \mbox{Pr}(A) 
+\]</span></p>
+<p>This is the mathematical way of saying: the fact that <span class="math inline">\(B\)</span> happened does not affect the probability of <span class="math inline">\(A\)</span> happening.
+In fact, this can be considered the mathematical definition of independence.</p>
+</div>
+</div>
+<div id="multiplication-rule-see-attribution-in-7.5" class="section level2">
+<h2><span class="header-section-number">7.7</span> Multiplication rule (see attribution in 7.5)</h2>
+<p>If we want to know the probability of two events, say <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, occurring, we can use the multiplication rule.</p>
+<p><span class="math display">\[
+\mbox{Pr}(A \mbox{ and } B) = \mbox{Pr}(A)\mbox{Pr}(B \mid A)
+\]</span>
+Let’s use Black Jack as an example. In Black Jack you get assigned two random cards. After you see what you have, you can ask for more. The goal is to get closer to 21 than the dealer, without going over. Number cards 2-10 are worth their number in points, face cards (Jacks, Queens, Kings) are worth 10 points and aces worth 11 or 1 (you choose).</p>
+<p>So, in a black jack game, to calculate the chances of getting a 21 in the following way by drawing an ace and then a face card, we compute the probability of the first being an ace and multiply by the probability of a face card given that the first was an ace: <span class="math inline">\(1/13 \times 12/51 \approx 0.018\)</span></p>
+<p>The multiplicative rule also applies to more than two events. We can use induction to expand for more events:</p>
+<p><span class="math display">\[
+\mbox{Pr}(A \mbox{ and } B \mbox{ and } C) = \mbox{Pr}(A)\mbox{Pr}(B \mid A)\mbox{Pr}(C \mid A \mbox{ and } B)
+\]</span></p>
+<div id="multiplication-rule-under-independence" class="section level4">
+<h4><span class="header-section-number">7.7.0.1</span> Multiplication rule under independence</h4>
+<p>When we have independent events then the multiplication rule becomes simpler:</p>
+<p><span class="math display">\[
+\mbox{Pr}(A \mbox{ and } B \mbox{ and } C) = \mbox{Pr}(A)\mbox{Pr}(B)\mbox{Pr}(C)
+\]</span></p>
+<p>But we have to be very careful before using this, as assuming independence can result in very different, and incorrect, probability calculations when we don’t actually have independence.</p>
+<p>As an example, imagine a court case in which the suspect was described to have a mustache and a beard. The defendant has a mustache and a beard and the prosecution brings in an “expert” to testify that 1/10 men have beards and 1/5 have mustaches so using the multiplication rule we conclude that only <span class="math inline">\(1/10 \times 1/5\)</span> or 0.02 have both.</p>
+<p>But to multiply like this we need to assume independence! The conditional probability of a man having a mustache conditional on them having a beard is .95. So the correct calculation probability is much higher: 0.09.</p>
+<p>Note that the multiplication rule also gives us a general formula for computing conditional probabilities:</p>
+<p><span class="math display">\[
+\mbox{Pr}(B \mid A) = \frac{\mbox{Pr}(A \mbox{ and } B)}{ \mbox{Pr}(A)}
+\]</span></p>
+<p>To illustrate how we use these formulas and concepts in practice we will show several examples related to card games.</p>
+</div>
+<div id="combinations-and-permutations" class="section level3">
+<h3><span class="header-section-number">7.7.1</span> Combinations and Permutations</h3>
+<p>In our very first example we imagined an urn with five beads. Let’s review how we did this. To compute the probability distribution of one draw, we simply listed out all the possibilities, there were 5, and then, for each event, counted how many of these possibilities were associated with the event. So, for example, because out of the five possible outcomes, three were blue, the probability of blue is 3/5.</p>
+<p>For more complicated examples these computations are not straightforward. For example, what is the probability that if I draw five cards without replacement I get all cards of the same suit; what is called a flush in poker? In a Discrete Probability course you learn theory on how to make these kinds of computations. Here we focus on how to use R code to compute the answers.</p>
+<p>First let’s construct a deck of cards. For this we will use the <code>expand.grid</code> and <code>paste</code> functions. We use <code>paste</code> to create strings by joining smaller strings. For example, if we have the number and suit of a card we create the card name like this:</p>
+<pre class="sourceCode r"><code class="sourceCode r">number &lt;-<span class="st"> &quot;Three&quot;</span>
+suit &lt;-<span class="st"> &quot;Hearts&quot;</span>
+<span class="kw">paste</span>(number, suit)</code></pre>
+<pre><code>## [1] &quot;Three Hearts&quot;</code></pre>
+<p><code>paste</code> also works on pairs of vectors performing the operation element-wise:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="kw">as.character</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>))</code></pre>
+<pre><code>## [1] &quot;a 1&quot; &quot;b 2&quot; &quot;c 3&quot; &quot;d 4&quot; &quot;e 5&quot;</code></pre>
+<p>The function <code>expand.grid</code> gives us all the combinations of entries of two vectors. For example if you have blue and black pants and white, grey and plaid shirts all your combinations are:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">expand.grid</span>(<span class="dt">pants =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;black&quot;</span>), <span class="dt">shirt =</span> <span class="kw">c</span>(<span class="st">&quot;white&quot;</span>, <span class="st">&quot;grey&quot;</span>, <span class="st">&quot;plaid&quot;</span>))</code></pre>
+<pre><code>##   pants shirt
+## 1  blue white
+## 2 black white
+## 3  blue  grey
+## 4 black  grey
+## 5  blue plaid
+## 6 black plaid</code></pre>
+<p>So here is how we generate a deck of cards:</p>
+<pre class="sourceCode r"><code class="sourceCode r">suits &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Diamonds&quot;</span>, <span class="st">&quot;Clubs&quot;</span>, <span class="st">&quot;Hearts&quot;</span>, <span class="st">&quot;Spades&quot;</span>)
+numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Ace&quot;</span>, <span class="st">&quot;Deuce&quot;</span>, <span class="st">&quot;Three&quot;</span>, <span class="st">&quot;Four&quot;</span>, <span class="st">&quot;Five&quot;</span>, <span class="st">&quot;Six&quot;</span>, <span class="st">&quot;Seven&quot;</span>, <span class="st">&quot;Eight&quot;</span>, <span class="st">&quot;Nine&quot;</span>, <span class="st">&quot;Ten&quot;</span>, <span class="st">&quot;Jack&quot;</span>, <span class="st">&quot;Queen&quot;</span>, <span class="st">&quot;King&quot;</span>)
+deck &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">number=</span>numbers, <span class="dt">suit=</span>suits)
+deck &lt;-<span class="st"> </span><span class="kw">paste</span>(deck<span class="op">$</span>number, deck<span class="op">$</span>suit)</code></pre>
+<p>With the deck constructed, we can now double check that the probability of drawing a king as the first card is 1/13. We simply compute the proportion of possible outcomes that satisfy our condition:</p>
+<pre class="sourceCode r"><code class="sourceCode r">kings &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;King&quot;</span>, suits)
+<span class="kw">mean</span>(deck <span class="op">%in%</span><span class="st"> </span>kings)</code></pre>
+<pre><code>## [1] 0.07692308</code></pre>
+<p>which is 1/13.</p>
+<p>Now, how about the conditional probability of the second card being a king given that the first was a king ? Earlier we deduced that if one king is already out of the deck and there are 51 left then this probability is 3/51.
+Let’s confirm by listing out all possible outcomes.</p>
+<p>To do this we can use the <code>permutations</code> function from the <code>gtools</code> package. This function computes, for any list of size <code>n</code>, all the different combinations we can get when we select <code>r</code> items. So here are all the ways we can chose 2 numbers from a list consisting of <code>1,2,3</code>:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gtools)
+<span class="kw">permutations</span>(<span class="dv">3</span>, <span class="dv">2</span>)</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    1    3
+## [3,]    2    1
+## [4,]    2    3
+## [5,]    3    1
+## [6,]    3    2</code></pre>
+<p>Notice that the order matters here: 3, 1 is different than 1,3. Also note that (1,1), (2,2) and (3,3) don’t appear because once we pick a number it can’t appear again.</p>
+<p>Optionally, we can add a vector. So if you want to see five random seven digit phone numbers, out of all possible phone numbers you could type:</p>
+<pre class="sourceCode r"><code class="sourceCode r">all_phone_numbers &lt;-<span class="st"> </span><span class="kw">permutations</span>(<span class="dv">10</span>, <span class="dv">7</span>, <span class="dt">v =</span> <span class="dv">0</span><span class="op">:</span><span class="dv">9</span>)
+n &lt;-<span class="st"> </span><span class="kw">nrow</span>(all_phone_numbers)
+index &lt;-<span class="st"> </span><span class="kw">sample</span>(n, <span class="dv">5</span>)
+all_phone_numbers[index,]</code></pre>
+<p>Instead of using the numbers 1 through 10, the default, it uses what we provided through <code>v</code>: the digits 0 through 9.</p>
+<p>To compute all possible ways we can chose two cards, when the order matters, we type:</p>
+<pre class="sourceCode r"><code class="sourceCode r">hands &lt;-<span class="st"> </span><span class="kw">permutations</span>(<span class="dv">52</span>, <span class="dv">2</span>, <span class="dt">v =</span> deck)</code></pre>
+<p>This is a matrix with two columns and 2652 rows. With a matrix we can get the first and second card like this:</p>
+<pre class="sourceCode r"><code class="sourceCode r">first_card &lt;-<span class="st"> </span>hands[,<span class="dv">1</span>]
+second_card &lt;-<span class="st"> </span>hands[,<span class="dv">2</span>]</code></pre>
+<p>Now the cases for which the first card was a king can be computed like this:</p>
+<pre class="sourceCode r"><code class="sourceCode r">kings &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;King&quot;</span>, suits)
+<span class="kw">sum</span>(first_card <span class="op">%in%</span><span class="st"> </span>kings)</code></pre>
+<pre><code>## [1] 204</code></pre>
+<p>To get the conditional probability we compute what fraction of these have a king in the second card:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(first_card <span class="op">%in%</span><span class="st"> </span>kings <span class="op">&amp;</span><span class="st"> </span>second_card <span class="op">%in%</span><span class="st"> </span>kings) <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(first_card <span class="op">%in%</span><span class="st"> </span>kings)</code></pre>
+<pre><code>## [1] 0.05882353</code></pre>
+<p>which is exactly 3/51 as we had already deduced. Note that the code above is equivalent to</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(first_card <span class="op">%in%</span><span class="st"> </span>kings <span class="op">&amp;</span><span class="st"> </span>second_card <span class="op">%in%</span><span class="st"> </span>kings) <span class="op">/</span><span class="st"> </span><span class="kw">mean</span>(first_card <span class="op">%in%</span><span class="st"> </span>kings)</code></pre>
+<pre><code>## [1] 0.05882353</code></pre>
+<p>which uses <code>mean</code> instead of <code>sum</code> and is an R version of</p>
+<p><span class="math display">\[
+\frac{\mbox{Pr}(A \mbox{ and } B)}{ \mbox{Pr}(A)}
+\]</span></p>
+<p>Now what if the order does not matter? For example, in Black Jack if you get an Ace and face card in the first draw it is called a <em>Natural 21</em> and you win automatically. If we want to compute the probability of this happening we want to enumerate the <em>combinations</em>, not the permutations, since the order does not matter. Note the differences:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">permutations</span>(<span class="dv">3</span>,<span class="dv">2</span>)</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    1    3
+## [3,]    2    1
+## [4,]    2    3
+## [5,]    3    1
+## [6,]    3    2</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">combinations</span>(<span class="dv">3</span>,<span class="dv">2</span>)</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    1    3
+## [3,]    2    3</code></pre>
+<p>In the second line the outcome does not include (2,1) because the (1,2) already was enumerated. Similarly for (3,1) and (3,2).</p>
+<p>So to compute the probability of a <em>Natural 21</em> in Blackjack we can do this:</p>
+<pre class="sourceCode r"><code class="sourceCode r">aces &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Ace&quot;</span>, suits)
+
+facecard &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;King&quot;</span>, <span class="st">&quot;Queen&quot;</span>, <span class="st">&quot;Jack&quot;</span>, <span class="st">&quot;Ten&quot;</span>)
+facecard &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">number =</span> facecard, <span class="dt">suit =</span> suits)
+facecard &lt;-<span class="st"> </span><span class="kw">paste</span>(facecard<span class="op">$</span>number, facecard<span class="op">$</span>suit)
+
+hands &lt;-<span class="st"> </span><span class="kw">combinations</span>(<span class="dv">52</span>, <span class="dv">2</span>, <span class="dt">v =</span> deck)
+<span class="kw">mean</span>(hands[,<span class="dv">1</span>] <span class="op">%in%</span><span class="st"> </span>aces <span class="op">&amp;</span><span class="st"> </span>hands[,<span class="dv">2</span>] <span class="op">%in%</span><span class="st"> </span>facecard)</code></pre>
+<pre><code>## [1] 0.04826546</code></pre>
+<p>Note that in the last line we assume the ace comes first. This is only because we know the way <code>combination</code> enumerates possibilities and it will list this case first. But to be safe we could have written this to get the same answer:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>((hands[,<span class="dv">1</span>] <span class="op">%in%</span><span class="st"> </span>aces <span class="op">&amp;</span><span class="st"> </span>hands[,<span class="dv">2</span>] <span class="op">%in%</span><span class="st"> </span>facecard) <span class="op">|</span><span class="st"> </span>(hands[,<span class="dv">2</span>] <span class="op">%in%</span><span class="st"> </span>aces <span class="op">&amp;</span><span class="st"> </span>hands[,<span class="dv">1</span>] <span class="op">%in%</span><span class="st"> </span>facecard))</code></pre>
+<pre><code>## [1] 0.04826546</code></pre>
+<div id="monte-carlo-example" class="section level4">
+<h4><span class="header-section-number">7.7.1.1</span> Monte Carlo Example</h4>
+<p>Instead of using <code>combinations</code> to deduce the exact probability of a Natural 21 we can use a Monte Carlo to estimate this probability. In this case we draw two cards over and over and keep track of how many 21s we get. We can use the function <code>sample</code> to draw two cards without replacement:</p>
+<pre class="sourceCode r"><code class="sourceCode r">hand &lt;-<span class="st"> </span><span class="kw">sample</span>(deck, <span class="dv">2</span>)
+hand</code></pre>
+<pre><code>## [1] &quot;Eight Spades&quot; &quot;Ten Spades&quot;</code></pre>
+<p>And then check if one card is an ace and the other a face card or a 10. Going forward we include 10 when we say <em>face card</em>. Now we need to check both possibilities:</p>
+<pre class="sourceCode r"><code class="sourceCode r">(hands[<span class="dv">1</span>] <span class="op">%in%</span><span class="st"> </span>aces <span class="op">&amp;</span><span class="st"> </span>hands[<span class="dv">2</span>] <span class="op">%in%</span><span class="st"> </span>facecard) <span class="op">|</span><span class="st"> </span>(hands[<span class="dv">2</span>] <span class="op">%in%</span><span class="st"> </span>aces <span class="op">&amp;</span><span class="st"> </span>hands[<span class="dv">1</span>] <span class="op">%in%</span><span class="st"> </span>facecard)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>If we repeat this 10,000 times, we get a very good approximation of the probability of a Natural 21.</p>
+<p>Let’s start by writing a function that draws a hand and returns TRUE if we get a 21. The function does not need any
+arguments because it uses objects defined in the global environment.</p>
+<pre class="sourceCode r"><code class="sourceCode r">blackjack &lt;-<span class="st"> </span><span class="cf">function</span>(){
+   hand &lt;-<span class="st"> </span><span class="kw">sample</span>(deck, <span class="dv">2</span>)
+  (hand[<span class="dv">1</span>] <span class="op">%in%</span><span class="st"> </span>aces <span class="op">&amp;</span><span class="st"> </span>hand[<span class="dv">2</span>] <span class="op">%in%</span><span class="st"> </span>facecard) <span class="op">|</span><span class="st"> </span>
+<span class="st">    </span>(hand[<span class="dv">2</span>] <span class="op">%in%</span><span class="st"> </span>aces <span class="op">&amp;</span><span class="st"> </span>hand[<span class="dv">1</span>] <span class="op">%in%</span><span class="st"> </span>facecard)
+}</code></pre>
+<p>Note that here we do have to check both possibilities: Ace first or Ace second because we are not using the <code>combinations</code> function. The function returns <code>TRUE</code> if we get a 21 and <code>FALSE</code> otherwise:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">blackjack</span>()</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>Now we can play this game, say, 10,000 times:</p>
+<pre class="sourceCode r"><code class="sourceCode r">B &lt;-<span class="st"> </span><span class="dv">10000</span>
+results &lt;-<span class="st"> </span><span class="kw">replicate</span>(B, <span class="kw">blackjack</span>())
+<span class="kw">mean</span>(results)</code></pre>
+<pre><code>## [1] 0.0488</code></pre>
+</div>
+</div>
+<div id="birthday-problem" class="section level3">
+<h3><span class="header-section-number">7.7.2</span> Birthday Problem</h3>
+<p>Suppose you are in a classroom with 50 people. If we assume this is a randomly selected group of 50 people, what is the chance that at least two people have the same birthday? Although it is somewhat advanced, we can deduce this mathematically. We do this later. Here we use a Monte Carlo simulation. For simplicity, we assume nobody was born on February 29. This actually doesn’t change the answer much.</p>
+<p>First note that birthdays can be represented as numbers between 1 and 365, so a sample of 50 birthdays can be obtained like this:</p>
+<pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="dv">50</span>
+bdays &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">365</span>, n, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</code></pre>
+<p>To check if in this particular set of 50 people we have at least two with the same birthday we can use the function <code>duplicated</code> which returns <code>TRUE</code> whenever an element of a vector is a duplicate. Here is an example:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">duplicated</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">5</span>))</code></pre>
+<pre><code>## [1] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE</code></pre>
+<p>The second time 1 and 3 appear we get a <code>TRUE</code>. So to check if two birthdays were the same we simply use the <code>any</code> and <code>duplicated</code> functions like this:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">any</span>(<span class="kw">duplicated</span>(bdays))</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>In this case, we see that it did happen. At least two people had the same birthday.</p>
+<pre class="sourceCode r"><code class="sourceCode r">bdays</code></pre>
+<pre><code>##  [1]  97 136 210 332  74 328 345 242 230  23  76  65 251 141 281 182 262
+## [18] 363 139 284 342  78 238  46  98 141   5 140 318 125 176 219 181  68
+## [35] 302 244 290  40 265 151 300 237 286 202 194 289   9 175 268 253</code></pre>
+</div>
+<div id="sapply-a-better-way-to-do-for-loops" class="section level3">
+<h3><span class="header-section-number">7.7.3</span> sapply: a better way to do for loops</h3>
+<p>Say we want to use this knowledge to bet with friends about two people having the same birthday in a group of people. When are the chances larger than 50%? Larger the 75%?</p>
+<p>Let’s create a look-up table.
+We can quickly create a function to compute this for any group size:</p>
+<pre class="sourceCode r"><code class="sourceCode r">same_birthday &lt;-<span class="st"> </span><span class="cf">function</span>(n){
+  bdays &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">365</span>, n, <span class="dt">replace=</span><span class="ot">TRUE</span>)
+  <span class="kw">any</span>(<span class="kw">duplicated</span>(bdays))
+}
+
+compute_prob &lt;-<span class="st"> </span><span class="cf">function</span>(n, <span class="dt">B=</span><span class="dv">10000</span>){
+  results &lt;-<span class="st"> </span><span class="kw">replicate</span>(B, <span class="kw">same_birthday</span>(n))
+  <span class="kw">mean</span>(results)
+}</code></pre>
+<p>And now we can use a for-loop to run it for several group sizes:</p>
+<pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">60</span>)</code></pre>
+<p>Now, for-loops are rarely the preferred approach in R. In general, we try to perform operations on entire vectors. Arithmetic operations, for example, operate on vectors in an element-wise fashion:</p>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>
+<span class="kw">sqrt</span>(x)</code></pre>
+<pre><code>##  [1] 1.000000 1.414214 1.732051 2.000000 2.236068 2.449490 2.645751
+##  [8] 2.828427 3.000000 3.162278</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>
+x<span class="op">*</span>y</code></pre>
+<pre><code>##  [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
+<p>No need for for-loops. But not all functions work this way. For example, the function we just wrote does not work element-wise since it is expecting a scalar (just one number). This piece of code does not run the function on each entry of <code>n</code>:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">compute_prob</span>(n)</code></pre>
+<p>The function <code>sapply</code> permits us to perform element-wise operations on any function. Here is how it works:</p>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>
+<span class="kw">sapply</span>(x, sqrt)</code></pre>
+<pre><code>##  [1] 1.000000 1.414214 1.732051 2.000000 2.236068 2.449490 2.645751
+##  [8] 2.828427 3.000000 3.162278</code></pre>
+<p>It loops through the elements of the first argument of <code>sapply</code> and sends those as values to first argument of the function specified as the second argument to <code>sapply</code>. So for our case we can simply type:</p>
+<pre class="sourceCode r"><code class="sourceCode r">prob &lt;-<span class="st"> </span><span class="kw">sapply</span>(n, compute_prob)</code></pre>
+<p>We can now make a plot of the estimated probabilities of two people having the same birthday in a group of size <span class="math inline">\(n\)</span>:</p>
+<pre class="sourceCode r"><code class="sourceCode r">prob &lt;-<span class="st"> </span><span class="kw">sapply</span>(n, compute_prob)
+<span class="kw">plot</span>(n, prob)</code></pre>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+</div>
+<div id="how-many-monte-carlo-experiments-are-enough" class="section level3">
+<h3><span class="header-section-number">7.7.4</span> How many Monte Carlo experiments are enough</h3>
+<p>In the examples above we used <span class="math inline">\(B=\)</span> 10,000 Monte Carlo experiments. It turns out that this provided very accurate estimates. But in more complex calculations, 10,000 may not be nearly enough. Also for some calculations, 10,000 experiments might not be computationally feasible. In practice we won’t know what the answer is so we won’t know if our Monte Carlo estimate is accurate. We know that the larger <span class="math inline">\(B\)</span> is, the better the approximation. But how big do we need it to be? This is actually a challenging question and answering it often requires advanced theoretical statistics training.</p>
+<p>One practical approach we will describe here is to check for the stability of the estimate. Here is an example with the birthday problem for a group of 25 people.</p>
+<pre class="sourceCode r"><code class="sourceCode r">B &lt;-<span class="st"> </span><span class="dv">10</span><span class="op">^</span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dt">len =</span> <span class="dv">100</span>)
+compute_prob &lt;-<span class="st"> </span><span class="cf">function</span>(B, <span class="dt">n=</span><span class="dv">25</span>){
+  same_day &lt;-<span class="st"> </span><span class="kw">replicate</span>(B, <span class="kw">same_birthday</span>(n))
+  <span class="kw">mean</span>(same_day)
+}
+prob &lt;-<span class="st"> </span><span class="kw">sapply</span>(B, compute_prob)
+<span class="kw">plot</span>(<span class="kw">log10</span>(B), prob, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</code></pre>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<p>In this plot we can see that the values start to stabilize, (vary less than .01), around 1000. Note that the exact probability, which we know in this case, is:</p>
+<pre class="sourceCode r"><code class="sourceCode r">exact_prob &lt;-<span class="st"> </span><span class="cf">function</span>(n){
+  prob_unique &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">365</span>,<span class="dv">365</span><span class="op">-</span>n<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">365</span> 
+  <span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">prod</span>( prob_unique)
+}
+eprob &lt;-<span class="st"> </span><span class="kw">sapply</span>(n, exact_prob)
+eprob[<span class="dv">25</span>]</code></pre>
+<pre><code>## [1] 0.5686997</code></pre>
+</div>
+<div id="addition-rule" class="section level3">
+<h3><span class="header-section-number">7.7.5</span> Addition Rule</h3>
+<p>Another way to compute the probability of a Natural 21 is to notice that it is the probability of an ace followed by a facecard or a facecard followed by an ace. Here we use the addition rule</p>
+<p><span class="math display">\[
+\mbox{Pr}(A \mbox{ or } B) = \mbox{Pr}(A) + \mbox{Pr}(B) - \mbox{Pr}(A \mbox{ and } B)
+\]</span></p>
+<p>This rule is intuitive: think of a Venn diagram. If we simply add the probabilities we count the intersection twice.
+<img src="DataSciLibArts_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<pre><code>## (polygon[GRID.polygon.1], polygon[GRID.polygon.2], polygon[GRID.polygon.3], polygon[GRID.polygon.4], text[GRID.text.5], text[GRID.text.6], text[GRID.text.7], text[GRID.text.8], text[GRID.text.9])</code></pre>
+<p>In the case of Natural 21 the intersection is empty since both hands can’t happen simultaneously. The probability of an ace followed by a face card is <span class="math inline">\(1/13 \times 16/51\)</span> and the probability of a face card followed by an ace is <span class="math inline">\(16/52 \times 4/51\)</span>. These two are actually the same which makes sense due to symmetry. In any case we get the same result using the addition rule:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">/</span><span class="dv">13</span><span class="op">*</span><span class="dv">16</span><span class="op">/</span><span class="dv">51</span> <span class="op">+</span><span class="st"> </span><span class="dv">16</span><span class="op">/</span><span class="dv">52</span><span class="op">*</span><span class="dv">4</span><span class="op">/</span><span class="dv">51</span> <span class="op">-</span><span class="st"> </span><span class="dv">0</span></code></pre>
+<pre><code>## [1] 0.04826546</code></pre>
+</div>
+<div id="monty-hall-problem" class="section level3">
+<h3><span class="header-section-number">7.7.6</span> Monty Hall Problem</h3>
+<p>In the 1970s there was a game show called “Let’s Make a Deal”. Monty Hall was the host. At some point in the game contestants were asked to pick one of three doors. Behind one door there was a prize. The other doors had a goat to show you had lost. After the contestant chose a door, Monty Hall would open one of the two remaining doors and show the contestant there was no prize. Then he would ask, “Do you want to switch doors?” What would you do?</p>
+<p>We can use probability to show that if you stick to the original door your chances of winning a prize are 1 in 3 but if you switch, your chances double to 2 in 3! This seems counterintuitive. Many people incorrectly think both chances are 1 in 2 since you are choosing between 2. You can watch a detailed explanation <a href="https://www.khanacademy.org/math/precalculus/prob-comb/dependent-events-precalc/v/monty-hall-problem">here</a> or read one <a href="https://en.wikipedia.org/wiki/Monty_Hall_problem">here</a>. Here we use a Monte Carlo simulation to see which strategy is better. Note that this code is written longer than it should be for pedagogical purposes.</p>
+<p>Let’s start with the stick strategy:</p>
+<pre class="sourceCode r"><code class="sourceCode r">B &lt;-<span class="st"> </span><span class="dv">10000</span>
+stick &lt;-<span class="st"> </span><span class="kw">replicate</span>(B, {
+  doors &lt;-<span class="st"> </span><span class="kw">as.character</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>)
+  prize &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;car&quot;</span>,<span class="st">&quot;goat&quot;</span>,<span class="st">&quot;goat&quot;</span>))
+  prize_door &lt;-<span class="st"> </span>doors[prize <span class="op">==</span><span class="st"> &quot;car&quot;</span>]
+  my_pick  &lt;-<span class="st"> </span><span class="kw">sample</span>(doors, <span class="dv">1</span>)
+  show &lt;-<span class="st"> </span><span class="kw">sample</span>(doors[<span class="op">!</span>doors <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(my_pick, prize_door)],<span class="dv">1</span>)
+  stick &lt;-<span class="st"> </span>my_pick
+  stick <span class="op">==</span><span class="st"> </span>prize_door
+})
+<span class="kw">mean</span>(stick)</code></pre>
+<pre><code>## [1] 0.3358</code></pre>
+<p>As we write the code we note that the lines starting with <code>my_pick</code> and <code>show</code> have no influence on the last logical operation. From this we should realize that the chance is 1 in 3, what we started out with.</p>
+<p>Now let’s repeat the exercise but consider the switch strategy:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">switch</span> &lt;-<span class="st"> </span><span class="kw">replicate</span>(B, {
+  doors &lt;-<span class="st"> </span><span class="kw">as.character</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>)
+  prize &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;car&quot;</span>,<span class="st">&quot;goat&quot;</span>,<span class="st">&quot;goat&quot;</span>))
+  prize_door &lt;-<span class="st"> </span>doors[prize <span class="op">==</span><span class="st"> &quot;car&quot;</span>]
+  my_pick  &lt;-<span class="st"> </span><span class="kw">sample</span>(doors, <span class="dv">1</span>)
+  show &lt;-<span class="st"> </span><span class="kw">sample</span>(doors[<span class="op">!</span>doors <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(my_pick, prize_door)], <span class="dv">1</span>)
+  stick &lt;-<span class="st"> </span>my_pick
+  <span class="cf">switch</span> &lt;-<span class="st"> </span>doors[<span class="op">!</span>doors<span class="op">%in%</span><span class="kw">c</span>(my_pick, show)]
+  <span class="cf">switch</span> <span class="op">==</span><span class="st"> </span>prize_door
+})
+<span class="kw">mean</span>(<span class="cf">switch</span>)</code></pre>
+<pre><code>## [1] 0.6695</code></pre>
+<p>The Monte Carlo estimate confirms the 2/3 calculation. This helps us gain some insight by showing that we are removing a door, <code>show</code>, that is definitely not a winner from our choices. We also see that unless we get it right when we first pick, you win: 1 - 1/3 = 2/3 of the time.</p>
+
+</div>
+</div>
+</div>
+<h3> references</h3>
+<div id="refs" class="references">
+<div id="ref-anscombe1973graphs">
+<p>Anscombe, FJ. 1973. “Graphs in Statistical Analysis.” <em>American Statistician</em> 27 (1): 17–21.</p>
+</div>
+<div id="ref-lanning1987some">
+<p>Lanning, Kevin. 1987. “Some Reasons for Distinguishing Between ‘Non-Normative Response’ and ‘Irrational Decision’.” <em>The Journal of Psychology</em> 121 (2): 109–17.</p>
+</div>
+<div id="ref-tufte2001visual">
+<p>Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information</em>. 2nd ed. Cheshire, CT: Graphics Press.</p>
+</div>
+<div id="ref-wainer2007dangerous">
+<p>Wainer, Howard. 2007. “The Most Dangerous Equation.” <em>American Scientist</em> 95 (3): 249.</p>
+</div>
+<div id="ref-hastie2010rational">
+<p>Hastie, Reid, and Robyn M Dawes. 2010. <em>Rational Choice in an Uncertain World: The Psychology of Judgment and Decision Making</em>. Sage.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="visualization-in-r-with-ggplot.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="reproducibility-and-the-replication-crisis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "sepia",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
