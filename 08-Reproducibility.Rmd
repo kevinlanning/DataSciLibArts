@@ -30,29 +30,35 @@ In recent years, the tension between **the false ideal of NHST** and the real wo
 
 Here's a video which provides some more context for the crisis: https://www.youtube.com/watch?v=42QuXLucH3Q (12 mins)
 
-## Answers to the reproducibility crisis I: On NHST
+## Answers to the reproducibility crisis I: Tweak or abandon NHST
 
-The first cluster of responses addresses problems with Null Hypothesis Significance Testing (NHST). These include (a) justifying one's alpha - making it more stringent, for example, for counter-intuitive claims [@grange2018justify], (b) changing the default p value from .05 to .005 [@benjamin2017redefine], and (c) abandon significance testing altogether [@mcshane2017abandon]. 
+The first cluster of responses addresses problems with Null Hypothesis Significance Testing (NHST). These include (a) justifying one's alpha - making it more stringent, for example, for counter-intuitive claims [@grange2018justify], (b) changing the default p value from .05 to .005 [@benjamin2017redefine], and (c) abandoning significance testing altogether [@mcshane2017abandon]. 
 
-@szucs2017null goes into some of these issues in more detail and discusses other limitations of significance testing, including the dichotomous, all-or-none silliness of the accept/reject decision.  (If you play the NHST game, there is no 'almost' significant, 'approached significance,' etc.).
+@szucs2017null goes into some of these issues in more detail and discusses other limitations of significance testing, including the dichotomous, all-or-none silliness of the accept/reject decision.  (If you play the NHST game, there is no 'almost' significant, 'approached significance,' 'highly significant', etc.).
 
 @leek2015statistics argue that the problems are not merely with NHST, but with the whole of data analysis. They maintain that better training in data science - courses like ours, perhaps, are part of the answer.
 
 ![leek2015pipeline](leek2015pipeline.PNG) (figure) 
 
-### @munafo2017manifesto also argue that threats to reproducible science occur at a number of places in science, not just with the evaluation of hypotheses. 
+#### @munafo2017manifesto also argue that threats to reproducible science occur at a number of places in science, not just with the evaluation of hypotheses. 
 
 ![munafo2017threats](munafo2017threats.PNG)
 
-## Answers to the reproducibility crisis II: Pre-registration
+## Answers to the reproducibility crisis II: Keep a log of every step of every analysis in R markdown or Jupyter notebooks
 
-The second type of response includes (d) preregistering your work [@miguel2014promoting]. There's a video here: https://www.futurelearn.com/courses/open-social-science-research/0/steps/31436 (5 mins). For randomized controlled trials, consider socialscienceregistry.org, and for more general use, use the open science framework page. Incidentally, you can post your theses after they are finished at https://thesiscommons.org.
+Let's say that you are running a study, say, which looks at the hypothesis of differential variation of females and males in a cognitive measure; your interest is to critically examine the hypothesis discussed by @wainer2007dangerous that males show more variability.
 
-garden of the forking paths
+There have been *a lot* of studies related to this over the years, so that rather than collect new data you decide that you will work with existing data from several online archives. You find and download spreadsheets from two studies: In the first, gender is coded '1' for male, '2' for female. In the second, gender is coded '1' for female, '2' for male, and '3' for other. There are, in essence, two ways that you can combine the variables into a common format: The first would be to take one of the spreadsheets and do a few find-and-replace commands on the appropriate column of the data. This is quick and easy - but when someone else, or even future you, returns to this data, you will not remember if you have recoded it.  
 
-There's a collection of papers here... https://www.nature.com/collections/prbfkwmwvz/
+The alternative is to keep a record of your work in R markdown. This is more time consuming, and can sometimes be clumsy.  But it is ~~virtuous~~ useful and clear - and when you screw up, you will have a full record of what happened. 
 
-Showing exactly what you have done and how (and why) you got there is at the core of reproducible science.  
+Part of the problem of scientific reproducibility is to keep comprehensive records. This record-keeping and research transparency is at the heart of R markdown documents, as we will see in the next chapter.
 
-### *What would results for our sample study look like? How many of these problems would it face? What should we do about it?*
+## Answers to the reproducibility crisis III: Pre-registration
+
+The third answer to the reproducibility crisis is the most comprehensive; it involves not merely keeping a record of what you have done, but preregistering your work, that is, fully specifying your planned analyses beforehand [@miguel2014promoting]. There's a five-minute video which introduces this [here](https://www.futurelearn.com/courses/open-social-science-research/0/steps/31436 ). For randomized controlled trials, consider socialscienceregistry.org, and for more general use, use the open science framework page. **Incidentally, you can post your theses after they are finished at https://thesiscommons.org.**
+
+## Further readings
+
+Finally, if you would like to learn more about the reproducibility crisis, there is a collection of papers in Nature [here](https://www.nature.com/collections/prbfkwmwvz/).
 
