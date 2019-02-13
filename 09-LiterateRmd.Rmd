@@ -10,154 +10,50 @@ output:
 
 In this part of the class we will get into the nuts and bolts of R.
 
-# Literate programming with R markdown
+# literate programming with R markdown
 
-A note from chapter 4 (coding basics): use assignment (x < - 3+4) rather than x = 3 + 4 because it is more clear.
+Showing your work, to (future) you as well as others, is a key part of reproducible science.  R Markdown documents facilitate this, as they allow you to include comments, code, and results in a single place.  But before we consider R markdown, we begin with two more elemental ideas: *scripts* (R4DS, Chapter 6) and *projects* (Chapter 8). 
 
-Showing your work - for you as well as others - is another part of reproducible science.  R Markdown documents allow you to include comments, scripts, and results in a single place. 
+## scripts are files of code
 
-We begin R4DS 6 (*Workflow: Scripts*, p. 110) which shows the R studio interface and encourages you to save your work using *scripts*. 
+We begin with R4DS Chapter 6, which shows the R studio interface and encourages you to save your work using scripts, written in the source (editor) window in the upper left quadrant of the default R studio screen. 
 
-You will save your work in *projects* - which isolate your work, setup files, etc., into different directories. (See r4ds, chapter 8). To reinforce the idea that your unit of analysis in R is "the project" rather than "the script", consider associating your Rmd filetype with your markdown editor, and only your Rproj filetype with R studio.
+Note the recommendations - for example, include packages (libraries) at the beginning of your code. One more thing - in setting up R studio, consider adjusting the "insert spaces for tab" setting to something more than 2. This will allow you to more easily see the nested structure of functions, loops, etc. - and will create a modest disincentive against making these nested structures too deep or complex:
 
-The R markdown language is discussed in R4ds, Chapter 27 (p. 505).
+![Fig 9.1: I use 4 spaces here. YMMV.](C:\Users\lanning\Dropbox\0DataSciLibArts\RStudioOptions.jpg)
 
-## A challenge
+Note, too, the [code diagnostics](https://support.rstudio.com/hc/en-us/articles/205753617-Code-Diagnostics) in R. Consider enabling all of these, including the R style diagnostics, to help you keep your code readable:
 
-Working with two of your classmates, write an R markdown document titled "The most dangerous equation?" which (a) in the introduction, discusses @wainer2007most, (b) then illustrates regression to the mean and (c) deMoivre's equation, ideally (d) using the examples of 'punishment' and 'sex differences in variability' discussed in class and the text, respectively.
+  ![Fig 9.2: Enable code diagnostics](C:\Users\lanning\Dropbox\0DataSciLibArts\codediagnostics.PNG)
 
-Prepare a presentation using Rpres which summarizes your argument and findings. Present this in class on 2/26.
+## projects are directories containing related scripts
 
-(One starting point: the aforementioned r markdown document discussing basic laws of probability at Harvard's datasciencelabs repository: https://github.com/datasciencelabs/2017/blob/master/lectures/prob/discrete-probability.Rmd. 
+You will save your work in *projects* - which isolate your data and scripts into different directories. (See r4ds, Chapter 8). To reinforce the idea that your unit of analysis in R is "the project" rather than "the script", consider associating your Rmd filetype (see next section) with your markdown editor, and only your Rproj filetype with R studio.  
 
-## r markdown 
+Soon, it is likely that you will soon be working on R for different things in parallel - for this and another class, for this class and your thesis, or perhaps for two distinct types of analysis within your thesis.  When you open up an R project, you'll be in the right directory, with the relevant files (and only the relevant files) at your fingertips in the files pane. 
 
-Goals and functions
+## R markdown documents integrate rationale, script, and results
 
- - one goal is making your work clear to others, and to a later you
+R Markdown documents allow you to include comments, scripts, and results in a single place.  The basics of R markdown are presented in Chapter 27 of R4DS.  I encourage you to use R markdown for nearly everything you do in R. 
 
-Parts
+Within R studio, open up a new R markdown document. There are as many as four parts of an R markdown document:
 
- - YAML header: Some output formats
- - Text formatted in markdown
- - R code (chunks) surrounded by code fences
- - (occasionally, inline code)
+-   A YAML (yet another markdown language) header
+-   Text formatted in markdown
+-   R code (chunks) surrounded by code fences
+-   and, occasionally, inline code
 
-See **Rmd cheatsheet (on Slack)**
+There is a handy [R Markdown cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) which can give you a sense of what R markdown is about. It describes eight steps, from "workflow" to "publish" (and a ninth, "learn more").  Don't worry about all of the detail here, but do get a sense of how it works.
 
-## univariate data
-
-kable and other approaches to generating output
-
-exercise 27.4.7 2 (https://raw.githubusercontent.com/hadley/r4ds/master/rmarkdown/diamond-sizes.Rmd)
-
-## Homework due Feb 14 (with a solution).
-
-----
-
-### "Diamond sizes" (27.4.7 - #2)
-
-This is from Hadley's book, with an initial shot at the code from Reilly.
-
-"Download diamond-sizes.Rmd from https://github.com/hadley/r4ds/tree/master/rmarkdown. Add a section that describes the largest 20 diamonds, including a table that displays their most important attributes"
-
-We copied the text of this into the present file, saving it as an 'r markdown' file.
-
-### Downloaded file block 1
-
-1) **What does this block do?**
-
-**This block loads needed libraries, then takes the diamond dataset and creates a smaller one which includes only diamonds <= 2.5 carats.** 
-
-```{r setup091, echo=TRUE, message=FALSE}
-library(ggplot2)
-library(dplyr)
-smaller <- diamonds %>% 
-  filter(carat <= 2.5)
-```
-
-### Downloaded text block
-
-2) **This section illustrates inline code.**
-
-We have data about `r nrow(diamonds)` diamonds. Only 
-`r nrow(diamonds) - nrow(smaller)` are larger than
-2.5 carats. The distribution of the remainder is shown
-below:
-
-3) **This block makes a chart, with bins of .01, showing the frequency of different size diamonds**
-
-```{r, echo = TRUE}
-smaller %>% 
-  ggplot(aes(carat)) + 
-  geom_freqpoly(binwidth = 0.01)
-```
-
-### My revised graph
-
-4) **Change 1 or more parameters of this graph to make it more useful.  Describe your changes here**
-
-**I re-binned the x axis and labeled modal values** 
-
-```{r, echo = TRUE}
-smaller %>% 
-    ggplot(aes(carat)) + 
-    geom_freqpoly(binwidth = .125) +
-    scale_x_continuous(
-        breaks = c(0, .375, .75, 1, 1.25, 1.5, 2, 3))
-    
-```
-
-### Syntax for table (kable)
-
-In class, Lanning showed how to use kable to generate a nicer looking table, of just the first five rows (observations) and columns (variables or attributes).
-
-```{r, echo = TRUE}
-smallest <- smaller [1:5,1:5]
-# smallest # this would generate an ugly table - remove the first hashtag if you don't believe me
-# str(diamonds)
-knitr::kable(smallest, 
-  caption = "Five rows and columns of the diamonds frame."
-)
-```
-
-### The assignment ... 
-
-The assignment is to 'Add a section that describes the largest 20 diamonds, including a table that displays their most important attributes'
-
-One way to do this is 
-- (a) sort the file by size [Google 'sort r data frame by a variable.'], 
-- (b) save this sorted file with just the 20 largest diamonds [see the code block above for an example], and,
-- (c) choose the most important variables [you'll have to make a judgement call here, then use the above]; then make a new table. 
-
-5) **Insert your code here**
-
-```{r, echo = TRUE}
-attach(smaller)
-rankedDiamonds<-smaller[order(-carat),]
-rankedDiamonds<-rankedDiamonds[1:20,c(1:4,7)]
-knitr::kable(rankedDiamonds, 
-  caption = "20 largest diamonds, select columns")
-```
-
-### If at first you don't succeed
-
-How hard did you try? 
-
-6) **Document that you tried for at least 30 minutes, where you looked, and what you learned in your struggles**
-
-### If you get this far
-
-Now rewrite your code in as few lines as possible. (I do NOT mean omitting comments.  Which of the above steps is necessary to answer the assignment?) 
-
-Here's one answer - using 'arrange' instead of order...
-```{r, echo = TRUE}
-knitr::kable(arrange(smaller,-carat)[1:20,c(1:4,7)])
-```
-
-Finally, generate HTML, Word, and PDF versions of this document. 
-
-8) **Are these different output formats useful for you? explain**  <- replace this line with an answer
+> Exercise 9.1:
+>
+> Working in groups, do the exercises in section 27.4.7 of R4DS.
+>
+> Begin with the R markdown file that is included at the beginning of Chapter 27. You can download it [here](https://raw.githubusercontent.com/hadley/r4ds/master/rmarkdown/diamond-sizes.Rmd).
+>
+> Study the code, and annotate it so that you have a better sense of how it works. For example, "this  block loads needed libraries, then takes the _____dataset and ___________ ."
+>
+> Play with the graph. Change one or more parameters of it to make it more useful.  Again, annotate your changes.
 
 ## What to do when you are stuck
 
@@ -169,3 +65,16 @@ Finally, generate HTML, Word, and PDF versions of this document.
 
 - document your struggle and your cleverness for a future you
 
+
+
+## appendix: a few possible data challenges
+
+As you will recall, you have the opportunity to gain extra credit in the class by successfully undertaking a data science challenge.  Here are a few possibilities:
+
+Working with two of your classmates, write an R markdown document titled "**The most dangerous equation**?" which (a) in the introduction, discusses @wainer2007most, (b) then illustrates regression to the mean and (c) deMoivre's equation, ideally (d) using the examples of 'punishment' and 'sex differences in variability' discussed in class and the text, respectively. Prepare a presentation using Rpres which summarizes your argument and findings. 
+
+Working with two or three of your classmates, write an R markdown document titled "**On the rationality of poker**." In it, you will (a) derive the probability of receiving various hands (e.g., 4 of a kind) using probability theory, (b) assess these same probabilities empirically on the basis of a Monte Carlo analysis, and (c) compare these probabilities to the order of winning hands (e.g., 4 of a kind beats a full house). Prepare a presentation using Rpres which summarizes your argument and findings. 
+
+Working with two or three of your classmates, consider **what are the most important lessons from the reproducibility crisis?**  Is, for example "transparency" (showing every part of your work) more important than "preregistration" (publicly declaring your plan of analysis in advance)? Can Null Hypothesis Significance Testing (NHST) be saved, and, if so, what is the solution?  This paper will be more scholarly than the others, but you should include code (for example, write an R markdown document which demonstrates how "p-hacking" might lead to a spurious result in a test of an initially vague hypothesis).  Again, prepare a presentation using Rpres which summarizes your argument and findings. 
+
+Now back to the elements of your R workflow.
