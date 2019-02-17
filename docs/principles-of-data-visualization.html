@@ -25,7 +25,7 @@
 <meta name="author" content="Kevin Lanning">
 
 
-<meta name="date" content="2019-02-03">
+<meta name="date" content="2019-02-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -53,7 +53,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -66,11 +66,13 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -201,7 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#continuous-probability-distributions"><i class="fa fa-check"></i><b>7.3</b> continuous probability distributions</a></li>
 <li class="chapter" data-level="7.4" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#the-most-dangerous-equation"><i class="fa fa-check"></i><b>7.4</b> the most dangerous equation</a></li>
 <li class="chapter" data-level="7.5" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#appendix-notes-on-discrete-probability"><i class="fa fa-check"></i><b>7.5</b> appendix: notes on discrete probability</a></li>
-<li class="chapter" data-level="7.6" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#discrete-probability"><i class="fa fa-check"></i><b>7.6</b> Discrete Probability</a><ul>
+<li class="chapter" data-level="7.6" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#discrete-probability-see-attribution-in-7.5"><i class="fa fa-check"></i><b>7.6</b> Discrete Probability (see attribution in 7.5)</a><ul>
 <li class="chapter" data-level="7.6.1" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#relative-frequency"><i class="fa fa-check"></i><b>7.6.1</b> Relative Frequency</a></li>
 <li class="chapter" data-level="7.6.2" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#notation"><i class="fa fa-check"></i><b>7.6.2</b> Notation</a></li>
 <li class="chapter" data-level="7.6.3" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#monte-carlo-simulations"><i class="fa fa-check"></i><b>7.6.3</b> Monte Carlo Simulations</a></li>
@@ -210,7 +212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.6.6" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#independence"><i class="fa fa-check"></i><b>7.6.6</b> Independence</a></li>
 <li class="chapter" data-level="7.6.7" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#conditional-probabilities"><i class="fa fa-check"></i><b>7.6.7</b> Conditional Probabilities</a></li>
 </ul></li>
-<li class="chapter" data-level="7.7" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#multiplication-rule"><i class="fa fa-check"></i><b>7.7</b> Multiplication rule</a><ul>
+<li class="chapter" data-level="7.7" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#multiplication-rule-see-attribution-in-7.5"><i class="fa fa-check"></i><b>7.7</b> Multiplication rule (see attribution in 7.5)</a><ul>
 <li class="chapter" data-level="7.7.1" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#combinations-and-permutations"><i class="fa fa-check"></i><b>7.7.1</b> Combinations and Permutations</a></li>
 <li class="chapter" data-level="7.7.2" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#birthday-problem"><i class="fa fa-check"></i><b>7.7.2</b> Birthday Problem</a></li>
 <li class="chapter" data-level="7.7.3" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#sapply-a-better-way-to-do-for-loops"><i class="fa fa-check"></i><b>7.7.3</b> sapply: a better way to do for loops</a></li>
@@ -220,42 +222,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html"><i class="fa fa-check"></i><b>8</b> Reproducibility and the replication crisis</a><ul>
-<li class="chapter" data-level="8.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-i-on-nhst"><i class="fa fa-check"></i><b>8.1</b> Answers to the reproducibility crisis I: On NHST</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#munafo2017manifesto-also-argue-that-threats-to-reproducible-science-occur-at-a-number-of-places-in-science-not-just-with-the-evaluation-of-hypotheses."><i class="fa fa-check"></i><b>8.1.1</b> <span class="citation">Munafò et al. (<span>2017</span>)</span> also argue that threats to reproducible science occur at a number of places in science, not just with the evaluation of hypotheses.</a></li>
-</ul></li>
-<li class="chapter" data-level="8.2" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-ii-pre-registration"><i class="fa fa-check"></i><b>8.2</b> Answers to the reproducibility crisis II: Pre-registration</a><ul>
-<li class="chapter" data-level="8.2.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#what-would-results-for-our-sample-study-look-like-how-many-of-these-problems-would-it-face-what-should-we-do-about-it"><i class="fa fa-check"></i><b>8.2.1</b> <em>What would results for our sample study look like? How many of these problems would it face? What should we do about it?</em></a></li>
-</ul></li>
+<li class="chapter" data-level="8.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-i-tweak-or-abandon-nhst"><i class="fa fa-check"></i><b>8.1</b> Answers to the reproducibility crisis I: Tweak or abandon NHST</a></li>
+<li class="chapter" data-level="8.2" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-ii-keep-a-log-of-every-step-of-every-analysis-in-r-markdown-or-jupyter-notebooks"><i class="fa fa-check"></i><b>8.2</b> Answers to the reproducibility crisis II: Keep a log of every step of every analysis in R markdown or Jupyter notebooks</a></li>
+<li class="chapter" data-level="8.3" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-iii-pre-registration"><i class="fa fa-check"></i><b>8.3</b> Answers to the reproducibility crisis III: Pre-registration</a></li>
+<li class="chapter" data-level="8.4" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#further-readings"><i class="fa fa-check"></i><b>8.4</b> Further readings</a></li>
 </ul></li>
 <li class="part"><span><b>III Part III Towards data proficiency</b></span></li>
-<li class="chapter" data-level="9" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html"><i class="fa fa-check"></i><b>9</b> Literate programming with R markdown</a><ul>
-<li class="chapter" data-level="9.1" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#a-challenge"><i class="fa fa-check"></i><b>9.1</b> A challenge</a></li>
-<li class="chapter" data-level="9.2" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#r-markdown"><i class="fa fa-check"></i><b>9.2</b> r markdown</a></li>
-<li class="chapter" data-level="9.3" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#univariate-data"><i class="fa fa-check"></i><b>9.3</b> univariate data</a></li>
-<li class="chapter" data-level="9.4" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#homework-due-feb-14-with-a-solution."><i class="fa fa-check"></i><b>9.4</b> Homework due Feb 14 (with a solution).</a><ul>
-<li class="chapter" data-level="9.4.1" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#diamond-sizes-27.4.7---2"><i class="fa fa-check"></i><b>9.4.1</b> “Diamond sizes” (27.4.7 - #2)</a></li>
-<li class="chapter" data-level="9.4.2" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#downloaded-file-block-1"><i class="fa fa-check"></i><b>9.4.2</b> Downloaded file block 1</a></li>
-<li class="chapter" data-level="9.4.3" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#downloaded-text-block"><i class="fa fa-check"></i><b>9.4.3</b> Downloaded text block</a></li>
-<li class="chapter" data-level="9.4.4" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#my-revised-graph"><i class="fa fa-check"></i><b>9.4.4</b> My revised graph</a></li>
-<li class="chapter" data-level="9.4.5" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#syntax-for-table-kable"><i class="fa fa-check"></i><b>9.4.5</b> Syntax for table (kable)</a></li>
-<li class="chapter" data-level="9.4.6" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#the-assignment"><i class="fa fa-check"></i><b>9.4.6</b> The assignment …</a></li>
-<li class="chapter" data-level="9.4.7" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#if-at-first-you-dont-succeed"><i class="fa fa-check"></i><b>9.4.7</b> If at first you don’t succeed</a></li>
-<li class="chapter" data-level="9.4.8" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#if-you-get-this-far"><i class="fa fa-check"></i><b>9.4.8</b> If you get this far</a></li>
+<li class="chapter" data-level="9" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html"><i class="fa fa-check"></i><b>9</b> literate programming with R markdown</a><ul>
+<li class="chapter" data-level="9.1" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#scripts-are-files-of-code"><i class="fa fa-check"></i><b>9.1</b> scripts are files of code</a></li>
+<li class="chapter" data-level="9.2" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#projects-are-directories-containing-related-scripts"><i class="fa fa-check"></i><b>9.2</b> projects are directories containing related scripts</a></li>
+<li class="chapter" data-level="9.3" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#r-markdown-documents-integrate-rationale-script-and-results"><i class="fa fa-check"></i><b>9.3</b> R markdown documents integrate rationale, script, and results</a></li>
+<li class="chapter" data-level="9.4" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#what-to-do-when-you-are-stuck"><i class="fa fa-check"></i><b>9.4</b> What to do when you are stuck</a></li>
+<li class="chapter" data-level="9.5" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#appendix-a-few-possible-data-challenges"><i class="fa fa-check"></i><b>9.5</b> appendix: a few possible data challenges</a></li>
 </ul></li>
-<li class="chapter" data-level="9.5" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#what-to-do-when-you-are-stuck"><i class="fa fa-check"></i><b>9.5</b> What to do when you are stuck</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html"><i class="fa fa-check"></i><b>10</b> some tidyverse tricks</a><ul>
-<li class="chapter" data-level="10.1" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html#from-sections-00-and-01"><i class="fa fa-check"></i><b>10.1</b> From sections 00 and 01:</a></li>
-<li class="chapter" data-level="10.2" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html#from-section-02---transform"><i class="fa fa-check"></i><b>10.2</b> From section 02 - Transform</a></li>
-<li class="chapter" data-level="10.3" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html#dplyr"><i class="fa fa-check"></i><b>10.3</b> Dplyr</a><ul>
-<li class="chapter" data-level="10.3.1" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html#filter"><i class="fa fa-check"></i><b>10.3.1</b> Filter</a></li>
-</ul></li>
-<li class="chapter" data-level="10.4" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html#pipe"><i class="fa fa-check"></i><b>10.4</b> Pipe</a></li>
-<li class="chapter" data-level="10.5" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html#mutate"><i class="fa fa-check"></i><b>10.5</b> Mutate</a></li>
-<li class="chapter" data-level="10.6" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html#summarizse"><i class="fa fa-check"></i><b>10.6</b> Summariz(s)e</a></li>
-<li class="chapter" data-level="10.7" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html#group-by"><i class="fa fa-check"></i><b>10.7</b> Group by</a></li>
-<li class="chapter" data-level="10.8" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html#joins"><i class="fa fa-check"></i><b>10.8</b> Joins</a></li>
-<li class="chapter" data-level="10.9" data-path="some-tidyverse-tricks.html"><a href="some-tidyverse-tricks.html#from-section-05---data-types"><i class="fa fa-check"></i><b>10.9</b> From section 05 - Data-Types</a></li>
+<li class="chapter" data-level="10" data-path="the-tidyverse.html"><a href="the-tidyverse.html"><i class="fa fa-check"></i><b>10</b> the tidyverse</a><ul>
+<li class="chapter" data-level="10.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#some-simple-principles"><i class="fa fa-check"></i><b>10.1</b> some simple principles</a></li>
+<li class="chapter" data-level="10.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#homework"><i class="fa fa-check"></i><b>10.2</b> homework</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html"><i class="fa fa-check"></i><b>11</b> Messy data: Cleaning and curation</a></li>
 <li class="chapter" data-level="12" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>12</b> references</a></li>
@@ -293,7 +275,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.2</span> Some early graphs</h2>
 <p>Visual displays of information reach back to prehistoric times; modern graphs date back, arguably, to Playfair’s 1786 <em>Political Atlas</em> - in which</p>
 <blockquote>
-<p><em>“… spatial dimensions were used to represent nonspatial, quantitative, idiographic, empirical data. Although it now seems natural to represent, for example, rising and falling imports over time as a rising and falling line, it does not seem to have been done before that time and was quite an accomplishment. Notably, in addition to the statistical line chart, Playfair at one fell swoop single-handedly invented most of the remaining forms of the statistical graphic repertoire used today-the bar chart and histogram, the surface chart, and the circle diagram or”pie chart."</em> <span class="citation">(Wainer and Thissen <a href="#ref-wainer1981graphical">1981</a>)</span></p>
+<p><em>“… spatial dimensions were used to represent nonspatial, quantitative, idiographic, empirical data. Although it now seems natural to represent, for example, rising and falling imports over time as a rising and falling line, it does not seem to have been done before that time and was quite an accomplishment. Notably, in addition to the statistical line chart, Playfair at one fell swoop single-handedly invented most of the remaining forms of the statistical graphic repertoire used today-the bar chart and histogram, the surface chart, and the circle diagram or”pie chart.&quot;</em> <span class="citation">(Wainer and Thissen <a href="#ref-wainer1981graphical">1981</a>)</span></p>
 </blockquote>
 <p><img src="playfair1786.PNG" alt="Fig 5.1: Playfair’s 1786 analysis of trade deficits." /><a href="https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march">source</a></p>
 <hr />
@@ -302,7 +284,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>The visualization depicts the size, latitude, and longitude of Napoleon’s army as they moved towards (tan line) then away (black line) from Moscow; temperature during the retreat is plotted as well. Further, vertical lines linking the temperature display to the number of troops indicate the often perilous river crossings which further decimated Napoleon’s troops). <a href="https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march">Cheng (2014)</a> decomposes the graph and provides some simpler visualizations; she also provides the following background:</p>
 <blockquote>
-<p>"<em>Czar Alexander of Russia sees that Napoleon was becoming too powerful, so he refuses to participate in this embargo [against the UK]. Angry at Czar Alexander’s decision, Napoleon gathers a massive army of over 400,000 to attack Russia in June of 1812. While Russia’s troops are not as numerous as France’s, Russia has a plan. Russian troops keep retreating as Napoleon’s troops move forward, burning everything they pass, ensuring that the French forces could not take anything from their environment. Eventually the French army follows the Russian army all the way to Moscow during October, suffering major losses from lack of food. By the time Napoleon gets to Moscow, he knows he has to retreat. As winter settles into Europe and the temperature drops, Napoleon’s troops suffer even more losses, returning to France from lack of food, disease, and weather conditions."</em></p>
+<p>&quot;<em>Czar Alexander of Russia sees that Napoleon was becoming too powerful, so he refuses to participate in this embargo [against the UK]. Angry at Czar Alexander’s decision, Napoleon gathers a massive army of over 400,000 to attack Russia in June of 1812. While Russia’s troops are not as numerous as France’s, Russia has a plan. Russian troops keep retreating as Napoleon’s troops move forward, burning everything they pass, ensuring that the French forces could not take anything from their environment. Eventually the French army follows the Russian army all the way to Moscow during October, suffering major losses from lack of food. By the time Napoleon gets to Moscow, he knows he has to retreat. As winter settles into Europe and the temperature drops, Napoleon’s troops suffer even more losses, returning to France from lack of food, disease, and weather conditions.&quot;</em></p>
 </blockquote>
 <p>Of course, the casualties and retreat of Napoleon’s army are immortalized not just in this graph, but also in Russian literature (Tolstoy’s <em>War and Peace</em>) and music (Tchaikovsky’s 1812 overture, in which five cannon shots mark the battle of Borodino and eleven more mark the arrival of Napoleon in the now-razed city of Moscow).</p>
 </div>
@@ -469,13 +451,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3> references</h3>
 <div id="refs" class="references">
 <div id="ref-wainer1981graphical">
-<p>Wainer, Howard, and David Thissen. 1981. “Graphical Data Analysis.” <em>ETS Research Report Series</em> 1981 (1): 191–241.</p>
+<p>Wainer, Howard, and David Thissen. 1981. “Graphical Data Analysis.” <em>ETS Research Report Series</em> 1981 (1). Wiley Online Library: 191–241.</p>
 </div>
 <div id="ref-donoho2015fifty">
 <p>Donoho, David. 2017. “50 Years of Data Science.” In <em>Princeton Nj, Tukey Centennial Workshop</em>.</p>
 </div>
 <div id="ref-tukey1962future">
-<p>Tukey, John W. 1962. “The Future of Data Analysis.” <em>The Annals of Mathematical Statistics</em> 33 (1): 1–67.</p>
+<p>Tukey, John W. 1962. “The Future of Data Analysis.” <em>The Annals of Mathematical Statistics</em> 33 (1). JSTOR: 1–67.</p>
 </div>
 <div id="ref-tukey1977eda">
 <p>Tukey, John W. 1977. “EDA: Exploratory Data Analysis.” <em>Reading, Mass</em>.</p>
@@ -487,28 +469,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Thies, Justus, Michael Zollhöfer, Matthias Nießner, Levi Valgaerts, Marc Stamminger, and Christian Theobalt. 2015. “Real-Time Expression Transfer for Facial Reenactment.” <em>ACM Trans. Graph.</em> 34 (6): 183–1.</p>
 </div>
 <div id="ref-slovic2013psychic">
-<p>Slovic, Paul, David Zionts, Andrew K Woods, Ryan Goodman, and Derek Jinks. 2013. “Psychic Numbing and Mass Atrocity.” <em>The Behavioral Foundations of Public Policy</em>, 126–42.</p>
+<p>Slovic, Paul, David Zionts, Andrew K Woods, Ryan Goodman, and Derek Jinks. 2013. “Psychic Numbing and Mass Atrocity.” <em>The Behavioral Foundations of Public Policy</em>. Princeton University Press. NYU School of Law, Public Law Research Paper No …, 126–42.</p>
 </div>
 <div id="ref-cox2013visualizing">
-<p>Cox, Jonathan, and Michael Lindell. 2013. “Visualizing Uncertainty in Predicted Hurricane Tracks.” <em>International Journal for Uncertainty Quantification</em> 3 (2).</p>
+<p>Cox, Jonathan, and Michael Lindell. 2013. “Visualizing Uncertainty in Predicted Hurricane Tracks.” <em>International Journal for Uncertainty Quantification</em> 3 (2). Begel House Inc.</p>
 </div>
 <div id="ref-hullman2015hypothetical">
-<p>Hullman, Jessica, Paul Resnick, and Eytan Adar. 2015. “Hypothetical Outcome Plots Outperform Error Bars and Violin Plots for Inferences About Reliability of Variable Ordering.” <em>PloS One</em> 10 (11): e0142444.</p>
+<p>Hullman, Jessica, Paul Resnick, and Eytan Adar. 2015. “Hypothetical Outcome Plots Outperform Error Bars and Violin Plots for Inferences About Reliability of Variable Ordering.” <em>PloS One</em> 10 (11). Public Library of Science: e0142444.</p>
 </div>
 <div id="ref-lanning2018data">
 <p>Lanning, Kevin. 2018. “Data Visualizations in Personality and Social Psychology: Challenges in Representing Taxonomic, Community, and Developmental Structures.”</p>
 </div>
 <div id="ref-lanning1991shared">
-<p>Lanning, Kevin, and Harrison G Gough. 1991. “Shared Variance in the California Psychological Inventory and the California Q-Set.” <em>Journal of Personality and Social Psychology</em> 60 (4): 596.</p>
+<p>Lanning, Kevin, and Harrison G Gough. 1991. “Shared Variance in the California Psychological Inventory and the California Q-Set.” <em>Journal of Personality and Social Psychology</em> 60 (4). American Psychological Association: 596.</p>
 </div>
 <div id="ref-lanning2017relationship">
-<p>Lanning, Kevin. 2017. “What Is the Relationship Between ‘Personality’ and ‘Social’ Psychologies? Network, Community, and Whole Text Analyses of the Structure of Contemporary Scholarship.” <em>Collabra: Psychology</em> 3 (1).</p>
+<p>Lanning, Kevin. 2017. “What Is the Relationship Between ‘Personality’ and ‘Social’ Psychologies? Network, Community, and Whole Text Analyses of the Structure of Contemporary Scholarship.” <em>Collabra: Psychology</em> 3 (1). The Regents of the University of California.</p>
 </div>
 <div id="ref-cleveland1985graphical">
-<p>Cleveland, William S, and Robert McGill. 1985. “Graphical Perception and Graphical Methods for Analyzing Scientific Data.” <em>Science</em> 229 (4716): 828–33.</p>
+<p>Cleveland, William S, and Robert McGill. 1985. “Graphical Perception and Graphical Methods for Analyzing Scientific Data.” <em>Science</em> 229 (4716). American Association for the Advancement of Science: 828–33.</p>
 </div>
 <div id="ref-healy2018viz">
-<p>Healy, Kieran. 2017. “Data Visualization for Social Science: A Practical Introduction with R and Ggplot2.” <a href="https://socviz.co">https://socviz.co</a>.</p>
+<p>Healy, Kieran. 2017. “Data Visualization for Social Science: A Practical Introduction with R and Ggplot2.” <a href="https://socviz.co" class="uri">https://socviz.co</a>.</p>
 </div>
 <div id="ref-wickham2016r">
 <p>Wickham, Hadley, and Garrett Grolemund. 2016. “R for Data Science.” Sebastopol, CA: O’Reilly. http://​ r4ds.​ had.​ co.​ nz.</p>

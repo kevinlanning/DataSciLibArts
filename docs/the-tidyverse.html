@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>10 the tidyverse | Data science for the liberal arts</title>
+  <meta name="description" content="Test">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="10 the tidyverse | Data science for the liberal arts" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/diffprop_cloud_250_sm.png" />
+  <meta property="og:description" content="Test" />
+  <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="10 the tidyverse | Data science for the liberal arts" />
+  
+  <meta name="twitter:description" content="Test" />
+  <meta name="twitter:image" content="images/diffprop_cloud_250_sm.png" />
+
+<meta name="author" content="Kevin Lanning">
+
+
+<meta name="date" content="2019-02-17">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="literate-programming-with-r-markdown.html">
+<link rel="next" href="messy-data-cleaning-and-curation.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Science for the Liberal Arts</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="" data-path="an-invitation.html"><a href="an-invitation.html"><i class="fa fa-check"></i>an invitation</a><ul>
+<li class="chapter" data-level="" data-path="an-invitation.html"><a href="an-invitation.html#what-will-be-in-the-class"><i class="fa fa-check"></i>what will be in the class?</a></li>
+<li class="chapter" data-level="" data-path="an-invitation.html"><a href="an-invitation.html#should-you-enroll"><i class="fa fa-check"></i>should you enroll?</a></li>
+</ul></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html"><i class="fa fa-check"></i><b>1</b> data science for the liberal arts</a><ul>
+<li class="chapter" data-level="1.1" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#type-c-data-science-data-science-for-the-liberal-arts"><i class="fa fa-check"></i><b>1.1</b> type C data science = data science for the liberal arts</a></li>
+<li class="chapter" data-level="1.2" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#the-incompleteness-of-the-data-science-venn-diagram"><i class="fa fa-check"></i><b>1.2</b> the incompleteness of the data science Venn diagram</a></li>
+<li class="chapter" data-level="1.3" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#a-dimension-of-depth"><i class="fa fa-check"></i><b>1.3</b> a dimension of depth</a></li>
+<li class="chapter" data-level="1.4" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#google-and-the-liberal-arts"><i class="fa fa-check"></i><b>1.4</b> Google and the liberal arts</a></li>
+<li class="chapter" data-level="1.5" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#data-sci-and-tmi"><i class="fa fa-check"></i><b>1.5</b> data sci and TMI</a></li>
+<li class="chapter" data-level="1.6" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#discussion-what-will-you-do-with-data-science"><i class="fa fa-check"></i><b>1.6</b> discussion: what will you do with data science?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>2</b> getting started</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-started.html"><a href="getting-started.html#are-you-already-a-programmer-and-statistician"><i class="fa fa-check"></i><b>2.1</b> are you already a programmer and statistician?</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started.html"><a href="getting-started.html#setting-up-your-machine-some-basic-tools"><i class="fa fa-check"></i><b>2.2</b> setting up your machine: some basic tools</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started.html"><a href="getting-started.html#discussion-who-deserves-a-good-grade"><i class="fa fa-check"></i><b>2.3</b> discussion: who deserves a good grade?</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html"><i class="fa fa-check"></i><b>3</b> an introduction to R</a><ul>
+<li class="chapter" data-level="3.1" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#some-other-things-that-r-stands-for"><i class="fa fa-check"></i><b>3.1</b> some other things that R stands for</a></li>
+<li class="chapter" data-level="3.2" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#a-few-characteristics-of-r"><i class="fa fa-check"></i><b>3.2</b> a few characteristics of R</a></li>
+<li class="chapter" data-level="3.3" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#finding-help"><i class="fa fa-check"></i><b>3.3</b> finding help</a></li>
+<li class="chapter" data-level="3.4" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#wickham-and-r-for-data-science"><i class="fa fa-check"></i><b>3.4</b> Wickham and R for Data Science</a></li>
+<li class="chapter" data-level="3.5" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#discussion-is-open-source-software-secure"><i class="fa fa-check"></i><b>3.5</b> discussion: is open-source software secure?</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html"><i class="fa fa-check"></i><b>4</b> now draw the rest of the owl</a><ul>
+<li class="chapter" data-level="4.1" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#carmichael"><i class="fa fa-check"></i><b>4.1</b> Carmichael</a></li>
+<li class="chapter" data-level="4.2" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#datacamp"><i class="fa fa-check"></i><b>4.2</b> DataCamp</a></li>
+<li class="chapter" data-level="4.3" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#swirl-swirlstats"><i class="fa fa-check"></i><b>4.3</b> Swirl (Swirlstats)</a></li>
+<li class="chapter" data-level="4.4" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#peng-text-and-videos"><i class="fa fa-check"></i><b>4.4</b> Peng text and videos</a></li>
+<li class="chapter" data-level="4.5" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#something-else"><i class="fa fa-check"></i><b>4.5</b> Something else</a></li>
+<li class="chapter" data-level="4.6" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#exercise"><i class="fa fa-check"></i><b>4.6</b> Exercise</a></li>
+</ul></li>
+<li class="part"><span><b>II Part II Towards data literacy</b></span></li>
+<li class="chapter" data-level="5" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html"><i class="fa fa-check"></i><b>5</b> Principles of data visualization</a><ul>
+<li class="chapter" data-level="5.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#some-opening-thoughts"><i class="fa fa-check"></i><b>5.1</b> Some opening thoughts</a></li>
+<li class="chapter" data-level="5.2" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#some-early-graphs"><i class="fa fa-check"></i><b>5.2</b> Some early graphs</a></li>
+<li class="chapter" data-level="5.3" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#tukey-and-eda"><i class="fa fa-check"></i><b>5.3</b> Tukey and EDA</a></li>
+<li class="chapter" data-level="5.4" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#approaches-to-graphs"><i class="fa fa-check"></i><b>5.4</b> Approaches to graphs</a></li>
+<li class="chapter" data-level="5.5" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#tufte-first-principles"><i class="fa fa-check"></i><b>5.5</b> Tufte: First principles</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#the-cost-of-poor-design-i-space-shuttle-challenger"><i class="fa fa-check"></i><b>5.5.1</b> The cost of poor design I: Space Shuttle Challenger</a></li>
+<li class="chapter" data-level="5.5.2" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#the-cost-of-poor-design-ii-an-uninformed-or-misinformed-world."><i class="fa fa-check"></i><b>5.5.2</b> The cost of poor design II: An uninformed or misinformed world.</a></li>
+<li class="chapter" data-level="5.5.3" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#should-graphs-begin-with-psychological-theory"><i class="fa fa-check"></i><b>5.5.3</b> Should graphs begin with psychological theory?</a></li>
+<li class="chapter" data-level="5.5.4" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#the-power-of-animation"><i class="fa fa-check"></i><b>5.5.4</b> The power of animation</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#telling-the-truth-when-the-truth-is-unclear"><i class="fa fa-check"></i><b>5.6</b> Telling the truth, when the truth is unclear</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#animated-approaches"><i class="fa fa-check"></i><b>5.6.1</b> Animated approaches</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#a-supplement-code-for-asymmetrical-eulervenn-diagrams"><i class="fa fa-check"></i><b>5.7</b> a supplement: Code for Asymmetrical Euler/Venn diagrams</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#setup"><i class="fa fa-check"></i><b>5.7.1</b> setup</a></li>
+<li class="chapter" data-level="5.7.2" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#cpi--cq"><i class="fa fa-check"></i><b>5.7.2</b> CPI- CQ</a></li>
+<li class="chapter" data-level="5.7.3" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#scholarly-communities"><i class="fa fa-check"></i><b>5.7.3</b> scholarly communities</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#further-reading-and-resources"><i class="fa fa-check"></i><b>5.8</b> further reading and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html"><i class="fa fa-check"></i><b>6</b> visualization in R with ggplot</a><ul>
+<li class="chapter" data-level="6.1" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#picture-words-numbers"><i class="fa fa-check"></i><b>6.1</b> picture &gt; (words, numbers)?</a></li>
+<li class="chapter" data-level="6.2" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#your-ggplots"><i class="fa fa-check"></i><b>6.2</b> your ggplots</a></li>
+<li class="chapter" data-level="6.3" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#facets---displaying-the-anscombe-data"><i class="fa fa-check"></i><b>6.3</b> facets - displaying the Anscombe data</a></li>
+<li class="chapter" data-level="6.4" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#exploring-more-data"><i class="fa fa-check"></i><b>6.4</b> exploring more data</a></li>
+<li class="chapter" data-level="6.5" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#r-is-the-bomb"><i class="fa fa-check"></i><b>6.5</b> R is the bomb</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html"><i class="fa fa-check"></i><b>7</b> on probability and statistics</a><ul>
+<li class="chapter" data-level="7.1" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#on-probability"><i class="fa fa-check"></i><b>7.1</b> on probability</a></li>
+<li class="chapter" data-level="7.2" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#the-rules-of-probability"><i class="fa fa-check"></i><b>7.2</b> the rules of probability</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#keeping-conditional-probabilities-straight"><i class="fa fa-check"></i><b>7.2.1</b> keeping conditional probabilities straight</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#continuous-probability-distributions"><i class="fa fa-check"></i><b>7.3</b> continuous probability distributions</a></li>
+<li class="chapter" data-level="7.4" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#the-most-dangerous-equation"><i class="fa fa-check"></i><b>7.4</b> the most dangerous equation</a></li>
+<li class="chapter" data-level="7.5" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#appendix-notes-on-discrete-probability"><i class="fa fa-check"></i><b>7.5</b> appendix: notes on discrete probability</a></li>
+<li class="chapter" data-level="7.6" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#discrete-probability-see-attribution-in-7.5"><i class="fa fa-check"></i><b>7.6</b> Discrete Probability (see attribution in 7.5)</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#relative-frequency"><i class="fa fa-check"></i><b>7.6.1</b> Relative Frequency</a></li>
+<li class="chapter" data-level="7.6.2" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#notation"><i class="fa fa-check"></i><b>7.6.2</b> Notation</a></li>
+<li class="chapter" data-level="7.6.3" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#monte-carlo-simulations"><i class="fa fa-check"></i><b>7.6.3</b> Monte Carlo Simulations</a></li>
+<li class="chapter" data-level="7.6.4" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#with-and-without-replacement"><i class="fa fa-check"></i><b>7.6.4</b> With and without replacement</a></li>
+<li class="chapter" data-level="7.6.5" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#probability-distributions"><i class="fa fa-check"></i><b>7.6.5</b> Probability Distributions</a></li>
+<li class="chapter" data-level="7.6.6" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#independence"><i class="fa fa-check"></i><b>7.6.6</b> Independence</a></li>
+<li class="chapter" data-level="7.6.7" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#conditional-probabilities"><i class="fa fa-check"></i><b>7.6.7</b> Conditional Probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#multiplication-rule-see-attribution-in-7.5"><i class="fa fa-check"></i><b>7.7</b> Multiplication rule (see attribution in 7.5)</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#combinations-and-permutations"><i class="fa fa-check"></i><b>7.7.1</b> Combinations and Permutations</a></li>
+<li class="chapter" data-level="7.7.2" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#birthday-problem"><i class="fa fa-check"></i><b>7.7.2</b> Birthday Problem</a></li>
+<li class="chapter" data-level="7.7.3" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#sapply-a-better-way-to-do-for-loops"><i class="fa fa-check"></i><b>7.7.3</b> sapply: a better way to do for loops</a></li>
+<li class="chapter" data-level="7.7.4" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#how-many-monte-carlo-experiments-are-enough"><i class="fa fa-check"></i><b>7.7.4</b> How many Monte Carlo experiments are enough</a></li>
+<li class="chapter" data-level="7.7.5" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#addition-rule"><i class="fa fa-check"></i><b>7.7.5</b> Addition Rule</a></li>
+<li class="chapter" data-level="7.7.6" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#monty-hall-problem"><i class="fa fa-check"></i><b>7.7.6</b> Monty Hall Problem</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html"><i class="fa fa-check"></i><b>8</b> Reproducibility and the replication crisis</a><ul>
+<li class="chapter" data-level="8.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-i-tweak-or-abandon-nhst"><i class="fa fa-check"></i><b>8.1</b> Answers to the reproducibility crisis I: Tweak or abandon NHST</a></li>
+<li class="chapter" data-level="8.2" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-ii-keep-a-log-of-every-step-of-every-analysis-in-r-markdown-or-jupyter-notebooks"><i class="fa fa-check"></i><b>8.2</b> Answers to the reproducibility crisis II: Keep a log of every step of every analysis in R markdown or Jupyter notebooks</a></li>
+<li class="chapter" data-level="8.3" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-iii-pre-registration"><i class="fa fa-check"></i><b>8.3</b> Answers to the reproducibility crisis III: Pre-registration</a></li>
+<li class="chapter" data-level="8.4" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#further-readings"><i class="fa fa-check"></i><b>8.4</b> Further readings</a></li>
+</ul></li>
+<li class="part"><span><b>III Part III Towards data proficiency</b></span></li>
+<li class="chapter" data-level="9" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html"><i class="fa fa-check"></i><b>9</b> literate programming with R markdown</a><ul>
+<li class="chapter" data-level="9.1" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#scripts-are-files-of-code"><i class="fa fa-check"></i><b>9.1</b> scripts are files of code</a></li>
+<li class="chapter" data-level="9.2" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#projects-are-directories-containing-related-scripts"><i class="fa fa-check"></i><b>9.2</b> projects are directories containing related scripts</a></li>
+<li class="chapter" data-level="9.3" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#r-markdown-documents-integrate-rationale-script-and-results"><i class="fa fa-check"></i><b>9.3</b> R markdown documents integrate rationale, script, and results</a></li>
+<li class="chapter" data-level="9.4" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#what-to-do-when-you-are-stuck"><i class="fa fa-check"></i><b>9.4</b> What to do when you are stuck</a></li>
+<li class="chapter" data-level="9.5" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#appendix-a-few-possible-data-challenges"><i class="fa fa-check"></i><b>9.5</b> appendix: a few possible data challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="the-tidyverse.html"><a href="the-tidyverse.html"><i class="fa fa-check"></i><b>10</b> the tidyverse</a><ul>
+<li class="chapter" data-level="10.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#some-simple-principles"><i class="fa fa-check"></i><b>10.1</b> some simple principles</a></li>
+<li class="chapter" data-level="10.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#homework"><i class="fa fa-check"></i><b>10.2</b> homework</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html"><i class="fa fa-check"></i><b>11</b> Messy data: Cleaning and curation</a></li>
+<li class="chapter" data-level="12" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>12</b> references</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data science for the liberal arts</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="the-tidyverse" class="section level1">
+<h1><span class="header-section-number">10</span> the tidyverse</h1>
+<blockquote>
+<p><em>The tidyverse is an opinionated collection of R packages designed for data science -</em> <a href="https://www.tidyverse.org/" class="uri">https://www.tidyverse.org/</a></p>
+</blockquote>
+<p>R had its origins in S, a system designed for engineers at Bell Labs. This audience meant that R would be more accessible to those with programming backgrounds, more aimed at “developers” than users approaching data science from an applied or statistical perspective than one in programming. As the popularity of R increased, it would become more flexible and versatile for these power users, but there was less progress in making R accessible to and tailored for data scientists. To this day, “base-R” is, for most users, more challenging than SPSS or Stata. The <strong>tidyverse</strong> was born partly to address these issues <span class="citation">(Peng <a href="#ref-peng2018teaching">n.d.</a>)</span>.</p>
+<p>The tidyverse is a growing set of interconnected packages which share a common syntax; it is the dialect of R we are using here. More precisely,</p>
+<blockquote>
+<p><em>…the tidyverse is a lucid collection of R packages offering data science solutions in the areas of data manipulation, exploration, and visualization that share a common design philosophy. It was created by R industry luminary Hadley Wickham, the chief scientist behind <a href="https://www.rstudio.com/">RStudio</a>. R packages in the tidyverse are intended to make statisticians and data scientists more productive. Packages guide them through workflows that facilitate communication and result in reproducible work products. The tidyverse essentially focuses on the interconnections of the tools that make the workflow possible [gutierrez2018tidyverse].</em></p>
+</blockquote>
+<p>The workflow is one that you have seen here and in R4DS. In this 2017 slide, the main processes of data analysis are accompanied by the packages in the tidyverse. (As of 2019, there have been a few small changes in the packages associated with modeling). All of these are installed on your computer with install.packages(“tidyverse”), but only those in bold are loaded into memory when you issue the command library(tidyverse):</p>
+<div class="figure">
+<img src="tidyworld.PNG" alt="Fig 10.1: Schematic of the tidyverse. From Wickham’s 2017 rstudio:conf keynote" />
+<p class="caption">Fig 10.1: Schematic of the tidyverse. From Wickham’s 2017 rstudio:conf keynote</p>
+</div>
+<div id="some-simple-principles" class="section level2">
+<h2><span class="header-section-number">10.1</span> some simple principles</h2>
+<ol style="list-style-type: decimal">
+<li><strong>search for tidyverse solutions.</strong> When you have a problem in your code, for example, “how do I compute the mean for different groups of a variable,” search for <em>R mean groups tidyverse</em>, not just <em>R mean groups.</em> This will get you in the habit of working with tidy solutions where they can be found.</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+mtcars <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(cyl) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(disp), <span class="dt">n =</span> <span class="kw">n</span>())</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><p><strong>talk the talk</strong>. Recognize that <strong>%&gt;%</strong> (the pipe) means <strong>then.</strong> Statements with pipes begin with data, may include <strong>queries</strong> (extract, combine, arrange), and finish with a <strong>command.</strong></p></li>
+<li><p><strong>annotate your work</strong>. Assume that you will come back to it at a later date, while working on a different project, and use portions of your current code. Your R markdown documents should be a log. When you run in to a significant, challenging problem, don’t delete your mistakes, but ## comment them out.</p></li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gapminder)
+b &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span>
+## when should you comment out an error
+## instead of deleting it? for me, I&#39;ll 
+## comment out errors that took me a long time 
+## to solve, and/or that I&#39;ll learn from. 
+## Probably not here, in other words...
+##  filter(lifeExp) &gt; 70 bad parens
+<span class="st">    </span><span class="kw">filter</span>(lifeExp <span class="op">&gt;</span><span class="st"> </span><span class="dv">70</span>)</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li><p><strong>work with tidy data.</strong> Make each row an observation, and each column a variable. Complex data sets, such as samples of text, become much more manageable when reduced to simple arrays.</p></li>
+<li><p><strong>write functions.</strong> If you repeat a section of code, rewrite it as a function. (We’ll come back to this later).</p></li>
+<li><p><strong>adhere to good coding style.</strong> Well-written code is reasonably parsimonious, readable, and easily debugged. There are a few style manuals for R, including one from <a href="http://adv-r.had.co.nz/Style.html">Hadley</a>, and this [Rchaeological Commentary] (<a href="https://cran.r-project.org/web/packages/rockchalk/vignettes/Rstyle.pdf" class="uri">https://cran.r-project.org/web/packages/rockchalk/vignettes/Rstyle.pdf</a>).</p></li>
+<li><p><strong>but maintain perspective.</strong> Your need to solve problems (how to analyze x, etc.) should not take a back seat to your desire to write the best code. There is almost always a better way to do things. Strive reasonably to accomplish this, but be prepared to kludge.</p></li>
+</ol>
+</div>
+<div id="homework" class="section level2">
+<h2><span class="header-section-number">10.2</span> homework</h2>
+<p>This is drawn from a 2017 day-long workshop by Wickham on <a href="https://github.com/hadley/data-science-in-tidyverse">Data Science in the Tidyverse</a>. If you get stuck, take a look at that, or study the slides in Wickham’s 2019 American Statistical Association keynote, which can be found <a href="https://speakerdeck.com/hadley/welcome-to-the-tidyverse">here</a>.</p>
+<p>Work with the Gapminder data, find something interesting in it, and report it in an R markdown document. Your code should include pipes, a filter command, and a mutate command. The last of these is included in the line that follows. (What would you expect this to do?)</p>
+<pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">size =</span> <span class="kw">ifelse</span>(pop <span class="op">&lt;</span><span class="st"> </span><span class="fl">10e06</span>, <span class="st">&quot;small&quot;</span>, <span class="st">&quot;large&quot;</span>))</code></pre>
+
+</div>
+</div>
+<h3> references</h3>
+<div id="refs" class="references">
+<div id="ref-peng2018teaching">
+<p>Peng, Roger. n.d. “Teaching R to New Users - from Tapply to the Tidyverse.” Accessed February 1, 2019. <a href="https://simplystatistics.org/2018/07/12/use-r-keynote-2018/" class="uri">https://simplystatistics.org/2018/07/12/use-r-keynote-2018/</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="literate-programming-with-r-markdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="messy-data-cleaning-and-curation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "sepia",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

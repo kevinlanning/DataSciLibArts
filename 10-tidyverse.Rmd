@@ -1,5 +1,5 @@
 ---
-title: "11-tidyverse"
+title: "10-tidyverse"
 author: "Kevin Lanning"
 date: "`r Sys.Date()`"
 output:
@@ -7,163 +7,60 @@ output:
   html_document: default
 ---
 
-# some tidyverse tricks
+# the tidyverse
 
+>   *The tidyverse is an opinionated collection of R packages designed for data science -* https://www.tidyverse.org/
 
+R had its origins in S, a system designed for engineers at Bell Labs. This audience meant that R would be more accessible to those with programming backgrounds, more aimed at "developers" than users approaching data science from an applied or statistical perspective than one in programming.  As the popularity of R increased, it would become more flexible and versatile for these power users, but there was less progress in making R accessible to and tailored for data scientists. To this day, "base-R" is, for most users, more challenging than SPSS or Stata. The **tidyverse** was born partly to address these issues [@peng2018teaching]. 
 
-"Excerpts from *Data Science in the Tidyverse*" - Sections 0 - 2
-<!-- 
-This file Creative Commons Attribution 4.0 International License. 
-See details at https://github.com/hadley/data-science-in-tidyverse 
--->
+The tidyverse is a growing set of interconnected packages which share a common syntax; it is the dialect of R we are using here. More precisely, 
 
-## From sections 00 and 01:
+>   *...the tidyverse is a lucid collection of R packages offering data science solutions in the areas of data manipulation, exploration, and visualization that share a common design philosophy. It was created by R industry luminary Hadley Wickham, the chief scientist behind [RStudio](https://www.rstudio.com/). R packages in the tidyverse are intended to make statisticians and data scientists more productive. Packages guide them through workflows that facilitate communication and result in reproducible work products. The tidyverse essentially focuses on the interconnections of the tools that make the workflow possible [gutierrez2018tidyverse].*
 
-Setup chunk will run any time any chunk is run. 
+The workflow is one that you have seen here and in R4DS. In this 2017 slide, the main processes of data analysis are accompanied by the packages in the tidyverse.  (As of 2019, there have been a few small changes in the packages associated with modeling). All of these are installed on your computer with install.packages("tidyverse"), but only those in bold are loaded into memory when you issue the command library(tidyverse):
 
-Do you get an error? Can you fix it? 
+![Fig 10.1: Schematic of the tidyverse. From Wickham's 2017 rstudio:conf keynote](tidyworld.PNG)
 
-```{r setup0312} 
+## some simple principles
+
+1) **search for tidyverse solutions.** When you have a problem in your code, for example, "how do I compute the mean for different groups of a variable," search for *R mean groups tidyverse*, not just *R mean groups.* This will get you in the habit of working with tidy solutions where they can be found. 
+```{r echo=TRUE, results="hide", message=FALSE}
 library(tidyverse)
+mtcars %>%
+  group_by(cyl) %>%
+  summarise(mean = mean(disp), n = n())
+```
+
+2) **talk the talk**. Recognize that **%>%** (the pipe) means **then.** Statements with pipes begin with data, may include **queries** (extract, combine, arrange), and finish with a **command.**  
+
+3) **annotate your work**. Assume that you will come back to it at a later date, while working on a different project, and use portions of your current code. Your R markdown documents should be a log.  When you run in to a significant, challenging problem, don't delete your mistakes, but ## comment them out.   
+```{r echo=TRUE, results="hide", message=FALSE}
 library(gapminder)
+b <- gapminder %>% 
+## when should you comment out an error
+## instead of deleting it? for me, I'll 
+## comment out errors that took me a long time 
+## to solve, and/or that I'll learn from. 
+## Probably not here, in other words...
+##  filter(lifeExp) > 70 bad parens
+    filter(lifeExp > 70)
 ```
 
-Simple plot syntax
+4) **work with tidy data.** Make each row an observation, and each column a variable. Complex data sets, such as samples of text, become much more manageable when reduced to simple arrays.
 
-```{r plot}
-ggplot(data = mpg) +
-  geom_point(mapping = aes(x = displ, y = hwy))
-```
+5) **write functions.** If you repeat a section of code, rewrite it as a function. (We'll come back to this later).
 
+6) **adhere to good coding style.** Well-written code is reasonably parsimonious, readable, and easily debugged. There are a few style manuals for R, including one from [Hadley](http://adv-r.had.co.nz/Style.html), and this [Rchaeological Commentary] (https://cran.r-project.org/web/packages/rockchalk/vignettes/Rstyle.pdf). 
 
-## From section 02 - Transform
+7) **but maintain perspective.** Your need to solve problems (how to analyze x, etc.) should not take a back seat to your desire to write the best code.  There is almost always a better way to do things. Strive reasonably to accomplish this, but be prepared to kludge.
 
-Here's Gapminder data (summarized in the Hans Rosling video). We'll play with it a little. 
+## homework
 
+This is drawn from a 2017 day-long workshop by Wickham on [Data Science in the Tidyverse](https://github.com/hadley/data-science-in-tidyverse). If you get stuck, take a look at that, or study the slides in Wickham's 2019 American Statistical Association keynote, which can be found [here](https://speakerdeck.com/hadley/welcome-to-the-tidyverse).
 
-```{r gapminder}
-gapminder
-```
-
-
-## Dplyr
-
-### Filter
-
-1) Use filter to show the data for United States. (Here and in the following sections, Remove the octothorpe and replace the three dots with your own code.)
-
-```{r filterUS}
-# filter(gapminder...)
-```
-
-2) Same for NZ after 2000
-
-```{r filterNZ2000}
-# filter(gapminder...)
-```
-
-## Pipe
-
-The pipe allows us to chain multiple operations, 
-
-## Mutate
-
-... while mutate creates new variables.
-
-What would you expect this to do? (There's one way to find out!)
-
+Work with the Gapminder data, find something interesting in it, and report it in an R markdown document. Your code should include pipes, a filter command, and a mutate command. The last of these is included in the line that follows. (What would you expect this to do?)
+```{r echo=TRUE, results="hide", message=FALSE}
 gapminder %>% 
   mutate(size = ifelse(pop < 10e06, "small", "large"))
-
-```{r mutateWhat}
-# gapminder 
-
 ```
-Now use the pipe and mutate to create a new variable of your own that describes something meaningful in the dataset.
-
-Describe it here:
-
-```{r myMutate}
-# gapminder 
-
-```
-
-## Summariz(s)e
-
-Reduces a variable to one or more values.
-
-Use summarise() to compute the earliest (minimum) year in the dataset
-
-```{r summarize}
-# gapminder 
-```
-
-## Group by
-
-Summarize is really useful with group by, and group by is really useful for categorical variables. 
-
-Find the median life expectancy by continent in 2007, or another comparison between groups (such as continent or year).
-
-```{r summarizeGroups}
-# gapminder 
-```
-
-## Joins
-
-You often need to combine different datasets.
-
-One way is to add new rows (observations) for your current set of variables.
-
-Another is to add new columns (measures or variables) for your current set of observations.
-
-Consider the following...
-
-```{r}
-country_codes
-```
-
-We can combine it with the gapminder data using a version of join, for example, ...
-
-```{r}
-gapminder %>% left_join(country_codes)
-```
-
-Note that join is smart enough to match the two files on the variable they share...
-
-Excerpts from *Data Science in the Tidyverse* - Sections 5
-
-Note the fivethirtyeight package.  Install, open, and play with it as you would a birthday present.
-
-```{r setup0314} 
-library(tidyverse)
-library(lubridate)
-library(fivethirtyeight)
-```
-
-## From section 05 - Data-Types
-
-Find and open the General Social Survey data. 
-
-Find the average hours of tv watched (`tvhours`) for each category of marital status (`marital`).
-
-```{r tvMarriage}
-# why doesn't this work?
-#div <- filter(gss_cat, marital=="Divorced")
-#div
-#x = div[3]
-#x <- as.numeric(x[[1]])
-#mean(x)
-# one method
-(by_marital <- group_by(gss_cat, marital))
-summarise(by_marital, avetvhours = mean(tvhours, na.rm = TRUE))
-
-# pipe method
-gss_cat%>%
-  group_by(marital) %>%
-    summarise(means=mean(tvhours,na.rm=TRUE))
-# gss_cat
-# etc
-```
-
-How did you handle missing values?
 

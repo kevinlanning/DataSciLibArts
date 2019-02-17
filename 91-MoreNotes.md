@@ -1,5 +1,31 @@
 
 
+If you get stuck,  
+
+## Summariz(s)e
+
+Reduces a variable to one or more values.
+
+Use summarise() to compute the earliest (minimum) year in the dataset
+
+```{r summarize}
+# gapminder 
+```
+
+## Group by
+
+Summarize is really useful with group by, and group by is really useful for categorical variables. 
+
+Find the median life expectancy by continent in 2007, or another comparison between groups (such as continent or year).
+
+```{r summarizeGroups}
+# gapminder 
+```
+
+
+
+
+
 Find one feature of it, and write code which shows how it works.
 
 1. Work in your source window. On the first line, enter the command to install the tidyverse. (If you already have done this, you can comment out the command ...)
@@ -20,7 +46,68 @@ kable and other approaches to generating output
 
 exercise 27.4.7 2 (https://raw.githubusercontent.com/hadley/r4ds/master/rmarkdown/diamond-sizes.Rmd)
 
-## Homework due Feb 14 (with a solution).
+## 
+
+## Joins
+
+You often need to combine different datasets.
+
+One way is to add new rows (observations) for your current set of variables.
+
+Another is to add new columns (measures or variables) for your current set of observations.
+
+Consider the following...
+
+```{r}
+country_codes
+```
+
+We can combine it with the gapminder data using a version of join, for example, ...
+
+```{r}
+gapminder %>% left_join(country_codes)
+```
+
+Note that join is smart enough to match the two files on the variable they share...
+
+Excerpts from *Data Science in the Tidyverse* - Sections 5
+
+Note the fivethirtyeight package.  Install, open, and play with it as you would a birthday present.
+
+```{r setup0314} 
+library(tidyverse)
+library(lubridate)
+library(fivethirtyeight)
+```
+
+## From section 05 - Data-Types
+
+Find and open the General Social Survey data. 
+
+Find the average hours of tv watched (`tvhours`) for each category of marital status (`marital`).
+
+```{r tvMarriage}
+# why doesn't this work?
+#div <- filter(gss_cat, marital=="Divorced")
+#div
+#x = div[3]
+#x <- as.numeric(x[[1]])
+#mean(x)
+# one method
+(by_marital <- group_by(gss_cat, marital))
+summarise(by_marital, avetvhours = mean(tvhours, na.rm = TRUE))
+
+# pipe method
+gss_cat%>%
+  group_by(marital) %>%
+    summarise(means=mean(tvhours,na.rm=TRUE))
+# gss_cat
+# etc
+```
+
+How did you handle missing values?
+
+Homework due Feb 14 (with a solution).
 
 ------
 
