@@ -25,7 +25,7 @@
 <meta name="author" content="Kevin Lanning">
 
 
-<meta name="date" content="2019-02-17">
+<meta name="date" content="2019-02-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -53,7 +53,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -66,13 +66,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -239,7 +237,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#some-simple-principles"><i class="fa fa-check"></i><b>10.1</b> some simple principles</a></li>
 <li class="chapter" data-level="10.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#homework"><i class="fa fa-check"></i><b>10.2</b> homework</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html"><i class="fa fa-check"></i><b>11</b> Messy data: Cleaning and curation</a></li>
+<li class="chapter" data-level="11" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html"><i class="fa fa-check"></i><b>11</b> Messy data: Cleaning and curation</a><ul>
+<li class="chapter" data-level="11.1" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html#finding-data"><i class="fa fa-check"></i><b>11.1</b> finding data</a></li>
+</ul></li>
 <li class="chapter" data-level="12" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>12</b> references</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -266,7 +266,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p><em>The tidyverse is an opinionated collection of R packages designed for data science -</em> <a href="https://www.tidyverse.org/" class="uri">https://www.tidyverse.org/</a></p>
 </blockquote>
-<p>R had its origins in S, a system designed for engineers at Bell Labs. This audience meant that R would be more accessible to those with programming backgrounds, more aimed at “developers” than users approaching data science from an applied or statistical perspective than one in programming. As the popularity of R increased, it would become more flexible and versatile for these power users, but there was less progress in making R accessible to and tailored for data scientists. To this day, “base-R” is, for most users, more challenging than SPSS or Stata. The <strong>tidyverse</strong> was born partly to address these issues <span class="citation">(Peng <a href="#ref-peng2018teaching">n.d.</a>)</span>.</p>
+<p>R had its origins in S, a system designed for engineers at Bell Labs. This audience meant that R would be more accessible to those with programming backgrounds, more aimed at “developers” than users approaching data science from an applied or statistical perspective than one in programming. As the popularity of R increased, it would become more flexible and versatile for these power users, but there was less progress in making R accessible to and tailored for data scientists. To this day, “base-R” is, for most users, more challenging than SPSS or Stata. The <strong>tidyverse</strong> was born partly to address these issues <span class="citation">(Peng <a href="#ref-peng2018teaching">2018</a>)</span>.</p>
 <p>The tidyverse is a growing set of interconnected packages which share a common syntax; it is the dialect of R we are using here. More precisely,</p>
 <blockquote>
 <p><em>…the tidyverse is a lucid collection of R packages offering data science solutions in the areas of data manipulation, exploration, and visualization that share a common design philosophy. It was created by R industry luminary Hadley Wickham, the chief scientist behind <a href="https://www.rstudio.com/">RStudio</a>. R packages in the tidyverse are intended to make statisticians and data scientists more productive. Packages guide them through workflows that facilitate communication and result in reproducible work products. The tidyverse essentially focuses on the interconnections of the tools that make the workflow possible [gutierrez2018tidyverse].</em></p>
@@ -291,12 +291,12 @@ mtcars <span class="op">%&gt;%</span>
 </ol>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gapminder)
 b &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span>
-## when should you comment out an error
-## instead of deleting it? for me, I&#39;ll 
-## comment out errors that took me a long time 
-## to solve, and/or that I&#39;ll learn from. 
-## Probably not here, in other words...
-##  filter(lifeExp) &gt; 70 bad parens
+<span class="co">## when should you comment out an error</span>
+<span class="co">## instead of deleting it? for me, I&#39;ll </span>
+<span class="co">## comment out errors that took me a long time </span>
+<span class="co">## to solve, and/or that I&#39;ll learn from. </span>
+<span class="co">## Probably not here, in other words...</span>
+<span class="co">##  filter(lifeExp) &gt; 70 bad parens</span>
 <span class="st">    </span><span class="kw">filter</span>(lifeExp <span class="op">&gt;</span><span class="st"> </span><span class="dv">70</span>)</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li><p><strong>work with tidy data.</strong> Make each row an observation, and each column a variable. Complex data sets, such as samples of text, become much more manageable when reduced to simple arrays.</p></li>
@@ -317,7 +317,7 @@ b &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span cl
 <h3> references</h3>
 <div id="refs" class="references">
 <div id="ref-peng2018teaching">
-<p>Peng, Roger. n.d. “Teaching R to New Users - from Tapply to the Tidyverse.” Accessed February 1, 2019. <a href="https://simplystatistics.org/2018/07/12/use-r-keynote-2018/" class="uri">https://simplystatistics.org/2018/07/12/use-r-keynote-2018/</a>.</p>
+<p>Peng, Roger. 2018. “Teaching R to New Users - from Tapply to the Tidyverse.” <a href="https://simplystatistics.org/2018/07/12/use-r-keynote-2018/">https://simplystatistics.org/2018/07/12/use-r-keynote-2018/</a>.</p>
 </div>
 </div>
             </section>
@@ -372,19 +372,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
