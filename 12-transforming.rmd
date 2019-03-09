@@ -12,9 +12,9 @@ output:
 knitr::opts_chunk$set(message = FALSE)
 ```
 
-Once you have your data, you will almost invariably need to transform it - to sort it, select observations or variables from it, create new variables, partition it into groups, or to summarize it. In R, there is a general purpose tool  (ok, package) that exists for this called dplyr ("d-plier").  **Play with the various dplyr functions. Experiment. You will not break the internet**
+Once you have your data, you will almost invariably need to transform it - to sort it, to select observations or variables from it, to create new variables, to partition it into groups, or to summarize it. In R, there is a general purpose tool (ok, package) that exists for this called dplyr ("d-plier").  **Play with the various dplyr functions. Experiment. You will not break the internet**
 
-![Fig 12.1 - non digital pliers](C:\Users\lanning\Dropbox\0DataSciLibArts\pliers.PNG)
+![Fig 12.1 - pliers to play with](pliers.PNG)
 
 Dplyr is part of the core of the tidyverse and hence will be loaded automatically when you load the tidyverse libraries.
 
@@ -23,7 +23,6 @@ library(tidyverse)
 ```
 
 The versatility of dplyr is demonstrated in Chapter 5 of R4DS, which shows how to do many basic, and some not so basic, operations on your data.  Read it closely if you haven't already done so.
-
 
 ## from data on the web to data in R 
 
