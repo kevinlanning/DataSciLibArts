@@ -34,7 +34,7 @@ We've explored a simple dataset consisting of 10,000 songs (observations) and 35
 
 > Method 2: If, for some reason, you can't load the data on to your own machine before running R, you can import the data from the cloud directly into R. You can do this either by specifying the musicURL separately (Method 2a) or call it directly within the read_csv statement. Here, too, I would encourage you to set up and work within a project.
 
-```{r}
+```{r echo=TRUE, results="hide", message=FALSE}
 library(tidyverse)
 ### Method 1
 # music1 <- read_csv("music.csv") 
