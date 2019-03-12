@@ -1,0 +1,57 @@
+---
+title: "14 - strings, factors, dates, and times"
+author: "Lanning"
+date: "March 11, 2019"
+output: html_document
+---
+
+# strings, factors, dates, and times
+
+begin with datanames
+
+We've discussed playing with the babynames data. Here's some code - what does it do?
+
+```{r echo=TRUE, results="hide", message=FALSE}
+library(tidyverse)
+library(babynames)
+maleNames <- babynames %>% 
+    filter(sex == "M") %>% 
+    rename (nBoy = n, propBoy = prop)
+femaleNames <- babynames %>%
+    filter(sex == "F")  %>% 
+    rename (nGirl = n, propGirl = prop)
+androNames <- maleNames %>% 
+    inner_join(., femaleNames, by = c("name", "year"))
+```
+
+Here, we've split the set of names into two separate tibbles - one for baby boys and one for baby girls. We did this to set up a problem to look at androgynous names.
+
+## factors
+
+Baby gender (male or female) is a categorical variable (a set of types or, in experimental work, factors). In the tidyverse, the r package for dealing with this type of measure is *forcats*, one of the core parts of the tidyverse. 
+
+Here's an example of a categorical variable. Can you decode this?
+
+```{r factors.0314}
+# Example of a factor
+eyes <- factor(x = c("blue", "green",
+                     "green", "creepyRed"), 
+               levels = c("blue", "brown",
+                          "green"))
+eyes
+```
+
+In base R, string variables (like "donut", "anti-Brexit", and "yellow") are generally treated as factors by default.  In the tidyverse, string variables are treated as strings until they are explicitly declared as factors.  The syntax for this is given in Chapter 15 of R4DS. I will not duplicate that here, but I will point out that factors are represented internally in R as numbers, and converting factors to other data types can occasionally lead to surprises.
+
+## dates
+
+The challenges of combining time-demarcated data are significant.  For dates, a variety of different formats (3-April, October 23, 1943, 10/12/92) must be made sense of. Sometimes we are concerned with durations (how many days, etc.); on other occasions, we are concerned with characteristics of particular dates (as in figuring out the day of the week on which you were born). And down't forget about leap years.
+
+## times
+
+Similarly, in working with temporal data, there are additional challenges.  For example, 12 versus 24 hour clocks, time zones (and daylight savings), can make a simple question challenging. 
+
+> Imagine that Fred was born in Singapore at the exact moment of Y2K. He now lives in NYC. How many hours has he been alive as of March 15, 2019? How would you solve this?
+
+in R, the lubridate package (a non-core part of the tidyverse, i.e., one that you must load separately) helps us handle dates and times smoothly.
+

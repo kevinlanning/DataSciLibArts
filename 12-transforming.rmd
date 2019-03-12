@@ -14,7 +14,7 @@ knitr::opts_chunk$set(message = FALSE)
 
 Once you have your data, you will almost invariably need to transform it - to sort it, to select observations or variables from it, to create new variables, to partition it into groups, or to summarize it. In R, there is a general purpose tool (ok, package) that exists for this called dplyr ("d-plier").  **Play with the various dplyr functions. Experiment. You will not break the internet**
 
-![Fig 12.1 - pliers to play with](pliers.PNG)
+![Fig 12.1 - pliers to play with](pliers.png)
 
 Dplyr is part of the core of the tidyverse and hence will be loaded automatically when you load the tidyverse libraries.
 
@@ -62,7 +62,7 @@ music1 %>%
     distinct() %>%            # Why are they here?  
     head(10)                  # What do they do?
 ```
- 
+
 In class, we used str_detect (string detect) to filter (select) all of the observations which included the string "FL" somewhere in the location variable.  Then, we used two separate mutate statements to create new variables. 
 
 In the code above, I've added three additional lines.  Do you understand each step of what we did here and why? 
@@ -78,7 +78,7 @@ We also explored the babynames library in R. You'll need to install this on your
 library(babynames)
 str(babynames)
 ```
- 
+
 ## exercises
 
 1) make progress on your class project and (if applicable) your data science challenge. Be prepared to submit a brief summary of where you are when we come back from break.
