@@ -25,7 +25,7 @@
 <meta name="author" content="Kevin Lanning">
 
 
-<meta name="date" content="2019-02-17">
+<meta name="date" content="2019-03-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -239,8 +239,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#some-simple-principles"><i class="fa fa-check"></i><b>10.1</b> some simple principles</a></li>
 <li class="chapter" data-level="10.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#homework"><i class="fa fa-check"></i><b>10.2</b> homework</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html"><i class="fa fa-check"></i><b>11</b> Messy data: Cleaning and curation</a></li>
-<li class="chapter" data-level="12" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>12</b> references</a></li>
+<li class="chapter" data-level="11" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html"><i class="fa fa-check"></i><b>11</b> Messy data: Cleaning and curation</a><ul>
+<li class="chapter" data-level="11.1" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html#finding-data"><i class="fa fa-check"></i><b>11.1</b> finding data</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="transforming-data.html"><a href="transforming-data.html"><i class="fa fa-check"></i><b>12</b> transforming data</a><ul>
+<li class="chapter" data-level="12.1" data-path="transforming-data.html"><a href="transforming-data.html#from-data-on-the-web-to-data-in-r"><i class="fa fa-check"></i><b>12.1</b> from data on the web to data in R</a></li>
+<li class="chapter" data-level="12.2" data-path="transforming-data.html"><a href="transforming-data.html#babynames"><i class="fa fa-check"></i><b>12.2</b> babynames</a></li>
+<li class="chapter" data-level="12.3" data-path="transforming-data.html"><a href="transforming-data.html#exercises"><i class="fa fa-check"></i><b>12.3</b> exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>13</b> test</a></li>
+<li class="chapter" data-level="14" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>14</b> references</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -371,12 +379,12 @@ events &lt;-<span class="st"> </span><span class="kw">replicate</span>(B, <span 
 tab</code></pre>
 <pre><code>## events
 ## blue  red 
-## 5971 4029</code></pre>
+## 5949 4051</code></pre>
 <p>and <code>prop.table</code> gives us the proportions:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.table</span>(tab)</code></pre>
 <pre><code>## events
 ##   blue    red 
-## 0.5971 0.4029</code></pre>
+## 0.5949 0.4051</code></pre>
 <p>The numbers above are the estimated probabilities provided by this Monte Carlo simulation. Statistical theory, not covered here, tells us the as <span class="math inline">\(B\)</span> gets larger, the estimates get closer to 3/5 = 0.6 for blue and 2/5 = 0.4 for red.</p>
 <p>This is a simple and not very useful example, but we will use Monte Carlo simulation to estimate probabilities in cases in which it is harder to compute the exact ones. Before we go into more complex examples we use simple ones to demonstrate the computing tools available in R.</p>
 </div>
@@ -384,11 +392,11 @@ tab</code></pre>
 <h3><span class="header-section-number">7.6.4</span> With and without replacement</h3>
 <p>The function <code>sample</code> has an argument that permits us to pick more than one element from the urn. However, by default, this selection occurs <em>without replacement</em>: after a bead is selected, it is not put back in the bag. Note what happens when we ask to randomly select five beads:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(beads, <span class="dv">5</span>)</code></pre>
-<pre><code>## [1] &quot;blue&quot; &quot;red&quot;  &quot;blue&quot; &quot;red&quot;  &quot;blue&quot;</code></pre>
+<pre><code>## [1] &quot;blue&quot; &quot;blue&quot; &quot;red&quot;  &quot;red&quot;  &quot;blue&quot;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(beads, <span class="dv">5</span>)</code></pre>
-<pre><code>## [1] &quot;blue&quot; &quot;red&quot;  &quot;red&quot;  &quot;blue&quot; &quot;blue&quot;</code></pre>
+<pre><code>## [1] &quot;blue&quot; &quot;blue&quot; &quot;blue&quot; &quot;red&quot;  &quot;red&quot;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(beads, <span class="dv">5</span>)</code></pre>
-<pre><code>## [1] &quot;red&quot;  &quot;blue&quot; &quot;red&quot;  &quot;blue&quot; &quot;blue&quot;</code></pre>
+<pre><code>## [1] &quot;red&quot;  &quot;blue&quot; &quot;blue&quot; &quot;red&quot;  &quot;blue&quot;</code></pre>
 <p>This results in re-arrangements that always have three blue and two red beads. If we ask that six beads be selected, we get an error</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(beads, <span class="dv">6</span>)</code></pre>
 <p><code>Error in sample.int(length(x), size, replace, prob) :   cannot take a sample larger than the population when 'replace = FALSE'</code></p>
@@ -398,7 +406,7 @@ tab</code></pre>
 <span class="kw">prop.table</span>(<span class="kw">table</span>(events))</code></pre>
 <pre><code>## events
 ##   blue    red 
-## 0.5993 0.4007</code></pre>
+## 0.5985 0.4015</code></pre>
 <p>Note that, not surprisingly, we get results very similar to
 those previously obtained with <code>replicate</code>.</p>
 </div>
