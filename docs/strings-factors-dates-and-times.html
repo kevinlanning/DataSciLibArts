@@ -25,7 +25,7 @@
 <meta name="author" content="Kevin Lanning">
 
 
-<meta name="date" content="2019-03-12">
+<meta name="date" content="2019-03-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -53,7 +53,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -66,11 +66,13 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -247,9 +249,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>13</b> relational data</a></li>
 <li class="chapter" data-level="14" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html"><i class="fa fa-check"></i><b>14</b> strings, factors, dates, and times</a><ul>
-<li class="chapter" data-level="14.1" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#factors"><i class="fa fa-check"></i><b>14.1</b> factors</a></li>
-<li class="chapter" data-level="14.2" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#dates"><i class="fa fa-check"></i><b>14.2</b> dates</a></li>
-<li class="chapter" data-level="14.3" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#times"><i class="fa fa-check"></i><b>14.3</b> times</a></li>
+<li class="chapter" data-level="14.1" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#strings"><i class="fa fa-check"></i><b>14.1</b> strings</a></li>
+<li class="chapter" data-level="14.2" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#factors"><i class="fa fa-check"></i><b>14.2</b> factors</a></li>
+<li class="chapter" data-level="14.3" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#dates"><i class="fa fa-check"></i><b>14.3</b> dates</a></li>
+<li class="chapter" data-level="14.4" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#times"><i class="fa fa-check"></i><b>14.4</b> times</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>15</b> references</a></li>
 <li class="divider"></li>
@@ -274,7 +277,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="strings-factors-dates-and-times" class="section level1">
 <h1><span class="header-section-number">14</span> strings, factors, dates, and times</h1>
-<p>begin with datanames</p>
+<p>In this chapter, as in the last few, I refer primarily to three of the chapters in R4DS. Consider these notes supplementary.</p>
+<div id="strings" class="section level2">
+<h2><span class="header-section-number">14.1</span> strings</h2>
+<p>Strings are sets of characters which may include “123” as well as “why *DID* the chicken cross the road?” Snippets of text are the most interesting type of string.</p>
+<p>String manipulation gets complicated when, for example, it includes characters that usually work as code - including commas, quotes, and slashes. See the section on ‘string basics’ (14.2) for how to do this.</p>
+<p>Regular expressions (regex) are a formal type of code which constitute the most basic part of searching within strings. Regex are not unique to R, but are shared with other languages as well. The density of regex statements can make them appear challenging, fortunately, there are many resources available to help you get a handle on these, including simple google searches.</p>
+<blockquote>
+<p>Use the cheat sheet at <a href="https://regexr.com/" class="uri">https://regexr.com/</a> to work through (some of) the exercises in chapter 14.3</p>
+</blockquote>
+<p>Section 14.4 describes the stringr package, which is an accessible and versatile set of tools for working with strings in R. You are likely to use many of these. You are less likely to use stringi (section 14.7). The tidytext package, not included here, is a more powerful set of tools for all sorts of problems in formal text analysis.</p>
+</div>
+<div id="factors" class="section level2">
+<h2><span class="header-section-number">14.2</span> factors</h2>
+<p>Conditions (experimental vs control), categories (male or female), types (scorpio, “hates astrology”) and other nominal measures are categorical variables or factors. In the tidyverse, the r package for dealing with this type of measure is <em>forcats</em>, one of the core parts of the tidyverse.</p>
+<p>Here’s an example of a categorical variable. Can you decode this?</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Example of a factor</span>
+eyes &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>,
+                     <span class="st">&quot;green&quot;</span>, <span class="st">&quot;creepyRed&quot;</span>), 
+               <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;brown&quot;</span>,
+                          <span class="st">&quot;green&quot;</span>))
+eyes</code></pre>
+<pre><code>## [1] blue  green green &lt;NA&gt; 
+## Levels: blue brown green</code></pre>
+<p>In base R, string variables (“donut”, “anti-Brexit”, and “yellow”) are generally treated as factors by default. In the tidyverse, string variables are treated as strings until they are explicitly declared as factors. The syntax for this is given in Chapter 15 of R4DS. I will not duplicate that here, but I will point out that factors are represented internally in R as numbers, and converting factors to other data types can occasionally lead to nasty surprises. Sections 15.4 and 15.5 describe how factors can be cleanly reordered and modified.</p>
 <p>We’ve discussed playing with the babynames data. Here’s some code - what does it do?</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
 <span class="kw">library</span>(babynames)
@@ -287,31 +313,18 @@ femaleNames &lt;-<span class="st"> </span>babynames <span class="op">%&gt;%</spa
 androNames &lt;-<span class="st"> </span>maleNames <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">inner_join</span>(., femaleNames, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;year&quot;</span>))</code></pre>
 <p>Here, we’ve split the set of names into two separate tibbles - one for baby boys and one for baby girls. We did this to set up a problem to look at androgynous names.</p>
-<div id="factors" class="section level2">
-<h2><span class="header-section-number">14.1</span> factors</h2>
-<p>Baby gender (male or female) is a categorical variable (a set of types or, in experimental work, factors). In the tidyverse, the r package for dealing with this type of measure is <em>forcats</em>, one of the core parts of the tidyverse.</p>
-<p>Here’s an example of a categorical variable. Can you decode this?</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Example of a factor</span>
-eyes &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>,
-                     <span class="st">&quot;green&quot;</span>, <span class="st">&quot;creepyRed&quot;</span>), 
-               <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;brown&quot;</span>,
-                          <span class="st">&quot;green&quot;</span>))
-eyes</code></pre>
-<pre><code>## [1] blue  green green &lt;NA&gt; 
-## Levels: blue brown green</code></pre>
-<p>In base R, string variables (like “donut”, “anti-Brexit”, and “yellow”) are generally treated as factors by default. In the tidyverse, string variables are treated as strings until they are explicitly declared as factors. The syntax for this is given in Chapter 15 of R4DS. I will not duplicate that here, but I will point out that factors are represented internally in R as numbers, and converting factors to other data types can occasionally lead to surprises.</p>
 </div>
 <div id="dates" class="section level2">
-<h2><span class="header-section-number">14.2</span> dates</h2>
-<p>The challenges of combining time-demarcated data are significant. For dates, a variety of different formats (3-April, October 23, 1943, 10/12/92) must be made sense of. Sometimes we are concerned with durations (how many days, etc.); on other occasions, we are concerned with characteristics of particular dates (as in figuring out the day of the week on which you were born). And down’t forget about leap years.</p>
+<h2><span class="header-section-number">14.3</span> dates</h2>
+<p>The challenges of combining time-demarcated data (Chapter 16) are significant. For dates, a variety of different formats (3-April, October 23, 1943, 10/12/92) must be made sense of. Sometimes we are concerned with durations (how many days, etc.); on other occasions, we are concerned with characteristics of particular dates (as in figuring out the day of the week on which you were born). And down’t forget about leap years.</p>
 </div>
 <div id="times" class="section level2">
-<h2><span class="header-section-number">14.3</span> times</h2>
-<p>Similarly, in working with temporal data, there are additional challenges. For example, 12 versus 24 hour clocks, time zones (and daylight savings), can make a simple question challenging.</p>
+<h2><span class="header-section-number">14.4</span> times</h2>
+<p>In working with temporal data, there are additional challenges. For example, 12 versus 24 hour clocks, time zones, and daylight savings, can make a simple question about duration quite challenging.</p>
 <blockquote>
 <p>Imagine that Fred was born in Singapore at the exact moment of Y2K. He now lives in NYC. How many hours has he been alive as of March 15, 2019? How would you solve this?</p>
 </blockquote>
-<p>in R, the lubridate package (a non-core part of the tidyverse, i.e., one that you must load separately) helps us handle dates and times smoothly.</p>
+<p>in R, the <em>lubridate</em> package (a non-core part of the tidyverse, i.e., one that you must load separately) helps to handle dates and times smoothly. It anticipates many of the problems we might encounter in extracting date and time information from strings.</p>
 
 </div>
 </div>

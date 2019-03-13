@@ -7,7 +7,38 @@ output: html_document
 
 # strings, factors, dates, and times
 
-begin with datanames
+In this chapter, as in the last few, I refer primarily to three of the chapters in R4DS. Consider these notes supplementary.
+
+## strings
+
+Strings are sets of characters which may include "123" as well as "why \*DID\* the chicken cross the road?" Snippets of text are the most interesting type of string.
+
+String manipulation gets complicated when, for example, it includes characters  that usually work as code - including commas, quotes, and slashes. See the section on 'string basics' (14.2) for how to do this.
+
+Regular expressions (regex) are a formal type of code which constitute the most basic part of searching within strings. Regex are not unique to R, but are shared with other languages as well.  The density of regex statements can make them appear challenging, fortunately, there are many resources available to help you get a handle on these, including simple google searches.  
+
+> Use the cheat sheet at https://regexr.com/ to work through (some of) the exercises in chapter 14.3
+
+Section 14.4 describes the stringr package, which is an accessible and versatile set of tools for working with strings in R. You are likely to use many of these. You are less likely to use stringi (section 14.7). The tidytext package, not included here, is a more powerful set of tools for all sorts of problems in formal text analysis.
+
+
+## factors
+
+Conditions (experimental vs control), categories (male or female), types (scorpio, "hates astrology") and other nominal measures are categorical variables or factors. In the tidyverse, the r package for dealing with this type of measure is *forcats*, one of the core parts of the tidyverse. 
+
+Here's an example of a categorical variable. Can you decode this?
+
+```{r factors.0314}
+# Example of a factor
+eyes <- factor(x = c("blue", "green",
+                     "green", "creepyRed"), 
+               levels = c("blue", "brown",
+                          "green"))
+eyes
+```
+
+In base R, string variables ("donut", "anti-Brexit", and "yellow") are generally treated as factors by default.  In the tidyverse, string variables are treated as strings until they are explicitly declared as factors.  The syntax for this is given in Chapter 15 of R4DS. I will not duplicate that here, but I will point out that factors are represented internally in R as numbers, and converting factors to other data types can occasionally lead to nasty surprises. Sections 15.4 and 15.5 describe how factors can be cleanly reordered and modified. 
+
 
 We've discussed playing with the babynames data. Here's some code - what does it do?
 
@@ -26,32 +57,15 @@ androNames <- maleNames %>%
 
 Here, we've split the set of names into two separate tibbles - one for baby boys and one for baby girls. We did this to set up a problem to look at androgynous names.
 
-## factors
-
-Baby gender (male or female) is a categorical variable (a set of types or, in experimental work, factors). In the tidyverse, the r package for dealing with this type of measure is *forcats*, one of the core parts of the tidyverse. 
-
-Here's an example of a categorical variable. Can you decode this?
-
-```{r factors.0314}
-# Example of a factor
-eyes <- factor(x = c("blue", "green",
-                     "green", "creepyRed"), 
-               levels = c("blue", "brown",
-                          "green"))
-eyes
-```
-
-In base R, string variables (like "donut", "anti-Brexit", and "yellow") are generally treated as factors by default.  In the tidyverse, string variables are treated as strings until they are explicitly declared as factors.  The syntax for this is given in Chapter 15 of R4DS. I will not duplicate that here, but I will point out that factors are represented internally in R as numbers, and converting factors to other data types can occasionally lead to surprises.
-
 ## dates
 
-The challenges of combining time-demarcated data are significant.  For dates, a variety of different formats (3-April, October 23, 1943, 10/12/92) must be made sense of. Sometimes we are concerned with durations (how many days, etc.); on other occasions, we are concerned with characteristics of particular dates (as in figuring out the day of the week on which you were born). And down't forget about leap years.
+The challenges of combining time-demarcated data (Chapter 16) are significant.  For dates, a variety of different formats (3-April, October 23, 1943, 10/12/92) must be made sense of. Sometimes we are concerned with durations (how many days, etc.); on other occasions, we are concerned with characteristics of particular dates (as in figuring out the day of the week on which you were born). And down't forget about leap years.
 
 ## times
 
-Similarly, in working with temporal data, there are additional challenges.  For example, 12 versus 24 hour clocks, time zones (and daylight savings), can make a simple question challenging. 
+In working with temporal data, there are additional challenges.  For example, 12 versus 24 hour clocks, time zones, and daylight savings, can make a simple question about duration quite challenging. 
 
 > Imagine that Fred was born in Singapore at the exact moment of Y2K. He now lives in NYC. How many hours has he been alive as of March 15, 2019? How would you solve this?
 
-in R, the lubridate package (a non-core part of the tidyverse, i.e., one that you must load separately) helps us handle dates and times smoothly.
+in R, the *lubridate* package (a non-core part of the tidyverse, i.e., one that you must load separately) helps to handle dates and times smoothly. It anticipates many of the problems we might encounter in extracting date and time information from strings.  
 
