@@ -48,12 +48,13 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -66,13 +67,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -277,21 +276,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="strings-factors-dates-and-times" class="section level1">
 <h1><span class="header-section-number">14</span> strings, factors, dates, and times</h1>
+<p>This chapter discusses some of the types of data other than numeric and logical, in particular strings, factors, and dates/times.</p>
 <p>In this chapter, as in the last few, I refer primarily to three of the chapters in R4DS. Consider these notes supplementary.</p>
 <div id="strings" class="section level2">
 <h2><span class="header-section-number">14.1</span> strings</h2>
 <p>Strings are sets of characters which may include “123” as well as “why *DID* the chicken cross the road?” Snippets of text are the most interesting type of string.</p>
-<p>String manipulation gets complicated when, for example, it includes characters that usually work as code - including commas, quotes, and slashes. See the section on ‘string basics’ (14.2) for how to do this.</p>
+<p>String manipulation gets complicated when, for example, it includes characters that R usually interprets as code - such as commas, quotes, and slashes. See the section on string basics (14.2) for how to “escape” these characters, for example, how to treat a hashtag (#) as just a character as opposed to the beginning of a comment.</p>
 <p>Regular expressions (regex) are a formal type of code which constitute the most basic part of searching within strings. Regex are not unique to R, but are shared with other languages as well. The density of regex statements can make them appear challenging, fortunately, there are many resources available to help you get a handle on these, including simple google searches.</p>
 <blockquote>
-<p>Use the cheat sheet at <a href="https://regexr.com/" class="uri">https://regexr.com/</a> to work through (some of) the exercises in chapter 14.3</p>
+<p>Use the cheat sheet at <a href="https://regexr.com/" class="uri">https://regexr.com/</a> to work through (some of) the exercises in chapter 14.3.</p>
 </blockquote>
-<p>Section 14.4 describes the stringr package, which is an accessible and versatile set of tools for working with strings in R. You are likely to use many of these. You are less likely to use stringi (section 14.7). The tidytext package, not included here, is a more powerful set of tools for all sorts of problems in formal text analysis.</p>
+<p>Section 14.4 describes the stringr package, which is a relatively accessible and versatile set of tools for working with strings in R. You are likely to use many of these, but less likely to use stringi (section 14.7). The tidytext package (<a href="https://www.tidytextmining.com/" class="uri">https://www.tidytextmining.com/</a>), which will be discussed at length in the computational social science course, is a more powerful set of tools for all sorts of problems in formal text analysis.</p>
 </div>
 <div id="factors" class="section level2">
 <h2><span class="header-section-number">14.2</span> factors</h2>
 <p>Conditions (experimental vs control), categories (male or female), types (scorpio, “hates astrology”) and other nominal measures are categorical variables or factors. In the tidyverse, the r package for dealing with this type of measure is <em>forcats</em>, one of the core parts of the tidyverse.</p>
-<p>Here’s an example of a categorical variable. Can you decode this?</p>
+<p>Here’s an example of a categorical variable. Why is it set up like this, and what does it do?</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Example of a factor</span>
 eyes &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>,
                      <span class="st">&quot;green&quot;</span>, <span class="st">&quot;creepyRed&quot;</span>), 
@@ -300,27 +300,215 @@ eyes &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="d
 eyes</code></pre>
 <pre><code>## [1] blue  green green &lt;NA&gt; 
 ## Levels: blue brown green</code></pre>
-<p>In base R, string variables (“donut”, “anti-Brexit”, and “yellow”) are generally treated as factors by default. In the tidyverse, string variables are treated as strings until they are explicitly declared as factors. The syntax for this is given in Chapter 15 of R4DS. I will not duplicate that here, but I will point out that factors are represented internally in R as numbers, and converting factors to other data types can occasionally lead to nasty surprises. Sections 15.4 and 15.5 describe how factors can be cleanly reordered and modified.</p>
-<p>We’ve discussed playing with the babynames data. Here’s some code - what does it do?</p>
+<p>In base R, string variables (“donut”, “anti-Brexit”, and “yellow”) are generally treated as factors by default. In the tidyverse, string variables are treated as strings until they are explicitly declared as factors.</p>
+<p>The syntax for working with factors-as-categories is given in Chapter 15 of R4DS. I will not duplicate that here, but I will point out that factors are represented internally in R as numbers, and converting factors to other data types can occasionally lead to nasty surprises. Sections 15.4 and 15.5 describe how factors can be cleanly reordered and modified.</p>
+<p>In the babynames data, baby’s gender is a categorical variable, which is treated (because tidyverse) as a character or string. Here, we split the set of names into two separate tibbles - one for baby boys and one for baby girls. This allows us to set up the problem to look at androgynous names.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
 <span class="kw">library</span>(babynames)
 maleNames &lt;-<span class="st"> </span>babynames <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">filter</span>(sex <span class="op">==</span><span class="st"> &quot;M&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">rename</span> (<span class="dt">nBoy =</span> n, <span class="dt">propBoy =</span> prop)
+<span class="st">    </span><span class="kw">rename</span>(<span class="dt">nBoy =</span> n, <span class="dt">propBoy =</span> prop)
 femaleNames &lt;-<span class="st"> </span>babynames <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">filter</span>(sex <span class="op">==</span><span class="st"> &quot;F&quot;</span>)  <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">rename</span> (<span class="dt">nGirl =</span> n, <span class="dt">propGirl =</span> prop)
+<span class="st">    </span><span class="kw">filter</span>(sex <span class="op">==</span><span class="st"> &quot;F&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">rename</span>(<span class="dt">nGirl =</span> n, <span class="dt">propGirl =</span> prop)
 androNames &lt;-<span class="st"> </span>maleNames <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">inner_join</span>(., femaleNames, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;year&quot;</span>))</code></pre>
-<p>Here, we’ve split the set of names into two separate tibbles - one for baby boys and one for baby girls. We did this to set up a problem to look at androgynous names.</p>
+<p>We can use forcats with the babynames data, for example, to lump together rare names, like this.</p>
+<pre class="sourceCode r"><code class="sourceCode r">allNames &lt;-
+babynames <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">group_by</span>(sex) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">bigNames =</span> <span class="kw">fct_lump</span>(name, <span class="dt">n =</span> <span class="dv">10</span>))</code></pre>
 </div>
 <div id="dates" class="section level2">
 <h2><span class="header-section-number">14.3</span> dates</h2>
-<p>The challenges of combining time-demarcated data (Chapter 16) are significant. For dates, a variety of different formats (3-April, October 23, 1943, 10/12/92) must be made sense of. Sometimes we are concerned with durations (how many days, etc.); on other occasions, we are concerned with characteristics of particular dates (as in figuring out the day of the week on which you were born). And down’t forget about leap years.</p>
+<p>The challenges of combining time-demarcated data (Chapter 16) are significant. For dates, a variety of different formats (3-April, October 23, 1943, 10/12/92) must be made sense of. Sometimes we are concerned with durations (how many days, etc.); on other occasions, we are concerned with characteristics of particular dates (as in figuring out the day of the week on which you were born). And don’t forget about leap years.</p>
+<p>Here’s a simple use of <em>lubridate</em> which allows ordering of months across years (i.e., it puts December 2018 before January 2019). I apply it to a new data set fakeSpinData, which is pulled from a Google sheet</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(lubridate)
+<span class="kw">library</span>(googlesheets)
+<span class="kw">library</span>(kableExtra)
+spinID &lt;-<span class="st"> </span><span class="kw">gs_title</span>(<span class="st">&quot;fakeSpinData&quot;</span>)
+spinData &lt;-<span class="st"> </span><span class="kw">gs_read</span>(spinID) </code></pre>
+<pre><code>## Warning: Missing column names filled in: &#39;X18&#39; [18]</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">spinData &lt;-<span class="st"> </span>spinData <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="co"># set up old Date field as a lubridate-readable date</span>
+<span class="co"># note that the new field is date rather than Date - dumb names</span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">date =</span> <span class="kw">mdy</span>(Date)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="co"># extract month and year</span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">month =</span> <span class="kw">month</span>(date,<span class="dt">label =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">year</span>(date))
+
+<span class="kw">kable</span>(spinData <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="co"># make an ordered cool table</span>
+<span class="st">    </span><span class="kw">group_by</span>(year, month) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">summarize</span>(<span class="kw">sum</span>(calories), <span class="kw">sum</span>(time))) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(
+        <span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>),
+        <span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">position =</span> <span class="st">&quot;left&quot;</span>)</code></pre>
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; ">
+<thead>
+<tr>
+<th style="text-align:right;">
+year
+</th>
+<th style="text-align:left;">
+month
+</th>
+<th style="text-align:right;">
+sum(calories)
+</th>
+<th style="text-align:left;">
+sum(time)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2018
+</td>
+<td style="text-align:left;">
+Jun
+</td>
+<td style="text-align:right;">
+417
+</td>
+<td style="text-align:left;">
+3060 secs
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2018
+</td>
+<td style="text-align:left;">
+Jul
+</td>
+<td style="text-align:right;">
+6202
+</td>
+<td style="text-align:left;">
+25468 secs
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2018
+</td>
+<td style="text-align:left;">
+Aug
+</td>
+<td style="text-align:right;">
+7513
+</td>
+<td style="text-align:left;">
+29246 secs
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2018
+</td>
+<td style="text-align:left;">
+Sep
+</td>
+<td style="text-align:right;">
+14715
+</td>
+<td style="text-align:left;">
+49169 secs
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2018
+</td>
+<td style="text-align:left;">
+Oct
+</td>
+<td style="text-align:right;">
+10701
+</td>
+<td style="text-align:left;">
+36592 secs
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2018
+</td>
+<td style="text-align:left;">
+Nov
+</td>
+<td style="text-align:right;">
+12128
+</td>
+<td style="text-align:left;">
+40991 secs
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2018
+</td>
+<td style="text-align:left;">
+Dec
+</td>
+<td style="text-align:right;">
+13048
+</td>
+<td style="text-align:left;">
+43902 secs
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+Jan
+</td>
+<td style="text-align:right;">
+16164
+</td>
+<td style="text-align:left;">
+49824 secs
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+Feb
+</td>
+<td style="text-align:right;">
+13267
+</td>
+<td style="text-align:left;">
+41334 secs
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+Mar
+</td>
+<td style="text-align:right;">
+868
+</td>
+<td style="text-align:left;">
+2770 secs
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="times" class="section level2">
 <h2><span class="header-section-number">14.4</span> times</h2>
-<p>In working with temporal data, there are additional challenges. For example, 12 versus 24 hour clocks, time zones, and daylight savings, can make a simple question about duration quite challenging.</p>
+<p>In the table above, we are given time in seconds. It would be easy to convert this to time in minutes or hours. But working with temporal data is often more challenging than this. The existence of, for example, 12 versus 24 hour clocks, time zones, and daylight savings, can make a simple question about duration quite challenging.</p>
 <blockquote>
 <p>Imagine that Fred was born in Singapore at the exact moment of Y2K. He now lives in NYC. How many hours has he been alive as of March 15, 2019? How would you solve this?</p>
 </blockquote>

@@ -48,12 +48,13 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -66,13 +67,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -305,12 +304,12 @@ mtcars <span class="op">%&gt;%</span>
 </ol>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gapminder)
 b &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span>
-## when should you comment out an error
-## instead of deleting it? for me, I&#39;ll 
-## comment out errors that took me a long time 
-## to solve, and/or that I&#39;ll learn from. 
-## Probably not here, in other words...
-##  filter(lifeExp) &gt; 70 bad parens
+<span class="co">## when should you comment out an error</span>
+<span class="co">## instead of deleting it? for me, I&#39;ll </span>
+<span class="co">## comment out errors that took me a long time </span>
+<span class="co">## to solve, and/or that I&#39;ll learn from. </span>
+<span class="co">## Probably not here, in other words...</span>
+<span class="co">##  filter(lifeExp) &gt; 70 bad parens</span>
 <span class="st">    </span><span class="kw">filter</span>(lifeExp <span class="op">&gt;</span><span class="st"> </span><span class="dv">70</span>)</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li><p><strong>work with tidy data.</strong> Make each row an observation, and each column a variable. Complex data sets, such as samples of text, become much more manageable when reduced to simple arrays.</p></li>
@@ -331,7 +330,7 @@ b &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span cl
 <h3> references</h3>
 <div id="refs" class="references">
 <div id="ref-peng2018teaching">
-<p>Peng, Roger. 2018. “Teaching R to New Users - from Tapply to the Tidyverse.” <a href="https://simplystatistics.org/2018/07/12/use-r-keynote-2018/" class="uri">https://simplystatistics.org/2018/07/12/use-r-keynote-2018/</a>.</p>
+<p>Peng, Roger. 2018. “Teaching R to New Users - from Tapply to the Tidyverse.” <a href="https://simplystatistics.org/2018/07/12/use-r-keynote-2018/">https://simplystatistics.org/2018/07/12/use-r-keynote-2018/</a>.</p>
 </div>
 </div>
             </section>
