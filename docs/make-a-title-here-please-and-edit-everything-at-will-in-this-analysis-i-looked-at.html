@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>an invitation | Data science for the liberal arts</title>
+  <title>17 Make a title here please and edit everything at will In this analysis, I looked at … | Data science for the liberal arts</title>
   <meta name="description" content="Test">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="an invitation | Data science for the liberal arts" />
+  <meta property="og:title" content="17 Make a title here please and edit everything at will In this analysis, I looked at … | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/diffprop_cloud_250_sm.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="an invitation | Data science for the liberal arts" />
+  <meta name="twitter:title" content="17 Make a title here please and edit everything at will In this analysis, I looked at … | Data science for the liberal arts" />
   
   <meta name="twitter:description" content="Test" />
   <meta name="twitter:image" content="images/diffprop_cloud_250_sm.png" />
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="data-science-for-the-liberal-arts.html">
+<link rel="prev" href="references.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -282,43 +282,576 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="an-invitation" class="section level1 unnumbered">
-<h1>an invitation</h1>
-<p>This work-in-progress includes my notes for <a href="https://kevinlanning.github.io/DataSciSpring2019/"><em><em>Introduction to Data Science</em></em></a> at the Wilkes Honors College of Florida Atlantic University.</p>
-<p>Data science is still a new field of study, and there are multiple approaches to teaching it and to its place in the college curriculum. This course is like those at the universities of <a href="https://idc9.github.io/stor390/">North Carolina</a>, <a href="https://github.com/STAT545-UBC/STAT545-UBC.github.io">British Columbia</a>, <a href="https://www2.stat.duke.edu/courses/Fall15/sta112.01/">Duke</a>, <a href="http://www.hcbravo.org/IntroDataSci/calendar/">Maryland</a>, <a href="http://pages.stat.wisc.edu/~yandell/R_for_data_sciences/syllabus.html">Wisconsin</a>, <a href="https://github.com/dcl-2017-04/curriculum">Stanford</a>, <a href="https://byuistats.github.io/M335/syllabus.html">BYU</a>, <a href="http://datasciencelabs.github.io/">Harvard</a>, <a href="https://github.com/MUSA-620-Spring-2017/Course-Materials">Pennsylvania</a>, and <a href="https://github.com/FAUDataScience/stat259">UC Berkeley</a> (and will likely draw from all of these) in that it is closer to Statistics than to Computer Science.</p>
-<p>But if our approach is closer to statistics than to programming, it is particularly close to statistics in its most applied and pragmatic form. The choice of statistical methods should follow from the data and problem at hand - or, as <span class="citation">Loevinger (<a href="#ref-loevinger1957objective">1957</a>)</span> once put it, statistics should be the handmaiden of real-world concerns rather than technology.</p>
-<p>This pragmatic focus is not unique. Courses with similar goals (which we may again draw from) include those at <a href="https://github.com/UC-MACSS/persp-analysis">Chicago</a>, <a href="https://github.com/jacobeisenstein/gt-css-class">Georgia Tech</a>, <a href="https://github.com/raviolli77/dataScience-UCSBProjectGroup-Syllabus">UC Santa Barbara</a>, <a href="http://www.princeton.edu/~mjs3/soc596_f2016/">Princeton</a>, <a href="https://github.com/rochelleterman/PS239T">UC Berkeley</a>, at <a href="https://github.com/HertieDataScience/SyllabusAndLectures">Berlin’s Hertie School of Governance</a>, and in <a href="https://github.com/tommeagher/data1-fall2015">Columbia’s School of Journalism</a>.</p>
-<div id="what-will-be-in-the-class" class="section level2 unnumbered">
-<h2>what will be in the class?</h2>
-<p><strong>R</strong></p>
-<p>In my 2017 survey of introductory data science courses, I saw a pretty even split between those which begin with Python and those which begin with the statistical programming language R. This difference corresponds, loosely, to the split noted above: Computer science based approaches to data science are frequently grounded in Python, while stats based approaches are generally grounded in R. Our course, like those for most of the syllabi and courses linked above, will be based in R.</p>
-<p><strong>Reproducible science</strong></p>
-<p>The course will provide an introduction to some of the methods and tools of reproducible science. We will consider the replication crisis in the natural and social sciences, and then consider three distinct approaches which serve as partial solutions to the crisis. The first of these is training in a notebook-based approach to writing analyses, reports and projects (using R markdown). The second is using public repositories (such as the <a href="https://osf.io/">Open Science Framework</a> and <a href="https://github.com/">GitHub</a>) to provide snapshots of projects over time. Finally, the third is to consider the place of significance testing in the age of Big Data, and to provide training in the use of descriptive, exploratory techniques of data analysis.</p>
-<p><strong>Good visualizations</strong></p>
-<p>Part of Type C data science is communication, and this includes not just writing up results, but also designing data displays that incisively convey the key ideas or features in a flood of data. We’ll examine and develop data visualizations such as plots, networks and text clouds. More advanced topics may include maps, interactive displays, and animations.</p>
-<p><strong><del>All</del> <em>Some of</em> the data</strong></p>
-<p>It’s been <a href="https://www.udemy.com/datascience/learn/v4/t/lecture/3473822?start=379">argued</a> that in the last dozen years, humans have produced more than 60 times as much information as existed in the entire previous history of humankind. (It sounds like hyperbole, but even if it’s off by an order of magnitude it’s still amazing). There are plenty of data sources for us to examine, and we’ll consider existing datasets from disciplines ranging from literature to economics to public health, with sizes ranging from a few dozen to millions of data points. We will also clean and create new datasets.</p>
-<p><strong><del>All</del> <em>Some of</em> the tools</strong></p>
-<p>In addition to R, we’ll use a range of other tools: We’ll communicate on the Slack platform. We’ll write using markdown editors such as <a href="https://typora.io/">Typora</a>. We’ll certainly use spreadsheets such as Excel or Google Sheets. We <em>may</em> use additional tools for visualizing data such as Gephi and Tableau. In any event, <strong>there will be computing throughout the course.</strong> You will be expected to bring a laptop every day. (Please let Dr. Lanning know ASAP if you don’t have access to this).</p>
-<p><strong>The place of data science in the WHC (and FAU) curriculum</strong></p>
-<p>At this writing, there is enthusiasm across units of FAU and its affiliated institutes, including Max Planck and FAU’s Colleges of Science and Engineering as well as the WHC, for integrating data science into our curriculum. Within the WHC, a data science minor and a multi-track concentration are under development. Until these proposals have been formally approved, students interested in concentrating in Data Science are encouraged to pursue an individual concentration (see Dr. Lanning for details).</p>
-<p>In addition, there are several integrated ‘4 + 1’ pathways which will lead to a master’s degree in the College of Engineering. These programs are also in progress; again, see Dr. Lanning for additional details.</p>
+<div id="make-a-title-here-please-and-edit-everything-at-will-in-this-analysis-i-looked-at" class="section level1">
+<h1><span class="header-section-number">17</span> Make a title here please and edit everything at will In this analysis, I looked at …</h1>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># library(tidyverse) </span>
+<span class="co"># install.packages(&#39;babynames&#39;) </span>
+<span class="kw">library</span>(babynames) 
+<span class="co"># install.packages(&#39;kableExtra&#39;) </span>
+<span class="kw">library</span> (kableExtra)</code></pre>
+<div id="what-does-this-code-do-heres-the-code-we-ran-successfully.-if-you-like-come-up-with-alternative-ways-of-creating-an-appropriate-dataset" class="section level2">
+<h2><span class="header-section-number">17.1</span> What does this code do? (Here’s the code we ran successfully. If you like, come up with alternative ways of creating an appropriate dataset)</h2>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(babynames) </code></pre>
+<pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    1924665 obs. of  5 variables:
+##  $ year: num  1880 1880 1880 1880 1880 1880 1880 1880 1880 1880 ...
+##  $ sex : chr  &quot;F&quot; &quot;F&quot; &quot;F&quot; &quot;F&quot; ...
+##  $ name: chr  &quot;Mary&quot; &quot;Anna&quot; &quot;Emma&quot; &quot;Elizabeth&quot; ...
+##  $ n   : int  7065 2604 2003 1939 1746 1578 1472 1414 1320 1288 ...
+##  $ prop: num  0.0724 0.0267 0.0205 0.0199 0.0179 ...</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">maleNames &lt;-<span class="st"> </span>babynames <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="kw">filter</span>(sex <span class="op">==</span><span class="st"> &quot;M&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">rename</span> (<span class="dt">nBoy =</span> n, <span class="dt">propBoy =</span> prop) 
+femaleNames &lt;-<span class="st"> </span>babynames <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">filter</span>(sex <span class="op">==</span><span class="st"> &quot;F&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename</span> (<span class="dt">nGirl =</span> n, <span class="dt">propGirl =</span> prop) 
+androNames &lt;-<span class="st"> </span>maleNames <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="kw">inner_join</span>(., femaleNames, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;year&quot;</span>)) </code></pre>
 </div>
-<div id="should-you-enroll" class="section level2 unnumbered">
-<h2>should you enroll?</h2>
-<p>It’s my intention that this course should serve every Wilkes Honors College student, regardless of concentration. The WHC was built and funded by the state of Florida to train tomorrow’s leaders. That’s you. The skills and insights that you will gain in this course will help you in graduate and professional schools, will help you in your careers, and will help you in your goal of making a better world. And it will help you train the next generation of data scientists, too.</p>
-<p><strong>How do I sign up?</strong></p>
-<p>If you are interested in taking the class, complete the Google form <a href="https://goo.gl/forms/kXGAOTShcOLPwjPH2">here</a>. Note that enrollment in the class and lab will be limited to 30.</p>
-
+<div id="can-you-fix-this-or-come-up-with-something-else-heres-the-code-that-we-started-to-write-but-didnt-finish.-we-were-trying-to-find-the-most-androgynous-names.-you-can-continue-to-explore-this-or-find-something-new.-be-clear-and-finish-with-a-brief-table.-round-numbers-to-just-a-few-decimals-please." class="section level2">
+<h2><span class="header-section-number">17.2</span> Can you fix this, or come up with something else? Here’s the code that we started to write, but didn’t finish. We were trying to find “the most androgynous names.” You can continue to explore this, or find something new. Be clear, and finish with a brief table. Round numbers to just a few decimals, please.</h2>
+<pre class="sourceCode r"><code class="sourceCode r">androNames <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span> (<span class="dt">total =</span> nGirl <span class="op">+</span><span class="st"> </span>nBoy) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="kw">mutate</span> (<span class="dt">sexRatio1 =</span> nBoy<span class="op">*</span>nGirl) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span> (<span class="dt">sexRatio2 =</span> propBoy<span class="op">*</span>propGirl) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># arrange(desc(total)) </span>
+<span class="kw">arrange</span>(<span class="kw">desc</span>(sexRatio2)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># you might mutate differently, and/or select certain cases </span>
+<span class="kw">head</span>(<span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable</span> () <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable_styling</span>() </code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+year
+</th>
+<th style="text-align:left;">
+sex.x
+</th>
+<th style="text-align:left;">
+name
+</th>
+<th style="text-align:right;">
+nBoy
+</th>
+<th style="text-align:right;">
+propBoy
+</th>
+<th style="text-align:left;">
+sex.y
+</th>
+<th style="text-align:right;">
+nGirl
+</th>
+<th style="text-align:right;">
+propGirl
+</th>
+<th style="text-align:right;">
+total
+</th>
+<th style="text-align:right;">
+sexRatio1
+</th>
+<th style="text-align:right;">
+sexRatio2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1910
+</td>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:left;">
+Willie
+</td>
+<td style="text-align:right;">
+2897
+</td>
+<td style="text-align:right;">
+0.0138931
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+1796
+</td>
+<td style="text-align:right;">
+0.0042810
+</td>
+<td style="text-align:right;">
+4693
+</td>
+<td style="text-align:right;">
+5203012
+</td>
+<td style="text-align:right;">
+5.95e-05
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1900
+</td>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:left;">
+Willie
+</td>
+<td style="text-align:right;">
+2113
+</td>
+<td style="text-align:right;">
+0.0130325
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+1351
+</td>
+<td style="text-align:right;">
+0.0042517
+</td>
+<td style="text-align:right;">
+3464
+</td>
+<td style="text-align:right;">
+2854663
+</td>
+<td style="text-align:right;">
+5.54e-05
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1909
+</td>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:left;">
+Willie
+</td>
+<td style="text-align:right;">
+2175
+</td>
+<td style="text-align:right;">
+0.0122974
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+1549
+</td>
+<td style="text-align:right;">
+0.0042081
+</td>
+<td style="text-align:right;">
+3724
+</td>
+<td style="text-align:right;">
+3369075
+</td>
+<td style="text-align:right;">
+5.17e-05
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1905
+</td>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:left;">
+Willie
+</td>
+<td style="text-align:right;">
+1782
+</td>
+<td style="text-align:right;">
+0.0124408
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+1285
+</td>
+<td style="text-align:right;">
+0.0041470
+</td>
+<td style="text-align:right;">
+3067
+</td>
+<td style="text-align:right;">
+2289870
+</td>
+<td style="text-align:right;">
+5.16e-05
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1907
+</td>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:left;">
+Willie
+</td>
+<td style="text-align:right;">
+1968
+</td>
+<td style="text-align:right;">
+0.0124096
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+1394
+</td>
+<td style="text-align:right;">
+0.0041312
+</td>
+<td style="text-align:right;">
+3362
+</td>
+<td style="text-align:right;">
+2743392
+</td>
+<td style="text-align:right;">
+5.13e-05
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1904
+</td>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:left;">
+Willie
+</td>
+<td style="text-align:right;">
+1675
+</td>
+<td style="text-align:right;">
+0.0120932
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+1188
+</td>
+<td style="text-align:right;">
+0.0040624
+</td>
+<td style="text-align:right;">
+2863
+</td>
+<td style="text-align:right;">
+1989900
+</td>
+<td style="text-align:right;">
+4.91e-05
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1906
+</td>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:left;">
+Willie
+</td>
+<td style="text-align:right;">
+1756
+</td>
+<td style="text-align:right;">
+0.0121884
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+1233
+</td>
+<td style="text-align:right;">
+0.0039338
+</td>
+<td style="text-align:right;">
+2989
+</td>
+<td style="text-align:right;">
+2165148
+</td>
+<td style="text-align:right;">
+4.79e-05
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1908
+</td>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:left;">
+Willie
+</td>
+<td style="text-align:right;">
+1964
+</td>
+<td style="text-align:right;">
+0.0118052
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+1371
+</td>
+<td style="text-align:right;">
+0.0038671
+</td>
+<td style="text-align:right;">
+3335
+</td>
+<td style="text-align:right;">
+2692644
+</td>
+<td style="text-align:right;">
+4.57e-05
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1902
+</td>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:left;">
+Willie
+</td>
+<td style="text-align:right;">
+1565
+</td>
+<td style="text-align:right;">
+0.0117891
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+1071
+</td>
+<td style="text-align:right;">
+0.0038204
+</td>
+<td style="text-align:right;">
+2636
+</td>
+<td style="text-align:right;">
+1676115
+</td>
+<td style="text-align:right;">
+4.50e-05
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1903
+</td>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:left;">
+Willie
+</td>
+<td style="text-align:right;">
+1454
+</td>
+<td style="text-align:right;">
+0.0112429
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+1014
+</td>
+<td style="text-align:right;">
+0.0036449
+</td>
+<td style="text-align:right;">
+2468
+</td>
+<td style="text-align:right;">
+1474356
+</td>
+<td style="text-align:right;">
+4.10e-05
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
+<div id="what-does-it-mean" class="section level2">
+<h2><span class="header-section-number">17.3</span> What does it mean?</h2>
+<p>The results from this table essentially state that Willie was the most androgynous name during the years 1900 and 1902-1910.
+Write a line or two describing this. Knit into a PDF, and be ready to upload on Wednesday.</p>
 
-
-
-<h3>References</h3>
 <div id="refs" class="references">
-<div id="ref-loevinger1957objective">
+<div>
+<p>Anscombe, FJ. 1973a. “Graphs in Statistical Analysis.” <em>American Statistician</em> 27 (1): 17–21.</p>
+</div>
+<div>
+<p>———. 1973b. “The American Statistician 27.” <em>Graphs in Statistical Analysis</em>, no. 1: 17–21.</p>
+</div>
+<div>
+<p>Baker, Monya. 2016. “Is There a Reproducibility Crisis?” <em>Nature</em> 533: 26.</p>
+</div>
+<div>
+<p>Benjamin, Daniel J, James O Berger, Magnus Johannesson, Brian A Nosek, E-J Wagenmakers, Richard Berk, Kenneth A Bollen, et al. 2017. “Redefine Statistical Significance.” <em>Nature Human Behaviour</em>. Nature Publishing Group, 1.</p>
+</div>
+<div>
+<p>Bonomi, Flavio, Rodolfo Milito, Jiang Zhu, and Sateesh Addepalli. 2012. “Fog Computing and Its Role in the Internet of Things.” In <em>Proceedings of the First Edition of the Mcc Workshop on Mobile Cloud Computing</em>, 13–16. ACM.</p>
+</div>
+<div>
+<p>Broman, Karl W, and Kara H Woo. 2017. “Data Organization in Spreadsheets.” <em>The American Statistician</em>, nos. just-accepted. Taylor &amp; Francis.</p>
+</div>
+<div>
+<p>Bryan, Jenny. 2017. “Data Rectangling [2017 Video].” <a href="https://www.rstudio.com/resources/videos/data-rectangling/" class="uri">https://www.rstudio.com/resources/videos/data-rectangling/</a>.</p>
+</div>
+<div>
+<p>Clarke, Russell, David Dorwin, and Rob Nash. 2009. “Is Open Source Software More Secure?” <em>Homeland Security/Cyber Security</em>.</p>
+</div>
+<div>
+<p>Cleveland, William S, and Robert McGill. 1985. “Graphical Perception and Graphical Methods for Analyzing Scientific Data.” <em>Science</em> 229 (4716). American Association for the Advancement of Science: 828–33.</p>
+</div>
+<div>
+<p>Collaboration, Open Science, and others. 2015. “Estimating the Reproducibility of Psychological Science.” <em>Science</em> 349 (6251). American Association for the Advancement of Science: aac4716.</p>
+</div>
+<div>
+<p>Cox, Jonathan, and Michael Lindell. 2013. “Visualizing Uncertainty in Predicted Hurricane Tracks.” <em>International Journal for Uncertainty Quantification</em> 3 (2). Begel House Inc.</p>
+</div>
+<div>
+<p>Donoho, David. 2017. “50 Years of Data Science.” In <em>Princeton Nj, Tukey Centennial Workshop</em>.</p>
+</div>
+<div>
+<p>FitzGerald, Ben, Peter L Levin, and Jacqueline Parziale. 2016. <em>Open Source Software &amp; the Department of Defense</em>. Center for a New American Security.</p>
+</div>
+<div>
+<p>Freeman, Michael, and Joel Ross. 2017. <em>Technical Foundations of Informatics, U Washington Info 201</em>. <a href="https://info201.github.io" class="uri">https://info201.github.io</a>.</p>
+</div>
+<div>
+<p>Gandrud, Christopher. 2016. <em>Reproducible Research with R and R Studio</em>. CRC Press.</p>
+</div>
+<div>
+<p>Grange, JA, D Lakens, F Adolfi, C Albers, F Anvari, M Apps, S Argamon, et al. 2018. “Justify Your Alpha.” <em>Nature Human Behavior</em>. Nature.</p>
+</div>
+<div>
+<p>Hastie, Reid, and Robyn M Dawes. 2010. <em>Rational Choice in an Uncertain World: The Psychology of Judgment and Decision Making</em>. Sage.</p>
+</div>
+<div>
+<p>Healy, Kieran. 2017. “Data Visualization for Social Science: A Practical Introduction with R and Ggplot2.” <a href="https://socviz.co" class="uri">https://socviz.co</a>.</p>
+</div>
+<div>
+<p>Henrich, Joseph, Steven J Heine, and Ara Norenzayan. 2010. “The Weirdest People in the World?” <em>Behavioral and Brain Sciences</em> 33 (2-3). Cambridge University Press: 61–83.</p>
+</div>
+<div>
+<p>Hicks, Stephanie C, and Rafael A Irizarry. 2017. “A Guide to Teaching Data Science.” <em>The American Statistician</em>, nos. just-accepted. Taylor &amp; Francis: 00–00.</p>
+</div>
+<div>
+<p>Hullman, Jessica, Paul Resnick, and Eytan Adar. 2015. “Hypothetical Outcome Plots Outperform Error Bars and Violin Plots for Inferences About Reliability of Variable Ordering.” <em>PloS One</em> 10 (11). Public Library of Science: e0142444.</p>
+</div>
+<div>
+<p>Ioannidis, John PA. 2005. “Why Most Published Research Findings Are False.” <em>PLoS Medicine</em> 2 (8). Public Library of Science: e124.</p>
+</div>
+<div>
+<p>Isaacson, Walter. 2014. <em>The Innovators: How a Group of Inventors, Hackers, Geniuses and Geeks Created the Digital Revolution</em>. Simon; Schuster.</p>
+</div>
+<div>
+<p>Jackson, Dan. 2017. <a href="https://www.thrillist.com/entertainment/nation/the-netflix-prize/" class="uri">https://www.thrillist.com/entertainment/nation/the-netflix-prize/</a>.</p>
+</div>
+<div>
+<p>Lakatos, Imre. 1969. “Falsification and the Methodology of Scientific Research Programmes.” <em>Criticism and the Growth of Knowledge. Cambridge University Press: Cambridge</em>.</p>
+</div>
+<div>
+<p>Lanning, Kevin. 1987. “Some Reasons for Distinguishing Between ‘Non-Normative Response’ and ‘Irrational Decision’.” <em>The Journal of Psychology</em> 121 (2). Taylor &amp; Francis: 109–17.</p>
+</div>
+<div>
+<p>———. 2017. “What Is the Relationship Between ‘Personality’ and ‘Social’ Psychologies? Network, Community, and Whole Text Analyses of the Structure of Contemporary Scholarship.” <em>Collabra: Psychology</em> 3 (1). The Regents of the University of California.</p>
+</div>
+<div>
+<p>———. 2018. “Data Visualizations in Personality and Social Psychology: Challenges in Representing Taxonomic, Community, and Developmental Structures.”</p>
+</div>
+<div>
+<p>Lanning, Kevin, and Harrison G Gough. 1991. “Shared Variance in the California Psychological Inventory and the California Q-Set.” <em>Journal of Personality and Social Psychology</em> 60 (4). American Psychological Association: 596.</p>
+</div>
+<div>
+<p>Leek, Jeffrey T, and Roger D Peng. 2015. “Statistics: P Values Are Just the Tip of the Iceberg.” <em>Nature</em> 520 (7549): 612.</p>
+</div>
+<div>
 <p>Loevinger, Jane. 1957. “Objective Tests as Instruments of Psychological Theory.” <em>Psychological Reports</em> 3 (3). SAGE Publications Sage CA: Los Angeles, CA: 635–94.</p>
+</div>
+<div>
+<p>McShane, Blakeley B, David Gal, Andrew Gelman, Christian Robert, and Jennifer L Tackett. 2017. “Abandon Statistical Significance.” <em>arXiv Preprint arXiv:1709.07588</em>.</p>
+</div>
+<div>
+<p>Miguel, Edward, Colin Camerer, Katherine Casey, Joshua Cohen, Kevin M Esterling, Alan Gerber, Rachel Glennerster, et al. 2014. “Promoting Transparency in Social Science Research.” <em>Science</em> 343 (6166). American Association for the Advancement of Science: 30–31.</p>
+</div>
+<div>
+<p>Munafò, Marcus R, Brian A Nosek, Dorothy VM Bishop, Katherine S Button, Christopher D Chambers, Nathalie Percie du Sert, Uri Simonsohn, Eric-Jan Wagenmakers, Jennifer J Ware, and John PA Ioannidis. 2017. “A Manifesto for Reproducible Science.” <em>Nature Human Behaviour</em> 1. Nature Publishing Group: 0021.</p>
+</div>
+<div>
+<p>Peng, Roger. 2018. “Teaching R to New Users - from Tapply to the Tidyverse.” <a href="https://simplystatistics.org/2018/07/12/use-r-keynote-2018/" class="uri">https://simplystatistics.org/2018/07/12/use-r-keynote-2018/</a>.</p>
+</div>
+<div>
+<p>Peng, Roger D. 2015. <em>R Programming for Data Science</em>. Lulu. com.</p>
+</div>
+<div>
+<p>Slovic, Paul, David Zionts, Andrew K Woods, Ryan Goodman, and Derek Jinks. 2013. “Psychic Numbing and Mass Atrocity.” <em>The Behavioral Foundations of Public Policy</em>. Princeton University Press. NYU School of Law, Public Law Research Paper No …, 126–42.</p>
+</div>
+<div>
+<p>Szucs, Denes, and John Ioannidis. 2017. “When Null Hypothesis Significance Testing Is Unsuitable for Research: A Reassessment.” <em>Frontiers in Human Neuroscience</em> 11. Frontiers: 390.</p>
+</div>
+<div>
+<p>Thies, Justus, Michael Zollhöfer, Matthias Nießner, Levi Valgaerts, Marc Stamminger, and Christian Theobalt. 2015. “Real-Time Expression Transfer for Facial Reenactment.” <em>ACM Trans. Graph.</em> 34 (6): 183–1.</p>
+</div>
+<div>
+<p>Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information</em>. 2nd ed. Cheshire, CT: Graphics Press.</p>
+</div>
+<div>
+<p>Tukey, John W. 1962. “The Future of Data Analysis.” <em>The Annals of Mathematical Statistics</em> 33 (1). JSTOR: 1–67.</p>
+</div>
+<div>
+<p>———. 1977. “EDA: Exploratory Data Analysis.” <em>Reading, Mass</em>.</p>
+</div>
+<div>
+<p>Tversky, Amos, and Daniel Kahneman. 1974. “Judgment Under Uncertainty: Heuristics and Biases.” <em>Science</em> 185 (4157). American association for the advancement of science: 1124–31.</p>
+</div>
+<div>
+<p>Wainer, Howard. 2007a. “The Most Dangerous Equation.” <em>American Scientist</em> 95 (3): 249.</p>
+</div>
+<div>
+<p>———. 2007b. “The Most Dangerous Equation.” <em>American Scientist</em> 95 (3). Sigma XI-The Scientific Research Society: 249.</p>
+</div>
+<div>
+<p>Wainer, Howard, and David Thissen. 1981. “Graphical Data Analysis.” <em>ETS Research Report Series</em> 1981 (1). Wiley Online Library: 191–241.</p>
+</div>
+<div>
+<p>Wickham, Hadley, and Garrett Grolemund. 2016. “R for Data Science.” Sebastopol, CA: O’Reilly. http://​ r4ds.​ had.​ co.​ nz.</p>
+</div>
+</div>
 </div>
 </div>
             </section>
@@ -326,8 +859,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-science-for-the-liberal-arts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="references.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -25,7 +25,7 @@
 <meta name="author" content="Kevin Lanning">
 
 
-<meta name="date" content="2019-03-13">
+<meta name="date" content="2019-03-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -54,7 +54,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -67,11 +67,13 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -253,7 +255,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.3" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#dates"><i class="fa fa-check"></i><b>14.3</b> dates</a></li>
 <li class="chapter" data-level="14.4" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#times"><i class="fa fa-check"></i><b>14.4</b> times</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>15</b> references</a></li>
+<li class="chapter" data-level="15" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>15</b> lists</a></li>
+<li class="chapter" data-level="16" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>16</b> references</a></li>
+<li class="chapter" data-level="17" data-path="make-a-title-here-please-and-edit-everything-at-will-in-this-analysis-i-looked-at.html"><a href="make-a-title-here-please-and-edit-everything-at-will-in-this-analysis-i-looked-at.html"><i class="fa fa-check"></i><b>17</b> Make a title here please and edit everything at will In this analysis, I looked at …</a><ul>
+<li class="chapter" data-level="17.1" data-path="make-a-title-here-please-and-edit-everything-at-will-in-this-analysis-i-looked-at.html"><a href="make-a-title-here-please-and-edit-everything-at-will-in-this-analysis-i-looked-at.html#what-does-this-code-do-heres-the-code-we-ran-successfully.-if-you-like-come-up-with-alternative-ways-of-creating-an-appropriate-dataset"><i class="fa fa-check"></i><b>17.1</b> What does this code do? (Here’s the code we ran successfully. If you like, come up with alternative ways of creating an appropriate dataset)</a></li>
+<li class="chapter" data-level="17.2" data-path="make-a-title-here-please-and-edit-everything-at-will-in-this-analysis-i-looked-at.html"><a href="make-a-title-here-please-and-edit-everything-at-will-in-this-analysis-i-looked-at.html#can-you-fix-this-or-come-up-with-something-else-heres-the-code-that-we-started-to-write-but-didnt-finish.-we-were-trying-to-find-the-most-androgynous-names.-you-can-continue-to-explore-this-or-find-something-new.-be-clear-and-finish-with-a-brief-table.-round-numbers-to-just-a-few-decimals-please."><i class="fa fa-check"></i><b>17.2</b> Can you fix this, or come up with something else? Here’s the code that we started to write, but didn’t finish. We were trying to find “the most androgynous names.” You can continue to explore this, or find something new. Be clear, and finish with a brief table. Round numbers to just a few decimals, please.</a></li>
+<li class="chapter" data-level="17.3" data-path="make-a-title-here-please-and-edit-everything-at-will-in-this-analysis-i-looked-at.html"><a href="make-a-title-here-please-and-edit-everything-at-will-in-this-analysis-i-looked-at.html#what-does-it-mean"><i class="fa fa-check"></i><b>17.3</b> What does it mean?</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -330,43 +338,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 </div>
-<h3> references</h3>
+<h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-lakatos1969falsification">
 <p>Lakatos, Imre. 1969. “Falsification and the Methodology of Scientific Research Programmes.” <em>Criticism and the Growth of Knowledge. Cambridge University Press: Cambridge</em>.</p>
 </div>
 <div id="ref-open2015estimating">
-<p>Collaboration, Open Science, and others. 2015. “Estimating the Reproducibility of Psychological Science.” <em>Science</em> 349 (6251): aac4716.</p>
+<p>Collaboration, Open Science, and others. 2015. “Estimating the Reproducibility of Psychological Science.” <em>Science</em> 349 (6251). American Association for the Advancement of Science: aac4716.</p>
 </div>
 <div id="ref-baker2016reproducibility">
 <p>Baker, Monya. 2016. “Is There a Reproducibility Crisis?” <em>Nature</em> 533: 26.</p>
 </div>
 <div id="ref-ioannidis2005most">
-<p>Ioannidis, John PA. 2005. “Why Most Published Research Findings Are False.” <em>PLoS Medicine</em> 2 (8): e124.</p>
+<p>Ioannidis, John PA. 2005. “Why Most Published Research Findings Are False.” <em>PLoS Medicine</em> 2 (8). Public Library of Science: e124.</p>
 </div>
 <div id="ref-grange2018justify">
-<p>Grange, JA, D Lakens, F Adolfi, C Albers, F Anvari, M Apps, S Argamon, et al. 2018. “Justify Your Alpha.” <em>Nature Human Behavior</em>.</p>
+<p>Grange, JA, D Lakens, F Adolfi, C Albers, F Anvari, M Apps, S Argamon, et al. 2018. “Justify Your Alpha.” <em>Nature Human Behavior</em>. Nature.</p>
 </div>
 <div id="ref-benjamin2017redefine">
-<p>Benjamin, Daniel J, James O Berger, Magnus Johannesson, Brian A Nosek, E-J Wagenmakers, Richard Berk, Kenneth A Bollen, et al. 2017. “Redefine Statistical Significance.” <em>Nature Human Behaviour</em>, 1.</p>
+<p>Benjamin, Daniel J, James O Berger, Magnus Johannesson, Brian A Nosek, E-J Wagenmakers, Richard Berk, Kenneth A Bollen, et al. 2017. “Redefine Statistical Significance.” <em>Nature Human Behaviour</em>. Nature Publishing Group, 1.</p>
 </div>
 <div id="ref-mcshane2017abandon">
 <p>McShane, Blakeley B, David Gal, Andrew Gelman, Christian Robert, and Jennifer L Tackett. 2017. “Abandon Statistical Significance.” <em>arXiv Preprint arXiv:1709.07588</em>.</p>
 </div>
 <div id="ref-szucs2017null">
-<p>Szucs, Denes, and John Ioannidis. 2017. “When Null Hypothesis Significance Testing Is Unsuitable for Research: A Reassessment.” <em>Frontiers in Human Neuroscience</em> 11: 390.</p>
+<p>Szucs, Denes, and John Ioannidis. 2017. “When Null Hypothesis Significance Testing Is Unsuitable for Research: A Reassessment.” <em>Frontiers in Human Neuroscience</em> 11. Frontiers: 390.</p>
 </div>
 <div id="ref-leek2015statistics">
 <p>Leek, Jeffrey T, and Roger D Peng. 2015. “Statistics: P Values Are Just the Tip of the Iceberg.” <em>Nature</em> 520 (7549): 612.</p>
 </div>
 <div id="ref-munafo2017manifesto">
-<p>Munafò, Marcus R, Brian A Nosek, Dorothy VM Bishop, Katherine S Button, Christopher D Chambers, Nathalie Percie du Sert, Uri Simonsohn, Eric-Jan Wagenmakers, Jennifer J Ware, and John PA Ioannidis. 2017. “A Manifesto for Reproducible Science.” <em>Nature Human Behaviour</em> 1: 0021.</p>
+<p>Munafò, Marcus R, Brian A Nosek, Dorothy VM Bishop, Katherine S Button, Christopher D Chambers, Nathalie Percie du Sert, Uri Simonsohn, Eric-Jan Wagenmakers, Jennifer J Ware, and John PA Ioannidis. 2017. “A Manifesto for Reproducible Science.” <em>Nature Human Behaviour</em> 1. Nature Publishing Group: 0021.</p>
 </div>
 <div id="ref-wainer2007dangerous">
 <p>Wainer, Howard. 2007a. “The Most Dangerous Equation.” <em>American Scientist</em> 95 (3): 249.</p>
 </div>
 <div id="ref-miguel2014promoting">
-<p>Miguel, Edward, Colin Camerer, Katherine Casey, Joshua Cohen, Kevin M Esterling, Alan Gerber, Rachel Glennerster, et al. 2014. “Promoting Transparency in Social Science Research.” <em>Science</em> 343 (6166): 30–31.</p>
+<p>Miguel, Edward, Colin Camerer, Katherine Casey, Joshua Cohen, Kevin M Esterling, Alan Gerber, Rachel Glennerster, et al. 2014. “Promoting Transparency in Social Science Research.” <em>Science</em> 343 (6166). American Association for the Advancement of Science: 30–31.</p>
 </div>
 </div>
             </section>
