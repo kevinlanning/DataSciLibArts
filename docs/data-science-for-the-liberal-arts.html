@@ -25,7 +25,7 @@
 <meta name="author" content="Kevin Lanning">
 
 
-<meta name="date" content="2019-03-17">
+<meta name="date" content="2019-03-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -54,7 +54,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -67,13 +67,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -256,7 +254,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.4" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#times"><i class="fa fa-check"></i><b>14.4</b> times</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>15</b> lists</a></li>
-<li class="chapter" data-level="16" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>16</b> references</a></li>
+<li class="chapter" data-level="16" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html"><i class="fa fa-check"></i><b>16</b> loops, functions, and beyond</a><ul>
+<li class="chapter" data-level="16.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#loops"><i class="fa fa-check"></i><b>16.1</b> loops</a></li>
+<li class="chapter" data-level="16.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#from-loop-to-apply-to-purrrmap"><i class="fa fa-check"></i><b>16.2</b> from loop to apply to purrr::map</a></li>
+<li class="chapter" data-level="16.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#some-examples-of-functions"><i class="fa fa-check"></i><b>16.3</b> some examples of functions</a><ul>
+<li class="chapter" data-level="16.3.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#preliminaries"><i class="fa fa-check"></i><b>16.3.1</b> preliminaries</a></li>
+<li class="chapter" data-level="16.3.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#the-function"><i class="fa fa-check"></i><b>16.3.2</b> the function</a></li>
+<li class="chapter" data-level="16.3.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#applying-the-function"><i class="fa fa-check"></i><b>16.3.3</b> applying the function</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#how-many-bottles-of-what"><i class="fa fa-check"></i><b>16.4</b> how many bottles of what?</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>17</b> references</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -323,7 +331,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3> references</h3>
 <div id="refs" class="references">
 <div id="ref-hicks2017guide">
-<p>Hicks, Stephanie C, and Rafael A Irizarry. 2017. “A Guide to Teaching Data Science.” <em>The American Statistician</em>, nos. just-accepted. Taylor &amp; Francis: 00–00.</p>
+<p>Hicks, Stephanie C, and Rafael A Irizarry. 2017. “A Guide to Teaching Data Science.” <em>The American Statistician</em>, nos. just-accepted: 00–00.</p>
 </div>
 <div id="ref-isaacson2014innovators">
 <p>Isaacson, Walter. 2014. <em>The Innovators: How a Group of Inventors, Hackers, Geniuses and Geeks Created the Digital Revolution</em>. Simon; Schuster.</p>
