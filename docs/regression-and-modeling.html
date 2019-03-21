@@ -48,12 +48,13 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -66,11 +67,13 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -336,7 +339,7 @@ R &lt;-<span class="st"> </span><span class="kw">replicate</span>(B, {
 <span class="st">    </span><span class="kw">summarize</span>(<span class="dt">r=</span><span class="kw">cor</span>(father, son)) <span class="op">%&gt;%</span><span class="st"> </span>.<span class="op">$</span>r
 })
 <span class="kw">data.frame</span>(R) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(R)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.05</span>, <span class="dt">color =</span> <span class="st">&quot;grey&quot;</span>)</code></pre>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
 <div id="the-regression-line" class="section level3">
 <h3><span class="header-section-number">17.1.1</span> The regression line</h3>
 <p>If we are predicting a random variable <span class="math inline">\(Y\)</span> knowing the value of another <span class="math inline">\(X=x\)</span> using a regression line, then we predict that for every standard deviation, <span class="math inline">\(\sigma_X\)</span>, that <span class="math inline">\(x\)</span> increases above the average <span class="math inline">\(mu_X\)</span>, <span class="math inline">\(Y\)</span> increases <span class="math inline">\(\rho\)</span> standard deviations <span class="math inline">\(\sigma_Y\)</span> above the average <span class="math inline">\(\mu_Y\)</span>, where <span class="math inline">\(\rho\)</span> is the correlation between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
@@ -354,13 +357,13 @@ galton_heights <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(father, son)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> b, <span class="dt">slope =</span> m ) </code></pre>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
 <p>If we first standardize the variables, then the regression line has intercept 0 and slope equal to the correlation <span class="math inline">\(\rho\)</span>. Here, the slope, regression line, and correlation are all equal (I’ve made the plot square to better indicate this).</p>
 <pre class="sourceCode r"><code class="sourceCode r">galton_heights <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="kw">scale</span>(father), <span class="kw">scale</span>(son))) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="dv">0</span>, <span class="dt">slope =</span> r) </code></pre>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-6-1.png" width="384" /></p>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-82-1.png" width="384" /></p>
 </div>
 <div id="warning-there-are-two-regression-lines" class="section level3">
 <h3><span class="header-section-number">17.1.2</span> Warning: there are two regression lines</h3>
@@ -379,7 +382,7 @@ b_<span class="dv">2</span> &lt;-<span class="st"> </span>mu_x <span class="op">
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> b_<span class="dv">1</span>, <span class="dt">slope =</span> m_<span class="dv">1</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="op">-</span>b_<span class="dv">2</span><span class="op">/</span>m_<span class="dv">2</span>, <span class="dt">slope =</span> <span class="dv">1</span><span class="op">/</span>m_<span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) </code></pre>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-8-1.png" width="384" /></p>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-84-1.png" width="384" /></p>
 </div>
 </div>
 <div id="multiple-regression" class="section level2">
@@ -447,13 +450,13 @@ b_<span class="dv">2</span> &lt;-<span class="st"> </span>mu_x <span class="op">
          <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">continuous =</span> <span class="st">&#39;smooth&#39;</span>),
          <span class="dt">axisLabels =</span> <span class="st">&quot;none&quot;</span>,
         <span class="dt">switch =</span> <span class="st">&#39;both&#39;</span>)</code></pre>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-10-1.png" width="100%" /></p>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-86-1.png" width="100%" /></p>
 <pre class="sourceCode r"><code class="sourceCode r">Fair2 &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">select</span>(religious<span class="op">:</span>nbaffairs) 
 <span class="kw">ggpairs</span>(Fair2, <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">continuous =</span> <span class="st">&#39;smooth&#39;</span>),
            <span class="dt">axisLabels =</span> <span class="st">&quot;none&quot;</span>,
            <span class="dt">switch =</span> <span class="st">&#39;both&#39;</span>)</code></pre>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-10-2.png" width="100%" /></p>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-86-2.png" width="100%" /></p>
 <blockquote>
 <p>Exercise</p>
 <ol style="list-style-type: decimal">
