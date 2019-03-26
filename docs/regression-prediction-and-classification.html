@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>16 loops, functions, and beyond | Data science for the liberal arts</title>
+  <title>18 Regression, prediction and classification | Data science for the liberal arts</title>
   <meta name="description" content="Test">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="16 loops, functions, and beyond | Data science for the liberal arts" />
+  <meta property="og:title" content="18 Regression, prediction and classification | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/diffprop_cloud_250_sm.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="16 loops, functions, and beyond | Data science for the liberal arts" />
+  <meta name="twitter:title" content="18 Regression, prediction and classification | Data science for the liberal arts" />
   
   <meta name="twitter:description" content="Test" />
   <meta name="twitter:image" content="images/diffprop_cloud_250_sm.png" />
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="lists.html">
-<link rel="next" href="regression-and-modeling.html">
+<link rel="prev" href="regression-and-modeling.html">
+<link rel="next" href="references.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -54,7 +54,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -67,11 +67,13 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -273,17 +275,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17.3" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#swiss-fertility"><i class="fa fa-check"></i><b>17.3</b> Swiss fertility</a></li>
 <li class="chapter" data-level="17.4" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#what-predicts-marital-affairs"><i class="fa fa-check"></i><b>17.4</b> What predicts marital affairs?</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html"><i class="fa fa-check"></i><b>18</b> From regression to prediction and classification</a><ul>
-<li class="chapter" data-level="18.1" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#revisiting-the-affairs-data"><i class="fa fa-check"></i><b>18.1</b> Revisiting the affairs data</a></li>
-<li class="chapter" data-level="18.2" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#avoiding-capitalizing-on-chance"><i class="fa fa-check"></i><b>18.2</b> Avoiding capitalizing on chance</a><ul>
-<li class="chapter" data-level="18.2.1" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#splitting-the-data-into-training-and-test-subsamples"><i class="fa fa-check"></i><b>18.2.1</b> Splitting the data into training and test subsamples</a></li>
-</ul></li>
-<li class="chapter" data-level="18.3" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#applying-logistic-regression-analysis-to-the-training-data"><i class="fa fa-check"></i><b>18.3</b> applying logistic regression analysis to the training data</a></li>
-<li class="chapter" data-level="18.4" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#from-regression-to-classification"><i class="fa fa-check"></i><b>18.4</b> From regression to classification</a></li>
-<li class="chapter" data-level="18.5" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#applying-the-model-to-new-data-assessing-out-of-sample-risk"><i class="fa fa-check"></i><b>18.5</b> Applying the model to new data: Assessing out-of-sample risk</a></li>
-<li class="chapter" data-level="18.6" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#changing-our-decision-threshold"><i class="fa fa-check"></i><b>18.6</b> Changing our decision threshold</a></li>
-<li class="chapter" data-level="18.7" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#more-confusion"><i class="fa fa-check"></i><b>18.7</b> More confusion</a></li>
-<li class="chapter" data-level="18.8" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#rocs-and-auc"><i class="fa fa-check"></i><b>18.8</b> ROCs and AUC</a></li>
+<li class="chapter" data-level="18" data-path="regression-prediction-and-classification.html"><a href="regression-prediction-and-classification.html"><i class="fa fa-check"></i><b>18</b> Regression, prediction and classification</a><ul>
+<li class="chapter" data-level="18.1" data-path="regression-prediction-and-classification.html"><a href="regression-prediction-and-classification.html#revisiting-the-affairs-data"><i class="fa fa-check"></i><b>18.1</b> Revisiting the affairs data</a></li>
+<li class="chapter" data-level="18.2" data-path="regression-prediction-and-classification.html"><a href="regression-prediction-and-classification.html#capitalizing-on-chance"><i class="fa fa-check"></i><b>18.2</b> Capitalizing on chance</a></li>
+<li class="chapter" data-level="18.3" data-path="regression-prediction-and-classification.html"><a href="regression-prediction-and-classification.html#splitting-the-data-into-training-and-test-subsamples"><i class="fa fa-check"></i><b>18.3</b> Splitting the data into training and test subsamples</a></li>
+<li class="chapter" data-level="18.4" data-path="regression-prediction-and-classification.html"><a href="regression-prediction-and-classification.html#applying-our-initial-regression-analysis-to-the-training-data"><i class="fa fa-check"></i><b>18.4</b> applying our initial regression analysis to the training data</a></li>
+<li class="chapter" data-level="18.5" data-path="regression-prediction-and-classification.html"><a href="regression-prediction-and-classification.html#from-regression-to-classification"><i class="fa fa-check"></i><b>18.5</b> From regression to classification</a></li>
+<li class="chapter" data-level="18.6" data-path="regression-prediction-and-classification.html"><a href="regression-prediction-and-classification.html#applying-the-model-to-new-data-assessing-out-of-sample-risk"><i class="fa fa-check"></i><b>18.6</b> Applying the model to new data: Assessing out-of-sample risk</a></li>
+<li class="chapter" data-level="18.7" data-path="regression-prediction-and-classification.html"><a href="regression-prediction-and-classification.html#changing-our-decision-threshold"><i class="fa fa-check"></i><b>18.7</b> Changing our decision threshold</a></li>
+<li class="chapter" data-level="18.8" data-path="regression-prediction-and-classification.html"><a href="regression-prediction-and-classification.html#more-confusion"><i class="fa fa-check"></i><b>18.8</b> More confusion</a></li>
+<li class="chapter" data-level="18.9" data-path="regression-prediction-and-classification.html"><a href="regression-prediction-and-classification.html#rocs-and-auc"><i class="fa fa-check"></i><b>18.9</b> ROCs and AUC</a></li>
+<li class="chapter" data-level="18.10" data-path="regression-prediction-and-classification.html"><a href="regression-prediction-and-classification.html#a-better-model"><i class="fa fa-check"></i><b>18.10</b> A better model?</a></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>19</b> references</a></li>
 <li class="divider"></li>
@@ -306,194 +308,311 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="loops-functions-and-beyond" class="section level1">
-<h1><span class="header-section-number">16</span> loops, functions, and beyond</h1>
-<p>In one of the most important contemporary theoretical models of intelligence, <span class="citation">(Sternberg <a href="#ref-sternberg1999theory">1999</a>)</span> has argued that the ability to automatize, that is, to work efficiently on repeated or habitual tasks, is a key component of intelligent behavior. Solving habitual problems efficiently - whether it is making a cup of coffee, honing to the shortest path to compete a shopping list in a supermarket or finish a series of errands across town - allows us to focus our limited resources on other challenging tasks.</p>
-<p>In programming, loops and functions are essential tools for making repetitive tasks simple. Simplifying your code is one of the more intellectually satisfying aspects of working in R or in any programming language.</p>
-<p>In R, loops are supplemented by additional tools for simplifying and avoiding repetition in code, including the ‘apply’ family and the map function in purrr. Functions (and, beyond this, custom libraries) can further streamline your work.</p>
-<div id="loops" class="section level2">
-<h2><span class="header-section-number">16.1</span> loops</h2>
-<p>Consider the task of printing out a series of numbers. Here’s a simple example of how this could be done in a loop in R. It prints numbers between 1995 and 1998 (inclusive).</p>
-<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">message =</span> <span class="ot">FALSE</span>, <span class="dt">warning =</span> <span class="ot">FALSE</span>)
+<div id="regression-prediction-and-classification" class="section level1">
+<h1><span class="header-section-number">18</span> Regression, prediction and classification</h1>
+<div id="revisiting-the-affairs-data" class="section level2">
+<h2><span class="header-section-number">18.1</span> Revisiting the affairs data</h2>
+<p>Let’s go back and do what we should have done earlier: Examine and think about “number of affairs”. What does the distribution look like?</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(Fair)
+Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(nbaffairs)</code></pre>
+<pre><code>## # A tibble: 6 x 2
+##   nbaffairs     n
+##       &lt;dbl&gt; &lt;int&gt;
+## 1         0   451
+## 2         1    34
+## 3         2    17
+## 4         3    19
+## 5         7    42
+## 6        12    38</code></pre>
+<p>We note that the distibution is skewed - and we realize that perhaps we should think about it differently: The <em>meaning</em> of the difference between 0 and 1 is not the same as that between 1 and 2, or perhaps even 1 and 12.</p>
+<p>We can transform the data in several ways. We might begin with a root transform, rounded as integer:</p>
+<pre class="sourceCode r"><code class="sourceCode r">Fair2 &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">rootAffair =</span> 
+              <span class="kw">as.integer</span>(<span class="kw">sqrt</span>(nbaffairs)))
+Fair2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(rootAffair)</code></pre>
+<pre><code>## # A tibble: 4 x 2
+##   rootAffair     n
+##        &lt;int&gt; &lt;int&gt;
+## 1          0   451
+## 2          1    70
+## 3          2    42
+## 4          3    38</code></pre>
+<p>Or we could simply distinguish between those that do and don’t have affairs. We are going to do this on our initial (Fair) data here as we will be examining this further:</p>
+<pre class="sourceCode r"><code class="sourceCode r">Fair &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">affairYN =</span>
+               <span class="kw">ifelse</span> (nbaffairs <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>))
+Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(affairYN)</code></pre>
+<pre><code>## # A tibble: 2 x 2
+##   affairYN     n
+##      &lt;dbl&gt; &lt;int&gt;
+## 1        0   451
+## 2        1   150</code></pre>
+<p>With this change, the regression problem becomes more clearly a classification problem. How can we best predict which ‘type’ (affair-ers vs. not) a given person falls in to?</p>
+</div>
+<div id="capitalizing-on-chance" class="section level2">
+<h2><span class="header-section-number">18.2</span> Capitalizing on chance</h2>
+<p>One lesson from the last class was that correlations (and regression coefficients) drawn from small samples were not stable. In regression analysis, as progressively smaller samples were drawn from the Fair data, the ability to predict the outcome increased. In the limiting case, when the number of predictors (variables) was equal to the number of cases in the sample (rows), prediction becomes perfect.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># insert code here to show this</span></code></pre>
+<p>The problem of capitalizing on chance is a significant one in prediction, and one should always be skeptical of models which are untested beyond the sample from which they were derived.</p>
+</div>
+<div id="splitting-the-data-into-training-and-test-subsamples" class="section level2">
+<h2><span class="header-section-number">18.3</span> Splitting the data into training and test subsamples</h2>
+<p>The most basic solution to this problem is to split the data into two groups, a <em>training</em> sample from which we extract our model, and a <em>test</em> sample on which you will assess it. (Often, the logic of this will be extended to include a third group, a <em>validation</em> sample which would be used to tune or select the results of the training run before the test data are examined). Here, we will consider the simpler approach, splitting the Fair data into training and test samples. The critical feature of this analysis is that we will hold out the test data, and not even look at it until after our model building is complete.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># establish a seed for your data-split</span>
+<span class="co"># so that your results will be reproducible</span>
+<span class="kw">set.seed</span>(<span class="dv">33458</span>)
+<span class="co"># drop the nbaffairs variable as we</span>
+<span class="co"># are no longer using this</span>
+Fair &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span> (<span class="op">-</span>nbaffairs)
+<span class="co"># create a set of line numbers </span>
+<span class="co"># of size corresponding to the </span>
+<span class="co"># desired training sample </span>
+n &lt;-<span class="st"> </span><span class="kw">nrow</span>(Fair)
+trainIndex &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>n, 
+<span class="dt">size =</span> <span class="kw">round</span>(<span class="fl">0.6</span><span class="op">*</span>n), <span class="dt">replace=</span><span class="ot">FALSE</span>)
+<span class="co"># create training and test samples</span>
+trainFair &lt;-<span class="st"> </span>Fair[trainIndex ,]
+testFair &lt;-<span class="st"> </span>Fair[<span class="op">-</span>trainIndex ,]</code></pre>
+</div>
+<div id="applying-our-initial-regression-analysis-to-the-training-data" class="section level2">
+<h2><span class="header-section-number">18.4</span> applying our initial regression analysis to the training data</h2>
+<p>On our training data, we run a regression analysis to create our best-fitting model. Here, we are using the same syntax as in the prior run.</p>
+<p>This provides a summary of the model (including regression weights), then summary statistics for predicted scores. All of this is using our original (training) data.</p>
+<pre class="sourceCode r"><code class="sourceCode r">model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(affairYN <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> trainFair)
+<span class="kw">summary</span> (model1)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = affairYN ~ ., data = trainFair)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.6271 -0.2756 -0.1775  0.4126  0.9704 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  0.793549   0.202546   3.918 0.000107 ***
+## sexmale      0.047190   0.053610   0.880 0.379325    
+## age         -0.010831   0.003960  -2.735 0.006547 ** 
+## ym           0.017903   0.007182   2.493 0.013132 *  
+## childyes     0.061458   0.063386   0.970 0.332921    
+## religious   -0.050330   0.019715  -2.553 0.011103 *  
+## education    0.001167   0.011451   0.102 0.918885    
+## occupation   0.014074   0.015858   0.888 0.375403    
+## rate        -0.081762   0.021513  -3.801 0.000170 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.4203 on 352 degrees of freedom
+## Multiple R-squared:  0.09936,    Adjusted R-squared:  0.07889 
+## F-statistic: 4.854 on 8 and 352 DF,  p-value: 1.081e-05</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">predictTrain &lt;-<span class="st"> </span><span class="kw">predict</span>(model1, trainFair, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)
+<span class="kw">summary</span> (predictTrain)</code></pre>
+<pre><code>##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## -0.09528  0.16188  0.23792  0.25762  0.35579  0.64981</code></pre>
+</div>
+<div id="from-regression-to-classification" class="section level2">
+<h2><span class="header-section-number">18.5</span> From regression to classification</h2>
+<p>Our “predicted scores” are continuous, but our prediction will be a dichotomous one: A person will or will not have affairs.</p>
+<p>We need to create a decision threshold at which we will change our prediction from yes to no.</p>
+<p>We can begin with a threshold equal to the actual proportion of people who don’t have affairs in our sample.</p>
+<p>This is equal to both the mean of our predicted scores (above) and the mean of our actual scores, and, because this is a dichotomous variable, the proportion of people in the sample who don’t have affairs. We’ll predict that if a person has a predicted score more than this we’ll predict that s/he will be unfaithful, else we will “PredictOK.”</p>
+<pre class="sourceCode r"><code class="sourceCode r">(threshold &lt;-<span class="st"> </span><span class="kw">mean</span>(trainFair<span class="op">$</span>affairYN))</code></pre>
+<pre><code>## [1] 0.2576177</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">classification &lt;-<span class="st"> </span><span class="kw">ifelse</span>(predictTrain <span class="op">&gt;</span><span class="st"> </span>threshold,
+                         <span class="st">&quot;Predictunfaithful&quot;</span>, <span class="st">&quot;PredictOK&quot;</span>)</code></pre>
+<p>And we can create a <em>confusion matrix,</em> to compare our correct predictions (PredictOK and affairYN = 1, Predictunfaithful and affairYN = 0) with the remainder.</p>
+<pre class="sourceCode r"><code class="sourceCode r">(b&lt;-<span class="kw">table</span>(classification, trainFair<span class="op">$</span>affairYN))</code></pre>
+<pre><code>##                    
+## classification        0   1
+##   PredictOK         165  34
+##   Predictunfaithful 103  59</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">(correct &lt;-b[<span class="dv">1</span>,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">2</span>])</code></pre>
+<pre><code>## [1] 224</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">(errors &lt;-<span class="st"> </span>b[<span class="dv">1</span>,<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">1</span>])</code></pre>
+<pre><code>## [1] 137</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">(accuracy &lt;-correct<span class="op">/</span>(correct <span class="op">+</span><span class="st"> </span>errors))</code></pre>
+<pre><code>## [1] 0.6204986</code></pre>
+</div>
+<div id="applying-the-model-to-new-data-assessing-out-of-sample-risk" class="section level2">
+<h2><span class="header-section-number">18.6</span> Applying the model to new data: Assessing out-of-sample risk</h2>
+<p>We shouldn’t trust these results, though, because the model is based on the same data that it is tested upon. Now we will apply the model to the new, independent test data.</p>
+<p>Typically (but not invariably), the percent of accurate classifications will decline, especially if the model is a complex one with many variables or if the number of observations is low.</p>
+<pre class="sourceCode r"><code class="sourceCode r">predictTest &lt;-<span class="st"> </span><span class="kw">predict</span>(model1, testFair, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)
+classification &lt;-<span class="st"> </span><span class="kw">ifelse</span>(predictTest <span class="op">&gt;</span><span class="st"> </span>threshold,
+                         <span class="st">&quot;Predictunfaithful&quot;</span>, <span class="st">&quot;PredictOK&quot;</span>)
+(b&lt;-<span class="kw">table</span>(classification, testFair<span class="op">$</span>affairYN))</code></pre>
+<pre><code>##                    
+## classification        0   1
+##   PredictOK         112  17
+##   Predictunfaithful  71  40</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">(correct &lt;-b[<span class="dv">1</span>,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">2</span>])</code></pre>
+<pre><code>## [1] 152</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">(errors &lt;-<span class="st"> </span>b[<span class="dv">1</span>,<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">1</span>])</code></pre>
+<pre><code>## [1] 88</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">(accuracy &lt;-correct<span class="op">/</span>(correct <span class="op">+</span><span class="st"> </span>errors))</code></pre>
+<pre><code>## [1] 0.6333333</code></pre>
+</div>
+<div id="changing-our-decision-threshold" class="section level2">
+<h2><span class="header-section-number">18.7</span> Changing our decision threshold</h2>
+<p>In most decision problems, there is an asymmetry in the cost of different types of errors: if you are foraging for mushrooms, for example, an error of the form (you decide its safe and it is poisonous) is more costly than the converse (you decide its poisonous and it is safe).</p>
+<p>This may be true in the present example as well. Consider someone who is looking for a spouse, but is really averse to the idea of getting hurt by an affair: That person might feel like the cost of marrying an unfaithful person is much greater than the cost of not marrying a faithful one. So we adjust the threshold downwards:</p>
+<pre class="sourceCode r"><code class="sourceCode r">threshold &lt;-<span class="st"> </span><span class="fl">.05</span>
+classification &lt;-<span class="st"> </span><span class="kw">ifelse</span>(predictTest <span class="op">&gt;</span><span class="st"> </span>threshold,
+                         <span class="st">&quot;Predictunfaithful&quot;</span>, <span class="st">&quot;PredictOK&quot;</span>)
+(b&lt;-<span class="kw">table</span>(classification, testFair<span class="op">$</span>affairYN))</code></pre>
+<pre><code>##                    
+## classification        0   1
+##   PredictOK          13   3
+##   Predictunfaithful 170  54</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">(correct &lt;-b[<span class="dv">1</span>,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">2</span>])</code></pre>
+<pre><code>## [1] 67</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">(errors &lt;-<span class="st"> </span>b[<span class="dv">1</span>,<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">1</span>])</code></pre>
+<pre><code>## [1] 173</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">(accuracy &lt;-correct<span class="op">/</span>(correct <span class="op">+</span><span class="st"> </span>errors))</code></pre>
+<pre><code>## [1] 0.2791667</code></pre>
+<p>The “overall accuracy” - that is, number of correct classifications - drops. But that’s not what we are really interested in, rather, we are interested in minimizing hurt.</p>
+<p>Here’s another example: Someone who is very lonely might feel the opposite, and be willing to accept greater risk.</p>
+<pre class="sourceCode r"><code class="sourceCode r">threshold &lt;-<span class="st"> </span><span class="fl">.6</span>
+classification &lt;-<span class="st"> </span><span class="kw">ifelse</span>(predictTest <span class="op">&gt;</span><span class="st"> </span>threshold,
+                         <span class="st">&quot;Predictunfaithful&quot;</span>, <span class="st">&quot;PredictOK&quot;</span>)
+(b&lt;-<span class="kw">table</span>(classification, testFair<span class="op">$</span>affairYN))</code></pre>
+<pre><code>##                    
+## classification        0   1
+##   PredictOK         182  57
+##   Predictunfaithful   1   0</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">(correct &lt;-b[<span class="dv">1</span>,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">2</span>])</code></pre>
+<pre><code>## [1] 182</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">(errors &lt;-<span class="st"> </span>b[<span class="dv">1</span>,<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">1</span>])</code></pre>
+<pre><code>## [1] 58</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">(accuracy &lt;-correct<span class="op">/</span>(correct <span class="op">+</span><span class="st"> </span>errors))</code></pre>
+<pre><code>## [1] 0.7583333</code></pre>
+<p>Prediction is higher here - but not as high as it would be if we raised the threshold even further, and just assumed that everyone can be trusted. Which is nice, in principle. Can we do better?</p>
+</div>
+<div id="more-confusion" class="section level2">
+<h2><span class="header-section-number">18.8</span> More confusion</h2>
+<p>The confusion matrices above can be produced automatically with the caret package. Note that the labels for the actual and predicted scores have to be the same, so I have changed the classification statement in this section where we consider still another potential threshold.</p>
+<p>This function describes outcomes in several ways, as there are many languages for describing outcomes in 2 x 2 tables, including Type I vs. Type II errors, Hits vs. False Alarms/False Positives, and Sensitivity vs. Specificity.</p>
+<p>In these data, it’s been set up so that
+- hit rate ~ sensitivity ~ (“no affair” | no affair)
+- correct rejection ~ specificity ~ (“affair” | affair)</p>
+<pre class="sourceCode r"><code class="sourceCode r">threshold &lt;-<span class="st"> </span><span class="fl">.5</span>
+<span class="co">#classification &lt;- ifelse(predictTest &gt; threshold,</span>
+<span class="co">#                         &quot;Predictunfaithful&quot;, &quot;PredictOK&quot;)</span>
+classification &lt;-<span class="st"> </span><span class="kw">ifelse</span>(predictTest <span class="op">&gt;</span><span class="st"> </span>threshold, <span class="dv">1</span>,<span class="dv">0</span>)
+<span class="co"># caret package (newest) requires explicit matching of factors</span>
+<span class="co"># before, worked with characters.</span>
+classification &lt;-<span class="kw">as.factor</span>(classification)
+testFair<span class="op">$</span>affairYN &lt;-<span class="kw">as.factor</span>(testFair<span class="op">$</span>affairYN)
+<span class="kw">confusionMatrix</span>(classification, testFair<span class="op">$</span>affairYN)</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction   0   1
+##          0 178  52
+##          1   5   5
+##                                           
+##                Accuracy : 0.7625          
+##                  95% CI : (0.7035, 0.8149)
+##     No Information Rate : 0.7625          
+##     P-Value [Acc &gt; NIR] : 0.5355          
+##                                           
+##                   Kappa : 0.0843          
+##  Mcnemar&#39;s Test P-Value : 1.109e-09       
+##                                           
+##             Sensitivity : 0.97268         
+##             Specificity : 0.08772         
+##          Pos Pred Value : 0.77391         
+##          Neg Pred Value : 0.50000         
+##              Prevalence : 0.76250         
+##          Detection Rate : 0.74167         
+##    Detection Prevalence : 0.95833         
+##       Balanced Accuracy : 0.53020         
+##                                           
+##        &#39;Positive&#39; Class : 0               
+## </code></pre>
+</div>
+<div id="rocs-and-auc" class="section level2">
+<h2><span class="header-section-number">18.9</span> ROCs and AUC</h2>
+<p>Each of these decision thresholds describes the performance of a model at a particular point. We can combine the thresholds and plot them using the colAUC function; this also provides the area under the curve (AUC), which is a great measure of model accuracy.</p>
+<p>Notice I’ve specified fig.width and fig.height in the chunk options here; in part because ROC curves are easier to understand when plotted on a square grid.</p>
+<pre class="sourceCode r"><code class="sourceCode r">AUCModel1&lt;-<span class="kw">colAUC</span>(predictTest, testFair[[<span class="st">&quot;affairYN&quot;</span>]], <span class="dt">plotROC =</span> <span class="ot">TRUE</span>)</code></pre>
+<p><img src="DataSciLibArts_files/figure-html/0414model1ROC-1.png" width="480" /></p>
+<pre class="sourceCode r"><code class="sourceCode r">AUCModel1</code></pre>
+<pre><code>##              [,1]
+## 0 vs. 1 0.7333429</code></pre>
+</div>
+<div id="a-better-model" class="section level2">
+<h2><span class="header-section-number">18.10</span> A better model?</h2>
+<p>In the preceding secion, we used a standard regression model; we can possibly improve prediction by using a logistic approach which is designed specifically for cases where the outcome is dichotomous.</p>
+<pre class="sourceCode r"><code class="sourceCode r">model2 &lt;-<span class="st"> </span><span class="kw">glm</span>(affairYN <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> trainFair, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)
+<span class="kw">summary</span> (model2)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = affairYN ~ ., family = &quot;binomial&quot;, data = trainFair)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.5415  -0.7703  -0.5984   0.9298   2.2685  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)  1.71899    1.16225   1.479  0.13914    
+## sexmale      0.27875    0.31051   0.898  0.36934    
+## age         -0.06421    0.02418  -2.655  0.00792 ** 
+## ym           0.10580    0.04176   2.534  0.01128 *  
+## childyes     0.38298    0.37743   1.015  0.31025    
+## religious   -0.29793    0.11492  -2.592  0.00953 ** 
+## education    0.01071    0.06673   0.160  0.87254    
+## occupation   0.07694    0.09288   0.828  0.40749    
+## rate        -0.42725    0.11950  -3.575  0.00035 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 411.94  on 360  degrees of freedom
+## Residual deviance: 375.13  on 352  degrees of freedom
+## AIC: 393.13
+## 
+## Number of Fisher Scoring iterations: 4</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">predictTrain &lt;-<span class="st"> </span><span class="kw">predict</span>(model2, trainFair, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)
+<span class="kw">summary</span> (predictTrain)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.03821 0.15515 0.21647 0.25762 0.34893 0.73426</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">(threshold &lt;-<span class="st"> </span><span class="kw">mean</span>(trainFair<span class="op">$</span>affairYN))</code></pre>
+<pre><code>## [1] 0.2576177</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#classification &lt;- ifelse(predictTest &gt; threshold,</span>
+<span class="co">#                         &quot;Predictunfaithful&quot;, &quot;PredictOK&quot;)</span>
+classification &lt;-<span class="st"> </span><span class="kw">ifelse</span>(predictTest <span class="op">&gt;</span><span class="st"> </span>threshold, <span class="dv">1</span>,<span class="dv">0</span>)
+classification &lt;-<span class="kw">as.factor</span>(classification)
+<span class="kw">confusionMatrix</span>(classification, testFair<span class="op">$</span>affairYN)</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction   0   1
+##          0 112  17
+##          1  71  40
+##                                           
+##                Accuracy : 0.6333          
+##                  95% CI : (0.5689, 0.6944)
+##     No Information Rate : 0.7625          
+##     P-Value [Acc &gt; NIR] : 1               
+##                                           
+##                   Kappa : 0.2366          
+##  Mcnemar&#39;s Test P-Value : 1.606e-08       
+##                                           
+##             Sensitivity : 0.6120          
+##             Specificity : 0.7018          
+##          Pos Pred Value : 0.8682          
+##          Neg Pred Value : 0.3604          
+##              Prevalence : 0.7625          
+##          Detection Rate : 0.4667          
+##    Detection Prevalence : 0.5375          
+##       Balanced Accuracy : 0.6569          
+##                                           
+##        &#39;Positive&#39; Class : 0               
+## </code></pre>
 
-<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1995</span><span class="op">:</span><span class="dv">1998</span>) { <span class="co"># i is an index code</span>
-    <span class="kw">print</span>(i) <span class="co"># print the ith value in the sequence </span>
-} <span class="co"># go to the next one until the range is complete</span></code></pre>
-<pre><code>## [1] 1995
-## [1] 1996
-## [1] 1997
-## [1] 1998</code></pre>
-<p>Let’s expand on this a little, connecting back to the babynames data. This will print counts of the number of babies for each year in GenerationZ, which includes years from 1995-2015.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(babynames)
-genZ &lt;-<span class="st"> </span>(<span class="dv">1995</span><span class="op">:</span><span class="dv">2015</span>)
-<span class="co"># this reduces the (big) babynames to a simple file of years and counts</span>
-babyCounts &lt;-
-<span class="st">    </span>babynames <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">filter</span>(year <span class="op">%in%</span><span class="st"> </span>genZ) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">summarize</span>(<span class="dt">nbabies =</span> <span class="kw">sum</span>(n))
-    
-<span class="co"># and this uses a for loop to print each row in turn</span>
-<span class="cf">for</span> (i <span class="cf">in</span> (<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(babyCounts))) { 
-    <span class="co"># filename[i,j] == ith row and jth column</span>
-    <span class="kw">print</span>(<span class="kw">paste</span>((babyCounts[i,<span class="dv">1</span>]), babyCounts[i,<span class="dv">2</span>]))
-}</code></pre>
-<pre><code>## [1] &quot;1995 3661351&quot;
-## [1] &quot;1996 3646362&quot;
-## [1] &quot;1997 3624799&quot;
-## [1] &quot;1998 3677107&quot;
-## [1] &quot;1999 3692537&quot;
-## [1] &quot;2000 3778079&quot;
-## [1] &quot;2001 3741451&quot;
-## [1] &quot;2002 3736042&quot;
-## [1] &quot;2003 3799971&quot;
-## [1] &quot;2004 3818361&quot;
-## [1] &quot;2005 3842004&quot;
-## [1] &quot;2006 3952932&quot;
-## [1] &quot;2007 3994007&quot;
-## [1] &quot;2008 3926358&quot;
-## [1] &quot;2009 3815638&quot;
-## [1] &quot;2010 3690700&quot;
-## [1] &quot;2011 3651914&quot;
-## [1] &quot;2012 3650462&quot;
-## [1] &quot;2013 3637310&quot;
-## [1] &quot;2014 3696311&quot;
-## [1] &quot;2015 3688687&quot;</code></pre>
-<p>The syntax of loops, including where to put parentheses in index statements, can be tricky. Expect to refer to Google and StackExchange often in order to get your code running.</p>
-<p>Another good source is Chapter 21 of R4DS. There, Wickham goes in to additional detail, including a description of seq_along(df) as a tool for creating an index corresponding to 1:ncol(df). Here’s an example with the diamonds dataset:</p>
-<pre class="sourceCode r"><code class="sourceCode r">diamonds2 &lt;-<span class="st"> </span>diamonds <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">select_if</span>(., is.numeric)
-<span class="co"># for (i in (1:ncol(diamonds2))) {</span>
-<span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(diamonds2)) {
-    <span class="kw">print</span>(<span class="kw">paste</span>(<span class="kw">names</span>(diamonds2[i]),
-                <span class="kw">round</span>(<span class="kw">mean</span>(diamonds2[[i]]),<span class="dv">2</span>)))
-}</code></pre>
-<pre><code>## [1] &quot;carat 0.8&quot;
-## [1] &quot;depth 61.75&quot;
-## [1] &quot;table 57.46&quot;
-## [1] &quot;price 3932.8&quot;
-## [1] &quot;x 5.73&quot;
-## [1] &quot;y 5.73&quot;
-## [1] &quot;z 3.54&quot;</code></pre>
-<p>Chapter 21 of R4DS also considers some extensions to related problems such as loops of indefinite length, which can often be addressed using the ‘<em>while</em>’ command.</p>
-</div>
-<div id="from-loop-to-apply-to-purrrmap" class="section level2">
-<h2><span class="header-section-number">16.2</span> from loop to apply to purrr::map</h2>
-<p>Understanding for loops is fundamental in programming, but in R they should often be sidestepped. If the order of iteration isn’t important (if, for example, it doesn’t matter which of the diamonds variables we take the mean of first), then using one of the measures from the <strong>apply</strong> family can generally be used to make your code simpler and more efficient.</p>
-<p>The logic is that one takes a dataframe (df or tibble), then applies a function to its rows or columns:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># apply the function (mean) to the columns(2) of the df </span>
-diamonds2  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">apply</span>(<span class="dv">2</span>,mean) </code></pre>
-<pre><code>##        carat        depth        table        price            x 
-##    0.7979397   61.7494049   57.4571839 3932.7997219    5.7311572 
-##            y            z 
-##    5.7345260    3.5387338</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># simply apply - guesses that you are looking for col. means</span>
-diamonds2  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sapply</span>(mean) </code></pre>
-<pre><code>##        carat        depth        table        price            x 
-##    0.7979397   61.7494049   57.4571839 3932.7997219    5.7311572 
-##            y            z 
-##    5.7345260    3.5387338</code></pre>
-<p>The many variants of the apply family, including lapply [list apply] and tapply [table apply] as well as sapply, each have their own uses and can be quite efficient but, again, can be syntactically challenging.</p>
-<p>In the evolving tidyverse, the <strong>map</strong> family of commands is supplementing if not supplanting apply; these commands (part of the purrr package in the core tidyverse) may prove to be more convenient and clear. For example, the <strong>map_df</strong> function will apply a function and return a dataframe (tibble), which can be handy for further analysis.</p>
-<pre class="sourceCode r"><code class="sourceCode r">b &lt;-diamonds2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">map_df</span>(mean)
-b</code></pre>
-<pre><code>## # A tibble: 1 x 7
-##   carat depth table price     x     y     z
-##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1 0.798  61.7  57.5 3933.  5.73  5.73  3.54</code></pre>
-</div>
-<div id="some-examples-of-functions" class="section level2">
-<h2><span class="header-section-number">16.3</span> some examples of functions</h2>
-<p>If you repeat a series of lines of code several times in your program, it is often best to wrap this into a function.</p>
-<p>The first example is from a preregistered study I recently started of language and politics. For the preregistration, I ran analyses using <strong>simulated data,</strong> both to increase the likelihood that the code will run without error on real data and to help anticipate the analyses which are to be run on ‘real’ data. I began by getting a real body of text from the net and scrambling it, then constructing fake ‘Republican’ and ‘Democratic’ texts from this. Here, I illustrate this by constructing 50 sample documents, each consisting of between 5 and 20 words.</p>
-<p>The project is given in four steps:</p>
-<div id="preliminaries" class="section level3">
-<h3><span class="header-section-number">16.3.1</span> preliminaries</h3>
-<p>Here is the preliminary stuff, where I pull the data off the net and initialize the variables</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-sampledata &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">url</span>(
-      <span class="st">&quot;https://www.crowdflower.com/wp-content/uploads/2016/03/sentiment-words-DFE-785960.csv&quot;</span>))
-<span class="co"># pulls off four words</span>
-sampledata &lt;-<span class="st"> </span>sampledata[<span class="dv">22</span><span class="op">:</span><span class="dv">25</span>] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">na.omit</span>()
-
-ndocs &lt;-<span class="st"> </span><span class="dv">50</span>
-minDocLength &lt;-<span class="st">  </span><span class="dv">5</span>
-maxDocLength &lt;-<span class="st"> </span><span class="dv">20</span>
-doc &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">mode =</span> <span class="st">&quot;character&quot;</span>, <span class="dt">length =</span> ndocs)</code></pre>
-</div>
-<div id="the-function" class="section level3">
-<h3><span class="header-section-number">16.3.2</span> the function</h3>
-<p>Here’s the simple function which pulls a random word out of the matrix of sampledata.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">33458</span>) <span class="co"># a random seed is used to allow reproducible results</span>
-getword &lt;-<span class="st"> </span><span class="cf">function</span>() {
-      rowid &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(sampledata), <span class="dv">1</span>)
-      colid &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(sampledata), <span class="dv">1</span>)
-      word &lt;-<span class="st"> </span>sampledata[rowid,colid]
-      word                 
-}</code></pre>
-</div>
-<div id="applying-the-function" class="section level3">
-<h3><span class="header-section-number">16.3.3</span> applying the function</h3>
-<p>The function is applied, first, to extract one word, then, in successive loops, to build up one phrase and then many.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># combine words into docs</span>
-<span class="co"># establish length of first phrase</span>
-docLength &lt;-<span class="st"> </span><span class="kw">sample</span>(minDocLength<span class="op">:</span>maxDocLength,<span class="dv">1</span>)
-<span class="co"># initialize with one word</span>
-sampleCorpus &lt;-<span class="st"> </span><span class="kw">getword</span>()
-<span class="co"># loop to build up first phrase</span>
-<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>docLength) {
-      addWord &lt;-<span class="st"> </span><span class="kw">getword</span>()
-      sampleCorpus &lt;-<span class="st"> </span><span class="kw">paste</span>(sampleCorpus, addWord)
-}
-<span class="co">#add additional simulated documents</span>
-<span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>ndocs) {
-      docLength &lt;-<span class="st"> </span><span class="kw">sample</span>(minDocLength<span class="op">:</span>maxDocLength,<span class="dv">1</span>)
-      newdoc &lt;-<span class="st"> </span><span class="kw">getword</span>()
-      <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>docLength <span class="op">-</span><span class="st"> </span><span class="dv">1</span>) {
-            addWord &lt;-<span class="st"> </span><span class="kw">getword</span>()
-            newdoc &lt;-<span class="st"> </span><span class="kw">paste</span>(newdoc, addWord)
-      }
-      sampleCorpus &lt;-<span class="st"> </span><span class="kw">rbind</span>(newdoc,sampleCorpus)
-}</code></pre>
-<p>Finally, the results are combined with a vector of alternating labels of ‘Dem’ and ‘Rep’:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">row.names</span>(sampleCorpus) &lt;-<span class="st"> </span><span class="ot">NULL</span>
-evenOdd &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;Dem&quot;</span>,<span class="st">&quot;Rep&quot;</span>),<span class="dt">length.out =</span> <span class="kw">nrow</span>(sampleCorpus))
-workingCorpus &lt;-<span class="st"> </span><span class="kw">as.tibble</span>(<span class="kw">cbind</span>(evenOdd,sampleCorpus))
-<span class="kw">head</span>(workingCorpus,<span class="dv">5</span>)</code></pre>
-<pre><code>## # A tibble: 5 x 2
-##   evenOdd V2                                                               
-##   &lt;chr&gt;   &lt;chr&gt;                                                            
-## 1 Dem     stress wonderful break just reserve hard to fit back is sore jus~
-## 2 Rep     christmas #smile just died goes too fast badly feel like crap no~
-## 3 Dem     too hot mess need a doctor moon cool a little rest               
-## 4 Rep     need cheering breeze afford beast indeed nice long walk lost my ~
-## 5 Dem     time ugh work indeed throw rocks need more info split personalit~</code></pre>
-</div>
-</div>
-<div id="how-many-bottles-of-what" class="section level2">
-<h2><span class="header-section-number">16.4</span> how many bottles of what?</h2>
-<p>To put the fun back into function, here’s a solution to the “99 bottles of beer” function described in r4DS 21.2.1. Study the code. Ask or answer a question about it in class or on Slack.</p>
-<pre class="sourceCode r"><code class="sourceCode r">beerSong &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">liquid =</span> <span class="st">&quot;beer&quot;</span>, <span class="dt">count =</span> <span class="dv">99</span>, <span class="dt">surface =</span> <span class="st">&quot;wall&quot;</span>) {
-    songtext &lt;-<span class="st"> &quot;&quot;</span> 
-    <span class="cf">for</span> (i <span class="cf">in</span> (count<span class="op">:</span><span class="dv">1</span>)) { 
-        thisLine =<span class="st"> </span>(<span class="kw">paste0</span>(i, <span class="st">&quot; bottles of &quot;</span>, liquid, 
-            <span class="st">&quot; on the &quot;</span>, surface,
-            <span class="st">&quot;, you take one down and pass it around,</span><span class="ch">\n</span><span class="st">&quot;</span>))
-        songtext =<span class="st"> </span><span class="kw">c</span>(songtext, thisLine)
-    }
-    songtext =<span class="st"> </span><span class="kw">c</span>(songtext, 
-                 (<span class="kw">paste0</span>(<span class="st">&quot;no more bottles of &quot;</span>,
-                         liquid,<span class="st">&quot; on the &quot;</span>, surface,<span class="st">&quot;...&quot;</span>)))
-    <span class="kw">cat</span>(songtext) <span class="co"># cat prints without line numbers</span>
-}</code></pre>
-
-</div>
-</div>
-<h3> references</h3>
-<div id="refs" class="references">
-<div id="ref-sternberg1999theory">
-<p>Sternberg, Robert J. 1999. “The Theory of Successful Intelligence.” <em>Review of General Psychology</em> 3 (4): 292–316.</p>
 </div>
 </div>
             </section>
@@ -501,8 +620,8 @@ workingCorpus &lt;-<span class="st"> </span><span class="kw">as.tibble</span>(<s
           </div>
         </div>
       </div>
-<a href="lists.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="regression-and-modeling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="regression-and-modeling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

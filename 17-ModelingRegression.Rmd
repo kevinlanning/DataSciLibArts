@@ -188,3 +188,13 @@ ggpairs(Fair2, lower = list(continuous = 'smooth'),
 > 1) Study the data. Learn about the measures by looking at Fair in the help tab of R studio.
 > 2) What do the scatterplot matrices shown above tell us?
 > 3) Can you just run a regression on it as is? Try predicting nbaffairs from the remaining 8 variables in Fair (not Fair1 or Fair2), using the same syntax in the Swiss data. Does it work? What do the results suggest? 
+
+```{r multiple regression - affairs}
+affairReg <- lm(nbaffairs ~ ., data=Fair)
+summary(affairReg)
+```
+
+```
+
+
+```
