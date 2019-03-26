@@ -76,7 +76,7 @@ testFair <- Fair[-trainIndex ,]
 
 ## applying logistic regression analysis to the training data
 
-Last class, we used the lm command in our regression analysis which predicted the (continuous) outcome nbaffairs.  Here, the outcome is now a dichotomou and therefore binomially distributed variable, and so the desired regression is a logistic one. We run this analysis using only the training data.
+Last class, we used the lm command in our regression analysis which predicted the (continuous) outcome nbaffairs.  Here, the outcome is now dichotomous and therefore binomially distributed variable, and so the desired regression is a logistic one. We run this analysis using only the training data.
 
 ```{r}
 model2 <- glm(affairYN ~ ., data = trainFair,
@@ -127,7 +127,7 @@ classification <- ifelse(predictTest > threshold,
 (errors <- b[1,2] + b[2,1])
 (accuracy <- correct/(correct + errors))
 ```
-We are correct `r round(accuracy,2)` percent of the time.
+We are correct `r 100*(round(accuracy,2))` percent of the time.
 
 ## Changing our decision threshold
 
@@ -159,7 +159,7 @@ classification <- ifelse(predictTest > threshold,
 (accuracy <- correct/(correct + errors))
 ```
 
-Prediction is higher here - but not as high as it would be if we raised the threshold even further, and just assumed that everyone can be trusted.  Then, our error rate would be `r round(mean(trainFair$affairYN),2)` percent.  When overall predictability is low, it's often the case that you can maximize correct predictions by simply predicting that everyone will be in the most popular category.  Predicting rare events, such as suicides, is particularly difficult.
+Prediction is higher here - but not much higher than it would be if we raised the threshold even further, and just assumed that everyone can be trusted.  Then, our error rate would be `r 100*(round(mean(trainFair$affairYN),2))` percent.  When overall predictability is low, it's often the case that you can maximize correct predictions by simply predicting that everyone will be in the most popular category.  Predicting rare events, such as suicides, is particularly difficult.
 
 ## More confusion
 

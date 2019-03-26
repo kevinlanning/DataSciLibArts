@@ -48,7 +48,6 @@
 
 
 
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 <style type="text/css">
@@ -374,7 +373,7 @@ testFair &lt;-<span class="st"> </span>Fair[<span class="op">-</span>trainIndex 
 </div>
 <div id="applying-logistic-regression-analysis-to-the-training-data" class="section level2">
 <h2><span class="header-section-number">18.3</span> applying logistic regression analysis to the training data</h2>
-<p>Last class, we used the lm command in our regression analysis which predicted the (continuous) outcome nbaffairs. Here, the outcome is now a dichotomou and therefore binomially distributed variable, and so the desired regression is a logistic one. We run this analysis using only the training data.</p>
+<p>Last class, we used the lm command in our regression analysis which predicted the (continuous) outcome nbaffairs. Here, the outcome is now dichotomous and therefore binomially distributed variable, and so the desired regression is a logistic one. We run this analysis using only the training data.</p>
 <pre class="sourceCode r"><code class="sourceCode r">model2 &lt;-<span class="st"> </span><span class="kw">glm</span>(affairYN <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> trainFair,
               <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)
 <span class="kw">summary</span> (model2)</code></pre>
@@ -452,7 +451,7 @@ classification &lt;-<span class="st"> </span><span class="kw">ifelse</span>(pred
 <pre><code>## [1] 75</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">(accuracy &lt;-<span class="st"> </span>correct<span class="op">/</span>(correct <span class="op">+</span><span class="st"> </span>errors))</code></pre>
 <pre><code>## [1] 0.6875</code></pre>
-<p>We are correct 0.69 percent of the time.</p>
+<p>We are correct 69 percent of the time.</p>
 </div>
 <div id="changing-our-decision-threshold" class="section level2">
 <h2><span class="header-section-number">18.6</span> Changing our decision threshold</h2>
@@ -488,7 +487,7 @@ classification &lt;-<span class="st"> </span><span class="kw">ifelse</span>(pred
 <pre><code>## [1] 58</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">(accuracy &lt;-<span class="st"> </span>correct<span class="op">/</span>(correct <span class="op">+</span><span class="st"> </span>errors))</code></pre>
 <pre><code>## [1] 0.7583333</code></pre>
-<p>Prediction is higher here - but not as high as it would be if we raised the threshold even further, and just assumed that everyone can be trusted. Then, our error rate would be 0.26 percent. When overall predictability is low, it’s often the case that you can maximize correct predictions by simply predicting that everyone will be in the most popular category. Predicting rare events, such as suicides, is particularly difficult.</p>
+<p>Prediction is higher here - but not much higher than it would be if we raised the threshold even further, and just assumed that everyone can be trusted. Then, our error rate would be 26 percent. When overall predictability is low, it’s often the case that you can maximize correct predictions by simply predicting that everyone will be in the most popular category. Predicting rare events, such as suicides, is particularly difficult.</p>
 </div>
 <div id="more-confusion" class="section level2">
 <h2><span class="header-section-number">18.7</span> More confusion</h2>
@@ -599,19 +598,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
