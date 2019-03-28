@@ -1,0 +1,133 @@
+---
+title: "19 - knn"
+author: "Lanning"
+date: "March 21, 2019"
+output: html_document
+---
+
+```{r}
+knitr::opts_chunk$set(echo = TRUE, warn = FALSE, message = FALSE) # defaults for all chunks after this one
+library(tidyverse)
+library(ggplot2)
+library(Ecdat) 
+library (class) # for knn
+library(caret) # confusion matrix
+library(magrittr) # allows bidirectional pipe for updating file easily %<>% 
+```
+
+# Another approach to prediction: k-nearest neighbor
+
+Our real-life social predictions are often guided not by induction or the (optimized) combination of a set of predictor variables.  Rather, we often reason by analogy - we might think, for example, that *I won't go out with Fred because he reminds me of Larry, and Larry was kind of a jerk.*  
+
+If regression analysis is an approach to prediction based in our set of variables, *k-nearest neighbor* analysis instead makes predictions based on observations.  
+
+In the simplest form of this analysis, we find the nearest thing to a "doppelganger" (a look-alike or near double) for a given observation.  So, in the affairs data, if a person is most like someone else in the dataset who has had an affair, we predict an affair, else not.
+
+Begin by loading the affairs data from last time.  Using the same seed (33458) means that the same set of training and test cases will be extracted as in the prior analysis
+
+```{r}
+data(Fair)
+# one change here: Note the bidirectional pipe to simplify code
+# use only when you are sure that your file update is ok
+Fair %<>% # <- Fair %>% 
+    mutate(affairYN =
+# another change here: nbaffairs is set up as a factor
+# to allow confusionmatrix to run
+               as.factor(ifelse(nbaffairs > 0,1,0))) %>%
+               select(-nbaffairs)
+set.seed(33458)
+n <- nrow(Fair)
+trainIndex <- sample(1:n, size = round(0.6*n), replace = FALSE)
+# create training and test samples
+trainFair <- Fair[trainIndex ,]
+testFair <- Fair[-trainIndex ,]
+```
+
+To run a k-nearest neighbor analysis, we need three inputs: our predictors in the training data, our predictors in the test data, and our outcome/classes in the training data.
+
+unlike the lm and glm commands, knn will not automatically create our dummy variables for us. so we need to do this manually.
+```{r}
+trainFair %<>% 
+    mutate(sexMale = ifelse(sex == "female", 0, 1)) %>% 
+    mutate(childyes = ifelse(child == "no", 0, 1)) %>% 
+    select(-(c(sex,child)))
+
+testFair %<>% 
+    mutate(sexMale = ifelse(sex == "female", 0, 1)) %>% 
+    mutate(childyes = ifelse(child == "no", 0, 1))%>% 
+    select(-(c(sex,child)))
+```
+
+Here, as in the regression analysis in the last chapter, we can generate a confusion matrix to assess the accuracy of prediction:
+
+```{r}
+set.seed(33458)
+knnAffair <- knn(trainFair[,-7], # training data
+                 testFair[,-7], # test data
+                 trainFair$affairYN, # class
+                 1 # number of neighbors
+                 )
+b<-confusionMatrix(knnAffair, testFair$affairYN)
+b
+b[["overall"]][["Accuracy"]]
+```
+
+## From 1 doppelganger to many
+
+In the above code, we used a k-nearest neighbor analysis based on a single 'neighbor' (k = 1). Can we improve prediction by considering more than 1 neighbor? 
+
+To test a range of values, we can first set up our knn analysis as a function (compare this code with the code in the prior section).
+
+```{r}
+knnFairdata <- function (k) {
+    set.seed(33458)
+    knnAffair <- knn(trainFair[,-7], # training data
+                 testFair[,-7], # test data
+                 trainFair$affairYN, # class
+                 k # number of neighbors
+                 )
+    b<-confusionMatrix(knnAffair, testFair$affairYN)
+    b[["overall"]][["Accuracy"]]
+}
+```
+
+
+We run the function on k = 1 and k = 2 to test it:
+```{r}
+knnFairdata(1)
+knnFairdata(2)
+```
+Now we can apply it to as many as 100 values of k, using the purrr::map command:
+
+```{r}
+kAccuracy <- (map(1:100,knnFairdata)) %>% # map the knnFunction onto numbers 1-100
+    unlist() %>% # map generates a list, so we will pull these out into a vector
+    as_tibble() %>%  # then a tibble so we can do a quick plot
+    rename(Accuracy=value) %>% 
+    mutate (k = seq_along(Accuracy))
+```
+
+We can graph this, using the syntax from the beginning of the class:
+```{r}
+kAccuracy %>% 
+    ggplot(aes(k, Accuracy)) +#%>% 
+    geom_point() +
+    ggtitle("Overall accuracy for varying levels of k")
+# This pulls out the maximum accuracy, and the value of k for which it occurs:
+(ka <- which.max(kAccuracy$Accuracy))
+(kb <- max(kAccuracy$Accuracy))
+```
+
+## Avoiding capitalization on chance again
+
+In these data, with this split of training and test (and this initial seed) the maximum predictability occurs at k = `r ka`, with an overall accuracy of `r kb`. 
+
+Would this hold if we used a different random split? Remember, here, we have tested not one model, but 100 of them, then chosen the best one.  The peak in the curve at `r ka` may well be due to chance characteristics of the test data.  
+
+We could address this empirically using one of several techniques. One approach is to have a third independent sample on which to test the accuracy of prediction at k = `r ka`. This would require the separate validation sample that was introduced in the last chapter.
+
+If we aren't concerned with optimizing prediction, but just getting a better sense of the shape of the curve and the optimal value of k, an approach would be to repeatedly split our data (e.g., using different random seeds), compute the above curve for each of these, and then average them.  This logic, which is often used in regression analysis, is referred to as a k-fold approach.  
+
+## The multinomial case
+
+Finally, the k-nearest neighbors approach can be extended to classification problems in which we are predicting not just a dichotomous outcome, but a multinomial one - such as a personality type or college concentration.

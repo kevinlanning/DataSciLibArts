@@ -25,7 +25,7 @@
 <meta name="author" content="Kevin Lanning">
 
 
-<meta name="date" content="2019-03-26">
+<meta name="date" content="2019-03-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="regression-and-modeling.html">
-<link rel="next" href="references.html">
+<link rel="next" href="another-approach-to-prediction-k-nearest-neighbor.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -48,6 +48,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 <style type="text/css">
@@ -284,7 +285,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.7" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#more-confusion"><i class="fa fa-check"></i><b>18.7</b> More confusion</a></li>
 <li class="chapter" data-level="18.8" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#rocs-and-auc"><i class="fa fa-check"></i><b>18.8</b> ROCs and AUC</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>19</b> references</a></li>
+<li class="chapter" data-level="19" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html"><i class="fa fa-check"></i><b>19</b> Another approach to prediction: k-nearest neighbor</a><ul>
+<li class="chapter" data-level="19.1" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#from-1-doppelganger-to-many"><i class="fa fa-check"></i><b>19.1</b> From 1 doppelganger to many</a></li>
+<li class="chapter" data-level="19.2" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#avoiding-capitalization-on-chance-again"><i class="fa fa-check"></i><b>19.2</b> Avoiding capitalization on chance again</a></li>
+<li class="chapter" data-level="19.3" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#the-multinomial-case"><i class="fa fa-check"></i><b>19.3</b> The multinomial case</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>20</b> references</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -544,6 +550,13 @@ AUCModel2&lt;-<span class="kw">colAUC</span>(predictTest, testFair[[<span class=
 <pre><code>##              [,1]
 ## 0 vs. 1 0.7349727</code></pre>
 
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">echo =</span> <span class="ot">TRUE</span>, <span class="dt">warn =</span> <span class="ot">FALSE</span>, <span class="dt">message =</span> <span class="ot">FALSE</span>) <span class="co"># defaults for all chunks after this one</span>
+<span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(Ecdat) 
+<span class="kw">library</span> (class) <span class="co"># for knn</span>
+<span class="kw">library</span>(caret) <span class="co"># confusion matrix</span>
+<span class="kw">library</span>(magrittr) <span class="co"># allows bidirectional pipe for updating file easily %&lt;&gt;% </span></code></pre>
 </div>
 </div>
             </section>
@@ -552,7 +565,7 @@ AUCModel2&lt;-<span class="kw">colAUC</span>(predictTest, testFair[[<span class=
         </div>
       </div>
 <a href="regression-and-modeling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="another-approach-to-prediction-k-nearest-neighbor.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -598,6 +611,19 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
