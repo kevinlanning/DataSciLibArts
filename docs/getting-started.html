@@ -25,7 +25,7 @@
 <meta name="author" content="Kevin Lanning">
 
 
-<meta name="date" content="2019-03-28">
+<meta name="date" content="2019-03-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -54,7 +54,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -67,11 +67,13 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -287,7 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="19" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html"><i class="fa fa-check"></i><b>19</b> Another approach to prediction: k-nearest neighbor</a><ul>
 <li class="chapter" data-level="19.1" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#from-1-doppelganger-to-many"><i class="fa fa-check"></i><b>19.1</b> From 1 doppelganger to many</a></li>
-<li class="chapter" data-level="19.2" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#avoiding-capitalization-on-chance-again"><i class="fa fa-check"></i><b>19.2</b> Avoiding capitalization on chance again</a></li>
+<li class="chapter" data-level="19.2" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#avoiding-capitalization-on-chance-again"><i class="fa fa-check"></i><b>19.2</b> Avoiding capitalization on chance (again)</a></li>
 <li class="chapter" data-level="19.3" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#the-multinomial-case"><i class="fa fa-check"></i><b>19.3</b> The multinomial case</a></li>
 </ul></li>
 <li class="chapter" data-level="20" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>20</b> references</a></li>
@@ -370,16 +372,16 @@ Open the Google Sheet at <a href="http://bit.ly/dslaX2_1" class="uri">http://bit
 <h3> references</h3>
 <div id="refs" class="references">
 <div id="ref-henrich2010weirdest">
-<p>Henrich, Joseph, Steven J Heine, and Ara Norenzayan. 2010. “The Weirdest People in the World?” <em>Behavioral and Brain Sciences</em> 33 (2-3): 61–83.</p>
+<p>Henrich, Joseph, Steven J Heine, and Ara Norenzayan. 2010. “The Weirdest People in the World?” <em>Behavioral and Brain Sciences</em> 33 (2-3). Cambridge University Press: 61–83.</p>
 </div>
 <div id="ref-tversky1974judgment">
-<p>Tversky, Amos, and Daniel Kahneman. 1974. “Judgment Under Uncertainty: Heuristics and Biases.” <em>Science</em> 185 (4157): 1124–31.</p>
+<p>Tversky, Amos, and Daniel Kahneman. 1974. “Judgment Under Uncertainty: Heuristics and Biases.” <em>Science</em> 185 (4157). American association for the advancement of science: 1124–31.</p>
 </div>
 <div id="ref-broman2017data">
-<p>Broman, Karl W, and Kara H Woo. 2017. “Data Organization in Spreadsheets.” <em>The American Statistician</em>, nos. just-accepted.</p>
+<p>Broman, Karl W, and Kara H Woo. 2017. “Data Organization in Spreadsheets.” <em>The American Statistician</em>, nos. just-accepted. Taylor &amp; Francis.</p>
 </div>
 <div id="ref-freeman2017informatics">
-<p>Freeman, Michael, and Joel Ross. 2017. <em>Technical Foundations of Informatics, U Washington Info 201</em>. <a href="https://info201.github.io">https://info201.github.io</a>.</p>
+<p>Freeman, Michael, and Joel Ross. 2017. <em>Technical Foundations of Informatics, U Washington Info 201</em>. <a href="https://info201.github.io" class="uri">https://info201.github.io</a>.</p>
 </div>
 <div id="ref-wickham2016r">
 <p>Wickham, Hadley, and Garrett Grolemund. 2016. “R for Data Science.” Sebastopol, CA: O’Reilly. http://​ r4ds.​ had.​ co.​ nz.</p>

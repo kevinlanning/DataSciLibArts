@@ -25,7 +25,7 @@
 <meta name="author" content="Kevin Lanning">
 
 
-<meta name="date" content="2019-03-28">
+<meta name="date" content="2019-03-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -54,7 +54,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -67,11 +67,13 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -287,7 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="19" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html"><i class="fa fa-check"></i><b>19</b> Another approach to prediction: k-nearest neighbor</a><ul>
 <li class="chapter" data-level="19.1" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#from-1-doppelganger-to-many"><i class="fa fa-check"></i><b>19.1</b> From 1 doppelganger to many</a></li>
-<li class="chapter" data-level="19.2" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#avoiding-capitalization-on-chance-again"><i class="fa fa-check"></i><b>19.2</b> Avoiding capitalization on chance again</a></li>
+<li class="chapter" data-level="19.2" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#avoiding-capitalization-on-chance-again"><i class="fa fa-check"></i><b>19.2</b> Avoiding capitalization on chance (again)</a></li>
 <li class="chapter" data-level="19.3" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#the-multinomial-case"><i class="fa fa-check"></i><b>19.3</b> The multinomial case</a></li>
 </ul></li>
 <li class="chapter" data-level="20" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>20</b> references</a></li>
@@ -332,13 +334,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Method 2: If, for some reason, you can’t load the data on to your own machine before running R, you can import the data from the cloud directly into R. You can do this either by specifying the musicURL separately (Method 2a) or call it directly within the read_csv statement. Here, too, I would encourage you to set up and work within a project.</p>
 </blockquote>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-<span class="co">### Method 1</span>
+### Method 1
 <span class="co"># music1 &lt;- read_csv(&quot;music.csv&quot;) </span>
-<span class="co">### Method 2a</span>
+### Method 2a
 musicURL &lt;-<span class="st"> </span>
 <span class="st">  &quot;https://think.cs.vt.edu/corgis/csv/music/music.csv?forcedownload=1&quot;</span>
 music1 &lt;-<span class="st"> </span><span class="kw">read_csv</span>(musicURL)
-<span class="co">### Method 2b</span>
+### Method 2b
 <span class="co"># music1 &lt;- read_csv(</span>
 <span class="co">#  &quot;https://think.cs.vt.edu/corgis/csv/music/music.csv?forcedownload=1&quot;</span>
 <span class="co">#  )</span></code></pre>

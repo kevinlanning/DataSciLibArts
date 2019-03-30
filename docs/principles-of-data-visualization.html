@@ -25,7 +25,7 @@
 <meta name="author" content="Kevin Lanning">
 
 
-<meta name="date" content="2019-03-28">
+<meta name="date" content="2019-03-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -54,7 +54,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -67,11 +67,13 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -287,7 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="19" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html"><i class="fa fa-check"></i><b>19</b> Another approach to prediction: k-nearest neighbor</a><ul>
 <li class="chapter" data-level="19.1" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#from-1-doppelganger-to-many"><i class="fa fa-check"></i><b>19.1</b> From 1 doppelganger to many</a></li>
-<li class="chapter" data-level="19.2" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#avoiding-capitalization-on-chance-again"><i class="fa fa-check"></i><b>19.2</b> Avoiding capitalization on chance again</a></li>
+<li class="chapter" data-level="19.2" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#avoiding-capitalization-on-chance-again"><i class="fa fa-check"></i><b>19.2</b> Avoiding capitalization on chance (again)</a></li>
 <li class="chapter" data-level="19.3" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#the-multinomial-case"><i class="fa fa-check"></i><b>19.3</b> The multinomial case</a></li>
 </ul></li>
 <li class="chapter" data-level="20" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>20</b> references</a></li>
@@ -325,7 +327,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.2</span> Some early graphs</h2>
 <p>Visual displays of information reach back to prehistoric times; modern graphs date back, arguably, to Playfair’s 1786 <em>Political Atlas</em> - in which</p>
 <blockquote>
-<p><em>“… spatial dimensions were used to represent nonspatial, quantitative, idiographic, empirical data. Although it now seems natural to represent, for example, rising and falling imports over time as a rising and falling line, it does not seem to have been done before that time and was quite an accomplishment. Notably, in addition to the statistical line chart, Playfair at one fell swoop single-handedly invented most of the remaining forms of the statistical graphic repertoire used today-the bar chart and histogram, the surface chart, and the circle diagram or”pie chart."</em> <span class="citation">(Wainer and Thissen <a href="#ref-wainer1981graphical">1981</a>)</span></p>
+<p><em>“… spatial dimensions were used to represent nonspatial, quantitative, idiographic, empirical data. Although it now seems natural to represent, for example, rising and falling imports over time as a rising and falling line, it does not seem to have been done before that time and was quite an accomplishment. Notably, in addition to the statistical line chart, Playfair at one fell swoop single-handedly invented most of the remaining forms of the statistical graphic repertoire used today-the bar chart and histogram, the surface chart, and the circle diagram or”pie chart.&quot;</em> <span class="citation">(Wainer and Thissen <a href="#ref-wainer1981graphical">1981</a>)</span></p>
 </blockquote>
 <p><img src="playfair1786.PNG" alt="Fig 5.1: Playfair’s 1786 analysis of trade deficits." /><a href="https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march">source</a></p>
 <hr />
@@ -334,7 +336,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>The visualization depicts the size, latitude, and longitude of Napoleon’s army as they moved towards (tan line) then away (black line) from Moscow; temperature during the retreat is plotted as well. Further, vertical lines linking the temperature display to the number of troops indicate the often perilous river crossings which further decimated Napoleon’s troops). <a href="https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march">Cheng (2014)</a> decomposes the graph and provides some simpler visualizations; she also provides the following background:</p>
 <blockquote>
-<p>"<em>Czar Alexander of Russia sees that Napoleon was becoming too powerful, so he refuses to participate in this embargo [against the UK]. Angry at Czar Alexander’s decision, Napoleon gathers a massive army of over 400,000 to attack Russia in June of 1812. While Russia’s troops are not as numerous as France’s, Russia has a plan. Russian troops keep retreating as Napoleon’s troops move forward, burning everything they pass, ensuring that the French forces could not take anything from their environment. Eventually the French army follows the Russian army all the way to Moscow during October, suffering major losses from lack of food. By the time Napoleon gets to Moscow, he knows he has to retreat. As winter settles into Europe and the temperature drops, Napoleon’s troops suffer even more losses, returning to France from lack of food, disease, and weather conditions."</em></p>
+<p>&quot;<em>Czar Alexander of Russia sees that Napoleon was becoming too powerful, so he refuses to participate in this embargo [against the UK]. Angry at Czar Alexander’s decision, Napoleon gathers a massive army of over 400,000 to attack Russia in June of 1812. While Russia’s troops are not as numerous as France’s, Russia has a plan. Russian troops keep retreating as Napoleon’s troops move forward, burning everything they pass, ensuring that the French forces could not take anything from their environment. Eventually the French army follows the Russian army all the way to Moscow during October, suffering major losses from lack of food. By the time Napoleon gets to Moscow, he knows he has to retreat. As winter settles into Europe and the temperature drops, Napoleon’s troops suffer even more losses, returning to France from lack of food, disease, and weather conditions.&quot;</em></p>
 </blockquote>
 <p>Of course, the casualties and retreat of Napoleon’s army are immortalized not just in this graph, but also in Russian literature (Tolstoy’s <em>War and Peace</em>) and music (Tchaikovsky’s 1812 overture, in which five cannon shots mark the battle of Borodino and eleven more mark the arrival of Napoleon in the now-razed city of Moscow).</p>
 </div>
@@ -501,13 +503,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3> references</h3>
 <div id="refs" class="references">
 <div id="ref-wainer1981graphical">
-<p>Wainer, Howard, and David Thissen. 1981. “Graphical Data Analysis.” <em>ETS Research Report Series</em> 1981 (1): 191–241.</p>
+<p>Wainer, Howard, and David Thissen. 1981. “Graphical Data Analysis.” <em>ETS Research Report Series</em> 1981 (1). Wiley Online Library: 191–241.</p>
 </div>
 <div id="ref-donoho2015fifty">
 <p>Donoho, David. 2017. “50 Years of Data Science.” In <em>Princeton Nj, Tukey Centennial Workshop</em>.</p>
 </div>
 <div id="ref-tukey1962future">
-<p>Tukey, John W. 1962. “The Future of Data Analysis.” <em>The Annals of Mathematical Statistics</em> 33 (1): 1–67.</p>
+<p>Tukey, John W. 1962. “The Future of Data Analysis.” <em>The Annals of Mathematical Statistics</em> 33 (1). JSTOR: 1–67.</p>
 </div>
 <div id="ref-tukey1977eda">
 <p>Tukey, John W. 1977. “EDA: Exploratory Data Analysis.” <em>Reading, Mass</em>.</p>
@@ -519,28 +521,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Thies, Justus, Michael Zollhöfer, Matthias Nießner, Levi Valgaerts, Marc Stamminger, and Christian Theobalt. 2015. “Real-Time Expression Transfer for Facial Reenactment.” <em>ACM Trans. Graph.</em> 34 (6): 183–1.</p>
 </div>
 <div id="ref-slovic2013psychic">
-<p>Slovic, Paul, David Zionts, Andrew K Woods, Ryan Goodman, and Derek Jinks. 2013. “Psychic Numbing and Mass Atrocity.” <em>The Behavioral Foundations of Public Policy</em>, 126–42.</p>
+<p>Slovic, Paul, David Zionts, Andrew K Woods, Ryan Goodman, and Derek Jinks. 2013. “Psychic Numbing and Mass Atrocity.” <em>The Behavioral Foundations of Public Policy</em>. Princeton University Press. NYU School of Law, Public Law Research Paper No …, 126–42.</p>
 </div>
 <div id="ref-cox2013visualizing">
-<p>Cox, Jonathan, and Michael Lindell. 2013. “Visualizing Uncertainty in Predicted Hurricane Tracks.” <em>International Journal for Uncertainty Quantification</em> 3 (2).</p>
+<p>Cox, Jonathan, and Michael Lindell. 2013. “Visualizing Uncertainty in Predicted Hurricane Tracks.” <em>International Journal for Uncertainty Quantification</em> 3 (2). Begel House Inc.</p>
 </div>
 <div id="ref-hullman2015hypothetical">
-<p>Hullman, Jessica, Paul Resnick, and Eytan Adar. 2015. “Hypothetical Outcome Plots Outperform Error Bars and Violin Plots for Inferences About Reliability of Variable Ordering.” <em>PloS One</em> 10 (11): e0142444.</p>
+<p>Hullman, Jessica, Paul Resnick, and Eytan Adar. 2015. “Hypothetical Outcome Plots Outperform Error Bars and Violin Plots for Inferences About Reliability of Variable Ordering.” <em>PloS One</em> 10 (11). Public Library of Science: e0142444.</p>
 </div>
 <div id="ref-lanning2018data">
 <p>Lanning, Kevin. 2018. “Data Visualizations in Personality and Social Psychology: Challenges in Representing Taxonomic, Community, and Developmental Structures.”</p>
 </div>
 <div id="ref-lanning1991shared">
-<p>Lanning, Kevin, and Harrison G Gough. 1991. “Shared Variance in the California Psychological Inventory and the California Q-Set.” <em>Journal of Personality and Social Psychology</em> 60 (4): 596.</p>
+<p>Lanning, Kevin, and Harrison G Gough. 1991. “Shared Variance in the California Psychological Inventory and the California Q-Set.” <em>Journal of Personality and Social Psychology</em> 60 (4). American Psychological Association: 596.</p>
 </div>
 <div id="ref-lanning2017relationship">
-<p>Lanning, Kevin. 2017. “What Is the Relationship Between ‘Personality’ and ‘Social’ Psychologies? Network, Community, and Whole Text Analyses of the Structure of Contemporary Scholarship.” <em>Collabra: Psychology</em> 3 (1).</p>
+<p>Lanning, Kevin. 2017. “What Is the Relationship Between ‘Personality’ and ‘Social’ Psychologies? Network, Community, and Whole Text Analyses of the Structure of Contemporary Scholarship.” <em>Collabra: Psychology</em> 3 (1). The Regents of the University of California.</p>
 </div>
 <div id="ref-cleveland1985graphical">
-<p>Cleveland, William S, and Robert McGill. 1985. “Graphical Perception and Graphical Methods for Analyzing Scientific Data.” <em>Science</em> 229 (4716): 828–33.</p>
+<p>Cleveland, William S, and Robert McGill. 1985. “Graphical Perception and Graphical Methods for Analyzing Scientific Data.” <em>Science</em> 229 (4716). American Association for the Advancement of Science: 828–33.</p>
 </div>
 <div id="ref-healy2018viz">
-<p>Healy, Kieran. 2017. “Data Visualization for Social Science: A Practical Introduction with R and Ggplot2.” <a href="https://socviz.co">https://socviz.co</a>.</p>
+<p>Healy, Kieran. 2017. “Data Visualization for Social Science: A Practical Introduction with R and Ggplot2.” <a href="https://socviz.co" class="uri">https://socviz.co</a>.</p>
 </div>
 <div id="ref-wickham2016r">
 <p>Wickham, Hadley, and Garrett Grolemund. 2016. “R for Data Science.” Sebastopol, CA: O’Reilly. http://​ r4ds.​ had.​ co.​ nz.</p>

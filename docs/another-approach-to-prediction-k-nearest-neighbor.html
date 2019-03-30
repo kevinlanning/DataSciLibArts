@@ -25,7 +25,7 @@
 <meta name="author" content="Kevin Lanning">
 
 
-<meta name="date" content="2019-03-28">
+<meta name="date" content="2019-03-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -48,12 +48,13 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -66,11 +67,13 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -286,7 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="19" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html"><i class="fa fa-check"></i><b>19</b> Another approach to prediction: k-nearest neighbor</a><ul>
 <li class="chapter" data-level="19.1" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#from-1-doppelganger-to-many"><i class="fa fa-check"></i><b>19.1</b> From 1 doppelganger to many</a></li>
-<li class="chapter" data-level="19.2" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#avoiding-capitalization-on-chance-again"><i class="fa fa-check"></i><b>19.2</b> Avoiding capitalization on chance again</a></li>
+<li class="chapter" data-level="19.2" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#avoiding-capitalization-on-chance-again"><i class="fa fa-check"></i><b>19.2</b> Avoiding capitalization on chance (again)</a></li>
 <li class="chapter" data-level="19.3" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#the-multinomial-case"><i class="fa fa-check"></i><b>19.3</b> The multinomial case</a></li>
 </ul></li>
 <li class="chapter" data-level="20" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>20</b> references</a></li>
@@ -314,6 +317,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">19</span> Another approach to prediction: k-nearest neighbor</h1>
 <p>Our real-life social predictions are often guided not by induction or the (optimized) combination of a set of predictor variables. Rather, we often reason by analogy - we might think, for example, that <em>I won’t go out with Fred because he reminds me of Larry, and Larry was kind of a jerk.</em></p>
 <p>If regression analysis is an approach to prediction based in our set of variables, <em>k-nearest neighbor</em> analysis instead makes predictions based on observations.</p>
+<p>Formally, as described in the documentation for the knn package,
+&gt; For each row of the test set, the k nearest (in Euclidean distance) training set vectors are found, and the classification is decided by majority vote, with ties broken at random. (ref).</p>
 <p>In the simplest form of this analysis, we find the nearest thing to a “doppelganger” (a look-alike or near double) for a given observation. So, in the affairs data, if a person is most like someone else in the dataset who has had an affair, we predict an affair, else not.</p>
 <p>Begin by loading the affairs data from last time. Using the same seed (33458) means that the same set of training and test cases will be extracted as in the prior analysis</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(Fair)
@@ -321,10 +326,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="co"># use only when you are sure that your file update is ok</span>
 Fair <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="co"># &lt;- Fair %&gt;% </span>
 <span class="st">    </span><span class="kw">mutate</span>(<span class="dt">affairYN =</span>
-<span class="co"># another change here: nbaffairs is set up as a factor</span>
+<span class="co"># nbaffairs is set up as a factor</span>
 <span class="co"># to allow confusionmatrix to run</span>
                <span class="kw">as.factor</span>(<span class="kw">ifelse</span>(nbaffairs <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>))) <span class="op">%&gt;%</span>
-<span class="st">               </span><span class="kw">select</span>(<span class="op">-</span>nbaffairs)
+<span class="co"># unlike the lm and glm commands, knn will not automatically create our dummy # variables for us. so we need to do this manually.</span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">sexMale =</span> <span class="kw">ifelse</span>(sex <span class="op">==</span><span class="st"> &quot;female&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">childyes =</span> <span class="kw">ifelse</span>(child <span class="op">==</span><span class="st"> &quot;no&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>(<span class="kw">c</span>(sex,child,nbaffairs)))
+
 <span class="kw">set.seed</span>(<span class="dv">33458</span>)
 n &lt;-<span class="st"> </span><span class="kw">nrow</span>(Fair)
 trainIndex &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="dt">size =</span> <span class="kw">round</span>(<span class="fl">0.6</span><span class="op">*</span>n), <span class="dt">replace =</span> <span class="ot">FALSE</span>)
@@ -332,16 +341,6 @@ trainIndex &lt;-<span class="st"> </span><span class="kw">sample</span>(<span cl
 trainFair &lt;-<span class="st"> </span>Fair[trainIndex ,]
 testFair &lt;-<span class="st"> </span>Fair[<span class="op">-</span>trainIndex ,]</code></pre>
 <p>To run a k-nearest neighbor analysis, we need three inputs: our predictors in the training data, our predictors in the test data, and our outcome/classes in the training data.</p>
-<p>unlike the lm and glm commands, knn will not automatically create our dummy variables for us. so we need to do this manually.</p>
-<pre class="sourceCode r"><code class="sourceCode r">trainFair <span class="op">%&lt;&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">sexMale =</span> <span class="kw">ifelse</span>(sex <span class="op">==</span><span class="st"> &quot;female&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">childyes =</span> <span class="kw">ifelse</span>(child <span class="op">==</span><span class="st"> &quot;no&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>(<span class="kw">c</span>(sex,child)))
-
-testFair <span class="op">%&lt;&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">sexMale =</span> <span class="kw">ifelse</span>(sex <span class="op">==</span><span class="st"> &quot;female&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">childyes =</span> <span class="kw">ifelse</span>(child <span class="op">==</span><span class="st"> &quot;no&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>))<span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>(<span class="kw">c</span>(sex,child)))</code></pre>
 <p>Here, as in the regression analysis in the last chapter, we can generate a confusion matrix to assess the accuracy of prediction:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">33458</span>)
 knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainFair[,<span class="op">-</span><span class="dv">7</span>], <span class="co"># training data</span>
@@ -383,10 +382,14 @@ b</code></pre>
 <h2><span class="header-section-number">19.1</span> From 1 doppelganger to many</h2>
 <p>In the above code, we used a k-nearest neighbor analysis based on a single ‘neighbor’ (k = 1). Can we improve prediction by considering more than 1 neighbor?</p>
 <p>To test a range of values, we can first set up our knn analysis as a function (compare this code with the code in the prior section).</p>
-<pre class="sourceCode r"><code class="sourceCode r">knnFairdata &lt;-<span class="st"> </span><span class="cf">function</span> (k) {
+<pre class="sourceCode r"><code class="sourceCode r">trainPredictors &lt;-<span class="st"> </span>trainFair <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)
+testPredictors &lt;-<span class="st"> </span>testFair <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)
+knnFairdata &lt;-<span class="st"> </span><span class="cf">function</span> (k) {
     <span class="kw">set.seed</span>(<span class="dv">33458</span>)
-    knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainFair[,<span class="op">-</span><span class="dv">7</span>], <span class="co"># training data</span>
-                 testFair[,<span class="op">-</span><span class="dv">7</span>], <span class="co"># test data</span>
+    knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainPredictors, <span class="co"># training data</span>
+                 testPredictors, <span class="co"># test data</span>
                  trainFair<span class="op">$</span>affairYN, <span class="co"># class</span>
                  k <span class="co"># number of neighbors</span>
                  )
@@ -404,14 +407,12 @@ b</code></pre>
 <span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># then a tibble so we can do a quick plot</span>
 <span class="st">    </span><span class="kw">rename</span>(<span class="dt">Accuracy=</span>value) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">mutate</span> (<span class="dt">k =</span> <span class="kw">seq_along</span>(Accuracy))</code></pre>
-<pre><code>## Warning: Calling `as_tibble()` on a vector is discouraged, because the behavior is likely to change in the future. Use `enframe(name = NULL)` instead.
-## This warning is displayed once per session.</code></pre>
 <p>We can graph this, using the syntax from the beginning of the class:</p>
 <pre class="sourceCode r"><code class="sourceCode r">kAccuracy <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(k, Accuracy)) <span class="op">+</span><span class="co">#%&gt;% </span>
 <span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span>
 <span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Overall accuracy for varying levels of k&quot;</span>)</code></pre>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-105-1.png" width="672" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This pulls out the maximum accuracy, and the value of k for which it occurs:</span>
 (ka &lt;-<span class="st"> </span><span class="kw">which.max</span>(kAccuracy<span class="op">$</span>Accuracy))</code></pre>
 <pre><code>## [1] 27</code></pre>
@@ -419,15 +420,57 @@ b</code></pre>
 <pre><code>## [1] 0.7666667</code></pre>
 </div>
 <div id="avoiding-capitalization-on-chance-again" class="section level2">
-<h2><span class="header-section-number">19.2</span> Avoiding capitalization on chance again</h2>
+<h2><span class="header-section-number">19.2</span> Avoiding capitalization on chance (again)</h2>
 <p>In these data, with this split of training and test (and this initial seed) the maximum predictability occurs at k = 27, with an overall accuracy of 0.7666667.</p>
 <p>Would this hold if we used a different random split? Remember, here, we have tested not one model, but 100 of them, then chosen the best one. The peak in the curve at 27 may well be due to chance characteristics of the test data.</p>
 <p>We could address this empirically using one of several techniques. One approach is to have a third independent sample on which to test the accuracy of prediction at k = 27. This would require the separate validation sample that was introduced in the last chapter.</p>
-<p>If we aren’t concerned with optimizing prediction, but just getting a better sense of the shape of the curve and the optimal value of k, an approach would be to repeatedly split our data (e.g., using different random seeds), compute the above curve for each of these, and then average them. This logic, which is often used in regression analysis, is referred to as a k-fold approach.</p>
+<p>In the following block, I resplit the Fair data, using proportions of 60%, 30%, 10%. These values are likely not optimal given the (relatively small) size of the Fair data, but will work to illustrate the approach:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">33458</span>)
+threeWaySplit &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">size=</span><span class="kw">nrow</span>(Fair),
+                        <span class="dt">prob=</span><span class="kw">c</span>(<span class="fl">0.6</span>,<span class="fl">0.3</span>,<span class="fl">0.1</span>),
+                        <span class="dt">replace =</span> <span class="ot">TRUE</span>)
+trainFair2 &lt;-<span class="st"> </span>Fair[threeWaySplit<span class="op">==</span><span class="dv">1</span>,]
+testFair2 &lt;-<span class="st"> </span>Fair[threeWaySplit<span class="op">==</span><span class="dv">2</span>,]
+validFair2 &lt;-<span class="st"> </span>Fair[threeWaySplit<span class="op">==</span><span class="dv">3</span>,]</code></pre>
+<p>I tweak my function here to use the new data, then run it 100 times as before.</p>
+<pre class="sourceCode r"><code class="sourceCode r">trainPredictors &lt;-<span class="st"> </span>trainFair2 <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)
+testPredictors &lt;-<span class="st"> </span>testFair2 <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)
+knnFairdata2 &lt;-<span class="st"> </span><span class="cf">function</span> (k) {
+    <span class="kw">set.seed</span>(<span class="dv">33458</span>)
+    knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainPredictors, <span class="co"># training data</span>
+             testPredictors, <span class="co"># test data</span>
+             trainFair2<span class="op">$</span>affairYN, <span class="co"># class</span>
+             k <span class="co"># number of neighbors</span>
+             )
+    b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, testFair2<span class="op">$</span>affairYN)
+    b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]]
+}
+kAccuracy &lt;-<span class="st"> </span>(<span class="kw">map</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,knnFairdata2)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map the knnFunction onto numbers 1-100</span>
+<span class="st">    </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map generates a list, so we will pull these out into a vector</span>
+<span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># then a tibble so we can do a quick plot</span>
+<span class="st">    </span><span class="kw">rename</span>(<span class="dt">Accuracy=</span>value) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">mutate</span> (<span class="dt">k =</span> <span class="kw">seq_along</span>(Accuracy))
+(ka2 &lt;-<span class="st"> </span><span class="kw">which.max</span>(kAccuracy<span class="op">$</span>Accuracy))</code></pre>
+<pre><code>## [1] 15</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">(kb2 &lt;-<span class="st"> </span><span class="kw">max</span>(kAccuracy<span class="op">$</span>Accuracy))</code></pre>
+<pre><code>## [1] 0.7802198</code></pre>
+<p>So here, on the (contaminated) test data, the maximum predictability occurs at k = 15, with an overall accuracy of 0.7802198. We apply this back to the validation data by pulling the knn code out of the function, and running it just once against the validation data:</p>
+<pre class="sourceCode r"><code class="sourceCode r">knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainFair2[,<span class="op">-</span><span class="dv">7</span>], <span class="co"># training data</span>
+             validFair2[,<span class="op">-</span><span class="dv">7</span>], <span class="co"># VALIDATION data</span>
+             trainFair2<span class="op">$</span>affairYN, <span class="co"># class</span>
+             ka2 <span class="co"># number of neighbors</span>
+             )
+b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, validFair2<span class="op">$</span>affairYN)
+(kb3 &lt;-<span class="st"> </span>b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]])</code></pre>
+<pre><code>## [1] 0.703125</code></pre>
+<p>We see that the overall predictability using the k-nearest neighbor analysis on the clean validation data, is now 0.703125.</p>
+<p>You might note that in our two splits of the Fair data - the two-way split of 60% Training and 40% Test, and the three-way split of 60% Training, 30% Test, 10% Validation, we got two different solutions to the question of the ‘optimal k’ (i.e., 27 and 15). With larger sample sizes, these values would be more stable.</p>
 </div>
 <div id="the-multinomial-case" class="section level2">
 <h2><span class="header-section-number">19.3</span> The multinomial case</h2>
-<p>Finally, the k-nearest neighbors approach can be extended to classification problems in which we are predicting not just a dichotomous outcome, but a multinomial one - such as a personality type or college concentration.</p>
+<p>A final comment on the k-nearest neighbors approach: You can extend this to classification problems in which we are predicting not just a dichotomous outcome, but a multinomial one - such as a personality type or college concentration.</p>
 
 </div>
 </div>
@@ -483,6 +526,19 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
