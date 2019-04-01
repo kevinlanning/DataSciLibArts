@@ -15,7 +15,7 @@ library(caret) # confusion matrix
 library(magrittr) # allows bidirectional pipe for updating file easily %<>% 
 ```
 
-# Another approach to prediction: k-nearest neighbor
+# Another approach to classification: k-nearest neighbor
 
 Our real-life social predictions are often guided not by induction or the (optimized) combination of a set of predictor variables.  Rather, we often reason by analogy - we might think, for example, that *I won't go out with Fred because he reminds me of Larry, and Larry was kind of a jerk.*  
 
@@ -25,6 +25,8 @@ Formally, as described in the documentation for the knn package,
 > For each row of the test set, the k nearest (in Euclidean distance) training set vectors are found, and the classification is decided by majority vote, with ties broken at random. (ref).
 
 In the simplest form of this analysis, we find the nearest thing to a "doppelganger" (a look-alike or near double) for a given observation.  So, in the affairs data, if a person is most like someone else in the dataset who has had an affair, we predict an affair, else not.
+
+## Application: The Fair data
 
 Begin by loading the affairs data from last time.  Using the same seed (33458) means that the same set of training and test cases will be extracted as in the prior analysis
 
@@ -56,11 +58,15 @@ Here, as in the regression analysis in the last chapter, we can generate a confu
 
 ```{r}
 set.seed(33458)
-knnAffair <- knn(trainFair[,-7], # training data
-                 testFair[,-7], # test data
-                 trainFair$affairYN, # class
-                 1 # number of neighbors
-                 )
+trainPredictors <- trainFair %>%
+    select(-affairYN)
+testPredictors <- testFair %>%
+    select(-affairYN)
+knnAffair <- knn(trainPredictors, # training data
+             testPredictors, # test data
+             trainFair$affairYN, # class
+             1 # number of neighbors
+             )
 b<-confusionMatrix(knnAffair, testFair$affairYN)
 b
 b[["overall"]][["Accuracy"]]
@@ -69,6 +75,32 @@ b[["overall"]][["Accuracy"]]
 ## From 1 doppelganger to many
 
 In the above code, we used a k-nearest neighbor analysis based on a single 'neighbor' (k = 1). Can we improve prediction by considering more than 1 neighbor? 
+
+### The Bayesian classifier
+
+Lisa is a doctor whose patients often have post-surgical pain. Their suffering is real, but effective pain medications such as OxyContin have a high likelihood of leading to abuse and addiction.  She has two bits of information about a patient, his or her age (say that we have this in ten levels, corresponding to decades of age, so that the first level is "under 20" and that the last level is "over 100"), and his or her self-report of pain, also on a 10 point scale. 
+
+Assume that Lisa wants to prescribe the medication to all patients who would not abuse it, and not prescribe the medication to anyone who would.
+
+Assume that Lisa knew the entire matrix of conditional probabilities, 
+
+> P (addiction | "age < 20" & "pain = 1") = .34
+>
+> P (addiction | "age < 20" & "pain = 2") = .26
+>
+> ... P (addiction | "age > 100" & "pain = 10") = .09
+
+In this case she would prescribe the drug for every case where the conditional probability was greater than .5, and never otherwise.  This is called the **Bayesian classifier**, and if we have the entire matrix of conditional probabilities we could do no better. 
+
+In real world problems, we are typically dealing with many predictors, and we don't have the full matrix of conditional probabilities. But this two predictor case "sets up" the illustration drawn from [@james2013introduction].
+
+![Figure 10.1: Comparing two values of k (From @jamesintroduction)](C:\Users\lanning\Dropbox\0DataSciLibArts\knnTwovaluesfromJames2013.PNG)
+
+In the figure above, assume that the horizontal and vertical axes correspond to scores on the two predictors (age and pain). The orange and blue colored dots correspond to cases of abuse and non-abuse in the training data. The dashed line is the Bayesian classifier.  The solid line is the k-nn decision boundary, which distinguishes the regions in which we will predict abuse and non abuse in the test data.  We see that when k is small (a single neighbor), prediction is flexible, non-linear, and that as k increases, the boundary differentiating the decision to prescribe and not prescribe becomes more nearly linear. 
+
+But what value of k is optimal?
+
+### Back to the Fair data
 
 To test a range of values, we can first set up our knn analysis as a function (compare this code with the code in the prior section).
 
@@ -179,3 +211,6 @@ You might note that in our two splits of the Fair data - the two-way split of 60
 ## The multinomial case
 
 A final comment on the k-nearest neighbors approach: You can extend this to classification problems in which we are predicting not just a dichotomous outcome, but a multinomial one - such as a personality type or college concentration.
+
+
+

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>19 Another approach to classification: k-nearest neighbor | Data science for the liberal arts</title>
+  <meta name="description" content="Test">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="19 Another approach to classification: k-nearest neighbor | Data science for the liberal arts" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/diffprop_cloud_250_sm.png" />
+  <meta property="og:description" content="Test" />
+  <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="19 Another approach to classification: k-nearest neighbor | Data science for the liberal arts" />
+  
+  <meta name="twitter:description" content="Test" />
+  <meta name="twitter:image" content="images/diffprop_cloud_250_sm.png" />
+
+<meta name="author" content="Kevin Lanning">
+
+
+<meta name="date" content="2019-04-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="from-regression-to-prediction-and-classification.html">
+<link rel="next" href="machine-learning-some-distinctions-and-ideas.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Science for the Liberal Arts</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="" data-path="an-invitation.html"><a href="an-invitation.html"><i class="fa fa-check"></i>an invitation</a><ul>
+<li class="chapter" data-level="" data-path="an-invitation.html"><a href="an-invitation.html#what-will-be-in-the-class"><i class="fa fa-check"></i>what will be in the class?</a></li>
+<li class="chapter" data-level="" data-path="an-invitation.html"><a href="an-invitation.html#should-you-enroll"><i class="fa fa-check"></i>should you enroll?</a></li>
+</ul></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html"><i class="fa fa-check"></i><b>1</b> data science for the liberal arts</a><ul>
+<li class="chapter" data-level="1.1" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#type-c-data-science-data-science-for-the-liberal-arts"><i class="fa fa-check"></i><b>1.1</b> type C data science = data science for the liberal arts</a></li>
+<li class="chapter" data-level="1.2" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#the-incompleteness-of-the-data-science-venn-diagram"><i class="fa fa-check"></i><b>1.2</b> the incompleteness of the data science Venn diagram</a></li>
+<li class="chapter" data-level="1.3" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#a-dimension-of-depth"><i class="fa fa-check"></i><b>1.3</b> a dimension of depth</a></li>
+<li class="chapter" data-level="1.4" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#google-and-the-liberal-arts"><i class="fa fa-check"></i><b>1.4</b> Google and the liberal arts</a></li>
+<li class="chapter" data-level="1.5" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#data-sci-and-tmi"><i class="fa fa-check"></i><b>1.5</b> data sci and TMI</a></li>
+<li class="chapter" data-level="1.6" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#discussion-what-will-you-do-with-data-science"><i class="fa fa-check"></i><b>1.6</b> discussion: what will you do with data science?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>2</b> getting started</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-started.html"><a href="getting-started.html#are-you-already-a-programmer-and-statistician"><i class="fa fa-check"></i><b>2.1</b> are you already a programmer and statistician?</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started.html"><a href="getting-started.html#setting-up-your-machine-some-basic-tools"><i class="fa fa-check"></i><b>2.2</b> setting up your machine: some basic tools</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started.html"><a href="getting-started.html#discussion-who-deserves-a-good-grade"><i class="fa fa-check"></i><b>2.3</b> discussion: who deserves a good grade?</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html"><i class="fa fa-check"></i><b>3</b> an introduction to R</a><ul>
+<li class="chapter" data-level="3.1" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#some-other-things-that-r-stands-for"><i class="fa fa-check"></i><b>3.1</b> some other things that R stands for</a></li>
+<li class="chapter" data-level="3.2" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#a-few-characteristics-of-r"><i class="fa fa-check"></i><b>3.2</b> a few characteristics of R</a></li>
+<li class="chapter" data-level="3.3" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#finding-help"><i class="fa fa-check"></i><b>3.3</b> finding help</a></li>
+<li class="chapter" data-level="3.4" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#wickham-and-r-for-data-science"><i class="fa fa-check"></i><b>3.4</b> Wickham and R for Data Science</a></li>
+<li class="chapter" data-level="3.5" data-path="an-introduction-to-r.html"><a href="an-introduction-to-r.html#discussion-is-open-source-software-secure"><i class="fa fa-check"></i><b>3.5</b> discussion: is open-source software secure?</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html"><i class="fa fa-check"></i><b>4</b> now draw the rest of the owl</a><ul>
+<li class="chapter" data-level="4.1" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#carmichael"><i class="fa fa-check"></i><b>4.1</b> Carmichael</a></li>
+<li class="chapter" data-level="4.2" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#datacamp"><i class="fa fa-check"></i><b>4.2</b> DataCamp</a></li>
+<li class="chapter" data-level="4.3" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#swirl-swirlstats"><i class="fa fa-check"></i><b>4.3</b> Swirl (Swirlstats)</a></li>
+<li class="chapter" data-level="4.4" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#peng-text-and-videos"><i class="fa fa-check"></i><b>4.4</b> Peng text and videos</a></li>
+<li class="chapter" data-level="4.5" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#something-else"><i class="fa fa-check"></i><b>4.5</b> Something else</a></li>
+<li class="chapter" data-level="4.6" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#exercise"><i class="fa fa-check"></i><b>4.6</b> Exercise</a></li>
+</ul></li>
+<li class="part"><span><b>II Part II Towards data literacy</b></span></li>
+<li class="chapter" data-level="5" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html"><i class="fa fa-check"></i><b>5</b> Principles of data visualization</a><ul>
+<li class="chapter" data-level="5.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#some-opening-thoughts"><i class="fa fa-check"></i><b>5.1</b> Some opening thoughts</a></li>
+<li class="chapter" data-level="5.2" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#some-early-graphs"><i class="fa fa-check"></i><b>5.2</b> Some early graphs</a></li>
+<li class="chapter" data-level="5.3" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#tukey-and-eda"><i class="fa fa-check"></i><b>5.3</b> Tukey and EDA</a></li>
+<li class="chapter" data-level="5.4" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#approaches-to-graphs"><i class="fa fa-check"></i><b>5.4</b> Approaches to graphs</a></li>
+<li class="chapter" data-level="5.5" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#tufte-first-principles"><i class="fa fa-check"></i><b>5.5</b> Tufte: First principles</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#the-cost-of-poor-design-i-space-shuttle-challenger"><i class="fa fa-check"></i><b>5.5.1</b> The cost of poor design I: Space Shuttle Challenger</a></li>
+<li class="chapter" data-level="5.5.2" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#the-cost-of-poor-design-ii-an-uninformed-or-misinformed-world."><i class="fa fa-check"></i><b>5.5.2</b> The cost of poor design II: An uninformed or misinformed world.</a></li>
+<li class="chapter" data-level="5.5.3" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#should-graphs-begin-with-psychological-theory"><i class="fa fa-check"></i><b>5.5.3</b> Should graphs begin with psychological theory?</a></li>
+<li class="chapter" data-level="5.5.4" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#the-power-of-animation"><i class="fa fa-check"></i><b>5.5.4</b> The power of animation</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#telling-the-truth-when-the-truth-is-unclear"><i class="fa fa-check"></i><b>5.6</b> Telling the truth, when the truth is unclear</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#animated-approaches"><i class="fa fa-check"></i><b>5.6.1</b> Animated approaches</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#a-supplement-code-for-asymmetrical-eulervenn-diagrams"><i class="fa fa-check"></i><b>5.7</b> a supplement: Code for Asymmetrical Euler/Venn diagrams</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#setup"><i class="fa fa-check"></i><b>5.7.1</b> setup</a></li>
+<li class="chapter" data-level="5.7.2" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#cpi--cq"><i class="fa fa-check"></i><b>5.7.2</b> CPI- CQ</a></li>
+<li class="chapter" data-level="5.7.3" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#scholarly-communities"><i class="fa fa-check"></i><b>5.7.3</b> scholarly communities</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#further-reading-and-resources"><i class="fa fa-check"></i><b>5.8</b> further reading and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html"><i class="fa fa-check"></i><b>6</b> visualization in R with ggplot</a><ul>
+<li class="chapter" data-level="6.1" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#picture-words-numbers"><i class="fa fa-check"></i><b>6.1</b> picture &gt; (words, numbers)?</a></li>
+<li class="chapter" data-level="6.2" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#your-ggplots"><i class="fa fa-check"></i><b>6.2</b> your ggplots</a></li>
+<li class="chapter" data-level="6.3" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#facets---displaying-the-anscombe-data"><i class="fa fa-check"></i><b>6.3</b> facets - displaying the Anscombe data</a></li>
+<li class="chapter" data-level="6.4" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#exploring-more-data"><i class="fa fa-check"></i><b>6.4</b> exploring more data</a></li>
+<li class="chapter" data-level="6.5" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#r-is-the-bomb"><i class="fa fa-check"></i><b>6.5</b> R is the bomb</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html"><i class="fa fa-check"></i><b>7</b> on probability and statistics</a><ul>
+<li class="chapter" data-level="7.1" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#on-probability"><i class="fa fa-check"></i><b>7.1</b> on probability</a></li>
+<li class="chapter" data-level="7.2" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#the-rules-of-probability"><i class="fa fa-check"></i><b>7.2</b> the rules of probability</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#keeping-conditional-probabilities-straight"><i class="fa fa-check"></i><b>7.2.1</b> keeping conditional probabilities straight</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#continuous-probability-distributions"><i class="fa fa-check"></i><b>7.3</b> continuous probability distributions</a></li>
+<li class="chapter" data-level="7.4" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#the-most-dangerous-equation"><i class="fa fa-check"></i><b>7.4</b> the most dangerous equation</a></li>
+<li class="chapter" data-level="7.5" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#appendix-notes-on-discrete-probability"><i class="fa fa-check"></i><b>7.5</b> appendix: notes on discrete probability</a></li>
+<li class="chapter" data-level="7.6" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#discrete-probability-see-attribution-in-7.5"><i class="fa fa-check"></i><b>7.6</b> Discrete Probability (see attribution in 7.5)</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#relative-frequency"><i class="fa fa-check"></i><b>7.6.1</b> Relative Frequency</a></li>
+<li class="chapter" data-level="7.6.2" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#notation"><i class="fa fa-check"></i><b>7.6.2</b> Notation</a></li>
+<li class="chapter" data-level="7.6.3" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#monte-carlo-simulations"><i class="fa fa-check"></i><b>7.6.3</b> Monte Carlo Simulations</a></li>
+<li class="chapter" data-level="7.6.4" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#with-and-without-replacement"><i class="fa fa-check"></i><b>7.6.4</b> With and without replacement</a></li>
+<li class="chapter" data-level="7.6.5" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#probability-distributions"><i class="fa fa-check"></i><b>7.6.5</b> Probability Distributions</a></li>
+<li class="chapter" data-level="7.6.6" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#independence"><i class="fa fa-check"></i><b>7.6.6</b> Independence</a></li>
+<li class="chapter" data-level="7.6.7" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#conditional-probabilities"><i class="fa fa-check"></i><b>7.6.7</b> Conditional Probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#multiplication-rule-see-attribution-in-7.5"><i class="fa fa-check"></i><b>7.7</b> Multiplication rule (see attribution in 7.5)</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#combinations-and-permutations"><i class="fa fa-check"></i><b>7.7.1</b> Combinations and Permutations</a></li>
+<li class="chapter" data-level="7.7.2" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#birthday-problem"><i class="fa fa-check"></i><b>7.7.2</b> Birthday Problem</a></li>
+<li class="chapter" data-level="7.7.3" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#sapply-a-better-way-to-do-for-loops"><i class="fa fa-check"></i><b>7.7.3</b> sapply: a better way to do for loops</a></li>
+<li class="chapter" data-level="7.7.4" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#how-many-monte-carlo-experiments-are-enough"><i class="fa fa-check"></i><b>7.7.4</b> How many Monte Carlo experiments are enough</a></li>
+<li class="chapter" data-level="7.7.5" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#addition-rule"><i class="fa fa-check"></i><b>7.7.5</b> Addition Rule</a></li>
+<li class="chapter" data-level="7.7.6" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#monty-hall-problem"><i class="fa fa-check"></i><b>7.7.6</b> Monty Hall Problem</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html"><i class="fa fa-check"></i><b>8</b> Reproducibility and the replication crisis</a><ul>
+<li class="chapter" data-level="8.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-i-tweak-or-abandon-nhst"><i class="fa fa-check"></i><b>8.1</b> Answers to the reproducibility crisis I: Tweak or abandon NHST</a></li>
+<li class="chapter" data-level="8.2" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-ii-keep-a-log-of-every-step-of-every-analysis-in-r-markdown-or-jupyter-notebooks"><i class="fa fa-check"></i><b>8.2</b> Answers to the reproducibility crisis II: Keep a log of every step of every analysis in R markdown or Jupyter notebooks</a></li>
+<li class="chapter" data-level="8.3" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-iii-pre-registration"><i class="fa fa-check"></i><b>8.3</b> Answers to the reproducibility crisis III: Pre-registration</a></li>
+<li class="chapter" data-level="8.4" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#further-readings"><i class="fa fa-check"></i><b>8.4</b> Further readings</a></li>
+</ul></li>
+<li class="part"><span><b>III Part III Towards data proficiency</b></span></li>
+<li class="chapter" data-level="9" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html"><i class="fa fa-check"></i><b>9</b> literate programming with R markdown</a><ul>
+<li class="chapter" data-level="9.1" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#scripts-are-files-of-code"><i class="fa fa-check"></i><b>9.1</b> scripts are files of code</a></li>
+<li class="chapter" data-level="9.2" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#projects-are-directories-containing-related-scripts"><i class="fa fa-check"></i><b>9.2</b> projects are directories containing related scripts</a></li>
+<li class="chapter" data-level="9.3" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#r-markdown-documents-integrate-rationale-script-and-results"><i class="fa fa-check"></i><b>9.3</b> R markdown documents integrate rationale, script, and results</a></li>
+<li class="chapter" data-level="9.4" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#what-to-do-when-you-are-stuck"><i class="fa fa-check"></i><b>9.4</b> What to do when you are stuck</a></li>
+<li class="chapter" data-level="9.5" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#appendix-a-few-possible-data-challenges"><i class="fa fa-check"></i><b>9.5</b> appendix: a few possible data challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="the-tidyverse.html"><a href="the-tidyverse.html"><i class="fa fa-check"></i><b>10</b> the tidyverse</a><ul>
+<li class="chapter" data-level="10.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#some-simple-principles"><i class="fa fa-check"></i><b>10.1</b> some simple principles</a></li>
+<li class="chapter" data-level="10.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#homework"><i class="fa fa-check"></i><b>10.2</b> homework</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html"><i class="fa fa-check"></i><b>11</b> Messy data: Cleaning and curation</a><ul>
+<li class="chapter" data-level="11.1" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html#finding-data"><i class="fa fa-check"></i><b>11.1</b> finding data</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="transforming-data.html"><a href="transforming-data.html"><i class="fa fa-check"></i><b>12</b> transforming data</a><ul>
+<li class="chapter" data-level="12.1" data-path="transforming-data.html"><a href="transforming-data.html#from-data-on-the-web-to-data-in-r"><i class="fa fa-check"></i><b>12.1</b> from data on the web to data in R</a></li>
+<li class="chapter" data-level="12.2" data-path="transforming-data.html"><a href="transforming-data.html#babynames"><i class="fa fa-check"></i><b>12.2</b> babynames</a></li>
+<li class="chapter" data-level="12.3" data-path="transforming-data.html"><a href="transforming-data.html#exercises"><i class="fa fa-check"></i><b>12.3</b> exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>13</b> relational data</a></li>
+<li class="chapter" data-level="14" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html"><i class="fa fa-check"></i><b>14</b> strings, factors, dates, and times</a><ul>
+<li class="chapter" data-level="14.1" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#strings"><i class="fa fa-check"></i><b>14.1</b> strings</a></li>
+<li class="chapter" data-level="14.2" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#factors"><i class="fa fa-check"></i><b>14.2</b> factors</a></li>
+<li class="chapter" data-level="14.3" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#dates"><i class="fa fa-check"></i><b>14.3</b> dates</a></li>
+<li class="chapter" data-level="14.4" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#times"><i class="fa fa-check"></i><b>14.4</b> times</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>15</b> lists</a></li>
+<li class="chapter" data-level="16" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html"><i class="fa fa-check"></i><b>16</b> loops, functions, and beyond</a><ul>
+<li class="chapter" data-level="16.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#loops"><i class="fa fa-check"></i><b>16.1</b> loops</a></li>
+<li class="chapter" data-level="16.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#from-loop-to-apply-to-purrrmap"><i class="fa fa-check"></i><b>16.2</b> from loop to apply to purrr::map</a></li>
+<li class="chapter" data-level="16.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#some-examples-of-functions"><i class="fa fa-check"></i><b>16.3</b> some examples of functions</a><ul>
+<li class="chapter" data-level="16.3.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#preliminaries"><i class="fa fa-check"></i><b>16.3.1</b> preliminaries</a></li>
+<li class="chapter" data-level="16.3.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#the-function"><i class="fa fa-check"></i><b>16.3.2</b> the function</a></li>
+<li class="chapter" data-level="16.3.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#applying-the-function"><i class="fa fa-check"></i><b>16.3.3</b> applying the function</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#how-many-bottles-of-what"><i class="fa fa-check"></i><b>16.4</b> how many bottles of what?</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html"><i class="fa fa-check"></i><b>17</b> Regression and Modeling</a><ul>
+<li class="chapter" data-level="17.1" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#correlation"><i class="fa fa-check"></i><b>17.1</b> Correlation</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#the-regression-line"><i class="fa fa-check"></i><b>17.1.1</b> The regression line</a></li>
+<li class="chapter" data-level="17.1.2" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#warning-there-are-two-regression-lines"><i class="fa fa-check"></i><b>17.1.2</b> Warning: there are two regression lines</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#multiple-regression"><i class="fa fa-check"></i><b>17.2</b> Multiple regression</a></li>
+<li class="chapter" data-level="17.3" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#swiss-fertility"><i class="fa fa-check"></i><b>17.3</b> Swiss fertility</a></li>
+<li class="chapter" data-level="17.4" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#what-predicts-marital-affairs"><i class="fa fa-check"></i><b>17.4</b> What predicts marital affairs?</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html"><i class="fa fa-check"></i><b>18</b> From regression to prediction and classification</a><ul>
+<li class="chapter" data-level="18.1" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#revisiting-the-affairs-data"><i class="fa fa-check"></i><b>18.1</b> Revisiting the affairs data</a></li>
+<li class="chapter" data-level="18.2" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#avoiding-capitalizing-on-chance"><i class="fa fa-check"></i><b>18.2</b> Avoiding capitalizing on chance</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#splitting-the-data-into-training-and-test-subsamples"><i class="fa fa-check"></i><b>18.2.1</b> Splitting the data into training and test subsamples</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#applying-logistic-regression-analysis-to-the-training-data"><i class="fa fa-check"></i><b>18.3</b> applying logistic regression analysis to the training data</a></li>
+<li class="chapter" data-level="18.4" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#from-regression-to-classification"><i class="fa fa-check"></i><b>18.4</b> From regression to classification</a></li>
+<li class="chapter" data-level="18.5" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#applying-the-model-to-new-data-assessing-out-of-sample-risk"><i class="fa fa-check"></i><b>18.5</b> Applying the model to new data: Assessing out-of-sample risk</a></li>
+<li class="chapter" data-level="18.6" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#changing-our-decision-threshold"><i class="fa fa-check"></i><b>18.6</b> Changing our decision threshold</a></li>
+<li class="chapter" data-level="18.7" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#more-confusion"><i class="fa fa-check"></i><b>18.7</b> More confusion</a></li>
+<li class="chapter" data-level="18.8" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#rocs-and-auc"><i class="fa fa-check"></i><b>18.8</b> ROCs and AUC</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html"><i class="fa fa-check"></i><b>19</b> Another approach to classification: k-nearest neighbor</a><ul>
+<li class="chapter" data-level="19.1" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#application-the-fair-data"><i class="fa fa-check"></i><b>19.1</b> Application: The Fair data</a></li>
+<li class="chapter" data-level="19.2" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#from-1-doppelganger-to-many"><i class="fa fa-check"></i><b>19.2</b> From 1 doppelganger to many</a><ul>
+<li class="chapter" data-level="19.2.1" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#the-bayesian-classifier"><i class="fa fa-check"></i><b>19.2.1</b> The Bayesian classifier</a></li>
+<li class="chapter" data-level="19.2.2" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#back-to-the-fair-data"><i class="fa fa-check"></i><b>19.2.2</b> Back to the Fair data</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#avoiding-capitalization-on-chance-again"><i class="fa fa-check"></i><b>19.3</b> Avoiding capitalization on chance (again)</a></li>
+<li class="chapter" data-level="19.4" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#the-multinomial-case"><i class="fa fa-check"></i><b>19.4</b> The multinomial case</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html"><i class="fa fa-check"></i><b>20</b> Machine learning: some distinctions and ideas</a><ul>
+<li class="chapter" data-level="20.1" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#supervised-versus-unsupervised-problems"><i class="fa fa-check"></i><b>20.1</b> supervised versus unsupervised problems</a></li>
+<li class="chapter" data-level="20.2" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#prediction-versus-classification"><i class="fa fa-check"></i><b>20.2</b> prediction versus classification</a></li>
+<li class="chapter" data-level="20.3" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#understanding-versus-prediction"><i class="fa fa-check"></i><b>20.3</b> understanding versus prediction</a></li>
+<li class="chapter" data-level="20.4" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#the-bias-variability-tradeoff"><i class="fa fa-check"></i><b>20.4</b> the bias-variability tradeoff</a></li>
+<li class="chapter" data-level="20.5" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#dealing-with-the-structure-of-the-data"><i class="fa fa-check"></i><b>20.5</b> dealing with the structure of the data</a><ul>
+<li class="chapter" data-level="20.5.1" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#preprocessing"><i class="fa fa-check"></i><b>20.5.1</b> preprocessing</a></li>
+<li class="chapter" data-level="20.5.2" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#resampling"><i class="fa fa-check"></i><b>20.5.2</b> resampling</a></li>
+</ul></li>
+<li class="chapter" data-level="20.6" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#approaches-to-ml"><i class="fa fa-check"></i><b>20.6</b> approaches to ml</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>21</b> references</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data science for the liberal arts</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="another-approach-to-classification-k-nearest-neighbor" class="section level1">
+<h1><span class="header-section-number">19</span> Another approach to classification: k-nearest neighbor</h1>
+<p>Our real-life social predictions are often guided not by induction or the (optimized) combination of a set of predictor variables. Rather, we often reason by analogy - we might think, for example, that <em>I won’t go out with Fred because he reminds me of Larry, and Larry was kind of a jerk.</em></p>
+<p>If regression analysis is an approach to prediction based in our set of variables, <em>k-nearest neighbor</em> analysis instead makes predictions based on observations.</p>
+<p>Formally, as described in the documentation for the knn package,
+&gt; For each row of the test set, the k nearest (in Euclidean distance) training set vectors are found, and the classification is decided by majority vote, with ties broken at random. (ref).</p>
+<p>In the simplest form of this analysis, we find the nearest thing to a “doppelganger” (a look-alike or near double) for a given observation. So, in the affairs data, if a person is most like someone else in the dataset who has had an affair, we predict an affair, else not.</p>
+<div id="application-the-fair-data" class="section level2">
+<h2><span class="header-section-number">19.1</span> Application: The Fair data</h2>
+<p>Begin by loading the affairs data from last time. Using the same seed (33458) means that the same set of training and test cases will be extracted as in the prior analysis</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(Fair)
+<span class="co"># one change here: Note the bidirectional pipe to simplify code</span>
+<span class="co"># use only when you are sure that your file update is ok</span>
+Fair <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="co"># &lt;- Fair %&gt;% </span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">affairYN =</span>
+<span class="co"># nbaffairs is set up as a factor</span>
+<span class="co"># to allow confusionmatrix to run</span>
+               <span class="kw">as.factor</span>(<span class="kw">ifelse</span>(nbaffairs <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>))) <span class="op">%&gt;%</span>
+<span class="co"># unlike the lm and glm commands, knn will not automatically create our dummy # variables for us. so we need to do this manually.</span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">sexMale =</span> <span class="kw">ifelse</span>(sex <span class="op">==</span><span class="st"> &quot;female&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">childyes =</span> <span class="kw">ifelse</span>(child <span class="op">==</span><span class="st"> &quot;no&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>(<span class="kw">c</span>(sex,child,nbaffairs)))
+
+<span class="kw">set.seed</span>(<span class="dv">33458</span>)
+n &lt;-<span class="st"> </span><span class="kw">nrow</span>(Fair)
+trainIndex &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="dt">size =</span> <span class="kw">round</span>(<span class="fl">0.6</span><span class="op">*</span>n), <span class="dt">replace =</span> <span class="ot">FALSE</span>)
+<span class="co"># create training and test samples</span>
+trainFair &lt;-<span class="st"> </span>Fair[trainIndex ,]
+testFair &lt;-<span class="st"> </span>Fair[<span class="op">-</span>trainIndex ,]</code></pre>
+<p>To run a k-nearest neighbor analysis, we need three inputs: our predictors in the training data, our predictors in the test data, and our outcome/classes in the training data.</p>
+<p>Here, as in the regression analysis in the last chapter, we can generate a confusion matrix to assess the accuracy of prediction:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">33458</span>)
+trainPredictors &lt;-<span class="st"> </span>trainFair <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)
+testPredictors &lt;-<span class="st"> </span>testFair <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)
+knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainPredictors, <span class="co"># training data</span>
+             testPredictors, <span class="co"># test data</span>
+             trainFair<span class="op">$</span>affairYN, <span class="co"># class</span>
+             <span class="dv">1</span> <span class="co"># number of neighbors</span>
+             )
+b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, testFair<span class="op">$</span>affairYN)
+b</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction   0   1
+##          0 142  40
+##          1  41  17
+##                                           
+##                Accuracy : 0.6625          
+##                  95% CI : (0.5989, 0.7221)
+##     No Information Rate : 0.7625          
+##     P-Value [Acc &gt; NIR] : 0.9998          
+##                                           
+##                   Kappa : 0.0738          
+##  Mcnemar&#39;s Test P-Value : 1.0000          
+##                                           
+##             Sensitivity : 0.7760          
+##             Specificity : 0.2982          
+##          Pos Pred Value : 0.7802          
+##          Neg Pred Value : 0.2931          
+##              Prevalence : 0.7625          
+##          Detection Rate : 0.5917          
+##    Detection Prevalence : 0.7583          
+##       Balanced Accuracy : 0.5371          
+##                                           
+##        &#39;Positive&#39; Class : 0               
+## </code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]]</code></pre>
+<pre><code>## [1] 0.6625</code></pre>
+</div>
+<div id="from-1-doppelganger-to-many" class="section level2">
+<h2><span class="header-section-number">19.2</span> From 1 doppelganger to many</h2>
+<p>In the above code, we used a k-nearest neighbor analysis based on a single ‘neighbor’ (k = 1). Can we improve prediction by considering more than 1 neighbor?</p>
+<div id="the-bayesian-classifier" class="section level3">
+<h3><span class="header-section-number">19.2.1</span> The Bayesian classifier</h3>
+<p>Lisa is a doctor whose patients often have post-surgical pain. Their suffering is real, but effective pain medications such as OxyContin have a high likelihood of leading to abuse and addiction. She has two bits of information about a patient, his or her age (say that we have this in ten levels, corresponding to decades of age, so that the first level is “under 20” and that the last level is “over 100”), and his or her self-report of pain, also on a 10 point scale.</p>
+<p>Assume that Lisa wants to prescribe the medication to all patients who would not abuse it, and not prescribe the medication to anyone who would.</p>
+<p>Assume that Lisa knew the entire matrix of conditional probabilities,</p>
+<blockquote>
+<p>P (addiction | “age &lt; 20” &amp; “pain = 1”) = .34</p>
+<p>P (addiction | “age &lt; 20” &amp; “pain = 2”) = .26</p>
+<p>… P (addiction | “age &gt; 100” &amp; “pain = 10”) = .09</p>
+</blockquote>
+<p>In this case she would prescribe the drug for every case where the conditional probability was greater than .5, and never otherwise. This is called the <strong>Bayesian classifier</strong>, and if we have the entire matrix of conditional probabilities we could do no better.</p>
+<p>In real world problems, we are typically dealing with many predictors, and we don’t have the full matrix of conditional probabilities. But this two predictor case “sets up” the illustration drawn from <span class="citation">(James et al. <a href="#ref-james2013introduction">2013</a>)</span>.</p>
+<div class="figure">
+<img src="knnTwovaluesfromJames2013.PNG" alt="Figure 10.1: Comparing two values of k (From (???))" />
+<p class="caption">Figure 10.1: Comparing two values of k (From <span class="citation">(<span class="citeproc-not-found" data-reference-id="jamesintroduction"><strong>???</strong></span>)</span>)</p>
+</div>
+<p>In the figure above, assume that the horizontal and vertical axes correspond to scores on the two predictors (age and pain). The orange and blue colored dots correspond to cases of abuse and non-abuse in the training data. The dashed line is the Bayesian classifier. The solid line is the k-nn decision boundary, which distinguishes the regions in which we will predict abuse and non abuse in the test data. We see that when k is small (a single neighbor), prediction is flexible, non-linear, and that as k increases, the boundary differentiating the decision to prescribe and not prescribe becomes more nearly linear.</p>
+<p>But what value of k is optimal?</p>
+</div>
+<div id="back-to-the-fair-data" class="section level3">
+<h3><span class="header-section-number">19.2.2</span> Back to the Fair data</h3>
+<p>To test a range of values, we can first set up our knn analysis as a function (compare this code with the code in the prior section).</p>
+<pre class="sourceCode r"><code class="sourceCode r">trainPredictors &lt;-<span class="st"> </span>trainFair <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)
+testPredictors &lt;-<span class="st"> </span>testFair <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)
+knnFairdata &lt;-<span class="st"> </span><span class="cf">function</span> (k) {
+    <span class="kw">set.seed</span>(<span class="dv">33458</span>)
+    knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainPredictors, <span class="co"># training data</span>
+                 testPredictors, <span class="co"># test data</span>
+                 trainFair<span class="op">$</span>affairYN, <span class="co"># class</span>
+                 k <span class="co"># number of neighbors</span>
+                 )
+    b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, testFair<span class="op">$</span>affairYN)
+    b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]]
+}</code></pre>
+<p>We run the function on k = 1 and k = 2 to test it:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">knnFairdata</span>(<span class="dv">1</span>)</code></pre>
+<pre><code>## [1] 0.6625</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">knnFairdata</span>(<span class="dv">2</span>)</code></pre>
+<pre><code>## [1] 0.6916667</code></pre>
+<p>Now we can apply it to as many as 100 values of k, using the purrr::map command:</p>
+<pre class="sourceCode r"><code class="sourceCode r">kAccuracy &lt;-<span class="st"> </span>(<span class="kw">map</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,knnFairdata)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map the knnFunction onto numbers 1-100</span>
+<span class="st">    </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map generates a list, so we will pull these out into a vector</span>
+<span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># then a tibble so we can do a quick plot</span>
+<span class="st">    </span><span class="kw">rename</span>(<span class="dt">Accuracy=</span>value) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">mutate</span> (<span class="dt">k =</span> <span class="kw">seq_along</span>(Accuracy))</code></pre>
+<pre><code>## Warning: Calling `as_tibble()` on a vector is discouraged, because the behavior is likely to change in the future. Use `enframe(name = NULL)` instead.
+## This warning is displayed once per session.</code></pre>
+<p>We can graph this, using the syntax from the beginning of the class:</p>
+<pre class="sourceCode r"><code class="sourceCode r">kAccuracy <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(k, Accuracy)) <span class="op">+</span><span class="co">#%&gt;% </span>
+<span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Overall accuracy for varying levels of k&quot;</span>)</code></pre>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This pulls out the maximum accuracy, and the value of k for which it occurs:</span>
+(ka &lt;-<span class="st"> </span><span class="kw">which.max</span>(kAccuracy<span class="op">$</span>Accuracy))</code></pre>
+<pre><code>## [1] 27</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">(kb &lt;-<span class="st"> </span><span class="kw">max</span>(kAccuracy<span class="op">$</span>Accuracy))</code></pre>
+<pre><code>## [1] 0.7666667</code></pre>
+</div>
+</div>
+<div id="avoiding-capitalization-on-chance-again" class="section level2">
+<h2><span class="header-section-number">19.3</span> Avoiding capitalization on chance (again)</h2>
+<p>In these data, with this split of training and test (and this initial seed) the maximum predictability occurs at k = 27, with an overall accuracy of 0.7666667.</p>
+<p>Would this hold if we used a different random split? Remember, here, we have tested not one model, but 100 of them, then chosen the best one. The peak in the curve at 27 may well be due to chance characteristics of the test data.</p>
+<p>We could address this empirically using one of several techniques. One approach is to have a third independent sample on which to test the accuracy of prediction at k = 27. This would require the separate validation sample that was introduced in the last chapter.</p>
+<p>In the following block, I resplit the Fair data, using proportions of 60%, 30%, 10%. These values are likely not optimal given the (relatively small) size of the Fair data, but will work to illustrate the approach:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">33458</span>)
+threeWaySplit &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">size=</span><span class="kw">nrow</span>(Fair),
+                        <span class="dt">prob=</span><span class="kw">c</span>(<span class="fl">0.6</span>,<span class="fl">0.3</span>,<span class="fl">0.1</span>),
+                        <span class="dt">replace =</span> <span class="ot">TRUE</span>)
+trainFair2 &lt;-<span class="st"> </span>Fair[threeWaySplit<span class="op">==</span><span class="dv">1</span>,]
+testFair2 &lt;-<span class="st"> </span>Fair[threeWaySplit<span class="op">==</span><span class="dv">2</span>,]
+validFair2 &lt;-<span class="st"> </span>Fair[threeWaySplit<span class="op">==</span><span class="dv">3</span>,]</code></pre>
+<p>I tweak my function here to use the new data, then run it 100 times as before.</p>
+<pre class="sourceCode r"><code class="sourceCode r">trainPredictors &lt;-<span class="st"> </span>trainFair2 <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)
+testPredictors &lt;-<span class="st"> </span>testFair2 <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)
+knnFairdata2 &lt;-<span class="st"> </span><span class="cf">function</span> (k) {
+    <span class="kw">set.seed</span>(<span class="dv">33458</span>)
+    knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainPredictors, <span class="co"># training data</span>
+             testPredictors, <span class="co"># test data</span>
+             trainFair2<span class="op">$</span>affairYN, <span class="co"># class</span>
+             k <span class="co"># number of neighbors</span>
+             )
+    b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, testFair2<span class="op">$</span>affairYN)
+    b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]]
+}
+kAccuracy &lt;-<span class="st"> </span>(<span class="kw">map</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,knnFairdata2)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map the knnFunction onto numbers 1-100</span>
+<span class="st">    </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map generates a list, so we will pull these out into a vector</span>
+<span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># then a tibble so we can do a quick plot</span>
+<span class="st">    </span><span class="kw">rename</span>(<span class="dt">Accuracy=</span>value) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">mutate</span> (<span class="dt">k =</span> <span class="kw">seq_along</span>(Accuracy))
+(ka2 &lt;-<span class="st"> </span><span class="kw">which.max</span>(kAccuracy<span class="op">$</span>Accuracy))</code></pre>
+<pre><code>## [1] 15</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">(kb2 &lt;-<span class="st"> </span><span class="kw">max</span>(kAccuracy<span class="op">$</span>Accuracy))</code></pre>
+<pre><code>## [1] 0.7802198</code></pre>
+<p>So here, on the (contaminated) test data, the maximum predictability occurs at k = 15, with an overall accuracy of 0.7802198. We apply this back to the validation data by pulling the knn code out of the function, and running it just once against the validation data:</p>
+<pre class="sourceCode r"><code class="sourceCode r">knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainFair2[,<span class="op">-</span><span class="dv">7</span>], <span class="co"># training data</span>
+             validFair2[,<span class="op">-</span><span class="dv">7</span>], <span class="co"># VALIDATION data</span>
+             trainFair2<span class="op">$</span>affairYN, <span class="co"># class</span>
+             ka2 <span class="co"># number of neighbors</span>
+             )
+b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, validFair2<span class="op">$</span>affairYN)
+(kb3 &lt;-<span class="st"> </span>b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]])</code></pre>
+<pre><code>## [1] 0.703125</code></pre>
+<p>We see that the overall predictability using the k-nearest neighbor analysis on the clean validation data, is now 0.703125.</p>
+<p>You might note that in our two splits of the Fair data - the two-way split of 60% Training and 40% Test, and the three-way split of 60% Training, 30% Test, 10% Validation, we got two different solutions to the question of the ‘optimal k’ (i.e., 27 and 15). With larger sample sizes, these values would be more stable.</p>
+</div>
+<div id="the-multinomial-case" class="section level2">
+<h2><span class="header-section-number">19.4</span> The multinomial case</h2>
+<p>A final comment on the k-nearest neighbors approach: You can extend this to classification problems in which we are predicting not just a dichotomous outcome, but a multinomial one - such as a personality type or college concentration.</p>
+
+</div>
+</div>
+<h3> references</h3>
+<div id="refs" class="references">
+<div id="ref-james2013introduction">
+<p>James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2013. <em>An Introduction to Statistical Learning</em>. Vol. 112. Springer.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="from-regression-to-prediction-and-classification.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="machine-learning-some-distinctions-and-ideas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "sepia",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": true
+});
+});
+</script>
+
+</body>
+
+</html>
