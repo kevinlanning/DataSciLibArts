@@ -25,7 +25,7 @@
 <meta name="author" content="Kevin Lanning">
 
 
-<meta name="date" content="2019-03-30">
+<meta name="date" content="2019-04-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -54,7 +54,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -67,13 +67,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -287,12 +285,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.7" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#more-confusion"><i class="fa fa-check"></i><b>18.7</b> More confusion</a></li>
 <li class="chapter" data-level="18.8" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#rocs-and-auc"><i class="fa fa-check"></i><b>18.8</b> ROCs and AUC</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html"><i class="fa fa-check"></i><b>19</b> Another approach to prediction: k-nearest neighbor</a><ul>
-<li class="chapter" data-level="19.1" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#from-1-doppelganger-to-many"><i class="fa fa-check"></i><b>19.1</b> From 1 doppelganger to many</a></li>
-<li class="chapter" data-level="19.2" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#avoiding-capitalization-on-chance-again"><i class="fa fa-check"></i><b>19.2</b> Avoiding capitalization on chance (again)</a></li>
-<li class="chapter" data-level="19.3" data-path="another-approach-to-prediction-k-nearest-neighbor.html"><a href="another-approach-to-prediction-k-nearest-neighbor.html#the-multinomial-case"><i class="fa fa-check"></i><b>19.3</b> The multinomial case</a></li>
+<li class="chapter" data-level="19" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html"><i class="fa fa-check"></i><b>19</b> Another approach to classification: k-nearest neighbor</a><ul>
+<li class="chapter" data-level="19.1" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#application-the-fair-data"><i class="fa fa-check"></i><b>19.1</b> Application: The Fair data</a></li>
+<li class="chapter" data-level="19.2" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#from-1-doppelganger-to-many"><i class="fa fa-check"></i><b>19.2</b> From 1 doppelganger to many</a><ul>
+<li class="chapter" data-level="19.2.1" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#the-bayesian-classifier"><i class="fa fa-check"></i><b>19.2.1</b> The Bayesian classifier</a></li>
+<li class="chapter" data-level="19.2.2" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#back-to-the-fair-data"><i class="fa fa-check"></i><b>19.2.2</b> Back to the Fair data</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>20</b> references</a></li>
+<li class="chapter" data-level="19.3" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#avoiding-capitalization-on-chance-again"><i class="fa fa-check"></i><b>19.3</b> Avoiding capitalization on chance (again)</a></li>
+<li class="chapter" data-level="19.4" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#the-multinomial-case"><i class="fa fa-check"></i><b>19.4</b> The multinomial case</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="machine-learning-some-distinctions-and-ideas-draft.html"><a href="machine-learning-some-distinctions-and-ideas-draft.html"><i class="fa fa-check"></i><b>20</b> Machine learning: some distinctions and ideas [DRAFT]</a><ul>
+<li class="chapter" data-level="20.1" data-path="machine-learning-some-distinctions-and-ideas-draft.html"><a href="machine-learning-some-distinctions-and-ideas-draft.html#supervised-versus-unsupervised-problems"><i class="fa fa-check"></i><b>20.1</b> supervised versus unsupervised problems</a></li>
+<li class="chapter" data-level="20.2" data-path="machine-learning-some-distinctions-and-ideas-draft.html"><a href="machine-learning-some-distinctions-and-ideas-draft.html#prediction-versus-classification"><i class="fa fa-check"></i><b>20.2</b> prediction versus classification</a></li>
+<li class="chapter" data-level="20.3" data-path="machine-learning-some-distinctions-and-ideas-draft.html"><a href="machine-learning-some-distinctions-and-ideas-draft.html#understanding-versus-prediction"><i class="fa fa-check"></i><b>20.3</b> understanding versus prediction</a></li>
+<li class="chapter" data-level="20.4" data-path="machine-learning-some-distinctions-and-ideas-draft.html"><a href="machine-learning-some-distinctions-and-ideas-draft.html#the-bias-variability-tradeoff"><i class="fa fa-check"></i><b>20.4</b> the bias-variability tradeoff</a></li>
+<li class="chapter" data-level="20.5" data-path="machine-learning-some-distinctions-and-ideas-draft.html"><a href="machine-learning-some-distinctions-and-ideas-draft.html#dealing-with-the-structure-of-the-data"><i class="fa fa-check"></i><b>20.5</b> dealing with the structure of the data</a><ul>
+<li class="chapter" data-level="20.5.1" data-path="machine-learning-some-distinctions-and-ideas-draft.html"><a href="machine-learning-some-distinctions-and-ideas-draft.html#preprocessing"><i class="fa fa-check"></i><b>20.5.1</b> preprocessing</a></li>
+<li class="chapter" data-level="20.5.2" data-path="machine-learning-some-distinctions-and-ideas-draft.html"><a href="machine-learning-some-distinctions-and-ideas-draft.html#resampling"><i class="fa fa-check"></i><b>20.5.2</b> resampling</a></li>
+</ul></li>
+<li class="chapter" data-level="20.6" data-path="machine-learning-some-distinctions-and-ideas-draft.html"><a href="machine-learning-some-distinctions-and-ideas-draft.html#approaches-to-ml"><i class="fa fa-check"></i><b>20.6</b> approaches to ml</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>21</b> references</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -372,16 +385,16 @@ Open the Google Sheet at <a href="http://bit.ly/dslaX2_1" class="uri">http://bit
 <h3> references</h3>
 <div id="refs" class="references">
 <div id="ref-henrich2010weirdest">
-<p>Henrich, Joseph, Steven J Heine, and Ara Norenzayan. 2010. “The Weirdest People in the World?” <em>Behavioral and Brain Sciences</em> 33 (2-3). Cambridge University Press: 61–83.</p>
+<p>Henrich, Joseph, Steven J Heine, and Ara Norenzayan. 2010. “The Weirdest People in the World?” <em>Behavioral and Brain Sciences</em> 33 (2-3): 61–83.</p>
 </div>
 <div id="ref-tversky1974judgment">
-<p>Tversky, Amos, and Daniel Kahneman. 1974. “Judgment Under Uncertainty: Heuristics and Biases.” <em>Science</em> 185 (4157). American association for the advancement of science: 1124–31.</p>
+<p>Tversky, Amos, and Daniel Kahneman. 1974. “Judgment Under Uncertainty: Heuristics and Biases.” <em>Science</em> 185 (4157): 1124–31.</p>
 </div>
 <div id="ref-broman2017data">
-<p>Broman, Karl W, and Kara H Woo. 2017. “Data Organization in Spreadsheets.” <em>The American Statistician</em>, nos. just-accepted. Taylor &amp; Francis.</p>
+<p>Broman, Karl W, and Kara H Woo. 2017. “Data Organization in Spreadsheets.” <em>The American Statistician</em>, nos. just-accepted.</p>
 </div>
 <div id="ref-freeman2017informatics">
-<p>Freeman, Michael, and Joel Ross. 2017. <em>Technical Foundations of Informatics, U Washington Info 201</em>. <a href="https://info201.github.io" class="uri">https://info201.github.io</a>.</p>
+<p>Freeman, Michael, and Joel Ross. 2017. <em>Technical Foundations of Informatics, U Washington Info 201</em>. <a href="https://info201.github.io">https://info201.github.io</a>.</p>
 </div>
 <div id="ref-wickham2016r">
 <p>Wickham, Hadley, and Garrett Grolemund. 2016. “R for Data Science.” Sebastopol, CA: O’Reilly. http://​ r4ds.​ had.​ co.​ nz.</p>

@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>17 Regression and Modeling | Data science for the liberal arts</title>
+  <title>20 Machine learning: some distinctions and ideas [DRAFT] | Data science for the liberal arts</title>
   <meta name="description" content="Test">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="17 Regression and Modeling | Data science for the liberal arts" />
+  <meta property="og:title" content="20 Machine learning: some distinctions and ideas [DRAFT] | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/diffprop_cloud_250_sm.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="17 Regression and Modeling | Data science for the liberal arts" />
+  <meta name="twitter:title" content="20 Machine learning: some distinctions and ideas [DRAFT] | Data science for the liberal arts" />
   
   <meta name="twitter:description" content="Test" />
   <meta name="twitter:image" content="images/diffprop_cloud_250_sm.png" />
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="loops-functions-and-beyond.html">
-<link rel="next" href="from-regression-to-prediction-and-classification.html">
+<link rel="prev" href="another-approach-to-classification-k-nearest-neighbor.html">
+<link rel="next" href="references.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -326,205 +326,108 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="regression-and-modeling" class="section level1">
-<h1><span class="header-section-number">17</span> Regression and Modeling</h1>
-<p>In Chapter 22 of R4DS, Wickham introduces <strong>modeling</strong> as a complement to data visualization. At the beginning of Chapter 23, he points out that</p>
-<blockquote>
-<p><em>The goal of a model is to provide a simple low-dimensional summary of a dataset.</em></p>
-</blockquote>
-<p>In the remainder of his section on modeling (Chapters 23 - 25), he presents an innovative approach to introducing models. Feel free to explore these. Our treatment, however, will deviate from this.</p>
-<div id="correlation" class="section level2">
-<h2><span class="header-section-number">17.1</span> Correlation</h2>
-<p>(This section is excerpted from From <a href="https://github.com/datasciencelabs" class="uri">https://github.com/datasciencelabs</a>)</p>
-<p><a href="https://en.wikipedia.org/wiki/Francis_Galton">Francis Galton</a>, a polymath and cousin of Charles Darwin was interested, among other things, in how well can we predict a son’s height based on the parents’ heights.</p>
-<p>We have access to Galton’s family height data through the <code>HistData</code> package. We will create a dataset with the heights of fathers and the first son of each family. Here are the key summary statistics for the two variables of father and son height taken alone:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(HistData)
-<span class="kw">data</span>(<span class="st">&quot;GaltonFamilies&quot;</span>)
-galton_heights &lt;-<span class="st"> </span>GaltonFamilies <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(childNum <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>gender <span class="op">==</span><span class="st"> &quot;male&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">select</span>(father, childHeight) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">son =</span> childHeight)
-galton_heights <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarize</span>(<span class="kw">mean</span>(father), <span class="kw">sd</span>(father), <span class="kw">mean</span>(son), <span class="kw">sd</span>(son))</code></pre>
-<pre><code>##   mean(father) sd(father) mean(son)  sd(son)
-## 1     69.09888   2.546555  70.45475 2.557061</code></pre>
-<p>This <strong>univariate</strong> description fails to capture the key characteristic of the data, namely, the idea that there is a relationship between the two variables:</p>
-<pre class="sourceCode r"><code class="sourceCode r">galton_heights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(father, son)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>)</code></pre>
-<div class="figure"><span id="fig:scatterplot"></span>
-<img src="DataSciLibArts_files/figure-html/scatterplot-1.png" alt="Heights of father and son pairs plotted against each other." width="672" />
-<p class="caption">
-Figure 17.1: Heights of father and son pairs plotted against each other.
-</p>
+<div id="machine-learning-some-distinctions-and-ideas-draft" class="section level1">
+<h1><span class="header-section-number">20</span> Machine learning: some distinctions and ideas [DRAFT]</h1>
+<p>In the last few chapters, we have considered regression and k-nearest neighbor analysis as tools for prediction and classification. Here, we extend this treatment to understand some key ideas in the study of <em>machine learning</em>. My approach is drawn largely from <span class="citation">(James et al. <a href="#ref-james2013introduction">2013</a>)</span>, which is available freely on the web and includes links to additional materials for those who would like to study this further.</p>
+<div id="supervised-versus-unsupervised-problems" class="section level2">
+<h2><span class="header-section-number">20.1</span> supervised versus unsupervised problems</h2>
+<p>The distinction between supervised and unsupervised problems is the most fundamental distinction in machine learning.</p>
+<p>In both the Swiss and the Fair problems, we had a known outcome (fertility, infidelity) which we were trying to predict from a set of independent variables. In these problems, we have an a priori split of the variables into two sets (outcomes and predictors). These are considered <strong>supervised</strong> problems.</p>
+<p>There is a second type of problem in which we don’t have an outcome, which would guide or supervise our model. In this alternate case, we have one set of variables, not two, and we want to assess its internal structure. These are considered <strong>unsupervised</strong> problems. Methods used to address unsupervised problems include cluster analysis (of which there are many subtypes), component analysis, and exploratory factor analysis.</p>
+<p>In the unsupervised approach, objectives include finding unknown patterns, developing a set of types (or a taxonomy), and assessing the dimensionality of a latent set of variables. This approach is particularly important in my own field of personality psychology, where a focal problems involves assessing the factor structure of personality: If you have taken introductory psychology, you are likely familiar with the five-factor (Big Five) model of personality. The unsupervised approach is also used to solve problems of community detection in the study of social and scientific networks (see Figure 20.1). Questions about dimensionality and internal structure can be compelling (<span class="citation">Lanning (<a href="#ref-lanning1994dimensionality">1994</a>)</span>, <span class="citation">Lanning (<a href="#ref-lanning1996robustness">1996</a>)</span>), but we will not consider them further here.</p>
+<div class="figure">
+<img src="SoniaFigure.PNG" alt="Figure 20.1. Part of the structure of personality research. From (Lanning, Baron, and Webster 2018)" />
+<p class="caption">Figure 20.1. Part of the structure of personality research. From <span class="citation">(Lanning, Baron, and Webster <a href="#ref-lanning2018network">2018</a>)</span></p>
 </div>
-<p>The correlation summarizes this relationship. In these data, the correlation (r) is about .50.</p>
-<pre class="sourceCode r"><code class="sourceCode r">galton_heights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="kw">cor</span>(father, son))</code></pre>
-<pre><code>##   cor(father, son)
-## 1        0.5007248</code></pre>
-<p>Incidentally, correlations based on small samples can bounce around quite a bit. Consider what happens when, for example, we sample just 25 cases from Galton’s data, then repeat this in a Monte Carlo analysis 1000 times to see the distribution of these sample rs:</p>
-<pre class="sourceCode r"><code class="sourceCode r">B &lt;-<span class="st"> </span><span class="dv">1000</span>
-N &lt;-<span class="st"> </span><span class="dv">25</span>
-R &lt;-<span class="st"> </span><span class="kw">replicate</span>(B, {
-  <span class="kw">sample_n</span>(galton_heights, N, <span class="dt">replace =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># sample with replacement here</span>
-<span class="st">    </span><span class="kw">summarize</span>(<span class="dt">r=</span><span class="kw">cor</span>(father, son)) <span class="op">%&gt;%</span><span class="st"> </span>.<span class="op">$</span>r
-})
-<span class="kw">data.frame</span>(R) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(R)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.05</span>, <span class="dt">color =</span> <span class="st">&quot;grey&quot;</span>)</code></pre>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
-<div id="the-regression-line" class="section level3">
-<h3><span class="header-section-number">17.1.1</span> The regression line</h3>
-<p>If we are predicting a random variable <span class="math inline">\(Y\)</span> knowing the value of another <span class="math inline">\(X=x\)</span> using a regression line, then we predict that for every standard deviation, <span class="math inline">\(\sigma_X\)</span>, that <span class="math inline">\(x\)</span> increases above the average <span class="math inline">\(mu_X\)</span>, <span class="math inline">\(Y\)</span> increases <span class="math inline">\(\rho\)</span> standard deviations <span class="math inline">\(\sigma_Y\)</span> above the average <span class="math inline">\(\mu_Y\)</span>, where <span class="math inline">\(\rho\)</span> is the correlation between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
-<p>To manually add a regression line to a plots, we will need the means and standard deviations of each variable together with their correlation:</p>
-<pre class="sourceCode r"><code class="sourceCode r">mu_x &lt;-<span class="st"> </span><span class="kw">mean</span>(galton_heights<span class="op">$</span>father)
-mu_y &lt;-<span class="st"> </span><span class="kw">mean</span>(galton_heights<span class="op">$</span>son)
-s_x &lt;-<span class="st"> </span><span class="kw">sd</span>(galton_heights<span class="op">$</span>father)
-s_y &lt;-<span class="st"> </span><span class="kw">sd</span>(galton_heights<span class="op">$</span>son)
-r &lt;-<span class="st"> </span><span class="kw">cor</span>(galton_heights<span class="op">$</span>father, galton_heights<span class="op">$</span>son)
+</div>
+<div id="prediction-versus-classification" class="section level2">
+<h2><span class="header-section-number">20.2</span> prediction versus classification</h2>
+<p>Within the category of supervised problems, we can distinguish problems in classification (those in which the outcome is nominal or discrete) from problems where the outcome is ordered or numeric. We saw this in the Fair data, when we shifted from treating the outcome as the number of reported affairs to the distinction between those who did and did not have affairs.</p>
+</div>
+<div id="understanding-versus-prediction" class="section level2">
+<h2><span class="header-section-number">20.3</span> understanding versus prediction</h2>
+<p>In both the Swiss and Fair data, we were concerned with the problem of predicting an outcome (fertility or infidelity) from a set of independent variables.</p>
+<p>In the Swiss data, we were particularly concerned with the nature of the function, the equation which best predicts fertility from the remaining predictors.</p>
+<p>In the Fair data, we initially were concerned with the nature of this <strong>function</strong> (what predicts infidelity?), but, with the k-nn analysis, became particularly concerned with increasing our hit rate or overall accuracy. We moved, in short, from a position where we were concerned with inference and understanding to a position where we were satisfied to treat the algorithm as a <strong>black box</strong> from which we were only concerned with the accuracy of outputs.</p>
+<p>The two objectives of, on the one hand, “understanding and thinking in terms of equations and models” and “prediction and thinking only in terms of optimization” can be thought of as two points on a continuum of <strong>interpretability.</strong> Some techniques used in machine learning give results that are quite interpretable (including multiple regression, particularly restricted regression techniques such as the <strong>lasso</strong>). Others, including non-linear approaches such as <strong>support vector machines</strong> and, in particular, <strong>deep neural networks</strong> sacrifice interpretability in the service of prediction. For complex approaches in image recognition, such as the chihuahua versus muffin problem, deep neural networks provide the best solutions, but are particularly challenging to understand <span class="citation">(Kumar, Wong, and Taylor <a href="#ref-kumar2017explaining">2017</a>)</span>.</p>
+<div class="figure">
+<img src="chihuahuamuffin.jpg" alt="Fig 20.1: The question “Is this a chihuahua or a muffin?” is best solved using a deep neural network approach that can’t be reduced to a simple equation." />
+<p class="caption">Fig 20.1: The question “Is this a chihuahua or a muffin?” is best solved using a deep neural network approach that can’t be reduced to a simple equation.</p>
+</div>
+</div>
+<div id="the-bias-variability-tradeoff" class="section level2">
+<h2><span class="header-section-number">20.4</span> the bias-variability tradeoff</h2>
+<p>If you read further about machine learning, you are likely to encounter the phrase “bias-variability tradeoff.” You may remember that, in our initial analyses of the Swiss fertility data, we discussed how reducing the number of observations increases the fit of the model on the (training) data - and that, ultimately, the fit of the model would become perfect when we reduce the number of observations to the number of variables in the model.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span> (<span class="dv">33458</span>)
+<span class="kw">data</span> (Fair)
+FairSample1 &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sample_n</span>(<span class="dv">9</span>)
+affairReg1 &lt;-<span class="st"> </span><span class="kw">lm</span>(nbaffairs <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>FairSample1)
+<span class="kw">summary</span>(affairReg1)<span class="op">$</span>r.squared</code></pre>
+<pre><code>## [1] 1</code></pre>
+<p>If, however, we were to run the same analysis on a different sample of the same size, we would still get perfect predictability, but would get a very different set of predictors:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">options</span>(<span class="dt">digits =</span> <span class="dv">2</span>)
+<span class="kw">set.seed</span> (<span class="dv">94611</span>)
+FairSample2 &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sample_n</span>(<span class="dv">9</span>)
+affairReg2 &lt;-<span class="st"> </span><span class="kw">lm</span>(nbaffairs <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>FairSample2)
+<span class="kw">summary</span>(affairReg2)<span class="op">$</span>r.squared</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cbind</span>(<span class="kw">unlist</span> (affairReg1[[<span class="st">&quot;coefficients&quot;</span>]]),
+<span class="kw">unlist</span> (affairReg2[[<span class="st">&quot;coefficients&quot;</span>]]))</code></pre>
+<pre><code>##               [,1]    [,2]
+## (Intercept)   2.52 -26.902
+## sexmale      13.64  -4.525
+## age          -0.15  -0.034
+## ym            1.43   0.370
+## childyes    -17.77  -0.566
+## religious    -3.40  -0.103
+## education     2.35   1.547
+## occupation   -4.72   0.103
+## rate         -2.89   0.425</code></pre>
+<p>The difference between these two sets of coefficients is an illustration of how coefficients in overfit models will vary from one sample to another. At the opposite extreme are underfit models, which are likely to provide relatively stable coefficients across samples, but which are based on a too-simple model.</p>
+</div>
+<div id="dealing-with-the-structure-of-the-data" class="section level2">
+<h2><span class="header-section-number">20.5</span> dealing with the structure of the data</h2>
+<div id="preprocessing" class="section level3">
+<h3><span class="header-section-number">20.5.1</span> preprocessing</h3>
+<p>The problem that we encountered in the tiny samples of the Swiss data exists in bigger datasets as well, where a large number of predictor variables can make it difficult to find a model which is robust (low variability) and effective (low bias).</p>
+<p>In areas such as artificial intelligence (including image recognition) and bioinformatics (including statistical genetics), this <strong>curse of dimensionality</strong> can be quite challenging. Approaches to minimizing its effects include scaling predictors (e.g., standardizing them), imputing missing values (to increase the effective number of rows in the data), and component analysis (to decrease the number of columns).</p>
+</div>
+<div id="resampling" class="section level3">
+<h3><span class="header-section-number">20.5.2</span> resampling</h3>
+<p>We’ve considered one approach to avoiding chance-inflated models and prediction estimates, and that is the approach of ‘holding out’ test (and possibly validation) samples.</p>
+<p>An extension of this approach is <strong>k-fold cross validation</strong>, in which the sample is divided into k (e.g., ten) parts, each of which is used as a validation sample in k different analyses. To assess the overall performance of the model, the results of these are averaged. This is a sophisticated and relatively easy to implement approach which can be used, for example, to assess the relative performance of different models, such as linear versus non-linear models</p>
+<div class="figure">
+<img src="egoregressions2018.PNG" alt="egoregressions2018" />
+<p class="caption">egoregressions2018</p>
+</div>
+<p>Another approach to resampling is <strong>bootstrapping</strong>, in which model parameters (e.g., regression coefficients) are taken as the average of many (for example 1,000) analyses of subsamples of the data. In the bootstrap, sampling is done with replacement. The averaged coefficients arrived at using bootstrapping are less variable than the results of a single analysis.</p>
+<p>When the bootstrap is applied to a set of training samples in the context of a decision-tree, the approach is called bootstrap aggregating or <strong>bagging.</strong></p>
+</div>
+</div>
+<div id="approaches-to-ml" class="section level2">
+<h2><span class="header-section-number">20.6</span> approaches to ml</h2>
+<p>decision trees, boosting, and random forests</p>
+<p>support vector machines</p>
+<p>neural networks</p>
 
-m &lt;-<span class="st">  </span>r <span class="op">*</span><span class="st"> </span>s_y <span class="op">/</span><span class="st"> </span>s_x
-b &lt;-<span class="st"> </span>mu_y <span class="op">-</span><span class="st"> </span>m<span class="op">*</span>mu_x
-
-galton_heights <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(father, son)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> b, <span class="dt">slope =</span> m ) </code></pre>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
-<p>If we first standardize the variables, then the regression line has intercept 0 and slope equal to the correlation <span class="math inline">\(\rho\)</span>. Here, the slope, regression line, and correlation are all equal (I’ve made the plot square to better indicate this).</p>
-<pre class="sourceCode r"><code class="sourceCode r">galton_heights <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="kw">scale</span>(father), <span class="kw">scale</span>(son))) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="dv">0</span>, <span class="dt">slope =</span> r) </code></pre>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-82-1.png" width="384" /></p>
-</div>
-<div id="warning-there-are-two-regression-lines" class="section level3">
-<h3><span class="header-section-number">17.1.2</span> Warning: there are two regression lines</h3>
-<p>In general, when describing bivariate relationships, we talk of predicting y from x. But what if we want to reverse this? Here, for example, what if we want to predict the father’s height based on the son’s?</p>
-<p>For this, the intercept and slope of the lines will differ</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># son from father</span>
-m_<span class="dv">1</span> &lt;-<span class="st">  </span>r <span class="op">*</span><span class="st"> </span>s_y <span class="op">/</span><span class="st"> </span>s_x
-b_<span class="dv">1</span> &lt;-<span class="st"> </span>mu_y <span class="op">-</span><span class="st"> </span>m_<span class="dv">1</span><span class="op">*</span>mu_x
-<span class="co"># vice-versa</span>
-m_<span class="dv">2</span> &lt;-<span class="st">  </span>r <span class="op">*</span><span class="st"> </span>s_x <span class="op">/</span><span class="st"> </span>s_y
-b_<span class="dv">2</span> &lt;-<span class="st"> </span>mu_x <span class="op">-</span><span class="st"> </span>m_<span class="dv">2</span><span class="op">*</span>mu_y</code></pre>
-<p>We will still see regression to the mean (the prediction for the father is closer to the father average than the son heights <span class="math inline">\(y\)</span> is to the son average).</p>
-<p>Here is a plot showing the two regression lines, with blue for the predicting son heights with father heights and red for predicting father heights with son heights.</p>
-<pre class="sourceCode r"><code class="sourceCode r">galton_heights <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(father, son)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> b_<span class="dv">1</span>, <span class="dt">slope =</span> m_<span class="dv">1</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="op">-</span>b_<span class="dv">2</span><span class="op">/</span>m_<span class="dv">2</span>, <span class="dt">slope =</span> <span class="dv">1</span><span class="op">/</span>m_<span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) </code></pre>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-84-1.png" width="384" /></p>
 </div>
 </div>
-<div id="multiple-regression" class="section level2">
-<h2><span class="header-section-number">17.2</span> Multiple regression</h2>
-<p>We extend regression (predicting one continuous variable from another) to the multivariate case (predicting one variable from many). We extend this logic to the cases where our variables are not normally distributed, as in the case of dichotomous variables (yes/no, true/false), as well as counts, which often are skewed.</p>
-<p>(This section is drawn from Peng, Caffo, and Leek’s treatment from Coursera/ the Johns Hopkins Data Science Program. You may need to install the packages “UsingR”, “GGally” and/or“Hmisc”)</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(broom) <span class="co"># an older package for unlisting regression results</span>
-<span class="kw">library</span>(modelr)
-<span class="kw">library</span>(GGally) <span class="co"># for scatterplot matrix</span>
-<span class="kw">library</span>(Ecdat) <span class="co"># Econometric data incl. affairs dataset </span></code></pre>
+<h3> references</h3>
+<div id="refs" class="references">
+<div id="ref-james2013introduction">
+<p>James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2013. <em>An Introduction to Statistical Learning</em>. Vol. 112. Springer.</p>
 </div>
-<div id="swiss-fertility" class="section level2">
-<h2><span class="header-section-number">17.3</span> Swiss fertility</h2>
-<p>To consider the multivariate case, we examine a second dataset.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(swiss)
-<span class="kw">str</span>(swiss)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    47 obs. of  6 variables:
-##  $ Fertility       : num  80.2 83.1 92.5 85.8 76.9 76.1 83.8 92.4 82.4 82.9 ...
-##  $ Agriculture     : num  17 45.1 39.7 36.5 43.5 35.3 70.2 67.8 53.3 45.2 ...
-##  $ Examination     : int  15 6 5 12 17 9 16 14 12 16 ...
-##  $ Education       : int  12 9 5 7 15 7 7 8 7 13 ...
-##  $ Catholic        : num  9.96 84.84 93.4 33.77 5.16 ...
-##  $ Infant.Mortality: num  22.2 22.2 20.2 20.3 20.6 26.6 23.6 24.9 21 24.4 ...</code></pre>
-<p>Here’s a <em>scatterplot matrix</em> of the Swiss data. Look at the first column of plots (or first row of the correlations). What is the relationship between fertility and each of the other variables?</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggpairs</span> (swiss,
-        <span class="dt">lower =</span> <span class="kw">list</span>(
-            <span class="dt">continuous =</span> <span class="st">&quot;smooth&quot;</span>),
-        <span class="dt">axisLabels =</span><span class="st">&quot;none&quot;</span>,
-        <span class="dt">switch =</span> <span class="st">&#39;both&#39;</span>)</code></pre>
-<p><img src="DataSciLibArts_files/figure-html/scatterplot%20matrix%20with%20ggpairs,%20swiss-1.png" width="672" /></p>
-<p>Here, we predict fertility from all of the remaining variables together in a single regression analysis, using the lm (linear model) command. As we saw in Chapter 15, the result of this analysis is a list. We can pull out the key features of the data using the summary() command. How do you interpret this?</p>
-<pre class="sourceCode r"><code class="sourceCode r">swissReg &lt;-<span class="st"> </span><span class="kw">lm</span>(Fertility <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>swiss)
-<span class="kw">summary</span>(swissReg)</code></pre>
-<pre><code>## 
-## Call:
-## lm(formula = Fertility ~ ., data = swiss)
-## 
-## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -15.2743  -5.2617   0.5032   4.1198  15.3213 
-## 
-## Coefficients:
-##                  Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)      66.91518   10.70604   6.250 1.91e-07 ***
-## Agriculture      -0.17211    0.07030  -2.448  0.01873 *  
-## Examination      -0.25801    0.25388  -1.016  0.31546    
-## Education        -0.87094    0.18303  -4.758 2.43e-05 ***
-## Catholic          0.10412    0.03526   2.953  0.00519 ** 
-## Infant.Mortality  1.07705    0.38172   2.822  0.00734 ** 
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 7.165 on 41 degrees of freedom
-## Multiple R-squared:  0.7067, Adjusted R-squared:  0.671 
-## F-statistic: 19.76 on 5 and 41 DF,  p-value: 5.594e-10</code></pre>
+<div id="ref-lanning1994dimensionality">
+<p>Lanning, Kevin. 1994. “Dimensionality of Observer Ratings on the California Adult Q-Set.” <em>Journal of Personality and Social Psychology</em> 67 (1): 151.</p>
 </div>
-<div id="what-predicts-marital-affairs" class="section level2">
-<h2><span class="header-section-number">17.4</span> What predicts marital affairs?</h2>
-<p>Here’s another dataset. We’ll apply ggpairs here, but for clarity will show only half of the data at a time. The dependent variable of interest (nbaffairs) will be included in both plots:</p>
-<pre class="sourceCode r"><code class="sourceCode r">Fair1 &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(sex<span class="op">:</span>child, nbaffairs)
-<span class="kw">ggpairs</span>(Fair1,  
-<span class="co"># if you wanted to jam all 9 vars onto one page you could do this</span>
-<span class="co">#        upper = list(continuous = wrap(ggally_cor, size = 10)),</span>
-         <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">continuous =</span> <span class="st">&#39;smooth&#39;</span>),
-         <span class="dt">axisLabels =</span> <span class="st">&quot;none&quot;</span>,
-        <span class="dt">switch =</span> <span class="st">&#39;both&#39;</span>)</code></pre>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-86-1.png" width="100%" /></p>
-<pre class="sourceCode r"><code class="sourceCode r">Fair2 &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(religious<span class="op">:</span>nbaffairs) 
-<span class="kw">ggpairs</span>(Fair2, <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">continuous =</span> <span class="st">&#39;smooth&#39;</span>),
-           <span class="dt">axisLabels =</span> <span class="st">&quot;none&quot;</span>,
-           <span class="dt">switch =</span> <span class="st">&#39;both&#39;</span>)</code></pre>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-86-2.png" width="100%" /></p>
-<blockquote>
-<p>Exercise</p>
-<ol style="list-style-type: decimal">
-<li>Study the data. Learn about the measures by looking at Fair in the help tab of R studio.</li>
-<li>What do the scatterplot matrices shown above tell us?</li>
-<li>Can you just run a regression on it as is? Try predicting nbaffairs from the remaining 8 variables in Fair (not Fair1 or Fair2), using the same syntax in the Swiss data. Does it work? What do the results suggest?</li>
-</ol>
-</blockquote>
-<pre class="sourceCode r"><code class="sourceCode r">affairReg &lt;-<span class="st"> </span><span class="kw">lm</span>(nbaffairs <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>Fair)
-<span class="kw">summary</span>(affairReg)</code></pre>
-<pre><code>## 
-## Call:
-## lm(formula = nbaffairs ~ ., data = Fair)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -5.0503 -1.7226 -0.7947  0.2101 12.7036 
-## 
-## Coefficients:
-##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  5.87201    1.13750   5.162 3.34e-07 ***
-## sexmale      0.05409    0.30049   0.180   0.8572    
-## age         -0.05098    0.02262  -2.254   0.0246 *  
-## ym           0.16947    0.04122   4.111 4.50e-05 ***
-## childyes    -0.14262    0.35020  -0.407   0.6840    
-## religious   -0.47761    0.11173  -4.275 2.23e-05 ***
-## education   -0.01375    0.06414  -0.214   0.8303    
-## occupation   0.10492    0.08888   1.180   0.2383    
-## rate        -0.71188    0.12001  -5.932 5.09e-09 ***
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 3.095 on 592 degrees of freedom
-## Multiple R-squared:  0.1317, Adjusted R-squared:   0.12 
-## F-statistic: 11.23 on 8 and 592 DF,  p-value: 7.472e-15</code></pre>
-<pre><code>
-</code></pre>
-
+<div id="ref-lanning1996robustness">
+<p>Lanning, Kevin. 1996. “Robustness Is Not Dimensionality: On the Sensitivity of Component Comparability Coefficients to Sample Size.” <em>Multivariate Behavioral Research</em> 31 (1): 33–46.</p>
+</div>
+<div id="ref-lanning2018network">
+<p>Lanning, Kevin, Sonia Baron, and Gregory D Webster. 2018. “The Network Structure of Personality Psychology: What the Sage Handbook of Personality and Individual Differences Tells Us About the Nature of the Field.” Sage.</p>
+</div>
+<div id="ref-kumar2017explaining">
+<p>Kumar, Devinder, Alexander Wong, and Graham W Taylor. 2017. “Explaining the Unexplained: A Class-Enhanced Attentive Response (Clear) Approach to Understanding Deep Neural Networks.” In <em>Proceedings of the Ieee Conference on Computer Vision and Pattern Recognition Workshops</em>, 36–44.</p>
 </div>
 </div>
             </section>
@@ -532,8 +435,8 @@ b_<span class="dv">2</span> &lt;-<span class="st"> </span>mu_x <span class="op">
           </div>
         </div>
       </div>
-<a href="loops-functions-and-beyond.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="from-regression-to-prediction-and-classification.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="another-approach-to-classification-k-nearest-neighbor.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

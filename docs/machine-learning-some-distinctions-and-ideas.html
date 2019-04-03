@@ -25,7 +25,7 @@
 <meta name="author" content="Kevin Lanning">
 
 
-<meta name="date" content="2019-04-01">
+<meta name="date" content="2019-04-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -333,10 +333,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The distinction between supervised and unsupervised problems is the most fundamental distinction in machine learning.</p>
 <p>In both the Swiss and the Fair problems, we had a known outcome (fertility, infidelity) which we were trying to predict from a set of independent variables. In these problems, we have an a priori split of the variables into two sets (outcomes and predictors). These are considered <strong>supervised</strong> problems.</p>
 <p>There is a second type of problem in which we don’t have an outcome, which would guide or supervise our model. In this alternate case, we have one set of variables, not two, and we want to assess its internal structure. These are considered <strong>unsupervised</strong> problems. Methods used to address unsupervised problems include cluster analysis (of which there are many subtypes), component analysis, and exploratory factor analysis.</p>
-<p>In the unsupervised approach, objectives include finding unknown patterns, developing a set of types (or a taxonomy), and assessing the dimensionality of a latent set of variables. This approach is particularly important in my own field of personality psychology, where a focal problems involves assessing the factor structure of personality: If you have taken introductory psychology, you are likely familiar with the five-factor (Big Five) model of personality. The unsupervised approach is also used to solve problems of community detection in the study of social and scientific networks (see Figure 20.1). Questions about dimensionality and internal structure can be compelling (<span class="citation">(<span class="citeproc-not-found" data-reference-id="lanning1994dimensionality"><strong>???</strong></span>)</span>, <span class="citation">(<span class="citeproc-not-found" data-reference-id="lanning1996robustness"><strong>???</strong></span>)</span>), but we will not consider them further here.</p>
+<p>In the unsupervised approach, objectives include finding unknown patterns, developing a set of types (or a taxonomy), and assessing the dimensionality of a latent set of variables. This approach is particularly important in my own field of personality psychology, where a focal problems involves assessing the factor structure of personality: If you have taken introductory psychology, you are likely familiar with the five-factor (Big Five) model of personality. The unsupervised approach is also used to solve problems of community detection in the study of social and scientific networks (see Figure 20.1). Questions about dimensionality and internal structure can be compelling (<span class="citation">Lanning (<a href="#ref-lanning1994dimensionality">1994</a>)</span>, <span class="citation">Lanning (<a href="#ref-lanning1996robustness">1996</a>)</span>), but we will not consider them further here.</p>
 <div class="figure">
-<img src="SoniaFigure.PNG" alt="Figure 20.1. Part of the structure of personality research. From (???)" />
-<p class="caption">Figure 20.1. Part of the structure of personality research. From <span class="citation">(<span class="citeproc-not-found" data-reference-id="lanning2018network"><strong>???</strong></span>)</span></p>
+<img src="SoniaFigure.PNG" alt="Figure 20.1. Part of the structure of personality research. From (Lanning, Baron, and Webster 2018)" />
+<p class="caption">Figure 20.1. Part of the structure of personality research. From <span class="citation">(Lanning, Baron, and Webster <a href="#ref-lanning2018network">2018</a>)</span></p>
 </div>
 </div>
 <div id="prediction-versus-classification" class="section level2">
@@ -348,7 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In both the Swiss and Fair data, we were concerned with the problem of predicting an outcome (fertility or infidelity) from a set of independent variables.</p>
 <p>In the Swiss data, we were particularly concerned with the nature of the function, the equation which best predicts fertility from the remaining predictors.</p>
 <p>In the Fair data, we initially were concerned with the nature of this <strong>function</strong> (what predicts infidelity?), but, with the k-nn analysis, became particularly concerned with increasing our hit rate or overall accuracy. We moved, in short, from a position where we were concerned with inference and understanding to a position where we were satisfied to treat the algorithm as a <strong>black box</strong> from which we were only concerned with the accuracy of outputs.</p>
-<p>The two objectives of, on the one hand, “understanding and thinking in terms of equations and models” and “prediction and thinking only in terms of optimization” can be thought of as two points on a continuum of <strong>interpretability.</strong> Some techniques used in machine learning give results that are quite interpretable (including multiple regression, particularly restricted regression techniques such as the <strong>lasso</strong>). Others, including non-linear approaches such as <strong>support vector machines</strong> and, in particular, <strong>deep neural networks</strong> sacrifice interpretability in the service of prediction. For complex approaches in image recognition, such as the chihuahua versus muffin problem, deep neural networks provide the best solutions, but are particularly challenging to understand <span class="citation">(<span class="citeproc-not-found" data-reference-id="kumar2017explaining"><strong>???</strong></span>)</span>.</p>
+<p>The two objectives of, on the one hand, “understanding and thinking in terms of equations and models” and “prediction and thinking only in terms of optimization” can be thought of as two points on a continuum of <strong>interpretability.</strong> Some techniques used in machine learning give results that are quite interpretable (including multiple regression, particularly restricted regression techniques such as the <strong>lasso</strong>). Others, including non-linear approaches such as <strong>support vector machines</strong> and, in particular, <strong>deep neural networks</strong> sacrifice interpretability in the service of prediction. For complex approaches in image recognition, such as the chihuahua versus muffin problem, deep neural networks provide the best solutions, but are particularly challenging to understand <span class="citation">(Kumar, Wong, and Taylor <a href="#ref-kumar2017explaining">2017</a>)</span>.</p>
 <div class="figure">
 <img src="chihuahuamuffin.jpg" alt="Fig 20.1: The question “Is this a chihuahua or a muffin?” is best solved using a deep neural network approach that can’t be reduced to a simple equation." />
 <p class="caption">Fig 20.1: The question “Is this a chihuahua or a muffin?” is best solved using a deep neural network approach that can’t be reduced to a simple equation.</p>
@@ -414,6 +414,18 @@ affairReg2 &lt;-<span class="st"> </span><span class="kw">lm</span>(nbaffairs <s
 <div id="refs" class="references">
 <div id="ref-james2013introduction">
 <p>James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2013. <em>An Introduction to Statistical Learning</em>. Vol. 112. Springer.</p>
+</div>
+<div id="ref-lanning1994dimensionality">
+<p>Lanning, Kevin. 1994. “Dimensionality of Observer Ratings on the California Adult Q-Set.” <em>Journal of Personality and Social Psychology</em> 67 (1): 151.</p>
+</div>
+<div id="ref-lanning1996robustness">
+<p>Lanning, Kevin. 1996. “Robustness Is Not Dimensionality: On the Sensitivity of Component Comparability Coefficients to Sample Size.” <em>Multivariate Behavioral Research</em> 31 (1): 33–46.</p>
+</div>
+<div id="ref-lanning2018network">
+<p>Lanning, Kevin, Sonia Baron, and Gregory D Webster. 2018. “The Network Structure of Personality Psychology: What the Sage Handbook of Personality and Individual Differences Tells Us About the Nature of the Field.” Sage.</p>
+</div>
+<div id="ref-kumar2017explaining">
+<p>Kumar, Devinder, Alexander Wong, and Graham W Taylor. 2017. “Explaining the Unexplained: A Class-Enhanced Attentive Response (Clear) Approach to Understanding Deep Neural Networks.” In <em>Proceedings of the Ieee Conference on Computer Vision and Pattern Recognition Workshops</em>, 36–44.</p>
 </div>
 </div>
             </section>
