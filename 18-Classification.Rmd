@@ -219,6 +219,6 @@ Each of these decision thresholds describes the performance of a model at a part
 # fig.width and fig.height specified to get square plots
 # colAUC function gets stats etc
 AUCModel <- colAUC(predictTest, testFair[["affairYN"]], plotROC = TRUE)
-AUCModel2
+AUCModel
 ```
 

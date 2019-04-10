@@ -25,7 +25,7 @@
 <meta name="author" content="Kevin Lanning">
 
 
-<meta name="date" content="2019-04-05">
+<meta name="date" content="2019-04-10">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -48,6 +48,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 <style type="text/css">
@@ -278,13 +279,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.2.1" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#splitting-the-data-into-training-and-test-subsamples"><i class="fa fa-check"></i><b>18.2.1</b> Splitting the data into training and test subsamples</a></li>
 </ul></li>
 <li class="chapter" data-level="18.3" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#an-example-of-cross-validated-linear-regression"><i class="fa fa-check"></i><b>18.3</b> an example of cross-validated linear regression</a></li>
-<li class="chapter" data-level="18.4" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#considering-another-transformation-of-the-number-of-affairs-variable"><i class="fa fa-check"></i><b>18.4</b> considering another transformation of the “number of affairs” variable</a></li>
-<li class="chapter" data-level="18.5" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#applying-logistic-regression-analysis-to-the-training-data"><i class="fa fa-check"></i><b>18.5</b> applying logistic regression analysis to the training data</a></li>
-<li class="chapter" data-level="18.6" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#from-regression-to-classification-selection-of-a-threshold"><i class="fa fa-check"></i><b>18.6</b> from regression to classification: selection of a threshold</a></li>
-<li class="chapter" data-level="18.7" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#applying-the-model-to-the-test-data"><i class="fa fa-check"></i><b>18.7</b> applying the model to the test data</a></li>
-<li class="chapter" data-level="18.8" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#changing-our-decision-threshold"><i class="fa fa-check"></i><b>18.8</b> changing our decision threshold</a></li>
-<li class="chapter" data-level="18.9" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#more-confusion"><i class="fa fa-check"></i><b>18.9</b> more confusion</a></li>
-<li class="chapter" data-level="18.10" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#rocs-and-auc"><i class="fa fa-check"></i><b>18.10</b> ROCs and AUC</a></li>
+<li class="chapter" data-level="18.4" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#applying-logistic-regression-analysis-to-the-training-data"><i class="fa fa-check"></i><b>18.4</b> applying logistic regression analysis to the training data</a></li>
+<li class="chapter" data-level="18.5" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#from-regression-to-classification-selection-of-a-threshold"><i class="fa fa-check"></i><b>18.5</b> from regression to classification: selection of a threshold</a></li>
+<li class="chapter" data-level="18.6" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#applying-the-model-to-the-test-data"><i class="fa fa-check"></i><b>18.6</b> applying the model to the test data</a></li>
+<li class="chapter" data-level="18.7" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#changing-our-decision-threshold"><i class="fa fa-check"></i><b>18.7</b> changing our decision threshold</a></li>
+<li class="chapter" data-level="18.8" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#more-confusion"><i class="fa fa-check"></i><b>18.8</b> more confusion</a></li>
+<li class="chapter" data-level="18.9" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#rocs-and-auc"><i class="fa fa-check"></i><b>18.9</b> ROCs and AUC</a></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html"><i class="fa fa-check"></i><b>19</b> Another approach to classification: k-nearest neighbor</a><ul>
 <li class="chapter" data-level="19.1" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#application-the-fair-data"><i class="fa fa-check"></i><b>19.1</b> Application: The Fair data</a></li>
@@ -295,18 +295,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.3" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#avoiding-capitalization-on-chance-again"><i class="fa fa-check"></i><b>19.3</b> Avoiding capitalization on chance (again)</a></li>
 <li class="chapter" data-level="19.4" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#the-multinomial-case"><i class="fa fa-check"></i><b>19.4</b> The multinomial case</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="machine-learning-some-distinctions-and-ideas-draft.html"><a href="machine-learning-some-distinctions-and-ideas-draft.html"><i class="fa fa-check"></i><b>20</b> Machine learning: some distinctions and ideas [DRAFT]</a><ul>
-<li class="chapter" data-level="20.1" data-path="machine-learning-some-distinctions-and-ideas-draft.html"><a href="machine-learning-some-distinctions-and-ideas-draft.html#supervised-versus-unsupervised-problems"><i class="fa fa-check"></i><b>20.1</b> supervised versus unsupervised problems</a></li>
-<li class="chapter" data-level="20.2" data-path="machine-learning-some-distinctions-and-ideas-draft.html"><a href="machine-learning-some-distinctions-and-ideas-draft.html#prediction-versus-classification"><i class="fa fa-check"></i><b>20.2</b> prediction versus classification</a></li>
-<li class="chapter" data-level="20.3" data-path="machine-learning-some-distinctions-and-ideas-draft.html"><a href="machine-learning-some-distinctions-and-ideas-draft.html#understanding-versus-prediction"><i class="fa fa-check"></i><b>20.3</b> understanding versus prediction</a></li>
-<li class="chapter" data-level="20.4" data-path="machine-learning-some-distinctions-and-ideas-draft.html"><a href="machine-learning-some-distinctions-and-ideas-draft.html#the-bias-variability-tradeoff"><i class="fa fa-check"></i><b>20.4</b> the bias-variability tradeoff</a></li>
-<li class="chapter" data-level="20.5" data-path="machine-learning-some-distinctions-and-ideas-draft.html"><a href="machine-learning-some-distinctions-and-ideas-draft.html#dealing-with-the-structure-of-the-data"><i class="fa fa-check"></i><b>20.5</b> dealing with the structure of the data</a><ul>
-<li class="chapter" data-level="20.5.1" data-path="machine-learning-some-distinctions-and-ideas-draft.html"><a href="machine-learning-some-distinctions-and-ideas-draft.html#preprocessing"><i class="fa fa-check"></i><b>20.5.1</b> preprocessing</a></li>
-<li class="chapter" data-level="20.5.2" data-path="machine-learning-some-distinctions-and-ideas-draft.html"><a href="machine-learning-some-distinctions-and-ideas-draft.html#resampling"><i class="fa fa-check"></i><b>20.5.2</b> resampling</a></li>
+<li class="chapter" data-level="20" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html"><i class="fa fa-check"></i><b>20</b> Machine learning: some distinctions and ideas</a><ul>
+<li class="chapter" data-level="20.1" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#supervised-versus-unsupervised-problems"><i class="fa fa-check"></i><b>20.1</b> supervised versus unsupervised problems</a></li>
+<li class="chapter" data-level="20.2" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#prediction-versus-classification"><i class="fa fa-check"></i><b>20.2</b> prediction versus classification</a></li>
+<li class="chapter" data-level="20.3" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#understanding-versus-prediction"><i class="fa fa-check"></i><b>20.3</b> understanding versus prediction</a></li>
+<li class="chapter" data-level="20.4" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#the-bias-variability-tradeoff"><i class="fa fa-check"></i><b>20.4</b> the bias-variability tradeoff</a></li>
+<li class="chapter" data-level="20.5" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#dealing-with-the-structure-of-the-data"><i class="fa fa-check"></i><b>20.5</b> dealing with the structure of the data</a><ul>
+<li class="chapter" data-level="20.5.1" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#preprocessing"><i class="fa fa-check"></i><b>20.5.1</b> preprocessing</a></li>
+<li class="chapter" data-level="20.5.2" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#resampling-beyond-test-training-and-validation-samples"><i class="fa fa-check"></i><b>20.5.2</b> resampling: beyond test, training, and validation samples</a></li>
 </ul></li>
-<li class="chapter" data-level="20.6" data-path="machine-learning-some-distinctions-and-ideas-draft.html"><a href="machine-learning-some-distinctions-and-ideas-draft.html#approaches-to-ml"><i class="fa fa-check"></i><b>20.6</b> approaches to ml</a></li>
+<li class="chapter" data-level="20.6" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#approaches-to-classification"><i class="fa fa-check"></i><b>20.6</b> approaches to classification</a></li>
+<li class="chapter" data-level="20.7" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#approaches-to-ml"><i class="fa fa-check"></i><b>20.7</b> approaches to ml</a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>21</b> references</a></li>
+<li class="chapter" data-level="21" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html"><i class="fa fa-check"></i><b>21</b> ethics: some topics for discussion</a><ul>
+<li class="chapter" data-level="21.1" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#background"><i class="fa fa-check"></i><b>21.1</b> Background</a></li>
+<li class="chapter" data-level="21.2" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#principles"><i class="fa fa-check"></i><b>21.2</b> Principles</a></li>
+<li class="chapter" data-level="21.3" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#remedies"><i class="fa fa-check"></i><b>21.3</b> Remedies</a><ul>
+<li class="chapter" data-level="21.3.1" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#a-checklist-for-people-who-are-working-on-data-projects"><i class="fa fa-check"></i><b>21.3.1</b> a checklist for people who are working on data projects</a></li>
+<li class="chapter" data-level="21.3.2" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#additional-ideas"><i class="fa fa-check"></i><b>21.3.2</b> additional ideas</a></li>
+</ul></li>
+<li class="chapter" data-level="21.4" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#some-case-studies"><i class="fa fa-check"></i><b>21.4</b> some case studies</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>22</b> references</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -435,8 +445,8 @@ R2Train &lt;-<span class="st"> </span><span class="kw">R2.model.dep.data</span>(
 <pre><code>## [1] 0.07971334</code></pre>
 <p>The R2 on the training sample is 0.1537754, on the test sample it is 0.0797133.</p>
 </div>
-<div id="considering-another-transformation-of-the-number-of-affairs-variable" class="section level2">
-<h2><span class="header-section-number">18.4</span> considering another transformation of the “number of affairs” variable</h2>
+<div id="applying-logistic-regression-analysis-to-the-training-data" class="section level2">
+<h2><span class="header-section-number">18.4</span> applying logistic regression analysis to the training data</h2>
 <p>Let’s go back to the “number of affairs” variable and consider a second way of thinking about it, that is, simply comparing those who do and don’t have affairs:</p>
 <pre class="sourceCode r"><code class="sourceCode r">Fair &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">mutate</span>(<span class="dt">affairYN =</span>
@@ -448,16 +458,11 @@ Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">cou
 ## 1        0   451
 ## 2        1   150</code></pre>
 <p>With this change, the regression problem becomes more clearly a problem in classification. How can we best predict which ‘type’ (affair-ers vs. not) a given person falls in to?</p>
-</div>
-<div id="applying-logistic-regression-analysis-to-the-training-data" class="section level2">
-<h2><span class="header-section-number">18.5</span> applying logistic regression analysis to the training data</h2>
 <p>With this change, we have moved from a variable which is essentially continuous (nbaffairs) to one which is dichotomous and therefore distributed binomially; the desired regression is now a logistic one.</p>
 <p>We begin by running this analysis using only the training data.</p>
 <pre class="sourceCode r"><code class="sourceCode r">model2 &lt;-<span class="st"> </span><span class="kw">glm</span>(affairYN <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> trainFair,
-              <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)</code></pre>
-<pre><code>## Warning: glm.fit: algorithm did not converge</code></pre>
-<pre><code>## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span> (model2)</code></pre>
+              <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)
+<span class="kw">summary</span> (model2)</code></pre>
 <pre><code>## 
 ## Call:
 ## glm(formula = affairYN ~ ., family = &quot;binomial&quot;, data = trainFair)
@@ -494,7 +499,7 @@ Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">cou
 ##  0.0000  0.0000  0.0000  0.2576  1.0000  1.0000</code></pre>
 </div>
 <div id="from-regression-to-classification-selection-of-a-threshold" class="section level2">
-<h2><span class="header-section-number">18.6</span> from regression to classification: selection of a threshold</h2>
+<h2><span class="header-section-number">18.5</span> from regression to classification: selection of a threshold</h2>
 <p>If we want to classify people, we will need to create a decision threshold at which we will change our prediction from ‘no’ to ‘yes’. To maximise overall prediction, we will create a threshold equal to the actual proportion of people who don’t have affairs in our sample:</p>
 <pre class="sourceCode r"><code class="sourceCode r">(threshold &lt;-<span class="st"> </span><span class="kw">mean</span>(trainFair<span class="op">$</span>affairYN))</code></pre>
 <pre><code>## [1] 0.2576177</code></pre>
@@ -514,7 +519,7 @@ Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">cou
 <pre><code>## [1] 1</code></pre>
 </div>
 <div id="applying-the-model-to-the-test-data" class="section level2">
-<h2><span class="header-section-number">18.7</span> applying the model to the test data</h2>
+<h2><span class="header-section-number">18.6</span> applying the model to the test data</h2>
 <p>We shouldn’t trust these results, though, because the model is based on the same data that it is tested upon. Now we will apply the model to the test data. With the linear regression model above, we examined ‘shrinkage’ in the overall R-square. Here, we can assess shrinkage in terms of the percent of erroneous classifications.</p>
 <p>Typically (but not invariably), the percent of accurate classifications will decline, especially if the model is a complex one with many variables or if the number of observations is low.</p>
 <pre class="sourceCode r"><code class="sourceCode r">predictTest &lt;-<span class="st"> </span><span class="kw">predict</span>(model2, testFair, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)
@@ -534,7 +539,7 @@ classification &lt;-<span class="st"> </span><span class="kw">ifelse</span>(pred
 <p>On the test data, we are correct 100 percent of the time. This describes our <em>out of sample risk.</em></p>
 </div>
 <div id="changing-our-decision-threshold" class="section level2">
-<h2><span class="header-section-number">18.8</span> changing our decision threshold</h2>
+<h2><span class="header-section-number">18.7</span> changing our decision threshold</h2>
 <p>In many decision problems, there is an asymmetry in the cost of different types of errors: if you are foraging for mushrooms, for example, an error of the form (you decide its safe and it is poisonous) is more costly than the converse (you decide its poisonous and it is safe).</p>
 <p>This may be true in the present example as well. Consider someone who is looking for a spouse, but is really averse to the idea of getting hurt by an affair. That person might feel like the cost of marrying an unfaithful person is much greater than the cost of not marrying a faithful one. So we adjust the threshold downwards:</p>
 <pre class="sourceCode r"><code class="sourceCode r">threshold &lt;-<span class="st"> </span><span class="fl">.05</span>
@@ -570,7 +575,7 @@ classification &lt;-<span class="st"> </span><span class="kw">ifelse</span>(pred
 <p>Prediction is higher here - but not much higher than it would be if we raised the threshold even further, and just assumed that everyone can be trusted. Then, our error rate would be 26 percent. When overall predictability is low, it’s often the case that you can maximize correct predictions by simply predicting that everyone will be in the most popular category. Predicting rare events, such as suicides, is particularly difficult.</p>
 </div>
 <div id="more-confusion" class="section level2">
-<h2><span class="header-section-number">18.9</span> more confusion</h2>
+<h2><span class="header-section-number">18.8</span> more confusion</h2>
 <p>There is a nice shortcut to generating confusion matrices such as those above using the caret package.</p>
 <p>This function describes outcomes in several ways, as there are many languages for describing outcomes in 2 x 2 tables, including Type I vs. Type II errors, Hits vs. False Alarms/False Positives, and Sensitivity vs. Specificity.</p>
 <p>In these data, it’s been set up so that
@@ -614,16 +619,23 @@ testFair<span class="op">$</span>affairYN &lt;-<span class="st"> </span><span cl
 ## </code></pre>
 </div>
 <div id="rocs-and-auc" class="section level2">
-<h2><span class="header-section-number">18.10</span> ROCs and AUC</h2>
+<h2><span class="header-section-number">18.9</span> ROCs and AUC</h2>
 <p>Each of these decision thresholds describes the performance of a model at a particular point. We can combine the thresholds and plot them in Receiver Operating Characteristic (ROC) curves. The area under the curve (AUC) is a great measure of model accuracy, in that it summarizes how effective a classifier is across all possible thresholds.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># fig.width and fig.height specified to get square plots</span>
 <span class="co"># colAUC function gets stats etc</span>
-AUCModel2&lt;-<span class="kw">colAUC</span>(predictTest, testFair[[<span class="st">&quot;affairYN&quot;</span>]], <span class="dt">plotROC =</span> <span class="ot">TRUE</span>)</code></pre>
+AUCModel &lt;-<span class="st"> </span><span class="kw">colAUC</span>(predictTest, testFair[[<span class="st">&quot;affairYN&quot;</span>]], <span class="dt">plotROC =</span> <span class="ot">TRUE</span>)</code></pre>
 <p><img src="DataSciLibArts_files/figure-html/0414model1ROC-1.png" width="480" /></p>
-<pre class="sourceCode r"><code class="sourceCode r">AUCModel2</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">AUCModel</code></pre>
 <pre><code>##         [,1]
 ## 0 vs. 1    1</code></pre>
 
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">echo =</span> <span class="ot">TRUE</span>, <span class="dt">warn =</span> <span class="ot">FALSE</span>, <span class="dt">message =</span> <span class="ot">FALSE</span>) <span class="co"># defaults for all chunks after this one</span>
+<span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(Ecdat) 
+<span class="kw">library</span> (class) <span class="co"># for knn</span>
+<span class="kw">library</span>(caret) <span class="co"># confusion matrix</span>
+<span class="kw">library</span>(magrittr) <span class="co"># allows bidirectional pipe for updating file easily %&lt;&gt;% </span></code></pre>
 </div>
 </div>
             </section>
@@ -678,6 +690,19 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
