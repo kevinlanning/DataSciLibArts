@@ -4,6 +4,7 @@ author: "Lanning"
 date: "March 26, 2019"
 output: html_document
 ---
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warn = FALSE, message = FALSE) # defaults for all chunks after this one
 library(tidyverse)
@@ -14,8 +15,6 @@ library(Ecdat)
 # library (class) # for knn
 library (caret) # machine learning package
 library (caTools) # ditto
-# ds_theme_set()
-set.seed(0)
 ```
 # From regression to prediction and classification
 
@@ -29,29 +28,26 @@ Fair %>% count(nbaffairs)
 ```
 We note that the distibution is skewed - and we realize that perhaps we should think about it differently: The *meaning* of the difference between 0 and 1 is not the same as that between 1 and 2, or perhaps even 1 and 12.
 
-We can transform the data in several ways. We might begin with a root transform, rounded as integer:
+We can transform the data in several ways. We might perform a *root transform*, which we could then round to an integer:
 ```{r}
-Fair2 <- Fair %>% 
+Fair <- Fair %>% 
     mutate(rootAffair = 
               as.integer(sqrt(nbaffairs)))
-Fair2 %>% count(rootAffair)
+Fair %>% count(rootAffair)
 ```
-Or we could simply distinguish between those that do and don't have affairs. We are going to do this on our initial (Fair) data here as we will be examining this further:
+Or we could simply distinguish between those that do and don't have affairs. 
+
 ```{r}
 Fair <- Fair %>% 
     mutate(affairYN =
                ifelse (nbaffairs > 0,1,0))
 Fair %>% count(affairYN)
 ```
-With this change, the regression problem becomes more clearly a classification problem. How can we best predict which 'type' (affair-ers vs. not) a given person falls in to?
+We'll examine each of these in the following paragraphs.
 
 ## Avoiding capitalizing on chance
 
-One lesson from the last class was that correlations (and regression coefficients) drawn from small samples were not stable. In regression analysis, as progressively smaller samples were drawn from the Fair data, the ability to predict the outcome increased.  In the limiting case, when the number of predictors (variables) was equal to the number of cases in the sample (rows), prediction becomes perfect.
-```{r}
-# insert code here to show this
-```
-The problem of capitalizing on chance is a significant one in prediction, and one should always be skeptical of models which are untested beyond the sample from which they were derived.
+One lesson from the last class was that correlations (and regression coefficients) drawn from small samples were not stable. In regression analysis, as progressively smaller samples were drawn from the Fair data, the ability to predict the outcome increased.  In the limiting case, when the number of predictors (variables) was equal to the number of cases in the sample (rows), prediction became perfect. The problem of capitalizing on chance is a significant one in prediction, and one should always be skeptical of models which are untested beyond the sample from which they were derived.
 
 ### Splitting the data into training and test subsamples
 
@@ -60,31 +56,63 @@ The most basic solution to this problem is to split the data into two groups, a 
 # establish a seed for your data-split
 # so that your results will be reproducible
 set.seed(33458)
-# drop the nbaffairs variable as we
-# are no longer using this
-Fair <- Fair %>% select (-nbaffairs)
+n <- nrow(Fair)
 # create a set of line numbers 
 # of size corresponding to the 
 # desired training sample 
-n <- nrow(Fair)
-trainIndex <- sample(1:n, 
-size = round(0.6*n), replace=FALSE)
+trainIndex <- sample(1:n, size = round(0.6*n), replace=FALSE)
 # create training and test samples
 trainFair <- Fair[trainIndex ,]
 testFair <- Fair[-trainIndex ,]
 ```
+## an example of cross-validated linear regression
+
+We first predict the variable "rootAffair," using just the training data:
+```{r}
+trainFair2 <- trainFair %>%
+    select(-nbaffairs, -affairYN)
+testFair2 <- testFair %>%
+    select(-nbaffairs, -affairYN)
+model2 <- lm(rootAffair ~ ., data=trainFair2)
+summary(model2)
+```
+To assess the effectiveness of this model on an independent sample, we write a simple function, which assesses R2, then applies it to both the training data and the test data:
+```{r}
+R2.model.dep.data <- function(myModel,myDep,myData) {
+    errorscores <- myDep - predict(myModel,myData)
+    SS.error <- sum(errorscores^2)
+    deviations <- scale(myDep,scale = FALSE)#)
+    SS.total <- sum(deviations^2)
+    1 - (SS.error/SS.total)
+}    
+
+R2Train <- R2.model.dep.data(model2,trainFair2$rootAffair,trainFair2)
+(R2Test <- R2.model.dep.data(model2,testFair2$rootAffair,testFair2))
+```
+The R2 on the training sample is `r R2Train`, on the test sample it is `r R2Test`.
 
 ## applying logistic regression analysis to the training data
 
-Last class, we used the lm command in our regression analysis which predicted the (continuous) outcome nbaffairs.  Here, the outcome is now dichotomous and therefore binomially distributed variable, and so the desired regression is a logistic one. We run this analysis using only the training data.
+Let's go back to the "number of affairs" variable and consider a second way of thinking about it, that is, simply comparing those who do and don't have affairs:
+
+```{r}
+Fair <- Fair %>% 
+    mutate(affairYN =
+               ifelse (nbaffairs > 0,1,0))
+Fair %>% count(affairYN)
+```
+
+With this change, the regression problem becomes more clearly a problem in classification. How can we best predict which 'type' (affair-ers vs. not) a given person falls in to?
+
+With this change, we have moved from a variable which is essentially continuous (nbaffairs) to one which is dichotomous and therefore distributed binomially; the desired regression is now a logistic one. 
+
+We begin by running this analysis using only the training data.
 
 ```{r}
 model2 <- glm(affairYN ~ ., data = trainFair,
               family = "binomial")
 summary (model2)
 ```
-
-## From regression to classification
 
 Our "predicted scores" are continuous, corresponding to the probability that a given person will have an affair. Here's how they are distributed (still on the training data here):
 
@@ -93,17 +121,16 @@ predictTrain <- predict(model2, trainFair, type = "response")
 summary (predictTrain)
 ```
 
-If we want to classify people, we will need to create a decision threshold at which we will change our prediction from no to yes.
+## from regression to classification: selection of a threshold
 
-One approach is to create a threshold equal to the actual proportion of people who don't have affairs in our sample. 
+If we want to classify people, we will need to create a decision threshold at which we will change our prediction from 'no' to 'yes'.  To maximise overall prediction, we will create a threshold equal to the actual proportion of people who don't have affairs in our sample: 
 ```{r}
 (threshold <- mean(trainFair$affairYN))
 ```
 
-
 This is equal to both the mean of our predicted scores (above) and the mean of our actual scores, and, because this is a dichotomous variable, the proportion of people in the sample who have affairs. We'll predict that if a person has a predicted score more than this we'll predict that s/he will be unfaithful, else we will "PredictOK." Then we will create a *confusion matrix,* to compare our correct predictions (PredictOK and affairYN = 1, Predictunfaithful and affairYN = 0) with the remainder.
 
-```{r 0404model1Threshold}
+```{r}
 classification <- ifelse(predictTrain > threshold,
                          "Predictunfaithful", "PredictOK")
 (b <- table(classification, trainFair$affairYN))
@@ -112,13 +139,13 @@ classification <- ifelse(predictTrain > threshold,
 (accuracy <- correct/(correct + errors))
 ```
 
-## Applying the model to new data: Assessing out-of-sample risk
+## applying the model to the test data
 
-We shouldn't trust these results, though, because the model is based on the same data that it is tested upon. Now we will apply the model to the new, independent test data. 
+We shouldn't trust these results, though, because the model is based on the same data that it is tested upon. Now we will apply the model to the test data.  With the linear regression model above, we examined 'shrinkage' in the overall R-square.  Here, we can assess shrinkage in terms of the percent of erroneous classifications. 
 
 Typically (but not invariably), the percent of accurate classifications will decline, especially if the model is a complex one with many variables or if the number of observations is low.
 
-```{r 0404confusionTestData}
+```{r}
 predictTest <- predict(model2, testFair, type = "response")
 classification <- ifelse(predictTest > threshold,
                          "Predictunfaithful", "PredictOK")
@@ -127,9 +154,10 @@ classification <- ifelse(predictTest > threshold,
 (errors <- b[1,2] + b[2,1])
 (accuracy <- correct/(correct + errors))
 ```
-We are correct `r 100*(round(accuracy,2))` percent of the time.
 
-## Changing our decision threshold
+On the test data, we are correct `r 100*(round(accuracy,2))` percent of the time. This describes our *out of sample risk.*
+
+## changing our decision threshold
 
 In many decision problems, there is an asymmetry in the cost of different types of errors: if you are foraging for mushrooms, for example, an error of the form (you decide its safe and it is poisonous) is more costly than the converse (you decide its poisonous and it is safe).
 
@@ -161,7 +189,7 @@ classification <- ifelse(predictTest > threshold,
 
 Prediction is higher here - but not much higher than it would be if we raised the threshold even further, and just assumed that everyone can be trusted.  Then, our error rate would be `r 100*(round(mean(trainFair$affairYN),2))` percent.  When overall predictability is low, it's often the case that you can maximize correct predictions by simply predicting that everyone will be in the most popular category.  Predicting rare events, such as suicides, is particularly difficult.
 
-## More confusion
+## more confusion
 
 There is a nice shortcut to generating confusion matrices such as those above using the caret package. 
 
@@ -190,7 +218,7 @@ Each of these decision thresholds describes the performance of a model at a part
 ```{r 0414model1ROC, fig.width=5, fig.height=5}
 # fig.width and fig.height specified to get square plots
 # colAUC function gets stats etc
-AUCModel2<-colAUC(predictTest, testFair[["affairYN"]], plotROC = TRUE)
+AUCModel <- colAUC(predictTest, testFair[["affairYN"]], plotROC = TRUE)
 AUCModel2
 ```
 

@@ -10,21 +10,18 @@ knitr::opts_chunk$set(echo = TRUE, warn = FALSE, message = FALSE) # defaults for
 library(tidyverse)
 # library(ggplot2)
 library(Ecdat) # for Swiss data
-library(rpart) # for decision trees
 # library (class) # for knn
 # library(caret) # confusion matrix
 # library(magrittr) # allows bidirectional pipe for updating file easily %<>% 
 ```
 
-# Machine learning: some distinctions and ideas
+# Machine learning: some distinctions and ideas [DRAFT]
 
-In the last few chapters, we have considered linear and logistic regression and k-nearest neighbor analysis as tools for prediction and classification. We've shown how to split the data into training, test and (possibly) validation samples, then how to assess the robustness or accuracy on these new datasets.  We've also considered measures such as R-squared, overall accuracy, and area under the ROC as measures of the validity of our models.
-
-These ideas and techniques form a starting point for the study of *machine learning*. My approach is drawn largely from [@james2013introduction], which is available freely on the web and includes links to additional materials for those who would like to study this further.
+In the last few chapters, we have considered regression and k-nearest neighbor analysis as tools for prediction and classification.  Here, we extend this treatment to understand some key ideas in the study of *machine learning*. My approach is drawn largely from [@james2013introduction], which is available freely on the web and includes links to additional materials for those who would like to study this further.
 
 ## supervised versus unsupervised problems
 
-One problem that we haven't yet considered is the distinction between supervised and unsupervised problems, arguably the most fundamental distinction in machine learning.
+The distinction between supervised and unsupervised problems is the most fundamental distinction in machine learning.
 
 In both the Swiss and the Fair problems, we had a known outcome (fertility, infidelity) which we were trying to predict from a set of independent variables.  In these problems, we have an a priori split of the variables into two sets (outcomes and predictors). These are considered **supervised** problems.
 
@@ -33,6 +30,8 @@ There is a second type of problem in which we don't have an outcome, which would
 In the unsupervised approach, objectives include finding unknown patterns, developing a set of types (or a taxonomy), and assessing the dimensionality of a latent set of variables. This approach is particularly important in my own field of personality psychology, where a focal problems involves assessing the factor structure of personality: If you have taken introductory psychology, you are likely familiar with the five-factor (Big Five) model of personality.  The unsupervised approach is also used to solve problems of community detection in the study of social and scientific networks (see Figure 20.1). Questions about dimensionality and internal structure can be compelling (@lanning1994dimensionality, @lanning1996robustness), but we will not consider them further here.
 
 ![Figure 20.1. Part of the structure of personality research. From [@lanning2018network] ](SoniaFigure.PNG)
+
+
 
 ## prediction versus classification
 
@@ -78,11 +77,11 @@ The difference between these two sets of coefficients is an illustration of how 
 
 ### preprocessing
 
-The problem that we encountered in the tiny sub-samples of the Swiss data exists in bigger datasets as well, where a large number of predictor variables can make it difficult to find a model which is robust (low variability) and effective (low bias).
+The problem that we encountered in the tiny samples of the Swiss data exists in bigger datasets as well, where a large number of predictor variables can make it difficult to find a model which is robust (low variability) and effective (low bias).
 
 In areas such as artificial intelligence (including image recognition) and bioinformatics (including statistical genetics), this **curse of dimensionality** can be quite challenging.  Approaches to minimizing its effects include scaling predictors (e.g., standardizing them), imputing missing values (to increase the effective number of rows in the data), and  component analysis (to decrease the number of columns).
 
-### resampling: beyond test, training, and validation samples
+### resampling
 
 We've considered one approach to avoiding chance-inflated models and prediction estimates, and that is the approach of 'holding out' test (and possibly validation) samples.
 
@@ -90,18 +89,23 @@ An extension of this approach is **k-fold cross validation**, in which the sampl
 
 ![egoregressions2018](C:\Users\lanning\Dropbox\0DataSciLibArts\egoregressions2018.PNG)
 
-Another approach to resampling is **bootstrapping**, in which model parameters (e.g., regression coefficients) are taken as the average of many (for example 1,000) analyses of subsamples of the data.  In the bootstrap, sampling is done with replacement, so that the same case may appear in many samples.  The averaged coefficients arrived at using bootstrapping are less variable than the results of a single analysis.
-
-## approaches to classification 
-
-Consider a simple hypothetical real world problem: You are looking for individuals who might be eligible to work as commerical jet pilots.  You are concerned with just two qualifications, namely, eyesight and responsibility. But you can't really use a regression model here, because no matter how good someone's eyesight is, if they are irresponsible you will not want to hire them. Similarly, even if they are very responsible, poor eyesight might make them ineligible.
-
-A problem such as this is a "multiple cutoff" model, which we can think of in terms of a decision tree.
-
+Another approach to resampling is **bootstrapping**, in which model parameters (e.g., regression coefficients) are taken as the average of many (for example 1,000) analyses of subsamples of the data.  In the bootstrap, sampling is done with replacement.  The averaged coefficients arrived at using bootstrapping are less variable than the results of a single analysis.
 
 When the bootstrap is applied to a set of training samples in the context of a decision-tree, the approach is called bootstrap aggregating or **bagging.** 
 
+
+
+edit and expand upon...
+
+<https://rstudio-pubs-static.s3.amazonaws.com/43302_2d242dbea93b46c98ed60f6ac8c62edf.html>
+
+
+
 ## approaches to ml
+
+
+
+
 
 decision trees, boosting, and random forests
 
