@@ -8,6 +8,14 @@ output:
 ---
 # Reproducibility and the replication crisis
 
+## status 95% {-}
+
+Fine. Look online for how people are addressing this in undergrad classes. 
+
+---
+
+
+
 Probability theory is elegant, and the logic of NHST is compelling. But philosophers of science have long recognized that this is not how science works [@lakatos1969falsification]. (Consider, for example, a simple test of whether gravity exists).
 
 In recent years, the tension between **the false ideal of NHST** and the real world of science has become increasingly evident. Within psychology, experimental studies have often - even typically - failed to replicate [@open2015estimating].  It's not just psychology [@baker2016reproducibility]. One of the first important papers to shine light in the area  [@ioannidis2005most] came from medicine; it suggested six contributing factors, which I quote verbatim here: 

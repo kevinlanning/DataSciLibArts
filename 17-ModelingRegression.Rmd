@@ -15,6 +15,14 @@ set.seed(0)
 
 # Regression and Modeling
 
+## status 80% {-}
+
+Check citing, condense Galton/correlation material, retitle chapter as correlation and linear regression.
+
+---
+
+
+
 In Chapter 22 of R4DS, Wickham introduces **modeling** as a complement to data visualization.  At the beginning of Chapter 23, he points out that 
 
 > *The goal of a model is to provide a simple low-dimensional summary of a dataset.*

@@ -7,4 +7,8 @@ output: html_document
 
 # relational data
 
+## status 5% {-}
+
+Ideally, this could show some fails as well as some successes, and at least point to some more complex problems.
+
 there are two sources which I will refer you to for now. The first is chapter 13 of R4DS.  The second is what Jenny Bryan describes as a cheatsheet, but is I think more than this (https://stat545.com/bit001_dplyr-cheatsheet.html). This shows how the various "joins" of dplyr work in combining two tibbles (superheroes and publishers). If you want to get a feel for how combining data works, it is a great start.

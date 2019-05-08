@@ -7,6 +7,12 @@ output: html_document
 
 # lists
 
+## status 70% {-}
+
+OK, but would be useful to expand on the discussion of XML and JSON, e.g., using the goodreads data.
+
+---
+
 Up until now, we have we have thought about 'data structures' as matrices (rectangles, two-dimensional arrays), in which columns correspond to variables and rows to observations, and in which each variable has a particular type, such as numeric or character (or, in the last chapter, special types such as factors and dates/times).
 
 In base R, data matrices are typically represented as data frames (type = df). In the Tidyverse, we have been using a special type of data frame, the tibble (type = df and tbl_df). The diamonds dataset, for example, is a tibble:

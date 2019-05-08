@@ -7,7 +7,15 @@ output: html_document
 
 # on probability and statistics
 
-Last week, we considered @anscombe1973graphs and his quartet, and how visualizing data is valuable.  This week, we  move to a brief discussion of principles of statistics.
+## status 80%  {-}
+
+Most of this material (basic rules) can be moved to an appendix at the end of the whole text (not merely the end of the chapter).  Maybe add pic of plane crash at beginning to liven things up.  add discussion of biases and heuristics, too, to illustrate human side of probability judgement. include <http://bit.ly/IDSquiz6>. This material runs two classes - the most dangerous equation section can appear as a separate module, possibly chapter.  
+
+----
+
+
+
+Last week, we considered @anscombe1973graphs and his quartet, and how visualizing data is valuable.  This week, we move to a brief discussion of principles of statistics.
 
 ## on probability
 

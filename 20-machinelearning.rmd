@@ -18,6 +18,12 @@ library(rpart) # for decision trees
 
 # Machine learning: some distinctions and ideas
 
+## status 50%  {-}
+
+this is a fine start, but challenging, and much more needs to be done about the different approaches such as random forests and deep neural networks.  Results should be shown for code blocks.
+
+---
+
 In the last few chapters, we have considered linear and logistic regression and k-nearest neighbor analysis as tools for prediction and classification. We've shown how to split the data into training, test and (possibly) validation samples, then how to assess the robustness or accuracy on these new datasets.  We've also considered measures such as R-squared, overall accuracy, and area under the ROC as measures of the validity of our models.
 
 These ideas and techniques form a starting point for the study of *machine learning*. My approach is drawn largely from [@james2013introduction], which is available freely on the web and includes links to additional materials for those who would like to study this further.

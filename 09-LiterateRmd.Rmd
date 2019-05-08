@@ -8,6 +8,14 @@ output:
 ---
 # (PART) Part III Towards data proficiency  {-}
 
+## status 80% {-}
+
+Move data challenges from extra credit project to a project due before Spring break. 
+
+Include additional summaries from the four r4ds chapters. 
+
+---
+
 In this part of the class we will get into the nuts and bolts of R.
 
 # literate programming with R markdown

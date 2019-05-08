@@ -9,6 +9,14 @@ output:
 # (PART) Introduction {-}
 # data science for the liberal arts
 
+## status 90%  {-}
+
+Combine features of data science with levels (below). Move last section into next chapter as pretest.  
+
+----------
+
+
+
 Hochster, in @hicks2017guide, describes two broad types of data scientists: Type A (Analysis) data scientists, whose skills are like those of an applied **statistician**, and Type B (Building) data scientists, whose skills lie in problem solving or coding, using the skills of the **computer scientist**.  This view arguably omits a critical component of the field, as data science is driven not just by statistics and computer science, but also by "domain expertise:"
 
 ![*Fig 1.1 - The iconic data science Venn diagram*](dataVenn.png)
@@ -41,7 +49,7 @@ That is, we can think of a *continuum* of knowledge, skills, interests, and goal
 
 ## Google and the liberal arts
 
-Data science is at its core empirical, and all of this rhetoric would be meaningless if not grounded in real world findings.  Although it was recently reported that [soft skills rather than STEM training were the most important predictors of success among Google employees](https://www.washingtonpost.com/news/answer-sheet/wp/2017/12/20/the-surprising-thing-google-learned-about-its-employees-and-what-it-means-for-todays-students/?sw_bypass=true&utm_term=.23e48235d66e), it's difficult to know whether these results would generalize to a less select group.  Nonetheless, there is a clear need for individuals with well-rounded training in the liberal arts in data science positions and, conversely, learning data science is arguably a key part of a contemporary liberal arts education.
+Data science is at its core empirical, and all of this rhetoric would be meaningless if not grounded in real world findings.  Although it was reported in late 2017 that [soft skills rather than STEM training were the most important predictors of success among Google employees](https://www.washingtonpost.com/news/answer-sheet/wp/2017/12/20/the-surprising-thing-google-learned-about-its-employees-and-what-it-means-for-todays-students/?sw_bypass=true&utm_term=.23e48235d66e), it's difficult to know whether these results would generalize to a less select group.  Nonetheless, there is a clear need for individuals with well-rounded training in the liberal arts in data science positions and, conversely, learning data science is arguably a key part of a contemporary liberal arts education.
 
 ## data sci and TMI
 

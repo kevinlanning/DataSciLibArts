@@ -9,6 +9,10 @@ output: html_document
 
 # Principles of data visualization
 
+## status 90% {-}
+
+restate basic principles more clearly, include result from asymmetrical Venn. include quiz.
+
 ## Some opening thoughts
 
 Graphs aren't just to inform, but to make you reflect. 

@@ -17,6 +17,14 @@ library(magrittr) # allows bidirectional pipe for updating file easily %<>%
 
 # Another approach to classification: k-nearest neighbor
 
+## status 90%  {-}
+
+this is close.  multinomial classification stuff at end needs to be laid out clearly. simple quiz here <http://bit.ly/idsquiz15> 
+
+---
+
+
+
 Our real-life social predictions are often guided not by induction or the (optimized) combination of a set of predictor variables.  Rather, we often reason by analogy - we might think, for example, that *I won't go out with Fred because he reminds me of Larry, and Larry was kind of a jerk.*  
 
 If regression analysis is an approach to prediction based in our set of variables, *k-nearest neighbor* analysis instead makes predictions based on observations.  

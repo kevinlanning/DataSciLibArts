@@ -8,6 +8,12 @@ output:
 ---
 # now draw the rest of the owl
 
+## status 90%  {-}
+
+move part of SwirlR to prior chapter. consider omitting DataCamp, replacing with other open source links.
+
+
+
 ![Fig 4.1: Draw the rest of the owl.](InkedrCr9A_LI.jpg)
 
 There are many sources for learning the basics of R. A few of these follow.  Please **spend at least 90 mins exploring at least two of the following.** Be prepared to discuss your progress next class (you will be asked which source(s) you used, what you struggled with, and whether you would recommend it to your classmates. (Note that all of these are free, though you may choose to make a donation to the author if you use the Peng text).

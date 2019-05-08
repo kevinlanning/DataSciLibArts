@@ -7,6 +7,14 @@ output: html_document
 
 # strings, factors, dates, and times
 
+## status 60% {-}
+
+ultimately, should be split into two or more separate chapters. the section on strings/text is probably farthest along. The Singapore example at the end of the chapter should be solved here.
+
+---
+
+
+
 This chapter discusses some of the types of data other than numeric and logical, in particular strings, factors, and dates/times. 
 
 In this chapter, as in the last few, I refer primarily to three of the chapters in R4DS. Consider these notes supplementary.

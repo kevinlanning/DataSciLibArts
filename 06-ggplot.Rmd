@@ -9,7 +9,11 @@ output:
 
 # visualization in R with ggplot
 
-In the last chapter, we introduced data visualization, citing vision-aries including Edward Tufte and Hans Rosling, inspired works such as Minard's *Carte Figurative* and Periscopic's *stolen years*, as well as a few  cautionary tales of misleading and confusing graphs. 
+## status 80% {-}
+
+Text is OK, but students in 2019 produced some pretty weak visualizations. Anscombe data needs to be simplified, leading to another homework assignment. Students need a more solid understanding of problems with pie charts, 3d bar graphs, etc. This could be done in the prior chapter, but it would be better to expand on it here, leading to a project within a few weeks.
+
+In the last chapter, we introduced data visualization, citing "vision-aries" including Edward Tufte and Hans Rosling, inspired works such as Minard's *Carte Figurative* and Periscopic's *stolen years*, as well as a few cautionary tales of misleading and confusing graphs. 
 
 Here, in playing with and learning the R package **ggplot**, we begin to move from consumers to creators of data visualizations.
 

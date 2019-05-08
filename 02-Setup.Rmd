@@ -8,6 +8,14 @@ output:
 ---
 # getting started
 
+## status 90%  {-}
+
+Review other introductory chapters cited below and decide whether to include more, drop, etc. Incorporate pretest at <http://bit.ly/IDSquiz1>. Recast result as a Shiny app to represent students current skills and aspirations.
+
+----
+
+
+
 We begin with a brief self-assessment, asking you to reflect on your own knowledge of data science, including the necessary-but-not-sufficient areas of computer programming and statistics. We then move to a description of some rudimentary tools that we will be using. 
 
 ## are you already a programmer and statistician?

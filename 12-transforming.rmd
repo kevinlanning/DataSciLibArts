@@ -8,6 +8,10 @@ output:
 ---
 # transforming data
 
+## status 85% {-}
+
+expand on the babynames analysis at end. include <http://bit.ly/idsquiz10>. expand on link to R4DS chapter 5.
+
 ```{r echo=FALSE}
 knitr::opts_chunk$set(message = FALSE)
 ```
@@ -16,7 +20,7 @@ Once you have your data, you will almost invariably need to transform it - to so
 
 ![Fig 12.1 - pliers to play with](pliers.png)
 
-Dplyr is part of the core of the tidyverse and hence will be loaded automatically when you load the tidyverse libraries.
+Dplyr is a core part of the tidyverse and hence is loaded automatically when you load the tidyverse ensemble of libraries:
 
 ```{r}
 library(tidyverse)

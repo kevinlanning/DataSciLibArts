@@ -8,6 +8,14 @@ output:
 ---
 # Messy data: Cleaning and curation
 
+## status 85% {-}
+
+The skeleton for this is great, but add one more exercise for rectangling, a link to google datasets with sample results.
+
+---
+
+
+
 Between 50 and 80% of the work of the data scientist consists of the compiling, cleaning and curation of data, or what is called **data wrangling**.  
 
 One part of data wrangling is looking for and dealing with encoding inconsistencies, missing values, and errors. Consider the following:
@@ -23,7 +31,7 @@ One part of data wrangling is looking for and dealing with encoding inconsistenc
 
 Another part of data wrangling is about data rectangling [@bryan2017rectangling], that is, getting diverse types of data into a data frame (specifically, a tibble).  This is likely to be particularly challenging when you are combining data from different sources, including Web APIs (short for application programming interfaces).  We'll consider this further down the road when we talk about lists.
 
-A third part of data wrangling is joining data from different sources. There are many ways to join datasets from different sources, but attention must be paid to insure that the observations line up correctly, that the same metrics are used for different datasets (for example, inflation adjusted dollars vs raw), that dates are interpreted as dates, that missing values are recognized as missing and not scored as zero, and so forth.  We'll talk about this when we consider relational data.
+A third part of data wrangling is joining data from different sources. There are many ways to join datasets from different sources, but attention must be paid to insure that the observations line up correctly, that the same metrics are used for different datasets (for example, inflation adjusted dollars vs raw), that dates are interpreted as dates, that missing values are recognized as missing and not scored as zero, and so forth.  We'll talk about this in the weeks ahead, particularly when we consider relational data.
 
 ## finding data
 

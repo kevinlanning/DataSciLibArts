@@ -8,6 +8,12 @@ output:
 ---
 # an introduction to R
 
+## status 85%  {-}
+
+Introduce swirlR and include first few lessons. Move digression at end on autonomous vehicles to about chapter 21 on ethics.
+
+---
+
 R is a system for **Reproducible research**, and reproducibility is essential [@gandrud2016reproducible]. 
 
 >   Research is often presented in very selective containers: slideshows, journal articles, books, or maybe even websites... these documents are not the research [rather] these documents are the “advertising”. The research is the “full software environment, code, and data that produced the results” [Buckheit and Donoho, 1995, Donoho, 2010, 385]. When we separate the research from its advertisement we are making it difficult for others to verify the findings by reproducing them.

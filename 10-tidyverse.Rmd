@@ -9,6 +9,14 @@ output:
 
 # the tidyverse
 
+## status 90% {-}
+
+review my notes against Wickham. consider how to best submit homework at end.
+
+---
+
+
+
 >   *The tidyverse is an opinionated collection of R packages designed for data science -* https://www.tidyverse.org/
 
 R had its origins in S, a system designed for engineers at Bell Labs. This audience meant that R would be more accessible to those with programming backgrounds, more aimed at "developers" than users approaching data science from an applied or statistical perspective than one in programming.  As the popularity of R increased, it would become more flexible and versatile for these power users, but there was less progress in making R accessible to and tailored for data scientists. To this day, "base-R" is, for most users, more challenging than SPSS or Stata. The **tidyverse** was born partly to address these issues [@peng2018teaching]. 

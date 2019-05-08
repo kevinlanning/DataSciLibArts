@@ -11,7 +11,13 @@ knitr::opts_chunk$set(echo = TRUE, warn = FALSE, message = FALSE)
 
 # ethics: some topics for discussion
 
-Primary sources @loukides2018ethics, @salganik2017bit:
+## status 40% {-}
+
+There is much more that can be done, including links to articles in NYT on privacy as case studies. In addition, each of the examples at the end can be expanded upon.  Check citations. 
+
+Primary sources @loukides2018ethics, @salganik2017bit
+
+
 
 ## Background
 

@@ -18,6 +18,10 @@ library (caTools) # ditto
 ```
 # From regression to prediction and classification
 
+## status 85% {-}
+
+split into two chapters, the first on linear and logistic regression, the second on classification and decision theory.
+
 ## Revisiting the affairs data
 
 Let's go back and do what we should have done earlier: Examine and think about "number of affairs". What does the distribution look like?
