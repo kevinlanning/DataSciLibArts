@@ -4,7 +4,7 @@ author: "Lanning"
 date: "`r Sys.Date()`"
 output: html_document
 ---
-
+(Google verification fails)
 # strings, factors, dates, and times
 
 ## status 60% {-}
@@ -38,6 +38,12 @@ Conditions (experimental vs control), categories (male or female), types (scorpi
 Here's an example of a categorical variable. Why is it set up like this, and what does it do?
 
 ```{r factors.0314}
+#install.packages("fansi")
+#library(fansi)
+library(tidyverse)
+library(lubridate)
+library(googledrive)
+library(googlesheets4)
 # Example of a factor
 eyes <- factor(x = c("blue", "green",
                      "green", "creepyRed"), 
@@ -77,30 +83,33 @@ babynames %>%
 
 The challenges of combining time-demarcated data (Chapter 16) are significant.  For dates, a variety of different formats (3-April, October 23, 1943, 10/12/92) must be made sense of. Sometimes we are concerned with durations (how many days, etc.); on other occasions, we are concerned with characteristics of particular dates (as in figuring out the day of the week on which you were born). And don't forget about leap years.
 
-Here's a simple use of *lubridate* which allows ordering of months across years (i.e., it puts December 2018 before January 2019). I apply it to a new data set fakeSpinData, which is pulled from a Google sheet
+Here's a simple use of *lubridate* which allows ordering of months across years (i.e., it puts December 2018 before January 2019). I apply it to a new data set fakeSpinData, which is pulled from a Google sheet.
+(For 2020, the Google sheet - now Googlesheet4 - interface is buggy.  )
 
 ```{r echo=TRUE, message=FALSE}
-library(tidyverse)
-library(lubridate)
-library(googlesheets)
+
+# drive_auth()
+# sheets_auth(token = drive_token())
+# library(googlesheets) is obsolete
 library(kableExtra)
-spinID <- gs_title("fakeSpinData")
-spinData <- gs_read(spinID) 
-spinData <- spinData %>% 
+# https://github.com/tidyverse/googledrive/issues/279 on 1/11/20
+# gFiles <- drive_ls(pattern="pin")
+# spinData <- sheets_get("fakeSpinData")
+# spinData <- spinData %>% 
 # set up old Date field as a lubridate-readable date
 # note that the new field is date rather than Date - dumb names
-    mutate(date = mdy(Date)) %>% 
+#    mutate(date = mdy(Date)) %>% 
 # extract month and year
-    mutate(month = month(date,label = TRUE)) %>% 
-    mutate(year = year(date))
+#    mutate(month = month(date,label = TRUE)) %>% 
+#    mutate(year = year(date))
 
-kable(spinData %>% 
+# kable(spinData %>% 
 # make an ordered cool table
-    group_by(year, month) %>% 
-    summarize(sum(calories), sum(time))) %>% 
-    kable_styling(bootstrap_options = c(
-        "striped", "hover", "condensed"),
-        full_width = FALSE, position = "left")
+#    group_by(year, month) %>% 
+#    summarize(sum(calories), sum(time))) %>% 
+#    kable_styling(bootstrap_options = c(
+#        "striped", "hover", "condensed"),
+#        full_width = FALSE, position = "left")
 ```
 
 

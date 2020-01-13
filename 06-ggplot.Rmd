@@ -46,7 +46,6 @@ Savor this section, reading slowly, and playing around with the RStudio interfac
 
 ![Fig. 6.2: A screenshot from RStudio, showing the mpg dataset](rstudio62.PNG)
 
-
 ## facets - displaying the Anscombe data
 
 When we get to section 5 (facets), it may occur to you that this would be a nice way to display the Anscombe data. Fortunately, they are already, like many other datasets, stored in R. 

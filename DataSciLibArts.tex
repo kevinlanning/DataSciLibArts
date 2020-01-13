@@ -1,37 +1,95 @@
-\documentclass[openany]{book}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  openany]{book}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
-% use upquote if available, for straight quotes in verbatim environments
+% Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\usepackage[margin=1in]{geometry}
-\usepackage{hyperref}
-\hypersetup{unicode=true,
-            pdftitle={Data science for the liberal arts},
-            pdfauthor={Kevin Lanning},
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
-\usepackage{natbib}
-\bibliographystyle{apalike}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Data science for the liberal arts},
+  pdfauthor={Kevin Lanning},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -41,56 +99,24 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
 \usepackage[normalem]{ulem}
-% avoid problems with \sout in headers with hyperref:
+% Avoid problems with \sout in headers with hyperref
 \pdfstringdefDisableCommands{\renewcommand{\sout}{}}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-
-%%% Use protect on footnotes to avoid problems with footnotes in titles
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
-
-%%% Change title format to be more compact
-\usepackage{titling}
-
-% Create subtitle command for use in maketitle
-\newcommand{\subtitle}[1]{
-  \posttitle{
-    \begin{center}\large#1\end{center}
-    }
-}
-
-\setlength{\droptitle}{-2em}
-
-  \title{Data science for the liberal arts}
-    \pretitle{\vspace{\droptitle}\centering\huge}
-  \posttitle{\par}
-    \author{Kevin Lanning}
-    \preauthor{\centering\large\emph}
-  \postauthor{\par}
-      \predate{\centering\large\emph}
-  \postdate{\par}
-    \date{2019-01-05}
-
 \usepackage{booktabs}
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{Data science for the liberal arts}
+\author{Kevin Lanning}
+\date{2020-01-11}
 
 \begin{document}
 \maketitle
@@ -103,29 +129,39 @@
 \chapter*{}\label{section}}
 \addcontentsline{toc}{chapter}{}
 
-\hypertarget{an-invitation}{%
-\chapter*{an invitation}\label{an-invitation}}
-\addcontentsline{toc}{chapter}{an invitation}
+\hypertarget{preface}{%
+\chapter*{preface}\label{preface}}
+\addcontentsline{toc}{chapter}{preface}
 
-This work-in-progress includes my notes for \href{https://kevinlanning.github.io/DataSciSpring2019/}{\emph{\emph{Introduction to Data Science}}} at the Wilkes Honors College of Florida Atlantic University.
+\hypertarget{status-95}{%
+\section*{status 95\%}\label{status-95}}
+\addcontentsline{toc}{section}{status 95\%}
 
-Data science is still a new field of study, and there are multiple approaches to teaching it and to its place in the college curriculum. This course is like those at the universities of \href{https://idc9.github.io/stor390/}{North Carolina}, \href{https://github.com/STAT545-UBC/STAT545-UBC.github.io}{British Columbia}, \href{https://www2.stat.duke.edu/courses/Fall15/sta112.01/}{Duke}, \href{http://www.hcbravo.org/IntroDataSci/calendar/}{Maryland}, \href{http://pages.stat.wisc.edu/~yandell/R_for_data_sciences/syllabus.html}{Wisconsin}, \href{https://github.com/dcl-2017-04/curriculum}{Stanford}, \href{https://byuistats.github.io/M335/syllabus.html}{BYU}, \href{http://datasciencelabs.github.io/}{Harvard}, \href{https://github.com/MUSA-620-Spring-2017/Course-Materials}{Pennsylvania}, and \href{https://github.com/FAUDataScience/stat259}{UC Berkeley} (and will likely draw from all of these) in that it is closer to Statistics than to Computer Science.
+Revisit links to other colleges. Include list of needed resources (computer, r server, packages, etc.) for instructor and student.
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+This work-in-progress will ultimately serve as a textbook for introductory undergraduate courses in data sciences. No prior knowledge of computer programming is presumed, though, ideally, students will have had college algebra (or its equivalent) and an introductory course in statistics, methods, or data analysis.
+
+Data science is still a new field of study, and there are multiple approaches to teaching it and to its place in the college curriculum. This book is intended to serve courses such as the \href{https://kevinlanning.github.io/DataSciSpring2019/}{\emph{\emph{Introduction to Data Science}}} at the Wilkes Honors College of Florida Atlantic University which, in turn, draws from data science classes at the universities of \href{https://idc9.github.io/stor390/}{North Carolina}, \href{https://github.com/STAT545-UBC/STAT545-UBC.github.io}{British Columbia}, \href{https://www2.stat.duke.edu/courses/Fall15/sta112.01/}{Duke}, \href{http://www.hcbravo.org/IntroDataSci/calendar/}{Maryland}, \href{http://pages.stat.wisc.edu/~yandell/R_for_data_sciences/syllabus.html}{Wisconsin}, \href{https://github.com/dcl-2017-04/curriculum}{Stanford}, \href{https://byuistats.github.io/M335/syllabus.html}{BYU}, \href{http://datasciencelabs.github.io/}{Harvard}, \href{https://github.com/MUSA-620-Spring-2017/Course-Materials}{Pennsylvania}, and \href{https://github.com/FAUDataScience/stat259}{UC Berkeley} At each of these schools, the Introduction to Data Science appears, to my eyes at least, closer to Statistics than to Computer Science.
 
 But if our approach is closer to statistics than to programming, it is particularly close to statistics in its most applied and pragmatic form. The choice of statistical methods should follow from the data and problem at hand - or, as \citet{loevinger1957objective} once put it, statistics should be the handmaiden of real-world concerns rather than technology.
 
-This pragmatic focus is not unique. Courses with similar goals (which we may again draw from) include those at \href{https://github.com/UC-MACSS/persp-analysis}{Chicago}, \href{https://github.com/jacobeisenstein/gt-css-class}{Georgia Tech}, \href{https://github.com/raviolli77/dataScience-UCSBProjectGroup-Syllabus}{UC Santa Barbara}, \href{http://www.princeton.edu/~mjs3/soc596_f2016/}{Princeton}, \href{https://github.com/rochelleterman/PS239T}{UC Berkeley}, at \href{https://github.com/HertieDataScience/SyllabusAndLectures}{Berlin's Hertie School of Governance}, and in \href{https://github.com/tommeagher/data1-fall2015}{Columbia's School of Journalism}.
+This pragmatic focus is driving the growth of data science in industry, and it is reflected in the way data science is taught at still other schools including \href{https://github.com/UC-MACSS/persp-analysis}{Chicago}, \href{https://github.com/jacobeisenstein/gt-css-class}{Georgia Tech}, \href{https://github.com/raviolli77/dataScience-UCSBProjectGroup-Syllabus}{UC Santa Barbara}, \href{http://www.princeton.edu/~mjs3/soc596_f2016/}{Princeton}, \href{https://github.com/rochelleterman/PS239T}{UC Berkeley}, at \href{https://github.com/HertieDataScience/SyllabusAndLectures}{Berlin's Hertie School of Governance}, and in \href{https://github.com/tommeagher/data1-fall2015}{Columbia's School of Journalism}.
 
-\hypertarget{what-will-be-in-the-class}{%
-\section*{what will be in the class?}\label{what-will-be-in-the-class}}
-\addcontentsline{toc}{section}{what will be in the class?}
+\hypertarget{some-features-of-the-text}{%
+\section*{some features of the text}\label{some-features-of-the-text}}
+\addcontentsline{toc}{section}{some features of the text}
+
+There are a number of different approaches to teaching data science. The present text includes several distinguishing features.
 
 \textbf{R}
 
-In my 2017 survey of introductory data science courses, I saw a pretty even split between those which begin with Python and those which begin with the statistical programming language R. This difference corresponds, loosely, to the split noted above: Computer science based approaches to data science are frequently grounded in Python, while stats based approaches are generally grounded in R. Our course, like those for most of the syllabi and courses linked above, will be based in R.
+In my 2017 survey of introductory data science courses, I saw a pretty even split between those which begin with Python and those which begin with the statistical programming language R. This difference corresponds, loosely, to the split noted above: Computer science based approaches to data science are frequently grounded in Python, while statistics-based approaches are generally grounded in R. Our course, like those for most of the syllabi and courses linked above, will be based in R.
 
 \textbf{Reproducible science}
 
-The course will provide an introduction to some of the methods and tools of reproducible science. We will consider the replication crisis in the natural and social sciences, and then consider three distinct approaches which serve as partial solutions to the crisis. The first of these is training in a notebook-based approach to writing analyses, reports and projects (using R markdown). The second is using public repositories (such as the \href{https://osf.io/}{Open Science Framework} and \href{https://github.com/}{GitHub}) to provide snapshots of projects over time. Finally, the third is to consider the place of significance testing in the age of Big Data, and to provide training in the use of descriptive, exploratory techniques of data analysis.
+The course will provide an introduction to some of the methods and tools of reproducible science. We will consider the replication crisis in the natural and social sciences, and then consider three distinct approaches which serve as partial solutions to the crisis. The first of these is training in a notebook-based approach to writing analyses, reports and projects (using R markdown documents). The second is using public repositories (such as the \href{https://osf.io/}{Open Science Framework} and \href{https://github.com/}{GitHub}) to provide snapshots of projects over time. Finally, the third is to consider the place of significance testing in the age of Big Data, and to provide training in the use of descriptive, exploratory techniques of data analysis.
 
 \textbf{Good visualizations}
 
@@ -139,27 +175,33 @@ It's been \href{https://www.udemy.com/datascience/learn/v4/t/lecture/3473822?sta
 
 In addition to R, we'll use a range of other tools: We'll communicate on the Slack platform. We'll write using markdown editors such as \href{https://typora.io/}{Typora}. We'll certainly use spreadsheets such as Excel or Google Sheets. We \emph{may} use additional tools for visualizing data such as Gephi and Tableau. In any event, \textbf{there will be computing throughout the course.} You will be expected to bring a laptop every day. (Please let Dr.~Lanning know ASAP if you don't have access to this).
 
-\textbf{The place of data science in the WHC (and FAU) curriculum}
+\textbf{The place of data science in the college curriculum}
 
 At this writing, there is enthusiasm across units of FAU and its affiliated institutes, including Max Planck and FAU's Colleges of Science and Engineering as well as the WHC, for integrating data science into our curriculum. Within the WHC, a data science minor and a multi-track concentration are under development. Until these proposals have been formally approved, students interested in concentrating in Data Science are encouraged to pursue an individual concentration (see Dr.~Lanning for details).
 
 In addition, there are several integrated `4 + 1' pathways which will lead to a master's degree in the College of Engineering. These programs are also in progress; again, see Dr.~Lanning for additional details.
 
-\hypertarget{should-you-enroll}{%
-\section*{should you enroll?}\label{should-you-enroll}}
-\addcontentsline{toc}{section}{should you enroll?}
+\hypertarget{the-book-is-for-you}{%
+\section*{the book is for you}\label{the-book-is-for-you}}
+\addcontentsline{toc}{section}{the book is for you}
 
-It's my intention that this course should serve every Wilkes Honors College student, regardless of concentration. The WHC was built and funded by the state of Florida to train tomorrow's leaders. That's you. The skills and insights that you will gain in this course will help you in graduate and professional schools, will help you in your careers, and will help you in your goal of making a better world. And it will help you train the next generation of data scientists, too.
+It's my intention that this text should serve every college student, regardless of concentration or college major. The skills and insights that you will gain in this course will help you in graduate and professional schools, will help you in your careers, and will help you in your goal of making a better world. And it will help you train the next generation of data scientists as well.
 
-\textbf{How do I sign up?}
-
-If you are interested in taking the class, complete the Google form \href{https://goo.gl/forms/kXGAOTShcOLPwjPH2}{here}. Note that enrollment in the class and lab will be limited to 30.
+We invite you to join our discussion in our Slack group at \url{https://join.slack.com/t/datascilibaarts/shared_invite/enQtNjE4NDM2Nzk1NzQ2LTllZjdjNTY0MDFmZTc0ZDRhZGEwMDYzZDQxNGJlZmJkZjFkZWExOGY5YTZjMGQyNmUxMTM1ZTEyYWM5ZDQ3M2U}.
 
 \hypertarget{part-introduction}{%
 \part{Introduction}\label{part-introduction}}
 
 \hypertarget{data-science-for-the-liberal-arts}{%
 \chapter{data science for the liberal arts}\label{data-science-for-the-liberal-arts}}
+
+\hypertarget{status-90}{%
+\section*{status 90\%}\label{status-90}}
+\addcontentsline{toc}{section}{status 90\%}
+
+Combine features of data science with levels (below). Move last section into next chapter as pretest.
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
 Hochster, in \citet{hicks2017guide}, describes two broad types of data scientists: Type A (Analysis) data scientists, whose skills are like those of an applied \textbf{statistician}, and Type B (Building) data scientists, whose skills lie in problem solving or coding, using the skills of the \textbf{computer scientist}. This view arguably omits a critical component of the field, as data science is driven not just by statistics and computer science, but also by ``domain expertise:''
 
@@ -201,12 +243,12 @@ That is, we can think of a \emph{continuum} of knowledge, skills, interests, and
 \hypertarget{google-and-the-liberal-arts}{%
 \section{Google and the liberal arts}\label{google-and-the-liberal-arts}}
 
-Data science is at its core empirical, and all of this rhetoric would be meaningless if not grounded in real world findings. Although it was recently reported that \href{https://www.washingtonpost.com/news/answer-sheet/wp/2017/12/20/the-surprising-thing-google-learned-about-its-employees-and-what-it-means-for-todays-students/?sw_bypass=true\&utm_term=.23e48235d66e}{soft skills rather than STEM training were the most important predictors of success among Google employees}, it's difficult to know whether these results would generalize to a less select group. Nonetheless, there is a clear need for individuals with well-rounded training in the liberal arts in data science positions and, conversely, learning data science is arguably a key part of a contemporary liberal arts education.
+Data science is at its core empirical, and all of this rhetoric would be meaningless if not grounded in real world findings. Although it was reported in late 2017 that \href{https://www.washingtonpost.com/news/answer-sheet/wp/2017/12/20/the-surprising-thing-google-learned-about-its-employees-and-what-it-means-for-todays-students/?sw_bypass=true\&utm_term=.23e48235d66e}{soft skills rather than STEM training were the most important predictors of success among Google employees}, it's difficult to know whether these results would generalize to a less select group. Nonetheless, there is a clear need for individuals with well-rounded training in the liberal arts in data science positions and, conversely, learning data science is arguably a key part of a contemporary liberal arts education.
 
 \hypertarget{data-sci-and-tmi}{%
 \section{data sci and TMI}\label{data-sci-and-tmi}}
 
-One difference between traditional statistics and data science is that the former is typically concerned with making inferences from datasets that are too \emph{small}, while the latter is concerned with extracting a signal from data that is or are too \emph{big} (\citet{donoho2015fifty}).
+One difference between traditional statistics and data science is that the former is typically concerned with making inferences from datasets that are too \emph{small}, while the latter is concerned with extracting a signal from data that is or are too \emph{big} \citep{donoho2015fifty}.
 
 The struggle to extract meaning from a sea of information - of finding needles in haystacks, of finding faint signals in a cacophony of overstimulation - is arguably the question of the age. It is a question we deal with as individuals on a moment-by-moment basis. It is a challenge I face as I wade through the many things that I could include in this class and these notes.
 
@@ -222,9 +264,15 @@ More proximally (closer to today) - what are your own goals for progress in data
 \hypertarget{getting-started}{%
 \chapter{getting started}\label{getting-started}}
 
-We begin with a brief self-assessment and a description of some rudimentary tools.
+\hypertarget{status-90-1}{%
+\section*{status 90\%}\label{status-90-1}}
+\addcontentsline{toc}{section}{status 90\%}
 
-Reflect on your own knowledge of data science, including the necessary-but-not-sufficient areas of computer programming and statistics.
+Review other introductory chapters cited below and decide whether to include more, drop, etc. Incorporate pretest at \url{http://bit.ly/IDSquiz1}. Recast result as a Shiny app to represent students current skills and aspirations.
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+We begin with a brief self-assessment, asking you to reflect on your own knowledge of data science, including the necessary-but-not-sufficient areas of computer programming and statistics. We then move to a description of some rudimentary tools that we will be using.
 
 \hypertarget{are-you-already-a-programmer-and-statistician}{%
 \section{are you already a programmer and statistician?}\label{are-you-already-a-programmer-and-statistician}}
@@ -260,11 +308,15 @@ You may have worked with \textbf{data} in spreadsheets such as Excel or Google S
 
 \begin{quote}
 \textbf{Exercise 2\_2}
-Open the Google Sheet at \url{http://bit.ly/dslaX2_1}. Save a copy and edit it, entering the following in cell A6:
+Open the Google Sheet at \url{http://bit.ly/dslaX2_1}. Save a copy and edit it, entering the following in cell B7:
 
-\emph{=SUM (A1:A5)}
+\emph{=SUM (B2:B6)}
 
-What is the result? \textbf{If you copy cell A6 to B6, what happens and why?}
+What is the result?
+
+Now \textbf{copy cell B7 to C7}
+
+What happens? Is this the result you expected? Would another approach be more useful?**
 \end{quote}
 
 In data science, spreadsheets are used largely to store data rather than to analyze it. Some \emph{best practices} for using spreadsheets in data science are given in \citet{broman2017data}.
@@ -278,14 +330,18 @@ Slack includes a simple \emph{markdown} editor (for `posts'). You can find an in
 
 Install \textbf{R} (\url{https://cran.rstudio.com/}) then \textbf{R studio} (\url{https://www.rstudio.com/products/rstudio/\#Desktop}) on your own Windows or Mac laptop. If you get stuck, reach out to others on Slack; if you don't get stuck, help your classmates. We'll use R studio as a front end (an `integrated development environment', or IDE) for R, and will write most of our code in R markdown which is, not surprisingly, a `flavor' of markdown. We'll go into R in increasing depth beginning in the next chapter; if you want to get a head start, consider \href{https://idc9.github.io/stor390/notes/getting_started/getting_started.html}{Carmichael (2017) Getting started} and the first chapter of \citet{wickham2016r}. (Those documents, like this one, are all written in R markdown).
 
+\begin{quote}
+\textbf{Eager to start coding in R?} Go to Chapter 4 (draw the rest of the owl), and begin the exercises in swirl (swirlstats).
+\end{quote}
+
 Finally, \textbf{Google Docs} is free and is convenient for collaborative work. One other important feature of Google Docs is that it provides a framework for \emph{version control,} a critical skill in information management. You can learn more about how to see and revert to prior versions of a project in Google Docs \href{https://sites.google.com/site/scriptsexamples/home/announcements/named-versions-new-version-history-google-docs}{here}.
 
-\textbf{Never call anything `final.doc'.} Version control can help you avoid the chaos and confusion of having a computer (or several computers) full of files that look like Cham's (2012) comic:
+Version control can help you avoid the chaos and confusion of having a computer (or several computers) full of files that look like Cham's (2012) comic:
 
 \begin{figure}
 \centering
 \includegraphics{final.jpg}
-\caption{final}
+\caption{\emph{Fig 2.1: Never call anything `final.doc'.}}
 \end{figure}
 
 We'll be talking about the challenge of version control throughout this text - and I am hoping that my own habits in file management can improve as we move forward together.
@@ -301,6 +357,14 @@ Another problem with this approach is that there may be `ceiling effects' - stud
 
 \hypertarget{an-introduction-to-r}{%
 \chapter{an introduction to R}\label{an-introduction-to-r}}
+
+\hypertarget{status-85}{%
+\section*{status 85\%}\label{status-85}}
+\addcontentsline{toc}{section}{status 85\%}
+
+Introduce swirlR and include first few lessons. Move digression at end on autonomous vehicles to about chapter 21 on ethics.
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
 R is a system for \textbf{Reproducible research}, and reproducibility is essential \citep{gandrud2016reproducible}.
 
@@ -344,7 +408,7 @@ A few years ago, \citet{peng2015r} speculated that ``it would be straightforward
 
 R is an \textbf{object-oriented} language - one conceptually organized around objects and data rather than actions and logic. In R, at the atomic level, objects include \emph{characters, real numbers, integers, complex numbers, and logical.} These atoms are combined into vectors, which generally include objects of the same type \citep[one kind of object, `lists,' is an exception to this;][]{peng2015r}. Vectors can be further combined into \textbf{data frames}, which are two-dimensional tables or arrays. A \textbf{tibble} is a particular type of data frame which is, in some ways, handier to work with than other data frames. We'll be working extensively with data frames in general, and tibbles in particular, as we move forward.
 
-Objects have attributes. Attributes of R include such things as name, dimensions (for vectors and arrays), class (that's the atomic thing), length, etc.
+Objects have \textbf{attributes}. Attributes of R include such things as name, dimensions (for vectors and arrays), class (that's the type of object described in the previous paragraph), length, etc.
 
 Real world data sets are messy, and frequently have \textbf{missing values.} In R, missing values may be characterized by NA (not available) or NaN (not a number, implying an undefined or impossible value).
 
@@ -353,17 +417,23 @@ Real world data sets are messy, and frequently have \textbf{missing values.} In 
 \hypertarget{finding-help}{%
 \section{finding help}\label{finding-help}}
 
-\textbf{one does not simply `learn R.'} Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one can be said to have mastered and from which one then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn.
-
-So all of us will need help.
+\textbf{one does not simply `learn R.'} Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one can be said to have mastered and from which one then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn. And, the complexity of R syntax is such that, for almost all of us, we will need help for coding on any non-trivial task.
 
 For us, the key ideas in ``looking for help'' will include not just the tools on the R Studio IDE, but also (a) using google searches wisely, and (b) reaching out to your classmates on Slack.
 
-There is an etiquette for help-seeking here as in the real world. Your search for help should begin by making sure that others will encounter the same result, then by stripping the problem down to its essence. Once you have reduced the problem to this \emph{minimal, reproducible} essence, you will often be able to spot the problem yourself - and, if not, you will make it easier for others to help you. There is an R package (reprex) which will likely facilitate this, but I haven't tried it yet. \href{https://www.tidyverse.org/help/}{Here} is a good introduction.
+Here, as in the real world, there is an etiquette for help-seeking which is based on consideration. Your search for help should begin by making sure that others will encounter the same result, then by stripping the problem down to its essence. Once you have reduced the problem to this \emph{minimal, reproducible} essence, you will often be able to spot the problem yourself - and, if not, you will make it easier for others to help you. There is an R package (reprex) which will likely facilitate this, but I haven't tried it yet. \href{https://www.tidyverse.org/help/}{Here} is a good introduction.
 
 Finally, to get a sense of some of the ways you can get help in R studio (and to see how a master uses the R Studio interface), consider this video:
 
 \href{https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-part-1/?wvideo=k8kz4e0p2v}{\includegraphics{https://embedwistia-a.akamaihd.net/deliveries/85f90f89c20cf329c8e6091508fe44c045e70167.jpg?image_play_button_size=2x\&image_crop_resized=960x585\&image_play_button=1\&image_play_button_color=4287c7e0}}
+\emph{Video 3.1: Garret Grolemund of \href{https://www.rstudio.com/}{R Studio}}
+
+\hypertarget{wickham-and-r-for-data-science}{%
+\section{Wickham and R for Data Science}\label{wickham-and-r-for-data-science}}
+
+\href{https://r4ds.had.co.nz/introduction.html}{The first chapter of the Wickham text} \citep{wickham2016r} provides a framework for his approach and a brief introduction to the \emph{tidyverse} which will be the dialect of R we will study in the weeks ahead.
+
+Please read it now.
 
 \hypertarget{discussion-is-open-source-software-secure}{%
 \section{discussion: is open-source software secure?}\label{discussion-is-open-source-software-secure}}
@@ -378,41 +448,41 @@ Obviously, there are \textbf{cybersecurity} concerns. While the prospects for \h
 
 As the IOV develops, there will be vulnerabilities to privacy as well as safety, and the security of the system will be paramount. Different car manufacturers are taking different approaches to developing secure information systems, with many using a closed or proprietary approach. But the scope of the problem is so large that there is a movement towards pooling resources and encouraging collaboration among industry partners, academics, and citizen scientists in the development of an open-source autonomous driving platform, such as \href{http://apollo.auto/}{Apollo}. Perhaps counterintuitively, there may be significant security advantages to using source code that is open to all \citep{clarke2009open, fitzgerald2016open}.
 
-\hypertarget{hello-world}{%
-\chapter{hello world}\label{hello-world}}
+\hypertarget{now-draw-the-rest-of-the-owl}{%
+\chapter{now draw the rest of the owl}\label{now-draw-the-rest-of-the-owl}}
 
-It's time to start moving ahead with R. You can expect a few moments where you feel like you are drawing an owl (origin unknown), but persist!
+\hypertarget{status-90-2}{%
+\section*{status 90\%}\label{status-90-2}}
+\addcontentsline{toc}{section}{status 90\%}
+
+move part of SwirlR to prior chapter. consider omitting DataCamp, replacing with other open source links.
 
 \begin{figure}
 \centering
 \includegraphics{InkedrCr9A_LI.jpg}
-\caption{InkedrCr9A\_LI}
+\caption{Fig 4.1: Draw the rest of the owl.}
 \end{figure}
 
-\hypertarget{wickham-and-r-for-data-science}{%
-\section{Wickham and R for Data Science}\label{wickham-and-r-for-data-science}}
+There are many sources for learning the basics of R. A few of these follow. Please \textbf{spend at least 90 mins exploring at least two of the following.} Be prepared to discuss your progress next class (you will be asked which source(s) you used, what you struggled with, and whether you would recommend it to your classmates. (Note that all of these are free, though you may choose to make a donation to the author if you use the Peng text).
 
-The first chapter of the Wickham text provides a framework for his approach and a brief introduction to the \emph{tidyverse.}
-
-After you have read this, please \textbf{spend at least 90 mins} exploring at least one of the following. Be prepared to discuss your progress next class (you will be asked which source(s) you used, what you struggled with, and whether you would recommend it to your classmates:
-
-\hypertarget{additional-sources}{%
-\section{Additional sources:}\label{additional-sources}}
+\begin{quote}
+\textbf{Hint:} If you find the material too challenging - if you feel like you are drawing the rest of the owl - take a break away from your machine and other screens, clear your head, then try a different approach.
+\end{quote}
 
 \hypertarget{carmichael}{%
-\subsection{Carmichael}\label{carmichael}}
+\section{Carmichael}\label{carmichael}}
 
 Iain Carmichael prepared the following for his Intro to Data Science course at UNC-Chapel Hill. I think it is a great place to start: \url{https://idc9.github.io/stor390/notes/getting_started/getting_started.html}
 
 \hypertarget{datacamp}{%
-\subsection{DataCamp}\label{datacamp}}
+\section{DataCamp}\label{datacamp}}
 
 Many folks swear by (and others, I presume, at) DataCamp, which kind of gamifies learning software. As a student in this class, you have access to all of their stuff\ldots{} free. You can even do lessons on your phone.
 
 \hypertarget{swirl-swirlstats}{%
-\subsection{Swirl (Swirlstats)}\label{swirl-swirlstats}}
+\section{Swirl (Swirlstats)}\label{swirl-swirlstats}}
 
-I, like thousands of others, learned R in the process of completing the Johns Hopkins \href{https://jhudatascience.org/courses.html}{Data Science Specialization} offered through Coursera. The sequence can be challenging, but their introduction to R used an accessible, interactive R package called \emph{Swirl.} You can read about swirl (``learn R in R'') at \url{https://swirlstats.com/}.
+I, like thousands of others, learned R in the process of completing the Johns Hopkins \href{https://jhudatascience.org/courses.html}{Data Science Specialization} offered through \href{https://www.coursera.org/}{Coursera}. The sequence can be challenging, but their introduction to R used an accessible, interactive R package called \emph{Swirl.} You can read about swirl (``learn R in R'') at \url{https://swirlstats.com/}.
 
 \textbf{Using Swirl.} After loading R (and opening R studio), you will get to the Swirl lessons with the following steps:
 
@@ -462,11 +532,70 @@ At the end of each lesson, you'll be asked
 Answer no\ldots{} then do another lesson.
 
 \hypertarget{peng-text-and-videos}{%
-\subsection{Peng text and videos}\label{peng-text-and-videos}}
+\section{Peng text and videos}\label{peng-text-and-videos}}
 
 Finally, consider the text and videos from the Coursera R class. Most of the material from that class can be found in \citet{peng2015r}. A slightly updated version of the text can be found at \url{https://bookdown.org/rdpeng/rprogdatascience/}, and the videos in the series may be found by clicking on the following:
 
 \href{https://youtu.be/wy0h1f5awRI}{\includegraphics{https://img.youtube.com/vi/wy0h1f5awRI/0.jpg}}.
+\emph{Video 4.2: Roger Peng introducing R}
+
+\hypertarget{something-else}{%
+\section{Something else}\label{something-else}}
+
+The something else category includes Datacarpentry.org, which is aimed at fostering data literacy and provides free lessons in areas such as Genomics and Geospatial data analysis. Of particular interest is the social science lessons, which include a basic introduction to R and data science based on the "\href{https://datacarpentry.org/socialsci-workshop/}{Studying African Farmer-led Irrigation (SAFI)" dataset}.
+
+\hypertarget{exercise}{%
+\section{Exercise}\label{exercise}}
+
+Review Carmichael's \href{https://idc9.github.io/stor390/notes/getting_started/getting_started.html}{Getting started with R}. Open R studio, and create a new R script called myMovies. Using his code as a reference, do each of the following
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Work in your source window. On the first line, enter the command to install the tidyverse. (If you already have done this, you can comment out the command \ldots)
+
+\begin{verbatim}
+# install.packages ("tidyverse")
+\end{verbatim}
+
+  Hit ctrl+enter to run this line. Then, comment it out if you haven't already done so (why)?
+\item
+  Load the tidyverse into your workspace.
+\item
+  Load the movies/IMDB dataset.
+\item
+  Start exploring the data
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    Apply the str (structure), head, and summary commands. When are each of these useful?
+  \item
+    Double-click the movies dataset in your environment tab in R studio. Click on a few columns to sort the data.
+  \item
+    In the data, what does `spilled' mean? How did you find out?
+  \end{enumerate}
+\item
+  How many rows and columns are in the data
+\item
+  We can think about the movies dataset as a matrix with rows and columns, and \emph{subset} it using the following.
+
+\begin{verbatim}
+# data.frame[rownumber,colnumber]
+# data.frame["rowname", "colname"]
+# data.frame[rowname, c("colname, colname")]
+movies["title"]
+movies[title]
+movies[title,]
+\end{verbatim}
+\item
+  Ask a question about the data, and enter it as a comment in your code, e.g.,
+
+  \texttt{\#\ how\ long\ was\ the\ movie\ 42-up?}
+\item
+  Try to find the answer, ideally using reproducible code, and be prepared to share it with the class.
+\end{enumerate}
 
 \hypertarget{part-part-ii-towards-data-literacy}{%
 \part{Part II Towards data literacy}\label{part-part-ii-towards-data-literacy}}
@@ -474,16 +603,20 @@ Finally, consider the text and videos from the Coursera R class. Most of the mat
 \hypertarget{principles-of-data-visualization}{%
 \chapter{Principles of data visualization}\label{principles-of-data-visualization}}
 
-\hypertarget{opening-thoughts}{%
-\section{Opening thoughts}\label{opening-thoughts}}
+\hypertarget{status-90-3}{%
+\section*{status 90\%}\label{status-90-3}}
+\addcontentsline{toc}{section}{status 90\%}
+
+restate basic principles more clearly, include result from asymmetrical Venn. include quiz.
+
+\hypertarget{some-opening-thoughts}{%
+\section{Some opening thoughts}\label{some-opening-thoughts}}
 
 Graphs aren't just to inform, but to make you reflect.
 
 We are concerned not just with the design of graphs, but with our role in society as leaders, as arbiters of facts, as educators. We want to foster data literacy.
 
-How do people understand graphs? (NY Times series for schools).
-
-How can you use graphs to tell people the truth in a way that they understand?
+How do people understand graphs? How can you use graphs to tell people the truth in a way that they understand? How can you convey uncertainty in a graph?
 
 When you see a graph, what do you notice, what do you wonder, and what is the story? Is ``story telling'' what visualizations should be about?
 
@@ -494,36 +627,34 @@ A graph might begin with perception and understanding (the consumer), with knowl
 
 Visual displays of information reach back to prehistoric times; modern graphs date back, arguably, to Playfair's 1786 \emph{Political Atlas} - in which
 
-\emph{``\ldots{} spatial dimensions were used to represent nonspatial, quantitative, idiographic, empirical data. Although it now seems natural to represent, for example, rising and falling imports over time as a rising and falling line, it does not seem to have been done before that time and was quite an accomplishment. Notably, in addition to the statistical line chart, Playfair at one fell swoop single-handedly invented most of the remaining forms of the statistical graphic repertoire used today-the bar chart and histogram, the surface chart, and the circle diagram or''pie chart."}
+\begin{quote}
+\emph{``\ldots{} spatial dimensions were used to represent nonspatial, quantitative, idiographic, empirical data. Although it now seems natural to represent, for example, rising and falling imports over time as a rising and falling line, it does not seem to have been done before that time and was quite an accomplishment. Notably, in addition to the statistical line chart, Playfair at one fell swoop single-handedly invented most of the remaining forms of the statistical graphic repertoire used today-the bar chart and histogram, the surface chart, and the circle diagram or''pie chart."} \citep{wainer1981graphical}
+\end{quote}
 
 \includegraphics{playfair1786.PNG}\href{https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march}{source}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi})}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  The most important early graph is that of Minard. Here's some background:
-\end{enumerate}
-
-"\emph{Czar Alexander of Russia sees that Napoleon was becoming too powerful, so he refuses to participate in this embargo. Angry at Czar Alexander's decision, Napoleon gathers a massive army of over 400,000 to attack Russia in June of 1812. While Russia's troops are not as numerous as France's, Russia has a plan. Russian troops keep retreating as Napoleon's troops move forward, burning everything they pass, ensuring that the French forces could not take anything from their environment. Eventually the French army follows the Russian army all the way to Moscow during October, suffering major losses from lack of food. By the time Napoleon gets to Moscow, he knows he has to retreat. As winter settles into Europe and the temperature drops, Napoleon's troops suffer even more losses, returning to France from lack of food, disease, and weather conditions."}
-
-In class, we listened to the 1812 Overture while discussing this.
-
-(The battle of Borodino, immortalized in Tolstoy's War and Peace, occurs just before Moscow; the French army loses about 30000 men. Five cannon shots in the overture mark this. And when Napoleon gets to Moscow, he finds that the Russians had razed it before hand, so that there was nothing there for them. Eleven more cannon here.)
+The most celebrated early graph is that of Minard:
 
 \includegraphics{minard1812.PNG}\href{https://datavizblog.com/2013/05/30/dataviz-history-charles-minards-flow-map-of-napoleons-russian-campaign-of-1812-polotsk-smolensk-and-on-to-borodino/}{source}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-\hypertarget{tukeys-contributions}{%
-\section{Tukey's contributions}\label{tukeys-contributions}}
+The visualization depicts the size, latitude, and longitude of Napoleon's army as they moved towards (tan line) then away (black line) from Moscow; temperature during the retreat is plotted as well. Further, vertical lines linking the temperature display to the number of troops indicate the often perilous river crossings which further decimated Napoleon's troops). \href{https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march}{Cheng (2014)} decomposes the graph and provides some simpler visualizations; she also provides the following background:
 
-Tukey and Exploratory Data Analysis (EDA). Begins with Tukey 1962 ``Future of Data Analysis,'' continues with his ultimate publication of EDA in 1977.
+\begin{quote}
+"\emph{Czar Alexander of Russia sees that Napoleon was becoming too powerful, so he refuses to participate in this embargo {[}against the UK{]}. Angry at Czar Alexander's decision, Napoleon gathers a massive army of over 400,000 to attack Russia in June of 1812. While Russia's troops are not as numerous as France's, Russia has a plan. Russian troops keep retreating as Napoleon's troops move forward, burning everything they pass, ensuring that the French forces could not take anything from their environment. Eventually the French army follows the Russian army all the way to Moscow during October, suffering major losses from lack of food. By the time Napoleon gets to Moscow, he knows he has to retreat. As winter settles into Europe and the temperature drops, Napoleon's troops suffer even more losses, returning to France from lack of food, disease, and weather conditions."}
+\end{quote}
 
-Tukey decries tallies (prone to error), and shows \textbf{stem and leaf displays}, then box plots. He argues for transforming data to linearity to uncover meaningful relationships, then to examine residuals to look more closely.
+Of course, the casualties and retreat of Napoleon's army are immortalized not just in this graph, but also in Russian literature (Tolstoy's \emph{War and Peace}) and music (Tchaikovsky's 1812 overture, in which five cannon shots mark the battle of Borodino and eleven more mark the arrival of Napoleon in the now-razed city of Moscow).
+
+\hypertarget{tukey-and-eda}{%
+\section{Tukey and EDA}\label{tukey-and-eda}}
+
+For \citet{donoho2015fifty}, the publication of John Tukey's ``Future of Data Analysis'' \citep{tukey1962future} arguably marks the beginning of data science. As the first data scientist, Tukey embraced a descriptive and exploratory approach to data analysis, particularly in his publication of \emph{Exploratory Data Analysis} \citep{tukey1977eda}.
+
+In EDA, Tukey presented an idiosyncratic, coherent approach to looking at data, beginning with tallying. The distributions of small counts of single variables, for Tukey, could best be presented in \textbf{stem and leaf displays.} Comparisons between groups can be presented in \textbf{box plots.} To examine relationships between variables and the adequacy of simple models, he argues for thoughtfully transforming data to uncover linear trends, then to examine \textbf{residuals} to find where these trends do not hold.
 
 \hypertarget{approaches-to-graphs}{%
 \section{Approaches to graphs}\label{approaches-to-graphs}}
@@ -535,84 +666,1659 @@ In thinking about how to design graphs, we can begin with abstract theory, with 
 \hypertarget{tufte-first-principles}{%
 \section{Tufte: First principles}\label{tufte-first-principles}}
 
-\citet{tufte2001visual} describes \textbf{Graphical Excellence}. Graphs should, among other things, ``Induce the viewer to think about the substance, rather than about methodology, graphic design, the technology of graphic productions, or something else.'' Graphs should ``Present many numbers in a small space, make large data sets coherent, and encourage the eye to compare different pieces of data.'' Graphs should ``serve a reasonably clear purpose: description, exploration, tabulation, or decoration {[}and{]} be closely integrated with the statistical and verbal descriptions of a data set.''"
+\citet{tufte2001visual} describes \textbf{Graphical Excellence}. Graphs should, among other things, ``Induce the viewer to think about the substance, rather than about methodology, graphic design, the technology of graphic productions, or something else.'' Graphs should ``Present many numbers in a small space, make large data sets coherent, and encourage the eye to compare different pieces of data.'' Graphs should ``serve a reasonably clear purpose: description, exploration, tabulation, or decoration {[}and{]} be closely integrated with the statistical and verbal descriptions of a data set.'' Tufte concludes with the following Principles of Graphical Excellence, which I quote verbatim:
 
-Tufte concludes with the following Principles of Graphical Excellence, which I quote verbatim:
-\textbf{\emph{Graphical excellence is the well-designed presentation of interesting data---a}}
-\textbf{\emph{matter of substance, of statistics, and of design.}}
-\textbf{\emph{Graphical excellence consists of complex ideas communicated with clarity,}}
-\textbf{\emph{precision and efficiency.}}
-\textbf{\emph{Graphical excellence is that which gives to the viewer the greatest number of}}
-\textbf{\emph{ideas in the shortest time with the least ink in the smallest space.}}
-\textbf{\emph{Graphical excellence is nearly always multivariate.}}
-\textbf{\emph{And graphical excellence requires telling the truth.}}
+\begin{itemize}
+\tightlist
+\item
+  Graphical excellence is the well-designed presentation of interesting data---a matter of substance, of statistics, and of design.
+\item
+  Graphical excellence consists of complex ideas communicated with clarity, precision and efficiency.
+\item
+  Graphical excellence is that which gives to the viewer the greatest number of ideas in the shortest time with the least ink in the smallest space.
+\item
+  Graphical excellence is nearly always multivariate.
+\item
+  And graphical excellence requires telling the truth.
+\end{itemize}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-\hypertarget{an-illustration-of-the-cost-of-bad-graphs-the-challenger-disaster}{%
-\subsection{An illustration of the cost of bad graphs: The Challenger disaster}\label{an-illustration-of-the-cost-of-bad-graphs-the-challenger-disaster}}
+\hypertarget{the-cost-of-poor-design-i-space-shuttle-challenger}{%
+\subsection{The cost of poor design I: Space Shuttle Challenger}\label{the-cost-of-poor-design-i-space-shuttle-challenger}}
+
+In a cold morning in January, 1986, Space Shuttle Challenger lifted off from Cape Canaveral. Because of the cold weather, engineers at Morton Thiokol, who designed the rocket boosters, considered the possibility that the O-rings which sealed joints on the rockets would be too hard and brittle to prevent the release of potentially explosive fuel. They examined the relation between temperature and o-ring damage on prior flights, using the following visualization:
 
 \begin{figure}
 \centering
 \includegraphics{mortonthiokolChallenger.PNG}
-\caption{mortonthiokolChallenger}
+\caption{Figure 5.3: What Motron Thiokol engineers saw prior to deciding to launch the Challenger Space Shuttle in January, 1986}
 \end{figure}
+
+What, if anything, can we see here? The graphic was chaotic and poorly designed; if the engineers had wanted to systematically explore the relation between o-ring damage and temperature they could have removed the rockets and arranged them on a single axis by liftoff-temperature rather on several rows by liftoff-date. Here's what they would have seen:
 
 \begin{figure}
 \centering
 \includegraphics{tufteChallenger.PNG}
-\caption{tufteChallenger}
+\caption{Figure 5.4: What the engineers could have seen, perhaps, with a better graph.}
 \end{figure}
+
+The forecast for the morning of the launch was far colder than that for prior launches, and within the set of prior launches a clear relationship between temperature and o-ring damage is evident. But the Challenger did launch, exploding shortly after takeoff, killing the seven astronauts on board. With a clearer display of the data, the Challenger launch would likely have been postponed \citep[ ]{tufte2001visual}.
+
+\hypertarget{the-cost-of-poor-design-ii-an-uninformed-or-misinformed-world.}{%
+\subsection{The cost of poor design II: An uninformed or misinformed world.}\label{the-cost-of-poor-design-ii-an-uninformed-or-misinformed-world.}}
+
+In the flood of information that surrounds us, our peripheral and sometimes our focal attention will be drawn to pictorial summaries of consequential events and effects. But while data visualizations and data journalism has become more responsible, poorly designed graphs - what Tufte has described as ``chartjunk'' - are still common. Consider the following graph, which recently appeared in a number of newspapers or feeds in the United States (including the \emph{Palm Beach Post,} on January 12, 2019).
+
+\begin{figure}
+\centering
+\includegraphics{badgraph.PNG}
+\caption{badgraph}
+\end{figure}
+
+\begin{quote}
+\textbf{Exercise 5\_1}
+\emph{Examine the graph shown above.}
+
+\emph{Look at it for just a moment, as if you might while reading something else on the screen, or as your ten-year old little sister might. What does the graph tell you?}
+
+\emph{Look at it more closely. What does it actually say? How could you improve it to make the content of the graph more informative about its title?}
+
+\emph{Why was the graph designed in this way?}
+
+\emph{Does this matter?}
+\end{quote}
+
+Poorly designed graphs don't just confuse rocket scientists. They reach us, mislead us, and make fools of all of us as well. With better graphs, we become a better informed, better educated citizenry.
 
 \hypertarget{should-graphs-begin-with-psychological-theory}{%
 \subsection{Should graphs begin with psychological theory?}\label{should-graphs-begin-with-psychological-theory}}
 
-\citet{wainer1981graphical} used Chernoff's faces to represent multivariate data. Grounded in a psychological premise. Did they succeed? Why or why not?
+Speaking of America, consider the following.
 
 \begin{figure}
 \centering
 \includegraphics{Chernoff.PNG}
-\caption{Chernoff}
+\caption{Figure 5.5: Chernoff's too-clever faces}
 \end{figure}
 
-Population - the (log) number of faces/state
-
-Literacy rate - size of the eyes (bigger = higher).
-
-\% HS graduates - slant of the eyes (the more slanted = higher).
-
-Life expectancy - the length of the mouth (the longer = longer).
-
-Homicide rate - the width of the nose (the wider the nose the lower).
-
-Income - the curvature of the mouth (the bigger the smile the higher the income).
-
-Temperature - the shape of the face (peanut= warmer, football= colder)
-
-Longitude and latitude - The X and Y position of the face on the coordinate axes of the paper represent the position of the state
+In this figure, from \citet{wainer1981graphical}, (Chernoff's) faces are used to represent multivariate data. The display is loosely based on the (psychological) premise that, from infancy, we are inordinately sensitive to facial features. Consequently, the most powerful, effective, or informative data displays should manipulate facial features. Does this graph succeed? Why or why not? Would an updated model, based on richer, more complex, and more realistic simulations of facial expressions \citep{thies2015real} be more successful?
 
 \hypertarget{the-power-of-animation}{%
 \subsection{The power of animation}\label{the-power-of-animation}}
 
-This section concludes with two brief (\textless{} 5 minutes) animated data displays, each powerful in its own way, and each giving the viewer an appreciation of an important social phenomenon.
+Animated data displays bring the dimension of time into data visualization. Here are two brief (\textless{} 5 minutes) animated data displays, each powerful in its own way, and each of which gives the viewer an appreciation of an important social phenomenon.
 
 The first is from the late Hans Rosling, and summarizes a chunk of the Gapminder data. There is a Gapminder package in R if you would like to explore the data further, and perhaps become the next Rosling:
 
-\href{https://youtu.be/jbkSRLYSojo}{\includegraphics{https://img.youtube.com/vi/jbkSRLYSojo/0.jpg}}.
+\href{https://youtu.be/jbkSRLYSojo}{img.youtube.com/vi/jbkSRLYSojo/0.jpg\includegraphics{https://img.youtube.com/vi/jbkSRLYSojo/0.jpg}}
 
-The second is from Kim Rees and her ex-colleagues at \href{https://periscopic.com/}{Periscopic} (Rees is now at CapitalOne). For me, it's an important graphic because it shows an approach to overcoming what has been called ``psychic numbing'' - we are sensitive to the individual case, but lose our perspective when faced with large-scale tragedies, so that effectively the \citep{slovic2013psychic}
+\emph{Video 5.6: Rosling and social progress}
 
-\href{https://youtu.be/8R8UOjMy-5k}{\includegraphics{https://img.youtube.com/vi/8R8UOjMy-5k/0.jpg}}.
+The second is from Kim Rees and her ex-colleagues at \href{https://periscopic.com/}{Periscopic} (Rees is now at CapitalOne). For me, it's an important graphic because it tries to overcome what has been called ``psychic numbing'' - we are sensitive to the individual case, but lose our perspective when faced with large-scale tragedies, so that effectively the more lives lost\ldots{} the less we care \citep{slovic2013psychic}.
+
+\href{https://youtu.be/8R8UOjMy-5k}{\includegraphics{https://img.youtube.com/vi/8R8UOjMy-5k/0.jpg}}
+
+\emph{Video 5.7: Rees and stolen years}
+
+\hypertarget{telling-the-truth-when-the-truth-is-unclear}{%
+\section{Telling the truth, when the truth is unclear}\label{telling-the-truth-when-the-truth-is-unclear}}
+
+We live in an uncertain world, and a major challenge in data visualization is how to convey this uncertainty in a way that people understand readily. Examples of this are familiar. Here in Florida, projected hurricane paths are frequently represented by a ``cone of uncertainty'' surrounding a single track. An alternative approach is to use a display which shows a distribution of possible tracks.
+
+\begin{figure}
+\centering
+\includegraphics{https://i1.wp.com/datastori.es/wp-content/uploads/2019/01/02.jpg?w=650\&h=434}
+\caption{Figure 5.8: Two approaches to displaying hurricane paths}
+\end{figure}
+
+\hypertarget{animated-approaches}{%
+\subsection{Animated approaches}\label{animated-approaches}}
+
+To further illustrate the idea of uncertainty, data visualizations may be animated. To display hurricane outcomes, for example, individual lines in a spaghetti plot might fade in and out \citep[see][]{cox2013visualizing}. Another use of animation is suggested by \citep{hullman2015hypothetical} who use \href{https://cdn-images-1.medium.com/max/600/1*vol7-537cqnpucRgBP-j9A.gif}{hypothetical outcome plots} rather than simple error bars to illustrate sampling distributions. Empirically, subjects have a better understanding of the meaning of statistical effects when these are represented by dynamic displays.
+
+During the 2016 US Presidential Election, the NY Times graphics presented the range of likely possibilities (here, between the 25th and 75th percentiles) as a dynamically changing \href{https://www.vis4.net/blog/images/old/jitter4.gif}{``jittery gauge''} . Following the election, there was some criticism of these gauges, as readers claimed that they tended to make them anxious. However, it appears that at least some of the anxiety was attributable not to the gauges themselves, but to the \href{https://www.vis4.net/blog/2016/11/jittery-gauges-election-forecast/}{electoral outcome itself}. The gauges were back in 2018, and will likely be used again in the future.
+
+Finally, animation may be used not just to display uncertainty or a possible range, but also data displays which both carry a great deal of information and unfold over time, such as \href{http://wise.fau.edu/~lanning/EgoDevelopmentsmallest.gif}{the language of personality development} in my own work.
+
+\hypertarget{a-supplement-code-for-asymmetrical-eulervenn-diagrams}{%
+\section{a supplement: Code for Asymmetrical Euler/Venn diagrams}\label{a-supplement-code-for-asymmetrical-eulervenn-diagrams}}
+
+Finally, for those who want to fiddle with a simpler problem in R, I present some of the code I used in a recent talk about asymmetries in set sizes \citep{lanning2018data}. The argument is that asymmetries in statistical relationships are common, yet poorly understood.
+
+\hypertarget{setup}{%
+\subsection{setup}\label{setup}}
+
+In the first block, I load libraries, and generate a palette, or set of colors to be used in the graphs. For this, I extracted three or four colors from one of the Brewer palettes. (I had to fiddle because I wanted the regions to be (a) visible for the colorblind, (b) with distinguishable intersections, and (c) not ugly.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \KeywordTok{library}\NormalTok{(dplyr)}
+    \KeywordTok{library}\NormalTok{(tidytext)}
+    \KeywordTok{library}\NormalTok{(tidyverse)}
+    \KeywordTok{library}\NormalTok{(eulerr)}
+    \KeywordTok{library}\NormalTok{(grid)}
+    \KeywordTok{library}\NormalTok{(gridExtra)}
+    \KeywordTok{library}\NormalTok{(RColorBrewer)}
+\NormalTok{    cbPalette <-}\StringTok{ }\KeywordTok{brewer.pal}\NormalTok{(}\DecValTok{9}\NormalTok{,}\StringTok{"PuBuGn"}\NormalTok{)}
+\NormalTok{    threeColors <-}\StringTok{ }\NormalTok{cbPalette[}\KeywordTok{c}\NormalTok{(}\DecValTok{9}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{5}\NormalTok{)]}
+\NormalTok{    fourColors <-}\StringTok{ }\NormalTok{cbPalette[}\KeywordTok{c}\NormalTok{(}\DecValTok{9}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{4}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{cpi--cq}{%
+\subsection{CPI- CQ}\label{cpi--cq}}
+
+The first example of asymmetry concerns the reciprocal predictability of two personality measures, the California Psychological Inventory and the California Q-set - the second (the Q-set) accounts for more of the variance in the first than vice-versa \citep{lanning1991shared}.
+
+In the code, I specify options for the Euler charts, then the data for the plot, which I generate using base R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \KeywordTok{eulerr_options}\NormalTok{(}\DataTypeTok{pointsize =} \DecValTok{16}\NormalTok{,}
+                   \DataTypeTok{fills =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{fill =}\NormalTok{ threeColors),}
+                   \DataTypeTok{edges =} \KeywordTok{list}\NormalTok{ (}\DataTypeTok{lty =} \DecValTok{1}\NormalTok{, }\DataTypeTok{col =} \StringTok{"blue"}\NormalTok{),}
+                   \DataTypeTok{labels =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{fontfamily =} \StringTok{'sans'}\NormalTok{,}
+                                 \DataTypeTok{font =} \DecValTok{1}\NormalTok{,}
+                                 \DataTypeTok{col =} \StringTok{"yellow"}\NormalTok{),}
+                   \DataTypeTok{quantities =} \KeywordTok{list}\NormalTok{ (}\DataTypeTok{fontfamily =} \StringTok{'sans'}\NormalTok{,}
+                                      \DataTypeTok{font =} \DecValTok{3}\NormalTok{,}
+                                      \DataTypeTok{col =} \StringTok{"yellow"}\NormalTok{))}
+\CommentTok{# areas of different regions}
+\NormalTok{    CPIArea <-}\StringTok{ }\DecValTok{1}
+\NormalTok{    CQArea <-}\StringTok{ }\DecValTok{154}\OperatorTok{/}\DecValTok{107} \CommentTok{# Ratio of Rsq from article}
+\NormalTok{    fit3 <-}\StringTok{ }\KeywordTok{euler}\NormalTok{(}\KeywordTok{c}\NormalTok{ (}\StringTok{"A"}\NormalTok{=CPIArea, }\StringTok{"B"}\NormalTok{=CQArea, }\StringTok{"A&B"}\NormalTok{=.}\DecValTok{107}\NormalTok{), }
+                  \DataTypeTok{shape =} \StringTok{"ellipse"}\NormalTok{)}
+    \KeywordTok{plot}\NormalTok{(fit3, }\DataTypeTok{labels =} \KeywordTok{c}\NormalTok{(}\StringTok{"CPI"}\NormalTok{, }\StringTok{"CQ-Set"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DataSciLibArts_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+\hypertarget{scholarly-communities}{%
+\subsection{scholarly communities}\label{scholarly-communities}}
+
+The second proportional Venn diagram illustrates asymmetrical relationships between scholarly communities, in particular, three regions with the domain of personality and social psychology. The counts describe the number of scholarly papers in various regions as reported in \citet{lanning2017relationship}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    personality <-}\StringTok{ }\DecValTok{12}
+\NormalTok{    self_reg <-}\StringTok{ }\DecValTok{7}
+\NormalTok{    attitudes <-}\StringTok{ }\DecValTok{13}
+\NormalTok{    fit4 <-}\StringTok{ }\KeywordTok{euler}\NormalTok{(}\KeywordTok{c}\NormalTok{ (}\StringTok{"A"}\NormalTok{=personality,}
+                     \StringTok{"B"}\NormalTok{=self_reg,}
+                     \StringTok{"C"}\NormalTok{=attitudes,}
+                     \StringTok{"A&B"}\NormalTok{ =}\StringTok{ }\DecValTok{1}\NormalTok{,}
+                     \StringTok{"A&C"}\NormalTok{ =}\StringTok{ }\DecValTok{0}\NormalTok{,}
+                     \StringTok{"B&C"}\NormalTok{ =}\StringTok{ }\DecValTok{1}\NormalTok{,}
+                     \StringTok{"A&B&C"}\NormalTok{ =}\StringTok{ }\DecValTok{0}\NormalTok{), }
+                  \DataTypeTok{shape =} \StringTok{"ellipse"}\NormalTok{)}
+    \KeywordTok{eulerr_options}\NormalTok{(}\DataTypeTok{pointsize =} \DecValTok{12}\NormalTok{,}
+                   \DataTypeTok{fills =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{fill =}\NormalTok{ threeColors),}
+                   \DataTypeTok{edges =} \KeywordTok{list}\NormalTok{ (}\DataTypeTok{lty =} \DecValTok{1}\NormalTok{, }\DataTypeTok{col =} \StringTok{"blue"}\NormalTok{),}
+                   \DataTypeTok{labels =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{fontfamily =} \StringTok{'sans'}\NormalTok{,}
+                                 \DataTypeTok{font =} \DecValTok{1}\NormalTok{,}
+                                 \DataTypeTok{col =} \StringTok{"yellow"}\NormalTok{),}
+                   \DataTypeTok{quantities =} \KeywordTok{list}\NormalTok{ (}\DataTypeTok{fontfamily =} \StringTok{'sans'}\NormalTok{,}
+                                      \DataTypeTok{font =} \DecValTok{3}\NormalTok{,}
+                                      \DataTypeTok{col =} \StringTok{"yellow"}\NormalTok{))}
+    \KeywordTok{plot}\NormalTok{(fit4, }
+              \DataTypeTok{labels =} \KeywordTok{c}\NormalTok{(}\StringTok{"Personality"}\NormalTok{,}
+                         \StringTok{"Self-Regulation"}\NormalTok{,}
+                         \StringTok{"Attitudes"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DataSciLibArts_files/figure-latex/unnamed-chunk-3-1.pdf}
 
 \hypertarget{further-reading-and-resources}{%
-\section{Further reading and resources}\label{further-reading-and-resources}}
+\section{further reading and resources}\label{further-reading-and-resources}}
 
-This is only the beginning of a discussion of data visualizations. \citet{healy2018viz} presents a more expanded discussion of this treatment. He addresses the limitations of infographics, in which the design purveys style over substance (this is what we may do in designing presentations as well), and includes a rationale for a grammar of graphics, as instantiated in the ggplot package in R that we will be working with beginning next week \citep{wickham2016r}. \citet{cleveland1985graphical} examines graphs from a more rigorous psychological and empirical viewpoint. The \href{http://datastori.es/}{Data Stories podcasts} are often excellent, despite the challenge of an auditory medium for visual display. And your classmates and instructors have things to say as well.
+If you'd like to learn more, \citet{tufte2001visual} and his other books are beautiful and thought provoking. \citet{cleveland1985graphical} examines graphs from a more rigorous psychological and empirical viewpoint. The Data Stories podcasts are often excellent, despite the challenge of an auditory medium for visual display (\href{http://datastori.es/92-a-tribute-to-hans-rosling/}{especially the episode on Hans Rosling}). And \citet{healy2018viz} provides a comprehensive introduction that, in essence, provides the basis for a semester-long course based in the ggplot2 package in R that we will be working with in the next chapter \citep{wickham2016r}.
 
-\hypertarget{references}{%
-\chapter{references}\label{references}}
+\hypertarget{visualization-in-r-with-ggplot}{%
+\chapter{visualization in R with ggplot}\label{visualization-in-r-with-ggplot}}
 
-\bibliography{../9Bibliography/dataSciRefs.bib}
+\hypertarget{status-80}{%
+\section*{status 80\%}\label{status-80}}
+\addcontentsline{toc}{section}{status 80\%}
 
+Text is OK, but students in 2019 produced some pretty weak visualizations. Anscombe data needs to be simplified, leading to another homework assignment. Students need a more solid understanding of problems with pie charts, 3d bar graphs, etc. This could be done in the prior chapter, but it would be better to expand on it here, leading to a project within a few weeks.
+
+In the last chapter, we introduced data visualization, citing ``vision-aries'' including Edward Tufte and Hans Rosling, inspired works such as Minard's \emph{Carte Figurative} and Periscopic's \emph{stolen years}, as well as a few cautionary tales of misleading and confusing graphs.
+
+Here, in playing with and learning the R package \textbf{ggplot}, we begin to move from consumers to creators of data visualizations.
+
+As the first visualization in \citet{wickham2016r} reminds us, data visualization is at the core of exploratory data analysis:
+
+\begin{figure}
+\centering
+\includegraphics{dataviscycle.PNG}
+\caption{Fig 6.1: Data visualization is at the core of data analysis (\citet{wickham2016r})}
+\end{figure}
+
+In the world of data science, statistical programming is about discovering and communicating truths within your data. This \textbf{exploratory data analysis is the corner of science, particularly at a time in which confirmatory studies are increasingly found to be unreproducible}.
+
+Most of your reading will be from Chapter 3 of \citet{wickham2016r}, this is intended only as a supplement.
+
+\hypertarget{picture-words-numbers}{%
+\section{picture \textgreater{} (words, numbers)?}\label{picture-words-numbers}}
+
+The chapter begins with a quote from John Tukey about the importance of graphs. Yet there is a tendency among some statisticians and scientists to consider graphic representations of data as less valuable than statistical ones.
+
+Perhaps, if a picture is worth a thousand words, a graph can likewise tell us more than good solid numbers. Consider `Anscombe's quartet' (screenshot below, live at \url{http://bit.ly/anscombe2019}):
+
+\begin{figure}
+\centering
+\includegraphics{spreadsheet61.PNG}
+\caption{Table 6.1: An adaptation of Anscombe's ``quartet'' \citep{anscombe1973american}}
+\end{figure}
+
+\begin{quote}
+\textbf{Exercise 6\_1}
+\emph{Consider the spreadsheet chunk presented above, which I am characterizing as data collected on a sample of ten primary school children at recess on four consecutive days. Working with your classmates, compute the mean, standard deviation, and correlation between the two measures for one day. Share your results with the class.}
+\end{quote}
+
+The four pairs of variables in \citet{anscombe1973american} appear statistically ``the same,'' yet the data suggest something else. Later, we'll try to plot these. Perhaps graphs can reveal truths that statistics can hide.
+
+\hypertarget{your-ggplots}{%
+\section{your ggplots}\label{your-ggplots}}
+
+In class, we will review and recreate the plots in section 3.2 of \citet{wickham2016r} and exercises through 3.4.
+
+Savor this section, reading slowly, and playing around with the RStudio interface. For example, read about the mpg data in the `help' panel, pull up the mpg data in a view window, and sort through it by clicking on various columns.
+
+\begin{figure}
+\centering
+\includegraphics{rstudio62.PNG}
+\caption{Fig. 6.2: A screenshot from RStudio, showing the mpg dataset}
+\end{figure}
+
+\hypertarget{facets---displaying-the-anscombe-data}{%
+\section{facets - displaying the Anscombe data}\label{facets---displaying-the-anscombe-data}}
+
+When we get to section 5 (facets), it may occur to you that this would be a nice way to display the Anscombe data. Fortunately, they are already, like many other datasets, stored in R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{ (tidyverse)}
+\CommentTok{# to get a list of preloaded datasets, uncomment this line}
+\CommentTok{# data()}
+\KeywordTok{data}\NormalTok{(anscombe)}
+\KeywordTok{str}\NormalTok{(anscombe)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    11 obs. of  8 variables:
+##  $ x1: num  10 8 13 9 11 14 6 4 12 7 ...
+##  $ x2: num  10 8 13 9 11 14 6 4 12 7 ...
+##  $ x3: num  10 8 13 9 11 14 6 4 12 7 ...
+##  $ x4: num  8 8 8 8 8 8 8 19 8 8 ...
+##  $ y1: num  8.04 6.95 7.58 8.81 8.33 ...
+##  $ y2: num  9.14 8.14 8.74 8.77 9.26 8.1 6.13 3.1 9.13 7.26 ...
+##  $ y3: num  7.46 6.77 12.74 7.11 7.81 ...
+##  $ y4: num  6.58 5.76 7.71 8.84 8.47 7.04 5.25 12.5 5.56 7.91 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{head}\NormalTok{(anscombe)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   x1 x2 x3 x4   y1   y2    y3   y4
+## 1 10 10 10  8 8.04 9.14  7.46 6.58
+## 2  8  8  8  8 6.95 8.14  6.77 5.76
+## 3 13 13 13  8 7.58 8.74 12.74 7.71
+## 4  9  9  9  8 8.81 8.77  7.11 8.84
+## 5 11 11 11  8 8.33 9.26  7.81 8.47
+## 6 14 14 14  8 9.96 8.10  8.84 7.04
+\end{verbatim}
+
+Unfortunately, the Anscombe data in R have a different structure. Here's one way to reshape it:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{anscombe}\OperatorTok{$}\NormalTok{kid <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Al"}\NormalTok{, }\StringTok{"Barb"}\NormalTok{,}
+                   \StringTok{"Cathy"}\NormalTok{, }\StringTok{"Dirk"}\NormalTok{,}
+                   \StringTok{"Edwin"}\NormalTok{, }\StringTok{"Flo"}\NormalTok{,}
+                   \StringTok{"George"}\NormalTok{, }\StringTok{"Henry"}\NormalTok{,}
+                   \StringTok{"Isaiah"}\NormalTok{, }\StringTok{"Jim"}\NormalTok{,}
+                   \StringTok{"Ken"}\NormalTok{) }
+\CommentTok{# make a file anscombe2 from anscombe}
+\NormalTok{anscombe2 <-}\StringTok{ }\NormalTok{anscombe }\OperatorTok{%>%}
+\CommentTok{# make a new variable called x from x1:x4    }
+\StringTok{    }\KeywordTok{gather}\NormalTok{(x,levelx,x1,x2,x3,x4,}
+\CommentTok{# don't mess with the other variables}
+           \OperatorTok{-}\KeywordTok{c}\NormalTok{(y1,y2,y3,y4,kid))}
+\CommentTok{# to peek at it, uncomment the next line.}
+\CommentTok{# head(anscombe2)}
+\NormalTok{anscombe2 <-}\StringTok{ }\NormalTok{anscombe2 }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{gather}\NormalTok{(y,levely,y1,y2,y3,y4,}
+           \OperatorTok{-}\KeywordTok{c}\NormalTok{(x,levelx,kid)) }\OperatorTok{%>%}\StringTok{ }
+\CommentTok{# keep only pairs where the x and y vars are the same}
+\StringTok{    }\KeywordTok{filter}\NormalTok{ (}\KeywordTok{substr}\NormalTok{(x,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{) }\OperatorTok{==}\StringTok{ }\KeywordTok{substr}\NormalTok{(y,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\CommentTok{# drop one of these }
+\StringTok{    }\KeywordTok{select}\NormalTok{ (}\OperatorTok{-}\NormalTok{y) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{recode}\NormalTok{(x,}
+                      \DataTypeTok{x1=}\StringTok{"Mon"}\NormalTok{,}\DataTypeTok{x2 =} \StringTok{"Tue"}\NormalTok{,}
+                      \DataTypeTok{x3 =} \StringTok{"Wed"}\NormalTok{, }\DataTypeTok{x4 =} \StringTok{"Thu"}\NormalTok{))}
+\KeywordTok{head}\NormalTok{(anscombe2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     kid   x levelx levely
+## 1    Al Mon     10   8.04
+## 2  Barb Mon      8   6.95
+## 3 Cathy Mon     13   7.58
+## 4  Dirk Mon      9   8.81
+## 5 Edwin Mon     11   8.33
+## 6   Flo Mon     14   9.96
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str}\NormalTok{(anscombe2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    44 obs. of  4 variables:
+##  $ kid   : chr  "Al" "Barb" "Cathy" "Dirk" ...
+##  $ x     : chr  "Mon" "Mon" "Mon" "Mon" ...
+##  $ levelx: num  10 8 13 9 11 14 6 4 12 7 ...
+##  $ levely: num  8.04 6.95 7.58 8.81 8.33 ...
+\end{verbatim}
+
+Copy this code into your console, then try applying the code in 3.5 to the Anscombe data. Keep track of your challenges\ldots and save your work.
+
+\hypertarget{exploring-more-data}{%
+\section{exploring more data}\label{exploring-more-data}}
+
+Choose one of the datasets in R, pull out a few variables, and explore these.
+
+Try to make a cool graph - one that informs the viewer, and, to paraphrase Tukey, helps us see what we don't expect.
+
+Try several different displays. Which fail? Which succeed? Be prepared to share your efforts on Wednesday.
+
+Don't be afraid to screw up. What's the worst that can happen?
+
+\hypertarget{r-is-the-bomb}{%
+\section{R is the bomb}\label{r-is-the-bomb}}
+
+This is the worst that can happen. It probably won't, today at least, maybe not this term. But in your fiddling, exploring, and messing around, you may tax your machine or even find a bug. Saving your work, in R as in other things, is always a good idea.
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/lanning/Dropbox/0DataSciLibArts/risthebomb.PNG}
+\caption{Fig 6.3: Yes, R is the bomb}
+\end{figure}
+
+\hypertarget{on-probability-and-statistics}{%
+\chapter{on probability and statistics}\label{on-probability-and-statistics}}
+
+\hypertarget{status-80-1}{%
+\section*{status 80\%}\label{status-80-1}}
+\addcontentsline{toc}{section}{status 80\%}
+
+Most of this material (basic rules) can be moved to an appendix at the end of the whole text (not merely the end of the chapter). Maybe add pic of plane crash at beginning to liven things up. add discussion of biases and heuristics, too, to illustrate human side of probability judgement. include \url{http://bit.ly/IDSquiz6}. This material runs two classes - the most dangerous equation section can appear as a separate module, possibly chapter.
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+Last week, we considered \citet{anscombe1973graphs} and his quartet, and how visualizing data is valuable. This week, we move to a brief discussion of principles of statistics.
+
+\hypertarget{on-probability}{%
+\section{on probability}\label{on-probability}}
+
+\textbf{Discrete} probability is used to understand the likelihood of categorical events. We can think of initial estimates of probability as subjective or personal. For some events (\emph{what is the probability this plane will crash?}), an estimate of probability can be drawn from a base rate or relative frequency (e.g., \emph{p(this plane will crash) = (number of flights with crashes/ number of flights)}). For other events (what is the probability that the US President will resign or be impeached before completing his term of office?), it may be hard to arrive at a suitable base rate. Here, a number of subjective beliefs or principles may be combined to arrive at a subjective or personal probability. In a sense, all probability estimates begin with a personal belief such as this, in part because the choice of the most informative base rate is often not self-evident - in the plane crash example, maybe we should consider a reference group rates such as `for this airline' etc. \citep{lanning1987some}. The personal origins of probability estimates should become less important as we are exposed to data and revise our estimates in accordance with Bayes theorem. But over the last 45 years, a substantial body of evidence has demonstrates that, under at least some circumstances, we don't make estimates of probability in this way. (This material is discussed in the Thinking and Decision Making/Behavioral Economics class).
+
+There is a nice r markdown document discussing basic laws of probability at Harvard's datasciencelabs repository: \url{https://github.com/datasciencelabs/2018/blob/master/lectures/prob/discrete-probability.Rmd}; I include this here as an appendix to this chapter.
+
+\hypertarget{the-rules-of-probability}{%
+\section{the rules of probability}\label{the-rules-of-probability}}
+
+Here's an introduction to the principles of probability. These are presented, with examples and code, in the appendix at the end of the chapter.
+
+\begin{quote}
+\textbf{I. For any event A, 0 \textless= P (A) \textless= 1}
+
+\textbf{II. Let S be the sample space, or set of all possible outcomes. Then P(S) = 1, and P (not S) = 0.}
+
+\textbf{III. If P (A and B) = 0, then P (A or B) = P (A) + P (B).}
+
+\textbf{IV. P (A\textbar B) = P (A and B)/ P (B)}
+\end{quote}
+
+Principle III applies for \textbf{mutually exclusive} events, such as A = you are here this morning, B = you are at the beach this morning. For mutually exclusive (disjoint, disjunctive) events, the union is the sum of the two events. This is called the addition rule for disjoint events.
+
+A different rule applies for events that are \textbf{mutually independent}, such as (A = I toss a coin and it lands on `Heads') and (B = it will rain tomorrow). What we mean by independent is that our estimates of the probability of one don't change based on the state of the other - your estimate of the likelihood of rain shouldn't depend on my coin flip. Here, you multiply rather than add:
+
+\begin{quote}
+\textbf{If P (A\textbar B) = P (A), then P (A and B) = P (A) P (B).}
+\end{quote}
+
+In words - if the probability of A given B equals the probability of A, then the probability of both A and B equals the probability of A times the probability of B.
+
+Ask yourself - are mutually exclusive events independent? Come up with your own examples.
+
+This \textbf{multiplication rule} is handy for estimating the probability of an outcome that happens following a chain of independent events, such as the probability that the next eight times I toss a coin it will land on ``tails'' every time:
+
+\begin{quote}
+P (TTTTTTTT) = P (T) P (T) P (T) P (T) P (T) P (T) P (T) P (T). = .58 = 1/256.
+\end{quote}
+
+Many sets of events are neither disjoint nor independent, so we need more general ways of thinking about pairs of events. For most of us, Venn diagrams are useful to think about combining probabilities. The \textbf{union or P (A U B)} describes the probability that A, B, or both of these will occur. Here, you will use the \textbf{general addition rule:}
+
+\begin{quote}
+\textbf{P (A or B) = P (A) + P (B) - P (A and B)}
+\end{quote}
+
+(the probability of A or B is the probability of A plus the probability of B minus the probability of both A and B).
+
+For the \textbf{intersection or P (A ∩ B)}, we need to consider \textbf{conditional probabilities}. Think of the probability of two events sequentially: First, what's the probability of A? Second, what's the probability of B, given that A has occurred? Multiply these to get the likelihood of A and B:
+
+\begin{quote}
+\textbf{P (A and B) = P (A) P (B\textbar A).}
+\end{quote}
+
+\emph{Example: The probability of you and your roommate both getting mononucleosis equals the probability of your getting mono times the probability that your roommate gets it, given that you have it also.}
+
+This is the \textbf{general multiplication rule}. In this abstract example, the order is irrelevant. To estimate the likelihood of A and B, we could as easily take the probability of B, and multiply it by the conditional probability of A given B
+
+\begin{quote}
+\textbf{P (A and B) = P (B) P (A\textbar B).}
+\end{quote}
+
+\emph{Use the mono example again. What are A and B here? Does it still make sense? When might P (B\textbar A) make more sense than P (A\textbar B)?}
+
+We are often interested in estimating conditional probabilities, in which case we'll use the same equation, but solve instead for P (A\textbar B). This leads us back to principle IV:
+
+\begin{quote}
+\textbf{IV. P (A\textbar B) = P (A and B)/ P (B)}
+\end{quote}
+
+\begin{quote}
+\emph{What is the likelihood of getting in an accident (A), given that one is driving on I-95 (B)? How would you estimate this? If there are fewer accidents on Military Trail, does this mean that you would be safer there?}
+\end{quote}
+
+\hypertarget{keeping-conditional-probabilities-straight}{%
+\subsection{keeping conditional probabilities straight}\label{keeping-conditional-probabilities-straight}}
+
+In general, P (B\textbar A) and P (A\textbar B) are not equivalent. Moore's (2000) \emph{Basic Practice of Statistics} gives the example of
+
+\begin{quote}
+P (Police car \textbar{} Crown Victoria) = .7, and P (Crown Vic \textbar{} Police car) = .85.
+\end{quote}
+
+Here, one could use an asymmetrical Venn diagram (see the code at the end of Chapter 5) to model this asymmetry. Consider adapting that code for this problem, or at the very least make a rough sketch that can help you answer the following question:
+\textgreater{} In general, if P (A\textbar B) \textless{} P (B\textbar A), what must be true of the relationship of P (A) to P (B)?
+
+\hypertarget{continuous-probability-distributions}{%
+\section{continuous probability distributions}\label{continuous-probability-distributions}}
+
+We can also use probability with \textbf{continuous} variables such as systolic blood pressure (that's the first one), which has a mean of approximately 120 and a standard deviation of 15. Continuous probability distributions are handy tools for thinking about the meaning of scores, particularly when we express scores in standard deviations from the mean (z scores). More to the point, this way of thinking about probability is widely used in questions of scientific inference, as, for example, in testing hypotheses such that ``the average systolic blood pressure among a group of people studying at Crux (hence caffeinated) will be significantly greater than that of the population as a whole.''
+
+This is part of the logic of \textbf{Null Hypothesis Significance Testing (NHST)} - if the result in my Crux sample is sufficiently high, then I say that I have rejected the null hypothesis, and found data which support the hypothesis of interest.
+
+\hypertarget{the-most-dangerous-equation}{%
+\section{the most dangerous equation}\label{the-most-dangerous-equation}}
+
+Just as \citet{tufte2001visual} demonstrated that poor data visualizations can be dangerous, leading, for example, to the loss of life in the Challenger disaster, \citet{wainer2007dangerous} shows that a lack of statistical literacy is also ``dangerous.''
+
+He argues that deMoivre's equation is the most dangerous equation - this equation (for the standard error) shows that variability decreases with the square root of sample size. Other nominees include the linear regression equation (and, in particular, how coefficients may change or reverse when new variables are added) and regression to the mean. Regarding linear regression, we discussed (a little) Simpson's paradox, that is, that the direction of regression coefficients may change when additional variables are added.
+
+I argued that, from the standpoint of psychology, ignorance of regression to the mean was arguably more `dangerous' than ignorance about the central limit theorem and standard error, in particular because regression effects contribute to an overestimate of the effectiveness of punishment and an under-appreciation of the effectiveness of positive reinforcement as tools for behavior change \citep{hastie2010rational}.
+
+\hypertarget{appendix-notes-on-discrete-probability}{%
+\section{appendix: notes on discrete probability}\label{appendix-notes-on-discrete-probability}}
+
+\textbf{This section was downloaded from \url{https://github.com/datasciencelabs/2018/blob/master/prob/discrete-probability.Rmd} and run in R on February 3, 2019. They have licensed this material under \url{https://creativecommons.org/licenses/by/3.0/}, allowing it to be shared with attribution.}
+
+\textbf{I have made minor changes to correct typos (e.g., republican -\textgreater{} Republican), but haven't upoaded these back to GitHub.}
+
+\hypertarget{discrete-probability-see-attribution-in-7.5}{%
+\section{Discrete Probability (see attribution in 7.5)}\label{discrete-probability-see-attribution-in-7.5}}
+
+We will now transition to probability and statistical inference. We start by covering some basic principles related to categorical data. The subset of probability is referred to as \emph{discrete probability}. It will help us understand the probability theory we will later introduce for numeric and continuous data, which is much more common in data science applications. Discrete probability is more useful in card games and other games of chance and we use these as examples.
+
+\hypertarget{relative-frequency}{%
+\subsection{Relative Frequency}\label{relative-frequency}}
+
+The word probability is used in everyday language. For example, Google's auto-complete of ``What are the chances of'' give us ``getting pregnant'', ``having twins'', and ``rain today''. Answering questions about probability is often hard if not impossible. Here we discuss a mathematical definition of \emph{probability} that does permit us to give precise answers to certain questions.
+
+For example, if I have 2 red beads and 3 blue beads inside an urn and I pick one at random, what is the probability of picking a red one? Our intuition tells us that the answer is 2/5 or 40\%. A precise definition can be given by noting that there are five possible outcomes of which two satisfy the condition necessary for the event ``pick a red bead''. Because each of the five outcomes has the same chance of occurring we conclude that the probability is 0.4 for red and 0.6 for blue.
+
+A more tangible way to think about the probability of an event is as the proportion of times the event occurs when we repeat the experiment over and over, independently, and under the same conditions.
+
+\hypertarget{notation}{%
+\subsection{Notation}\label{notation}}
+
+We use the notation \(\mbox{Pr}(A)\) to denote the probability of event \(A\) happening. We use the very general term \emph{event} to refer to things that can happen when something happens by chance. For example, in our previous example the event was ``picking a red bead''. In a political poll in which we call 100 likely voters at random, an example of an event is ``calling 48 Democrats and 52 Republicans''.
+
+In data science applications, we will often deal with continuous variables. In these cases events will often be things like ``is this person taller than 6 feet''. In this case we write events in a more mathematical form: \(X \geq 6\). We will see more of these examples later. Here we focus on categorical data.
+
+\hypertarget{monte-carlo-simulations}{%
+\subsection{Monte Carlo Simulations}\label{monte-carlo-simulations}}
+
+Computers provide a way to actually perform the simple random experiment described above: pick a bead at random from a bag with three blue beads and two red ones. Random number generators permit us to mimic the process of picking at random.
+
+An example is the \texttt{sample} function in R. We demonstrate its use in the code below. First, we use the function \texttt{rep} to generate the urn:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{beads <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"blue"}\NormalTok{), }\DataTypeTok{times =} \KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{))}
+\NormalTok{beads}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "red"  "red"  "blue" "blue" "blue"
+\end{verbatim}
+
+and then use \texttt{sample} to pick a bead at random:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sample}\NormalTok{(beads, }\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "red"
+\end{verbatim}
+
+This line of code produces one random outcome. We want to repeat this experiment ``over and over''. However, it is of course impossible to repeat forever. Instead, we repeat the experiment a large enough number of times to make the results practically equivalent. This is an example of a \emph{Monte Carlo} simulation.
+
+Note that much of what mathematical and theoretical statisticians study, something we do not cover in this course, relates to providing rigorous definitions of ``practically equivalent'' as well as studying how close a large number of experiments gets us to what happens in the limit. Later in this lecture we provide a practical approach to deciding what is ``large enough''.
+
+To perform our first Monte Carlo simulation we use the \texttt{replicate} function, which permits us to repeat the same task any number of times. Here we repeat the random event \(B=\) 10,000 times:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{B <-}\StringTok{ }\DecValTok{10000}
+\NormalTok{events <-}\StringTok{ }\KeywordTok{replicate}\NormalTok{(B, }\KeywordTok{sample}\NormalTok{(beads, }\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+We can now see if in fact, our definition is in agreement with this Monte Carlo simulation approximation. We can use \texttt{table} to see the distribution:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tab <-}\StringTok{ }\KeywordTok{table}\NormalTok{(events)}
+\NormalTok{tab}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## events
+## blue  red 
+## 6048 3952
+\end{verbatim}
+
+and \texttt{prop.table} gives us the proportions:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{prop.table}\NormalTok{(tab)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## events
+##   blue    red 
+## 0.6048 0.3952
+\end{verbatim}
+
+The numbers above are the estimated probabilities provided by this Monte Carlo simulation. Statistical theory, not covered here, tells us the as \(B\) gets larger, the estimates get closer to 3/5 = 0.6 for blue and 2/5 = 0.4 for red.
+
+This is a simple and not very useful example, but we will use Monte Carlo simulation to estimate probabilities in cases in which it is harder to compute the exact ones. Before we go into more complex examples we use simple ones to demonstrate the computing tools available in R.
+
+\hypertarget{with-and-without-replacement}{%
+\subsection{With and without replacement}\label{with-and-without-replacement}}
+
+The function \texttt{sample} has an argument that permits us to pick more than one element from the urn. However, by default, this selection occurs \emph{without replacement}: after a bead is selected, it is not put back in the bag. Note what happens when we ask to randomly select five beads:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sample}\NormalTok{(beads, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "blue" "red"  "blue" "red"  "blue"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sample}\NormalTok{(beads, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "blue" "red"  "red"  "blue" "blue"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sample}\NormalTok{(beads, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "blue" "red"  "blue" "red"  "blue"
+\end{verbatim}
+
+This results in re-arrangements that always have three blue and two red beads. If we ask that six beads be selected, we get an error
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sample}\NormalTok{(beads, }\DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{Error\ in\ sample.int(length(x),\ size,\ replace,\ prob)\ :\ \ \ cannot\ take\ a\ sample\ larger\ than\ the\ population\ when\ \textquotesingle{}replace\ =\ FALSE\textquotesingle{}}
+
+However, the \texttt{sample} function can be used directly, without the use of \texttt{replicate}, to repeat the same experiment of picking one out of the 5 beads, over and over, under the same conditions. To do this we sample \emph{with replacement}: return the bead back to the urn after selecting it.
+
+We can tell \texttt{sample} to do this by changing the \texttt{replace} argument, which defaults as \texttt{FALSE}, to \texttt{replace\ =\ TRUE}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{events <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(beads, B, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{prop.table}\NormalTok{(}\KeywordTok{table}\NormalTok{(events))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## events
+##   blue    red 
+## 0.5957 0.4043
+\end{verbatim}
+
+Note that, not surprisingly, we get results very similar to
+those previously obtained with \texttt{replicate}.
+
+\hypertarget{probability-distributions}{%
+\subsection{Probability Distributions}\label{probability-distributions}}
+
+Defining a distribution for categorical outcomes is relatively straight forward. We simply assign a probability to each category.
+In cases that can be thought of as beads in an urn, for each bead type their proportion defines the distribution.
+
+If we are randomly calling likely voters from a population that is 44\% Democrat, 44\% Republican, 10\% undecided and 2\% Green party, these proportions define the probability for each group. The probability distribution is:
+
+\[
+\mbox{Pr}(\mbox{picking a Republican})=0.44\\ \mbox{Pr}(\mbox{picking a Democrat})=0.44\\
+\mbox{Pr}(\mbox{picking an undecided})=0.10\\
+\mbox{Pr}(\mbox{picking a Green})=0.02\\
+\]
+
+\hypertarget{independence}{%
+\subsection{Independence}\label{independence}}
+
+We say two events are independent if the outcome of one does not affect the other. The classic example are coin tosses. Every time we toss a fair coin the probability of seeing heads is 1/2 regardless of what previous tosses have revealed. The same is true when we pick beads from an urn with replacement. In the example above the probability of red is 0.40 regardless of previous draws.
+
+Many examples of events that are not independent come from card games. When we deal the first card, the probability of getting a king is 1/13 since there are 13 possibilities: Ace, Deuce, Three, \(\dots\), Ten, Jack, Queen, and King, and there are 4 of each possibility (for the 4 suits hearts, spades, diamonds, and clubs), totaling 52 cards. Now if we deal a king for the first card, and don't replace it into the deck, the probability of a second card being a king is less because there are only three kings left: the probability is 3 out of 51. These events are therefore \textbf{not independent}. The first outcome affects the next.
+
+To see an extreme case of non-independent events, consider our example of drawing five beads at random \textbf{without} replacement:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(beads, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+If you have to guess the color of the first bead you predict blue since blue has a 60\% chance. But if I show you the result of the last four outcomes:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x[}\DecValTok{2}\OperatorTok{:}\DecValTok{5}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "blue" "blue" "blue" "red"
+\end{verbatim}
+
+would you still guess blue? Of course not. Now you know that the probability of red is 1 since only a red bead remains. The events are not independent so the probabilities change.
+
+\hypertarget{conditional-probabilities}{%
+\subsection{Conditional Probabilities}\label{conditional-probabilities}}
+
+When events are not independent, \emph{conditional probabilities} are useful. We already saw an example of a conditional probability: we computed the probability that a second dealt card is a king given that the first was a king. In probability we use the following notation:
+
+\[
+\mbox{Pr}(\mbox{Card 2 is a king} \mid \mbox{Card 1 is a king}) = 3/51
+\]
+
+We use the \(\mid\) as shorthand for ``given that'' or ``conditional on''.
+
+Note that when two events, say \(A\) and \(B\), are independent we have
+
+\[
+\mbox{Pr}(A \mid B) = \mbox{Pr}(A)
+\]
+
+This is the mathematical way of saying: the fact that \(B\) happened does not affect the probability of \(A\) happening.
+In fact, this can be considered the mathematical definition of independence.
+
+\hypertarget{multiplication-rule-see-attribution-in-7.5}{%
+\section{Multiplication rule (see attribution in 7.5)}\label{multiplication-rule-see-attribution-in-7.5}}
+
+If we want to know the probability of two events, say \(A\) and \(B\), occurring, we can use the multiplication rule.
+
+\[
+\mbox{Pr}(A \mbox{ and } B) = \mbox{Pr}(A)\mbox{Pr}(B \mid A)
+\]
+Let's use Black Jack as an example. In Black Jack you get assigned two random cards. After you see what you have, you can ask for more. The goal is to get closer to 21 than the dealer, without going over. Number cards 2-10 are worth their number in points, face cards (Jacks, Queens, Kings) are worth 10 points and aces worth 11 or 1 (you choose).
+
+So, in a black jack game, to calculate the chances of getting a 21 in the following way by drawing an ace and then a face card, we compute the probability of the first being an ace and multiply by the probability of a face card given that the first was an ace: \(1/13 \times 12/51 \approx 0.018\)
+
+The multiplicative rule also applies to more than two events. We can use induction to expand for more events:
+
+\[
+\mbox{Pr}(A \mbox{ and } B \mbox{ and } C) = \mbox{Pr}(A)\mbox{Pr}(B \mid A)\mbox{Pr}(C \mid A \mbox{ and } B)
+\]
+
+\hypertarget{multiplication-rule-under-independence}{%
+\subsubsection{Multiplication rule under independence}\label{multiplication-rule-under-independence}}
+
+When we have independent events then the multiplication rule becomes simpler:
+
+\[
+\mbox{Pr}(A \mbox{ and } B \mbox{ and } C) = \mbox{Pr}(A)\mbox{Pr}(B)\mbox{Pr}(C)
+\]
+
+But we have to be very careful before using this, as assuming independence can result in very different, and incorrect, probability calculations when we don't actually have independence.
+
+As an example, imagine a court case in which the suspect was described to have a mustache and a beard. The defendant has a mustache and a beard and the prosecution brings in an ``expert'' to testify that 1/10 men have beards and 1/5 have mustaches so using the multiplication rule we conclude that only \(1/10 \times 1/5\) or 0.02 have both.
+
+But to multiply like this we need to assume independence! The conditional probability of a man having a mustache conditional on them having a beard is .95. So the correct calculation probability is much higher: 0.09.
+
+Note that the multiplication rule also gives us a general formula for computing conditional probabilities:
+
+\[
+\mbox{Pr}(B \mid A) = \frac{\mbox{Pr}(A \mbox{ and } B)}{ \mbox{Pr}(A)}
+\]
+
+To illustrate how we use these formulas and concepts in practice we will show several examples related to card games.
+
+\hypertarget{combinations-and-permutations}{%
+\subsection{Combinations and Permutations}\label{combinations-and-permutations}}
+
+In our very first example we imagined an urn with five beads. Let's review how we did this. To compute the probability distribution of one draw, we simply listed out all the possibilities, there were 5, and then, for each event, counted how many of these possibilities were associated with the event. So, for example, because out of the five possible outcomes, three were blue, the probability of blue is 3/5.
+
+For more complicated examples these computations are not straightforward. For example, what is the probability that if I draw five cards without replacement I get all cards of the same suit; what is called a flush in poker? In a Discrete Probability course you learn theory on how to make these kinds of computations. Here we focus on how to use R code to compute the answers.
+
+First let's construct a deck of cards. For this we will use the \texttt{expand.grid} and \texttt{paste} functions. We use \texttt{paste} to create strings by joining smaller strings. For example, if we have the number and suit of a card we create the card name like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{number <-}\StringTok{ "Three"}
+\NormalTok{suit <-}\StringTok{ "Hearts"}
+\KeywordTok{paste}\NormalTok{(number, suit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Three Hearts"
+\end{verbatim}
+
+\texttt{paste} also works on pairs of vectors performing the operation element-wise:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{paste}\NormalTok{(letters[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{], }\KeywordTok{as.character}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "a 1" "b 2" "c 3" "d 4" "e 5"
+\end{verbatim}
+
+The function \texttt{expand.grid} gives us all the combinations of entries of two vectors. For example if you have blue and black pants and white, grey and plaid shirts all your combinations are:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{expand.grid}\NormalTok{(}\DataTypeTok{pants =} \KeywordTok{c}\NormalTok{(}\StringTok{"blue"}\NormalTok{, }\StringTok{"black"}\NormalTok{), }\DataTypeTok{shirt =} \KeywordTok{c}\NormalTok{(}\StringTok{"white"}\NormalTok{, }\StringTok{"grey"}\NormalTok{, }\StringTok{"plaid"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   pants shirt
+## 1  blue white
+## 2 black white
+## 3  blue  grey
+## 4 black  grey
+## 5  blue plaid
+## 6 black plaid
+\end{verbatim}
+
+So here is how we generate a deck of cards:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{suits <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Diamonds"}\NormalTok{, }\StringTok{"Clubs"}\NormalTok{, }\StringTok{"Hearts"}\NormalTok{, }\StringTok{"Spades"}\NormalTok{)}
+\NormalTok{numbers <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Ace"}\NormalTok{, }\StringTok{"Deuce"}\NormalTok{, }\StringTok{"Three"}\NormalTok{, }\StringTok{"Four"}\NormalTok{, }\StringTok{"Five"}\NormalTok{, }\StringTok{"Six"}\NormalTok{, }\StringTok{"Seven"}\NormalTok{, }\StringTok{"Eight"}\NormalTok{, }\StringTok{"Nine"}\NormalTok{, }\StringTok{"Ten"}\NormalTok{, }\StringTok{"Jack"}\NormalTok{, }\StringTok{"Queen"}\NormalTok{, }\StringTok{"King"}\NormalTok{)}
+\NormalTok{deck <-}\StringTok{ }\KeywordTok{expand.grid}\NormalTok{(}\DataTypeTok{number=}\NormalTok{numbers, }\DataTypeTok{suit=}\NormalTok{suits)}
+\NormalTok{deck <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(deck}\OperatorTok{$}\NormalTok{number, deck}\OperatorTok{$}\NormalTok{suit)}
+\end{Highlighting}
+\end{Shaded}
+
+With the deck constructed, we can now double check that the probability of drawing a king as the first card is 1/13. We simply compute the proportion of possible outcomes that satisfy our condition:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{kings <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(}\StringTok{"King"}\NormalTok{, suits)}
+\KeywordTok{mean}\NormalTok{(deck }\OperatorTok{%in%}\StringTok{ }\NormalTok{kings)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.07692308
+\end{verbatim}
+
+which is 1/13.
+
+Now, how about the conditional probability of the second card being a king given that the first was a king ? Earlier we deduced that if one king is already out of the deck and there are 51 left then this probability is 3/51.
+Let's confirm by listing out all possible outcomes.
+
+To do this we can use the \texttt{permutations} function from the \texttt{gtools} package. This function computes, for any list of size \texttt{n}, all the different combinations we can get when we select \texttt{r} items. So here are all the ways we can chose 2 numbers from a list consisting of \texttt{1,2,3}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(gtools)}
+\KeywordTok{permutations}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2]
+## [1,]    1    2
+## [2,]    1    3
+## [3,]    2    1
+## [4,]    2    3
+## [5,]    3    1
+## [6,]    3    2
+\end{verbatim}
+
+Notice that the order matters here: 3, 1 is different than 1,3. Also note that (1,1), (2,2) and (3,3) don't appear because once we pick a number it can't appear again.
+
+Optionally, we can add a vector. So if you want to see five random seven digit phone numbers, out of all possible phone numbers you could type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{all_phone_numbers <-}\StringTok{ }\KeywordTok{permutations}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DataTypeTok{v =} \DecValTok{0}\OperatorTok{:}\DecValTok{9}\NormalTok{)}
+\NormalTok{n <-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(all_phone_numbers)}
+\NormalTok{index <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(n, }\DecValTok{5}\NormalTok{)}
+\NormalTok{all_phone_numbers[index,]}
+\end{Highlighting}
+\end{Shaded}
+
+Instead of using the numbers 1 through 10, the default, it uses what we provided through \texttt{v}: the digits 0 through 9.
+
+To compute all possible ways we can chose two cards, when the order matters, we type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{hands <-}\StringTok{ }\KeywordTok{permutations}\NormalTok{(}\DecValTok{52}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DataTypeTok{v =}\NormalTok{ deck)}
+\end{Highlighting}
+\end{Shaded}
+
+This is a matrix with two columns and 2652 rows. With a matrix we can get the first and second card like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{first_card <-}\StringTok{ }\NormalTok{hands[,}\DecValTok{1}\NormalTok{]}
+\NormalTok{second_card <-}\StringTok{ }\NormalTok{hands[,}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+Now the cases for which the first card was a king can be computed like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{kings <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(}\StringTok{"King"}\NormalTok{, suits)}
+\KeywordTok{sum}\NormalTok{(first_card }\OperatorTok{%in%}\StringTok{ }\NormalTok{kings)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 204
+\end{verbatim}
+
+To get the conditional probability we compute what fraction of these have a king in the second card:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sum}\NormalTok{(first_card }\OperatorTok{%in%}\StringTok{ }\NormalTok{kings }\OperatorTok{&}\StringTok{ }\NormalTok{second_card }\OperatorTok{%in%}\StringTok{ }\NormalTok{kings) }\OperatorTok{/}\StringTok{ }\KeywordTok{sum}\NormalTok{(first_card }\OperatorTok{%in%}\StringTok{ }\NormalTok{kings)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.05882353
+\end{verbatim}
+
+which is exactly 3/51 as we had already deduced. Note that the code above is equivalent to
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{(first_card }\OperatorTok{%in%}\StringTok{ }\NormalTok{kings }\OperatorTok{&}\StringTok{ }\NormalTok{second_card }\OperatorTok{%in%}\StringTok{ }\NormalTok{kings) }\OperatorTok{/}\StringTok{ }\KeywordTok{mean}\NormalTok{(first_card }\OperatorTok{%in%}\StringTok{ }\NormalTok{kings)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.05882353
+\end{verbatim}
+
+which uses \texttt{mean} instead of \texttt{sum} and is an R version of
+
+\[
+\frac{\mbox{Pr}(A \mbox{ and } B)}{ \mbox{Pr}(A)}
+\]
+
+Now what if the order does not matter? For example, in Black Jack if you get an Ace and face card in the first draw it is called a \emph{Natural 21} and you win automatically. If we want to compute the probability of this happening we want to enumerate the \emph{combinations}, not the permutations, since the order does not matter. Note the differences:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{permutations}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2]
+## [1,]    1    2
+## [2,]    1    3
+## [3,]    2    1
+## [4,]    2    3
+## [5,]    3    1
+## [6,]    3    2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{combinations}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2]
+## [1,]    1    2
+## [2,]    1    3
+## [3,]    2    3
+\end{verbatim}
+
+In the second line the outcome does not include (2,1) because the (1,2) already was enumerated. Similarly for (3,1) and (3,2).
+
+So to compute the probability of a \emph{Natural 21} in Blackjack we can do this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{aces <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(}\StringTok{"Ace"}\NormalTok{, suits)}
+
+\NormalTok{facecard <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"King"}\NormalTok{, }\StringTok{"Queen"}\NormalTok{, }\StringTok{"Jack"}\NormalTok{, }\StringTok{"Ten"}\NormalTok{)}
+\NormalTok{facecard <-}\StringTok{ }\KeywordTok{expand.grid}\NormalTok{(}\DataTypeTok{number =}\NormalTok{ facecard, }\DataTypeTok{suit =}\NormalTok{ suits)}
+\NormalTok{facecard <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(facecard}\OperatorTok{$}\NormalTok{number, facecard}\OperatorTok{$}\NormalTok{suit)}
+
+\NormalTok{hands <-}\StringTok{ }\KeywordTok{combinations}\NormalTok{(}\DecValTok{52}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DataTypeTok{v =}\NormalTok{ deck)}
+\KeywordTok{mean}\NormalTok{(hands[,}\DecValTok{1}\NormalTok{] }\OperatorTok{%in%}\StringTok{ }\NormalTok{aces }\OperatorTok{&}\StringTok{ }\NormalTok{hands[,}\DecValTok{2}\NormalTok{] }\OperatorTok{%in%}\StringTok{ }\NormalTok{facecard)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.04826546
+\end{verbatim}
+
+Note that in the last line we assume the ace comes first. This is only because we know the way \texttt{combination} enumerates possibilities and it will list this case first. But to be safe we could have written this to get the same answer:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{((hands[,}\DecValTok{1}\NormalTok{] }\OperatorTok{%in%}\StringTok{ }\NormalTok{aces }\OperatorTok{&}\StringTok{ }\NormalTok{hands[,}\DecValTok{2}\NormalTok{] }\OperatorTok{%in%}\StringTok{ }\NormalTok{facecard) }\OperatorTok{|}\StringTok{ }\NormalTok{(hands[,}\DecValTok{2}\NormalTok{] }\OperatorTok{%in%}\StringTok{ }\NormalTok{aces }\OperatorTok{&}\StringTok{ }\NormalTok{hands[,}\DecValTok{1}\NormalTok{] }\OperatorTok{%in%}\StringTok{ }\NormalTok{facecard))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.04826546
+\end{verbatim}
+
+\hypertarget{monte-carlo-example}{%
+\subsubsection{Monte Carlo Example}\label{monte-carlo-example}}
+
+Instead of using \texttt{combinations} to deduce the exact probability of a Natural 21 we can use a Monte Carlo to estimate this probability. In this case we draw two cards over and over and keep track of how many 21s we get. We can use the function \texttt{sample} to draw two cards without replacement:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{hand <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(deck, }\DecValTok{2}\NormalTok{)}
+\NormalTok{hand}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Ten Clubs"   "Four Spades"
+\end{verbatim}
+
+And then check if one card is an ace and the other a face card or a 10. Going forward we include 10 when we say \emph{face card}. Now we need to check both possibilities:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(hands[}\DecValTok{1}\NormalTok{] }\OperatorTok{%in%}\StringTok{ }\NormalTok{aces }\OperatorTok{&}\StringTok{ }\NormalTok{hands[}\DecValTok{2}\NormalTok{] }\OperatorTok{%in%}\StringTok{ }\NormalTok{facecard) }\OperatorTok{|}\StringTok{ }\NormalTok{(hands[}\DecValTok{2}\NormalTok{] }\OperatorTok{%in%}\StringTok{ }\NormalTok{aces }\OperatorTok{&}\StringTok{ }\NormalTok{hands[}\DecValTok{1}\NormalTok{] }\OperatorTok{%in%}\StringTok{ }\NormalTok{facecard)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+If we repeat this 10,000 times, we get a very good approximation of the probability of a Natural 21.
+
+Let's start by writing a function that draws a hand and returns TRUE if we get a 21. The function does not need any
+arguments because it uses objects defined in the global environment.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{blackjack <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()\{}
+\NormalTok{   hand <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(deck, }\DecValTok{2}\NormalTok{)}
+\NormalTok{  (hand[}\DecValTok{1}\NormalTok{] }\OperatorTok{%in%}\StringTok{ }\NormalTok{aces }\OperatorTok{&}\StringTok{ }\NormalTok{hand[}\DecValTok{2}\NormalTok{] }\OperatorTok{%in%}\StringTok{ }\NormalTok{facecard) }\OperatorTok{|}
+\StringTok{    }\NormalTok{(hand[}\DecValTok{2}\NormalTok{] }\OperatorTok{%in%}\StringTok{ }\NormalTok{aces }\OperatorTok{&}\StringTok{ }\NormalTok{hand[}\DecValTok{1}\NormalTok{] }\OperatorTok{%in%}\StringTok{ }\NormalTok{facecard)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Note that here we do have to check both possibilities: Ace first or Ace second because we are not using the \texttt{combinations} function. The function returns \texttt{TRUE} if we get a 21 and \texttt{FALSE} otherwise:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{blackjack}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+Now we can play this game, say, 10,000 times:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{B <-}\StringTok{ }\DecValTok{10000}
+\NormalTok{results <-}\StringTok{ }\KeywordTok{replicate}\NormalTok{(B, }\KeywordTok{blackjack}\NormalTok{())}
+\KeywordTok{mean}\NormalTok{(results)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.047
+\end{verbatim}
+
+\hypertarget{birthday-problem}{%
+\subsection{Birthday Problem}\label{birthday-problem}}
+
+Suppose you are in a classroom with 50 people. If we assume this is a randomly selected group of 50 people, what is the chance that at least two people have the same birthday? Although it is somewhat advanced, we can deduce this mathematically. We do this later. Here we use a Monte Carlo simulation. For simplicity, we assume nobody was born on February 29. This actually doesn't change the answer much.
+
+First note that birthdays can be represented as numbers between 1 and 365, so a sample of 50 birthdays can be obtained like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n <-}\StringTok{ }\DecValTok{50}
+\NormalTok{bdays <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{365}\NormalTok{, n, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+To check if in this particular set of 50 people we have at least two with the same birthday we can use the function \texttt{duplicated} which returns \texttt{TRUE} whenever an element of a vector is a duplicate. Here is an example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{duplicated}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE
+\end{verbatim}
+
+The second time 1 and 3 appear we get a \texttt{TRUE}. So to check if two birthdays were the same we simply use the \texttt{any} and \texttt{duplicated} functions like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{any}\NormalTok{(}\KeywordTok{duplicated}\NormalTok{(bdays))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+In this case, we see that it did happen. At least two people had the same birthday.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bdays}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 324 167 129 299 270 187 307  85 277 362 330 263 329  79 213  37 105 217 165
+## [20] 290 362  89 289 340 326 330  42 111  20  44 343  70 121  40 172  25 248 198
+## [39]  39 298 280 160  14 130  45  22 206 230 193 104
+\end{verbatim}
+
+\hypertarget{sapply-a-better-way-to-do-for-loops}{%
+\subsection{sapply: a better way to do for loops}\label{sapply-a-better-way-to-do-for-loops}}
+
+Say we want to use this knowledge to bet with friends about two people having the same birthday in a group of people. When are the chances larger than 50\%? Larger the 75\%?
+
+Let's create a look-up table.
+We can quickly create a function to compute this for any group size:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{same_birthday <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(n)\{}
+\NormalTok{  bdays <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{365}\NormalTok{, n, }\DataTypeTok{replace=}\OtherTok{TRUE}\NormalTok{)}
+  \KeywordTok{any}\NormalTok{(}\KeywordTok{duplicated}\NormalTok{(bdays))}
+\NormalTok{\}}
+
+\NormalTok{compute_prob <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(n, }\DataTypeTok{B=}\DecValTok{10000}\NormalTok{)\{}
+\NormalTok{  results <-}\StringTok{ }\KeywordTok{replicate}\NormalTok{(B, }\KeywordTok{same_birthday}\NormalTok{(n))}
+  \KeywordTok{mean}\NormalTok{(results)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+And now we can use a for-loop to run it for several group sizes:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{60}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Now, for-loops are rarely the preferred approach in R. In general, we try to perform operations on entire vectors. Arithmetic operations, for example, operate on vectors in an element-wise fashion:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{10}
+\KeywordTok{sqrt}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 1.000000 1.414214 1.732051 2.000000 2.236068 2.449490 2.645751 2.828427
+##  [9] 3.000000 3.162278
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{10}
+\NormalTok{x}\OperatorTok{*}\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]   1   4   9  16  25  36  49  64  81 100
+\end{verbatim}
+
+No need for for-loops. But not all functions work this way. For example, the function we just wrote does not work element-wise since it is expecting a scalar (just one number). This piece of code does not run the function on each entry of \texttt{n}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{compute_prob}\NormalTok{(n)}
+\end{Highlighting}
+\end{Shaded}
+
+The function \texttt{sapply} permits us to perform element-wise operations on any function. Here is how it works:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{10}
+\KeywordTok{sapply}\NormalTok{(x, sqrt)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 1.000000 1.414214 1.732051 2.000000 2.236068 2.449490 2.645751 2.828427
+##  [9] 3.000000 3.162278
+\end{verbatim}
+
+It loops through the elements of the first argument of \texttt{sapply} and sends those as values to first argument of the function specified as the second argument to \texttt{sapply}. So for our case we can simply type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prob <-}\StringTok{ }\KeywordTok{sapply}\NormalTok{(n, compute_prob)}
+\end{Highlighting}
+\end{Shaded}
+
+We can now make a plot of the estimated probabilities of two people having the same birthday in a group of size \(n\):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prob <-}\StringTok{ }\KeywordTok{sapply}\NormalTok{(n, compute_prob)}
+\KeywordTok{plot}\NormalTok{(n, prob)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DataSciLibArts_files/figure-latex/unnamed-chunk-48-1.pdf}
+
+\hypertarget{how-many-monte-carlo-experiments-are-enough}{%
+\subsection{How many Monte Carlo experiments are enough}\label{how-many-monte-carlo-experiments-are-enough}}
+
+In the examples above we used \(B=\) 10,000 Monte Carlo experiments. It turns out that this provided very accurate estimates. But in more complex calculations, 10,000 may not be nearly enough. Also for some calculations, 10,000 experiments might not be computationally feasible. In practice we won't know what the answer is so we won't know if our Monte Carlo estimate is accurate. We know that the larger \(B\) is, the better the approximation. But how big do we need it to be? This is actually a challenging question and answering it often requires advanced theoretical statistics training.
+
+One practical approach we will describe here is to check for the stability of the estimate. Here is an example with the birthday problem for a group of 25 people.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{B <-}\StringTok{ }\DecValTok{10}\OperatorTok{^}\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DataTypeTok{len =} \DecValTok{100}\NormalTok{)}
+\NormalTok{compute_prob <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(B, }\DataTypeTok{n=}\DecValTok{25}\NormalTok{)\{}
+\NormalTok{  same_day <-}\StringTok{ }\KeywordTok{replicate}\NormalTok{(B, }\KeywordTok{same_birthday}\NormalTok{(n))}
+  \KeywordTok{mean}\NormalTok{(same_day)}
+\NormalTok{\}}
+\NormalTok{prob <-}\StringTok{ }\KeywordTok{sapply}\NormalTok{(B, compute_prob)}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{log10}\NormalTok{(B), prob, }\DataTypeTok{type =} \StringTok{"l"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DataSciLibArts_files/figure-latex/unnamed-chunk-49-1.pdf}
+
+In this plot we can see that the values start to stabilize, (vary less than .01), around 1000. Note that the exact probability, which we know in this case, is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{exact_prob <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(n)\{}
+\NormalTok{  prob_unique <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{365}\NormalTok{,}\DecValTok{365}\OperatorTok{-}\NormalTok{n}\OperatorTok{+}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\DecValTok{365}
+  \DecValTok{1} \OperatorTok{-}\StringTok{ }\KeywordTok{prod}\NormalTok{( prob_unique)}
+\NormalTok{\}}
+\NormalTok{eprob <-}\StringTok{ }\KeywordTok{sapply}\NormalTok{(n, exact_prob)}
+\NormalTok{eprob[}\DecValTok{25}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5686997
+\end{verbatim}
+
+\hypertarget{addition-rule}{%
+\subsection{Addition Rule}\label{addition-rule}}
+
+Another way to compute the probability of a Natural 21 is to notice that it is the probability of an ace followed by a facecard or a facecard followed by an ace. Here we use the addition rule
+
+\[
+\mbox{Pr}(A \mbox{ or } B) = \mbox{Pr}(A) + \mbox{Pr}(B) - \mbox{Pr}(A \mbox{ and } B)
+\]
+
+This rule is intuitive: think of a Venn diagram. If we simply add the probabilities we count the intersection twice.
+\includegraphics{DataSciLibArts_files/figure-latex/unnamed-chunk-51-1.pdf}
+
+\begin{verbatim}
+## (polygon[GRID.polygon.30], polygon[GRID.polygon.31], polygon[GRID.polygon.32], polygon[GRID.polygon.33], text[GRID.text.34], text[GRID.text.35], text[GRID.text.36], text[GRID.text.37], text[GRID.text.38])
+\end{verbatim}
+
+In the case of Natural 21 the intersection is empty since both hands can't happen simultaneously. The probability of an ace followed by a face card is \(1/13 \times 16/51\) and the probability of a face card followed by an ace is \(16/52 \times 4/51\). These two are actually the same which makes sense due to symmetry. In any case we get the same result using the addition rule:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\OperatorTok{/}\DecValTok{13}\OperatorTok{*}\DecValTok{16}\OperatorTok{/}\DecValTok{51} \OperatorTok{+}\StringTok{ }\DecValTok{16}\OperatorTok{/}\DecValTok{52}\OperatorTok{*}\DecValTok{4}\OperatorTok{/}\DecValTok{51} \OperatorTok{-}\StringTok{ }\DecValTok{0}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.04826546
+\end{verbatim}
+
+\hypertarget{monty-hall-problem}{%
+\subsection{Monty Hall Problem}\label{monty-hall-problem}}
+
+In the 1970s there was a game show called ``Let's Make a Deal''. Monty Hall was the host. At some point in the game contestants were asked to pick one of three doors. Behind one door there was a prize. The other doors had a goat to show you had lost. After the contestant chose a door, Monty Hall would open one of the two remaining doors and show the contestant there was no prize. Then he would ask, ``Do you want to switch doors?'' What would you do?
+
+We can use probability to show that if you stick to the original door your chances of winning a prize are 1 in 3 but if you switch, your chances double to 2 in 3! This seems counterintuitive. Many people incorrectly think both chances are 1 in 2 since you are choosing between 2. You can watch a detailed explanation \href{https://www.khanacademy.org/math/precalculus/prob-comb/dependent-events-precalc/v/monty-hall-problem}{here} or read one \href{https://en.wikipedia.org/wiki/Monty_Hall_problem}{here}. Here we use a Monte Carlo simulation to see which strategy is better. Note that this code is written longer than it should be for pedagogical purposes.
+
+Let's start with the stick strategy:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{B <-}\StringTok{ }\DecValTok{10000}
+\NormalTok{stick <-}\StringTok{ }\KeywordTok{replicate}\NormalTok{(B, \{}
+\NormalTok{  doors <-}\StringTok{ }\KeywordTok{as.character}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{)}
+\NormalTok{  prize <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"car"}\NormalTok{,}\StringTok{"goat"}\NormalTok{,}\StringTok{"goat"}\NormalTok{))}
+\NormalTok{  prize_door <-}\StringTok{ }\NormalTok{doors[prize }\OperatorTok{==}\StringTok{ "car"}\NormalTok{]}
+\NormalTok{  my_pick  <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(doors, }\DecValTok{1}\NormalTok{)}
+\NormalTok{  show <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(doors[}\OperatorTok{!}\NormalTok{doors }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(my_pick, prize_door)],}\DecValTok{1}\NormalTok{)}
+\NormalTok{  stick <-}\StringTok{ }\NormalTok{my_pick}
+\NormalTok{  stick }\OperatorTok{==}\StringTok{ }\NormalTok{prize_door}
+\NormalTok{\})}
+\KeywordTok{mean}\NormalTok{(stick)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3256
+\end{verbatim}
+
+As we write the code we note that the lines starting with \texttt{my\_pick} and \texttt{show} have no influence on the last logical operation. From this we should realize that the chance is 1 in 3, what we started out with.
+
+Now let's repeat the exercise but consider the switch strategy:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{switch}\NormalTok{ <-}\StringTok{ }\KeywordTok{replicate}\NormalTok{(B, \{}
+\NormalTok{  doors <-}\StringTok{ }\KeywordTok{as.character}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{)}
+\NormalTok{  prize <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"car"}\NormalTok{,}\StringTok{"goat"}\NormalTok{,}\StringTok{"goat"}\NormalTok{))}
+\NormalTok{  prize_door <-}\StringTok{ }\NormalTok{doors[prize }\OperatorTok{==}\StringTok{ "car"}\NormalTok{]}
+\NormalTok{  my_pick  <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(doors, }\DecValTok{1}\NormalTok{)}
+\NormalTok{  show <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(doors[}\OperatorTok{!}\NormalTok{doors }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(my_pick, prize_door)], }\DecValTok{1}\NormalTok{)}
+\NormalTok{  stick <-}\StringTok{ }\NormalTok{my_pick}
+  \ControlFlowTok{switch}\NormalTok{ <-}\StringTok{ }\NormalTok{doors[}\OperatorTok{!}\NormalTok{doors}\OperatorTok{%in%}\KeywordTok{c}\NormalTok{(my_pick, show)]}
+  \ControlFlowTok{switch} \OperatorTok{==}\StringTok{ }\NormalTok{prize_door}
+\NormalTok{\})}
+\KeywordTok{mean}\NormalTok{(}\ControlFlowTok{switch}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6619
+\end{verbatim}
+
+The Monte Carlo estimate confirms the 2/3 calculation. This helps us gain some insight by showing that we are removing a door, \texttt{show}, that is definitely not a winner from our choices. We also see that unless we get it right when we first pick, you win: 1 - 1/3 = 2/3 of the time.
+
+\hypertarget{reproducibility-and-the-replication-crisis}{%
+\chapter{Reproducibility and the replication crisis}\label{reproducibility-and-the-replication-crisis}}
+
+\hypertarget{status-95-1}{%
+\section*{status 95\%}\label{status-95-1}}
+\addcontentsline{toc}{section}{status 95\%}
+
+Fine. Look online for how people are addressing this in undergrad classes.
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+Probability theory is elegant, and the logic of NHST is compelling. But philosophers of science have long recognized that this is not how science works \citep{lakatos1969falsification}. (Consider, for example, a simple test of whether gravity exists).
+
+In recent years, the tension between \textbf{the false ideal of NHST} and the real world of science has become increasingly evident. Within psychology, experimental studies have often - even typically - failed to replicate \citep{open2015estimating}. It's not just psychology \citep{baker2016reproducibility}. One of the first important papers to shine light in the area \citep{ioannidis2005most} came from medicine; it suggested six contributing factors, which I quote verbatim here:
+
+\emph{The smaller the studies conducted in a scientific field, the less likely the research findings are to be true.}
+
+\begin{itemize}
+\tightlist
+\item
+  This stems directly from our discussion of the central limit theorem and the instability of results from small samples.
+\end{itemize}
+
+\emph{The smaller the effect sizes in a scientific field, the less likely the research findings are to be true}
+
+\begin{itemize}
+\tightlist
+\item
+  We'll talk about effect size below.
+\end{itemize}
+
+\emph{The greater the number and the lesser the selection of tested relationships in a scientific field, the less likely the research findings are to be true.} (and) \emph{The greater the flexibility in designs, definitions, outcomes, and analytical modes in a scientific field, the less likely the research findings are to be true.}
+
+\begin{itemize}
+\tightlist
+\item
+  The ``problem'' of analytic flexibility leads to `p-hacking'
+\end{itemize}
+
+\emph{The greater the financial and other interests and prejudices in a scientific field, the less likely the research findings are to be true} and \emph{The hotter a scientific field (with more scientific teams involved), the less likely the research findings are to be true.}
+
+\begin{itemize}
+\tightlist
+\item
+  Positive findings rise, and negative ones are ignored. And scientists are human, and subject to incentives.
+\end{itemize}
+
+Here's a video which provides some more context for the crisis: \url{https://www.youtube.com/watch?v=42QuXLucH3Q} (12 mins)
+
+\hypertarget{answers-to-the-reproducibility-crisis-i-tweak-or-abandon-nhst}{%
+\section{Answers to the reproducibility crisis I: Tweak or abandon NHST}\label{answers-to-the-reproducibility-crisis-i-tweak-or-abandon-nhst}}
+
+The first cluster of responses addresses problems with Null Hypothesis Significance Testing (NHST). These include (a) justifying one's alpha - making it more stringent, for example, for counter-intuitive claims \citep{grange2018justify}, (b) changing the default p value from .05 to .005 \citep{benjamin2017redefine}, and (c) abandoning significance testing altogether \citep{mcshane2017abandon}.
+
+\citet{szucs2017null} goes into some of these issues in more detail and discusses other limitations of significance testing, including the dichotomous, all-or-none silliness of the accept/reject decision. (If you play the NHST game, there is no `almost' significant, `approached significance,' `highly significant', etc.).
+
+\citet{leek2015statistics} argue that the problems are not merely with NHST, but with the whole of data analysis. They maintain that better training in data science - courses like ours, perhaps, are part of the answer.
+
+\includegraphics{leek2015pipeline.PNG} (figure)
+
+\hypertarget{munafo2017manifesto-also-argue-that-threats-to-reproducible-science-occur-at-a-number-of-places-in-science-not-just-with-the-evaluation-of-hypotheses.}{%
+\subsubsection{\texorpdfstring{\citet{munafo2017manifesto} also argue that threats to reproducible science occur at a number of places in science, not just with the evaluation of hypotheses.}{@munafo2017manifesto also argue that threats to reproducible science occur at a number of places in science, not just with the evaluation of hypotheses.}}\label{munafo2017manifesto-also-argue-that-threats-to-reproducible-science-occur-at-a-number-of-places-in-science-not-just-with-the-evaluation-of-hypotheses.}}
+
+\begin{figure}
+\centering
+\includegraphics{munafo2017threats.PNG}
+\caption{munafo2017threats}
+\end{figure}
+
+\hypertarget{answers-to-the-reproducibility-crisis-ii-keep-a-log-of-every-step-of-every-analysis-in-r-markdown-or-jupyter-notebooks}{%
+\section{Answers to the reproducibility crisis II: Keep a log of every step of every analysis in R markdown or Jupyter notebooks}\label{answers-to-the-reproducibility-crisis-ii-keep-a-log-of-every-step-of-every-analysis-in-r-markdown-or-jupyter-notebooks}}
+
+Let's say that you are running a study, say, which looks at the hypothesis of differential variation of females and males in a cognitive measure; your interest is to critically examine the hypothesis discussed by \citet{wainer2007dangerous} that males show more variability.
+
+There have been \emph{a lot} of studies related to this over the years, so that rather than collect new data you decide that you will work with existing data from several online archives. You find and download spreadsheets from two studies: In the first, gender is coded `1' for male, `2' for female. In the second, gender is coded `1' for female, `2' for male, and `3' for other. There are, in essence, two ways that you can combine the variables into a common format: The first would be to take one of the spreadsheets and do a few find-and-replace commands on the appropriate column of the data. This is quick and easy - but when someone else, or even future you, returns to this data, you will not remember if you have recoded it.
+
+The alternative is to keep a record of your work in R markdown. This is more time consuming, and can sometimes be clumsy. But it is \sout{virtuous} useful and clear - and when you screw up, you will have a full record of what happened.
+
+Part of the problem of scientific reproducibility is to keep comprehensive records. This record-keeping and research transparency is at the heart of R markdown documents, as we will see in the next chapter.
+
+\hypertarget{answers-to-the-reproducibility-crisis-iii-pre-registration}{%
+\section{Answers to the reproducibility crisis III: Pre-registration}\label{answers-to-the-reproducibility-crisis-iii-pre-registration}}
+
+The third answer to the reproducibility crisis is the most comprehensive; it involves not merely keeping a record of what you have done, but preregistering your work, that is, fully specifying your planned analyses beforehand \citep{miguel2014promoting}. There's a five-minute video which introduces this \href{https://www.futurelearn.com/courses/open-social-science-research/0/steps/31436}{here}. For randomized controlled trials, consider socialscienceregistry.org, and for more general use, use the open science framework page. \textbf{Incidentally, you can post your theses after they are finished at \url{https://thesiscommons.org}.}
+
+\hypertarget{further-readings}{%
+\section{Further readings}\label{further-readings}}
+
+Finally, if you would like to learn more about the reproducibility crisis, there is a collection of papers in Nature \href{https://www.nature.com/collections/prbfkwmwvz/}{here}.
+
+\hypertarget{part-part-iii-towards-data-proficiency}{%
+\part{Part III Towards data proficiency}\label{part-part-iii-towards-data-proficiency}}
+
+\hypertarget{status-80-2}{%
+\section*{status 80\%}\label{status-80-2}}
+\addcontentsline{toc}{section}{status 80\%}
+
+Move data challenges from extra credit project to a project due before Spring break.
+
+Include additional summaries from the four r4ds chapters.
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+In this part of the class we will get into the nuts and bolts of R.
+
+\hypertarget{literate-programming-with-r-markdown}{%
+\chapter{literate programming with R markdown}\label{literate-programming-with-r-markdown}}
+
+Showing your work, to (future) you as well as others, is a key part of reproducible science. R Markdown documents facilitate this, as they allow you to include comments, code, and results in a single place. But before we consider R markdown, we begin with two more elemental ideas: \emph{scripts} (R4DS, Chapter 6) and \emph{projects} (Chapter 8).
+
+\hypertarget{scripts-are-files-of-code}{%
+\section{scripts are files of code}\label{scripts-are-files-of-code}}
+
+We begin with R4DS Chapter 6, which shows the R studio interface and encourages you to save your work using scripts, written in the source (editor) window in the upper left quadrant of the default R studio screen.
+
+Note the recommendations - for example, include packages (libraries) at the beginning of your code. One more thing - in setting up R studio, consider adjusting the ``insert spaces for tab'' setting to something more than 2. This will allow you to more easily see the nested structure of functions, loops, etc. - and will create a modest disincentive against making these nested structures too deep or complex:
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/lanning/Dropbox/0DataSciLibArts/RStudioOptions.jpg}
+\caption{Fig 9.1: I use 4 spaces here. YMMV.}
+\end{figure}
+
+Note, too, the \href{https://support.rstudio.com/hc/en-us/articles/205753617-Code-Diagnostics}{code diagnostics} in R. Consider enabling all of these, including the R style diagnostics, to help you keep your code readable:
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/lanning/Dropbox/0DataSciLibArts/codediagnostics.PNG}
+\caption{Fig 9.2: Enable code diagnostics}
+\end{figure}
+
+\hypertarget{projects-are-directories-containing-related-scripts}{%
+\section{projects are directories containing related scripts}\label{projects-are-directories-containing-related-scripts}}
+
+You will save your work in \emph{projects} - which isolate your data and scripts into different directories. (See r4ds, Chapter 8). To reinforce the idea that your unit of analysis in R is ``the project'' rather than ``the script'', consider associating your Rmd filetype (see next section) with your markdown editor, and only your Rproj filetype with R studio.
+
+Soon, it is likely that you will soon be working on R for different things in parallel - for this and another class, for this class and your thesis, or perhaps for two distinct types of analysis within your thesis. When you open up an R project, you'll be in the right directory, with the relevant files (and only the relevant files) at your fingertips in the files pane.
+
+\hypertarget{r-markdown-documents-integrate-rationale-script-and-results}{%
+\section{R markdown documents integrate rationale, script, and results}\label{r-markdown-documents-integrate-rationale-script-and-results}}
+
+R Markdown documents allow you to include comments, scripts, and results in a single place. The basics of R markdown are presented in Chapter 27 of R4DS. I encourage you to use R markdown for nearly everything you do in R.
+
+Within R studio, open up a new R markdown document. There are as many as four parts of an R markdown document:
+
+\begin{itemize}
+\tightlist
+\item
+  A YAML (yet another markdown language) header
+\item
+  Text formatted in markdown
+\item
+  R code (chunks) surrounded by code fences
+\item
+  and, occasionally, inline code
+\end{itemize}
+
+There is a handy \href{https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf}{R Markdown cheat sheet} which can give you a sense of what R markdown is about. It describes eight steps, from ``workflow'' to ``publish'' (and a ninth, ``learn more''). Don't worry about all of the detail here, but do get a sense of how it works.
+
+\begin{quote}
+Exercise 9.1:
+
+Working in groups, do the exercises in section 27.4.7 of R4DS.
+
+Begin with the R markdown file that is included at the beginning of Chapter 27. You can download it \href{https://raw.githubusercontent.com/hadley/r4ds/master/rmarkdown/diamond-sizes.Rmd}{here}.
+
+Study the code, and annotate it so that you have a better sense of how it works. For example, ``this block loads needed libraries, then takes the \_\_\_\_\_dataset and \_\_\_\_\_\_\_\_\_\_\_ .''
+
+Play with the graph. Change one or more parameters of it to make it more useful. Again, annotate your changes.
+\end{quote}
+
+\hypertarget{what-to-do-when-you-are-stuck}{%
+\section{What to do when you are stuck}\label{what-to-do-when-you-are-stuck}}
+
+\begin{itemize}
+\item
+  google. pay attention to your error messages
+\item
+  ask for help, make your questions clear and reproducible (see R4DS Chapter 1)
+\item
+  take a break, think outside the box and \href{https://www.google.com/search?newwindow=1\&safe=active\&rlz=1C1SQJL_enUS782US782\&q=Dictionary\#dobs=kludge}{kludge} something together if you have to
+\item
+  document your struggle and your cleverness for a future you
+\end{itemize}
+
+\hypertarget{appendix-a-few-possible-data-challenges}{%
+\section{appendix: a few possible data challenges}\label{appendix-a-few-possible-data-challenges}}
+
+As you will recall, you have the opportunity to gain extra credit in the class by successfully undertaking a data science challenge. Here are a few possibilities:
+
+Working with two of your classmates, write an R markdown document titled ``\textbf{The most dangerous equation}?'' which (a) in the introduction, discusses \citet{wainer2007most}, (b) then illustrates regression to the mean and (c) deMoivre's equation, ideally (d) using the examples of `punishment' and `sex differences in variability' discussed in class and the text, respectively. Prepare a presentation using Rpres which summarizes your argument and findings.
+
+Working with two or three of your classmates, write an R markdown document titled ``\textbf{On the rationality of poker}.'' In it, you will (a) derive the probability of receiving various hands (e.g., 4 of a kind) using probability theory, (b) assess these same probabilities empirically on the basis of a Monte Carlo analysis, and (c) compare these probabilities to the order of winning hands (e.g., 4 of a kind beats a full house). Prepare a presentation using Rpres which summarizes your argument and findings.
+
+Working with two or three of your classmates, consider \textbf{what are the most important lessons from the reproducibility crisis?} Is, for example ``transparency'' (showing every part of your work) more important than ``preregistration'' (publicly declaring your plan of analysis in advance)? Can Null Hypothesis Significance Testing (NHST) be saved, and, if so, what is the solution? This paper will be more scholarly than the others, but you should include code (for example, write an R markdown document which demonstrates how ``p-hacking'' might lead to a spurious result in a test of an initially vague hypothesis). Again, prepare a presentation using Rpres which summarizes your argument and findings.
+
+Now back to the elements of your R workflow.
+
+\hypertarget{the-tidyverse}{%
+\chapter{the tidyverse}\label{the-tidyverse}}
+
+\hypertarget{status-90-4}{%
+\section*{status 90\%}\label{status-90-4}}
+\addcontentsline{toc}{section}{status 90\%}
+
+review my notes against Wickham. consider how to best submit homework at end.
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{quote}
+\emph{The tidyverse is an opinionated collection of R packages designed for data science -} \url{https://www.tidyverse.org/}
+\end{quote}
+
+R had its origins in S, a system designed for engineers at Bell Labs. This audience meant that R would be more accessible to those with programming backgrounds, more aimed at ``developers'' than users approaching data science from an applied or statistical perspective than one in programming. As the popularity of R increased, it would become more flexible and versatile for these power users, but there was less progress in making R accessible to and tailored for data scientists. To this day, ``base-R'' is, for most users, more challenging than SPSS or Stata. The \textbf{tidyverse} was born partly to address these issues \citep{peng2018teaching}.
+
+The tidyverse is a growing set of interconnected packages which share a common syntax; it is the dialect of R we are using here. More precisely,
+
+\begin{quote}
+\emph{\ldots the tidyverse is a lucid collection of R packages offering data science solutions in the areas of data manipulation, exploration, and visualization that share a common design philosophy. It was created by R industry luminary Hadley Wickham, the chief scientist behind \href{https://www.rstudio.com/}{RStudio}. R packages in the tidyverse are intended to make statisticians and data scientists more productive. Packages guide them through workflows that facilitate communication and result in reproducible work products. The tidyverse essentially focuses on the interconnections of the tools that make the workflow possible {[}gutierrez2018tidyverse{]}.}
+\end{quote}
+
+The workflow is one that you have seen here and in R4DS. In this 2017 slide, the main processes of data analysis are accompanied by the packages in the tidyverse. (As of 2019, there have been a few small changes in the packages associated with modeling). All of these are installed on your computer with install.packages(``tidyverse''), but only those in bold are loaded into memory when you issue the command library(tidyverse):
+
+\begin{figure}
+\centering
+\includegraphics{tidyworld.PNG}
+\caption{Fig 10.1: Schematic of the tidyverse. From Wickham's 2017 rstudio:conf keynote}
+\end{figure}
+
+\hypertarget{some-simple-principles}{%
+\section{some simple principles}\label{some-simple-principles}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  \textbf{search for tidyverse solutions.} When you have a problem in your code, for example, ``how do I compute the mean for different groups of a variable,'' search for \emph{R mean groups tidyverse}, not just \emph{R mean groups.} This will get you in the habit of working with tidy solutions where they can be found.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\NormalTok{mtcars }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(cyl) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{mean =} \KeywordTok{mean}\NormalTok{(disp), }\DataTypeTok{n =} \KeywordTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\item
+  \textbf{talk the talk}. Recognize that \textbf{\%\textgreater\%} (the pipe) means \textbf{then.} Statements with pipes begin with data, may include \textbf{queries} (extract, combine, arrange), and finish with a \textbf{command.}
+\item
+  \textbf{annotate your work}. Assume that you will come back to it at a later date, while working on a different project, and use portions of your current code. Your R markdown documents should be a log. When you run in to a significant, challenging problem, don't delete your mistakes, but \#\# comment them out.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(gapminder)}
+\NormalTok{b <-}\StringTok{ }\NormalTok{gapminder }\OperatorTok{%>%}\StringTok{ }
+\CommentTok{## when should you comment out an error}
+\CommentTok{## instead of deleting it? for me, I'll }
+\CommentTok{## comment out errors that took me a long time }
+\CommentTok{## to solve, and/or that I'll learn from. }
+\CommentTok{## Probably not here, in other words...}
+\CommentTok{##  filter(lifeExp) > 70 bad parens}
+\StringTok{    }\KeywordTok{filter}\NormalTok{(lifeExp }\OperatorTok{>}\StringTok{ }\DecValTok{70}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{3}
+\item
+  \textbf{work with tidy data.} Make each row an observation, and each column a variable. Complex data sets, such as samples of text, become much more manageable when reduced to simple arrays.
+\item
+  \textbf{write functions.} If you repeat a section of code, rewrite it as a function. (We'll come back to this later).
+\item
+  \textbf{adhere to good coding style.} Well-written code is reasonably parsimonious, readable, and easily debugged. There are a few style manuals for R, including one from \href{http://adv-r.had.co.nz/Style.html}{Hadley}, and this {[}Rchaeological Commentary{]} (\url{https://cran.r-project.org/web/packages/rockchalk/vignettes/Rstyle.pdf}).
+\item
+  \textbf{but maintain perspective.} Your need to solve problems (how to analyze x, etc.) should not take a back seat to your desire to write the best code. There is almost always a better way to do things. Strive reasonably to accomplish this, but be prepared to kludge.
+\end{enumerate}
+
+\hypertarget{homework}{%
+\section{homework}\label{homework}}
+
+This is drawn from a 2017 day-long workshop by Wickham on \href{https://github.com/hadley/data-science-in-tidyverse}{Data Science in the Tidyverse}. If you get stuck, take a look at that, or study the slides in Wickham's 2019 American Statistical Association keynote, which can be found \href{https://speakerdeck.com/hadley/welcome-to-the-tidyverse}{here}.
+
+Work with the Gapminder data, find something interesting in it, and report it in an R markdown document. Your code should include pipes, a filter command, and a mutate command. The last of these is included in the line that follows. (What would you expect this to do?)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gapminder }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{size =} \KeywordTok{ifelse}\NormalTok{(pop }\OperatorTok{<}\StringTok{ }\FloatTok{10e06}\NormalTok{, }\StringTok{"small"}\NormalTok{, }\StringTok{"large"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+  \bibliography{../9Bibliography/dataSciRefs.bib}
 
 \end{document}

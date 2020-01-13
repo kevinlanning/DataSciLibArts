@@ -84,6 +84,7 @@ Here, one could use an asymmetrical Venn diagram (see the code at the end of Cha
 > In general, if P (A|B) < P (B|A), what must be true of the relationship of P (A) to P (B)?
 
 ## continuous probability distributions
+
 We can also use probability with **continuous** variables such as systolic blood pressure (that's the first one), which has a mean of  approximately 120 and a standard deviation of 15. Continuous probability distributions are handy tools for thinking about the meaning of scores, particularly when we express scores in standard deviations from the mean (z scores). More to the point, this way of thinking about probability is widely used in questions of scientific inference, as, for example, in testing hypotheses such that "the average systolic blood pressure among a group of people studying at Crux (hence caffeinated) will be significantly greater than that of the population as a whole."
 
 This is part of the logic of **Null Hypothesis Significance Testing (NHST)** - if the result in my Crux sample is sufficiently high, then I say that I have rejected the null hypothesis, and found data which support the hypothesis of interest.  

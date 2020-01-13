@@ -13,7 +13,7 @@ ds_theme_set()
 set.seed(0)
 ```
 
-# Regression and Modeling
+# regression and modeling
 
 ## status 80% {-}
 
@@ -29,7 +29,7 @@ In Chapter 22 of R4DS, Wickham introduces **modeling** as a complement to data v
 
 In the remainder of his section on modeling (Chapters 23 - 25), he presents an innovative approach to introducing models. Feel free to explore these.  Our treatment, however, will deviate from this.
 
-## Correlation 
+## correlation 
 
 (This section is excerpted from From https://github.com/datasciencelabs)
 
@@ -104,7 +104,6 @@ galton_heights %>%
   geom_abline(intercept = 0, slope = r) 
 ```
 
-
 ### Warning: there are two regression lines
 
 In general, when describing bivariate relationships, we talk of predicting y from x. But what if we want to reverse this? Here, for example, what if we want to predict the father's height based on the son's? 
@@ -132,7 +131,7 @@ galton_heights %>%
   geom_abline(intercept = -b_2/m_2, slope = 1/m_2, col = "red") 
 ```
 
-## Multiple regression 
+## multiple regression
 
 We extend regression (predicting one continuous variable from another) to the multivariate case (predicting one variable from many). We extend this logic to the cases where our variables are not normally distributed, as in the case of dichotomous variables (yes/no, true/false), as well as counts, which often are skewed.
 
@@ -145,7 +144,7 @@ library(GGally) # for scatterplot matrix
 library(Ecdat) # Econometric data incl. affairs dataset 
 ```
 
-## Swiss fertility
+## Swiss fertility data
 
 To consider the multivariate case, we examine a second dataset. 
 
@@ -171,7 +170,7 @@ swissReg <- lm(Fertility ~ ., data=swiss)
 summary(swissReg)
 ```
 
-## What predicts marital affairs?
+## marital affairs data
 
 Here's another dataset. We'll apply ggpairs here, but for clarity will show only half of the data at a time.  The dependent variable of interest (nbaffairs) will be included in both plots:
 

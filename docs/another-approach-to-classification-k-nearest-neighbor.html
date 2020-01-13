@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>19 Another approach to classification: k-nearest neighbor | Data science for the liberal arts</title>
-  <meta name="description" content="Test">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>19 another approach to classification: k-nearest neighbor | Data science for the liberal arts</title>
+  <meta name="description" content="Test" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="19 Another approach to classification: k-nearest neighbor | Data science for the liberal arts" />
+  <meta property="og:title" content="19 another approach to classification: k-nearest neighbor | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/diffprop_cloud_250_sm.png" />
@@ -17,23 +16,23 @@
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="19 Another approach to classification: k-nearest neighbor | Data science for the liberal arts" />
+  <meta name="twitter:title" content="19 another approach to classification: k-nearest neighbor | Data science for the liberal arts" />
   
   <meta name="twitter:description" content="Test" />
   <meta name="twitter:image" content="images/diffprop_cloud_250_sm.png" />
 
-<meta name="author" content="Kevin Lanning">
+<meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2019-05-08">
+<meta name="date" content="2020-01-11" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="from-regression-to-prediction-and-classification.html">
-<link rel="next" href="machine-learning-some-distinctions-and-ideas.html">
+<link rel="prev" href="from-regression-to-prediction-and-classification.html"/>
+<link rel="next" href="machine-learning-some-distinctions-and-ideas.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -41,6 +40,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -48,7 +48,8 @@
 
 
 
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
 
 
 <style type="text/css">
@@ -57,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -235,10 +235,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-iii-pre-registration"><i class="fa fa-check"></i><b>8.3</b> Answers to the reproducibility crisis III: Pre-registration</a></li>
 <li class="chapter" data-level="8.4" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#further-readings"><i class="fa fa-check"></i><b>8.4</b> Further readings</a></li>
 </ul></li>
-<li class="part"><span><b>III Part III Towards data proficiency</b></span><ul>
-<li class="chapter" data-level="" data-path=""><a href="#status-80-2"><i class="fa fa-check"></i>status 80%</a></li>
-</ul></li>
+<li class="part"><span><b>III Part III Towards data proficiency</b></span></li>
 <li class="chapter" data-level="9" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html"><i class="fa fa-check"></i><b>9</b> literate programming with R markdown</a><ul>
+<li class="chapter" data-level="" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#status-80-2"><i class="fa fa-check"></i>status 80%</a></li>
 <li class="chapter" data-level="9.1" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#scripts-are-files-of-code"><i class="fa fa-check"></i><b>9.1</b> scripts are files of code</a></li>
 <li class="chapter" data-level="9.2" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#projects-are-directories-containing-related-scripts"><i class="fa fa-check"></i><b>9.2</b> projects are directories containing related scripts</a></li>
 <li class="chapter" data-level="9.3" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#r-markdown-documents-integrate-rationale-script-and-results"><i class="fa fa-check"></i><b>9.3</b> R markdown documents integrate rationale, script, and results</a></li>
@@ -250,7 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#some-simple-principles"><i class="fa fa-check"></i><b>10.1</b> some simple principles</a></li>
 <li class="chapter" data-level="10.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#homework"><i class="fa fa-check"></i><b>10.2</b> homework</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html"><i class="fa fa-check"></i><b>11</b> Messy data: Cleaning and curation</a><ul>
+<li class="chapter" data-level="11" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html"><i class="fa fa-check"></i><b>11</b> messy data: Cleaning and curation</a><ul>
 <li class="chapter" data-level="" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html#status-85-1"><i class="fa fa-check"></i>status 85%</a></li>
 <li class="chapter" data-level="11.1" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html#finding-data"><i class="fa fa-check"></i><b>11.1</b> finding data</a></li>
 </ul></li>
@@ -284,41 +283,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="16.4" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#how-many-bottles-of-what"><i class="fa fa-check"></i><b>16.4</b> how many bottles of what?</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html"><i class="fa fa-check"></i><b>17</b> Regression and Modeling</a><ul>
+<li class="chapter" data-level="17" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html"><i class="fa fa-check"></i><b>17</b> regression and modeling</a><ul>
 <li class="chapter" data-level="" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#status-80-3"><i class="fa fa-check"></i>status 80%</a></li>
-<li class="chapter" data-level="17.1" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#correlation"><i class="fa fa-check"></i><b>17.1</b> Correlation</a><ul>
+<li class="chapter" data-level="17.1" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#correlation"><i class="fa fa-check"></i><b>17.1</b> correlation</a><ul>
 <li class="chapter" data-level="17.1.1" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#the-regression-line"><i class="fa fa-check"></i><b>17.1.1</b> The regression line</a></li>
 <li class="chapter" data-level="17.1.2" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#warning-there-are-two-regression-lines"><i class="fa fa-check"></i><b>17.1.2</b> Warning: there are two regression lines</a></li>
 </ul></li>
-<li class="chapter" data-level="17.2" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#multiple-regression"><i class="fa fa-check"></i><b>17.2</b> Multiple regression</a></li>
-<li class="chapter" data-level="17.3" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#swiss-fertility"><i class="fa fa-check"></i><b>17.3</b> Swiss fertility</a></li>
-<li class="chapter" data-level="17.4" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#what-predicts-marital-affairs"><i class="fa fa-check"></i><b>17.4</b> What predicts marital affairs?</a></li>
+<li class="chapter" data-level="17.2" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#multiple-regression"><i class="fa fa-check"></i><b>17.2</b> multiple regression</a></li>
+<li class="chapter" data-level="17.3" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#swiss-fertility-data"><i class="fa fa-check"></i><b>17.3</b> Swiss fertility data</a></li>
+<li class="chapter" data-level="17.4" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#marital-affairs-data"><i class="fa fa-check"></i><b>17.4</b> marital affairs data</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html"><i class="fa fa-check"></i><b>18</b> From regression to prediction and classification</a><ul>
+<li class="chapter" data-level="18" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html"><i class="fa fa-check"></i><b>18</b> from regression to prediction and classification</a><ul>
 <li class="chapter" data-level="" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#status-85-4"><i class="fa fa-check"></i>status 85%</a></li>
-<li class="chapter" data-level="18.1" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#revisiting-the-affairs-data"><i class="fa fa-check"></i><b>18.1</b> Revisiting the affairs data</a></li>
-<li class="chapter" data-level="18.2" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#avoiding-capitalizing-on-chance"><i class="fa fa-check"></i><b>18.2</b> Avoiding capitalizing on chance</a><ul>
+<li class="chapter" data-level="18.1" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#revisiting-the-affairs-data"><i class="fa fa-check"></i><b>18.1</b> revisiting the affairs data</a></li>
+<li class="chapter" data-level="18.2" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#avoiding-capitalizing-on-chance"><i class="fa fa-check"></i><b>18.2</b> avoiding capitalizing on chance</a><ul>
 <li class="chapter" data-level="18.2.1" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#splitting-the-data-into-training-and-test-subsamples"><i class="fa fa-check"></i><b>18.2.1</b> Splitting the data into training and test subsamples</a></li>
 </ul></li>
-<li class="chapter" data-level="18.3" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#an-example-of-cross-validated-linear-regression"><i class="fa fa-check"></i><b>18.3</b> an example of cross-validated linear regression</a></li>
-<li class="chapter" data-level="18.4" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#applying-logistic-regression-analysis-to-the-training-data"><i class="fa fa-check"></i><b>18.4</b> applying logistic regression analysis to the training data</a></li>
-<li class="chapter" data-level="18.5" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#from-regression-to-classification-selection-of-a-threshold"><i class="fa fa-check"></i><b>18.5</b> from regression to classification: selection of a threshold</a></li>
-<li class="chapter" data-level="18.6" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#applying-the-model-to-the-test-data"><i class="fa fa-check"></i><b>18.6</b> applying the model to the test data</a></li>
-<li class="chapter" data-level="18.7" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#changing-our-decision-threshold"><i class="fa fa-check"></i><b>18.7</b> changing our decision threshold</a></li>
-<li class="chapter" data-level="18.8" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#more-confusion"><i class="fa fa-check"></i><b>18.8</b> more confusion</a></li>
-<li class="chapter" data-level="18.9" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#rocs-and-auc"><i class="fa fa-check"></i><b>18.9</b> ROCs and AUC</a></li>
+<li class="chapter" data-level="18.3" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#an-example-of-cross-validated-linear-regression"><i class="fa fa-check"></i><b>18.3</b> an example of cross-validated linear regression</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#applying-logistic-regression-analysis-to-the-training-data"><i class="fa fa-check"></i><b>18.3.1</b> applying logistic regression analysis to the training data</a></li>
+<li class="chapter" data-level="18.3.2" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#from-regression-to-classification-selection-of-a-threshold"><i class="fa fa-check"></i><b>18.3.2</b> from regression to classification: selection of a threshold</a></li>
+<li class="chapter" data-level="18.3.3" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#applying-the-model-to-the-test-data"><i class="fa fa-check"></i><b>18.3.3</b> applying the model to the test data</a></li>
+<li class="chapter" data-level="18.3.4" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#changing-our-decision-threshold"><i class="fa fa-check"></i><b>18.3.4</b> changing our decision threshold</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html"><i class="fa fa-check"></i><b>19</b> Another approach to classification: k-nearest neighbor</a><ul>
+<li class="chapter" data-level="18.4" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#more-confusion"><i class="fa fa-check"></i><b>18.4</b> more confusion</a><ul>
+<li class="chapter" data-level="18.4.1" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#rocs-and-auc"><i class="fa fa-check"></i><b>18.4.1</b> ROCs and AUC</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html"><i class="fa fa-check"></i><b>19</b> another approach to classification: k-nearest neighbor</a><ul>
 <li class="chapter" data-level="" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#status-90-5"><i class="fa fa-check"></i>status 90%</a></li>
-<li class="chapter" data-level="19.1" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#application-the-fair-data"><i class="fa fa-check"></i><b>19.1</b> Application: The Fair data</a></li>
-<li class="chapter" data-level="19.2" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#from-1-doppelganger-to-many"><i class="fa fa-check"></i><b>19.2</b> From 1 doppelganger to many</a><ul>
-<li class="chapter" data-level="19.2.1" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#the-bayesian-classifier"><i class="fa fa-check"></i><b>19.2.1</b> The Bayesian classifier</a></li>
-<li class="chapter" data-level="19.2.2" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#back-to-the-fair-data"><i class="fa fa-check"></i><b>19.2.2</b> Back to the Fair data</a></li>
+<li class="chapter" data-level="19.1" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#application-the-affairs-data"><i class="fa fa-check"></i><b>19.1</b> application: the affairs data</a></li>
+<li class="chapter" data-level="19.2" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#from-1-doppelganger-to-many"><i class="fa fa-check"></i><b>19.2</b> from 1 doppelganger to many</a><ul>
+<li class="chapter" data-level="19.2.1" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#the-bayesian-classifier"><i class="fa fa-check"></i><b>19.2.1</b> the Bayesian classifier</a></li>
+<li class="chapter" data-level="19.2.2" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#back-to-the-affairs-data"><i class="fa fa-check"></i><b>19.2.2</b> Back to the affairs data</a></li>
 </ul></li>
-<li class="chapter" data-level="19.3" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#avoiding-capitalization-on-chance-again"><i class="fa fa-check"></i><b>19.3</b> Avoiding capitalization on chance (again)</a></li>
-<li class="chapter" data-level="19.4" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#the-multinomial-case"><i class="fa fa-check"></i><b>19.4</b> The multinomial case</a></li>
+<li class="chapter" data-level="19.3" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#avoiding-capitalization-on-chance-again"><i class="fa fa-check"></i><b>19.3</b> avoiding capitalization on chance (again)</a></li>
+<li class="chapter" data-level="19.4" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#the-multinomial-case"><i class="fa fa-check"></i><b>19.4</b> the multinomial case</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html"><i class="fa fa-check"></i><b>20</b> Machine learning: some distinctions and ideas</a><ul>
+<li class="chapter" data-level="20" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html"><i class="fa fa-check"></i><b>20</b> machine learning: some distinctions and ideas</a><ul>
 <li class="chapter" data-level="" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#status-50"><i class="fa fa-check"></i>status 50%</a></li>
 <li class="chapter" data-level="20.1" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#supervised-versus-unsupervised-problems"><i class="fa fa-check"></i><b>20.1</b> supervised versus unsupervised problems</a></li>
 <li class="chapter" data-level="20.2" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#prediction-versus-classification"><i class="fa fa-check"></i><b>20.2</b> prediction versus classification</a></li>
@@ -333,9 +334,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="21" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html"><i class="fa fa-check"></i><b>21</b> ethics: some topics for discussion</a><ul>
 <li class="chapter" data-level="" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#status-40"><i class="fa fa-check"></i>status 40%</a></li>
-<li class="chapter" data-level="21.1" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#background"><i class="fa fa-check"></i><b>21.1</b> Background</a></li>
-<li class="chapter" data-level="21.2" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#principles"><i class="fa fa-check"></i><b>21.2</b> Principles</a></li>
-<li class="chapter" data-level="21.3" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#remedies"><i class="fa fa-check"></i><b>21.3</b> Remedies</a><ul>
+<li class="chapter" data-level="21.1" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#background"><i class="fa fa-check"></i><b>21.1</b> background</a></li>
+<li class="chapter" data-level="21.2" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#principles"><i class="fa fa-check"></i><b>21.2</b> principles</a></li>
+<li class="chapter" data-level="21.3" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#remedies"><i class="fa fa-check"></i><b>21.3</b> remedies</a><ul>
 <li class="chapter" data-level="21.3.1" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#a-checklist-for-people-who-are-working-on-data-projects"><i class="fa fa-check"></i><b>21.3.1</b> a checklist for people who are working on data projects</a></li>
 <li class="chapter" data-level="21.3.2" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#additional-ideas"><i class="fa fa-check"></i><b>21.3.2</b> additional ideas</a></li>
 </ul></li>
@@ -363,7 +364,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="another-approach-to-classification-k-nearest-neighbor" class="section level1">
-<h1><span class="header-section-number">19</span> Another approach to classification: k-nearest neighbor</h1>
+<h1><span class="header-section-number">19</span> another approach to classification: k-nearest neighbor</h1>
 <div id="status-90-5" class="section level2 unnumbered">
 <h2>status 90%</h2>
 <p>this is close. multinomial classification stuff at end needs to be laid out clearly. simple quiz here <a href="http://bit.ly/idsquiz15" class="uri">http://bit.ly/idsquiz15</a></p>
@@ -374,77 +375,77 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 &gt; For each row of the test set, the k nearest (in Euclidean distance) training set vectors are found, and the classification is decided by majority vote, with ties broken at random. (ref).</p>
 <p>In the simplest form of this analysis, we find the nearest thing to a “doppelganger” (a look-alike or near double) for a given observation. So, in the affairs data, if a person is most like someone else in the dataset who has had an affair, we predict an affair, else not.</p>
 </div>
-<div id="application-the-fair-data" class="section level2">
-<h2><span class="header-section-number">19.1</span> Application: The Fair data</h2>
+<div id="application-the-affairs-data" class="section level2">
+<h2><span class="header-section-number">19.1</span> application: the affairs data</h2>
 <p>Begin by loading the affairs data from last time. Using the same seed (33458) means that the same set of training and test cases will be extracted as in the prior analysis</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(Fair)
-<span class="co"># one change here: Note the bidirectional pipe to simplify code</span>
-<span class="co"># use only when you are sure that your file update is ok</span>
-Fair <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="co"># &lt;- Fair %&gt;% </span>
-<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">affairYN =</span>
-<span class="co"># nbaffairs is set up as a factor</span>
-<span class="co"># to allow confusionmatrix to run</span>
-               <span class="kw">as.factor</span>(<span class="kw">ifelse</span>(nbaffairs <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>))) <span class="op">%&gt;%</span>
-<span class="co"># unlike the lm and glm commands, knn will not automatically create our dummy # variables for us. so we need to do this manually.</span>
-<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">sexMale =</span> <span class="kw">ifelse</span>(sex <span class="op">==</span><span class="st"> &quot;female&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">childyes =</span> <span class="kw">ifelse</span>(child <span class="op">==</span><span class="st"> &quot;no&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>(<span class="kw">c</span>(sex,child,nbaffairs)))
-
-<span class="kw">set.seed</span>(<span class="dv">33458</span>)
-n &lt;-<span class="st"> </span><span class="kw">nrow</span>(Fair)
-trainIndex &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="dt">size =</span> <span class="kw">round</span>(<span class="fl">0.6</span><span class="op">*</span>n), <span class="dt">replace =</span> <span class="ot">FALSE</span>)
-<span class="co"># create training and test samples</span>
-trainFair &lt;-<span class="st"> </span>Fair[trainIndex ,]
-testFair &lt;-<span class="st"> </span>Fair[<span class="op">-</span>trainIndex ,]</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">data</span>(Fair)</a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="co"># one change here: Note the bidirectional pipe to simplify code</span></a>
+<a class="sourceLine" id="cb19-3" title="3"><span class="co"># use only when you are sure that your file update is ok</span></a>
+<a class="sourceLine" id="cb19-4" title="4">Fair <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="co"># &lt;- Fair %&gt;% </span></a>
+<a class="sourceLine" id="cb19-5" title="5"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">affairYN =</span></a>
+<a class="sourceLine" id="cb19-6" title="6"><span class="co"># nbaffairs is set up as a factor</span></a>
+<a class="sourceLine" id="cb19-7" title="7"><span class="co"># to allow confusionmatrix to run</span></a>
+<a class="sourceLine" id="cb19-8" title="8">               <span class="kw">as.factor</span>(<span class="kw">ifelse</span>(nbaffairs <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb19-9" title="9"><span class="co"># unlike the lm and glm commands, knn will not automatically create our dummy # variables for us. so we need to do this manually.</span></a>
+<a class="sourceLine" id="cb19-10" title="10"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">sexMale =</span> <span class="kw">ifelse</span>(sex <span class="op">==</span><span class="st"> &quot;female&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb19-11" title="11"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">childyes =</span> <span class="kw">ifelse</span>(child <span class="op">==</span><span class="st"> &quot;no&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb19-12" title="12"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>(<span class="kw">c</span>(sex,child,nbaffairs)))</a>
+<a class="sourceLine" id="cb19-13" title="13"></a>
+<a class="sourceLine" id="cb19-14" title="14"><span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
+<a class="sourceLine" id="cb19-15" title="15">n &lt;-<span class="st"> </span><span class="kw">nrow</span>(Fair)</a>
+<a class="sourceLine" id="cb19-16" title="16">trainIndex &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="dt">size =</span> <span class="kw">round</span>(<span class="fl">0.6</span><span class="op">*</span>n), <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb19-17" title="17"><span class="co"># create training and test samples</span></a>
+<a class="sourceLine" id="cb19-18" title="18">trainFair &lt;-<span class="st"> </span>Fair[trainIndex ,]</a>
+<a class="sourceLine" id="cb19-19" title="19">testFair &lt;-<span class="st"> </span>Fair[<span class="op">-</span>trainIndex ,]</a></code></pre></div>
 <p>To run a k-nearest neighbor analysis, we need three inputs: our predictors in the training data, our predictors in the test data, and our outcome/classes in the training data.</p>
 <p>Here, as in the regression analysis in the last chapter, we can generate a confusion matrix to assess the accuracy of prediction:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">33458</span>)
-trainPredictors &lt;-<span class="st"> </span>trainFair <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)
-testPredictors &lt;-<span class="st"> </span>testFair <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)
-knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainPredictors, <span class="co"># training data</span>
-             testPredictors, <span class="co"># test data</span>
-             trainFair<span class="op">$</span>affairYN, <span class="co"># class</span>
-             <span class="dv">1</span> <span class="co"># number of neighbors</span>
-             )
-b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, testFair<span class="op">$</span>affairYN)
-b</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
+<a class="sourceLine" id="cb20-2" title="2">trainPredictors &lt;-<span class="st"> </span>trainFair <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb20-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)</a>
+<a class="sourceLine" id="cb20-4" title="4">testPredictors &lt;-<span class="st"> </span>testFair <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb20-5" title="5"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)</a>
+<a class="sourceLine" id="cb20-6" title="6">knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainPredictors, <span class="co"># training data</span></a>
+<a class="sourceLine" id="cb20-7" title="7">             testPredictors, <span class="co"># test data</span></a>
+<a class="sourceLine" id="cb20-8" title="8">             trainFair<span class="op">$</span>affairYN, <span class="co"># class</span></a>
+<a class="sourceLine" id="cb20-9" title="9">             <span class="dv">1</span> <span class="co"># number of neighbors</span></a>
+<a class="sourceLine" id="cb20-10" title="10">             )</a>
+<a class="sourceLine" id="cb20-11" title="11">b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, testFair<span class="op">$</span>affairYN)</a>
+<a class="sourceLine" id="cb20-12" title="12">b</a></code></pre></div>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##           Reference
 ## Prediction   0   1
-##          0 142  40
-##          1  41  17
+##          0 143  32
+##          1  39  26
 ##                                           
-##                Accuracy : 0.6625          
-##                  95% CI : (0.5989, 0.7221)
-##     No Information Rate : 0.7625          
-##     P-Value [Acc &gt; NIR] : 0.9998          
+##                Accuracy : 0.7042          
+##                  95% CI : (0.6421, 0.7611)
+##     No Information Rate : 0.7583          
+##     P-Value [Acc &gt; NIR] : 0.9772          
 ##                                           
-##                   Kappa : 0.0738          
+##                   Kappa : 0.2247          
 ##                                           
-##  Mcnemar&#39;s Test P-Value : 1.0000          
+##  Mcnemar&#39;s Test P-Value : 0.4764          
 ##                                           
-##             Sensitivity : 0.7760          
-##             Specificity : 0.2982          
-##          Pos Pred Value : 0.7802          
-##          Neg Pred Value : 0.2931          
-##              Prevalence : 0.7625          
-##          Detection Rate : 0.5917          
-##    Detection Prevalence : 0.7583          
-##       Balanced Accuracy : 0.5371          
+##             Sensitivity : 0.7857          
+##             Specificity : 0.4483          
+##          Pos Pred Value : 0.8171          
+##          Neg Pred Value : 0.4000          
+##              Prevalence : 0.7583          
+##          Detection Rate : 0.5958          
+##    Detection Prevalence : 0.7292          
+##       Balanced Accuracy : 0.6170          
 ##                                           
 ##        &#39;Positive&#39; Class : 0               
 ## </code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]]</code></pre>
-<pre><code>## [1] 0.6625</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1">b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]]</a></code></pre></div>
+<pre><code>## [1] 0.7041667</code></pre>
 </div>
 <div id="from-1-doppelganger-to-many" class="section level2">
-<h2><span class="header-section-number">19.2</span> From 1 doppelganger to many</h2>
+<h2><span class="header-section-number">19.2</span> from 1 doppelganger to many</h2>
 <p>In the above code, we used a k-nearest neighbor analysis based on a single ‘neighbor’ (k = 1). Can we improve prediction by considering more than 1 neighbor?</p>
 <div id="the-bayesian-classifier" class="section level3">
-<h3><span class="header-section-number">19.2.1</span> The Bayesian classifier</h3>
+<h3><span class="header-section-number">19.2.1</span> the Bayesian classifier</h3>
 <p>Lisa is a doctor whose patients often have post-surgical pain. Their suffering is real, but effective pain medications such as OxyContin have a high likelihood of leading to abuse and addiction. She has two bits of information about a patient, his or her age (say that we have this in ten levels, corresponding to decades of age, so that the first level is “under 20” and that the last level is “over 100”), and his or her self-report of pain, also on a 10 point scale.</p>
 <p>Assume that Lisa wants to prescribe the medication to all patients who would not abuse it, and not prescribe the medication to anyone who would.</p>
 <p>Assume that Lisa knew the entire matrix of conditional probabilities,</p>
@@ -454,116 +455,110 @@ b</code></pre>
 <p>… P (addiction | “age &gt; 100” &amp; “pain = 10”) = .09</p>
 </blockquote>
 <p>In this case she would prescribe the drug for every case where the conditional probability was greater than .5, and never otherwise. This is called the <strong>Bayesian classifier</strong>, and if we have the entire matrix of conditional probabilities we could do no better.</p>
-<p>In real world problems, we are typically dealing with many predictors, and we don’t have the full matrix of conditional probabilities. But this two predictor case “sets up” the illustration drawn from <span class="citation">(James et al. <a href="#ref-james2013introduction">2013</a>)</span>.</p>
+<p>In real world problems, we are typically dealing with many predictors, and we don’t have the full matrix of conditional probabilities. But this two predictor case “sets up” the illustration drawn from <span class="citation">(James et al. <a href="#ref-james2013introduction" role="doc-biblioref">2013</a>)</span>.</p>
 <div class="figure">
-<img src="knnTwovaluesfromJames2013.PNG" alt="Figure 10.1: Comparing two values of k (From (???))" />
+<img src="C:\Users\lanning\Dropbox\0DataSciLibArts\knnTwovaluesfromJames2013.PNG" alt="Figure 10.1: Comparing two values of k (From (???))" />
 <p class="caption">Figure 10.1: Comparing two values of k (From <span class="citation">(<span class="citeproc-not-found" data-reference-id="jamesintroduction"><strong>???</strong></span>)</span>)</p>
 </div>
 <p>In the figure above, assume that the horizontal and vertical axes correspond to scores on the two predictors (age and pain). The orange and blue colored dots correspond to cases of abuse and non-abuse in the training data. The dashed line is the Bayesian classifier. The solid line is the k-nn decision boundary, which distinguishes the regions in which we will predict abuse and non abuse in the test data. We see that when k is small (a single neighbor), prediction is flexible, non-linear, and that as k increases, the boundary differentiating the decision to prescribe and not prescribe becomes more nearly linear.</p>
 <p>But what value of k is optimal?</p>
 </div>
-<div id="back-to-the-fair-data" class="section level3">
-<h3><span class="header-section-number">19.2.2</span> Back to the Fair data</h3>
+<div id="back-to-the-affairs-data" class="section level3">
+<h3><span class="header-section-number">19.2.2</span> Back to the affairs data</h3>
 <p>To test a range of values, we can first set up our knn analysis as a function (compare this code with the code in the prior section).</p>
-<pre class="sourceCode r"><code class="sourceCode r">trainPredictors &lt;-<span class="st"> </span>trainFair <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)
-testPredictors &lt;-<span class="st"> </span>testFair <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)
-knnFairdata &lt;-<span class="st"> </span><span class="cf">function</span> (k) {
-    <span class="kw">set.seed</span>(<span class="dv">33458</span>)
-    knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainPredictors, <span class="co"># training data</span>
-                 testPredictors, <span class="co"># test data</span>
-                 trainFair<span class="op">$</span>affairYN, <span class="co"># class</span>
-                 k <span class="co"># number of neighbors</span>
-                 )
-    b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, testFair<span class="op">$</span>affairYN)
-    b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]]
-}</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1">trainPredictors &lt;-<span class="st"> </span>trainFair <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb24-2" title="2"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)</a>
+<a class="sourceLine" id="cb24-3" title="3">testPredictors &lt;-<span class="st"> </span>testFair <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb24-4" title="4"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)</a>
+<a class="sourceLine" id="cb24-5" title="5">knnFairdata &lt;-<span class="st"> </span><span class="cf">function</span> (k) {</a>
+<a class="sourceLine" id="cb24-6" title="6">    <span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
+<a class="sourceLine" id="cb24-7" title="7">    knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainPredictors, <span class="co"># training data</span></a>
+<a class="sourceLine" id="cb24-8" title="8">                 testPredictors, <span class="co"># test data</span></a>
+<a class="sourceLine" id="cb24-9" title="9">                 trainFair<span class="op">$</span>affairYN, <span class="co"># class</span></a>
+<a class="sourceLine" id="cb24-10" title="10">                 k <span class="co"># number of neighbors</span></a>
+<a class="sourceLine" id="cb24-11" title="11">                 )</a>
+<a class="sourceLine" id="cb24-12" title="12">    b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, testFair<span class="op">$</span>affairYN)</a>
+<a class="sourceLine" id="cb24-13" title="13">    b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]]</a>
+<a class="sourceLine" id="cb24-14" title="14">}</a></code></pre></div>
 <p>We run the function on k = 1 and k = 2 to test it:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">knnFairdata</span>(<span class="dv">1</span>)</code></pre>
-<pre><code>## [1] 0.6625</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">knnFairdata</span>(<span class="dv">2</span>)</code></pre>
-<pre><code>## [1] 0.6916667</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="kw">knnFairdata</span>(<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] 0.7041667</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="kw">knnFairdata</span>(<span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## [1] 0.6958333</code></pre>
 <p>Now we can apply it to as many as 100 values of k, using the purrr::map command:</p>
-<pre class="sourceCode r"><code class="sourceCode r">kAccuracy &lt;-<span class="st"> </span>(<span class="kw">map</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,knnFairdata)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map the knnFunction onto numbers 1-100</span>
-<span class="st">    </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map generates a list, so we will pull these out into a vector</span>
-<span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># then a tibble so we can do a quick plot</span>
-<span class="st">    </span><span class="kw">rename</span>(<span class="dt">Accuracy=</span>value) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">mutate</span> (<span class="dt">k =</span> <span class="kw">seq_along</span>(Accuracy))</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1">kAccuracy &lt;-<span class="st"> </span>(<span class="kw">map</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,knnFairdata)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map the knnFunction onto numbers 1-100</span></a>
+<a class="sourceLine" id="cb29-2" title="2"><span class="st">    </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map generates a list, so we will pull these out into a vector</span></a>
+<a class="sourceLine" id="cb29-3" title="3"><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># then a tibble so we can do a quick plot</span></a>
+<a class="sourceLine" id="cb29-4" title="4"><span class="st">    </span><span class="kw">rename</span>(<span class="dt">Accuracy=</span>value) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb29-5" title="5"><span class="st">    </span><span class="kw">mutate</span> (<span class="dt">k =</span> <span class="kw">seq_along</span>(Accuracy))</a></code></pre></div>
+<pre><code>## Warning: Calling `as_tibble()` on a vector is discouraged, because the behavior is likely to change in the future. Use `tibble::enframe(name = NULL)` instead.
+## This warning is displayed once per session.</code></pre>
 <p>We can graph this, using the syntax from the beginning of the class:</p>
-<pre class="sourceCode r"><code class="sourceCode r">kAccuracy <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(k, Accuracy)) <span class="op">+</span><span class="co">#%&gt;% </span>
-<span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Overall accuracy for varying levels of k&quot;</span>)</code></pre>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-109-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This pulls out the maximum accuracy, and the value of k for which it occurs:</span>
-(ka &lt;-<span class="st"> </span><span class="kw">which.max</span>(kAccuracy<span class="op">$</span>Accuracy))</code></pre>
-<pre><code>## [1] 27</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">(kb &lt;-<span class="st"> </span><span class="kw">max</span>(kAccuracy<span class="op">$</span>Accuracy))</code></pre>
-<pre><code>## [1] 0.7666667</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1">kAccuracy <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb31-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(k, Accuracy)) <span class="op">+</span><span class="co">#%&gt;% </span></a>
+<a class="sourceLine" id="cb31-3" title="3"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb31-4" title="4"><span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Overall accuracy for varying levels of k&quot;</span>)</a></code></pre></div>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="co"># This pulls out the maximum accuracy, and the value of k for which it occurs:</span></a>
+<a class="sourceLine" id="cb32-2" title="2">(ka &lt;-<span class="st"> </span><span class="kw">which.max</span>(kAccuracy<span class="op">$</span>Accuracy))</a></code></pre></div>
+<pre><code>## [1] 33</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1">(kb &lt;-<span class="st"> </span><span class="kw">max</span>(kAccuracy<span class="op">$</span>Accuracy))</a></code></pre></div>
+<pre><code>## [1] 0.7583333</code></pre>
 </div>
 </div>
 <div id="avoiding-capitalization-on-chance-again" class="section level2">
-<h2><span class="header-section-number">19.3</span> Avoiding capitalization on chance (again)</h2>
-<p>In these data, with this split of training and test (and this initial seed) the maximum predictability occurs at k = 27, with an overall accuracy of 0.7666667.</p>
-<p>Would this hold if we used a different random split? Remember, here, we have tested not one model, but 100 of them, then chosen the best one. The peak in the curve at 27 may well be due to chance characteristics of the test data.</p>
-<p>We could address this empirically using one of several techniques. One approach is to have a third independent sample on which to test the accuracy of prediction at k = 27. This would require the separate validation sample that was introduced in the last chapter.</p>
+<h2><span class="header-section-number">19.3</span> avoiding capitalization on chance (again)</h2>
+<p>In these data, with this split of training and test (and this initial seed) the maximum predictability occurs at k = 33, with an overall accuracy of 0.7583333.</p>
+<p>Would this hold if we used a different random split? Remember, here, we have tested not one model, but 100 of them, then chosen the best one. The peak in the curve at 33 may well be due to chance characteristics of the test data.</p>
+<p>We could address this empirically using one of several techniques. One approach is to have a third independent sample on which to test the accuracy of prediction at k = 33. This would require the separate validation sample that was introduced in the last chapter.</p>
 <p>In the following block, I resplit the Fair data, using proportions of 60%, 30%, 10%. These values are likely not optimal given the (relatively small) size of the Fair data, but will work to illustrate the approach:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">33458</span>)
-threeWaySplit &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">size=</span><span class="kw">nrow</span>(Fair),
-                        <span class="dt">prob=</span><span class="kw">c</span>(<span class="fl">0.6</span>,<span class="fl">0.3</span>,<span class="fl">0.1</span>),
-                        <span class="dt">replace =</span> <span class="ot">TRUE</span>)
-trainFair2 &lt;-<span class="st"> </span>Fair[threeWaySplit<span class="op">==</span><span class="dv">1</span>,]
-testFair2 &lt;-<span class="st"> </span>Fair[threeWaySplit<span class="op">==</span><span class="dv">2</span>,]
-validFair2 &lt;-<span class="st"> </span>Fair[threeWaySplit<span class="op">==</span><span class="dv">3</span>,]</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
+<a class="sourceLine" id="cb36-2" title="2">threeWaySplit &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">size=</span><span class="kw">nrow</span>(Fair),</a>
+<a class="sourceLine" id="cb36-3" title="3">                        <span class="dt">prob=</span><span class="kw">c</span>(<span class="fl">0.6</span>,<span class="fl">0.3</span>,<span class="fl">0.1</span>),</a>
+<a class="sourceLine" id="cb36-4" title="4">                        <span class="dt">replace =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb36-5" title="5">trainFair2 &lt;-<span class="st"> </span>Fair[threeWaySplit<span class="op">==</span><span class="dv">1</span>,]</a>
+<a class="sourceLine" id="cb36-6" title="6">testFair2 &lt;-<span class="st"> </span>Fair[threeWaySplit<span class="op">==</span><span class="dv">2</span>,]</a>
+<a class="sourceLine" id="cb36-7" title="7">validFair2 &lt;-<span class="st"> </span>Fair[threeWaySplit<span class="op">==</span><span class="dv">3</span>,]</a></code></pre></div>
 <p>I tweak my function here to use the new data, then run it 100 times as before.</p>
-<pre class="sourceCode r"><code class="sourceCode r">trainPredictors &lt;-<span class="st"> </span>trainFair2 <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)
-testPredictors &lt;-<span class="st"> </span>testFair2 <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)
-knnFairdata2 &lt;-<span class="st"> </span><span class="cf">function</span> (k) {
-    <span class="kw">set.seed</span>(<span class="dv">33458</span>)
-    knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainPredictors, <span class="co"># training data</span>
-             testPredictors, <span class="co"># test data</span>
-             trainFair2<span class="op">$</span>affairYN, <span class="co"># class</span>
-             k <span class="co"># number of neighbors</span>
-             )
-    b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, testFair2<span class="op">$</span>affairYN)
-    b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]]
-}
-kAccuracy &lt;-<span class="st"> </span>(<span class="kw">map</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,knnFairdata2)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map the knnFunction onto numbers 1-100</span>
-<span class="st">    </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map generates a list, so we will pull these out into a vector</span>
-<span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># then a tibble so we can do a quick plot</span>
-<span class="st">    </span><span class="kw">rename</span>(<span class="dt">Accuracy=</span>value) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">mutate</span> (<span class="dt">k =</span> <span class="kw">seq_along</span>(Accuracy))
-(ka2 &lt;-<span class="st"> </span><span class="kw">which.max</span>(kAccuracy<span class="op">$</span>Accuracy))</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1">trainPredictors &lt;-<span class="st"> </span>trainFair2 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb37-2" title="2"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)</a>
+<a class="sourceLine" id="cb37-3" title="3">testPredictors &lt;-<span class="st"> </span>testFair2 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb37-4" title="4"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)</a>
+<a class="sourceLine" id="cb37-5" title="5">knnFairdata2 &lt;-<span class="st"> </span><span class="cf">function</span> (k) {</a>
+<a class="sourceLine" id="cb37-6" title="6">    <span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
+<a class="sourceLine" id="cb37-7" title="7">    knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainPredictors, <span class="co"># training data</span></a>
+<a class="sourceLine" id="cb37-8" title="8">             testPredictors, <span class="co"># test data</span></a>
+<a class="sourceLine" id="cb37-9" title="9">             trainFair2<span class="op">$</span>affairYN, <span class="co"># class</span></a>
+<a class="sourceLine" id="cb37-10" title="10">             k <span class="co"># number of neighbors</span></a>
+<a class="sourceLine" id="cb37-11" title="11">             )</a>
+<a class="sourceLine" id="cb37-12" title="12">    b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, testFair2<span class="op">$</span>affairYN)</a>
+<a class="sourceLine" id="cb37-13" title="13">    b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]]</a>
+<a class="sourceLine" id="cb37-14" title="14">}</a>
+<a class="sourceLine" id="cb37-15" title="15">kAccuracy &lt;-<span class="st"> </span>(<span class="kw">map</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,knnFairdata2)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map the knnFunction onto numbers 1-100</span></a>
+<a class="sourceLine" id="cb37-16" title="16"><span class="st">    </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map generates a list, so we will pull these out into a vector</span></a>
+<a class="sourceLine" id="cb37-17" title="17"><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># then a tibble so we can do a quick plot</span></a>
+<a class="sourceLine" id="cb37-18" title="18"><span class="st">    </span><span class="kw">rename</span>(<span class="dt">Accuracy=</span>value) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb37-19" title="19"><span class="st">    </span><span class="kw">mutate</span> (<span class="dt">k =</span> <span class="kw">seq_along</span>(Accuracy))</a>
+<a class="sourceLine" id="cb37-20" title="20">(ka2 &lt;-<span class="st"> </span><span class="kw">which.max</span>(kAccuracy<span class="op">$</span>Accuracy))</a></code></pre></div>
 <pre><code>## [1] 15</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">(kb2 &lt;-<span class="st"> </span><span class="kw">max</span>(kAccuracy<span class="op">$</span>Accuracy))</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1">(kb2 &lt;-<span class="st"> </span><span class="kw">max</span>(kAccuracy<span class="op">$</span>Accuracy))</a></code></pre></div>
 <pre><code>## [1] 0.7802198</code></pre>
 <p>So here, on the (contaminated) test data, the maximum predictability occurs at k = 15, with an overall accuracy of 0.7802198. We apply this back to the validation data by pulling the knn code out of the function, and running it just once against the validation data:</p>
-<pre class="sourceCode r"><code class="sourceCode r">knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainFair2[,<span class="op">-</span><span class="dv">7</span>], <span class="co"># training data</span>
-             validFair2[,<span class="op">-</span><span class="dv">7</span>], <span class="co"># VALIDATION data</span>
-             trainFair2<span class="op">$</span>affairYN, <span class="co"># class</span>
-             ka2 <span class="co"># number of neighbors</span>
-             )
-b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, validFair2<span class="op">$</span>affairYN)
-(kb3 &lt;-<span class="st"> </span>b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]])</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1">knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainFair2[,<span class="op">-</span><span class="dv">7</span>], <span class="co"># training data</span></a>
+<a class="sourceLine" id="cb41-2" title="2">             validFair2[,<span class="op">-</span><span class="dv">7</span>], <span class="co"># VALIDATION data</span></a>
+<a class="sourceLine" id="cb41-3" title="3">             trainFair2<span class="op">$</span>affairYN, <span class="co"># class</span></a>
+<a class="sourceLine" id="cb41-4" title="4">             ka2 <span class="co"># number of neighbors</span></a>
+<a class="sourceLine" id="cb41-5" title="5">             )</a>
+<a class="sourceLine" id="cb41-6" title="6">b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, validFair2<span class="op">$</span>affairYN)</a>
+<a class="sourceLine" id="cb41-7" title="7">(kb3 &lt;-<span class="st"> </span>b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]])</a></code></pre></div>
 <pre><code>## [1] 0.703125</code></pre>
 <p>We see that the overall predictability using the k-nearest neighbor analysis on the clean validation data, is now 0.703125.</p>
-<p>You might note that in our two splits of the Fair data - the two-way split of 60% Training and 40% Test, and the three-way split of 60% Training, 30% Test, 10% Validation, we got two different solutions to the question of the ‘optimal k’ (i.e., 27 and 15). With larger sample sizes, these values would be more stable.</p>
+<p>You might note that in our two splits of the Fair data - the two-way split of 60% Training and 40% Test, and the three-way split of 60% Training, 30% Test, 10% Validation, we got two different solutions to the question of the ‘optimal k’ (i.e., 33 and 15). With larger sample sizes, these values would be more stable.</p>
 </div>
 <div id="the-multinomial-case" class="section level2">
-<h2><span class="header-section-number">19.4</span> The multinomial case</h2>
+<h2><span class="header-section-number">19.4</span> the multinomial case</h2>
 <p>A final comment on the k-nearest neighbors approach: You can extend this to classification problems in which we are predicting not just a dichotomous outcome, but a multinomial one - such as a personality type or college concentration.</p>
 
-<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">echo =</span> <span class="ot">TRUE</span>, <span class="dt">warn =</span> <span class="ot">FALSE</span>, <span class="dt">message =</span> <span class="ot">FALSE</span>) <span class="co"># defaults for all chunks after this one</span>
-<span class="kw">library</span>(tidyverse)
-<span class="co"># library(ggplot2)</span>
-<span class="kw">library</span>(Ecdat) <span class="co"># for Swiss data</span>
-<span class="kw">library</span>(rpart) <span class="co"># for decision trees</span>
-<span class="co"># library (class) # for knn</span>
-<span class="co"># library(caret) # confusion matrix</span>
-<span class="co"># library(magrittr) # allows bidirectional pipe for updating file easily %&lt;&gt;% </span></code></pre>
 </div>
 </div>
 <h3> references</h3>
@@ -583,11 +578,13 @@ b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, validFair2<span class="
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -595,12 +592,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "sepia",
@@ -615,6 +611,10 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": null,
 "toc": {
 "collapse": "subsection"
@@ -624,19 +624,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

@@ -19,7 +19,7 @@ Primary sources @loukides2018ethics, @salganik2017bit
 
 
 
-## Background
+## background
 
 There are ethics guidelines in professional organizations of [computer scientists](https://www.acm.org/code-of-ethics) and [statisticians](https://www.amstat.org//asa/files/pdfs/EthicalGuidelines.pdf).  
 
@@ -29,7 +29,7 @@ Oaths (like the Hippocratic Oath) are less effective than checklists (Gawande, 2
 
 
 
-## Principles
+## principles
 
 Consent
 
@@ -45,7 +45,7 @@ Control (and transparency): I have the right to control my data / the General Da
 
 Improvements in UX (user experience) provide users with short-term incentives and long-term costs...
 
-## Remedies
+## remedies
 
 Here's a checklist proposed by @loukides2018ethics:
 

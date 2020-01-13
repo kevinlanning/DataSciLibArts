@@ -16,11 +16,13 @@ library(rpart) # for decision trees
 # library(magrittr) # allows bidirectional pipe for updating file easily %<>% 
 ```
 
-# Machine learning: some distinctions and ideas
+# machine learning: some distinctions and ideas
 
 ## status 50%  {-}
 
-this is a fine start, but challenging, and much more needs to be done about the different approaches such as random forests and deep neural networks.  Results should be shown for code blocks.
+this is a fine start, but challenging, and much more needs to be done about the different approaches such as random forests and deep neural networks.  Results should be shown for code blocks. Consider http://www.deeplearningbook.org/
+
+
 
 ---
 
@@ -98,7 +100,7 @@ An extension of this approach is **k-fold cross validation**, in which the sampl
 
 Another approach to resampling is **bootstrapping**, in which model parameters (e.g., regression coefficients) are taken as the average of many (for example 1,000) analyses of subsamples of the data.  In the bootstrap, sampling is done with replacement, so that the same case may appear in many samples.  The averaged coefficients arrived at using bootstrapping are less variable than the results of a single analysis.
 
-## approaches to classification 
+## approaches to classification
 
 Consider a simple hypothetical real world problem: You are looking for individuals who might be eligible to work as commerical jet pilots.  You are concerned with just two qualifications, namely, eyesight and responsibility. But you can't really use a regression model here, because no matter how good someone's eyesight is, if they are irresponsible you will not want to hire them. Similarly, even if they are very responsible, poor eyesight might make them ineligible.
 

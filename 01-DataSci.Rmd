@@ -9,13 +9,6 @@ output:
 # (PART) Introduction {-}
 # data science for the liberal arts
 
-## status 90%  {-}
-
-Combine features of data science with levels (below). Move last section into next chapter as pretest.  
-
-----------
-
-
 
 Hochster, in @hicks2017guide, describes two broad types of data scientists: Type A (Analysis) data scientists, whose skills are like those of an applied **statistician**, and Type B (Building) data scientists, whose skills lie in problem solving or coding, using the skills of the **computer scientist**.  This view arguably omits a critical component of the field, as data science is driven not just by statistics and computer science, but also by "domain expertise:"
 
@@ -39,11 +32,11 @@ The complexity of data science is such that individuals typically have expertise
 
 **Pragmatism** refers to the relevance of work towards real-world goals.  
 
-Ideally, these pragmatic concerns take into account **ethical concerns** as well.
+These real-world goals should be informed by **ethical concerns** including a respect for the privacy and autonomy of our fellow humans.  
 
 ## a dimension of depth
 
-Cutting across these eight facets (statistics, computing, domain expertise, collaboration, communication, reproducibility, pragmatism, and ethics), a second dimension can be articulated. No one of us can excel in all eight domains, rather, we might aim towards goals ranging from **literacy** (can understand) through **proficiency** (can get by) to **fluency** (can practice) to **leadership** (can create new solutions or methods).  
+Cutting across these various facets (statistics, computing, domain expertise, collaboration, communication, reproducibility, pragmatism, and ethics), a second dimension can be articulated. No one of us can excel in all of these domains, rather, we might aim towards goals ranging from **literacy** (can understand) through **proficiency** (can get by) to **fluency** (can practice) to **leadership** (can create new solutions or methods).  
 
 That is, we can think of a *continuum* of knowledge, skills, interests, and goals, ranging from that which characterizes the data *consumer* to the data *citizen* to the data science *contributor.* A Type C data science includes this dimension of 'depth' as well.
 

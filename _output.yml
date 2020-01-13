@@ -10,7 +10,7 @@ bookdown::gitbook:
 #      - ["DataSciLibArts.pdf", "PDF"]
 #      - ["DataSciLibArts.epub", "EPUB"]
     fontsettings:
-      theme: sepia
+#      theme: sepia
       family: sans
       size: 2
     search: yes

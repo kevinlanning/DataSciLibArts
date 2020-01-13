@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 an introduction to R | Data science for the liberal arts</title>
-  <meta name="description" content="Test">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Test" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 an introduction to R | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:image" content="images/diffprop_cloud_250_sm.png" />
+  <meta property="og:image" content="chihuahuamuffin.jpg" />
   <meta property="og:description" content="Test" />
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
@@ -20,20 +19,20 @@
   <meta name="twitter:title" content="3 an introduction to R | Data science for the liberal arts" />
   
   <meta name="twitter:description" content="Test" />
-  <meta name="twitter:image" content="images/diffprop_cloud_250_sm.png" />
+  <meta name="twitter:image" content="chihuahuamuffin.jpg" />
 
-<meta name="author" content="Kevin Lanning">
+<meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2019-05-08">
+<meta name="date" content="2020-01-11" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="getting-started.html">
-<link rel="next" href="now-draw-the-rest-of-the-owl.html">
+<link rel="prev" href="getting-started.html"/>
+<link rel="next" href="now-draw-the-rest-of-the-owl.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -41,6 +40,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -48,7 +48,8 @@
 
 
 
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
 
 
 <style type="text/css">
@@ -57,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -250,98 +250,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#some-simple-principles"><i class="fa fa-check"></i><b>10.1</b> some simple principles</a></li>
 <li class="chapter" data-level="10.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#homework"><i class="fa fa-check"></i><b>10.2</b> homework</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html"><i class="fa fa-check"></i><b>11</b> Messy data: Cleaning and curation</a><ul>
-<li class="chapter" data-level="" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html#status-85-1"><i class="fa fa-check"></i>status 85%</a></li>
-<li class="chapter" data-level="11.1" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html#finding-data"><i class="fa fa-check"></i><b>11.1</b> finding data</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="transforming-data.html"><a href="transforming-data.html"><i class="fa fa-check"></i><b>12</b> transforming data</a><ul>
-<li class="chapter" data-level="" data-path="transforming-data.html"><a href="transforming-data.html#status-85-2"><i class="fa fa-check"></i>status 85%</a></li>
-<li class="chapter" data-level="12.1" data-path="transforming-data.html"><a href="transforming-data.html#from-data-on-the-web-to-data-in-r"><i class="fa fa-check"></i><b>12.1</b> from data on the web to data in R</a></li>
-<li class="chapter" data-level="12.2" data-path="transforming-data.html"><a href="transforming-data.html#babynames"><i class="fa fa-check"></i><b>12.2</b> babynames</a></li>
-<li class="chapter" data-level="12.3" data-path="transforming-data.html"><a href="transforming-data.html#exercises"><i class="fa fa-check"></i><b>12.3</b> exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>13</b> relational data</a><ul>
-<li class="chapter" data-level="" data-path="relational-data.html"><a href="relational-data.html#status-5"><i class="fa fa-check"></i>status 5%</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html"><i class="fa fa-check"></i><b>14</b> strings, factors, dates, and times</a><ul>
-<li class="chapter" data-level="" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#status-60"><i class="fa fa-check"></i>status 60%</a></li>
-<li class="chapter" data-level="14.1" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#strings"><i class="fa fa-check"></i><b>14.1</b> strings</a></li>
-<li class="chapter" data-level="14.2" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#factors"><i class="fa fa-check"></i><b>14.2</b> factors</a></li>
-<li class="chapter" data-level="14.3" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#dates"><i class="fa fa-check"></i><b>14.3</b> dates</a></li>
-<li class="chapter" data-level="14.4" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#times"><i class="fa fa-check"></i><b>14.4</b> times</a></li>
-</ul></li>
-<li class="chapter" data-level="15" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>15</b> lists</a><ul>
-<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#status-70"><i class="fa fa-check"></i>status 70%</a></li>
-</ul></li>
-<li class="chapter" data-level="16" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html"><i class="fa fa-check"></i><b>16</b> loops, functions, and beyond</a><ul>
-<li class="chapter" data-level="" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#status-85-3"><i class="fa fa-check"></i>status 85%</a></li>
-<li class="chapter" data-level="16.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#loops"><i class="fa fa-check"></i><b>16.1</b> loops</a></li>
-<li class="chapter" data-level="16.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#from-loop-to-apply-to-purrrmap"><i class="fa fa-check"></i><b>16.2</b> from loop to apply to purrr::map</a></li>
-<li class="chapter" data-level="16.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#some-examples-of-functions"><i class="fa fa-check"></i><b>16.3</b> some examples of functions</a><ul>
-<li class="chapter" data-level="16.3.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#preliminaries"><i class="fa fa-check"></i><b>16.3.1</b> preliminaries</a></li>
-<li class="chapter" data-level="16.3.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#the-function"><i class="fa fa-check"></i><b>16.3.2</b> the function</a></li>
-<li class="chapter" data-level="16.3.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#applying-the-function"><i class="fa fa-check"></i><b>16.3.3</b> applying the function</a></li>
-</ul></li>
-<li class="chapter" data-level="16.4" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#how-many-bottles-of-what"><i class="fa fa-check"></i><b>16.4</b> how many bottles of what?</a></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html"><i class="fa fa-check"></i><b>17</b> Regression and Modeling</a><ul>
-<li class="chapter" data-level="" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#status-80-3"><i class="fa fa-check"></i>status 80%</a></li>
-<li class="chapter" data-level="17.1" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#correlation"><i class="fa fa-check"></i><b>17.1</b> Correlation</a><ul>
-<li class="chapter" data-level="17.1.1" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#the-regression-line"><i class="fa fa-check"></i><b>17.1.1</b> The regression line</a></li>
-<li class="chapter" data-level="17.1.2" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#warning-there-are-two-regression-lines"><i class="fa fa-check"></i><b>17.1.2</b> Warning: there are two regression lines</a></li>
-</ul></li>
-<li class="chapter" data-level="17.2" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#multiple-regression"><i class="fa fa-check"></i><b>17.2</b> Multiple regression</a></li>
-<li class="chapter" data-level="17.3" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#swiss-fertility"><i class="fa fa-check"></i><b>17.3</b> Swiss fertility</a></li>
-<li class="chapter" data-level="17.4" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#what-predicts-marital-affairs"><i class="fa fa-check"></i><b>17.4</b> What predicts marital affairs?</a></li>
-</ul></li>
-<li class="chapter" data-level="18" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html"><i class="fa fa-check"></i><b>18</b> From regression to prediction and classification</a><ul>
-<li class="chapter" data-level="" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#status-85-4"><i class="fa fa-check"></i>status 85%</a></li>
-<li class="chapter" data-level="18.1" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#revisiting-the-affairs-data"><i class="fa fa-check"></i><b>18.1</b> Revisiting the affairs data</a></li>
-<li class="chapter" data-level="18.2" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#avoiding-capitalizing-on-chance"><i class="fa fa-check"></i><b>18.2</b> Avoiding capitalizing on chance</a><ul>
-<li class="chapter" data-level="18.2.1" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#splitting-the-data-into-training-and-test-subsamples"><i class="fa fa-check"></i><b>18.2.1</b> Splitting the data into training and test subsamples</a></li>
-</ul></li>
-<li class="chapter" data-level="18.3" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#an-example-of-cross-validated-linear-regression"><i class="fa fa-check"></i><b>18.3</b> an example of cross-validated linear regression</a></li>
-<li class="chapter" data-level="18.4" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#applying-logistic-regression-analysis-to-the-training-data"><i class="fa fa-check"></i><b>18.4</b> applying logistic regression analysis to the training data</a></li>
-<li class="chapter" data-level="18.5" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#from-regression-to-classification-selection-of-a-threshold"><i class="fa fa-check"></i><b>18.5</b> from regression to classification: selection of a threshold</a></li>
-<li class="chapter" data-level="18.6" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#applying-the-model-to-the-test-data"><i class="fa fa-check"></i><b>18.6</b> applying the model to the test data</a></li>
-<li class="chapter" data-level="18.7" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#changing-our-decision-threshold"><i class="fa fa-check"></i><b>18.7</b> changing our decision threshold</a></li>
-<li class="chapter" data-level="18.8" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#more-confusion"><i class="fa fa-check"></i><b>18.8</b> more confusion</a></li>
-<li class="chapter" data-level="18.9" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#rocs-and-auc"><i class="fa fa-check"></i><b>18.9</b> ROCs and AUC</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html"><i class="fa fa-check"></i><b>19</b> Another approach to classification: k-nearest neighbor</a><ul>
-<li class="chapter" data-level="" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#status-90-5"><i class="fa fa-check"></i>status 90%</a></li>
-<li class="chapter" data-level="19.1" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#application-the-fair-data"><i class="fa fa-check"></i><b>19.1</b> Application: The Fair data</a></li>
-<li class="chapter" data-level="19.2" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#from-1-doppelganger-to-many"><i class="fa fa-check"></i><b>19.2</b> From 1 doppelganger to many</a><ul>
-<li class="chapter" data-level="19.2.1" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#the-bayesian-classifier"><i class="fa fa-check"></i><b>19.2.1</b> The Bayesian classifier</a></li>
-<li class="chapter" data-level="19.2.2" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#back-to-the-fair-data"><i class="fa fa-check"></i><b>19.2.2</b> Back to the Fair data</a></li>
-</ul></li>
-<li class="chapter" data-level="19.3" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#avoiding-capitalization-on-chance-again"><i class="fa fa-check"></i><b>19.3</b> Avoiding capitalization on chance (again)</a></li>
-<li class="chapter" data-level="19.4" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#the-multinomial-case"><i class="fa fa-check"></i><b>19.4</b> The multinomial case</a></li>
-</ul></li>
-<li class="chapter" data-level="20" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html"><i class="fa fa-check"></i><b>20</b> Machine learning: some distinctions and ideas</a><ul>
-<li class="chapter" data-level="" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#status-50"><i class="fa fa-check"></i>status 50%</a></li>
-<li class="chapter" data-level="20.1" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#supervised-versus-unsupervised-problems"><i class="fa fa-check"></i><b>20.1</b> supervised versus unsupervised problems</a></li>
-<li class="chapter" data-level="20.2" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#prediction-versus-classification"><i class="fa fa-check"></i><b>20.2</b> prediction versus classification</a></li>
-<li class="chapter" data-level="20.3" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#understanding-versus-prediction"><i class="fa fa-check"></i><b>20.3</b> understanding versus prediction</a></li>
-<li class="chapter" data-level="20.4" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#the-bias-variability-tradeoff"><i class="fa fa-check"></i><b>20.4</b> the bias-variability tradeoff</a></li>
-<li class="chapter" data-level="20.5" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#dealing-with-the-structure-of-the-data"><i class="fa fa-check"></i><b>20.5</b> dealing with the structure of the data</a><ul>
-<li class="chapter" data-level="20.5.1" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#preprocessing"><i class="fa fa-check"></i><b>20.5.1</b> preprocessing</a></li>
-<li class="chapter" data-level="20.5.2" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#resampling-beyond-test-training-and-validation-samples"><i class="fa fa-check"></i><b>20.5.2</b> resampling: beyond test, training, and validation samples</a></li>
-</ul></li>
-<li class="chapter" data-level="20.6" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#approaches-to-classification"><i class="fa fa-check"></i><b>20.6</b> approaches to classification</a></li>
-<li class="chapter" data-level="20.7" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#approaches-to-ml"><i class="fa fa-check"></i><b>20.7</b> approaches to ml</a></li>
-</ul></li>
-<li class="chapter" data-level="21" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html"><i class="fa fa-check"></i><b>21</b> ethics: some topics for discussion</a><ul>
-<li class="chapter" data-level="" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#status-40"><i class="fa fa-check"></i>status 40%</a></li>
-<li class="chapter" data-level="21.1" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#background"><i class="fa fa-check"></i><b>21.1</b> Background</a></li>
-<li class="chapter" data-level="21.2" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#principles"><i class="fa fa-check"></i><b>21.2</b> Principles</a></li>
-<li class="chapter" data-level="21.3" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#remedies"><i class="fa fa-check"></i><b>21.3</b> Remedies</a><ul>
-<li class="chapter" data-level="21.3.1" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#a-checklist-for-people-who-are-working-on-data-projects"><i class="fa fa-check"></i><b>21.3.1</b> a checklist for people who are working on data projects</a></li>
-<li class="chapter" data-level="21.3.2" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#additional-ideas"><i class="fa fa-check"></i><b>21.3.2</b> additional ideas</a></li>
-</ul></li>
-<li class="chapter" data-level="21.4" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#some-case-studies"><i class="fa fa-check"></i><b>21.4</b> some case studies</a></li>
-</ul></li>
-<li class="chapter" data-level="22" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>22</b> references</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -368,7 +276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2>status 85%</h2>
 <p>Introduce swirlR and include first few lessons. Move digression at end on autonomous vehicles to about chapter 21 on ethics.</p>
 <hr />
-<p>R is a system for <strong>Reproducible research</strong>, and reproducibility is essential <span class="citation">(Gandrud <a href="#ref-gandrud2016reproducible">2016</a>)</span>.</p>
+<p>R is a system for <strong>Reproducible research</strong>, and reproducibility is essential <span class="citation">(Gandrud <a href="#ref-gandrud2016reproducible" role="doc-biblioref">2016</a>)</span>.</p>
 <blockquote>
 <p>Research is often presented in very selective containers: slideshows, journal articles, books, or maybe even websites… these documents are not the research [rather] these documents are the “advertising”. The research is the “full software environment, code, and data that produced the results” [Buckheit and Donoho, 1995, Donoho, 2010, 385]. When we separate the research from its advertisement we are making it difficult for others to verify the findings by reproducing them.</p>
 </blockquote>
@@ -383,18 +291,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Online resources include the simple (and less simple) lessons of <a href="http://swirlstats.com/">SwirlR</a>, which offers the possibility of “learning R in R,” as well as <a href="https://www.datacamp.com/home">DataCamp</a>, the <a href="https://www.coursera.org/specializations/jhu-data-science">Data Science Certificate Program at Johns Hopkins,</a> and other MOOCs.<br />
 </li>
-<li>Books include <span class="citation">Peng (<a href="#ref-peng2015r">2015</a>)</span> - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and <span class="citation">Wickham and Grolemund (<a href="#ref-wickham2016r">2016</a>)</span>.</li>
+<li>Books include <span class="citation">Peng (<a href="#ref-peng2015r" role="doc-biblioref">2015</a>)</span> - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and <span class="citation">Wickham and Grolemund (<a href="#ref-wickham2016r" role="doc-biblioref">2016</a>)</span>.</li>
 <li>You’ll also learn (more directly) from people, including your classmates, as well as the broader community of people around the world. There are hundreds if not thousands of people, young and old, who are on the road with you. I am as well, just a step or two (hopefully) ahead.</li>
 </ul>
 <p>R does not stand for ‘<a href="https://www.urbandictionary.com/define.php?term=ARGH">argh</a>,’ although you may proclaim this in frustration (‘arggh, why can’t I get this to work?) or, perhaps, in satisfaction (’arggh, matey, that be a clever way of doing this’). But R does stand for <strong><em>Rewarding</em></strong>. A language is a way of thinking about the world, and this is true for computer languages as well. You’ll be challenged by its complexity, its idiosyncracy, its alien logic. But you will succeed, and you will find that you can do things that you did not believe possible.</p>
 </div>
 <div id="a-few-characteristics-of-r" class="section level2">
 <h2><span class="header-section-number">3.2</span> a few characteristics of R</h2>
-<p>R includes the base plus thousands of <strong>packages</strong>. These packages are customized add-ons which simplify certain tasks, such as text analysis. But there are, at this writing, <a href="https://cran.r-project.org/web/views/NaturalLanguageProcessing.html">over 50 different packages for text analysis</a> - so where do you begin? One recent answer, and where we will start, is the curated list of packages which jointly comprise the tidyverse <span class="citation">(Wickham and Grolemund <a href="#ref-wickham2016r">2016</a>)</span>.</p>
+<p>R includes the base plus thousands of <strong>packages</strong>. These packages are customized add-ons which simplify certain tasks, such as text analysis. But there are, at this writing, <a href="https://cran.r-project.org/web/views/NaturalLanguageProcessing.html">over 50 different packages for text analysis</a> - so where do you begin? One recent answer, and where we will start, is the curated list of packages which jointly comprise the tidyverse <span class="citation">(Wickham and Grolemund <a href="#ref-wickham2016r" role="doc-biblioref">2016</a>)</span>.</p>
 <blockquote>
-<p>A few years ago, <span class="citation">Peng (<a href="#ref-peng2015r">2015</a>)</span> speculated that “it would be straightforward to build an R package for ordering pizza.” Does one exist now?</p>
+<p>A few years ago, <span class="citation">Peng (<a href="#ref-peng2015r" role="doc-biblioref">2015</a>)</span> speculated that “it would be straightforward to build an R package for ordering pizza.” Does one exist now?</p>
 </blockquote>
-<p>R is an <strong>object-oriented</strong> language - one conceptually organized around objects and data rather than actions and logic. In R, at the atomic level, objects include <em>characters, real numbers, integers, complex numbers, and logical.</em> These atoms are combined into vectors, which generally include objects of the same type <span class="citation">(one kind of object, “lists,” is an exception to this; Peng <a href="#ref-peng2015r">2015</a>)</span>. Vectors can be further combined into <strong>data frames</strong>, which are two-dimensional tables or arrays. A <strong>tibble</strong> is a particular type of data frame which is, in some ways, handier to work with than other data frames. We’ll be working extensively with data frames in general, and tibbles in particular, as we move forward.</p>
+<p>R is an <strong>object-oriented</strong> language - one conceptually organized around objects and data rather than actions and logic. In R, at the atomic level, objects include <em>characters, real numbers, integers, complex numbers, and logical.</em> These atoms are combined into vectors, which generally include objects of the same type <span class="citation">(one kind of object, “lists,” is an exception to this; Peng <a href="#ref-peng2015r" role="doc-biblioref">2015</a>)</span>. Vectors can be further combined into <strong>data frames</strong>, which are two-dimensional tables or arrays. A <strong>tibble</strong> is a particular type of data frame which is, in some ways, handier to work with than other data frames. We’ll be working extensively with data frames in general, and tibbles in particular, as we move forward.</p>
 <p>Objects have <strong>attributes</strong>. Attributes of R include such things as name, dimensions (for vectors and arrays), class (that’s the type of object described in the previous paragraph), length, etc.</p>
 <p>Real world data sets are messy, and frequently have <strong>missing values.</strong> In R, missing values may be characterized by NA (not available) or NaN (not a number, implying an undefined or impossible value).</p>
 <p><strong>R Studio,</strong> the environment we will use to write, test, and run R code, is a commercial enterprise whose business model, judged from afar, is an important one in the world of technology. Most of what R Studio offers is free (97% according to Garrett Grolemund in the video below). The commercial product they offer makes sense for a relative few, but it is sufficiently lucrative to fund the enterprise. The free product helps to drive the popularity of R studio; this widespread use, in turn, makes it increasingly essential for businesses to use. This mixed free/premium, or ‘freemium,’ model characterizes Slack as well, but while <a href="https://www.statista.com/statistics/652779/worldwide-slack-users-total-vs-paid/">the ratio of free to paid users of Slack is on the order of 3:1</a>, for R it is, I am guessing, an order of magnitude higher than this.</p>
@@ -410,30 +318,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="wickham-and-r-for-data-science" class="section level2">
 <h2><span class="header-section-number">3.4</span> Wickham and R for Data Science</h2>
-<p><a href="https://r4ds.had.co.nz/introduction.html">The first chapter of the Wickham text</a> <span class="citation">(Wickham and Grolemund <a href="#ref-wickham2016r">2016</a>)</span> provides a framework for his approach and a brief introduction to the <em>tidyverse</em> which will be the dialect of R we will study in the weeks ahead.</p>
+<p><a href="https://r4ds.had.co.nz/introduction.html">The first chapter of the Wickham text</a> <span class="citation">(Wickham and Grolemund <a href="#ref-wickham2016r" role="doc-biblioref">2016</a>)</span> provides a framework for his approach and a brief introduction to the <em>tidyverse</em> which will be the dialect of R we will study in the weeks ahead.</p>
 <p>Please read it now.</p>
 </div>
 <div id="discussion-is-open-source-software-secure" class="section level2">
 <h2><span class="header-section-number">3.5</span> discussion: is open-source software secure?</h2>
 <p>Perhaps the most important feature of R is that it is open-source software. This is important not just because it saves you money, but because contributing to the world of R is an act of digital democracy. In using and contributing to the world of R we open up knowledge to others who may lack our privileges. R, like Android or Wikipedia, is a tool for all of us, maintained and continually improved upon by the crowd.</p>
 <p>But is open-source software safe? More generally, in a data-dependent world, who should be the guardians of the code that connects us?</p>
-<p><strong>Securing the Internet of Vehicles</strong>. To consider just one example, the computer systems in modern cars typically run millions of lines of code. As cars become increasingly autonomous, this complexity will only increase. (Incidentally, the Society of Automotive Engineers, or SAE, describes 6 levels of ‘auto autonomy.’ At this writing, the most sophisticated systems available to consumers, such as Tesla Autopilot, are at level 2. What lies ahead are cars which are self-driving on carefully selected, geo-fenced roads, and ultimately cars “<a href="https://www.caranddriver.com/features/a15079828/autonomous-self-driving-car-levels-car-levels/">which can operate on any road… a human driver could negotiate</a>”). Our roads and highways will become an Internet of Vehicles (IOV), which will include not just connections between cars and an intelligent <em>cloud</em> ‘above us’ but also direct links between a distributed system of intelligent cars, stoplights, and road sensors in a <em>fog</em> ‘around us’ <span class="citation">(Bonomi et al. <a href="#ref-bonomi2012fog">2012</a>)</span>. <strong>Fog computing</strong> and the IOV will reduce travel times and increase both fuel efficiency and automotive safety.</p>
+<p><strong>Securing the Internet of Vehicles</strong>. To consider just one example, the computer systems in modern cars typically run millions of lines of code. As cars become increasingly autonomous, this complexity will only increase. (Incidentally, the Society of Automotive Engineers, or SAE, describes 6 levels of ‘auto autonomy.’ At this writing, the most sophisticated systems available to consumers, such as Tesla Autopilot, are at level 2. What lies ahead are cars which are self-driving on carefully selected, geo-fenced roads, and ultimately cars “<a href="https://www.caranddriver.com/features/a15079828/autonomous-self-driving-car-levels-car-levels/">which can operate on any road… a human driver could negotiate</a>”). Our roads and highways will become an Internet of Vehicles (IOV), which will include not just connections between cars and an intelligent <em>cloud</em> ‘above us’ but also direct links between a distributed system of intelligent cars, stoplights, and road sensors in a <em>fog</em> ‘around us’ <span class="citation">(Bonomi et al. <a href="#ref-bonomi2012fog" role="doc-biblioref">2012</a>)</span>. <strong>Fog computing</strong> and the IOV will reduce travel times and increase both fuel efficiency and automotive safety.</p>
 <p>Obviously, there are <strong>cybersecurity</strong> concerns. While the prospects for <a href="https://www.youtube.com/watch?v=OvewYslou9g">a chaotic, choreographed hack of hundreds of vehicles on the streets of Manhattan</a>, such as that in the 2017 movie “The Fate of the Furious”, are remote at best (or worst), there have been examples of “white-hat hackers” who have successfully infiltrated (and thereby helped secure) car information systems.</p>
-<p>As the IOV develops, there will be vulnerabilities to privacy as well as safety, and the security of the system will be paramount. Different car manufacturers are taking different approaches to developing secure information systems, with many using a closed or proprietary approach. But the scope of the problem is so large that there is a movement towards pooling resources and encouraging collaboration among industry partners, academics, and citizen scientists in the development of an open-source autonomous driving platform, such as <a href="http://apollo.auto/">Apollo</a>. Perhaps counterintuitively, there may be significant security advantages to using source code that is open to all <span class="citation">(Clarke, Dorwin, and Nash <a href="#ref-clarke2009open">2009</a>; FitzGerald, Levin, and Parziale <a href="#ref-fitzgerald2016open">2016</a>)</span>.</p>
+<p>As the IOV develops, there will be vulnerabilities to privacy as well as safety, and the security of the system will be paramount. Different car manufacturers are taking different approaches to developing secure information systems, with many using a closed or proprietary approach. But the scope of the problem is so large that there is a movement towards pooling resources and encouraging collaboration among industry partners, academics, and citizen scientists in the development of an open-source autonomous driving platform, such as <a href="http://apollo.auto/">Apollo</a>. Perhaps counterintuitively, there may be significant security advantages to using source code that is open to all <span class="citation">(Clarke, Dorwin, and Nash <a href="#ref-clarke2009open" role="doc-biblioref">2009</a>; FitzGerald, Levin, and Parziale <a href="#ref-fitzgerald2016open" role="doc-biblioref">2016</a>)</span>.</p>
 
 </div>
 </div>
-<h3> references</h3>
+<h3>References</h3>
 <div id="refs" class="references">
-<div id="ref-gandrud2016reproducible">
-<p>Gandrud, Christopher. 2016. <em>Reproducible Research with R and R Studio</em>. CRC Press.</p>
-</div>
-<div id="ref-peng2015r">
-<p>Peng, Roger D. 2015. <em>R Programming for Data Science</em>. Lulu. com.</p>
-</div>
-<div id="ref-wickham2016r">
-<p>Wickham, Hadley, and Garrett Grolemund. 2016. “R for Data Science.” Sebastopol, CA: O’Reilly. http://​ r4ds.​ had.​ co.​ nz.</p>
-</div>
 <div id="ref-bonomi2012fog">
 <p>Bonomi, Flavio, Rodolfo Milito, Jiang Zhu, and Sateesh Addepalli. 2012. “Fog Computing and Its Role in the Internet of Things.” In <em>Proceedings of the First Edition of the Mcc Workshop on Mobile Cloud Computing</em>, 13–16. ACM.</p>
 </div>
@@ -442,6 +341,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="ref-fitzgerald2016open">
 <p>FitzGerald, Ben, Peter L Levin, and Jacqueline Parziale. 2016. <em>Open Source Software &amp; the Department of Defense</em>. Center for a New American Security.</p>
+</div>
+<div id="ref-gandrud2016reproducible">
+<p>Gandrud, Christopher. 2016. <em>Reproducible Research with R and R Studio</em>. CRC Press.</p>
+</div>
+<div id="ref-peng2015r">
+<p>Peng, Roger D. 2015. <em>R Programming for Data Science</em>. Lulu. com.</p>
+</div>
+<div id="ref-wickham2016r">
+<p>Wickham, Hadley, and Garrett Grolemund. 2016. “R for Data Science.” Sebastopol, CA: O’Reilly. http://​ r4ds.​ had.​ co.​ nz.</p>
 </div>
 </div>
             </section>
@@ -455,11 +363,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -467,12 +377,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "sepia",
@@ -487,7 +396,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"view": {
+"link": null,
+"text": null
+},
+"download": ["DataSciLibArts.pdf", "DataSciLibArts.epub"],
 "toc": {
 "collapse": "subsection"
 },
@@ -503,8 +416,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

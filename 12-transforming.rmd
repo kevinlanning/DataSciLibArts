@@ -28,7 +28,7 @@ library(tidyverse)
 
 The versatility of dplyr is demonstrated in Chapter 5 of R4DS, which shows how to do many basic, and some not so basic, operations on your data.  Read it closely if you haven't already done so.
 
-## from data on the web to data in R 
+## from data on the web to data in R
 
 We've explored a simple dataset consisting of 10,000 songs (observations) and 35 measures (variables including artist). The first step here (and for your class project and the data science challenge) will be to get the data into R. How do you this?
 
@@ -44,7 +44,7 @@ library(tidyverse)
 # music1 <- read_csv("music.csv") 
 ### Method 2a
 musicURL <- 
-  "https://think.cs.vt.edu/corgis/csv/music/music.csv?forcedownload=1"
+  "https://think.cs.vt.edu/corgis/datasets/csv/music/music.csv?forcedownload=1"
 music1 <- read_csv(musicURL)
 ### Method 2b
 # music1 <- read_csv(
@@ -54,17 +54,58 @@ music1 <- read_csv(musicURL)
 
 Once the data are in R, experiment with it. Here's what we did in class.
 
+This code worked in 2019, but in 2020 the music data is coded only in terms of latitude and longitude. 
 ```{r}
-music1 %>%
+# music1 %>%
 #   filter(str_detect(location, "FL")) # | 
 #   str_detect (location,"Estonia")) %>% 
 #   arrange(location) %>% 
-    mutate(isFLA = ifelse(str_detect(location, "FL"), 1, 0)) %>% 
-    mutate(FLHOT = (isFLA * artist.hotttnesss)) %>% 
-    arrange(desc(FLHOT)) %>% 
-    select(artist.name) %>%   # These three lines are new.
-    distinct() %>%            # Why are they here?  
-    head(10)                  # What do they do?
+#    mutate(isFLA = ifelse(str_detect(location, "FL"), 1, 0)) %>% 
+#    mutate(FLHOT = (isFLA * artist.hotttnesss)) %>% 
+#    arrange(desc(FLHOT)) %>% 
+#    select(artist.name) %>%   # These three lines are new.
+#    distinct() %>%            # Why are they here?  
+#    head(10)                  # What do they do?
+```
+
+Reverse geocoding is needed. The following will do this to get states from latitude and longitude. 
+```{r}
+library(maps)
+library(maptools)
+# source is https://github.com/abresler
+
+# The single argument to this function, pointsDF, is a data.frame in which:
+#   - column 1 contains the longitude in degrees (negative in the US)
+#   - column 2 contains the latitude in degrees
+latlong2state <- function(pointsDF) {
+    # Prepare SpatialPolygons object with one SpatialPolygon
+    # per state (plus DC, minus HI & AK)
+    states <- map('state', fill=TRUE, col="transparent", plot=FALSE)
+    IDs <- sapply(strsplit(states$names, ":"), function(x) x[1])
+    states_sp <- map2SpatialPolygons(states, IDs=IDs,
+                     proj4string=CRS("+proj=longlat +datum=WGS84"))
+
+    # Convert pointsDF to a SpatialPoints object 
+    pointsSP <- SpatialPoints(pointsDF, 
+                    proj4string=CRS("+proj=longlat +datum=WGS84"))
+
+    # Use 'over' to get _indices_ of the Polygons object containing each point 
+    indices <- over(pointsSP, states_sp)
+
+    # Return the state names of the Polygons object containing each point
+    stateNames <- sapply(states_sp@polygons, function(x) x@ID)
+    stateNames[indices]
+}
+latlong <- music1 %>% 
+  select (artist.longitude, 
+              artist.latitude)
+music2 <- music1 %>% 
+  mutate (state = 
+            latlong2state(latlong)) %>% 
+  filter(state == "florida") %>% 
+  arrange(desc(artist.hotttnesss))
+head(music2$artist.name,10)
+tail(music2$artist.name,10)
 ```
 
 In class, we used str_detect (string detect) to filter (select) all of the observations which included the string "FL" somewhere in the location variable.  Then, we used two separate mutate statements to create new variables. 

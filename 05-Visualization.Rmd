@@ -118,7 +118,7 @@ Animated data displays bring the dimension of time into data visualization. Here
 
 The first is from the late Hans Rosling, and summarizes a chunk of the Gapminder data.  There is a Gapminder package in R if you would like to explore the data further, and perhaps become the next Rosling:
 
-[![Rosling](https://img.youtube.com/vi/jbkSRLYSojo/0.jpg)](https://youtu.be/jbkSRLYSojo)
+[img.youtube.com/vi/jbkSRLYSojo/0.jpg![Rosling](https://img.youtube.com/vi/jbkSRLYSojo/0.jpg)](https://youtu.be/jbkSRLYSojo)
 
 *Video 5.6: Rosling and social progress*
 

@@ -16,13 +16,13 @@ library(Ecdat)
 library (caret) # machine learning package
 library (caTools) # ditto
 ```
-# From regression to prediction and classification
+# from regression to prediction and classification
 
 ## status 85% {-}
 
 split into two chapters, the first on linear and logistic regression, the second on classification and decision theory.
 
-## Revisiting the affairs data
+## revisiting the affairs data
 
 Let's go back and do what we should have done earlier: Examine and think about "number of affairs". What does the distribution look like?
 
@@ -49,7 +49,7 @@ Fair %>% count(affairYN)
 ```
 We'll examine each of these in the following paragraphs.
 
-## Avoiding capitalizing on chance
+## avoiding capitalizing on chance
 
 One lesson from the last class was that correlations (and regression coefficients) drawn from small samples were not stable. In regression analysis, as progressively smaller samples were drawn from the Fair data, the ability to predict the outcome increased.  In the limiting case, when the number of predictors (variables) was equal to the number of cases in the sample (rows), prediction became perfect. The problem of capitalizing on chance is a significant one in prediction, and one should always be skeptical of models which are untested beyond the sample from which they were derived.
 
@@ -95,7 +95,7 @@ R2Train <- R2.model.dep.data(model2,trainFair2$rootAffair,trainFair2)
 ```
 The R2 on the training sample is `r R2Train`, on the test sample it is `r R2Test`.
 
-## applying logistic regression analysis to the training data
+### applying logistic regression analysis to the training data
 
 Let's go back to the "number of affairs" variable and consider a second way of thinking about it, that is, simply comparing those who do and don't have affairs:
 
@@ -125,7 +125,7 @@ predictTrain <- predict(model2, trainFair, type = "response")
 summary (predictTrain)
 ```
 
-## from regression to classification: selection of a threshold
+### from regression to classification: selection of a threshold
 
 If we want to classify people, we will need to create a decision threshold at which we will change our prediction from 'no' to 'yes'.  To maximise overall prediction, we will create a threshold equal to the actual proportion of people who don't have affairs in our sample: 
 ```{r}
@@ -143,7 +143,7 @@ classification <- ifelse(predictTrain > threshold,
 (accuracy <- correct/(correct + errors))
 ```
 
-## applying the model to the test data
+### applying the model to the test data
 
 We shouldn't trust these results, though, because the model is based on the same data that it is tested upon. Now we will apply the model to the test data.  With the linear regression model above, we examined 'shrinkage' in the overall R-square.  Here, we can assess shrinkage in terms of the percent of erroneous classifications. 
 
@@ -161,7 +161,7 @@ classification <- ifelse(predictTest > threshold,
 
 On the test data, we are correct `r 100*(round(accuracy,2))` percent of the time. This describes our *out of sample risk.*
 
-## changing our decision threshold
+### changing our decision threshold
 
 In many decision problems, there is an asymmetry in the cost of different types of errors: if you are foraging for mushrooms, for example, an error of the form (you decide its safe and it is poisonous) is more costly than the converse (you decide its poisonous and it is safe).
 
@@ -215,7 +215,7 @@ classification <- as.factor(classification)
 testFair$affairYN <- as.factor(testFair$affairYN)
 confusionMatrix(classification, testFair$affairYN)
 ```
-## ROCs and AUC
+### ROCs and AUC
 
 Each of these decision thresholds describes the performance of a model at a particular point.  We can combine the thresholds and plot them in Receiver Operating Characteristic (ROC) curves.  The area under the curve (AUC) is a great measure of model accuracy, in that it summarizes how effective a classifier is across all possible thresholds.
 

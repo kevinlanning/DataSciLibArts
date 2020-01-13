@@ -9,8 +9,9 @@ biblio-style: "apalike"
 bibliography: ../9Bibliography/dataSciRefs.bib
 description: "Test"
 link-citations: true
-cover-image: images/diffprop_cloud_250_sm.png
+cover-image: chihuahuamuffin.jpg
 github-repo: kevinlanning/DataSciLibArts
+urlcolor: blue
 
 ---
 #  {-} 

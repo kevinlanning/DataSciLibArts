@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>13 relational data | Data science for the liberal arts</title>
-  <meta name="description" content="Test">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Test" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
   <meta property="og:title" content="13 relational data | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
@@ -22,18 +21,18 @@
   <meta name="twitter:description" content="Test" />
   <meta name="twitter:image" content="images/diffprop_cloud_250_sm.png" />
 
-<meta name="author" content="Kevin Lanning">
+<meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2019-05-08">
+<meta name="date" content="2020-01-11" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="transforming-data.html">
-<link rel="next" href="strings-factors-dates-and-times.html">
+<link rel="prev" href="transforming-data.html"/>
+<link rel="next" href="lists.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -41,6 +40,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -48,7 +48,8 @@
 
 
 
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
 
 
 <style type="text/css">
@@ -57,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -250,7 +250,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#some-simple-principles"><i class="fa fa-check"></i><b>10.1</b> some simple principles</a></li>
 <li class="chapter" data-level="10.2" data-path="the-tidyverse.html"><a href="the-tidyverse.html#homework"><i class="fa fa-check"></i><b>10.2</b> homework</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html"><i class="fa fa-check"></i><b>11</b> Messy data: Cleaning and curation</a><ul>
+<li class="chapter" data-level="11" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html"><i class="fa fa-check"></i><b>11</b> messy data: Cleaning and curation</a><ul>
 <li class="chapter" data-level="" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html#status-85-1"><i class="fa fa-check"></i>status 85%</a></li>
 <li class="chapter" data-level="11.1" data-path="messy-data-cleaning-and-curation.html"><a href="messy-data-cleaning-and-curation.html#finding-data"><i class="fa fa-check"></i><b>11.1</b> finding data</a></li>
 </ul></li>
@@ -262,86 +262,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>13</b> relational data</a><ul>
 <li class="chapter" data-level="" data-path="relational-data.html"><a href="relational-data.html#status-5"><i class="fa fa-check"></i>status 5%</a></li>
+<li class="chapter" data-level="" data-path="relational-data.html"><a href="relational-data.html#status-60"><i class="fa fa-check"></i>status 60%</a></li>
+<li class="chapter" data-level="13.1" data-path="relational-data.html"><a href="relational-data.html#strings"><i class="fa fa-check"></i><b>13.1</b> strings</a></li>
+<li class="chapter" data-level="13.2" data-path="relational-data.html"><a href="relational-data.html#factors"><i class="fa fa-check"></i><b>13.2</b> factors</a></li>
+<li class="chapter" data-level="13.3" data-path="relational-data.html"><a href="relational-data.html#dates"><i class="fa fa-check"></i><b>13.3</b> dates</a></li>
+<li class="chapter" data-level="13.4" data-path="relational-data.html"><a href="relational-data.html#times"><i class="fa fa-check"></i><b>13.4</b> times</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html"><i class="fa fa-check"></i><b>14</b> strings, factors, dates, and times</a><ul>
-<li class="chapter" data-level="" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#status-60"><i class="fa fa-check"></i>status 60%</a></li>
-<li class="chapter" data-level="14.1" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#strings"><i class="fa fa-check"></i><b>14.1</b> strings</a></li>
-<li class="chapter" data-level="14.2" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#factors"><i class="fa fa-check"></i><b>14.2</b> factors</a></li>
-<li class="chapter" data-level="14.3" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#dates"><i class="fa fa-check"></i><b>14.3</b> dates</a></li>
-<li class="chapter" data-level="14.4" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#times"><i class="fa fa-check"></i><b>14.4</b> times</a></li>
-</ul></li>
-<li class="chapter" data-level="15" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>15</b> lists</a><ul>
+<li class="chapter" data-level="14" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>14</b> lists</a><ul>
 <li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#status-70"><i class="fa fa-check"></i>status 70%</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html"><i class="fa fa-check"></i><b>16</b> loops, functions, and beyond</a><ul>
+<li class="chapter" data-level="15" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html"><i class="fa fa-check"></i><b>15</b> loops, functions, and beyond</a><ul>
 <li class="chapter" data-level="" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#status-85-3"><i class="fa fa-check"></i>status 85%</a></li>
-<li class="chapter" data-level="16.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#loops"><i class="fa fa-check"></i><b>16.1</b> loops</a></li>
-<li class="chapter" data-level="16.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#from-loop-to-apply-to-purrrmap"><i class="fa fa-check"></i><b>16.2</b> from loop to apply to purrr::map</a></li>
-<li class="chapter" data-level="16.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#some-examples-of-functions"><i class="fa fa-check"></i><b>16.3</b> some examples of functions</a><ul>
-<li class="chapter" data-level="16.3.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#preliminaries"><i class="fa fa-check"></i><b>16.3.1</b> preliminaries</a></li>
-<li class="chapter" data-level="16.3.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#the-function"><i class="fa fa-check"></i><b>16.3.2</b> the function</a></li>
-<li class="chapter" data-level="16.3.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#applying-the-function"><i class="fa fa-check"></i><b>16.3.3</b> applying the function</a></li>
+<li class="chapter" data-level="15.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#loops"><i class="fa fa-check"></i><b>15.1</b> loops</a></li>
+<li class="chapter" data-level="15.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#from-loop-to-apply-to-purrrmap"><i class="fa fa-check"></i><b>15.2</b> from loop to apply to purrr::map</a></li>
+<li class="chapter" data-level="15.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#some-examples-of-functions"><i class="fa fa-check"></i><b>15.3</b> some examples of functions</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#preliminaries"><i class="fa fa-check"></i><b>15.3.1</b> preliminaries</a></li>
+<li class="chapter" data-level="15.3.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#the-function"><i class="fa fa-check"></i><b>15.3.2</b> the function</a></li>
+<li class="chapter" data-level="15.3.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#applying-the-function"><i class="fa fa-check"></i><b>15.3.3</b> applying the function</a></li>
 </ul></li>
-<li class="chapter" data-level="16.4" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#how-many-bottles-of-what"><i class="fa fa-check"></i><b>16.4</b> how many bottles of what?</a></li>
+<li class="chapter" data-level="15.4" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#how-many-bottles-of-what"><i class="fa fa-check"></i><b>15.4</b> how many bottles of what?</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html"><i class="fa fa-check"></i><b>17</b> Regression and Modeling</a><ul>
+<li class="chapter" data-level="16" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html"><i class="fa fa-check"></i><b>16</b> regression and modeling</a><ul>
 <li class="chapter" data-level="" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#status-80-3"><i class="fa fa-check"></i>status 80%</a></li>
-<li class="chapter" data-level="17.1" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#correlation"><i class="fa fa-check"></i><b>17.1</b> Correlation</a><ul>
-<li class="chapter" data-level="17.1.1" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#the-regression-line"><i class="fa fa-check"></i><b>17.1.1</b> The regression line</a></li>
-<li class="chapter" data-level="17.1.2" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#warning-there-are-two-regression-lines"><i class="fa fa-check"></i><b>17.1.2</b> Warning: there are two regression lines</a></li>
+<li class="chapter" data-level="16.1" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#correlation"><i class="fa fa-check"></i><b>16.1</b> correlation</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#the-regression-line"><i class="fa fa-check"></i><b>16.1.1</b> The regression line</a></li>
+<li class="chapter" data-level="16.1.2" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#warning-there-are-two-regression-lines"><i class="fa fa-check"></i><b>16.1.2</b> Warning: there are two regression lines</a></li>
 </ul></li>
-<li class="chapter" data-level="17.2" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#multiple-regression"><i class="fa fa-check"></i><b>17.2</b> Multiple regression</a></li>
-<li class="chapter" data-level="17.3" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#swiss-fertility"><i class="fa fa-check"></i><b>17.3</b> Swiss fertility</a></li>
-<li class="chapter" data-level="17.4" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#what-predicts-marital-affairs"><i class="fa fa-check"></i><b>17.4</b> What predicts marital affairs?</a></li>
+<li class="chapter" data-level="16.2" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#multiple-regression"><i class="fa fa-check"></i><b>16.2</b> multiple regression</a></li>
+<li class="chapter" data-level="16.3" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#swiss-fertility-data"><i class="fa fa-check"></i><b>16.3</b> Swiss fertility data</a></li>
+<li class="chapter" data-level="16.4" data-path="regression-and-modeling.html"><a href="regression-and-modeling.html#marital-affairs-data"><i class="fa fa-check"></i><b>16.4</b> marital affairs data</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html"><i class="fa fa-check"></i><b>18</b> From regression to prediction and classification</a><ul>
+<li class="chapter" data-level="17" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html"><i class="fa fa-check"></i><b>17</b> from regression to prediction and classification</a><ul>
 <li class="chapter" data-level="" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#status-85-4"><i class="fa fa-check"></i>status 85%</a></li>
-<li class="chapter" data-level="18.1" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#revisiting-the-affairs-data"><i class="fa fa-check"></i><b>18.1</b> Revisiting the affairs data</a></li>
-<li class="chapter" data-level="18.2" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#avoiding-capitalizing-on-chance"><i class="fa fa-check"></i><b>18.2</b> Avoiding capitalizing on chance</a><ul>
-<li class="chapter" data-level="18.2.1" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#splitting-the-data-into-training-and-test-subsamples"><i class="fa fa-check"></i><b>18.2.1</b> Splitting the data into training and test subsamples</a></li>
+<li class="chapter" data-level="17.1" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#revisiting-the-affairs-data"><i class="fa fa-check"></i><b>17.1</b> revisiting the affairs data</a></li>
+<li class="chapter" data-level="17.2" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#avoiding-capitalizing-on-chance"><i class="fa fa-check"></i><b>17.2</b> avoiding capitalizing on chance</a><ul>
+<li class="chapter" data-level="17.2.1" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#splitting-the-data-into-training-and-test-subsamples"><i class="fa fa-check"></i><b>17.2.1</b> Splitting the data into training and test subsamples</a></li>
 </ul></li>
-<li class="chapter" data-level="18.3" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#an-example-of-cross-validated-linear-regression"><i class="fa fa-check"></i><b>18.3</b> an example of cross-validated linear regression</a></li>
-<li class="chapter" data-level="18.4" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#applying-logistic-regression-analysis-to-the-training-data"><i class="fa fa-check"></i><b>18.4</b> applying logistic regression analysis to the training data</a></li>
-<li class="chapter" data-level="18.5" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#from-regression-to-classification-selection-of-a-threshold"><i class="fa fa-check"></i><b>18.5</b> from regression to classification: selection of a threshold</a></li>
-<li class="chapter" data-level="18.6" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#applying-the-model-to-the-test-data"><i class="fa fa-check"></i><b>18.6</b> applying the model to the test data</a></li>
-<li class="chapter" data-level="18.7" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#changing-our-decision-threshold"><i class="fa fa-check"></i><b>18.7</b> changing our decision threshold</a></li>
-<li class="chapter" data-level="18.8" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#more-confusion"><i class="fa fa-check"></i><b>18.8</b> more confusion</a></li>
-<li class="chapter" data-level="18.9" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#rocs-and-auc"><i class="fa fa-check"></i><b>18.9</b> ROCs and AUC</a></li>
+<li class="chapter" data-level="17.3" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#an-example-of-cross-validated-linear-regression"><i class="fa fa-check"></i><b>17.3</b> an example of cross-validated linear regression</a><ul>
+<li class="chapter" data-level="17.3.1" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#applying-logistic-regression-analysis-to-the-training-data"><i class="fa fa-check"></i><b>17.3.1</b> applying logistic regression analysis to the training data</a></li>
+<li class="chapter" data-level="17.3.2" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#from-regression-to-classification-selection-of-a-threshold"><i class="fa fa-check"></i><b>17.3.2</b> from regression to classification: selection of a threshold</a></li>
+<li class="chapter" data-level="17.3.3" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#applying-the-model-to-the-test-data"><i class="fa fa-check"></i><b>17.3.3</b> applying the model to the test data</a></li>
+<li class="chapter" data-level="17.3.4" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#changing-our-decision-threshold"><i class="fa fa-check"></i><b>17.3.4</b> changing our decision threshold</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html"><i class="fa fa-check"></i><b>19</b> Another approach to classification: k-nearest neighbor</a><ul>
-<li class="chapter" data-level="" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#status-90-5"><i class="fa fa-check"></i>status 90%</a></li>
-<li class="chapter" data-level="19.1" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#application-the-fair-data"><i class="fa fa-check"></i><b>19.1</b> Application: The Fair data</a></li>
-<li class="chapter" data-level="19.2" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#from-1-doppelganger-to-many"><i class="fa fa-check"></i><b>19.2</b> From 1 doppelganger to many</a><ul>
-<li class="chapter" data-level="19.2.1" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#the-bayesian-classifier"><i class="fa fa-check"></i><b>19.2.1</b> The Bayesian classifier</a></li>
-<li class="chapter" data-level="19.2.2" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#back-to-the-fair-data"><i class="fa fa-check"></i><b>19.2.2</b> Back to the Fair data</a></li>
+<li class="chapter" data-level="17.4" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#more-confusion"><i class="fa fa-check"></i><b>17.4</b> more confusion</a><ul>
+<li class="chapter" data-level="17.4.1" data-path="from-regression-to-prediction-and-classification.html"><a href="from-regression-to-prediction-and-classification.html#rocs-and-auc"><i class="fa fa-check"></i><b>17.4.1</b> ROCs and AUC</a></li>
 </ul></li>
-<li class="chapter" data-level="19.3" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#avoiding-capitalization-on-chance-again"><i class="fa fa-check"></i><b>19.3</b> Avoiding capitalization on chance (again)</a></li>
-<li class="chapter" data-level="19.4" data-path="another-approach-to-classification-k-nearest-neighbor.html"><a href="another-approach-to-classification-k-nearest-neighbor.html#the-multinomial-case"><i class="fa fa-check"></i><b>19.4</b> The multinomial case</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html"><i class="fa fa-check"></i><b>20</b> Machine learning: some distinctions and ideas</a><ul>
-<li class="chapter" data-level="" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#status-50"><i class="fa fa-check"></i>status 50%</a></li>
-<li class="chapter" data-level="20.1" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#supervised-versus-unsupervised-problems"><i class="fa fa-check"></i><b>20.1</b> supervised versus unsupervised problems</a></li>
-<li class="chapter" data-level="20.2" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#prediction-versus-classification"><i class="fa fa-check"></i><b>20.2</b> prediction versus classification</a></li>
-<li class="chapter" data-level="20.3" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#understanding-versus-prediction"><i class="fa fa-check"></i><b>20.3</b> understanding versus prediction</a></li>
-<li class="chapter" data-level="20.4" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#the-bias-variability-tradeoff"><i class="fa fa-check"></i><b>20.4</b> the bias-variability tradeoff</a></li>
-<li class="chapter" data-level="20.5" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#dealing-with-the-structure-of-the-data"><i class="fa fa-check"></i><b>20.5</b> dealing with the structure of the data</a><ul>
-<li class="chapter" data-level="20.5.1" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#preprocessing"><i class="fa fa-check"></i><b>20.5.1</b> preprocessing</a></li>
-<li class="chapter" data-level="20.5.2" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#resampling-beyond-test-training-and-validation-samples"><i class="fa fa-check"></i><b>20.5.2</b> resampling: beyond test, training, and validation samples</a></li>
-</ul></li>
-<li class="chapter" data-level="20.6" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#approaches-to-classification"><i class="fa fa-check"></i><b>20.6</b> approaches to classification</a></li>
-<li class="chapter" data-level="20.7" data-path="machine-learning-some-distinctions-and-ideas.html"><a href="machine-learning-some-distinctions-and-ideas.html#approaches-to-ml"><i class="fa fa-check"></i><b>20.7</b> approaches to ml</a></li>
-</ul></li>
-<li class="chapter" data-level="21" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html"><i class="fa fa-check"></i><b>21</b> ethics: some topics for discussion</a><ul>
-<li class="chapter" data-level="" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#status-40"><i class="fa fa-check"></i>status 40%</a></li>
-<li class="chapter" data-level="21.1" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#background"><i class="fa fa-check"></i><b>21.1</b> Background</a></li>
-<li class="chapter" data-level="21.2" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#principles"><i class="fa fa-check"></i><b>21.2</b> Principles</a></li>
-<li class="chapter" data-level="21.3" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#remedies"><i class="fa fa-check"></i><b>21.3</b> Remedies</a><ul>
-<li class="chapter" data-level="21.3.1" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#a-checklist-for-people-who-are-working-on-data-projects"><i class="fa fa-check"></i><b>21.3.1</b> a checklist for people who are working on data projects</a></li>
-<li class="chapter" data-level="21.3.2" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#additional-ideas"><i class="fa fa-check"></i><b>21.3.2</b> additional ideas</a></li>
-</ul></li>
-<li class="chapter" data-level="21.4" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#some-case-studies"><i class="fa fa-check"></i><b>21.4</b> some case studies</a></li>
-</ul></li>
-<li class="chapter" data-level="22" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>22</b> references</a></li>
+<li class="chapter" data-level="18" data-path="blank-heading.html"><a href="blank-heading.html"><i class="fa fa-check"></i><b>18</b> Blank heading</a></li>
+<li class="chapter" data-level="19" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>19</b> references</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -369,6 +337,99 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Ideally, this could show some fails as well as some successes, and at least point to some more complex problems.</p>
 <p>there are two sources which I will refer you to for now. The first is chapter 13 of R4DS. The second is what Jenny Bryan describes as a cheatsheet, but is I think more than this (<a href="https://stat545.com/bit001_dplyr-cheatsheet.html" class="uri">https://stat545.com/bit001_dplyr-cheatsheet.html</a>). This shows how the various “joins” of dplyr work in combining two tibbles (superheroes and publishers). If you want to get a feel for how combining data works, it is a great start.</p>
 
+<p>(Google verification fails)
+# strings, factors, dates, and times</p>
+</div>
+<div id="status-60" class="section level2 unnumbered">
+<h2>status 60%</h2>
+<p>ultimately, should be split into two or more separate chapters. the section on strings/text is probably farthest along. The Singapore example at the end of the chapter should be solved here.</p>
+<hr />
+<p>This chapter discusses some of the types of data other than numeric and logical, in particular strings, factors, and dates/times.</p>
+<p>In this chapter, as in the last few, I refer primarily to three of the chapters in R4DS. Consider these notes supplementary.</p>
+</div>
+<div id="strings" class="section level2">
+<h2><span class="header-section-number">13.1</span> strings</h2>
+<p>Strings are sets of characters which may include “123” as well as “why *DID* the chicken cross the road?” Snippets of text are the most interesting type of string.</p>
+<p>String manipulation gets complicated when, for example, it includes characters that R usually interprets as code - such as commas, quotes, and slashes. See the section on string basics (14.2) for how to “escape” these characters, for example, how to treat a hashtag (#) as just a character as opposed to the beginning of a comment.</p>
+<p>Regular expressions (regex) are a formal type of code which constitute the most basic part of searching within strings. Regex are not unique to R, but are shared with other languages as well. The density of regex statements can make them appear challenging, fortunately, there are many resources available to help you get a handle on these, including simple google searches.</p>
+<blockquote>
+<p>Use the cheat sheet at <a href="https://regexr.com/" class="uri">https://regexr.com/</a> to work through (some of) the exercises in chapter 14.3.</p>
+</blockquote>
+<p>Section 14.4 describes the stringr package, which is a relatively accessible and versatile set of tools for working with strings in R. You are likely to use many of these, but less likely to use stringi (section 14.7). The tidytext package (<a href="https://www.tidytextmining.com/" class="uri">https://www.tidytextmining.com/</a>), which will be discussed at length in the computational social science course, is a more powerful set of tools for all sorts of problems in formal text analysis.</p>
+</div>
+<div id="factors" class="section level2">
+<h2><span class="header-section-number">13.2</span> factors</h2>
+<p>Conditions (experimental vs control), categories (male or female), types (scorpio, “hates astrology”) and other nominal measures are categorical variables or factors. In the tidyverse, the r package for dealing with this type of measure is <em>forcats</em>, one of the core parts of the tidyverse.</p>
+<p>Here’s an example of a categorical variable. Why is it set up like this, and what does it do?</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" title="1"><span class="co">#install.packages(&quot;fansi&quot;)</span></a>
+<a class="sourceLine" id="cb112-2" title="2"><span class="co">#library(fansi)</span></a>
+<a class="sourceLine" id="cb112-3" title="3"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb112-4" title="4"><span class="kw">library</span>(lubridate)</a>
+<a class="sourceLine" id="cb112-5" title="5"><span class="kw">library</span>(googledrive)</a>
+<a class="sourceLine" id="cb112-6" title="6"><span class="kw">library</span>(googlesheets4)</a>
+<a class="sourceLine" id="cb112-7" title="7"><span class="co"># Example of a factor</span></a>
+<a class="sourceLine" id="cb112-8" title="8">eyes &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>,</a>
+<a class="sourceLine" id="cb112-9" title="9">                     <span class="st">&quot;green&quot;</span>, <span class="st">&quot;creepyRed&quot;</span>), </a>
+<a class="sourceLine" id="cb112-10" title="10">               <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;brown&quot;</span>,</a>
+<a class="sourceLine" id="cb112-11" title="11">                          <span class="st">&quot;green&quot;</span>))</a>
+<a class="sourceLine" id="cb112-12" title="12">eyes</a></code></pre></div>
+<pre><code>## [1] blue  green green &lt;NA&gt; 
+## Levels: blue brown green</code></pre>
+<p>In base R, string variables (“donut”, “anti-Brexit”, and “yellow”) are generally treated as factors by default. In the tidyverse, string variables are treated as strings until they are explicitly declared as factors.</p>
+<p>The syntax for working with factors-as-categories is given in Chapter 15 of R4DS. I will not duplicate that here, but I will point out that factors are represented internally in R as numbers, and converting factors to other data types can occasionally lead to nasty surprises. Sections 15.4 and 15.5 describe how factors can be cleanly reordered and modified.</p>
+<p>In the babynames data, baby’s gender is a categorical variable, which is treated (because tidyverse) as a character or string. Here, we split the set of names into two separate tibbles - one for baby boys and one for baby girls. This allows us to set up the problem to look at androgynous names.</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" title="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb114-2" title="2"><span class="kw">library</span>(babynames)</a>
+<a class="sourceLine" id="cb114-3" title="3">maleNames &lt;-<span class="st"> </span>babynames <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb114-4" title="4"><span class="st">    </span><span class="kw">filter</span>(sex <span class="op">==</span><span class="st"> &quot;M&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb114-5" title="5"><span class="st">    </span><span class="kw">rename</span>(<span class="dt">nBoy =</span> n, <span class="dt">propBoy =</span> prop)</a>
+<a class="sourceLine" id="cb114-6" title="6">femaleNames &lt;-<span class="st"> </span>babynames <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb114-7" title="7"><span class="st">    </span><span class="kw">filter</span>(sex <span class="op">==</span><span class="st"> &quot;F&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb114-8" title="8"><span class="st">    </span><span class="kw">rename</span>(<span class="dt">nGirl =</span> n, <span class="dt">propGirl =</span> prop)</a>
+<a class="sourceLine" id="cb114-9" title="9">androNames &lt;-<span class="st"> </span>maleNames <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb114-10" title="10"><span class="st">    </span><span class="kw">inner_join</span>(., femaleNames, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;year&quot;</span>))</a></code></pre></div>
+<p>We can use forcats with the babynames data, for example, to lump together rare names, like this.</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1">allNames &lt;-</a>
+<a class="sourceLine" id="cb115-2" title="2">babynames <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb115-3" title="3"><span class="st">    </span><span class="kw">group_by</span>(sex) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb115-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">bigNames =</span> <span class="kw">fct_lump</span>(name, <span class="dt">n =</span> <span class="dv">10</span>))</a></code></pre></div>
+</div>
+<div id="dates" class="section level2">
+<h2><span class="header-section-number">13.3</span> dates</h2>
+<p>The challenges of combining time-demarcated data (Chapter 16) are significant. For dates, a variety of different formats (3-April, October 23, 1943, 10/12/92) must be made sense of. Sometimes we are concerned with durations (how many days, etc.); on other occasions, we are concerned with characteristics of particular dates (as in figuring out the day of the week on which you were born). And don’t forget about leap years.</p>
+<p>Here’s a simple use of <em>lubridate</em> which allows ordering of months across years (i.e., it puts December 2018 before January 2019). I apply it to a new data set fakeSpinData, which is pulled from a Google sheet.
+(For 2020, the Google sheet - now Googlesheet4 - interface is buggy. )</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" title="1"><span class="co"># drive_auth()</span></a>
+<a class="sourceLine" id="cb116-2" title="2"><span class="co"># sheets_auth(token = drive_token())</span></a>
+<a class="sourceLine" id="cb116-3" title="3"><span class="co"># library(googlesheets) is obsolete</span></a>
+<a class="sourceLine" id="cb116-4" title="4"><span class="kw">library</span>(kableExtra)</a>
+<a class="sourceLine" id="cb116-5" title="5"><span class="co"># https://github.com/tidyverse/googledrive/issues/279 on 1/11/20</span></a>
+<a class="sourceLine" id="cb116-6" title="6"><span class="co"># gFiles &lt;- drive_ls(pattern=&quot;pin&quot;)</span></a>
+<a class="sourceLine" id="cb116-7" title="7"><span class="co"># spinData &lt;- sheets_get(&quot;fakeSpinData&quot;)</span></a>
+<a class="sourceLine" id="cb116-8" title="8"><span class="co"># spinData &lt;- spinData %&gt;% </span></a>
+<a class="sourceLine" id="cb116-9" title="9"><span class="co"># set up old Date field as a lubridate-readable date</span></a>
+<a class="sourceLine" id="cb116-10" title="10"><span class="co"># note that the new field is date rather than Date - dumb names</span></a>
+<a class="sourceLine" id="cb116-11" title="11"><span class="co">#    mutate(date = mdy(Date)) %&gt;% </span></a>
+<a class="sourceLine" id="cb116-12" title="12"><span class="co"># extract month and year</span></a>
+<a class="sourceLine" id="cb116-13" title="13"><span class="co">#    mutate(month = month(date,label = TRUE)) %&gt;% </span></a>
+<a class="sourceLine" id="cb116-14" title="14"><span class="co">#    mutate(year = year(date))</span></a>
+<a class="sourceLine" id="cb116-15" title="15"></a>
+<a class="sourceLine" id="cb116-16" title="16"><span class="co"># kable(spinData %&gt;% </span></a>
+<a class="sourceLine" id="cb116-17" title="17"><span class="co"># make an ordered cool table</span></a>
+<a class="sourceLine" id="cb116-18" title="18"><span class="co">#    group_by(year, month) %&gt;% </span></a>
+<a class="sourceLine" id="cb116-19" title="19"><span class="co">#    summarize(sum(calories), sum(time))) %&gt;% </span></a>
+<a class="sourceLine" id="cb116-20" title="20"><span class="co">#    kable_styling(bootstrap_options = c(</span></a>
+<a class="sourceLine" id="cb116-21" title="21"><span class="co">#        &quot;striped&quot;, &quot;hover&quot;, &quot;condensed&quot;),</span></a>
+<a class="sourceLine" id="cb116-22" title="22"><span class="co">#        full_width = FALSE, position = &quot;left&quot;)</span></a></code></pre></div>
+</div>
+<div id="times" class="section level2">
+<h2><span class="header-section-number">13.4</span> times</h2>
+<p>In the table above, we are given time in seconds. It would be easy to convert this to time in minutes or hours. But working with temporal data is often more challenging than this. The existence of, for example, 12 versus 24 hour clocks, time zones, and daylight savings, can make a simple question about duration quite challenging.</p>
+<blockquote>
+<p>Imagine that Fred was born in Singapore at the exact moment of Y2K. He now lives in NYC. How many hours has he been alive as of March 15, 2019? How would you solve this?</p>
+</blockquote>
+<p>in R, the <em>lubridate</em> package (a non-core part of the tidyverse, i.e., one that you must load separately) helps to handle dates and times smoothly. It anticipates many of the problems we might encounter in extracting date and time information from strings.</p>
+
 </div>
 </div>
             </section>
@@ -377,16 +438,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="transforming-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="strings-factors-dates-and-times.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lists.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -394,12 +457,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "sepia",
@@ -411,6 +473,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -430,8 +496,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

@@ -6,7 +6,7 @@ output:
   pdf_document: default
   html_document: default
 ---
-# Messy data: Cleaning and curation
+# messy data: Cleaning and curation
 
 ## status 85% {-}
 

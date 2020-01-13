@@ -1,0 +1,12 @@
+---
+title: "19-blank"
+author: "Lanning"
+date: "March 26, 2019"
+output: html_document
+---
+# Blank heading
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warn = FALSE, message = FALSE) # defaults for all chunks after this one
+library(tidyverse)
+```
