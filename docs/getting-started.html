@@ -24,7 +24,7 @@
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2020-01-12" />
+<meta name="date" content="2020-01-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -315,14 +315,14 @@
 <p>pour coffee into cup</p>
 <p>enjoy</p>
 </blockquote>
-<p>As a post-millennial student from a WEIRD culture (a Western, Educated, Industrialized, Rich Democracy, <span class="citation">Henrich, Heine, and Norenzayan (<a href="#ref-henrich2010weirdest" role="doc-biblioref">2010</a>)</span>, you’ve ‘programmed’ computers, too, if only to enter a password, open an app, and upload a photo on your cell phone.</p>
+<p>As a post-millennial student from a WEIRD culture, or Western, Educated, Industrialized, Rich Democracy <span class="citation">(Henrich, Heine, and Norenzayan <a href="#ref-henrich2010weirdest" role="doc-biblioref">2010</a>)</span>, you’ve ‘programmed’ computers, too, if only to enter a password, open an app, and upload a photo on your cell phone.</p>
 <p><strong>Statistics</strong> is of fundamental importance, not just for understanding abstract trends, but for making decisions about everyday life. Consider the case of Susie, a college senior:</p>
 <blockquote>
 <p><strong>Exercise 2_1</strong>
 <em>Susie is applying to two med schools. At School A, 25% of students are accepted, and at School B, 25% are accepted as well. You are Susie. Are you going to get in to at least one of these programs? What is the probability? Does your estimate depend upon any assumptions?</em></p>
 </blockquote>
-<p>Questions like these are important for us. If the combined probability is low, it <em>likely</em> (another probability concept) will make sense for Susie to spend time, money, and energy to apply to additional programs. If the probability is higher, it may not. But problems like this are hard - our estimates of probability are frequently poorly calibrated, and combining probability estimates is challenging (see, e.g., <span class="citation">Tversky and Kahneman (<a href="#ref-tversky1974judgment" role="doc-biblioref">1974</a>)</span>, and consider taking a course in <em>Behavioral Economics</em> or <em>Thinking and Decision Making</em> to learn more).</p>
-<p>You may have worked with <strong>data</strong> in spreadsheets such as Excel or Google Sheets.</p>
+<p>Questions such as these are important for us. If the combined probability is low, it <em>likely</em> (another probability concept) will make sense for Susie to spend time, money, and energy to apply to additional programs. If the probability is higher, it may not. But problems like this are hard - our estimates of probability are frequently poorly calibrated, and combining probability estimates is challenging (see, e.g., <span class="citation">Tversky and Kahneman (<a href="#ref-tversky1974judgment" role="doc-biblioref">1974</a>)</span>, and consider taking a course in <em>Behavioral Economics</em> or <em>Thinking and Decision Making</em> to learn more).</p>
+<p>You may have worked with data in spreadsheets such as Excel or Google Sheets.</p>
 <blockquote>
 <p><strong>Exercise 2_2</strong>
 Open the Google Sheet at <a href="http://bit.ly/dslaX2_1" class="uri">http://bit.ly/dslaX2_1</a>. Save a copy and edit it, entering the following in cell B7:</p>
@@ -331,22 +331,23 @@ Open the Google Sheet at <a href="http://bit.ly/dslaX2_1" class="uri">http://bit
 <p>Now <strong>copy cell B7 to C7</strong></p>
 <p>What happens? Is this the result you expected? Would another approach be more useful?**</p>
 </blockquote>
-<p>In data science, spreadsheets are used largely to store data rather than to analyze it. Some <em>best practices</em> for using spreadsheets in data science are given in <span class="citation">Broman and Woo (<a href="#ref-broman2017data" role="doc-biblioref">2017</a>)</span>.</p>
+<p><strong>Spreadsheets</strong> are great tools - the first one, Visi-Calc, was the first “killer app” to usher in the personal computer revolution. But they have limitations as well. <span class="citation">Broman and Woo (<a href="#ref-broman2017data" role="doc-biblioref">2017</a>)</span> propose some <em>best practices</em> for using spreadsheets in data science such as, for example, including only data (and not calculations) in spreadsheets, using what we will recognize as a ‘tidy’ format in which data are in a simple rectangle (avoiding the combination of cells and the use of multi-line headers), and saving spreadsheets as simple text files (often as csvs). When we sort data in spreadsheets, we risk chaos, for example, only certain columns may be sorted. When we manipulate data in spreadsheets, we typically will not have a record of what was (and wasn’t) changed, this compromises the reproducibility of our work.</p>
+<p>The bottom line is that spreadsheets should generally be used to store data rather than to analyze it.</p>
 </div>
 <div id="setting-up-your-machine-some-basic-tools" class="section level2">
 <h2><span class="header-section-number">2.2</span> setting up your machine: some basic tools</h2>
 <p>Collaboration and communication are integral to data science. In the world beyond universities, the most important messaging and collaboration platform is <a href="https://slack.com/">Slack</a>. Slack is a commercial app, but we will use the free tier. We’ll use Slack for group work, class announcements, and help-seeking and help-providing.</p>
 <p>Slack includes a simple <em>markdown</em> editor (for ‘posts’). You can find an introduction to markdown syntax in Chapter 3 of <span class="citation">Freeman and Ross (<a href="#ref-freeman2017informatics" role="doc-biblioref">2017</a>)</span>. I use <a href="https://www.typora.io/">Typora</a> (currently free for both Windows and Mac), but there are many alternatives. Install this or another Markdown editor on your laptop and play with it.</p>
-<p>Finally, install <a href="https://cran.rstudio.com/">R</a> then <a href="https://rstudio.com/products/rstudio/#Desktop">R studio</a> on your own Windows or Mac laptop. We’ll use R studio as a front end (an ‘integrated development environment’, or IDE) for R, and will write most of our code in R markdown which is, not surprisingly, a ‘flavor’ of markdown. We’ll go into R in increasing depth beginning in the next chapter; if you want to get a head start, consider <a href="https://idc9.github.io/stor390/notes/getting_started/getting_started.html">Carmichael (2017) Getting started</a> and the first chapter of <span class="citation">Wickham and Grolemund (<a href="#ref-wickham2016r" role="doc-biblioref">2016</a>)</span>. (Those documents, like this one, are all written in R markdown).</p>
+<p>Install <a href="https://cran.rstudio.com/">R</a> then <a href="https://rstudio.com/products/rstudio/#Desktop">R studio</a> on your own Windows or Mac laptop. We’ll use R studio as a front end (an ‘integrated development environment’, or IDE) for R, and will write most of our code in R markdown which is, not surprisingly, a ‘flavor’ of markdown. We’ll go into R in increasing depth beginning in the next chapter; if you want to get a head start, consider <a href="https://idc9.github.io/stor390/notes/getting_started/getting_started.html">Carmichael (2017) Getting started</a> and the first chapter of <span class="citation">Wickham and Grolemund (<a href="#ref-wickham2016r" role="doc-biblioref">2016</a>)</span>. (Those documents, like this one, are all written in R markdown).</p>
 <blockquote>
 <p><strong>Eager to start coding in R?</strong> Go to Chapter 4 (draw the rest of the owl), and begin the exercises in swirl (swirlstats).</p>
 </blockquote>
-<p>Finally, <strong>Google Docs</strong> is free and is convenient for collaborative work. One other important feature of Google Docs is that it provides a framework for <em>version control,</em> a critical skill in information management. You can learn more about how to see and revert to prior versions of a project in Google Docs <a href="https://sites.google.com/site/scriptsexamples/home/announcements/named-versions-new-version-history-google-docs">here</a>. Version control can help you avoid the chaos and confusion of having a computer (or several computers) full of files that look like Cham’s (2012) comic:</p>
+<p><strong>Google Docs</strong> is free and is convenient for collaborative work. One other important feature of Google Docs is that it provides a framework for <em>version control,</em> a critical skill in information management. You can learn more about how to see and revert to prior versions of a project in Google Docs <a href="https://sites.google.com/site/scriptsexamples/home/announcements/named-versions-new-version-history-google-docs">here</a>. Version control can help you avoid the chaos and confusion of having a computer (or several computers) full of files that look like Cham’s (2012) comic:</p>
 <div class="figure">
 <img src="final.jpg" alt="Fig 2.1: Never call anything ‘final.doc’." />
 <p class="caption"><em>Fig 2.1: Never call anything ‘final.doc’.</em></p>
 </div>
-<p>We’ll be talking about the challenge of version control throughout this text - and I am hoping that my own habits in file management can improve as we move forward together.</p>
+<p>Version control is an important concept in data science. Collaboratively built programs and platforms, including most of the add-ons (libraries, packages) which make R so powerful, are open-source projects built by many individuals over time. For projects such as these, both the current build and its associated history are typically maintained on <a href="https://github.com/">GitHub</a>, a website for hosting code. When we contribute to these projects, we will first mirror the web-based GitHub site using a program on our own Macs or Windows PCs called <a href="https://git-scm.com/">Git</a>, then upload our proposed changes. Keeping remote and local branches of files in sync can be challenging, however, and you will not be expected to use this technology in this class. But if you are curious, or want to learn more, an introduction to using Git and R together may be found <a href="https://happygitwithr.com/">here</a>.</p>
 </div>
 <div id="a-modified-15-minute-rule" class="section level2">
 <h2><span class="header-section-number">2.3</span> a modified 15-minute rule</h2>

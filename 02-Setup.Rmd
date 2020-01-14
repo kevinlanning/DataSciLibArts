@@ -10,8 +10,6 @@ output:
 
 ----
 
-
-
 We begin with a brief self-assessment, asking you to reflect on your own knowledge of data science, including the necessary-but-not-sufficient areas of computer programming and statistics. We then move to a description of some rudimentary tools that we will be using. 
 
 ## are you already a programmer and statistician?
@@ -30,16 +28,16 @@ Regarding **programming**, you may know more than you think you do.  Here's a si
 >
 >   enjoy
 
-As a post-millennial student from a WEIRD culture (a Western, Educated, Industrialized, Rich Democracy,  @henrich2010weirdest, you've 'programmed' computers, too, if only to enter a password, open an app, and upload a photo on your cell phone. 
+As a post-millennial student from a WEIRD culture, or Western, Educated, Industrialized, Rich Democracy [@henrich2010weirdest], you've 'programmed' computers, too, if only to enter a password, open an app, and upload a photo on your cell phone. 
 
 **Statistics** is of fundamental importance, not just for understanding abstract trends, but for making decisions about everyday life. Consider the case of Susie, a college senior:
 
 >   **Exercise 2_1** 
 >   *Susie is applying to two med schools. At School A, 25% of students are accepted, and at School B, 25% are accepted as well. You are Susie. Are you going to get in to at least one of these programs?  What is the probability?  Does your estimate depend upon any assumptions?*
 
-Questions like these are important for us. If the combined probability is low, it *likely* (another probability concept) will make sense for Susie to spend time, money, and energy to apply to additional programs. If the probability is higher, it may not. But problems like this are hard - our estimates of probability are frequently poorly calibrated, and combining probability estimates is challenging (see, e.g., @tversky1974judgment, and consider taking a course in *Behavioral Economics* or *Thinking and Decision Making* to learn more).
+Questions such as these are important for us. If the combined probability is low, it *likely* (another probability concept) will make sense for Susie to spend time, money, and energy to apply to additional programs. If the probability is higher, it may not. But problems like this are hard - our estimates of probability are frequently poorly calibrated, and combining probability estimates is challenging (see, e.g., @tversky1974judgment, and consider taking a course in *Behavioral Economics* or *Thinking and Decision Making* to learn more).
 
- You may have worked with **data** in spreadsheets such as Excel or Google Sheets.
+You may have worked with data in spreadsheets such as Excel or Google Sheets.
 
 >   **Exercise 2_2** 
 >   Open the Google Sheet at http://bit.ly/dslaX2_1. Save a copy and edit it, entering the following in cell B7: 
@@ -52,7 +50,9 @@ Questions like these are important for us. If the combined probability is low, i
 >
 >   What happens? Is this the result you expected? Would another approach be more useful?**
 
-In data science, spreadsheets are used largely to store data rather than to analyze it. Some *best practices* for using spreadsheets in data science are given in @broman2017data.   
+**Spreadsheets** are great tools - the first one, Visi-Calc, was the first "killer app" to usher in the personal computer revolution.  But they have limitations as well.  @broman2017data propose some *best practices* for using spreadsheets in data science such as, for example, including only data (and not calculations) in spreadsheets, using what we will recognize as a 'tidy' format in which data are in a simple rectangle (avoiding the combination of cells and the use of multi-line headers), and saving spreadsheets as simple text files (often as csvs).  When we sort data in spreadsheets, we risk chaos, for example, only certain columns may be sorted. When we manipulate data in spreadsheets, we typically will not have a record of what was (and wasn't) changed, this compromises the reproducibility of our work.  
+
+The bottom line is that spreadsheets should generally be used to store data rather than to analyze it. 
 
 ## setting up your machine: some basic tools
 
@@ -60,15 +60,15 @@ Collaboration and communication are integral to data science. In the world beyon
 
 Slack includes a simple *markdown* editor (for 'posts').  You can find an introduction to markdown syntax in Chapter 3 of @freeman2017informatics. I use [Typora](https://www.typora.io/) (currently free for both Windows and Mac), but there are many alternatives. Install this or another Markdown editor on your laptop and play with it.
 
-Finally, install [R](https://cran.rstudio.com/) then [R studio](https://rstudio.com/products/rstudio/#Desktop) on your own Windows or Mac laptop.  We'll use R studio as a front end (an 'integrated development environment', or IDE) for R, and will write most of our code in R markdown which is, not surprisingly, a 'flavor' of markdown. We'll go into R in increasing depth beginning in the next chapter; if you want to get a head start, consider [Carmichael (2017) Getting started](https://idc9.github.io/stor390/notes/getting_started/getting_started.html) and the first chapter of @wickham2016r. (Those documents, like this one, are all written in R markdown).  
+Install [R](https://cran.rstudio.com/) then [R studio](https://rstudio.com/products/rstudio/#Desktop) on your own Windows or Mac laptop.  We'll use R studio as a front end (an 'integrated development environment', or IDE) for R, and will write most of our code in R markdown which is, not surprisingly, a 'flavor' of markdown.  We'll go into R in increasing depth beginning in the next chapter; if you want to get a head start, consider [Carmichael (2017) Getting started](https://idc9.github.io/stor390/notes/getting_started/getting_started.html) and the first chapter of @wickham2016r. (Those documents, like this one, are all written in R markdown).  
 
 >   **Eager to start coding in R?**  Go to Chapter 4 (draw the rest of the owl), and begin the exercises in swirl (swirlstats). 
 
-Finally, **Google Docs** is free and is convenient for collaborative work. One other important feature of Google Docs is that it provides a framework for *version control,* a critical skill in information management. You can learn more about how to see and revert to prior versions of a project in Google Docs [here](https://sites.google.com/site/scriptsexamples/home/announcements/named-versions-new-version-history-google-docs).  Version control can help you avoid the chaos and confusion of having a computer (or several computers) full of files that look like Cham's (2012) comic:     
+**Google Docs** is free and is convenient for collaborative work. One other important feature of Google Docs is that it provides a framework for *version control,* a critical skill in information management. You can learn more about how to see and revert to prior versions of a project in Google Docs [here](https://sites.google.com/site/scriptsexamples/home/announcements/named-versions-new-version-history-google-docs).  Version control can help you avoid the chaos and confusion of having a computer (or several computers) full of files that look like Cham's (2012) comic:     
 
 ![*Fig 2.1: Never call anything 'final.doc'.*](final.jpg)
 
-We'll be talking about the challenge of version control throughout this text - and I am hoping that my own habits in file management can improve as we move forward together.
+Version control is an important concept in data science.  Collaboratively built programs and platforms, including most of the add-ons (libraries, packages) which make R so powerful, are open-source projects built by many individuals over time.  For projects such as these, both the current build and its associated history are typically maintained on [GitHub](https://github.com/), a website for hosting code.  When we contribute to these projects, we will first mirror the web-based GitHub site using a program on our own Macs or Windows PCs called [Git](https://git-scm.com/), then upload our proposed changes.  Keeping remote and local branches of files in sync can be challenging, however, and you will not be expected to use this technology in this class. But if you are curious, or want to learn more, an introduction to using Git and R together may be found [here](https://happygitwithr.com/).
 
 ## a modified 15-minute rule
 
