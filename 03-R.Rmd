@@ -46,7 +46,7 @@ Real world data sets are messy, and frequently have **missing values.** In R, mi
 
 ## finding help
 
-**one does not simply 'learn R.'** Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one can be said to have mastered and from which one then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn.  And, the complexity of R syntax is such that, for almost all of us, we will need help for coding on any non-trivial task. 
+**One does not simply 'learn R.'** Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one can be said to have mastered and from which one then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn.  And, the complexity of R syntax is such that, for almost all of us, we will need help for coding on any non-trivial task. 
 
 For us, the key ideas in "looking for help" will include not just the tools on the RStudio IDE, but also (a) using Google searches wisely, and (b) reaching out to your classmates on Slack. 
 
