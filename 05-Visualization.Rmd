@@ -9,10 +9,6 @@ output: html_document
 
 # Principles of data visualization
 
-## status 90% {-}
-
-restate basic principles more clearly, include result from asymmetrical Venn. include quiz.
-
 ## Some opening thoughts
 
 Graphs aren't just to inform, but to make you reflect. 
@@ -128,7 +124,7 @@ The second is from Kim Rees and her ex-colleagues at [Periscopic](https://perisc
 
 *Video 5.7: Rees and stolen years*
 
-## Telling the truth, when the truth is unclear
+## Telling the truth when the truth is unclear
 
 We live in an uncertain world, and a major challenge in data visualization is how to convey this uncertainty in a way that people understand readily. Examples of this are familiar.  Here in Florida, projected hurricane paths are frequently represented by a "cone of uncertainty" surrounding a single track.  An alternative approach is to use a display which shows a distribution of possible tracks.
 

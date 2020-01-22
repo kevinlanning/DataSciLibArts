@@ -8,10 +8,6 @@ output:
 ---
 # now draw the rest of the owl
 
-## status 90%  {-}
-
-move part of SwirlR to prior chapter. consider omitting DataCamp, replacing with other open source links.
-
 
 
 ![Fig 4.1: Draw the rest of the owl.](InkedrCr9A_LI.jpg)
@@ -63,31 +59,32 @@ Finally, consider the text and videos from the Coursera R class.  Most of the ma
 
 ## Something else
 
-The something else category includes Datacarpentry.org, which is aimed at fostering data literacy and provides free lessons in areas such as Genomics and Geospatial data analysis. Of particular interest is the social science lessons, which include a basic introduction to R and data science based on the "[Studying African Farmer-led Irrigation (SAFI)" dataset](https://datacarpentry.org/socialsci-workshop/).
+The "something else" category includes Datacarpentry.org, which is aimed at fostering data literacy and provides free lessons for learning and applying R in areas such as [Ecology](https://datacarpentry.org/R-ecology-lesson/), [Genomics](https://datacarpentry.org/genomics-r-intro/) and [Geospatial data analysis](https://datacarpentry.org/r-intro-geospatial/). Of particular interest are the [social science](https://datacarpentry.org/r-socialsci/) lessons, as well as a workshop in data science based on the "[Studying African Farmer-led Irrigation (SAFI)" dataset](https://datacarpentry.org/socialsci-workshop/).
 
 ## Exercise
 
-Review Carmichael's [Getting started with R](https://idc9.github.io/stor390/notes/getting_started/getting_started.html).  Open R studio, and create a new R script called myMovies. Using his code as a reference, do each of the following
+Review Carmichael's [Getting started with R](https://idc9.github.io/stor390/notes/getting_started/getting_started.html).  Open R studio, and create a new R script called myMovies.R. Using his code as a reference, do each of the following
 
-1. Work in your source window. On the first line, enter the command to install the tidyverse. (If you already have done this, you can comment out the command ...)
+1. Work in your source window. On the first line, enter the command to install the tidyverse, using the chunk below - but omit the [octothorpe](https://en.wiktionary.org/wiki/octothorpe). (If you've already installed the tidyverse, keep the #).
 
    ```
    # install.packages ("tidyverse")
    ```
 
-   Hit ctrl+enter to run this line. Then, comment it out if you haven't already done so (why)?
+   Hit ctrl+enter to run this line. Now comment it out if you haven't already done so (why)?
 
 2. Load the tidyverse into your workspace. 
 
 3. Load the movies/IMDB dataset.
 
-4. Start exploring the data
+4. Start exploring the data and the RStudio interface:
 
-   1. Apply the str (structure), head, and summary commands. When are each of these useful?
-   2. Double-click the movies dataset in your environment tab in R studio. Click on a few columns to sort the data.
-   3. In the data, what does 'spilled' mean? How did you find out?
+   - Apply the str (structure), head, and summary commands. When are each of these useful?
+   - Double-click the movies dataset in your environment tab in R studio. Click on a few columns to sort the data.
+   - In the data, what does 'spilled' mean? How did you find out?
 
-5. How many rows and columns are in the data 
+5. How many rows and columns are in the data? 
+
 6. We can think about the movies dataset as a matrix with rows and columns, and *subset* it using the following. 
    ```
    # data.frame[rownumber,colnumber]
@@ -97,8 +94,11 @@ Review Carmichael's [Getting started with R](https://idc9.github.io/stor390/note
    movies[title]
    movies[title,]
    ```
-7. Ask a question about the data, and enter it as a comment in your code, e.g., 
+
+7. Ask an interesting question about the data, and enter it as a comment in your code, e.g., 
 
    ``` # how long was the movie 42-up? ```
 
 8. Try to find the answer, ideally using reproducible code, and be prepared to share it with the class.
+
+9. Save your work :)
