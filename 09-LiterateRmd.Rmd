@@ -65,24 +65,12 @@ There is a handy [R Markdown cheat sheet](https://www.rstudio.com/wp-content/upl
 
 ## What to do when you are stuck
 
-- google. pay attention to your error messages
+- Google. pay attention to your error messages
 
-- ask for help, make your questions clear and reproducible (see R4DS Chapter 1)
+- Ask for help, make your questions clear and reproducible (see R4DS Chapter 1)
 
-- take a break, think outside the box and [kludge](https://www.google.com/search?newwindow=1&safe=active&rlz=1C1SQJL_enUS782US782&q=Dictionary#dobs=kludge) something together if you have to
+- Take a break, think outside the box and [kludge](https://www.google.com/search?newwindow=1&safe=active&rlz=1C1SQJL_enUS782US782&q=Dictionary#dobs=kludge) something together if you have to
 
-- document your struggle and your cleverness for a future you
+- Document your struggle and your cleverness for a future you
 
 
-
-## appendix: a few possible data challenges
-
-As you will recall, you have the opportunity to gain extra credit in the class by successfully undertaking a data science challenge.  Here are a few possibilities:
-
-Working with two of your classmates, write an R markdown document titled "**The most dangerous equation**?" which (a) in the introduction, discusses @wainer2007most, (b) then illustrates regression to the mean and (c) deMoivre's equation, ideally (d) using the examples of 'punishment' and 'sex differences in variability' discussed in class and the text, respectively. Prepare a presentation using Rpres which summarizes your argument and findings. 
-
-Working with two or three of your classmates, write an R markdown document titled "**On the rationality of poker**." In it, you will (a) derive the probability of receiving various hands (e.g., 4 of a kind) using probability theory, (b) assess these same probabilities empirically on the basis of a Monte Carlo analysis, and (c) compare these probabilities to the order of winning hands (e.g., 4 of a kind beats a full house). Prepare a presentation using Rpres which summarizes your argument and findings. 
-
-Working with two or three of your classmates, consider **what are the most important lessons from the reproducibility crisis?**  Is, for example "transparency" (showing every part of your work) more important than "preregistration" (publicly declaring your plan of analysis in advance)? Can Null Hypothesis Significance Testing (NHST) be saved, and, if so, what is the solution?  This paper will be more scholarly than the others, but you should include code (for example, write an R markdown document which demonstrates how "p-hacking" might lead to a spurious result in a test of an initially vague hypothesis).  Again, prepare a presentation using Rpres which summarizes your argument and findings. 
-
-Now back to the elements of your R workflow.

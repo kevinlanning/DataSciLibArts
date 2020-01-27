@@ -67,7 +67,7 @@ In thinking about how to design graphs, we can begin with abstract theory, with 
 
 ---
 
-### The cost of poor design I: Space Shuttle Challenger
+## The politics of data visualization
 
 In a cold morning in January, 1986, Space Shuttle Challenger lifted off from Cape Canaveral. Because of the cold weather, engineers at Morton Thiokol, who designed the rocket boosters, considered the possibility that the O-rings which sealed joints on the rockets would be too hard and brittle to prevent the release of potentially explosive fuel.  They examined the relation between temperature and o-ring damage on prior flights, using the following visualization:
 
@@ -81,11 +81,11 @@ What, if anything, can we see here? The graphic was chaotic and poorly designed;
 
 The forecast for the morning of the launch was far colder than that for prior launches, and within the set of prior launches a clear relationship between temperature and o-ring damage is evident. But the Challenger did launch, exploding shortly after takeoff, killing the seven astronauts on board. With a clearer display of the data, the Challenger launch would likely have been postponed [@tufte2001visual ].
 
-### The cost of poor design II: An uninformed or misinformed world.
+### Poor design leads to an uninformed or misinformed world
 
 In the flood of information that surrounds us, our peripheral and sometimes our focal attention will be drawn to pictorial summaries of consequential events and effects. But while data visualizations and data journalism has become more responsible, poorly designed graphs - what Tufte has described as "chartjunk" - are still common. Consider the following graph, which recently appeared in a number of newspapers or feeds in the United States (including the *Palm Beach Post,* on January 12, 2019). 
 
-![badgraph](badgraph.PNG)
+![Figure 5.5: Which smartphone manufacturers are doing well?](badgraph.PNG)
 
 >   **Exercise 5_1** 
 >   *Examine the graph shown above.*
@@ -100,13 +100,27 @@ In the flood of information that surrounds us, our peripheral and sometimes our 
 
 Poorly designed graphs don't just confuse rocket scientists.  They reach us, mislead us, and make fools of all of us as well. With better graphs, we become a better informed, better educated citizenry.
 
-### Should graphs begin with psychological theory?
+### Poor design can be a tool to deceive
 
-Speaking of America, consider the following.
+![Figure 5.6: Trump as "the first datavis President" ([Meeks, 2019](https://datastori.es/152-year-in-review-2019/#t=1:15:06.516)). ](C:\Users\the_l\Dropbox\0DataSciLibArts\trumpDorian.jpg)
 
-![Figure 5.5: Chernoff's too-clever faces](Chernoff.PNG)
+Our smartphones and electronic devices, thieves of our attention, have, for many of us, made it more difficult to read in depth.  With information all around us, visual representations of data have become particularly important.  The data visualization is, increasingly, not just a supplement to the story, but the story itself. When this premise is coupled with the idea that the truth is malleable, the product of what our leaders say rather than empirical statements of fact, we approach a dangerous situation, one in which real threats are misrepresented and lives are again endangered.
+
+Presenting information in self-promoting ways includes so-called "Sharpie-gate," where President Trump simply altered a hurricane prediction map in defense of a misstatement.  It also includes more subtle misrepresentations: Does stand-your-ground really make us safer?
+
+ ![Figure 5.7: Stand your ground makes us all not-safer.](standground.PNG)
+
+
+
+## The psychology of data visualization
+
+Speaking of America, consider the following:
+
+![Figure 5.8: Chernoff's too-clever faces](Chernoff.PNG)
 
 In this figure, from @wainer1981graphical, (Chernoff's) faces are used to represent multivariate data. The display is loosely based on the (psychological) premise that, from infancy,  we are inordinately sensitive to facial features. Consequently, the most powerful, effective, or informative data displays should manipulate facial features. Does this graph succeed? Why or why not? Would an updated model, based on richer, more complex, and more realistic simulations of facial expressions [@thies2015real] be more successful?
+
+More contemporary and rigorously psychologically-informed studies of data visualizations include the work 
 
 ### The power of animation
 
@@ -116,21 +130,21 @@ The first is from the late Hans Rosling, and summarizes a chunk of the Gapminder
 
 [img.youtube.com/vi/jbkSRLYSojo/0.jpg![Rosling](https://img.youtube.com/vi/jbkSRLYSojo/0.jpg)](https://youtu.be/jbkSRLYSojo)
 
-*Video 5.6: Rosling and social progress*
+*Video 5.9: Rosling and social progress*
 
 The second is from Kim Rees and her ex-colleagues at [Periscopic](https://periscopic.com/) (Rees is now at CapitalOne).  For me, it's an important graphic because it tries to overcome what has been called "psychic numbing" - we are sensitive to the individual case, but lose our perspective when faced with large-scale tragedies, so that effectively the more lives lost... the less we care [@slovic2013psychic].
 
 [![lostlives](https://img.youtube.com/vi/8R8UOjMy-5k/0.jpg)](https://youtu.be/8R8UOjMy-5k)
 
-*Video 5.7: Rees and stolen years*
+*Video 5.10: Rees and stolen years*
 
-## Telling the truth when the truth is unclear
+### Telling the truth when the truth is unclear
 
 We live in an uncertain world, and a major challenge in data visualization is how to convey this uncertainty in a way that people understand readily. Examples of this are familiar.  Here in Florida, projected hurricane paths are frequently represented by a "cone of uncertainty" surrounding a single track.  An alternative approach is to use a display which shows a distribution of possible tracks.
 
-![Figure 5.8: Two approaches to displaying hurricane paths](https://i1.wp.com/datastori.es/wp-content/uploads/2019/01/02.jpg?w=650&h=434)
+![Figure 5.11: Two approaches to displaying hurricane paths](https://i1.wp.com/datastori.es/wp-content/uploads/2019/01/02.jpg?w=650&h=434)
 
-### Animated approaches
+### Visualizing uncertainty
 
 To further illustrate the idea of uncertainty, data visualizations may be animated.  To display hurricane outcomes, for example, individual lines in a spaghetti plot might fade in and out  [see @cox2013visualizing]. Another use of animation is suggested by [@hullman2015hypothetical] who use [hypothetical outcome plots](https://cdn-images-1.medium.com/max/600/1*vol7-537cqnpucRgBP-j9A.gif) rather than simple error bars to illustrate sampling distributions. Empirically, subjects have a better understanding of the meaning of statistical effects when these are represented by dynamic displays.
 
@@ -138,83 +152,8 @@ During the 2016 US Presidential Election, the NY Times graphics presented the ra
 
 Finally, animation may be used not just to display uncertainty or a possible range, but also data displays which both carry a great deal of information and unfold over time, such as [the language of personality development](http://wise.fau.edu/~lanning/EgoDevelopmentsmallest.gif) in my own work.
 
-## a supplement: Code for Asymmetrical Euler/Venn diagrams
-
-Finally, for those who want to fiddle with a simpler problem in R, I present some of the code I used in a recent talk about asymmetries in set sizes [@lanning2018data].  The argument is that asymmetries in statistical relationships are common, yet poorly understood.
-
-### setup
-
-In the first block, I load libraries, and generate a palette, or set of colors to be used in the graphs. For this, I extracted three or four colors from one of the Brewer palettes. (I had to fiddle because I wanted the regions to be (a) visible for the colorblind, (b) with distinguishable intersections, and (c) not ugly.
-
-```{r, warning = FALSE, message = FALSE}
-    library(dplyr)
-    library(tidytext)
-    library(tidyverse)
-    library(eulerr)
-    library(grid)
-    library(gridExtra)
-    library(RColorBrewer)
-    cbPalette <- brewer.pal(9,"PuBuGn")
-    threeColors <- cbPalette[c(9,7,5)]
-    fourColors <- cbPalette[c(9,7,6,4)]
-```
-
-### CPI- CQ
-
-The first example of asymmetry concerns the reciprocal predictability of two personality measures, the California Psychological Inventory and the California Q-set - the second (the Q-set) accounts for more of the variance in the first than vice-versa [@lanning1991shared].
-
-In the code, I specify options for the Euler charts, then the data for the plot, which I generate using base R:
-
-```{r, warning = FALSE, message = FALSE}
-    eulerr_options(pointsize = 16,
-                   fills = list(fill = threeColors),
-                   edges = list (lty = 1, col = "blue"),
-                   labels = list(fontfamily = 'sans',
-                                 font = 1,
-                                 col = "yellow"),
-                   quantities = list (fontfamily = 'sans',
-                                      font = 3,
-                                      col = "yellow"))
-# areas of different regions
-    CPIArea <- 1
-    CQArea <- 154/107 # Ratio of Rsq from article
-    fit3 <- euler(c ("A"=CPIArea, "B"=CQArea, "A&B"=.107), 
-                  shape = "ellipse")
-    plot(fit3, labels = c("CPI", "CQ-Set"))
-```
-
-### scholarly communities
-
-The second proportional Venn diagram illustrates asymmetrical relationships between scholarly communities, in particular, three regions with the domain of personality and social psychology. The counts describe the number of scholarly papers in various regions as reported in @lanning2017relationship.
-```{r}
-
-    personality <- 12
-    self_reg <- 7
-    attitudes <- 13
-    fit4 <- euler(c ("A"=personality,
-                     "B"=self_reg,
-                     "C"=attitudes,
-                     "A&B" = 1,
-                     "A&C" = 0,
-                     "B&C" = 1,
-                     "A&B&C" = 0), 
-                  shape = "ellipse")
-    eulerr_options(pointsize = 12,
-                   fills = list(fill = threeColors),
-                   edges = list (lty = 1, col = "blue"),
-                   labels = list(fontfamily = 'sans',
-                                 font = 1,
-                                 col = "yellow"),
-                   quantities = list (fontfamily = 'sans',
-                                      font = 3,
-                                      col = "yellow"))
-    plot(fit4, 
-              labels = c("Personality",
-                         "Self-Regulation",
-                         "Attitudes"))
-```
-
 ## further reading and resources
 
 If you'd like to learn more, @tufte2001visual and his other books are beautiful and thought provoking. @cleveland1985graphical examines graphs from a more rigorous psychological and empirical viewpoint.  The Data Stories podcasts are often excellent, despite the challenge of an auditory medium for visual display ([especially the episode on Hans Rosling](http://datastori.es/92-a-tribute-to-hans-rosling/)). And @healy2018viz provides a comprehensive introduction that, in essence, provides the basis for a semester-long course based in the ggplot2 package in R that we will be working with in the next chapter [@wickham2016r]. 
 
+Finally, there is a massively open online course (MOOC) taught by Alberto Cairo of the University of Miami at https://journalismcourses.org/data-viz-course-material.html
