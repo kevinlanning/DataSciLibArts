@@ -1,75 +1,20 @@
 ---
-title: "06-ggplot"
-author: "Lanning"
-date: "`r Sys.Date()`"
-output:
-  pdf_document: default
-  html_document: default
+title: "Tracking the Novel Coronavirus"
+author: "Kevin Lanning, Wilkes Honors College"
+date: "02022020 :)"
+output: html_document
 ---
 
-# visualization in R with ggplot
+This is an educational script for students learning R with the tidyverse. It reads data provided by the Johns Hopkins Center for Systems Science and Engineering (JHU/CSSE) using the Googlesheets4 package written by Jenny Bryan.  
 
-In the last chapter, we introduced data visualization, citing "vision-aries" including Edward Tufte and Hans Rosling, inspired works such as Minard's *Carte Figurative* and Periscopic's *stolen years*, as well as a few cautionary tales of misleading and confusing graphs. 
+It was modified February 3 because of new GoogleSheet link and altered variable names, on Feb 5 because of a new URL for the data and additional changes in the variable name for date, and Feb 7 to (a) remove need for OAuth and (b) separate Wuhan from other China. On Feb 9, additional data cleaning was performed and interactive plots were added.
 
-Here, in playing with and learning the R package **ggplot**, we begin to move from consumers to creators of data visualizations.
-
-As the first visualization in @wickham2016r reminds us, data visualization is at the core of exploratory data analysis: 
-
-![Fig 6.1: Data visualization is at the core of data analysis (@wickham2016r)](dataviscycle.PNG)
-
-In the world of data science, statistical programming is about discovering and communicating truths within your data. This **exploratory data analysis is the corner of science, particularly at a time in which confirmatory studies are increasingly found to be unreproducible**. 
-
-Most of your reading will be from Chapter 3 of @wickham2016r, this is intended only as a supplement. 
-
-## a picture > (words, numbers)?
-
-The chapter begins with a quote from John Tukey about the importance of graphs.  Yet there is a tendency among some statisticians and scientists to discount graphs, to consider graphic representations of data as less valuable than statistical ones.  It is true that, because there are many ways to graph data, and because scientists and data journalists are humans with pre-existing beliefs and values, a graphical displays should not be assumed to simply depict a singular reality.  But the same can be said about statistical analyses (see Chapter 8).
-
-To consider the value of statistical versus graphical displays, consider 'Anscombe's quartet' (screenshot below, live at http://bit.ly/anscombe2019):
-
-![Table 6.1: An adaptation of Anscombe's "quartet" [@anscombe1973american]](spreadsheet61.PNG)
-
->   **Exercise 6_1** 
->   *Consider the spreadsheet chunk presented above, which I am characterizing as data collected on a sample of ten primary school children at recess on four consecutive days. Working with your classmates, compute the mean, standard deviation, and correlation between the two measures for one day. Share your results with the class.* 
-
-The four pairs of variables in @anscombe1973american appear statistically "the same," yet the data suggest something else.  Later, we'll try to plot these. Perhaps graphs can reveal truths that statistics can hide.  
-
-##  Read Hadley ggplots
-
-In class, we will review and recreate the plots in section 3.2 of @wickham2016r and exercises through 3.4. 
-
-Savor this section, reading slowly, and playing around with the RStudio interface.  For example, read about the mpg data in the 'help' panel, pull up the mpg data in a view window, and sort through it by clicking on various columns. 
-
-![Fig. 6.2: A screenshot from RStudio, showing the mpg dataset](rstudio62.PNG)
-
-## exploring more data
-
-Explore the Gapminder data https://cran.r-project.org/web/packages/gapminder/README.html
-
-Choose one of the datasets in R, pull out a few variables, and explore these.  
-
-Try to make a cool graph - one that informs the viewer, and, to paraphrase Tukey, helps us see what we don't expect.
-
-Try several different displays. Which fail?  Which succeed? Be prepared to share your efforts.
-
-Don't be afraid to screw up. 
-
-## Advanced: Tracking the Novel Coronavirus
-
-Here, I want to consider a timely (but challenging) dataset - a live list of cases and places where cases of the novel Coronavirus, which has (at this writing) just been declared a public health emergency by the World Health Organization. 
-
-This first chunk loads libraries and gets access to the data: 
-
-```{r coronasetup, message = FALSE}
-library(tidyverse)
-# libraries for reading google docs from Jenny Bryan
+```{r setup, message = FALSE}
 library(googledrive)
 library(googlesheets4)
-# bidirectional pipe
+library(tidyverse)
 library(magrittr)
-# for working with dates
 library(lubridate)
-# and making graphs interactive
 library(plotly)
 library(htmlwidgets)
 drive_deauth()
@@ -78,16 +23,15 @@ coronaURL <- "https://docs.google.com/spreadsheets/d/1wQVypefm946ch4XDp37uZ-wart
 nsheets <- sheets_get(as_id(coronaURL)) %>% 
     extract2(6) %>% # gets the sixth element in a list  
     nrow() 
-# to look at one sheet, uncomment the following
-# i = 1
 # j <- sheets_read(as_id(coronaURL), sheet = i) 
 
 ```
+
 ### Reading the data
 
 The Novel Coronavirus data consists of a series of tabs in a Google Sheet. This finds them and combines them into a single sheet in R. 
 
-```{r readcoronadata, message = FALSE}
+```{r readdata, message = FALSE}
 # variables to retain or create
 numvars <- c("Confirmed", "Deaths", "Recovered")
 varlist <- c("Province/State", "Country/Region",
@@ -95,6 +39,7 @@ varlist <- c("Province/State", "Country/Region",
 # one cool trick to initialize a tibble
 coronaData <- varlist %>%
      map_dfr( ~tibble(!!.x := logical() ) )
+
 # add data from Google sheet to tibble
 for (i in 1:(nsheets-1)) {
   j <- sheets_read(as_id(coronaURL), sheet = i) 
@@ -107,14 +52,16 @@ for (i in 1:(nsheets-1)) {
 for (i in (nsheets):(nsheets)) {
   j <- sheets_read(as_id(coronaURL), sheet = i) %>% 
         mutate(`Last Update` = `Date last updated`)
+# if a variable doesn't exist in sheet, add it
   j[setdiff(varlist,names(j))] <- NA
   j %<>% select(varlist)
   coronaData <- rbind(coronaData, j) 
 }
 ```
+
 ### Cleaning (wrangling, munging) the data
 
-Cleaning the data includes not just finding "errors," but adapting it for our own use. It's generally time consuming (as was the case here). The following letters refer to sections of the code below.
+Cleaning the data includes not just finding "errors," but adapting it for our own use. It's generally time consuming, as was the case here. The following letters refer to sections of the code below.
 
 * a - fix a few missing values outside of China for province and country
 * b - the earliest cases, all in China, did not include country
@@ -154,6 +101,7 @@ coronaData %<>%
   slice(which.max(`Last Update`)) %>% 
   select(-c(place,`Last Update`)) %>%
   ungroup() %>%
+  # fill in missing dates for each place
 # f
   group_by(place) %>% 
   complete(reportDate = seq.Date(min(reportDate),
@@ -192,11 +140,11 @@ coronaDataSimple <- coronaData %>%
   ungroup()
 ```
 
-### Plotting some initial results
+### An initial plot
 
-The first plot is simple, including data for only deaths. A caption is added to show the source of the data.
+The first plot is simple, including data for only deaths. A caption is added toshow the source of the data.
 
-```{r coronasimpleplot}
+```{r simpleplot}
 myCaption <- " Data courtesy JHU/CSSE http://bit.ly/ncvdata"
 coronaPlot0 <- coronaDataSimple %>% 
   ggplot(aes(x=reportDate)) +
@@ -205,9 +153,11 @@ coronaPlot0 <- coronaDataSimple %>%
 coronaPlot0
 ```
 
-### Adding recovered cases to the plot
 
-Here, recovered cases and deaths are included (as these are roughly on the same scale). Additional changes to the plot are self-evident.
+
+### Adding recovered cases
+
+Here, recovered cases and deaths are included (as these are roughly on the same scale). Additional changes are self-evident.
 
 ```{r deathsrecovered}
 mySubtitle <- paste0(
@@ -235,11 +185,11 @@ coronaPlot1 <- coronaDataSimple %>%
 coronaPlot1
 ```
 
-### Making the graph interactive
+### Make the graph interactive
 
 Plotly is an open-source, javascript based library that produces interactive graphs. The syntax that Plotly requires is (a little) different from ggplot, so, for example, the subtitle and caption are folded in to the title here, and the legend is moved a little further over. 
 
-```{r deaths-interactive}
+```{r confirmed}
 p <- ggplotly(coronaPlot1) %>% 
   # make interactive
   layout(legend = list(x=.1,y=.9),
@@ -257,7 +207,7 @@ p
 
 In this last figure, data for confirmed cases are shown (only the interactive version is included here): 
 
-```{r coronaconfirmed}
+```{r}
 mySubtitle <- paste0(
          "Confirmed cases by region through ",
          (month(today())), "/",
@@ -295,14 +245,15 @@ p
 1. Consider the data and try to run the code yourself.
   + What problems did you encounter? 
   + What parts need to be annotated more?
-2. What appears to be increasing more quickly - recovered cases or deaths?
-3. Paying particular attention to the section on cleaning, to what extent can you 'reverse-engineer' my code? Where is it confusing? (Remember the 15 minute rule). 
-4. Can you improve on these plots? 
-5. Some more challenging questions.
+  
+2. Can you reverse-engineer my code? Where is it confusing? (remember the 15 minute rule).
+
+3. Can you improve on these plots? 
+
+4. Some more challenging questions.
   + What is (roughly) the shape of the function for each of the three variables, and for China/Other? 
   + What values would you expect for, say, ten days from now?
 
 ### Additional notes
 
 If you are interested in looking at additional epidemiological datasets and how they might be looked at in R, consider this source by Tomás J. Aragón (https://bookdown.org/medepi/phds/). For Plotly in R, check out https://plotly-r.com/ 
-
