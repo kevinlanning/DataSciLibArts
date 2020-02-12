@@ -24,7 +24,11 @@
 <meta name="author" content="Kevin Lanning" />
 
 
+<<<<<<< HEAD
 <meta name="date" content="2020-02-12" />
+=======
+<meta name="date" content="2020-02-10" />
+>>>>>>> 83121670b0c22a6fb40b51741dde7ed2bc14120c
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -236,9 +240,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#tweak-or-abandon-nhst"><i class="fa fa-check"></i><b>8.1.1</b> Tweak or abandon NHST</a></li>
 <li class="chapter" data-level="8.1.2" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#keep-a-log-of-every-step-of-every-analysis-in-r-markdown-or-jupyter-notebooks"><i class="fa fa-check"></i><b>8.1.2</b> Keep a log of every step of every analysis in R markdown or Jupyter notebooks</a></li>
 </ul></li>
+<<<<<<< HEAD
 <li class="chapter" data-level="8.2" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-iii-pre-registration"><i class="fa fa-check"></i><b>8.2</b> Answers to the reproducibility crisis III: Pre-registration</a></li>
 <li class="chapter" data-level="8.3" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#further-readings"><i class="fa fa-check"></i><b>8.3</b> Further readings</a></li>
 </ul></li>
+=======
+>>>>>>> 83121670b0c22a6fb40b51741dde7ed2bc14120c
 <li class="part"><span><b>III Part III Towards data proficiency</b></span></li>
 <li class="chapter" data-level="9" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html"><i class="fa fa-check"></i><b>9</b> literate programming with R markdown</a><ul>
 <li class="chapter" data-level="" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#status-80"><i class="fa fa-check"></i>status 80%</a></li>
@@ -392,12 +399,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb6-2" title="2">tab</a></code></pre></div>
 <pre><code>## events
 ## blue  red 
+<<<<<<< HEAD
 ## 6029 3971</code></pre>
+=======
+## 6001 3999</code></pre>
+>>>>>>> 83121670b0c22a6fb40b51741dde7ed2bc14120c
 <p>and <code>prop.table</code> gives us the proportions:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">prop.table</span>(tab)</a></code></pre></div>
 <pre><code>## events
 ##   blue    red 
+<<<<<<< HEAD
 ## 0.6029 0.3971</code></pre>
+=======
+## 0.6001 0.3999</code></pre>
+>>>>>>> 83121670b0c22a6fb40b51741dde7ed2bc14120c
 <p>The numbers above are the estimated probabilities provided by this Monte Carlo simulation. Statistical theory, not covered here, tells us the as <span class="math inline">\(B\)</span> gets larger, the estimates get closer to 3/5 = 0.6 for blue and 2/5 = 0.4 for red.</p>
 <p>This is a simple and not very useful example, but we will use Monte Carlo simulation to estimate probabilities in cases in which it is harder to compute the exact ones. Before we go into more complex examples we use simple ones to demonstrate the computing tools available in R.</p>
 </div>
@@ -405,11 +420,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">7.6.4</span> With and without replacement</h3>
 <p>The function <code>sample</code> has an argument that permits us to pick more than one element from the urn. However, by default, this selection occurs <em>without replacement</em>: after a bead is selected, it is not put back in the bag. Note what happens when we ask to randomly select five beads:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">sample</span>(beads, <span class="dv">5</span>)</a></code></pre></div>
+<<<<<<< HEAD
 <pre><code>## [1] &quot;blue&quot; &quot;red&quot;  &quot;blue&quot; &quot;blue&quot; &quot;red&quot;</code></pre>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">sample</span>(beads, <span class="dv">5</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;red&quot;  &quot;red&quot;  &quot;blue&quot; &quot;blue&quot; &quot;blue&quot;</code></pre>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">sample</span>(beads, <span class="dv">5</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;blue&quot; &quot;blue&quot; &quot;red&quot;  &quot;blue&quot; &quot;red&quot;</code></pre>
+=======
+<pre><code>## [1] &quot;red&quot;  &quot;blue&quot; &quot;blue&quot; &quot;red&quot;  &quot;blue&quot;</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">sample</span>(beads, <span class="dv">5</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;red&quot;  &quot;blue&quot; &quot;blue&quot; &quot;blue&quot; &quot;red&quot;</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">sample</span>(beads, <span class="dv">5</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;blue&quot; &quot;blue&quot; &quot;red&quot;  &quot;red&quot;  &quot;blue&quot;</code></pre>
+>>>>>>> 83121670b0c22a6fb40b51741dde7ed2bc14120c
 <p>This results in re-arrangements that always have three blue and two red beads. If we ask that six beads be selected, we get an error</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">sample</span>(beads, <span class="dv">6</span>)</a></code></pre></div>
 <p><code>Error in sample.int(length(x), size, replace, prob) :   cannot take a sample larger than the population when 'replace = FALSE'</code></p>
@@ -419,7 +442,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb17-2" title="2"><span class="kw">prop.table</span>(<span class="kw">table</span>(events))</a></code></pre></div>
 <pre><code>## events
 ##   blue    red 
+<<<<<<< HEAD
 ## 0.6002 0.3998</code></pre>
+=======
+## 0.6035 0.3965</code></pre>
+>>>>>>> 83121670b0c22a6fb40b51741dde7ed2bc14120c
 <p>Note that, not surprisingly, we get results very similar to
 those previously obtained with <code>replicate</code>.</p>
 </div>
