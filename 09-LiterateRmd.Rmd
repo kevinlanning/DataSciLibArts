@@ -8,12 +8,6 @@ output:
 ---
 # (PART) Part III Towards data proficiency  {-}
 
-## status 80% {-}
-
-Move data challenges from extra credit project to a project due before Spring break. 
-
-Include additional summaries from the four r4ds chapters. 
-
 ---
 
 In this part of the class we will get into the nuts and bolts of R.
@@ -28,11 +22,25 @@ We begin with R4DS Chapter 6, which shows the R studio interface and encourages 
 
 Note the recommendations - for example, include packages (libraries) at the beginning of your code. One more thing - in setting up R studio, consider adjusting the "insert spaces for tab" setting to something more than 2. This will allow you to more easily see the nested structure of functions, loops, etc. - and will create a modest disincentive against making these nested structures too deep or complex:
 
-![Fig 9.1: I use 4 spaces here. YMMV.](C:\Users\lanning\Dropbox\0DataSciLibArts\RStudioOptions.jpg)
+![Fig 9.1: I use 4 spaces here. YMMV.](RStudioOptions.jpg)
 
 Note, too, the [code diagnostics](https://support.rstudio.com/hc/en-us/articles/205753617-Code-Diagnostics) in R. Consider enabling all of these, including the R style diagnostics, to help you keep your code readable:
 
-  ![Fig 9.2: Enable code diagnostics](C:\Users\lanning\Dropbox\0DataSciLibArts\codediagnostics.PNG)
+  ![Fig 9.2: Enable code diagnostics](codediagnostics.PNG)
+
+### some elements of coding style
+
+Good coding is often a combination of several skills ranging from puzzle-solving to communication.  I can't claim that these are *the* elements of coding style (apologies to Strunk & White), but rather that these are merely some of the elements.
+
+Good coding is **clear** and thus commented. You are writing for your future self as well as others, so be explicit about the purpose of each chunk of code. 
+
+Good coding is **concise**.  When you can write code in 3 lines instead of 30, your code may be more clear and efficient. Take pleasure in writing parsimonious, efficient code. But where efficiency and clarity conflict, choose the latter.
+
+Good code should be **complete**, including all steps from reading the data to producing output.  Where appropriate, comment-out (rather than delete) informative errors, again for the future you.
+
+Good code may be **creative**. The coolest solutions are those which pull from and synthesize a number of ideas. Creativity often requires walking away from a problem in order to ultimately arrive at a solution (Wertheimer's *Productive Thinking*). 
+
+Finally, good code should be **considered**. Reflect on the impacts of your work - just because you can analyze something doesn't mean that you should.
 
 ## projects are directories containing related scripts
 

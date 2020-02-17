@@ -8,7 +8,7 @@ output:
 ---
 # Reproducibility and the replication crisis
 
-Probability theory is elegant, and the logic of **Null Hypothesis Significance Testing (NHST)** is compelling. But philosophers of science have long recognized that this is not really how science works [@lakatos1969falsification]. That is, science is not primarily built by the testing and rejecting of null hypotheses.  (Think, for example, of how you might describe an experiment for testing the hypothesis that  gravity exists, and whether you would ever reject this hypothesis).
+Probability theory is elegant, and the logic of **Null Hypothesis Significance Testing (NHST)** is compelling. But philosophers of science have long recognized that this is not really how science works [@lakatos1969falsification]. That is, science is not primarily built by the testing and rejecting of null hypotheses. (Think, for example, of how you might describe an experiment for testing the hypothesis that  gravity exists, and whether you would ever reject this hypothesis).
 
 The problem is a multifaceted one. It arises partly because, in any experiment, there is a large (infinite?) number of conditions which might be invoked to explain-away results of a failure of our work. It arises because we are human, and prone to various biases of decision making and information integration (that is, we are poor Bayesians). It arises, too, because scientific institutions such as journals, funding agencies, and universities are competitive environments which incentivize positive findings.  
 
