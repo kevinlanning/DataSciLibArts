@@ -44,10 +44,10 @@ music1 <- read_csv(musicURL)
 
 What can you do with the data in its existing form? What questions do you wish you could ask about these songs, artists, and the places they come from?
 
-When I first ran this code in 2018, the variables included states and countries.  The current dataset doesn't have these, but it does have longitude and latitude. 
-Once the data are in R, experiment with it. Here's what we did in class.
+## from latitude/longitude to US states
 
-This code worked in 2019, but in 2020 the music data is coded only in terms of latitude and longitude. To get state data from this, reverse  geocoding is needed. A Google search turned up the following. Note that it requires two additional packages
+When I first ran this code in 2018, the variables included states and countries.  The current dataset doesn't have these, but it does have longitude and latitude. To get state data from this, reverse  geocoding is needed. A Google search turned up the following. Note that it requires two additional packages
+
 ```{r}
 library(maps)
 library(maptools)
