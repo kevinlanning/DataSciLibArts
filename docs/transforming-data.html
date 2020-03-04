@@ -260,8 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="12" data-path="transforming-data.html"><a href="transforming-data.html"><i class="fa fa-check"></i><b>12</b> transforming data</a><ul>
 <li class="chapter" data-level="12.1" data-path="transforming-data.html"><a href="transforming-data.html#from-data-on-the-web-to-data-in-r"><i class="fa fa-check"></i><b>12.1</b> from data on the web to data in R</a></li>
-<li class="chapter" data-level="12.2" data-path="transforming-data.html"><a href="transforming-data.html#babynames"><i class="fa fa-check"></i><b>12.2</b> babynames</a></li>
-<li class="chapter" data-level="12.3" data-path="transforming-data.html"><a href="transforming-data.html#exercises"><i class="fa fa-check"></i><b>12.3</b> exercises</a></li>
+<li class="chapter" data-level="12.2" data-path="transforming-data.html"><a href="transforming-data.html#exercises"><i class="fa fa-check"></i><b>12.2</b> exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>13</b> relational data</a></li>
 <li class="chapter" data-level="14" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>14</b> references</a></li>
@@ -368,26 +367,17 @@ Once the data are in R, experiment with it. Here’s what we did in class.</p>
 <a class="sourceLine" id="cb12-29" title="29"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">state =</span> </a>
 <a class="sourceLine" id="cb12-30" title="30">            <span class="kw">latlong2state</span>(latlong)) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb12-31" title="31"><span class="st">  </span><span class="kw">drop_na</span>(state)</a></code></pre></div>
-<p>So - now you have a list of songs and artists and some measures of “hotttness.” Can you use things like filter, arrange, and select to do something interesting with these data?</p>
-</div>
-<div id="babynames" class="section level2">
-<h2><span class="header-section-number">12.2</span> babynames</h2>
-<p>We also explored the babynames library in R. You’ll need to install this on your computer if you haven’t already done so to. Play with it, and now that you have mastered dplyr, use mutate to create some new measures that tell an interesting story about these data.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">library</span>(babynames)</a>
-<a class="sourceLine" id="cb13-2" title="2"><span class="kw">str</span>(babynames)</a></code></pre></div>
-<pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    1924665 obs. of  5 variables:
-##  $ year: num  1880 1880 1880 1880 1880 1880 1880 1880 1880 1880 ...
-##  $ sex : chr  &quot;F&quot; &quot;F&quot; &quot;F&quot; &quot;F&quot; ...
-##  $ name: chr  &quot;Mary&quot; &quot;Anna&quot; &quot;Emma&quot; &quot;Elizabeth&quot; ...
-##  $ n   : int  7065 2604 2003 1939 1746 1578 1472 1414 1320 1288 ...
-##  $ prop: num  0.0724 0.0267 0.0205 0.0199 0.0179 ...</code></pre>
+<p>So - now you have a list of songs and artists and some measures of “hotttness,” restricted to US artists and now including states as well as latitude and longitude.</p>
 </div>
 <div id="exercises" class="section level2">
-<h2><span class="header-section-number">12.3</span> exercises</h2>
+<h2><span class="header-section-number">12.2</span> exercises</h2>
+<blockquote>
 <ol style="list-style-type: decimal">
-<li><p>make progress on your class project. You will be presenting this two weeks from today.</p></li>
-<li><p>Work with the babynames data, using the tools of dplyr. What names are most androgynous (are equally popular among males and females in a given year)? Contribute to a discussion about how to do this on Slack, building on the work of your classmates.</p></li>
+<li><p>Run the code above, then do something interesting with the data - use filter, arrange, and select in your piped code.</p></li>
+<li><p>Work with the babynames data. Use mutate to create an interesting new variable.</p></li>
+<li><p>most importantly, make progress on your class project. You will be presenting this two weeks from today.</p></li>
 </ol>
+</blockquote>
 
 </div>
 </div>

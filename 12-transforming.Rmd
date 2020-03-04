@@ -84,20 +84,12 @@ USartists <- music1 %>%
   drop_na(state)
 ```
 
-So - now you have a list of songs and artists and some measures of "hotttness." Can you use things like filter, arrange, and select to do something interesting with these data?
-
-## babynames
-
-We also explored the babynames library in R. You'll need to install this on your computer if you haven't already done so to. Play with it, and now that you have mastered dplyr, use mutate to create some new measures that tell an interesting story about these data. 
-
-```{r}
-library(babynames)
-str(babynames)
-```
+So - now you have a list of songs and artists and some measures of "hotttness," restricted to US artists and now including states as well as latitude and longitude.
 
 ## exercises
-
-1) make progress on your class project. You will be presenting this two weeks from today.
-
-2) Work with the babynames data, using the tools of dplyr. What names are most androgynous (are equally popular among males and females in a given year)? Contribute to a discussion about how to do this on Slack, building on the work of your classmates.  
-
+>
+>1)  Run the code above, then do something interesting with the data - use filter, arrange, and select in your piped code.
+>
+>2) Work with the babynames data. Use mutate to create an interesting new variable. 
+>
+>3) most importantly, make progress on your class project. You will be presenting this two weeks from today.
