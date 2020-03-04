@@ -24,7 +24,7 @@
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2020-02-22" />
+<meta name="date" content="2020-03-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="the-tidyverse.html"/>
-<link rel="next" href="references.html"/>
+<link rel="next" href="transforming-data.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,13 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.49.4/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.49.4/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -258,7 +265,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.4" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#exploring-data"><i class="fa fa-check"></i><b>11.4</b> exploring data</a></li>
 <li class="chapter" data-level="11.5" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#messy-data-cleaning-and-curation"><i class="fa fa-check"></i><b>11.5</b> messy data: Cleaning and curation</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>12</b> references</a></li>
+<li class="chapter" data-level="12" data-path="transforming-data.html"><a href="transforming-data.html"><i class="fa fa-check"></i><b>12</b> transforming data</a><ul>
+<li class="chapter" data-level="12.1" data-path="transforming-data.html"><a href="transforming-data.html#from-data-on-the-web-to-data-in-r"><i class="fa fa-check"></i><b>12.1</b> from data on the web to data in R</a></li>
+<li class="chapter" data-level="12.2" data-path="transforming-data.html"><a href="transforming-data.html#babynames"><i class="fa fa-check"></i><b>12.2</b> babynames</a></li>
+<li class="chapter" data-level="12.3" data-path="transforming-data.html"><a href="transforming-data.html#exercises"><i class="fa fa-check"></i><b>12.3</b> exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>13</b> relational data</a></li>
+<li class="chapter" data-level="14" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>14</b> references</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -307,18 +320,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="exploring-data" class="section level2">
 <h2><span class="header-section-number">11.4</span> exploring data</h2>
 <p>To look at the datasets in the prior section, remember that there are a few key commands, which are here applied to the gapminder dataset:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(gapminder)</a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="kw">str</span>(gapminder)</a>
-<a class="sourceLine" id="cb1-4" title="4"><span class="kw">head</span>(gapminder)</a>
-<a class="sourceLine" id="cb1-5" title="5"><span class="kw">summary</span>(gapminder)</a></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1"><span class="kw">library</span>(gapminder)</a>
+<a class="sourceLine" id="cb117-2" title="2"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb117-3" title="3"><span class="kw">str</span>(gapminder)</a>
+<a class="sourceLine" id="cb117-4" title="4"><span class="kw">head</span>(gapminder)</a>
+<a class="sourceLine" id="cb117-5" title="5"><span class="kw">summary</span>(gapminder)</a></code></pre></div>
 <p>To simplify your data, you’ll want to select certain columns or rows, or possibly create new variables based on existing scores:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="st">    </span><span class="kw">filter</span>(gdpPercap <span class="op">&lt;</span><span class="st"> </span><span class="dv">100</span> <span class="op">&amp;</span><span class="st"> </span>year <span class="op">&gt;</span><span class="st"> </span><span class="dv">2000</span>)</a>
-<a class="sourceLine" id="cb2-3" title="3">gapminder <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>(<span class="kw">c</span>(continent,pop)))</a>
-<a class="sourceLine" id="cb2-5" title="5">gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-6" title="6"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">size =</span> <span class="kw">ifelse</span>(pop <span class="op">&lt;</span><span class="st"> </span><span class="fl">10e06</span>, <span class="st">&quot;small&quot;</span>, <span class="st">&quot;large&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" title="1">gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb118-2" title="2"><span class="st">    </span><span class="kw">filter</span>(gdpPercap <span class="op">&lt;</span><span class="st"> </span><span class="dv">100</span> <span class="op">&amp;</span><span class="st"> </span>year <span class="op">&gt;</span><span class="st"> </span><span class="dv">2000</span>)</a>
+<a class="sourceLine" id="cb118-3" title="3">gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb118-4" title="4"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>(<span class="kw">c</span>(continent,pop)))</a>
+<a class="sourceLine" id="cb118-5" title="5">gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb118-6" title="6"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">size =</span> <span class="kw">ifelse</span>(pop <span class="op">&lt;</span><span class="st"> </span><span class="fl">10e06</span>, <span class="st">&quot;small&quot;</span>, <span class="st">&quot;large&quot;</span>))</a></code></pre></div>
 </div>
 <div id="messy-data-cleaning-and-curation" class="section level2">
 <h2><span class="header-section-number">11.5</span> messy data: Cleaning and curation</h2>
@@ -352,7 +365,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="the-tidyverse.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="transforming-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -403,6 +416,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
