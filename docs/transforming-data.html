@@ -300,7 +300,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="caption">Fig 12.1 - pliers to play with</p>
 </div>
 <p>Dplyr is a core part of the tidyverse and hence is loaded automatically when you load the tidyverse ensemble of libraries:</p>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<pre><code>## -- Attaching packages ------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## v ggplot2 3.2.1     v purrr   0.3.3
+## v tibble  2.1.3     v dplyr   0.8.3
+## v tidyr   1.0.0     v stringr 1.4.0
+## v readr   1.3.1     v forcats 0.4.0</code></pre>
+<pre><code>## -- Conflicts ---------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+>>>>>>> aaad4a8c4989049ff9fd44149f9def9e3c96d512
 <p>The versatility of dplyr is demonstrated in Chapter 5 of R4DS, which shows how to do many basic, and some not so basic, operations on your data. Read it closely if you haven’t already done so.</p>
 <div id="from-data-on-the-web-to-data-in-r" class="section level2">
 <h2><span class="header-section-number">12.1</span> from data on the web to data in R</h2>
@@ -309,6 +321,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Method 1: Download the file to your computer as a csv file. Some advantages of this include (a) it will allow the code to run even if the website changes or disappears, (b) in the likely event that I will run the code several times, it is faster to get data from my own machine than from the cloud, and (c) if there are any anomalies in the data I can look at them locally (e.g., in Notepad++). If you use this approach, make sure that you know where your data is on your computer. The easiest way to do this is to work with an R project. Within R studio, create a new R project (or use an existing one). Move the csv file into this directory, so that data, code, and results will all be in the same place.</p>
 <p>Method 2: Import the data from the cloud directly into R. You can do this either by specifying the musicURL separately (Method 2a) or call it directly within the read_csv statement (2b). Here, too, I would encourage you to set up and work within a project.</p>
 </blockquote>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" title="1"><span class="kw">library</span>(tidyverse)</a>
 <a class="sourceLine" id="cb120-2" title="2"><span class="co">### Method 1</span></a>
 <a class="sourceLine" id="cb120-3" title="3"><span class="co"># music1 &lt;- read_csv(&quot;music.csv&quot;) </span></a>
@@ -320,22 +333,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb120-9" title="9"><span class="co"># music1 &lt;- read_csv(</span></a>
 <a class="sourceLine" id="cb120-10" title="10"><span class="co">#  &quot;https://think.cs.vt.edu/corgis/csv/music/music.csv?forcedownload=1&quot;</span></a>
 <a class="sourceLine" id="cb120-11" title="11"><span class="co">#  )</span></a></code></pre></div>
+=======
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="co">### Method 1</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="co"># music1 &lt;- read_csv(&quot;music.csv&quot;) </span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="co">### Method 2a</span></a>
+<a class="sourceLine" id="cb5-5" title="5">musicURL &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="st">  &quot;https://think.cs.vt.edu/corgis/datasets/csv/music/music.csv?forcedownload=1&quot;</span></a>
+<a class="sourceLine" id="cb5-7" title="7">music1 &lt;-<span class="st"> </span><span class="kw">read_csv</span>(musicURL)</a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="co">### Method 2b</span></a>
+<a class="sourceLine" id="cb5-9" title="9"><span class="co"># music1 &lt;- read_csv(</span></a>
+<a class="sourceLine" id="cb5-10" title="10"><span class="co">#  &quot;https://think.cs.vt.edu/corgis/csv/music/music.csv?forcedownload=1&quot;</span></a>
+<a class="sourceLine" id="cb5-11" title="11"><span class="co">#  )</span></a></code></pre></div>
+>>>>>>> aaad4a8c4989049ff9fd44149f9def9e3c96d512
 <p>What can you do with the data in its existing form? What questions do you wish you could ask about these songs, artists, and the places they come from?</p>
 <p>When I first ran this code in 2018, the variables included states and countries. The current dataset doesn’t have these, but it does have longitude and latitude.
 Once the data are in R, experiment with it. Here’s what we did in class.</p>
 <p>This code worked in 2019, but in 2020 the music data is coded only in terms of latitude and longitude. To get state data from this, reverse geocoding is needed. A Google search turned up the following. Note that it requires two additional packages</p>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1"><span class="kw">library</span>(maps)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">library</span>(maps)</a></code></pre></div>
+>>>>>>> aaad4a8c4989049ff9fd44149f9def9e3c96d512
 <pre><code>## 
 ## Attaching package: &#39;maps&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:purrr&#39;:
 ## 
 ##     map</code></pre>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" title="1"><span class="kw">library</span>(maptools)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">library</span>(maptools)</a></code></pre></div>
+>>>>>>> aaad4a8c4989049ff9fd44149f9def9e3c96d512
 <pre><code>## Loading required package: sp</code></pre>
 <pre><code>## Checking rgeos availability: FALSE
 ##      Note: when rgeos is not available, polygon geometry     computations in maptools depend on gpclib,
 ##      which has a restricted licence. It is disabled by default;
 ##      to enable gpclib, type gpclibPermit()</code></pre>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1"><span class="co"># source is https://github.com/abresler</span></a>
 <a class="sourceLine" id="cb127-2" title="2"></a>
 <a class="sourceLine" id="cb127-3" title="3"><span class="co"># The single argument to this function, pointsDF, is a data.frame in which:</span></a>
@@ -367,13 +402,51 @@ Once the data are in R, experiment with it. Here’s what we did in class.</p>
 <a class="sourceLine" id="cb127-29" title="29"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">state =</span> </a>
 <a class="sourceLine" id="cb127-30" title="30">            <span class="kw">latlong2state</span>(latlong)) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb127-31" title="31"><span class="st">  </span><span class="kw">drop_na</span>(state)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="co"># source is https://github.com/abresler</span></a>
+<a class="sourceLine" id="cb12-2" title="2"></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="co"># The single argument to this function, pointsDF, is a data.frame in which:</span></a>
+<a class="sourceLine" id="cb12-4" title="4"><span class="co">#   - column 1 contains the longitude in degrees (negative in the US)</span></a>
+<a class="sourceLine" id="cb12-5" title="5"><span class="co">#   - column 2 contains the latitude in degrees</span></a>
+<a class="sourceLine" id="cb12-6" title="6">latlong2state &lt;-<span class="st"> </span><span class="cf">function</span>(pointsDF) {</a>
+<a class="sourceLine" id="cb12-7" title="7">    <span class="co"># Prepare SpatialPolygons object with one SpatialPolygon</span></a>
+<a class="sourceLine" id="cb12-8" title="8">    <span class="co"># per state (plus DC, minus HI &amp; AK)</span></a>
+<a class="sourceLine" id="cb12-9" title="9">    states &lt;-<span class="st"> </span><span class="kw">map</span>(<span class="st">&#39;state&#39;</span>, <span class="dt">fill=</span><span class="ot">TRUE</span>, <span class="dt">col=</span><span class="st">&quot;transparent&quot;</span>, <span class="dt">plot=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb12-10" title="10">    IDs &lt;-<span class="st"> </span><span class="kw">sapply</span>(<span class="kw">strsplit</span>(states<span class="op">$</span>names, <span class="st">&quot;:&quot;</span>), <span class="cf">function</span>(x) x[<span class="dv">1</span>])</a>
+<a class="sourceLine" id="cb12-11" title="11">    states_sp &lt;-<span class="st"> </span><span class="kw">map2SpatialPolygons</span>(states, <span class="dt">IDs=</span>IDs,</a>
+<a class="sourceLine" id="cb12-12" title="12">                     <span class="dt">proj4string=</span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>))</a>
+<a class="sourceLine" id="cb12-13" title="13"></a>
+<a class="sourceLine" id="cb12-14" title="14">    <span class="co"># Convert pointsDF to a SpatialPoints object </span></a>
+<a class="sourceLine" id="cb12-15" title="15">    pointsSP &lt;-<span class="st"> </span><span class="kw">SpatialPoints</span>(pointsDF, </a>
+<a class="sourceLine" id="cb12-16" title="16">                    <span class="dt">proj4string=</span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>))</a>
+<a class="sourceLine" id="cb12-17" title="17"></a>
+<a class="sourceLine" id="cb12-18" title="18">    <span class="co"># Use &#39;over&#39; to get _indices_ of the Polygons object containing each point </span></a>
+<a class="sourceLine" id="cb12-19" title="19">    indices &lt;-<span class="st"> </span><span class="kw">over</span>(pointsSP, states_sp)</a>
+<a class="sourceLine" id="cb12-20" title="20"></a>
+<a class="sourceLine" id="cb12-21" title="21">    <span class="co"># Return the state names of the Polygons object containing each point</span></a>
+<a class="sourceLine" id="cb12-22" title="22">    stateNames &lt;-<span class="st"> </span><span class="kw">sapply</span>(states_sp<span class="op">@</span>polygons, <span class="cf">function</span>(x) x<span class="op">@</span>ID)</a>
+<a class="sourceLine" id="cb12-23" title="23">    stateNames[indices]</a>
+<a class="sourceLine" id="cb12-24" title="24">}</a>
+<a class="sourceLine" id="cb12-25" title="25">latlong &lt;-<span class="st"> </span>music1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-26" title="26"><span class="st">  </span><span class="kw">select</span> (artist.longitude, </a>
+<a class="sourceLine" id="cb12-27" title="27">              artist.latitude)</a>
+<a class="sourceLine" id="cb12-28" title="28">USartists &lt;-<span class="st"> </span>music1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-29" title="29"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">state =</span> </a>
+<a class="sourceLine" id="cb12-30" title="30">            <span class="kw">latlong2state</span>(latlong)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-31" title="31"><span class="st">  </span><span class="kw">drop_na</span>(state)</a></code></pre></div>
+>>>>>>> aaad4a8c4989049ff9fd44149f9def9e3c96d512
 <p>So - now you have a list of songs and artists and some measures of “hotttness.” Can you use things like filter, arrange, and select to do something interesting with these data?</p>
 </div>
 <div id="babynames" class="section level2">
 <h2><span class="header-section-number">12.2</span> babynames</h2>
 <p>We also explored the babynames library in R. You’ll need to install this on your computer if you haven’t already done so to. Play with it, and now that you have mastered dplyr, use mutate to create some new measures that tell an interesting story about these data.</p>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" title="1"><span class="kw">library</span>(babynames)</a>
 <a class="sourceLine" id="cb128-2" title="2"><span class="kw">str</span>(babynames)</a></code></pre></div>
+=======
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">library</span>(babynames)</a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="kw">str</span>(babynames)</a></code></pre></div>
+>>>>>>> aaad4a8c4989049ff9fd44149f9def9e3c96d512
 <pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    1924665 obs. of  5 variables:
 ##  $ year: num  1880 1880 1880 1880 1880 1880 1880 1880 1880 1880 ...
 ##  $ sex : chr  &quot;F&quot; &quot;F&quot; &quot;F&quot; &quot;F&quot; ...
@@ -447,20 +520,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
