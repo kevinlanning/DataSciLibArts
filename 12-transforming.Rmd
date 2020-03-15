@@ -157,7 +157,7 @@ The primary tools, at least in my experience, are these:
 
 * If you have two datasets with a common key (an identifier), you *join*.
 
-### still more munging
+### and still more munging
 
 We've also used *separate* to split a column into several; the complement of this is *unite.* 
 

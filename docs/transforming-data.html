@@ -268,7 +268,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.3.2" data-path="transforming-data.html"><a href="transforming-data.html#exercises"><i class="fa fa-check"></i><b>12.3.2</b> exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="12.4" data-path="transforming-data.html"><a href="transforming-data.html#review-of-munging-tools"><i class="fa fa-check"></i><b>12.4</b> review of munging tools</a><ul>
-<li class="chapter" data-level="12.4.1" data-path="transforming-data.html"><a href="transforming-data.html#still-more-munging"><i class="fa fa-check"></i><b>12.4.1</b> still more munging</a></li>
+<li class="chapter" data-level="12.4.1" data-path="transforming-data.html"><a href="transforming-data.html#and-still-more-munging"><i class="fa fa-check"></i><b>12.4.1</b> and still more munging</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>13</b> relational data</a></li>
@@ -431,8 +431,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>If you want to create, you <em>mutate</em>.</p></li>
 <li><p>If you have two datasets with a common key (an identifier), you <em>join</em>.</p></li>
 </ul>
-<div id="still-more-munging" class="section level3">
-<h3><span class="header-section-number">12.4.1</span> still more munging</h3>
+<div id="and-still-more-munging" class="section level3">
+<h3><span class="header-section-number">12.4.1</span> and still more munging</h3>
 <p>We’ve also used <em>separate</em> to split a column into several; the complement of this is <em>unite.</em></p>
 <p>You may want to add new measures for all cases without a common key. Here, you can use the <em>bind_cols</em> function. If you instead want to add observations to an existing dataframe, you may <em>bind_rows.</em></p>
 <p>We haven’t yet considered the tools used to <em>reshape</em> data frames from short-and-wide to long-and-narrow, and vice-versa. In our music data, we might, for example, want to think about the data by artist (with possibly multiple songs on each line), or song-titles (with possibly covers by different artists on each line).</p>
