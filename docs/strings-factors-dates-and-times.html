@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="relational-data.html"/>
+<link rel="prev" href="an-interlude.html"/>
 <link rel="next" href="references.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,6 +50,13 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -271,7 +278,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.4.1" data-path="transforming-data.html"><a href="transforming-data.html#and-still-more-munging"><i class="fa fa-check"></i><b>12.4.1</b> and still more munging</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>13</b> relational data</a></li>
+<li class="chapter" data-level="13" data-path="an-interlude.html"><a href="an-interlude.html"><i class="fa fa-check"></i><b>13</b> an interlude</a><ul>
+<li class="chapter" data-level="13.1" data-path="an-interlude.html"><a href="an-interlude.html#global-data"><i class="fa fa-check"></i><b>13.1</b> global data</a></li>
+<li class="chapter" data-level="13.2" data-path="an-interlude.html"><a href="an-interlude.html#florida-data"><i class="fa fa-check"></i><b>13.2</b> Florida data</a></li>
+<li class="chapter" data-level="13.3" data-path="an-interlude.html"><a href="an-interlude.html#network-models"><i class="fa fa-check"></i><b>13.3</b> network models</a></li>
+<li class="chapter" data-level="13.4" data-path="an-interlude.html"><a href="an-interlude.html#back-to-r-relational-data"><i class="fa fa-check"></i><b>13.4</b> back to R: relational data</a></li>
+</ul></li>
 <li class="chapter" data-level="14" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html"><i class="fa fa-check"></i><b>14</b> strings, factors, dates, and times</a><ul>
 <li class="chapter" data-level="14.1" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#strings"><i class="fa fa-check"></i><b>14.1</b> strings</a></li>
 <li class="chapter" data-level="14.2" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#factors"><i class="fa fa-check"></i><b>14.2</b> factors</a></li>
@@ -317,44 +329,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">14.2</span> factors</h2>
 <p>Conditions (experimental vs control), categories (male or female), types (scorpio, “hates astrology”) and other nominal measures are categorical variables or factors. In the tidyverse, the r package for dealing with this type of measure is <em>forcats</em>, one of the core parts of the tidyverse.</p>
 <p>Here’s an example of a categorical variable. Why is it set up like this, and what does it do?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## -- Attaching packages ---------------------------- tidyverse 1.3.0 --</code></pre>
-<pre><code>## v ggplot2 3.3.0     v purrr   0.3.3
-## v tibble  2.1.3     v dplyr   0.8.4
-## v tidyr   1.0.2     v stringr 1.4.0
-## v readr   1.3.1     v forcats 0.5.0</code></pre>
-<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.6.3</code></pre>
-<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.6.3</code></pre>
-<pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.6.3</code></pre>
-<pre><code>## -- Conflicts ------------------------------- tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co"># Example of a factor</span></a>
-<a class="sourceLine" id="cb8-2" title="2">eyes &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>,</a>
-<a class="sourceLine" id="cb8-3" title="3">                     <span class="st">&quot;green&quot;</span>, <span class="st">&quot;creepyRed&quot;</span>), </a>
-<a class="sourceLine" id="cb8-4" title="4">               <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;brown&quot;</span>,</a>
-<a class="sourceLine" id="cb8-5" title="5">                          <span class="st">&quot;green&quot;</span>))</a>
-<a class="sourceLine" id="cb8-6" title="6">eyes</a></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" title="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb137-2" title="2"><span class="co"># Example of a factor</span></a>
+<a class="sourceLine" id="cb137-3" title="3">eyes &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>,</a>
+<a class="sourceLine" id="cb137-4" title="4">                     <span class="st">&quot;green&quot;</span>, <span class="st">&quot;creepyRed&quot;</span>), </a>
+<a class="sourceLine" id="cb137-5" title="5">               <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;brown&quot;</span>,</a>
+<a class="sourceLine" id="cb137-6" title="6">                          <span class="st">&quot;green&quot;</span>))</a>
+<a class="sourceLine" id="cb137-7" title="7">eyes</a></code></pre></div>
 <pre><code>## [1] blue  green green &lt;NA&gt; 
 ## Levels: blue brown green</code></pre>
 <p>In base R, string variables (“donut”, “anti-Brexit”, and “yellow”) are generally treated as factors by default. In the tidyverse, string variables are treated as strings until they are explicitly declared as factors.</p>
 <p>The syntax for working with factors-as-categories is given in Chapter 15 of R4DS. I will not duplicate that here, but I will point out that factors are represented internally in R as numbers, and converting factors to other data types can occasionally lead to nasty surprises. Sections 15.4 and 15.5 describe how factors can be cleanly reordered and modified.</p>
 <p>In the babynames data, baby’s gender is a categorical variable, which is treated (because tidyverse) as a character or string. Here, we split the set of names into two separate tibbles - one for baby boys and one for baby girls. This is one way to set up the problem to look at androgynous names.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb10-2" title="2"><span class="kw">library</span>(babynames)</a>
-<a class="sourceLine" id="cb10-3" title="3">maleNames &lt;-<span class="st"> </span>babynames <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-4" title="4"><span class="st">    </span><span class="kw">filter</span>(sex <span class="op">==</span><span class="st"> &quot;M&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-5" title="5"><span class="st">    </span><span class="kw">rename</span>(<span class="dt">nBoy =</span> n, <span class="dt">propBoy =</span> prop)</a>
-<a class="sourceLine" id="cb10-6" title="6">femaleNames &lt;-<span class="st"> </span>babynames <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb10-7" title="7"><span class="st">    </span><span class="kw">filter</span>(sex <span class="op">==</span><span class="st"> &quot;F&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-8" title="8"><span class="st">    </span><span class="kw">rename</span>(<span class="dt">nGirl =</span> n, <span class="dt">propGirl =</span> prop)</a>
-<a class="sourceLine" id="cb10-9" title="9">androNames &lt;-<span class="st"> </span>maleNames <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-10" title="10"><span class="st">    </span><span class="kw">inner_join</span>(., femaleNames, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;year&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" title="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb139-2" title="2"><span class="kw">library</span>(babynames)</a>
+<a class="sourceLine" id="cb139-3" title="3">maleNames &lt;-<span class="st"> </span>babynames <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb139-4" title="4"><span class="st">    </span><span class="kw">filter</span>(sex <span class="op">==</span><span class="st"> &quot;M&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb139-5" title="5"><span class="st">    </span><span class="kw">rename</span>(<span class="dt">nBoy =</span> n, <span class="dt">propBoy =</span> prop)</a>
+<a class="sourceLine" id="cb139-6" title="6">femaleNames &lt;-<span class="st"> </span>babynames <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb139-7" title="7"><span class="st">    </span><span class="kw">filter</span>(sex <span class="op">==</span><span class="st"> &quot;F&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb139-8" title="8"><span class="st">    </span><span class="kw">rename</span>(<span class="dt">nGirl =</span> n, <span class="dt">propGirl =</span> prop)</a>
+<a class="sourceLine" id="cb139-9" title="9">androNames &lt;-<span class="st"> </span>maleNames <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb139-10" title="10"><span class="st">    </span><span class="kw">inner_join</span>(., femaleNames, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;year&quot;</span>))</a></code></pre></div>
 <p>We can use forcats with the babynames data, for example, to lump together rare names, like this.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">allNames &lt;-</a>
-<a class="sourceLine" id="cb11-2" title="2">babynames <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb11-3" title="3"><span class="st">    </span><span class="kw">group_by</span>(sex) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb11-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">bigNames =</span> <span class="kw">fct_lump</span>(name, <span class="dt">n =</span> <span class="dv">10</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" title="1">allNames &lt;-</a>
+<a class="sourceLine" id="cb140-2" title="2">babynames <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb140-3" title="3"><span class="st">    </span><span class="kw">group_by</span>(sex) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb140-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">bigNames =</span> <span class="kw">fct_lump</span>(name, <span class="dt">n =</span> <span class="dv">10</span>))</a></code></pre></div>
 </div>
 <div id="dates" class="section level2">
 <h2><span class="header-section-number">14.3</span> dates</h2>
@@ -366,12 +367,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>2/3/20 18:00:00</p>
 <p>2020-02-03 18:00:00</p>
 </blockquote>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="co"># not run</span></a>
-<a class="sourceLine" id="cb12-2" title="2">coronaData2 &lt;-<span class="st"> </span>coronaData <span class="op">%&gt;%</span><span class="st"> </span>mutate</a>
-<a class="sourceLine" id="cb12-3" title="3">    (<span class="st">`</span><span class="dt">FixedDate = </span></a>
-<a class="sourceLine" id="cb12-4" title="4"><span class="dt">           parse_date_time(</span><span class="st">`</span>Last Update<span class="st">`</span><span class="dt">,</span></a>
-<a class="sourceLine" id="cb12-5" title="5"><span class="dt">                           c(&#39;mdy hp&#39;,&#39;mdy HM&#39;,</span></a>
-<a class="sourceLine" id="cb12-6" title="6"><span class="dt">                             &#39;mdy HMS&#39;,&#39;ymd HMS&#39;))) </span></a></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" title="1"><span class="co"># not run</span></a>
+<a class="sourceLine" id="cb141-2" title="2">coronaData2 &lt;-<span class="st"> </span>coronaData <span class="op">%&gt;%</span><span class="st"> </span>mutate</a>
+<a class="sourceLine" id="cb141-3" title="3">    (<span class="st">`</span><span class="dt">FixedDate = </span></a>
+<a class="sourceLine" id="cb141-4" title="4"><span class="dt">           parse_date_time(</span><span class="st">`</span>Last Update<span class="st">`</span><span class="dt">,</span></a>
+<a class="sourceLine" id="cb141-5" title="5"><span class="dt">                           c(&#39;mdy hp&#39;,&#39;mdy HM&#39;,</span></a>
+<a class="sourceLine" id="cb141-6" title="6"><span class="dt">                             &#39;mdy HMS&#39;,&#39;ymd HMS&#39;))) </span></a></code></pre></div>
 </div>
 <div id="times" class="section level2">
 <h2><span class="header-section-number">14.4</span> times</h2>
@@ -387,7 +388,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="relational-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="an-interlude.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -439,6 +440,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

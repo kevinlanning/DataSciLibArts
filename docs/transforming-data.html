@@ -24,7 +24,7 @@
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2020-03-15" />
+<meta name="date" content="2020-03-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="finding-exploring-and-cleaning-data.html"/>
-<link rel="next" href="relational-data.html"/>
+<link rel="next" href="an-interlude.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,13 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -271,8 +278,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.4.1" data-path="transforming-data.html"><a href="transforming-data.html#and-still-more-munging"><i class="fa fa-check"></i><b>12.4.1</b> and still more munging</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>13</b> relational data</a></li>
-<li class="chapter" data-level="14" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>14</b> references</a></li>
+<li class="chapter" data-level="13" data-path="an-interlude.html"><a href="an-interlude.html"><i class="fa fa-check"></i><b>13</b> an interlude</a><ul>
+<li class="chapter" data-level="13.1" data-path="an-interlude.html"><a href="an-interlude.html#global-data"><i class="fa fa-check"></i><b>13.1</b> global data</a></li>
+<li class="chapter" data-level="13.2" data-path="an-interlude.html"><a href="an-interlude.html#florida-data"><i class="fa fa-check"></i><b>13.2</b> Florida data</a></li>
+<li class="chapter" data-level="13.3" data-path="an-interlude.html"><a href="an-interlude.html#network-models"><i class="fa fa-check"></i><b>13.3</b> network models</a></li>
+<li class="chapter" data-level="13.4" data-path="an-interlude.html"><a href="an-interlude.html#back-to-r-relational-data"><i class="fa fa-check"></i><b>13.4</b> back to R: relational data</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html"><i class="fa fa-check"></i><b>14</b> strings, factors, dates, and times</a><ul>
+<li class="chapter" data-level="14.1" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#strings"><i class="fa fa-check"></i><b>14.1</b> strings</a></li>
+<li class="chapter" data-level="14.2" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#factors"><i class="fa fa-check"></i><b>14.2</b> factors</a></li>
+<li class="chapter" data-level="14.3" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#dates"><i class="fa fa-check"></i><b>14.3</b> dates</a></li>
+<li class="chapter" data-level="14.4" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#times"><i class="fa fa-check"></i><b>14.4</b> times</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>15</b> references</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -301,12 +319,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="caption">Fig 12.1 - pliers to play with</p>
 </div>
 <p>Dplyr is a core part of the tidyverse and hence is loaded automatically when you load the tidyverse ensemble of libraries:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.6.3</code></pre>
-<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.6.3</code></pre>
-<pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.6.3</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">library</span>(maps)</a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="kw">library</span>(maptools)</a></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb125-2" title="2"><span class="kw">library</span>(maps)</a>
+<a class="sourceLine" id="cb125-3" title="3"><span class="kw">library</span>(maptools)</a></code></pre></div>
 <pre><code>## Warning: package &#39;sp&#39; was built under R version 3.6.3</code></pre>
 <p>The versatility of dplyr is demonstrated in Chapter 5 of R4DS, which shows how to do many basic, and some not so basic, operations on your data. Read it closely if you haven’t already done so.</p>
 <div id="from-data-on-the-web-to-data-in-r" class="section level2">
@@ -316,55 +331,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Method 1: Download the file to your computer as a csv file. Some advantages of this include (a) it will allow the code to run even if the website changes or disappears, (b) in the likely event that I will run the code several times, it is faster to get data from my own machine than from the cloud, and (c) if there are any anomalies in the data I can look at them locally (e.g., in Notepad++). If you use this approach, make sure that you know where your data is on your computer. The easiest way to do this is to work with an R project. Within R studio, create a new R project (or use an existing one). Move the csv file into this directory, so that data, code, and results will all be in the same place.</p>
 <p>Method 2: Import the data from the cloud directly into R. You can do this either by specifying the musicURL separately (Method 2a) or call it directly within the read_csv statement (2b). Here, too, I would encourage you to set up and work within a project.</p>
 </blockquote>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co">### Method 1</span></a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="co"># music1 &lt;- read_csv(&quot;music.csv&quot;) </span></a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="co">### Method 2a</span></a>
-<a class="sourceLine" id="cb7-4" title="4">musicURL &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="st">  &quot;https://think.cs.vt.edu/corgis/datasets/csv/music/music.csv?forcedownload=1&quot;</span></a>
-<a class="sourceLine" id="cb7-6" title="6">music1 &lt;-<span class="st"> </span><span class="kw">read_csv</span>(musicURL)</a>
-<a class="sourceLine" id="cb7-7" title="7"><span class="co">### Method 2b</span></a>
-<a class="sourceLine" id="cb7-8" title="8"><span class="co"># music1 &lt;- read_csv(</span></a>
-<a class="sourceLine" id="cb7-9" title="9"><span class="co">#  &quot;https://think.cs.vt.edu/corgis/csv/music/music.csv?forcedownload=1&quot;</span></a>
-<a class="sourceLine" id="cb7-10" title="10"><span class="co">#  )</span></a></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1"><span class="co">### Method 1</span></a>
+<a class="sourceLine" id="cb127-2" title="2"><span class="co"># music1 &lt;- read_csv(&quot;music.csv&quot;) </span></a>
+<a class="sourceLine" id="cb127-3" title="3"><span class="co">### Method 2a</span></a>
+<a class="sourceLine" id="cb127-4" title="4">musicURL &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb127-5" title="5"><span class="st">  &quot;https://think.cs.vt.edu/corgis/datasets/csv/music/music.csv?forcedownload=1&quot;</span></a>
+<a class="sourceLine" id="cb127-6" title="6">music1 &lt;-<span class="st"> </span><span class="kw">read_csv</span>(musicURL)</a>
+<a class="sourceLine" id="cb127-7" title="7"><span class="co">### Method 2b</span></a>
+<a class="sourceLine" id="cb127-8" title="8"><span class="co"># music1 &lt;- read_csv(</span></a>
+<a class="sourceLine" id="cb127-9" title="9"><span class="co">#  &quot;https://think.cs.vt.edu/corgis/csv/music/music.csv?forcedownload=1&quot;</span></a>
+<a class="sourceLine" id="cb127-10" title="10"><span class="co">#  )</span></a></code></pre></div>
 <p>What can you do with the data in its existing form? What questions do you wish you could ask about these songs, artists, and the places they come from?</p>
 </div>
 <div id="working-with-geodata-a-function-to-get-us-states-from-latitudelongitude" class="section level2">
 <h2><span class="header-section-number">12.2</span> working with geodata: a function to get US states from latitude/longitude</h2>
 <p>When I first ran this code in 2018, the variables included states and countries. The current dataset doesn’t have these, but it does have longitude and latitude. To get state data from this, reverse geocoding is needed. A Google search turned up the following function. Note that it requires two additional libraries, ‘maps’ and ‘maptools.’</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co"># source is https://github.com/abresler</span></a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="co"># The single argument to this function, pointsDF, is a data.frame in which:</span></a>
-<a class="sourceLine" id="cb8-3" title="3"><span class="co">#   - column 1 contains the longitude in degrees (negative in the US)</span></a>
-<a class="sourceLine" id="cb8-4" title="4"><span class="co">#   - column 2 contains the latitude in degrees</span></a>
-<a class="sourceLine" id="cb8-5" title="5">latlong2state &lt;-<span class="st"> </span><span class="cf">function</span>(pointsDF) {</a>
-<a class="sourceLine" id="cb8-6" title="6">    <span class="co"># Prepare SpatialPolygons object with one SpatialPolygon</span></a>
-<a class="sourceLine" id="cb8-7" title="7">    <span class="co"># per state (plus DC, minus HI &amp; AK)</span></a>
-<a class="sourceLine" id="cb8-8" title="8">    states &lt;-<span class="st"> </span><span class="kw">map</span>(<span class="st">&#39;state&#39;</span>, <span class="dt">fill=</span><span class="ot">TRUE</span>, <span class="dt">col=</span><span class="st">&quot;transparent&quot;</span>, <span class="dt">plot=</span><span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb8-9" title="9">    IDs &lt;-<span class="st"> </span><span class="kw">sapply</span>(<span class="kw">strsplit</span>(states<span class="op">$</span>names, <span class="st">&quot;:&quot;</span>), <span class="cf">function</span>(x) x[<span class="dv">1</span>])</a>
-<a class="sourceLine" id="cb8-10" title="10">    states_sp &lt;-<span class="st"> </span><span class="kw">map2SpatialPolygons</span>(states, <span class="dt">IDs=</span>IDs,</a>
-<a class="sourceLine" id="cb8-11" title="11">                     <span class="dt">proj4string=</span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>))</a>
-<a class="sourceLine" id="cb8-12" title="12">    <span class="co"># Convert pointsDF to a SpatialPoints object </span></a>
-<a class="sourceLine" id="cb8-13" title="13">    pointsSP &lt;-<span class="st"> </span><span class="kw">SpatialPoints</span>(pointsDF, </a>
-<a class="sourceLine" id="cb8-14" title="14">                    <span class="dt">proj4string=</span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>))</a>
-<a class="sourceLine" id="cb8-15" title="15">    <span class="co"># Use &#39;over&#39; to get _indices_ of the Polygons object containing each point </span></a>
-<a class="sourceLine" id="cb8-16" title="16">    indices &lt;-<span class="st"> </span><span class="kw">over</span>(pointsSP, states_sp)</a>
-<a class="sourceLine" id="cb8-17" title="17">    <span class="co"># Return the state names of the Polygons object containing each point</span></a>
-<a class="sourceLine" id="cb8-18" title="18">    stateNames &lt;-<span class="st"> </span><span class="kw">sapply</span>(states_sp<span class="op">@</span>polygons, <span class="cf">function</span>(x) x<span class="op">@</span>ID)</a>
-<a class="sourceLine" id="cb8-19" title="19">    stateNames[indices]</a>
-<a class="sourceLine" id="cb8-20" title="20">}</a></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" title="1"><span class="co"># source is https://github.com/abresler</span></a>
+<a class="sourceLine" id="cb128-2" title="2"><span class="co"># The single argument to this function, pointsDF, is a data.frame in which:</span></a>
+<a class="sourceLine" id="cb128-3" title="3"><span class="co">#   - column 1 contains the longitude in degrees (negative in the US)</span></a>
+<a class="sourceLine" id="cb128-4" title="4"><span class="co">#   - column 2 contains the latitude in degrees</span></a>
+<a class="sourceLine" id="cb128-5" title="5">latlong2state &lt;-<span class="st"> </span><span class="cf">function</span>(pointsDF) {</a>
+<a class="sourceLine" id="cb128-6" title="6">    <span class="co"># Prepare SpatialPolygons object with one SpatialPolygon</span></a>
+<a class="sourceLine" id="cb128-7" title="7">    <span class="co"># per state (plus DC, minus HI &amp; AK)</span></a>
+<a class="sourceLine" id="cb128-8" title="8">    states &lt;-<span class="st"> </span><span class="kw">map</span>(<span class="st">&#39;state&#39;</span>, <span class="dt">fill=</span><span class="ot">TRUE</span>, <span class="dt">col=</span><span class="st">&quot;transparent&quot;</span>, <span class="dt">plot=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb128-9" title="9">    IDs &lt;-<span class="st"> </span><span class="kw">sapply</span>(<span class="kw">strsplit</span>(states<span class="op">$</span>names, <span class="st">&quot;:&quot;</span>), <span class="cf">function</span>(x) x[<span class="dv">1</span>])</a>
+<a class="sourceLine" id="cb128-10" title="10">    states_sp &lt;-<span class="st"> </span><span class="kw">map2SpatialPolygons</span>(states, <span class="dt">IDs=</span>IDs,</a>
+<a class="sourceLine" id="cb128-11" title="11">                     <span class="dt">proj4string=</span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>))</a>
+<a class="sourceLine" id="cb128-12" title="12">    <span class="co"># Convert pointsDF to a SpatialPoints object </span></a>
+<a class="sourceLine" id="cb128-13" title="13">    pointsSP &lt;-<span class="st"> </span><span class="kw">SpatialPoints</span>(pointsDF, </a>
+<a class="sourceLine" id="cb128-14" title="14">                    <span class="dt">proj4string=</span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>))</a>
+<a class="sourceLine" id="cb128-15" title="15">    <span class="co"># Use &#39;over&#39; to get _indices_ of the Polygons object containing each point </span></a>
+<a class="sourceLine" id="cb128-16" title="16">    indices &lt;-<span class="st"> </span><span class="kw">over</span>(pointsSP, states_sp)</a>
+<a class="sourceLine" id="cb128-17" title="17">    <span class="co"># Return the state names of the Polygons object containing each point</span></a>
+<a class="sourceLine" id="cb128-18" title="18">    stateNames &lt;-<span class="st"> </span><span class="kw">sapply</span>(states_sp<span class="op">@</span>polygons, <span class="cf">function</span>(x) x<span class="op">@</span>ID)</a>
+<a class="sourceLine" id="cb128-19" title="19">    stateNames[indices]</a>
+<a class="sourceLine" id="cb128-20" title="20">}</a></code></pre></div>
 <div id="applying-the-function-to-the-music-data" class="section level3">
 <h3><span class="header-section-number">12.2.1</span> applying the function to the music data</h3>
 <p>If you have run the chunk above, the latlong2state function will now exists in your environment. You still need to apply the function to your data.</p>
 <p>We do this using three of the essential tools in the munger’s toolbox:
 <em>select</em> (to choose several columns from the data), <em>mutate</em> (to create a new variable), and finally <em>drop_na</em> (to drop cases with missing data - here, artists from outside of the US).</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="co"># create a new dataset with just latitude and longitude</span></a>
-<a class="sourceLine" id="cb9-2" title="2">tempLatLong &lt;-<span class="st"> </span>music1 <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb9-3" title="3"><span class="st">  </span><span class="kw">select</span> (artist.longitude, </a>
-<a class="sourceLine" id="cb9-4" title="4">              artist.latitude)</a>
-<a class="sourceLine" id="cb9-5" title="5">USartists &lt;-<span class="st"> </span>music1 <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb9-6" title="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">state =</span> </a>
-<a class="sourceLine" id="cb9-7" title="7">            <span class="kw">latlong2state</span>(tempLatLong)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb9-8" title="8"><span class="st">  </span><span class="kw">drop_na</span>(state)</a>
-<a class="sourceLine" id="cb9-9" title="9"><span class="kw">rm</span>(tempLatLong)</a></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" title="1"><span class="co"># create a new dataset with just latitude and longitude</span></a>
+<a class="sourceLine" id="cb129-2" title="2">tempLatLong &lt;-<span class="st"> </span>music1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb129-3" title="3"><span class="st">  </span><span class="kw">select</span> (artist.longitude, </a>
+<a class="sourceLine" id="cb129-4" title="4">              artist.latitude)</a>
+<a class="sourceLine" id="cb129-5" title="5">USartists &lt;-<span class="st"> </span>music1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb129-6" title="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">state =</span> </a>
+<a class="sourceLine" id="cb129-7" title="7">            <span class="kw">latlong2state</span>(tempLatLong)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb129-8" title="8"><span class="st">  </span><span class="kw">drop_na</span>(state)</a>
+<a class="sourceLine" id="cb129-9" title="9"><span class="kw">rm</span>(tempLatLong)</a></code></pre></div>
 </div>
 </div>
 <div id="drowning-in-the-sea-of-songs-with-apologies-to-arivoim1187b990643" class="section level2">
@@ -376,29 +391,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="combining-the-song-titles-with-our-us-artists" class="section level3">
 <h3><span class="header-section-number">12.3.1</span> combining the song titles with our US artists</h3>
 <p>Finally, we can <em>join</em> this to the USartist data, as each row of the two files have a common key (song.id). We use a <em>right_join</em> - implicitly, “maybeTitles”, which is at the head of the pipe, is on the left. The right_join will link the left (maybeTitles) file with the right (USartists), by what appears to be a common key:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">maybeTitles &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;subset_unique_tracks.txt&quot;</span>,<span class="st">&quot;~&quot;</span>,</a>
-<a class="sourceLine" id="cb10-2" title="2">                          <span class="dt">col_names =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-3" title="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">X1 =</span> <span class="kw">str_replace_all</span>(X1, <span class="st">&quot;&lt;SEP&gt;&quot;</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-4" title="4"><span class="st">  </span><span class="kw">separate</span>(X1, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;ID1&quot;</span>,</a>
-<a class="sourceLine" id="cb10-5" title="5">                                   <span class="st">&quot;song.id&quot;</span>,</a>
-<a class="sourceLine" id="cb10-6" title="6">                                   <span class="st">&quot;artistFromMaybeTitles&quot;</span>,</a>
-<a class="sourceLine" id="cb10-7" title="7">                                   <span class="st">&quot;SongTitle&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb10-8" title="8"><span class="st">  </span><span class="kw">right_join</span>(USartists, <span class="dt">key =</span> <span class="st">&quot;song.id&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" title="1">maybeTitles &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;subset_unique_tracks.txt&quot;</span>,<span class="st">&quot;~&quot;</span>,</a>
+<a class="sourceLine" id="cb130-2" title="2">                          <span class="dt">col_names =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb130-3" title="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">X1 =</span> <span class="kw">str_replace_all</span>(X1, <span class="st">&quot;&lt;SEP&gt;&quot;</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb130-4" title="4"><span class="st">  </span><span class="kw">separate</span>(X1, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;ID1&quot;</span>,</a>
+<a class="sourceLine" id="cb130-5" title="5">                                   <span class="st">&quot;song.id&quot;</span>,</a>
+<a class="sourceLine" id="cb130-6" title="6">                                   <span class="st">&quot;artistFromMaybeTitles&quot;</span>,</a>
+<a class="sourceLine" id="cb130-7" title="7">                                   <span class="st">&quot;SongTitle&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb130-8" title="8"><span class="st">  </span><span class="kw">right_join</span>(USartists, <span class="dt">key =</span> <span class="st">&quot;song.id&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   X1 = col_character()
 ## )</code></pre>
 <pre><code>## Joining, by = &quot;song.id&quot;</code></pre>
 <p>So far, so good. Do things line up correctly? If the match is perfect, the two artist fields should be identical. We can use the [not] oddly-titled logical function “identical” to check this:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">identical</span>(maybeTitles<span class="op">$</span>artistFromMaybeTitles,</a>
-<a class="sourceLine" id="cb13-2" title="2">          maybeTitles<span class="op">$</span>artist.name)</a></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" title="1"><span class="kw">identical</span>(maybeTitles<span class="op">$</span>artistFromMaybeTitles,</a>
+<a class="sourceLine" id="cb133-2" title="2">          maybeTitles<span class="op">$</span>artist.name)</a></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>Whoops. The two variables aren’t the same - or are they? Run the following commands, which includes two more of the essential munging tools - <em>select</em> and <em>arrange.</em> Here, note that the “filter” function is used to select cases where the two variables are different.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">maybeTitles <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb15-2" title="2"><span class="st">  </span><span class="kw">filter</span> (artistFromMaybeTitles <span class="op">!=</span><span class="st"> </span>artist.name) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb15-3" title="3"><span class="st">  </span><span class="kw">select</span> (artistFromMaybeTitles, artist.name) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb15-4" title="4"><span class="st">  </span><span class="kw">arrange</span>(artistFromMaybeTitles) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb15-5" title="5"><span class="st">  </span><span class="kw">head</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" title="1">maybeTitles <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb135-2" title="2"><span class="st">  </span><span class="kw">filter</span> (artistFromMaybeTitles <span class="op">!=</span><span class="st"> </span>artist.name) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb135-3" title="3"><span class="st">  </span><span class="kw">select</span> (artistFromMaybeTitles, artist.name) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb135-4" title="4"><span class="st">  </span><span class="kw">arrange</span>(artistFromMaybeTitles) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb135-5" title="5"><span class="st">  </span><span class="kw">head</span>()</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 2
 ##   artistFromMaybeTitles        artist.name                    
 ##   &lt;chr&gt;                        &lt;chr&gt;                          
@@ -447,7 +462,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="finding-exploring-and-cleaning-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="relational-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="an-interlude.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -498,6 +513,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
