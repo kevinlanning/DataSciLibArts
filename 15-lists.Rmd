@@ -7,10 +7,6 @@ output: html_document
 
 # lists
 
-## status 70% {-}
-
-OK, but would be useful to expand on the discussion of XML and JSON, e.g., using the goodreads data.
-
 ---
 
 Up until now, we have we have thought about 'data structures' as matrices (rectangles, two-dimensional arrays), in which columns correspond to variables and rows to observations, and in which each variable has a particular type, such as numeric or character (or, in the last chapter, special types such as factors and dates/times).
@@ -20,7 +16,7 @@ In base R, data matrices are typically represented as data frames (type = df). I
 knitr::opts_chunk$set(message = FALSE)
 ```
 
-```{r tibble.0319}
+```{r tibble.0319, warning=FALSE}
 library(tidyverse)
 data(diamonds)
 class(diamonds)
@@ -37,14 +33,18 @@ Beyond these *atomic vectors,* data can take more complex forms, such as hierarc
 
 ```
 Honors College Courses
-├───Area: Data Science
-	├───Name: Intro to Data Science
-	└───Term: Spring 2019
-	└───Instructors:
-    	└───Hoim
-    	└───Lanning
-	├───Name: Computational Social Science
-		└───Term: Fall 2019
+├───Area: Psychology
+	├───Name: Personality and Social Development
+	└───Term: Spring 2020
+	└───Instructors: Lanning
+	└───Students: 
+    	└───Al
+    		└───Year: Freshman
+    		└───Concentration: Psychology 
+        └───Barb
+    	└───etc.
+	├───Name: Political Psychology
+		└───Term: Fall 2020
 		└───Instructors: Lanning
 	├───etc.
 		
@@ -64,13 +64,16 @@ mod <- lm(price ~ carat,
 ```
 In R studio, you can inspect the structure of the list by clicking on it in the global environment window, by using the View tab, or with the command str(mod). 
 
-You can extract rows of your list by including them in single brackets (which will return another list), or double brackets (which will return a vector or data frame. Compare the structure of the following data sets:
+You can extract rows of your list by including them in single brackets (which will return another list), or double brackets (which will return a vector or data frame). 
+
+Compare the structure of the following data sets:
+
 ```{r}
 b1 <- mod['coefficients'] 
 b2 <- mod[['coefficients']]  
 c1 <- mod['model']
 c2 <- mod[['model']]
 ```
-Lists are, in a sense, containers (see the example at the end of R4DS Chapter 20).  The single bracket gives us the wrapper as well as what is inside; the double bracket extracts only the inner element.
+Lists are, in a sense, containers (see the example of the pepper shakers in Chapter 20).  The single bracket gives us the wrapper as well as what is inside; the double bracket extracts only the inner element.
 
-Lists can be challenging. The R package purrr, a core part of the tidyverse, includes functions which simplify working with lists; to learn more, there is a tutorial [here](https://jennybc.github.io/purrr-tutorial/index.html)   
+Lists can be challenging, but they are necessary in a world where data is complexly structured. The R package purrr, a core part of the tidyverse, includes functions which simplify working with lists; to learn more, there is a tutorial [here](https://jennybc.github.io/purrr-tutorial/index.html).    
