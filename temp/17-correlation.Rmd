@@ -1,5 +1,5 @@
 ---
-title: "17-RegressionModeling"
+title: "17-correlation"
 author: "Lanning"
 date: "March 21, 2019"
 output: html_document
@@ -13,13 +13,7 @@ ds_theme_set()
 set.seed(0)
 ```
 
-# regression and modeling
-
-## status 80% {-}
-
-Check citing, condense Galton/correlation material, retitle chapter as correlation and linear regression.
-
----
+# correlation and linear regression
 
 
 
@@ -31,7 +25,7 @@ In the remainder of his section on modeling (Chapters 23 - 25), he presents an i
 
 ## correlation 
 
-(This section is excerpted from From https://github.com/datasciencelabs)
+(This section is excerpted directly from From https://github.com/datasciencelabs)
 
 [Francis Galton](https://en.wikipedia.org/wiki/Francis_Galton), a polymath and cousin of Charles Darwin was interested, among other things, in how well can we predict a son's height based on the parents' heights. 
 

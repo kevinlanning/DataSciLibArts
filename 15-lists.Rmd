@@ -18,8 +18,20 @@ knitr::opts_chunk$set(message = FALSE)
 
 ```{r tibble.0319, warning=FALSE}
 library(tidyverse)
-data(diamonds)
-class(diamonds)
+library(babynames)
+babynames2 <- babynames %>% 
+    mutate(generation = case_when( 
+        (1944 <= year) & (year <= 1964) ~ "boomer",
+        (1965 <= year) & (year <= 1979) ~ "genX",
+        (1980 <= year) & (year <= 1994) ~ "millenial",
+        (1995 <= year) & (year <= 2019) ~ "genZ")) %>%
+    mutate(generation = factor(generation))
+str(babynames2$generation)
+library(magrittr)
+babynames3 <- babynames2 %>% 
+ #   count(generation) %>% 
+    na.omit(generation)
+    
 ```
 
 Within the diamonds tibble, we can examine the types of each variable. This uses the *sapply* function to SIMPLY APPLY a function (class) to the columns of a data frame or tibble. Here, each column (such as $carat) is a vector, and each vector is homogeneous (of one particular type):

@@ -7,11 +7,7 @@ output: html_document
 
 # loops, functions, and beyond
 
-## status 85% {-}
 
-include an explicit assignment, requiring that students can write their own function. include link to quiz.
-
-----
 
 In one of the most important contemporary theoretical models of intelligence, [@sternberg1999theory] has argued that the ability to automatize, that is, to work efficiently on repeated or habitual tasks, is a key component of intelligent behavior. Solving habitual problems efficiently - whether it is making a cup of coffee, honing to the shortest path to compete a shopping list in a supermarket or finish a series of errands across town - allows us to focus our limited resources on other challenging tasks.  
 
