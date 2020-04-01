@@ -24,7 +24,7 @@
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2020-03-25" />
+<meta name="date" content="2020-04-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="strings-factors-dates-and-times.html"/>
-<link rel="next" href="references.html"/>
+<link rel="next" href="loops-functions-and-beyond.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,15 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 
 
 <style type="text/css">
@@ -287,7 +296,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.4" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#times"><i class="fa fa-check"></i><b>14.4</b> times</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>15</b> lists</a></li>
-<li class="chapter" data-level="16" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>16</b> references</a></li>
+<li class="chapter" data-level="16" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html"><i class="fa fa-check"></i><b>16</b> loops, functions, and beyond</a><ul>
+<li class="chapter" data-level="16.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#loops"><i class="fa fa-check"></i><b>16.1</b> loops</a></li>
+<li class="chapter" data-level="16.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#from-loop-to-apply-to-purrrmap"><i class="fa fa-check"></i><b>16.2</b> from loop to apply to purrr::map</a></li>
+<li class="chapter" data-level="16.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#some-examples-of-functions"><i class="fa fa-check"></i><b>16.3</b> some examples of functions</a><ul>
+<li class="chapter" data-level="16.3.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#preliminaries"><i class="fa fa-check"></i><b>16.3.1</b> preliminaries</a></li>
+<li class="chapter" data-level="16.3.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#the-function"><i class="fa fa-check"></i><b>16.3.2</b> the function</a></li>
+<li class="chapter" data-level="16.3.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#applying-the-function"><i class="fa fa-check"></i><b>16.3.3</b> applying the function</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#how-many-bottles-of-what"><i class="fa fa-check"></i><b>16.4</b> how many bottles of what?</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="correlation-and-linear-regression.html"><a href="correlation-and-linear-regression.html"><i class="fa fa-check"></i><b>17</b> correlation and linear regression</a><ul>
+<li class="chapter" data-level="17.1" data-path="correlation-and-linear-regression.html"><a href="correlation-and-linear-regression.html#correlation"><i class="fa fa-check"></i><b>17.1</b> correlation</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="correlation-and-linear-regression.html"><a href="correlation-and-linear-regression.html#the-regression-line"><i class="fa fa-check"></i><b>17.1.1</b> The regression line</a></li>
+<li class="chapter" data-level="17.1.2" data-path="correlation-and-linear-regression.html"><a href="correlation-and-linear-regression.html#warning-there-are-two-regression-lines"><i class="fa fa-check"></i><b>17.1.2</b> Warning: there are two regression lines</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="correlation-and-linear-regression.html"><a href="correlation-and-linear-regression.html#multiple-regression"><i class="fa fa-check"></i><b>17.2</b> multiple regression</a></li>
+<li class="chapter" data-level="17.3" data-path="correlation-and-linear-regression.html"><a href="correlation-and-linear-regression.html#swiss-fertility-data"><i class="fa fa-check"></i><b>17.3</b> Swiss fertility data</a></li>
+<li class="chapter" data-level="17.4" data-path="correlation-and-linear-regression.html"><a href="correlation-and-linear-regression.html#marital-affairs-data"><i class="fa fa-check"></i><b>17.4</b> marital affairs data</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>18</b> references</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -313,13 +341,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>Up until now, we have we have thought about ‘data structures’ as matrices (rectangles, two-dimensional arrays), in which columns correspond to variables and rows to observations, and in which each variable has a particular type, such as numeric or character (or, in the last chapter, special types such as factors and dates/times).</p>
 <p>In base R, data matrices are typically represented as data frames (type = df). In the Tidyverse, we have been using a special type of data frame, the tibble (type = df and tbl_df). The diamonds dataset, for example, is a tibble:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="kw">data</span>(diamonds)</a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="kw">class</span>(diamonds)</a></code></pre></div>
-<pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" title="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb150-2" title="2"><span class="kw">library</span>(babynames)</a>
+<a class="sourceLine" id="cb150-3" title="3">babynames2 &lt;-<span class="st"> </span>babynames <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb150-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">generation =</span> <span class="kw">case_when</span>( </a>
+<a class="sourceLine" id="cb150-5" title="5">        (<span class="dv">1944</span> <span class="op">&lt;=</span><span class="st"> </span>year) <span class="op">&amp;</span><span class="st"> </span>(year <span class="op">&lt;=</span><span class="st"> </span><span class="dv">1964</span>) <span class="op">~</span><span class="st"> &quot;boomer&quot;</span>,</a>
+<a class="sourceLine" id="cb150-6" title="6">        (<span class="dv">1965</span> <span class="op">&lt;=</span><span class="st"> </span>year) <span class="op">&amp;</span><span class="st"> </span>(year <span class="op">&lt;=</span><span class="st"> </span><span class="dv">1979</span>) <span class="op">~</span><span class="st"> &quot;genX&quot;</span>,</a>
+<a class="sourceLine" id="cb150-7" title="7">        (<span class="dv">1980</span> <span class="op">&lt;=</span><span class="st"> </span>year) <span class="op">&amp;</span><span class="st"> </span>(year <span class="op">&lt;=</span><span class="st"> </span><span class="dv">1994</span>) <span class="op">~</span><span class="st"> &quot;millenial&quot;</span>,</a>
+<a class="sourceLine" id="cb150-8" title="8">        (<span class="dv">1995</span> <span class="op">&lt;=</span><span class="st"> </span>year) <span class="op">&amp;</span><span class="st"> </span>(year <span class="op">&lt;=</span><span class="st"> </span><span class="dv">2019</span>) <span class="op">~</span><span class="st"> &quot;genZ&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb150-9" title="9"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">generation =</span> <span class="kw">factor</span>(generation))</a>
+<a class="sourceLine" id="cb150-10" title="10"><span class="kw">str</span>(babynames2<span class="op">$</span>generation)</a></code></pre></div>
+<pre><code>##  Factor w/ 4 levels &quot;boomer&quot;,&quot;genX&quot;,..: NA NA NA NA NA NA NA NA NA NA ...</code></pre>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" title="1"><span class="kw">library</span>(magrittr)</a>
+<a class="sourceLine" id="cb152-2" title="2">babynames3 &lt;-<span class="st"> </span>babynames2 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb152-3" title="3"><span class="st"> </span><span class="co">#   count(generation) %&gt;% </span></a>
+<a class="sourceLine" id="cb152-4" title="4"><span class="st">    </span><span class="kw">na.omit</span>(generation)</a></code></pre></div>
 <p>Within the diamonds tibble, we can examine the types of each variable. This uses the <em>sapply</em> function to SIMPLY APPLY a function (class) to the columns of a data frame or tibble. Here, each column (such as $carat) is a vector, and each vector is homogeneous (of one particular type):</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">diamonds <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="st">    </span><span class="kw">sapply</span>(class) </a></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" title="1">diamonds <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb153-2" title="2"><span class="st">    </span><span class="kw">sapply</span>(class) </a></code></pre></div>
 <pre><code>## $carat
 ## [1] &quot;numeric&quot;
 ## 
@@ -372,15 +411,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>Consider the following code. What does it do? What is in ‘mod’? Why is it stored like this?</p>
 </blockquote>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">mod &lt;-<span class="st"> </span><span class="kw">lm</span>(price <span class="op">~</span><span class="st"> </span>carat, </a>
-<a class="sourceLine" id="cb6-2" title="2">          <span class="dt">data =</span> diamonds)</a></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" title="1">mod &lt;-<span class="st"> </span><span class="kw">lm</span>(price <span class="op">~</span><span class="st"> </span>carat, </a>
+<a class="sourceLine" id="cb156-2" title="2">          <span class="dt">data =</span> diamonds)</a></code></pre></div>
 <p>In R studio, you can inspect the structure of the list by clicking on it in the global environment window, by using the View tab, or with the command str(mod).</p>
 <p>You can extract rows of your list by including them in single brackets (which will return another list), or double brackets (which will return a vector or data frame).</p>
 <p>Compare the structure of the following data sets:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">b1 &lt;-<span class="st"> </span>mod[<span class="st">&#39;coefficients&#39;</span>] </a>
-<a class="sourceLine" id="cb7-2" title="2">b2 &lt;-<span class="st"> </span>mod[[<span class="st">&#39;coefficients&#39;</span>]]  </a>
-<a class="sourceLine" id="cb7-3" title="3">c1 &lt;-<span class="st"> </span>mod[<span class="st">&#39;model&#39;</span>]</a>
-<a class="sourceLine" id="cb7-4" title="4">c2 &lt;-<span class="st"> </span>mod[[<span class="st">&#39;model&#39;</span>]]</a></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" title="1">b1 &lt;-<span class="st"> </span>mod[<span class="st">&#39;coefficients&#39;</span>] </a>
+<a class="sourceLine" id="cb157-2" title="2">b2 &lt;-<span class="st"> </span>mod[[<span class="st">&#39;coefficients&#39;</span>]]  </a>
+<a class="sourceLine" id="cb157-3" title="3">c1 &lt;-<span class="st"> </span>mod[<span class="st">&#39;model&#39;</span>]</a>
+<a class="sourceLine" id="cb157-4" title="4">c2 &lt;-<span class="st"> </span>mod[[<span class="st">&#39;model&#39;</span>]]</a></code></pre></div>
 <p>Lists are, in a sense, containers (see the example of the pepper shakers in Chapter 20). The single bracket gives us the wrapper as well as what is inside; the double bracket extracts only the inner element.</p>
 <p>Lists can be challenging, but they are necessary in a world where data is complexly structured. The R package purrr, a core part of the tidyverse, includes functions which simplify working with lists; to learn more, there is a tutorial <a href="https://jennybc.github.io/purrr-tutorial/index.html">here</a>.</p>
 
@@ -391,7 +430,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="strings-factors-dates-and-times.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="loops-functions-and-beyond.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -442,6 +481,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
