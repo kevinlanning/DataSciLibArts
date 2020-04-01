@@ -21,6 +21,9 @@ Consider the task of printing out a series of numbers.  Here's a simple example 
 
 ```{r }
 knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+library(kableExtra)
+library(tidyverse)
+library(babynames)
 
 for (i in 1995:1998) { # i is an index code
     print(i) # print the ith value in the sequence 
@@ -30,8 +33,7 @@ for (i in 1995:1998) { # i is an index code
 Let's expand on this a little, connecting back to the babynames data. This will print counts of the number of babies for each year in GenerationZ, which includes years from 1995-2015.
 
 ```{r}
-library(tidyverse)
-library(babynames)
+
 genZ <- (1995:2015)
 # this reduces the (big) babynames to a simple file of years and counts
 babyCounts <-
@@ -176,4 +178,105 @@ beerSong <- function(liquid = "beer", count = 99, surface = "wall") {
                          liquid," on the ", surface,"...")))
     cat(songtext) # cat prints without line numbers
 }
+#beerSong() 
 ```
+
+And here are solutions proposed by some of your classmates. How do they differ from each other, and from the solution given above? 
+
+```{r results ='hide'}
+beersng <- function(n) {
+  if (n == 1) {
+    cat("\n",n," bottle of beer on the wall, ",n,
+        " bottles of beer.\nTake one down and pass it around,",
+        " no more bottles of beer on the wall.\n", sep = "")
+    cat("\nNo more bottles of beer on the wall, 
+        no more bottles of beer.\n",
+        "Go to the store and buy some more, 
+        99 bottles of beer on the wall.\n", sep="")
+  } else {
+    cat("\n",n," bottles of beer on the wall, ",n,
+        " bottles of beer.\nTake one down and pass it around, ",
+        n-1, " more bottles of beer on the wall.\n", sep="")
+    return(beersng(n-1))
+  }
+}
+#beersng(99)
+moreBeer <- function () {
+  for (i in 0:100){
+  starting_number <- 100
+  if (starting_number - i == 0) {
+    print("No more bottles of beer on the wall, 
+          no more bottles of beer, 
+          Go to the store and buy some more, 
+          99 bottles of beer on the wall.")
+    break
+  }
+  print(paste(starting_number - i,
+              "bottles of beer on the wall",
+              "Take one down and pass it around,",
+              starting_number - i - 1,
+              "bottles of beer on the wall."))
+  }
+}
+# moreBeer()
+song <- function(bottlesofbeer){
+  for(i in bottlesofbeer:1){ 
+     cat(bottlesofbeer," bottles of beer on the wall \n",
+        bottlesofbeer," bottles of beer \nTake one down, 
+        pass it around \n",
+        bottlesofbeer-1, " bottles of beer on the wall \n"," \n")       
+        bottlesofbeer = bottlesofbeer - 1 
+  }
+}
+#song(99)
+```
+
+Which code is 'best'? Good code is clear, but it is also efficient.  We probably shouldn't expect much in the way of differences between these functions in terms of speed (as each includes 99 iterations of a simple print command), but here's a simple way to compare. Note that I've used the "sink" command to write my output to files rather than consoles:
+
+```{r results = "hide"}
+start_time <- Sys.time()
+sink (file = "f1.txt")
+beerSong("beer",99)
+sink()
+end_time <- Sys.time()
+beerSongtime <- end_time - start_time
+
+start_time <- Sys.time()
+sink (file = "f2.txt")
+beersng(99)
+sink()
+end_time <- Sys.time()
+beersngtime <- end_time - start_time
+
+start_time <- Sys.time()
+sink (file = "f3.txt")
+song(99)
+sink()
+end_time <- Sys.time()
+songtime <- end_time - start_time
+
+start_time <- Sys.time()
+sink (file = "f4.txt")
+moreBeer()
+sink()
+end_time <- Sys.time()
+moreBeertime <- end_time - start_time
+```
+
+Here is the first line of output from each function, together with table showing the elapsed times:
+
+```{r message=FALSE}
+readLines("f1.txt",1)
+readLines("f2.txt",2)
+readLines("f3.txt",4)
+readLines("f4.txt",1)
+tibble(functionName = c("beerSongtime",
+           "beersngtime",
+           "songtime",
+           "moreBeertime"), time =
+             c(beerSongtime,beersngtime,
+           songtime,
+           moreBeertime)) %>% 
+          kable(digits = 2)
+```
+

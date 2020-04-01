@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>16 loops, functions, and beyond | Data science for the liberal arts</title>
+  <title>17 correlation and linear regression | Data science for the liberal arts</title>
   <meta name="description" content="Test" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="16 loops, functions, and beyond | Data science for the liberal arts" />
+  <meta property="og:title" content="17 correlation and linear regression | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="chihuahuamuffin.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="16 loops, functions, and beyond | Data science for the liberal arts" />
+  <meta name="twitter:title" content="17 correlation and linear regression | Data science for the liberal arts" />
   
   <meta name="twitter:description" content="Test" />
   <meta name="twitter:image" content="chihuahuamuffin.jpg" />
@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="lists.html"/>
+<link rel="prev" href="loops-functions-and-beyond.html"/>
 <link rel="next" href="references.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -297,7 +297,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="16.4" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#how-many-bottles-of-what"><i class="fa fa-check"></i><b>16.4</b> how many bottles of what?</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>17</b> references</a></li>
+<li class="chapter" data-level="17" data-path="correlation-and-linear-regression.html"><a href="correlation-and-linear-regression.html"><i class="fa fa-check"></i><b>17</b> correlation and linear regression</a><ul>
+<li class="chapter" data-level="17.1" data-path="correlation-and-linear-regression.html"><a href="correlation-and-linear-regression.html#correlation"><i class="fa fa-check"></i><b>17.1</b> correlation</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="correlation-and-linear-regression.html"><a href="correlation-and-linear-regression.html#the-regression-line"><i class="fa fa-check"></i><b>17.1.1</b> The regression line</a></li>
+<li class="chapter" data-level="17.1.2" data-path="correlation-and-linear-regression.html"><a href="correlation-and-linear-regression.html#warning-there-are-two-regression-lines"><i class="fa fa-check"></i><b>17.1.2</b> Warning: there are two regression lines</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="correlation-and-linear-regression.html"><a href="correlation-and-linear-regression.html#multiple-regression"><i class="fa fa-check"></i><b>17.2</b> multiple regression</a></li>
+<li class="chapter" data-level="17.3" data-path="correlation-and-linear-regression.html"><a href="correlation-and-linear-regression.html#swiss-fertility-data"><i class="fa fa-check"></i><b>17.3</b> Swiss fertility data</a></li>
+<li class="chapter" data-level="17.4" data-path="correlation-and-linear-regression.html"><a href="correlation-and-linear-regression.html#marital-affairs-data"><i class="fa fa-check"></i><b>17.4</b> marital affairs data</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>18</b> references</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -318,342 +327,205 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="loops-functions-and-beyond" class="section level1">
-<h1><span class="header-section-number">16</span> loops, functions, and beyond</h1>
-<p>In one of the most important contemporary theoretical models of intelligence, <span class="citation">(Sternberg <a href="#ref-sternberg1999theory" role="doc-biblioref">1999</a>)</span> has argued that the ability to automatize, that is, to work efficiently on repeated or habitual tasks, is a key component of intelligent behavior. Solving habitual problems efficiently - whether it is making a cup of coffee, honing to the shortest path to compete a shopping list in a supermarket or finish a series of errands across town - allows us to focus our limited resources on other challenging tasks.</p>
-<p>In programming, loops and functions are essential tools for making repetitive tasks simple. Simplifying your code is one of the more intellectually satisfying aspects of working in R or in any programming language.</p>
-<p>In R, loops are supplemented by additional tools for simplifying and avoiding repetition in code, including the ‘apply’ family and the map function in purrr. Functions (and, beyond this, custom libraries) can further streamline your work.</p>
-<div id="loops" class="section level2">
-<h2><span class="header-section-number">16.1</span> loops</h2>
-<p>Consider the task of printing out a series of numbers. Here’s a simple example of how this could be done in a loop in R. It prints numbers between 1995 and 1998 (inclusive).</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">message =</span> <span class="ot">FALSE</span>, <span class="dt">warning =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="kw">library</span>(kableExtra)</a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## -- Attaching packages ---------------- tidyverse 1.3.0 --</code></pre>
-<pre><code>## v ggplot2 3.3.0     v purrr   0.3.3
-## v tibble  2.1.3     v dplyr   0.8.4
-## v tidyr   1.0.2     v stringr 1.4.0
-## v readr   1.3.1     v forcats 0.5.0</code></pre>
-<pre><code>## -- Conflicts ------------------- tidyverse_conflicts() --
-## x dplyr::filter()     masks stats::filter()
-## x dplyr::group_rows() masks kableExtra::group_rows()
-## x dplyr::lag()        masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">library</span>(babynames)</a>
-<a class="sourceLine" id="cb5-2" title="2"></a>
-<a class="sourceLine" id="cb5-3" title="3"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1995</span><span class="op">:</span><span class="dv">1998</span>) { <span class="co"># i is an index code</span></a>
-<a class="sourceLine" id="cb5-4" title="4">    <span class="kw">print</span>(i) <span class="co"># print the ith value in the sequence </span></a>
-<a class="sourceLine" id="cb5-5" title="5">} <span class="co"># go to the next one until the range is complete</span></a></code></pre></div>
-<pre><code>## [1] 1995
-## [1] 1996
-## [1] 1997
-## [1] 1998</code></pre>
-<p>Let’s expand on this a little, connecting back to the babynames data. This will print counts of the number of babies for each year in GenerationZ, which includes years from 1995-2015.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">genZ &lt;-<span class="st"> </span>(<span class="dv">1995</span><span class="op">:</span><span class="dv">2015</span>)</a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="co"># this reduces the (big) babynames to a simple file of years and counts</span></a>
-<a class="sourceLine" id="cb7-3" title="3">babyCounts &lt;-</a>
-<a class="sourceLine" id="cb7-4" title="4"><span class="st">    </span>babynames <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="st">    </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-6" title="6"><span class="st">    </span><span class="kw">filter</span>(year <span class="op">%in%</span><span class="st"> </span>genZ) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-7" title="7"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">nbabies =</span> <span class="kw">sum</span>(n))</a>
-<a class="sourceLine" id="cb7-8" title="8">    </a>
-<a class="sourceLine" id="cb7-9" title="9"><span class="co"># and this uses a for loop to print each row in turn</span></a>
-<a class="sourceLine" id="cb7-10" title="10"><span class="cf">for</span> (i <span class="cf">in</span> (<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(babyCounts))) { </a>
-<a class="sourceLine" id="cb7-11" title="11">    <span class="co"># filename[i,j] == ith row and jth column</span></a>
-<a class="sourceLine" id="cb7-12" title="12">    <span class="kw">print</span>(<span class="kw">paste</span>((babyCounts[i,<span class="dv">1</span>]), babyCounts[i,<span class="dv">2</span>]))</a>
-<a class="sourceLine" id="cb7-13" title="13">}</a></code></pre></div>
-<pre><code>## [1] &quot;1995 3661351&quot;
-## [1] &quot;1996 3646362&quot;
-## [1] &quot;1997 3624799&quot;
-## [1] &quot;1998 3677107&quot;
-## [1] &quot;1999 3692537&quot;
-## [1] &quot;2000 3778079&quot;
-## [1] &quot;2001 3741451&quot;
-## [1] &quot;2002 3736042&quot;
-## [1] &quot;2003 3799971&quot;
-## [1] &quot;2004 3818361&quot;
-## [1] &quot;2005 3842004&quot;
-## [1] &quot;2006 3952932&quot;
-## [1] &quot;2007 3994007&quot;
-## [1] &quot;2008 3926358&quot;
-## [1] &quot;2009 3815638&quot;
-## [1] &quot;2010 3690700&quot;
-## [1] &quot;2011 3651914&quot;
-## [1] &quot;2012 3650462&quot;
-## [1] &quot;2013 3637310&quot;
-## [1] &quot;2014 3696311&quot;
-## [1] &quot;2015 3688687&quot;</code></pre>
-<p>The syntax of loops, including where to put parentheses in index statements, can be tricky. Expect to refer to Google and StackExchange often in order to get your code running.</p>
-<p>Another good source is Chapter 21 of R4DS. There, Wickham goes in to additional detail, including a description of seq_along(df) as a tool for creating an index corresponding to 1:ncol(df). Here’s an example with the diamonds dataset:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">diamonds2 &lt;-<span class="st"> </span>diamonds <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="st">    </span><span class="kw">select_if</span>(., is.numeric)</a>
-<a class="sourceLine" id="cb9-3" title="3"><span class="co"># for (i in (1:ncol(diamonds2))) {</span></a>
-<a class="sourceLine" id="cb9-4" title="4"><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(diamonds2)) {</a>
-<a class="sourceLine" id="cb9-5" title="5">    <span class="kw">print</span>(<span class="kw">paste</span>(<span class="kw">names</span>(diamonds2[i]),</a>
-<a class="sourceLine" id="cb9-6" title="6">                <span class="kw">round</span>(<span class="kw">mean</span>(diamonds2[[i]]),<span class="dv">2</span>)))</a>
-<a class="sourceLine" id="cb9-7" title="7">}</a></code></pre></div>
-<pre><code>## [1] &quot;carat 0.8&quot;
-## [1] &quot;depth 61.75&quot;
-## [1] &quot;table 57.46&quot;
-## [1] &quot;price 3932.8&quot;
-## [1] &quot;x 5.73&quot;
-## [1] &quot;y 5.73&quot;
-## [1] &quot;z 3.54&quot;</code></pre>
-<p>Chapter 21 of R4DS also considers some extensions to related problems such as loops of indefinite length, which can often be addressed using the ‘<em>while</em>’ command.</p>
+<div id="correlation-and-linear-regression" class="section level1">
+<h1><span class="header-section-number">17</span> correlation and linear regression</h1>
+<p>In Chapter 22 of R4DS, Wickham introduces <strong>modeling</strong> as a complement to data visualization. At the beginning of Chapter 23, he points out that</p>
+<blockquote>
+<p><em>The goal of a model is to provide a simple low-dimensional summary of a dataset.</em></p>
+</blockquote>
+<p>In the remainder of his section on modeling (Chapters 23 - 25), he presents an innovative approach to introducing models. Feel free to explore these. Our treatment, however, will deviate from this.</p>
+<div id="correlation" class="section level2">
+<h2><span class="header-section-number">17.1</span> correlation</h2>
+<p>(This section is excerpted directly from From <a href="https://github.com/datasciencelabs" class="uri">https://github.com/datasciencelabs</a>)</p>
+<p><a href="https://en.wikipedia.org/wiki/Francis_Galton">Francis Galton</a>, a polymath and cousin of Charles Darwin was interested, among other things, in how well can we predict a son’s height based on the parents’ heights.</p>
+<p>We have access to Galton’s family height data through the <code>HistData</code> package. We will create a dataset with the heights of fathers and the first son of each family. Here are the key summary statistics for the two variables of father and son height taken alone:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(HistData)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">data</span>(<span class="st">&quot;GaltonFamilies&quot;</span>)</a>
+<a class="sourceLine" id="cb1-3" title="3">galton_heights &lt;-<span class="st"> </span>GaltonFamilies <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="st">  </span><span class="kw">filter</span>(childNum <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>gender <span class="op">==</span><span class="st"> &quot;male&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="st">  </span><span class="kw">select</span>(father, childHeight) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">son =</span> childHeight)</a>
+<a class="sourceLine" id="cb1-7" title="7">galton_heights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="st">  </span><span class="kw">summarize</span>(<span class="kw">mean</span>(father), <span class="kw">sd</span>(father), <span class="kw">mean</span>(son), <span class="kw">sd</span>(son))</a></code></pre></div>
+<pre><code>##   mean(father) sd(father) mean(son)  sd(son)
+## 1     69.09888   2.546555  70.45475 2.557061</code></pre>
+<p>This <strong>univariate</strong> description fails to capture the key characteristic of the data, namely, the idea that there is a relationship between the two variables:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">galton_heights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(father, son)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>)</a></code></pre></div>
+<div class="figure"><span id="fig:scatterplot"></span>
+<img src="DataSciLibArts_files/figure-html/scatterplot-1.png" alt="Heights of father and son pairs plotted against each other." width="672" />
+<p class="caption">
+Figure 17.1: Heights of father and son pairs plotted against each other.
+</p>
 </div>
-<div id="from-loop-to-apply-to-purrrmap" class="section level2">
-<h2><span class="header-section-number">16.2</span> from loop to apply to purrr::map</h2>
-<p>Understanding for loops is fundamental in programming, but in R they should often be sidestepped. If the order of iteration isn’t important (if, for example, it doesn’t matter which of the diamonds variables we take the mean of first), then using one of the measures from the <strong>apply</strong> family can generally be used to make your code simpler and more efficient.</p>
-<p>The logic is that one takes a dataframe (df or tibble), then applies a function to its rows or columns:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="co"># apply the function (mean) to the columns(2) of the df </span></a>
-<a class="sourceLine" id="cb11-2" title="2">diamonds2  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">apply</span>(<span class="dv">2</span>,mean) </a></code></pre></div>
-<pre><code>##        carat        depth        table        price            x            y 
-##    0.7979397   61.7494049   57.4571839 3932.7997219    5.7311572    5.7345260 
-##            z 
-##    3.5387338</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="co"># simply apply - guesses that you are looking for col. means</span></a>
-<a class="sourceLine" id="cb13-2" title="2">diamonds2  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sapply</span>(mean) </a></code></pre></div>
-<pre><code>##        carat        depth        table        price            x            y 
-##    0.7979397   61.7494049   57.4571839 3932.7997219    5.7311572    5.7345260 
-##            z 
-##    3.5387338</code></pre>
-<p>The many variants of the apply family, including lapply [list apply] and tapply [table apply] as well as sapply, each have their own uses and can be quite efficient but, again, can be syntactically challenging.</p>
-<p>In the evolving tidyverse, the <strong>map</strong> family of commands is supplementing if not supplanting apply; these commands (part of the purrr package in the core tidyverse) may prove to be more convenient and clear. For example, the <strong>map_df</strong> function will apply a function and return a dataframe (tibble), which can be handy for further analysis.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">b &lt;-diamonds2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">map_df</span>(mean)</a>
-<a class="sourceLine" id="cb15-2" title="2">b</a></code></pre></div>
-<pre><code>## # A tibble: 1 x 7
-##   carat depth table price     x     y     z
-##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1 0.798  61.7  57.5 3933.  5.73  5.73  3.54</code></pre>
+<p>The correlation summarizes this relationship. In these data, the correlation (r) is about .50.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">galton_heights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="kw">cor</span>(father, son))</a></code></pre></div>
+<pre><code>##   cor(father, son)
+## 1        0.5007248</code></pre>
+<p>Incidentally, correlations based on small samples can bounce around quite a bit. Consider what happens when, for example, we sample just 25 cases from Galton’s data, then repeat this in a Monte Carlo analysis 1000 times to see the distribution of these sample rs:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">B &lt;-<span class="st"> </span><span class="dv">1000</span></a>
+<a class="sourceLine" id="cb6-2" title="2">N &lt;-<span class="st"> </span><span class="dv">25</span></a>
+<a class="sourceLine" id="cb6-3" title="3">R &lt;-<span class="st"> </span><span class="kw">replicate</span>(B, {</a>
+<a class="sourceLine" id="cb6-4" title="4">  <span class="kw">sample_n</span>(galton_heights, N, <span class="dt">replace =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># sample with replacement here</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">r=</span><span class="kw">cor</span>(father, son)) <span class="op">%&gt;%</span><span class="st"> </span>.<span class="op">$</span>r</a>
+<a class="sourceLine" id="cb6-6" title="6">})</a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="kw">data.frame</span>(R) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(R)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.05</span>, <span class="dt">color =</span> <span class="st">&quot;grey&quot;</span>)</a></code></pre></div>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div id="the-regression-line" class="section level3">
+<h3><span class="header-section-number">17.1.1</span> The regression line</h3>
+<p>If we are predicting a random variable <span class="math inline">\(Y\)</span> knowing the value of another <span class="math inline">\(X=x\)</span> using a regression line, then we predict that for every standard deviation, <span class="math inline">\(\sigma_X\)</span>, that <span class="math inline">\(x\)</span> increases above the average <span class="math inline">\(mu_X\)</span>, <span class="math inline">\(Y\)</span> increases <span class="math inline">\(\rho\)</span> standard deviations <span class="math inline">\(\sigma_Y\)</span> above the average <span class="math inline">\(\mu_Y\)</span>, where <span class="math inline">\(\rho\)</span> is the correlation between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
+<p>To manually add a regression line to a plots, we will need the means and standard deviations of each variable together with their correlation:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">mu_x &lt;-<span class="st"> </span><span class="kw">mean</span>(galton_heights<span class="op">$</span>father)</a>
+<a class="sourceLine" id="cb7-2" title="2">mu_y &lt;-<span class="st"> </span><span class="kw">mean</span>(galton_heights<span class="op">$</span>son)</a>
+<a class="sourceLine" id="cb7-3" title="3">s_x &lt;-<span class="st"> </span><span class="kw">sd</span>(galton_heights<span class="op">$</span>father)</a>
+<a class="sourceLine" id="cb7-4" title="4">s_y &lt;-<span class="st"> </span><span class="kw">sd</span>(galton_heights<span class="op">$</span>son)</a>
+<a class="sourceLine" id="cb7-5" title="5">r &lt;-<span class="st"> </span><span class="kw">cor</span>(galton_heights<span class="op">$</span>father, galton_heights<span class="op">$</span>son)</a>
+<a class="sourceLine" id="cb7-6" title="6"></a>
+<a class="sourceLine" id="cb7-7" title="7">m &lt;-<span class="st">  </span>r <span class="op">*</span><span class="st"> </span>s_y <span class="op">/</span><span class="st"> </span>s_x</a>
+<a class="sourceLine" id="cb7-8" title="8">b &lt;-<span class="st"> </span>mu_y <span class="op">-</span><span class="st"> </span>m<span class="op">*</span>mu_x</a>
+<a class="sourceLine" id="cb7-9" title="9"></a>
+<a class="sourceLine" id="cb7-10" title="10">galton_heights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-11" title="11"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(father, son)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-12" title="12"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-13" title="13"><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> b, <span class="dt">slope =</span> m ) </a></code></pre></div>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>If we first standardize the variables, then the regression line has intercept 0 and slope equal to the correlation <span class="math inline">\(\rho\)</span>. Here, the slope, regression line, and correlation are all equal (I’ve made the plot square to better indicate this).</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">galton_heights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="kw">scale</span>(father), <span class="kw">scale</span>(son))) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="dv">0</span>, <span class="dt">slope =</span> r) </a></code></pre></div>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-6-1.png" width="384" /></p>
 </div>
-<div id="some-examples-of-functions" class="section level2">
-<h2><span class="header-section-number">16.3</span> some examples of functions</h2>
-<p>If you repeat a series of lines of code several times in your program, it is often best to wrap this into a function.</p>
-<p>The first example is from a preregistered study I recently started of language and politics. For the preregistration, I ran analyses using <strong>simulated data,</strong> both to increase the likelihood that the code will run without error on real data and to help anticipate the analyses which are to be run on ‘real’ data. I began by getting a real body of text from the net and scrambling it, then constructing fake ‘Republican’ and ‘Democratic’ texts from this. Here, I illustrate this by constructing 50 sample documents, each consisting of between 5 and 20 words.</p>
-<p>The project is given in four steps:</p>
-<div id="preliminaries" class="section level3">
-<h3><span class="header-section-number">16.3.1</span> preliminaries</h3>
-<p>Here is the preliminary stuff, where I pull the data off the net and initialize the variables</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb17-2" title="2">sampledata &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">url</span>(</a>
-<a class="sourceLine" id="cb17-3" title="3">      <span class="st">&quot;https://www.crowdflower.com/wp-content/uploads/2016/03/sentiment-words-DFE-785960.csv&quot;</span>))</a>
-<a class="sourceLine" id="cb17-4" title="4"><span class="co"># pulls off four words</span></a>
-<a class="sourceLine" id="cb17-5" title="5">sampledata &lt;-<span class="st"> </span>sampledata[<span class="dv">22</span><span class="op">:</span><span class="dv">25</span>] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">na.omit</span>()</a>
-<a class="sourceLine" id="cb17-6" title="6"></a>
-<a class="sourceLine" id="cb17-7" title="7">ndocs &lt;-<span class="st"> </span><span class="dv">50</span></a>
-<a class="sourceLine" id="cb17-8" title="8">minDocLength &lt;-<span class="st">  </span><span class="dv">5</span></a>
-<a class="sourceLine" id="cb17-9" title="9">maxDocLength &lt;-<span class="st"> </span><span class="dv">20</span></a>
-<a class="sourceLine" id="cb17-10" title="10">doc &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">mode =</span> <span class="st">&quot;character&quot;</span>, <span class="dt">length =</span> ndocs)</a></code></pre></div>
-</div>
-<div id="the-function" class="section level3">
-<h3><span class="header-section-number">16.3.2</span> the function</h3>
-<p>Here’s the simple function which pulls a random word out of the matrix of sampledata.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">set.seed</span>(<span class="dv">33458</span>) <span class="co"># a random seed is used to allow reproducible results</span></a>
-<a class="sourceLine" id="cb18-2" title="2">getword &lt;-<span class="st"> </span><span class="cf">function</span>() {</a>
-<a class="sourceLine" id="cb18-3" title="3">      rowid &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(sampledata), <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb18-4" title="4">      colid &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(sampledata), <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb18-5" title="5">      word &lt;-<span class="st"> </span>sampledata[rowid,colid]</a>
-<a class="sourceLine" id="cb18-6" title="6">      word                 </a>
-<a class="sourceLine" id="cb18-7" title="7">}</a></code></pre></div>
-</div>
-<div id="applying-the-function" class="section level3">
-<h3><span class="header-section-number">16.3.3</span> applying the function</h3>
-<p>The function is applied, first, to extract one word, then, in successive loops, to build up one phrase and then many.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="co"># combine words into docs</span></a>
-<a class="sourceLine" id="cb19-2" title="2"><span class="co"># establish length of first phrase</span></a>
-<a class="sourceLine" id="cb19-3" title="3">docLength &lt;-<span class="st"> </span><span class="kw">sample</span>(minDocLength<span class="op">:</span>maxDocLength,<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb19-4" title="4"><span class="co"># initialize with one word</span></a>
-<a class="sourceLine" id="cb19-5" title="5">sampleCorpus &lt;-<span class="st"> </span><span class="kw">getword</span>()</a>
-<a class="sourceLine" id="cb19-6" title="6"><span class="co"># loop to build up first phrase</span></a>
-<a class="sourceLine" id="cb19-7" title="7"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>docLength) {</a>
-<a class="sourceLine" id="cb19-8" title="8">      addWord &lt;-<span class="st"> </span><span class="kw">getword</span>()</a>
-<a class="sourceLine" id="cb19-9" title="9">      sampleCorpus &lt;-<span class="st"> </span><span class="kw">paste</span>(sampleCorpus, addWord)</a>
-<a class="sourceLine" id="cb19-10" title="10">}</a>
-<a class="sourceLine" id="cb19-11" title="11"><span class="co">#add additional simulated documents</span></a>
-<a class="sourceLine" id="cb19-12" title="12"><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>ndocs) {</a>
-<a class="sourceLine" id="cb19-13" title="13">      docLength &lt;-<span class="st"> </span><span class="kw">sample</span>(minDocLength<span class="op">:</span>maxDocLength,<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb19-14" title="14">      newdoc &lt;-<span class="st"> </span><span class="kw">getword</span>()</a>
-<a class="sourceLine" id="cb19-15" title="15">      <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>docLength <span class="op">-</span><span class="st"> </span><span class="dv">1</span>) {</a>
-<a class="sourceLine" id="cb19-16" title="16">            addWord &lt;-<span class="st"> </span><span class="kw">getword</span>()</a>
-<a class="sourceLine" id="cb19-17" title="17">            newdoc &lt;-<span class="st"> </span><span class="kw">paste</span>(newdoc, addWord)</a>
-<a class="sourceLine" id="cb19-18" title="18">      }</a>
-<a class="sourceLine" id="cb19-19" title="19">      sampleCorpus &lt;-<span class="st"> </span><span class="kw">rbind</span>(newdoc,sampleCorpus)</a>
-<a class="sourceLine" id="cb19-20" title="20">}</a></code></pre></div>
-<p>Finally, the results are combined with a vector of alternating labels of ‘Dem’ and ‘Rep’:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">row.names</span>(sampleCorpus) &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb20-2" title="2">evenOdd &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;Dem&quot;</span>,<span class="st">&quot;Rep&quot;</span>),<span class="dt">length.out =</span> <span class="kw">nrow</span>(sampleCorpus))</a>
-<a class="sourceLine" id="cb20-3" title="3">workingCorpus &lt;-<span class="st"> </span><span class="kw">as.tibble</span>(<span class="kw">cbind</span>(evenOdd,sampleCorpus))</a>
-<a class="sourceLine" id="cb20-4" title="4"><span class="kw">head</span>(workingCorpus,<span class="dv">5</span>)</a></code></pre></div>
-<pre><code>## # A tibble: 5 x 2
-##   evenOdd V2                                                                    
-##   &lt;chr&gt;   &lt;chr&gt;                                                                 
-## 1 Dem     wild at heart nobody loves me lost art miss the sun need a doctor kin~
-## 2 Rep     great player awfully nice back hurts not paying pretty rubbish found ~
-## 3 Dem     yahooo make no promises horrible daughter ew crazy evening fit        
-## 4 Rep     can&#39;t sleep lazy afternoon sucks #fedup great shame positive break fa~
-## 5 Dem     problems nice funniest hurt not necessarily sad nose eat no problem d~</code></pre>
+<div id="warning-there-are-two-regression-lines" class="section level3">
+<h3><span class="header-section-number">17.1.2</span> Warning: there are two regression lines</h3>
+<p>In general, when describing bivariate relationships, we talk of predicting y from x. But what if we want to reverse this? Here, for example, what if we want to predict the father’s height based on the son’s?</p>
+<p>For this, the intercept and slope of the lines will differ</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="co"># son from father</span></a>
+<a class="sourceLine" id="cb9-2" title="2">m_<span class="dv">1</span> &lt;-<span class="st">  </span>r <span class="op">*</span><span class="st"> </span>s_y <span class="op">/</span><span class="st"> </span>s_x</a>
+<a class="sourceLine" id="cb9-3" title="3">b_<span class="dv">1</span> &lt;-<span class="st"> </span>mu_y <span class="op">-</span><span class="st"> </span>m_<span class="dv">1</span><span class="op">*</span>mu_x</a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="co"># vice-versa</span></a>
+<a class="sourceLine" id="cb9-5" title="5">m_<span class="dv">2</span> &lt;-<span class="st">  </span>r <span class="op">*</span><span class="st"> </span>s_x <span class="op">/</span><span class="st"> </span>s_y</a>
+<a class="sourceLine" id="cb9-6" title="6">b_<span class="dv">2</span> &lt;-<span class="st"> </span>mu_x <span class="op">-</span><span class="st"> </span>m_<span class="dv">2</span><span class="op">*</span>mu_y</a></code></pre></div>
+<p>We will still see regression to the mean (the prediction for the father is closer to the father average than the son heights <span class="math inline">\(y\)</span> is to the son average).</p>
+<p>Here is a plot showing the two regression lines, with blue for the predicting son heights with father heights and red for predicting father heights with son heights.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">galton_heights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(father, son)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> b_<span class="dv">1</span>, <span class="dt">slope =</span> m_<span class="dv">1</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-5" title="5"><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="op">-</span>b_<span class="dv">2</span><span class="op">/</span>m_<span class="dv">2</span>, <span class="dt">slope =</span> <span class="dv">1</span><span class="op">/</span>m_<span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) </a></code></pre></div>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-8-1.png" width="384" /></p>
 </div>
 </div>
-<div id="how-many-bottles-of-what" class="section level2">
-<h2><span class="header-section-number">16.4</span> how many bottles of what?</h2>
-<p>To put the fun back into function, here’s a solution to the “99 bottles of beer” function described in r4DS 21.2.1. Study the code. Ask or answer a question about it in class or on Slack.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1">beerSong &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">liquid =</span> <span class="st">&quot;beer&quot;</span>, <span class="dt">count =</span> <span class="dv">99</span>, <span class="dt">surface =</span> <span class="st">&quot;wall&quot;</span>) {</a>
-<a class="sourceLine" id="cb22-2" title="2">    songtext &lt;-<span class="st"> &quot;&quot;</span> </a>
-<a class="sourceLine" id="cb22-3" title="3">    <span class="cf">for</span> (i <span class="cf">in</span> (count<span class="op">:</span><span class="dv">1</span>)) { </a>
-<a class="sourceLine" id="cb22-4" title="4">        thisLine =<span class="st"> </span>(<span class="kw">paste0</span>(i, <span class="st">&quot; bottles of &quot;</span>, liquid, </a>
-<a class="sourceLine" id="cb22-5" title="5">            <span class="st">&quot; on the &quot;</span>, surface,</a>
-<a class="sourceLine" id="cb22-6" title="6">            <span class="st">&quot;, you take one down and pass it around,</span><span class="ch">\n</span><span class="st">&quot;</span>))</a>
-<a class="sourceLine" id="cb22-7" title="7">        songtext =<span class="st"> </span><span class="kw">c</span>(songtext, thisLine)</a>
-<a class="sourceLine" id="cb22-8" title="8">    }</a>
-<a class="sourceLine" id="cb22-9" title="9">    songtext =<span class="st"> </span><span class="kw">c</span>(songtext, </a>
-<a class="sourceLine" id="cb22-10" title="10">                 (<span class="kw">paste0</span>(<span class="st">&quot;no more bottles of &quot;</span>,</a>
-<a class="sourceLine" id="cb22-11" title="11">                         liquid,<span class="st">&quot; on the &quot;</span>, surface,<span class="st">&quot;...&quot;</span>)))</a>
-<a class="sourceLine" id="cb22-12" title="12">    <span class="kw">cat</span>(songtext) <span class="co"># cat prints without line numbers</span></a>
-<a class="sourceLine" id="cb22-13" title="13">}</a>
-<a class="sourceLine" id="cb22-14" title="14"><span class="co">#beerSong() </span></a></code></pre></div>
-<p>And here are solutions proposed by some of your classmates. How do they differ from each other, and from the solution given above?</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1">beersng &lt;-<span class="st"> </span><span class="cf">function</span>(n) {</a>
-<a class="sourceLine" id="cb23-2" title="2">  <span class="cf">if</span> (n <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) {</a>
-<a class="sourceLine" id="cb23-3" title="3">    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>,n,<span class="st">&quot; bottle of beer on the wall, &quot;</span>,n,</a>
-<a class="sourceLine" id="cb23-4" title="4">        <span class="st">&quot; bottles of beer.</span><span class="ch">\n</span><span class="st">Take one down and pass it around,&quot;</span>,</a>
-<a class="sourceLine" id="cb23-5" title="5">        <span class="st">&quot; no more bottles of beer on the wall.</span><span class="ch">\n</span><span class="st">&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</a>
-<a class="sourceLine" id="cb23-6" title="6">    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">No more bottles of beer on the wall, </span></a>
-<a class="sourceLine" id="cb23-7" title="7"><span class="st">        no more bottles of beer.</span><span class="ch">\n</span><span class="st">&quot;</span>,</a>
-<a class="sourceLine" id="cb23-8" title="8">        <span class="st">&quot;Go to the store and buy some more, </span></a>
-<a class="sourceLine" id="cb23-9" title="9"><span class="st">        99 bottles of beer on the wall.</span><span class="ch">\n</span><span class="st">&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</a>
-<a class="sourceLine" id="cb23-10" title="10">  } <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb23-11" title="11">    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>,n,<span class="st">&quot; bottles of beer on the wall, &quot;</span>,n,</a>
-<a class="sourceLine" id="cb23-12" title="12">        <span class="st">&quot; bottles of beer.</span><span class="ch">\n</span><span class="st">Take one down and pass it around, &quot;</span>,</a>
-<a class="sourceLine" id="cb23-13" title="13">        n<span class="dv">-1</span>, <span class="st">&quot; more bottles of beer on the wall.</span><span class="ch">\n</span><span class="st">&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</a>
-<a class="sourceLine" id="cb23-14" title="14">    <span class="kw">return</span>(<span class="kw">beersng</span>(n<span class="dv">-1</span>))</a>
-<a class="sourceLine" id="cb23-15" title="15">  }</a>
-<a class="sourceLine" id="cb23-16" title="16">}</a>
-<a class="sourceLine" id="cb23-17" title="17"><span class="co">#beersng(99)</span></a>
-<a class="sourceLine" id="cb23-18" title="18">moreBeer &lt;-<span class="st"> </span><span class="cf">function</span> () {</a>
-<a class="sourceLine" id="cb23-19" title="19">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">100</span>){</a>
-<a class="sourceLine" id="cb23-20" title="20">  starting_number &lt;-<span class="st"> </span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb23-21" title="21">  <span class="cf">if</span> (starting_number <span class="op">-</span><span class="st"> </span>i <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) {</a>
-<a class="sourceLine" id="cb23-22" title="22">    <span class="kw">print</span>(<span class="st">&quot;No more bottles of beer on the wall, </span></a>
-<a class="sourceLine" id="cb23-23" title="23"><span class="st">          no more bottles of beer, </span></a>
-<a class="sourceLine" id="cb23-24" title="24"><span class="st">          Go to the store and buy some more, </span></a>
-<a class="sourceLine" id="cb23-25" title="25"><span class="st">          99 bottles of beer on the wall.&quot;</span>)</a>
-<a class="sourceLine" id="cb23-26" title="26">    <span class="cf">break</span></a>
-<a class="sourceLine" id="cb23-27" title="27">  }</a>
-<a class="sourceLine" id="cb23-28" title="28">  <span class="kw">print</span>(<span class="kw">paste</span>(starting_number <span class="op">-</span><span class="st"> </span>i,</a>
-<a class="sourceLine" id="cb23-29" title="29">              <span class="st">&quot;bottles of beer on the wall&quot;</span>,</a>
-<a class="sourceLine" id="cb23-30" title="30">              <span class="st">&quot;Take one down and pass it around,&quot;</span>,</a>
-<a class="sourceLine" id="cb23-31" title="31">              starting_number <span class="op">-</span><span class="st"> </span>i <span class="op">-</span><span class="st"> </span><span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb23-32" title="32">              <span class="st">&quot;bottles of beer on the wall.&quot;</span>))</a>
-<a class="sourceLine" id="cb23-33" title="33">  }</a>
-<a class="sourceLine" id="cb23-34" title="34">}</a>
-<a class="sourceLine" id="cb23-35" title="35"><span class="co"># moreBeer()</span></a>
-<a class="sourceLine" id="cb23-36" title="36">song &lt;-<span class="st"> </span><span class="cf">function</span>(bottlesofbeer){</a>
-<a class="sourceLine" id="cb23-37" title="37">  <span class="cf">for</span>(i <span class="cf">in</span> bottlesofbeer<span class="op">:</span><span class="dv">1</span>){ </a>
-<a class="sourceLine" id="cb23-38" title="38">     <span class="kw">cat</span>(bottlesofbeer,<span class="st">&quot; bottles of beer on the wall </span><span class="ch">\n</span><span class="st">&quot;</span>,</a>
-<a class="sourceLine" id="cb23-39" title="39">        bottlesofbeer,<span class="st">&quot; bottles of beer </span><span class="ch">\n</span><span class="st">Take one down, </span></a>
-<a class="sourceLine" id="cb23-40" title="40"><span class="st">        pass it around </span><span class="ch">\n</span><span class="st">&quot;</span>,</a>
-<a class="sourceLine" id="cb23-41" title="41">        bottlesofbeer<span class="dv">-1</span>, <span class="st">&quot; bottles of beer on the wall </span><span class="ch">\n</span><span class="st">&quot;</span>,<span class="st">&quot; </span><span class="ch">\n</span><span class="st">&quot;</span>)       </a>
-<a class="sourceLine" id="cb23-42" title="42">        bottlesofbeer =<span class="st"> </span>bottlesofbeer <span class="op">-</span><span class="st"> </span><span class="dv">1</span> </a>
-<a class="sourceLine" id="cb23-43" title="43">  }</a>
-<a class="sourceLine" id="cb23-44" title="44">}</a>
-<a class="sourceLine" id="cb23-45" title="45"><span class="co">#song(99)</span></a></code></pre></div>
-<p>Which code is ‘best’? Good code is clear, but it is also efficient. We probably shouldn’t expect much in the way of differences between these functions in terms of speed (as each includes 99 iterations of a simple print command), but here’s a simple way to compare. Note that I’ve used the “sink” command to write my output to files rather than consoles:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1">start_time &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
-<a class="sourceLine" id="cb24-2" title="2"><span class="kw">sink</span> (<span class="dt">file =</span> <span class="st">&quot;f1.txt&quot;</span>)</a>
-<a class="sourceLine" id="cb24-3" title="3"><span class="kw">beerSong</span>(<span class="st">&quot;beer&quot;</span>,<span class="dv">99</span>)</a>
-<a class="sourceLine" id="cb24-4" title="4"><span class="kw">sink</span>()</a>
-<a class="sourceLine" id="cb24-5" title="5">end_time &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
-<a class="sourceLine" id="cb24-6" title="6">beerSongtime &lt;-<span class="st"> </span>end_time <span class="op">-</span><span class="st"> </span>start_time</a>
-<a class="sourceLine" id="cb24-7" title="7"></a>
-<a class="sourceLine" id="cb24-8" title="8">start_time &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
-<a class="sourceLine" id="cb24-9" title="9"><span class="kw">sink</span> (<span class="dt">file =</span> <span class="st">&quot;f2.txt&quot;</span>)</a>
-<a class="sourceLine" id="cb24-10" title="10"><span class="kw">beersng</span>(<span class="dv">99</span>)</a>
-<a class="sourceLine" id="cb24-11" title="11"><span class="kw">sink</span>()</a>
-<a class="sourceLine" id="cb24-12" title="12">end_time &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
-<a class="sourceLine" id="cb24-13" title="13">beersngtime &lt;-<span class="st"> </span>end_time <span class="op">-</span><span class="st"> </span>start_time</a>
-<a class="sourceLine" id="cb24-14" title="14"></a>
-<a class="sourceLine" id="cb24-15" title="15">start_time &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
-<a class="sourceLine" id="cb24-16" title="16"><span class="kw">sink</span> (<span class="dt">file =</span> <span class="st">&quot;f3.txt&quot;</span>)</a>
-<a class="sourceLine" id="cb24-17" title="17"><span class="kw">song</span>(<span class="dv">99</span>)</a>
-<a class="sourceLine" id="cb24-18" title="18"><span class="kw">sink</span>()</a>
-<a class="sourceLine" id="cb24-19" title="19">end_time &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
-<a class="sourceLine" id="cb24-20" title="20">songtime &lt;-<span class="st"> </span>end_time <span class="op">-</span><span class="st"> </span>start_time</a>
-<a class="sourceLine" id="cb24-21" title="21"></a>
-<a class="sourceLine" id="cb24-22" title="22">start_time &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
-<a class="sourceLine" id="cb24-23" title="23"><span class="kw">sink</span> (<span class="dt">file =</span> <span class="st">&quot;f4.txt&quot;</span>)</a>
-<a class="sourceLine" id="cb24-24" title="24"><span class="kw">moreBeer</span>()</a>
-<a class="sourceLine" id="cb24-25" title="25"><span class="kw">sink</span>()</a>
-<a class="sourceLine" id="cb24-26" title="26">end_time &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
-<a class="sourceLine" id="cb24-27" title="27">moreBeertime &lt;-<span class="st"> </span>end_time <span class="op">-</span><span class="st"> </span>start_time</a></code></pre></div>
-<p>Here is the first line of output from each function, together with table showing the elapsed times:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="kw">readLines</span>(<span class="st">&quot;f1.txt&quot;</span>,<span class="dv">1</span>)</a></code></pre></div>
-<pre><code>## character(0)</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="kw">readLines</span>(<span class="st">&quot;f2.txt&quot;</span>,<span class="dv">2</span>)</a></code></pre></div>
-<pre><code>## character(0)</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="kw">readLines</span>(<span class="st">&quot;f3.txt&quot;</span>,<span class="dv">4</span>)</a></code></pre></div>
-<pre><code>## character(0)</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1"><span class="kw">readLines</span>(<span class="st">&quot;f4.txt&quot;</span>,<span class="dv">1</span>)</a></code></pre></div>
-<pre><code>## character(0)</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1"><span class="kw">tibble</span>(<span class="dt">functionName =</span> <span class="kw">c</span>(<span class="st">&quot;beerSongtime&quot;</span>,</a>
-<a class="sourceLine" id="cb33-2" title="2">           <span class="st">&quot;beersngtime&quot;</span>,</a>
-<a class="sourceLine" id="cb33-3" title="3">           <span class="st">&quot;songtime&quot;</span>,</a>
-<a class="sourceLine" id="cb33-4" title="4">           <span class="st">&quot;moreBeertime&quot;</span>), <span class="dt">time =</span></a>
-<a class="sourceLine" id="cb33-5" title="5">             <span class="kw">c</span>(beerSongtime,beersngtime,</a>
-<a class="sourceLine" id="cb33-6" title="6">           songtime,</a>
-<a class="sourceLine" id="cb33-7" title="7">           moreBeertime)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb33-8" title="8"><span class="st">          </span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-functionName
-</th>
-<th style="text-align:left;">
-time
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-beerSongtime
-</td>
-<td style="text-align:left;">
-0.03 secs
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-beersngtime
-</td>
-<td style="text-align:left;">
-0.02 secs
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-songtime
-</td>
-<td style="text-align:left;">
-0.01 secs
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-moreBeertime
-</td>
-<td style="text-align:left;">
-0.02 secs
-</td>
-</tr>
-</tbody>
-</table>
+<div id="multiple-regression" class="section level2">
+<h2><span class="header-section-number">17.2</span> multiple regression</h2>
+<p>We extend regression (predicting one continuous variable from another) to the multivariate case (predicting one variable from many). We extend this logic to the cases where our variables are not normally distributed, as in the case of dichotomous variables (yes/no, true/false), as well as counts, which often are skewed.</p>
+<p>(This section is drawn from Peng, Caffo, and Leek’s treatment from Coursera/ the Johns Hopkins Data Science Program. You may need to install the packages “UsingR”, “GGally” and/or“Hmisc”)</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">library</span>(broom) <span class="co"># an older package for unlisting regression results</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="kw">library</span>(modelr)</a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="kw">library</span>(GGally) <span class="co"># for scatterplot matrix</span></a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="kw">library</span>(Ecdat) <span class="co"># Econometric data incl. affairs dataset </span></a></code></pre></div>
+</div>
+<div id="swiss-fertility-data" class="section level2">
+<h2><span class="header-section-number">17.3</span> Swiss fertility data</h2>
+<p>To consider the multivariate case, we examine a second dataset.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">data</span>(swiss)</a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="kw">str</span>(swiss)</a></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    47 obs. of  6 variables:
+##  $ Fertility       : num  80.2 83.1 92.5 85.8 76.9 76.1 83.8 92.4 82.4 82.9 ...
+##  $ Agriculture     : num  17 45.1 39.7 36.5 43.5 35.3 70.2 67.8 53.3 45.2 ...
+##  $ Examination     : int  15 6 5 12 17 9 16 14 12 16 ...
+##  $ Education       : int  12 9 5 7 15 7 7 8 7 13 ...
+##  $ Catholic        : num  9.96 84.84 93.4 33.77 5.16 ...
+##  $ Infant.Mortality: num  22.2 22.2 20.2 20.3 20.6 26.6 23.6 24.9 21 24.4 ...</code></pre>
+<p>Here’s a <em>scatterplot matrix</em> of the Swiss data. Look at the first column of plots (or first row of the correlations). What is the relationship between fertility and each of the other variables?</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">ggpairs</span> (swiss,</a>
+<a class="sourceLine" id="cb14-2" title="2">        <span class="dt">lower =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb14-3" title="3">            <span class="dt">continuous =</span> <span class="st">&quot;smooth&quot;</span>),</a>
+<a class="sourceLine" id="cb14-4" title="4">        <span class="dt">axisLabels =</span><span class="st">&quot;none&quot;</span>,</a>
+<a class="sourceLine" id="cb14-5" title="5">        <span class="dt">switch =</span> <span class="st">&#39;both&#39;</span>)</a></code></pre></div>
+<p><img src="DataSciLibArts_files/figure-html/scatterplot%20matrix%20with%20ggpairs,%20swiss-1.png" width="672" /></p>
+<p>Here, we predict fertility from all of the remaining variables together in a single regression analysis, using the lm (linear model) command. As we saw in Chapter 15, the result of this analysis is a list. We can pull out the key features of the data using the summary() command. How do you interpret this?</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">swissReg &lt;-<span class="st"> </span><span class="kw">lm</span>(Fertility <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>swiss)</a>
+<a class="sourceLine" id="cb15-2" title="2"><span class="kw">summary</span>(swissReg)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Fertility ~ ., data = swiss)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -15.2743  -5.2617   0.5032   4.1198  15.3213 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)      66.91518   10.70604   6.250 1.91e-07 ***
+## Agriculture      -0.17211    0.07030  -2.448  0.01873 *  
+## Examination      -0.25801    0.25388  -1.016  0.31546    
+## Education        -0.87094    0.18303  -4.758 2.43e-05 ***
+## Catholic          0.10412    0.03526   2.953  0.00519 ** 
+## Infant.Mortality  1.07705    0.38172   2.822  0.00734 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 7.165 on 41 degrees of freedom
+## Multiple R-squared:  0.7067, Adjusted R-squared:  0.671 
+## F-statistic: 19.76 on 5 and 41 DF,  p-value: 5.594e-10</code></pre>
+</div>
+<div id="marital-affairs-data" class="section level2">
+<h2><span class="header-section-number">17.4</span> marital affairs data</h2>
+<p>Here’s another dataset. We’ll apply ggpairs here, but for clarity will show only half of the data at a time. The dependent variable of interest (nbaffairs) will be included in both plots:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1">Fair1 &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="st">  </span><span class="kw">select</span>(sex<span class="op">:</span>child, nbaffairs)</a>
+<a class="sourceLine" id="cb17-3" title="3"><span class="kw">ggpairs</span>(Fair1,  </a>
+<a class="sourceLine" id="cb17-4" title="4"><span class="co"># if you wanted to jam all 9 vars onto one page you could do this</span></a>
+<a class="sourceLine" id="cb17-5" title="5"><span class="co">#        upper = list(continuous = wrap(ggally_cor, size = 10)),</span></a>
+<a class="sourceLine" id="cb17-6" title="6">         <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">continuous =</span> <span class="st">&#39;smooth&#39;</span>),</a>
+<a class="sourceLine" id="cb17-7" title="7">         <span class="dt">axisLabels =</span> <span class="st">&quot;none&quot;</span>,</a>
+<a class="sourceLine" id="cb17-8" title="8">        <span class="dt">switch =</span> <span class="st">&#39;both&#39;</span>)</a></code></pre></div>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-10-1.png" width="100%" /></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">Fair2 &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb18-2" title="2"><span class="st">  </span><span class="kw">select</span>(religious<span class="op">:</span>nbaffairs) </a>
+<a class="sourceLine" id="cb18-3" title="3"><span class="kw">ggpairs</span>(Fair2, <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">continuous =</span> <span class="st">&#39;smooth&#39;</span>),</a>
+<a class="sourceLine" id="cb18-4" title="4">           <span class="dt">axisLabels =</span> <span class="st">&quot;none&quot;</span>,</a>
+<a class="sourceLine" id="cb18-5" title="5">           <span class="dt">switch =</span> <span class="st">&#39;both&#39;</span>)</a></code></pre></div>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-10-2.png" width="100%" /></p>
+<blockquote>
+<p>Exercise</p>
+<ol style="list-style-type: decimal">
+<li>Study the data. Learn about the measures by looking at Fair in the help tab of R studio.</li>
+<li>What do the scatterplot matrices shown above tell us?</li>
+<li>Can you just run a regression on it as is? Try predicting nbaffairs from the remaining 8 variables in Fair (not Fair1 or Fair2), using the same syntax in the Swiss data. Does it work? What do the results suggest?</li>
+</ol>
+</blockquote>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1">affairReg &lt;-<span class="st"> </span><span class="kw">lm</span>(nbaffairs <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>Fair)</a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="kw">summary</span>(affairReg)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = nbaffairs ~ ., data = Fair)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.0503 -1.7226 -0.7947  0.2101 12.7036 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  5.87201    1.13750   5.162 3.34e-07 ***
+## sexmale      0.05409    0.30049   0.180   0.8572    
+## age         -0.05098    0.02262  -2.254   0.0246 *  
+## ym           0.16947    0.04122   4.111 4.50e-05 ***
+## childyes    -0.14262    0.35020  -0.407   0.6840    
+## religious   -0.47761    0.11173  -4.275 2.23e-05 ***
+## education   -0.01375    0.06414  -0.214   0.8303    
+## occupation   0.10492    0.08888   1.180   0.2383    
+## rate        -0.71188    0.12001  -5.932 5.09e-09 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.095 on 592 degrees of freedom
+## Multiple R-squared:  0.1317, Adjusted R-squared:   0.12 
+## F-statistic: 11.23 on 8 and 592 DF,  p-value: 7.472e-15</code></pre>
+<pre><code>
+</code></pre>
 
-</div>
-</div>
-<h3> references</h3>
-<div id="refs" class="references">
-<div id="ref-sternberg1999theory">
-<p>Sternberg, Robert J. 1999. “The Theory of Successful Intelligence.” <em>Review of General Psychology</em> 3 (4): 292–316.</p>
 </div>
 </div>
             </section>
@@ -661,7 +533,7 @@ moreBeertime
           </div>
         </div>
       </div>
-<a href="lists.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="loops-functions-and-beyond.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -713,6 +585,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
