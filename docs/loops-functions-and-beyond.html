@@ -24,7 +24,7 @@
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2020-04-01" />
+<meta name="date" content="2020-04-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -315,7 +315,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17.3" data-path="correlation-and-linear-regression.html"><a href="correlation-and-linear-regression.html#swiss-fertility-data"><i class="fa fa-check"></i><b>17.3</b> Swiss fertility data</a></li>
 <li class="chapter" data-level="17.4" data-path="correlation-and-linear-regression.html"><a href="correlation-and-linear-regression.html#marital-affairs-data"><i class="fa fa-check"></i><b>17.4</b> marital affairs data</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>18</b> references</a></li>
+<li class="chapter" data-level="18" data-path="cross-validation.html"><a href="cross-validation.html"><i class="fa fa-check"></i><b>18</b> cross-validation</a><ul>
+<li class="chapter" data-level="18.1" data-path="cross-validation.html"><a href="cross-validation.html#revisiting-the-affairs-data"><i class="fa fa-check"></i><b>18.1</b> revisiting the affairs data</a></li>
+<li class="chapter" data-level="18.2" data-path="cross-validation.html"><a href="cross-validation.html#avoiding-capitalizing-on-chance"><i class="fa fa-check"></i><b>18.2</b> avoiding capitalizing on chance</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="cross-validation.html"><a href="cross-validation.html#splitting-the-data-into-training-and-test-subsamples"><i class="fa fa-check"></i><b>18.2.1</b> Splitting the data into training and test subsamples</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="cross-validation.html"><a href="cross-validation.html#an-example-of-cross-validated-linear-regression"><i class="fa fa-check"></i><b>18.3</b> an example of cross-validated linear regression</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="cross-validation.html"><a href="cross-validation.html#applying-logistic-regression-analysis-to-the-training-data"><i class="fa fa-check"></i><b>18.3.1</b> applying logistic regression analysis to the training data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>19</b> references</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -627,7 +636,7 @@ time
 beerSongtime
 </td>
 <td style="text-align:left;">
-0.02 secs
+0.03 secs
 </td>
 </tr>
 <tr>
@@ -643,7 +652,7 @@ beersngtime
 songtime
 </td>
 <td style="text-align:left;">
-0.04 secs
+0.01 secs
 </td>
 </tr>
 <tr>
@@ -651,7 +660,7 @@ songtime
 moreBeertime
 </td>
 <td style="text-align:left;">
-0.04 secs
+0.02 secs
 </td>
 </tr>
 </tbody>

@@ -24,7 +24,7 @@
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2020-04-01" />
+<meta name="date" content="2020-04-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -315,7 +315,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17.3" data-path="correlation-and-linear-regression.html"><a href="correlation-and-linear-regression.html#swiss-fertility-data"><i class="fa fa-check"></i><b>17.3</b> Swiss fertility data</a></li>
 <li class="chapter" data-level="17.4" data-path="correlation-and-linear-regression.html"><a href="correlation-and-linear-regression.html#marital-affairs-data"><i class="fa fa-check"></i><b>17.4</b> marital affairs data</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>18</b> references</a></li>
+<li class="chapter" data-level="18" data-path="cross-validation.html"><a href="cross-validation.html"><i class="fa fa-check"></i><b>18</b> cross-validation</a><ul>
+<li class="chapter" data-level="18.1" data-path="cross-validation.html"><a href="cross-validation.html#revisiting-the-affairs-data"><i class="fa fa-check"></i><b>18.1</b> revisiting the affairs data</a></li>
+<li class="chapter" data-level="18.2" data-path="cross-validation.html"><a href="cross-validation.html#avoiding-capitalizing-on-chance"><i class="fa fa-check"></i><b>18.2</b> avoiding capitalizing on chance</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="cross-validation.html"><a href="cross-validation.html#splitting-the-data-into-training-and-test-subsamples"><i class="fa fa-check"></i><b>18.2.1</b> Splitting the data into training and test subsamples</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="cross-validation.html"><a href="cross-validation.html#an-example-of-cross-validated-linear-regression"><i class="fa fa-check"></i><b>18.3</b> an example of cross-validated linear regression</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="cross-validation.html"><a href="cross-validation.html#applying-logistic-regression-analysis-to-the-training-data"><i class="fa fa-check"></i><b>18.3.1</b> applying logistic regression analysis to the training data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>19</b> references</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -364,8 +373,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb136-2" title="2">                     <span class="st">&quot;Revenge o&#39; </span><span class="ch">\&#39;</span><span class="st">McSlashy&#39;&quot;</span>, </a>
 <a class="sourceLine" id="cb136-3" title="3">                     <span class="st">&quot;Star Wars: Episode </span><span class="ch">\\</span><span class="st">slash&quot;</span>)</a>
 <a class="sourceLine" id="cb136-4" title="4">dumbSlashMovieTitles <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_view</span> (<span class="st">&quot;sh&quot;</span>)</a></code></pre></div>
-<div id="htmlwidget-3528235a7dd761d8bc07" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3528235a7dd761d8bc07">{"x":{"html":"<ul>\n  <li>Crasla<span class='match'>sh<\/span><\/li>\n  <li>Revenge o' 'McSla<span class='match'>sh<\/span>y'<\/li>\n  <li>Star Wars: Episode \\sla<span class='match'>sh<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d076f5404e1b274ef80f" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d076f5404e1b274ef80f">{"x":{"html":"<ul>\n  <li>Crasla<span class='match'>sh<\/span><\/li>\n  <li>Revenge o' 'McSla<span class='match'>sh<\/span>y'<\/li>\n  <li>Star Wars: Episode \\sla<span class='match'>sh<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Note the effects of the backslash: For example, the Star Wars movie has two slashes in the input, but only one in the output, as the backslash is the escape character that tells R to take the next character literally (as in the ‘Revenge’ movie).</p>
 <blockquote>
 <p>So. How would you use str_view to find strings which include the backslash character in our dumbSlashMovieTitles? [Experiment. Google. Ask your classmates.]</p>

@@ -13,7 +13,7 @@ library(tidyverse)
 library(modelr)
 library(Ecdat) 
 # library (class) # for knn
-library (caret) # machine learning package
+library (caret)# machine learning package
 library (caTools) # ditto
 ```
 # cross-validation 
@@ -22,7 +22,7 @@ library (caTools) # ditto
 
 ## revisiting the affairs data
 
-Let's go back and do what we should have done earlier: Examine and think about "number of affairs". What does the distribution look like?
+Let's go back and do what we should have done earlier, that is, examine and think about the "number of affairs" variable. What does the distribution look like?
 
 ```{r}
 data(Fair)
