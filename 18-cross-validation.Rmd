@@ -18,9 +18,7 @@ library (caTools) # ditto
 ```
 # cross-validation 
 
-## status 85% {-}
-
-split into two chapters, the first on linear and logistic regression, the second on classification and decision theory.
+*The problem of capitalizing on chance is a significant one in prediction, and one should always be skeptical of models which are untested beyond the sample from which they were derived.*
 
 ## revisiting the affairs data
 
@@ -30,7 +28,7 @@ Let's go back and do what we should have done earlier: Examine and think about "
 data(Fair)
 Fair %>% count(nbaffairs)
 ```
-We note that the distibution is skewed - and we realize that perhaps we should think about it differently: The *meaning* of the difference between 0 and 1 is not the same as that between 1 and 2, or perhaps even 1 and 12.
+We note that the distribution is skewed - and we realize that perhaps we should think about it differently: The *meaning* of the difference between 0 and 1 is not the same as that between 1 and 2, or perhaps even 1 and 12.
 
 We can transform the data in several ways. We might perform a *root transform*, which we could then round to an integer:
 ```{r}
@@ -51,7 +49,7 @@ We'll examine each of these in the following paragraphs.
 
 ## avoiding capitalizing on chance
 
-One lesson from the last class was that correlations (and regression coefficients) drawn from small samples were not stable. In regression analysis, as progressively smaller samples were drawn from the Fair data, the ability to predict the outcome increased.  In the limiting case, when the number of predictors (variables) was equal to the number of cases in the sample (rows), prediction became perfect. The problem of capitalizing on chance is a significant one in prediction, and one should always be skeptical of models which are untested beyond the sample from which they were derived.
+One lesson from the last class was that correlations (and regression coefficients) drawn from small samples were not stable. In regression analysis, as progressively smaller samples were drawn from the Fair data, the ability to predict the outcome increased.  In the limiting case, when the number of predictors (variables) was equal to the number of cases in the sample (rows), prediction became perfect. 
 
 ### Splitting the data into training and test subsamples
 
@@ -125,3 +123,4 @@ predictTrain <- predict(model2, trainFair, type = "response")
 summary (predictTrain)
 ```
 
+As scores on predictTrain increase, the predicted likelihood of an affair increases.  If you are considering marriage to a potential partner, what score would be too high? How do we distinguish "ok" from "not"?
