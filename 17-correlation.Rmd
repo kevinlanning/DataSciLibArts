@@ -17,7 +17,7 @@ set.seed(0)
 
 
 
-In Chapter 22 of R4DS, Wickham introduces **modeling** as a complement to data visualization.  At the beginning of Chapter 23, he points out that 
+In Chapter 22 of R4DS, Wickham introduces **modeling** as a complement to data visualization.  At the beginning of Chapter 23, he points out that: 
 
 > *The goal of a model is to provide a simple low-dimensional summary of a dataset.*
 
@@ -39,7 +39,7 @@ galton_heights <- GaltonFamilies %>%
   select(father, childHeight) %>%
   rename(son = childHeight)
 galton_heights %>% 
-  summarize(mean(father), sd(father), mean(son), sd(son))
+  summarise(mean(father), sd(father), mean(son), sd(son))
 ```
 
 This **univariate** description fails to capture the key characteristic of the data, namely, the idea that there is a relationship between the two variables: 
