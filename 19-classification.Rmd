@@ -165,7 +165,7 @@ In the simplest form of this analysis, we find the nearest thing to a "doppelgan
 
 Begin by loading the affairs data from last time.  Using the same seed (33458) means that the same set of training and test cases will be extracted as in the prior analysis
 
-```{r Chap19}
+```{r inChap19}
 data(Fair)
 # one change here: Note the bidirectional pipe to simplify code
 # use only when you are sure that your file update is ok
@@ -239,7 +239,7 @@ But what value of k is optimal?
 
 To test a range of values, we can first set up our knn analysis as a function (compare this code with the code in the prior section).
 
-```{r}
+```{r c117}
 trainPredictors <- trainFair %>%
     select(-affairYN)
 testPredictors <- testFair %>%
@@ -259,19 +259,19 @@ knnFairdata <- function (k) {
 
 We run the function on k = 1 and k = 2 to test it:
 
-```{r}
+```{r c118}
 knnFairdata(1)
 knnFairdata(2)
 ```
 
 Now we can apply it to as many as 100 values of k, using the purrr::map command:
 
-```{r}
-kAccuracy <- (map(1:100,knnFairdata)) %>% # map the knnFunction onto numbers 1-100
-    unlist() %>% # map generates a list, so we will pull these out into a vector
+```{r c119}
+kAccuracy <- (map_dbl(1:100,knnFairdata)) %>% # map the knnFunction onto numbers 1-100
+ #   unlist() %>% # map generates a list, so we will pull these out into a vector
     as_tibble() %>%  # then a tibble so we can do a quick plot
-    rename(Accuracy=value) %>% 
-    mutate (k = seq_along(Accuracy))
+    rename(Accuracy = 1) %>% 
+    mutate(k = seq_along(Accuracy))
 ```
 
 We can graph this, using the syntax from the beginning of the class:

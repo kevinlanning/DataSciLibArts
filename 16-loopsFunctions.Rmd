@@ -100,8 +100,9 @@ Here is the preliminary stuff, where I pull the data off the net and initialize 
 ```{r simdata}
 library(tidyverse)
 sampledata <- read_csv(url(
-      "https://www.crowdflower.com/wp-content/uploads/2016/03/sentiment-words-DFE-785960.csv"))
-# pulls off four words
+#      "https://www.crowdflower.com/wp-content/uploads/2016/03/sentiment-words-DFE-785960.csv"))
+"https://raw.githubusercontent.com/totalgood/hope/master/data/corpora/sentiment-words-DFE-785960.csv"))
+  # pulls off four words
 sampledata <- sampledata[22:25] %>% na.omit()
 
 ndocs <- 50
