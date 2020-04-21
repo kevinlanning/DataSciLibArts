@@ -268,7 +268,6 @@ Now we can apply it to as many as 100 values of k, using the purrr::map command:
 
 ```{r c119}
 kAccuracy <- (map_dbl(1:100,knnFairdata)) %>% # map the knnFunction onto numbers 1-100
- #   unlist() %>% # map generates a list, so we will pull these out into a vector
     as_tibble() %>%  # then a tibble so we can do a quick plot
     rename(Accuracy = 1) %>% 
     mutate(k = seq_along(Accuracy))
@@ -298,12 +297,12 @@ In the following block, I resplit the Fair data, using proportions of 60%, 30%, 
 
 ```{r knnwork2}
 set.seed(33458)
-threeWaySplit <- sample(1:3, size=nrow(Fair),
-                        prob=c(0.6,0.3,0.1),
+threeWaySplit <- sample(1:3, size = nrow(Fair),
+                        prob = c(0.6,0.3,0.1),
                         replace = TRUE)
-trainFair2 <- Fair[threeWaySplit==1,]
-testFair2 <- Fair[threeWaySplit==2,]
-validFair2 <- Fair[threeWaySplit==3,]
+trainFair2 <- Fair[threeWaySplit == 1,]
+testFair2 <- Fair[threeWaySplit == 2,]
+validFair2 <- Fair[threeWaySplit == 3,]
 ```
 
 I tweak my function here to use the new data, then run it 100 times as before.
@@ -323,8 +322,7 @@ knnFairdata2 <- function (k) {
     b<-confusionMatrix(knnAffair, testFair2$affairYN)
     b[["overall"]][["Accuracy"]]
 }
-kAccuracy <- (map(1:100,knnFairdata2)) %>% # map the knnFunction onto numbers 1-100
-    unlist() %>% # map generates a list, so we will pull these out into a vector
+kAccuracy <- (map_dbl(1:100,knnFairdata2)) %>% # map the knnFunction onto numbers 1-100
     as_tibble() %>%  # then a tibble so we can do a quick plot
     rename(Accuracy=value) %>% 
     mutate (k = seq_along(Accuracy))

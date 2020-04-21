@@ -24,7 +24,7 @@
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2020-04-13" />
+<meta name="date" content="2020-04-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,6 +50,15 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 
 
 <style type="text/css">
@@ -331,7 +340,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.2.6" data-path="prediction-and-classification.html"><a href="prediction-and-classification.html#the-multinomial-case"><i class="fa fa-check"></i><b>19.2.6</b> the multinomial case</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>20</b> references</a></li>
+<li class="chapter" data-level="20" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><i class="fa fa-check"></i><b>20</b> machine learning: chihuahuas vs muffins, and other distinctions and ideas</a><ul>
+<li class="chapter" data-level="20.1" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#supervised-versus-unsupervised"><i class="fa fa-check"></i><b>20.1</b> supervised versus unsupervised</a></li>
+<li class="chapter" data-level="20.2" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#prediction-versus-classification"><i class="fa fa-check"></i><b>20.2</b> prediction versus classification</a></li>
+<li class="chapter" data-level="20.3" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#understanding-versus-prediction"><i class="fa fa-check"></i><b>20.3</b> understanding versus prediction</a></li>
+<li class="chapter" data-level="20.4" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#bias-versus-variability"><i class="fa fa-check"></i><b>20.4</b> bias versus variability</a><ul>
+<li class="chapter" data-level="20.4.1" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#resampling-beyond-test-training-and-validation-samples"><i class="fa fa-check"></i><b>20.4.1</b> resampling: beyond test, training, and validation samples</a></li>
+</ul></li>
+<li class="chapter" data-level="20.5" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#compensatory-versus-non-compensatory-problems"><i class="fa fa-check"></i><b>20.5</b> compensatory versus non-compensatory problems</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html"><i class="fa fa-check"></i><b>21</b> ethics: some topics for discussion</a><ul>
+<li class="chapter" data-level="" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#status-40"><i class="fa fa-check"></i>status 40%</a></li>
+<li class="chapter" data-level="21.1" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#discussion-should-digital-tracking-be-used-to-coronavirus"><i class="fa fa-check"></i><b>21.1</b> discussion: should digital tracking be used to … coronavirus…</a></li>
+<li class="chapter" data-level="21.2" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#is-open-source-software-secure"><i class="fa fa-check"></i><b>21.2</b> is open-source software secure?</a></li>
+<li class="chapter" data-level="21.3" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#discussion-is-open-source-software-secure"><i class="fa fa-check"></i><b>21.3</b> discussion: is open-source software secure?</a></li>
+<li class="chapter" data-level="21.4" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#background"><i class="fa fa-check"></i><b>21.4</b> background</a></li>
+<li class="chapter" data-level="21.5" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#principles"><i class="fa fa-check"></i><b>21.5</b> principles</a></li>
+<li class="chapter" data-level="21.6" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#remedies"><i class="fa fa-check"></i><b>21.6</b> remedies</a><ul>
+<li class="chapter" data-level="21.6.1" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#a-checklist-for-people-who-are-working-on-data-projects"><i class="fa fa-check"></i><b>21.6.1</b> a checklist for people who are working on data projects</a></li>
+<li class="chapter" data-level="21.6.2" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#additional-ideas"><i class="fa fa-check"></i><b>21.6.2</b> additional ideas</a></li>
+</ul></li>
+<li class="chapter" data-level="21.7" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#some-case-studies"><i class="fa fa-check"></i><b>21.7</b> some case studies</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>22</b> references</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -358,8 +389,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="revisiting-the-affairs-data" class="section level2">
 <h2><span class="header-section-number">18.1</span> revisiting the affairs data</h2>
 <p>Let’s go back and do what we should have done earlier, that is, examine and think about the “number of affairs” variable. What does the distribution look like?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">data</span>(Fair)</a>
-<a class="sourceLine" id="cb1-2" title="2">Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(nbaffairs)</a></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" title="1"><span class="kw">data</span>(Fair)</a>
+<a class="sourceLine" id="cb208-2" title="2">Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(nbaffairs)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 2
 ##   nbaffairs     n
 ##       &lt;dbl&gt; &lt;int&gt;
@@ -371,10 +402,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6        12    38</code></pre>
 <p>We note that the distribution is skewed - and we realize that perhaps we should think about it differently: The <em>meaning</em> of the difference between 0 and 1 is not the same as that between 1 and 2, or perhaps even 1 and 12.</p>
 <p>We can transform the data in several ways. We might perform a <em>root transform</em>, which we could then round to an integer:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">Fair &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">rootAffair =</span> </a>
-<a class="sourceLine" id="cb3-3" title="3">              <span class="kw">as.integer</span>(<span class="kw">sqrt</span>(nbaffairs)))</a>
-<a class="sourceLine" id="cb3-4" title="4">Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(rootAffair)</a></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" title="1">Fair &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb210-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">rootAffair =</span> </a>
+<a class="sourceLine" id="cb210-3" title="3">              <span class="kw">as.integer</span>(<span class="kw">sqrt</span>(nbaffairs)))</a>
+<a class="sourceLine" id="cb210-4" title="4">Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(rootAffair)</a></code></pre></div>
 <pre><code>## # A tibble: 4 x 2
 ##   rootAffair     n
 ##        &lt;int&gt; &lt;int&gt;
@@ -383,10 +414,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 3          2    42
 ## 4          3    38</code></pre>
 <p>Or we could simply distinguish between those that do and don’t have affairs.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">Fair &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">affairYN =</span></a>
-<a class="sourceLine" id="cb5-3" title="3">               <span class="kw">ifelse</span> (nbaffairs <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>))</a>
-<a class="sourceLine" id="cb5-4" title="4">Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(affairYN)</a></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" title="1">Fair &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb212-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">affairYN =</span></a>
+<a class="sourceLine" id="cb212-3" title="3">               <span class="kw">ifelse</span> (nbaffairs <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>))</a>
+<a class="sourceLine" id="cb212-4" title="4">Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(affairYN)</a></code></pre></div>
 <pre><code>## # A tibble: 2 x 2
 ##   affairYN     n
 ##      &lt;dbl&gt; &lt;int&gt;
@@ -400,28 +431,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="splitting-the-data-into-training-and-test-subsamples" class="section level3">
 <h3><span class="header-section-number">18.2.1</span> splitting the data into training and test subsamples</h3>
 <p>The most basic solution to this problem is to split the data into two groups, a <em>training</em> sample from which we extract our model, and a <em>test</em> sample on which you will assess it. (Often, the logic of this will be extended to include a third group, a <em>validation</em> sample which would be used to tune or select the results of the training run before the test data are examined). Here, we will consider the simpler approach, splitting the Fair data into training and test samples. The critical feature of this analysis is that we will hold out the test data, and not even look at it until after our model building is complete.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co"># establish a seed for your data-split</span></a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="co"># so that your results will be reproducible</span></a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
-<a class="sourceLine" id="cb7-4" title="4">n &lt;-<span class="st"> </span><span class="kw">nrow</span>(Fair)</a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="co"># create a set of line numbers </span></a>
-<a class="sourceLine" id="cb7-6" title="6"><span class="co"># of size corresponding to the </span></a>
-<a class="sourceLine" id="cb7-7" title="7"><span class="co"># desired training sample </span></a>
-<a class="sourceLine" id="cb7-8" title="8">trainIndex &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="dt">size =</span> <span class="kw">round</span>(<span class="fl">0.6</span><span class="op">*</span>n), <span class="dt">replace=</span><span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb7-9" title="9"><span class="co"># create training and test samples</span></a>
-<a class="sourceLine" id="cb7-10" title="10">trainFair &lt;-<span class="st"> </span>Fair[trainIndex ,]</a>
-<a class="sourceLine" id="cb7-11" title="11">testFair &lt;-<span class="st"> </span>Fair[<span class="op">-</span>trainIndex ,]</a></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" title="1"><span class="co"># establish a seed for your data-split</span></a>
+<a class="sourceLine" id="cb214-2" title="2"><span class="co"># so that your results will be reproducible</span></a>
+<a class="sourceLine" id="cb214-3" title="3"><span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
+<a class="sourceLine" id="cb214-4" title="4">n &lt;-<span class="st"> </span><span class="kw">nrow</span>(Fair)</a>
+<a class="sourceLine" id="cb214-5" title="5"><span class="co"># create a set of line numbers </span></a>
+<a class="sourceLine" id="cb214-6" title="6"><span class="co"># of size corresponding to the </span></a>
+<a class="sourceLine" id="cb214-7" title="7"><span class="co"># desired training sample </span></a>
+<a class="sourceLine" id="cb214-8" title="8">trainIndex &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="dt">size =</span> <span class="kw">round</span>(<span class="fl">0.6</span><span class="op">*</span>n), <span class="dt">replace=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb214-9" title="9"><span class="co"># create training and test samples</span></a>
+<a class="sourceLine" id="cb214-10" title="10">trainFair &lt;-<span class="st"> </span>Fair[trainIndex ,]</a>
+<a class="sourceLine" id="cb214-11" title="11">testFair &lt;-<span class="st"> </span>Fair[<span class="op">-</span>trainIndex ,]</a></code></pre></div>
 </div>
 </div>
 <div id="an-example-of-cross-validated-linear-regression" class="section level2">
 <h2><span class="header-section-number">18.3</span> an example of cross-validated linear regression</h2>
 <p>We first predict the variable “rootAffair,” using just the training data:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">trainFair2 &lt;-<span class="st"> </span>trainFair <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>nbaffairs, <span class="op">-</span>affairYN)</a>
-<a class="sourceLine" id="cb8-3" title="3">testFair2 &lt;-<span class="st"> </span>testFair <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb8-4" title="4"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>nbaffairs, <span class="op">-</span>affairYN)</a>
-<a class="sourceLine" id="cb8-5" title="5">model2 &lt;-<span class="st"> </span><span class="kw">lm</span>(rootAffair <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>trainFair2)</a>
-<a class="sourceLine" id="cb8-6" title="6"><span class="kw">summary</span>(model2)</a></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" title="1">trainFair2 &lt;-<span class="st"> </span>trainFair <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb215-2" title="2"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>nbaffairs, <span class="op">-</span>affairYN)</a>
+<a class="sourceLine" id="cb215-3" title="3">testFair2 &lt;-<span class="st"> </span>testFair <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb215-4" title="4"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>nbaffairs, <span class="op">-</span>affairYN)</a>
+<a class="sourceLine" id="cb215-5" title="5">model2 &lt;-<span class="st"> </span><span class="kw">lm</span>(rootAffair <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>trainFair2)</a>
+<a class="sourceLine" id="cb215-6" title="6"><span class="kw">summary</span>(model2)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = rootAffair ~ ., data = trainFair2)
@@ -448,25 +479,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Multiple R-squared:  0.1783, Adjusted R-squared:  0.1597 
 ## F-statistic: 9.549 on 8 and 352 DF,  p-value: 5.595e-12</code></pre>
 <p>To assess the effectiveness of this model on an independent sample, we write a simple function, which assesses R2, then applies it to both the training data and the test data:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">R2.model.dep.data &lt;-<span class="st"> </span><span class="cf">function</span>(myModel,myDep,myData) {</a>
-<a class="sourceLine" id="cb10-2" title="2">    errorscores &lt;-<span class="st"> </span>myDep <span class="op">-</span><span class="st"> </span><span class="kw">predict</span>(myModel,myData)</a>
-<a class="sourceLine" id="cb10-3" title="3">    SS.error &lt;-<span class="st"> </span><span class="kw">sum</span>(errorscores<span class="op">^</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb10-4" title="4">    deviations &lt;-<span class="st"> </span><span class="kw">scale</span>(myDep,<span class="dt">scale =</span> <span class="ot">FALSE</span>)<span class="co">#)</span></a>
-<a class="sourceLine" id="cb10-5" title="5">    SS.total &lt;-<span class="st"> </span><span class="kw">sum</span>(deviations<span class="op">^</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb10-6" title="6">    <span class="dv">1</span> <span class="op">-</span><span class="st"> </span>(SS.error<span class="op">/</span>SS.total)</a>
-<a class="sourceLine" id="cb10-7" title="7">}    </a>
-<a class="sourceLine" id="cb10-8" title="8"></a>
-<a class="sourceLine" id="cb10-9" title="9">R2Train &lt;-<span class="st"> </span><span class="kw">R2.model.dep.data</span>(model2,trainFair2<span class="op">$</span>rootAffair,trainFair2)</a>
-<a class="sourceLine" id="cb10-10" title="10">(R2Test &lt;-<span class="st"> </span><span class="kw">R2.model.dep.data</span>(model2,testFair2<span class="op">$</span>rootAffair,testFair2))</a></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" title="1">R2.model.dep.data &lt;-<span class="st"> </span><span class="cf">function</span>(myModel,myDep,myData) {</a>
+<a class="sourceLine" id="cb217-2" title="2">    errorscores &lt;-<span class="st"> </span>myDep <span class="op">-</span><span class="st"> </span><span class="kw">predict</span>(myModel,myData)</a>
+<a class="sourceLine" id="cb217-3" title="3">    SS.error &lt;-<span class="st"> </span><span class="kw">sum</span>(errorscores<span class="op">^</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb217-4" title="4">    deviations &lt;-<span class="st"> </span><span class="kw">scale</span>(myDep,<span class="dt">scale =</span> <span class="ot">FALSE</span>)<span class="co">#)</span></a>
+<a class="sourceLine" id="cb217-5" title="5">    SS.total &lt;-<span class="st"> </span><span class="kw">sum</span>(deviations<span class="op">^</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb217-6" title="6">    <span class="dv">1</span> <span class="op">-</span><span class="st"> </span>(SS.error<span class="op">/</span>SS.total)</a>
+<a class="sourceLine" id="cb217-7" title="7">}    </a>
+<a class="sourceLine" id="cb217-8" title="8"></a>
+<a class="sourceLine" id="cb217-9" title="9">R2Train &lt;-<span class="st"> </span><span class="kw">R2.model.dep.data</span>(model2,trainFair2<span class="op">$</span>rootAffair,trainFair2)</a>
+<a class="sourceLine" id="cb217-10" title="10">(R2Test &lt;-<span class="st"> </span><span class="kw">R2.model.dep.data</span>(model2,testFair2<span class="op">$</span>rootAffair,testFair2))</a></code></pre></div>
 <pre><code>## [1] 0.003453435</code></pre>
 <p>The R2 on the training sample is 0.1783303, on the test sample it is 0.0034534. The difference between these is sometimes referred to as shrinkage. Shrinkage will be problematic particularly when there are a small number of observations, a large number of predictors (and consequently a complex model), or both of these.</p>
 <div id="applying-logistic-regression-analysis-to-the-training-data" class="section level3">
 <h3><span class="header-section-number">18.3.1</span> applying logistic regression analysis to the training data</h3>
 <p>Let’s go back to the “number of affairs” variable and consider a second way of thinking about it, that is, simply comparing those who do and don’t have affairs:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">Fair &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb12-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">affairYN =</span></a>
-<a class="sourceLine" id="cb12-3" title="3">               <span class="kw">ifelse</span> (nbaffairs <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>))</a>
-<a class="sourceLine" id="cb12-4" title="4">Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(affairYN)</a></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" title="1">Fair &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb219-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">affairYN =</span></a>
+<a class="sourceLine" id="cb219-3" title="3">               <span class="kw">ifelse</span> (nbaffairs <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>))</a>
+<a class="sourceLine" id="cb219-4" title="4">Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(affairYN)</a></code></pre></div>
 <pre><code>## # A tibble: 2 x 2
 ##   affairYN     n
 ##      &lt;dbl&gt; &lt;int&gt;
@@ -475,11 +506,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>With this change, the regression problem becomes more clearly a problem in classification. How can we best predict which ‘type’ (affair-ers vs. not) a given person falls in to?</p>
 <p>With this change, we have moved from a variable which is essentially continuous (nbaffairs) to one which is dichotomous and therefore distributed binomially. The desired regression is now a logistic one.</p>
 <p>We begin by running this analysis using only the training data.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">model2 &lt;-<span class="st"> </span><span class="kw">glm</span>(affairYN <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> trainFair,</a>
-<a class="sourceLine" id="cb14-2" title="2">              <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)</a></code></pre></div>
-<pre><code>## Warning: glm.fit: algorithm did not converge</code></pre>
-<pre><code>## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">summary</span> (model2)</a></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" title="1">model2 &lt;-<span class="st"> </span><span class="kw">glm</span>(affairYN <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> trainFair,</a>
+<a class="sourceLine" id="cb221-2" title="2">              <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)</a>
+<a class="sourceLine" id="cb221-3" title="3"><span class="kw">summary</span> (model2)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = affairYN ~ ., family = &quot;binomial&quot;, data = trainFair)
@@ -510,8 +539,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Number of Fisher Scoring iterations: 25</code></pre>
 <p>Our “predicted scores” are continuous, corresponding to the probability that a given person will have an affair. Here’s how they are distributed (still on the training data here):</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1">predictTrain &lt;-<span class="st"> </span><span class="kw">predict</span>(model2, trainFair, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)</a>
-<a class="sourceLine" id="cb19-2" title="2"><span class="kw">summary</span> (predictTrain)</a></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" title="1">predictTrain &lt;-<span class="st"> </span><span class="kw">predict</span>(model2, trainFair, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)</a>
+<a class="sourceLine" id="cb223-2" title="2"><span class="kw">summary</span> (predictTrain)</a></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##  0.0000  0.0000  0.0000  0.2548  1.0000  1.0000</code></pre>
 <p>As scores on predictTrain increase, the predicted likelihood of an affair increases. If you are considering marriage to a potential partner, what score would be too high? How do we distinguish “ok” from “not”?</p>
@@ -576,6 +605,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

@@ -392,7 +392,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="prediction-versus-classification" class="section level2">
 <h2><span class="header-section-number">20.2</span> prediction versus classification</h2>
 <p>Within the category of supervised problems, we can distinguish problems in classification (those in which the outcome is nominal or discrete) from problems where the outcome is ordered or numeric. We examined the Fair data in both these ways, first treating the outcome as the rescaled number of reported affairs, then as a distinction between those who did and did not have affairs.</p>
-<p>Somewhere in between these two approaches are problems in which the criterion is an ordered set of categories - such as small, medium, and large pizza sizes or, to consider a problem in my own area of study, a sequence of seven levels of social maturity or personality development. Working with several colleagues, I constructed “dictionaries” which empirically distinguished these levels; the object is to allow assessment of the level of maturity or ego development of a given text. In the diagram below, the words in these initial dictionaries are arranged clockwise, with those characteristic of the earliest (Impulsive) level in the upper right quadrant (i.e., at 1 o’clock), then moving through the middle stages at the bottom, etc. (<span class="citation">(<span class="citeproc-not-found" data-reference-id="lanning2018personality"><strong>???</strong></span>)</span>). <img src="diffprop_cloud_top_250_wordsyda.png" alt="diffprop_cloud_top_250_wordsyda" /></p>
+<p>Somewhere in between these two approaches are problems in which the criterion is an ordered set of categories - such as small, medium, and large pizza sizes or, to consider a problem in my own area of study, a sequence of seven levels of social maturity or personality development. Working with several colleagues, I constructed “dictionaries” which empirically distinguished these levels; the object is to allow assessment of the level of maturity or ego development of a given text. In the diagram below, the words in these initial dictionaries are arranged clockwise, with those characteristic of the earliest (Impulsive) level in the upper right quadrant (i.e., at 1 o’clock), then moving through the middle stages at the bottom, etc.(<span class="citation">(<span class="citeproc-not-found" data-reference-id="lanningPersonalityDevelopmentNatural2018a"><strong>???</strong></span>)</span>). <img src="diffprop_cloud_top_250_wordsyda.png" alt="diffprop_cloud_top_250_wordsyda" /></p>
 </div>
 <div id="understanding-versus-prediction" class="section level2">
 <h2><span class="header-section-number">20.3</span> understanding versus prediction</h2>
@@ -420,22 +420,22 @@ Consider the Chihuahua-Muffin problem illustrated above.</p>
 <h2><span class="header-section-number">20.4</span> bias versus variability</h2>
 <p>If you read further about machine learning, you are likely to encounter the phrase “bias-variability tradeoff.” You may remember that, in our initial analyses of the Swiss fertility data, we discussed how reducing the number of observations increases the fit of the model on the (training) data - and that, ultimately, the fit of the model would become perfect when we reduce the number of observations to the number of variables in the model.</p>
 <p>Here, we construct two independent samples, each with 9 subjects.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">data</span>(Fair)</a>
-<a class="sourceLine" id="cb15-2" title="2"><span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
-<a class="sourceLine" id="cb15-3" title="3">FairSample1 &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sample_n</span>(<span class="dv">9</span>)</a>
-<a class="sourceLine" id="cb15-4" title="4"><span class="kw">set.seed</span>(<span class="dv">94611</span>)</a>
-<a class="sourceLine" id="cb15-5" title="5">FairSample2 &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sample_n</span>(<span class="dv">9</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">data</span>(Fair)</a>
+<a class="sourceLine" id="cb14-2" title="2"><span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
+<a class="sourceLine" id="cb14-3" title="3">FairSample1 &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sample_n</span>(<span class="dv">9</span>)</a>
+<a class="sourceLine" id="cb14-4" title="4"><span class="kw">set.seed</span>(<span class="dv">94611</span>)</a>
+<a class="sourceLine" id="cb14-5" title="5">FairSample2 &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sample_n</span>(<span class="dv">9</span>)</a></code></pre></div>
 <p>In the following chunk, we run a regression analysis witin each of these samples, predicting the number of affairs from the 9 predictors (including the intercept).</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1">affairReg1 &lt;-<span class="st"> </span><span class="kw">lm</span>(nbaffairs <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>FairSample1)</a>
-<a class="sourceLine" id="cb16-2" title="2">affairReg2 &lt;-<span class="st"> </span><span class="kw">lm</span>(nbaffairs <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>FairSample2)</a>
-<a class="sourceLine" id="cb16-3" title="3"></a>
-<a class="sourceLine" id="cb16-4" title="4">R21 &lt;-<span class="st"> </span><span class="kw">summary</span>(affairReg1)<span class="op">$</span>r.squared</a>
-<a class="sourceLine" id="cb16-5" title="5">R22 &lt;-<span class="st"> </span><span class="kw">summary</span>(affairReg2)<span class="op">$</span>r.squared</a>
-<a class="sourceLine" id="cb16-6" title="6"><span class="kw">t</span>(<span class="kw">c</span>(<span class="dt">sample1 =</span> R21, <span class="dt">sample2 =</span> R22)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb16-7" title="7"><span class="st">    </span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&quot;R^2 from two small samples&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">affairReg1 &lt;-<span class="st"> </span><span class="kw">lm</span>(nbaffairs <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>FairSample1)</a>
+<a class="sourceLine" id="cb15-2" title="2">affairReg2 &lt;-<span class="st"> </span><span class="kw">lm</span>(nbaffairs <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>FairSample2)</a>
+<a class="sourceLine" id="cb15-3" title="3"></a>
+<a class="sourceLine" id="cb15-4" title="4">R21 &lt;-<span class="st"> </span><span class="kw">summary</span>(affairReg1)<span class="op">$</span>r.squared</a>
+<a class="sourceLine" id="cb15-5" title="5">R22 &lt;-<span class="st"> </span><span class="kw">summary</span>(affairReg2)<span class="op">$</span>r.squared</a>
+<a class="sourceLine" id="cb15-6" title="6"><span class="kw">t</span>(<span class="kw">c</span>(<span class="dt">sample1 =</span> R21, <span class="dt">sample2 =</span> R22)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb15-7" title="7"><span class="st">    </span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&quot;R^2 from two small samples&quot;</span>)</a></code></pre></div>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-3">Table 20.1: </span>R^2 from two small samples
+<span id="tab:unnamed-chunk-2">Table 20.1: </span>R^2 from two small samples
 </caption>
 <thead>
 <tr>
@@ -458,21 +458,21 @@ sample2
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">names</span>(affairReg1[[<span class="st">&quot;coefficients&quot;</span>]]) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb17-2" title="2"><span class="st">    </span><span class="kw">cbind</span>(<span class="kw">round</span>(affairReg1[[<span class="st">&quot;coefficients&quot;</span>]], <span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb17-3" title="3"><span class="st">    </span><span class="kw">cbind</span>(<span class="kw">round</span>(affairReg2[[<span class="st">&quot;coefficients&quot;</span>]], <span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb17-4" title="4"><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb17-5" title="5"><span class="st">    </span><span class="kw">rename</span>(<span class="dt">variable =</span> <span class="dv">1</span>, </a>
-<a class="sourceLine" id="cb17-6" title="6">           <span class="dt">sample1 =</span> <span class="dv">2</span>, </a>
-<a class="sourceLine" id="cb17-7" title="7">           <span class="dt">sample2 =</span> <span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb17-8" title="8"><span class="st">    </span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&quot;Regression coefficients from two small samples&quot;</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">names</span>(affairReg1[[<span class="st">&quot;coefficients&quot;</span>]]) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="st">    </span><span class="kw">cbind</span>(<span class="kw">round</span>(affairReg1[[<span class="st">&quot;coefficients&quot;</span>]], <span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-3" title="3"><span class="st">    </span><span class="kw">cbind</span>(<span class="kw">round</span>(affairReg2[[<span class="st">&quot;coefficients&quot;</span>]], <span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-4" title="4"><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-5" title="5"><span class="st">    </span><span class="kw">rename</span>(<span class="dt">variable =</span> <span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb16-6" title="6">           <span class="dt">sample1 =</span> <span class="dv">2</span>, </a>
+<a class="sourceLine" id="cb16-7" title="7">           <span class="dt">sample2 =</span> <span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-8" title="8"><span class="st">    </span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&quot;Regression coefficients from two small samples&quot;</span>) </a></code></pre></div>
 <pre><code>## Warning: The `x` argument of `as_tibble.matrix()` must have column names if `.name_repair` is omitted as of tibble 2.0.0.
 ## Using compatibility `.name_repair`.
 ## This warning is displayed once every 8 hours.
 ## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-3">Table 20.1: </span>Regression coefficients from two small samples
+<span id="tab:unnamed-chunk-2">Table 20.1: </span>Regression coefficients from two small samples
 </caption>
 <thead>
 <tr>
@@ -605,7 +605,7 @@ rate
 <p>Exercise 20.2:
 For the grad school and airline pilot problems, draw a pair of coordinate axes, together with points representing a few dozen “positive” (apply or hire) and “unacceptable” (don’t apply, don’t hire) observations. What can you say about the boundary between these two regions in each problem?</p>
 </blockquote>
-<p>We can think of problems such as the grad school problem in a regression framework, while the pilot problem is instead a decision tree or “multiple cutoff” model. Very simple decision trees, including “fast and frugal trees,” can be useful tools both to describe how people decide and how they might make better decisions <span class="citation">(<span class="citeproc-not-found" data-reference-id="phillips2017fftrees"><strong>???</strong></span>)</span>.</p>
+<p>We can think of problems such as the grad school problem in a regression framework, while the pilot problem is instead a decision tree or “multiple cutoff” model. Very simple decision trees, including “fast and frugal trees,” can be useful tools both to describe how people decide and how they might make better decisions <span class="citation">(<span class="citeproc-not-found" data-reference-id="phillipsFFTreesToolboxCreate2017"><strong>???</strong></span>)</span>.</p>
 <p>In machine learning problems, there may be hundreds or thousands of predictors (features). The logic of decision trees is extended in techniques including bootstrap aggregation or <strong>bagging</strong> (in which a large number of trees are considered, then averaged), and <strong>random forests</strong> (which sequentially examines subsets of predictors in an effort to increase the reliability of predictions). These models are often predictively useful, but can be complex and difficult to interpret. Chapter 8 of <span class="citation">(James et al. <a href="#ref-james2013introduction" role="doc-biblioref">2013</a><a href="#ref-james2013introduction" role="doc-biblioref">b</a>)</span> goes into more detail on these methods.</p>
 <p>Two additional methods bear mention: <strong>Support vector machines (SVM)</strong> are classifiers which attempt to find optimal margins (hyperplanes) between two or more sets of criteria. Finally, <strong>neural networks</strong> are models which typically include multiple layers (akin to biological neurons) each of which can be activated based on the sum of the inputs of the prior layer. The chain of prediction from input (pixel) to output (“chihuahua”) is not a simple forward path, rather, errors of prediction are used to tune weights of intermediate layers in a process known as <strong>backpropagation.</strong> Artificial neural networks are, at present, the most important set of techniques in artificial intelligence problems including image, speech, and even taste recognition.</p>
 

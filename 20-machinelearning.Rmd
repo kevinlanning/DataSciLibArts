@@ -5,17 +5,13 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 
-```{r}
-knitr::opts_chunk$set(echo = TRUE, warn = FALSE, message = FALSE) # defaults for all chunks after this one
+```{r setup20}
+knitr::opts_chunk$set(echo = TRUE, warn = FALSE, message = FALSE) 
 library(citr)
 library(tidyverse)
-# library(ggplot2)
 library(Ecdat) # for Swiss data
 library(rpart) # for decision trees
 library(kableExtra)
-# library (class) # for knn
-# library(caret) # confusion matrix
-# library(magrittr) # allows bidirectional pipe for updating file easily %<>% 
 ```
 
 # machine learning: chihuahuas vs muffins, and other distinctions and ideas
@@ -40,7 +36,7 @@ In the unsupervised approach, objectives include finding unknown patterns, devel
 
 Within the category of supervised problems, we can distinguish problems in classification (those in which the outcome is nominal or discrete) from problems where the outcome is ordered or numeric.  We examined the Fair data in both these ways, first treating the outcome as the rescaled number of reported affairs, then as a distinction between those who did and did not have affairs.  
 
-Somewhere in between these two approaches are problems in which the criterion is an ordered set of categories - such as small, medium, and large pizza sizes or, to consider a problem in my own area of study, a sequence of seven levels of social maturity or personality development.  Working with several colleagues, I constructed "dictionaries" which empirically distinguished these levels; the object is to allow assessment of the level of maturity or ego development of a given text.  In the diagram below, the words in these initial dictionaries are arranged clockwise, with those characteristic of the earliest (Impulsive) level in the upper right quadrant (i.e., at 1 o'clock), then moving through the middle stages at the bottom, etc. (@lanning2018personality). ![diffprop_cloud_top_250_wordsyda](diffprop_cloud_top_250_wordsyda.png)
+Somewhere in between these two approaches are problems in which the criterion is an ordered set of categories - such as small, medium, and large pizza sizes or, to consider a problem in my own area of study, a sequence of seven levels of social maturity or personality development.  Working with several colleagues, I constructed "dictionaries" which empirically distinguished these levels; the object is to allow assessment of the level of maturity or ego development of a given text.  In the diagram below, the words in these initial dictionaries are arranged clockwise, with those characteristic of the earliest (Impulsive) level in the upper right quadrant (i.e., at 1 o'clock), then moving through the middle stages at the bottom, etc.(@lanningPersonalityDevelopmentNatural2018a). ![diffprop_cloud_top_250_wordsyda](diffprop_cloud_top_250_wordsyda.png)
 
 ## understanding versus prediction
 
@@ -121,7 +117,7 @@ In the second problem, you are looking to hire a group of commercial jet pilots.
 > Exercise 20.2:
 > For the grad school and airline pilot problems, draw a pair of coordinate axes, together with points representing a few dozen "positive" (apply or hire) and "unacceptable" (don't apply, don't hire) observations. What can you say about the boundary between these two regions in each problem?
 
-We can think of problems such as the grad school problem in a regression framework, while the pilot problem is instead a decision tree or "multiple cutoff" model. Very simple decision trees, including "fast and frugal trees," can be useful tools both to describe how people decide and how they might make better decisions [@phillips2017fftrees].  
+We can think of problems such as the grad school problem in a regression framework, while the pilot problem is instead a decision tree or "multiple cutoff" model. Very simple decision trees, including "fast and frugal trees," can be useful tools both to describe how people decide and how they might make better decisions [@phillipsFFTreesToolboxCreate2017].  
 
 In machine learning problems, there may be hundreds or thousands of predictors (features). The logic of decision trees is extended in techniques including bootstrap aggregation or **bagging** (in which a large number of trees are considered, then averaged), and **random forests** (which sequentially examines subsets of predictors in an effort to increase the reliability of predictions).  These models are often predictively useful, but can be complex and difficult to interpret. Chapter 8 of [@james2013introduction] goes into more detail on these methods. 
 

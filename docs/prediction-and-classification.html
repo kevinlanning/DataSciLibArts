@@ -24,7 +24,7 @@
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2020-04-13" />
+<meta name="date" content="2020-04-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="cross-validation.html"/>
-<link rel="next" href="references.html"/>
+<link rel="next" href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,15 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 
 
 <style type="text/css">
@@ -331,7 +340,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.2.6" data-path="prediction-and-classification.html"><a href="prediction-and-classification.html#the-multinomial-case"><i class="fa fa-check"></i><b>19.2.6</b> the multinomial case</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>20</b> references</a></li>
+<li class="chapter" data-level="20" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><i class="fa fa-check"></i><b>20</b> machine learning: chihuahuas vs muffins, and other distinctions and ideas</a><ul>
+<li class="chapter" data-level="20.1" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#supervised-versus-unsupervised"><i class="fa fa-check"></i><b>20.1</b> supervised versus unsupervised</a></li>
+<li class="chapter" data-level="20.2" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#prediction-versus-classification"><i class="fa fa-check"></i><b>20.2</b> prediction versus classification</a></li>
+<li class="chapter" data-level="20.3" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#understanding-versus-prediction"><i class="fa fa-check"></i><b>20.3</b> understanding versus prediction</a></li>
+<li class="chapter" data-level="20.4" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#bias-versus-variability"><i class="fa fa-check"></i><b>20.4</b> bias versus variability</a><ul>
+<li class="chapter" data-level="20.4.1" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#resampling-beyond-test-training-and-validation-samples"><i class="fa fa-check"></i><b>20.4.1</b> resampling: beyond test, training, and validation samples</a></li>
+</ul></li>
+<li class="chapter" data-level="20.5" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#compensatory-versus-non-compensatory-problems"><i class="fa fa-check"></i><b>20.5</b> compensatory versus non-compensatory problems</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html"><i class="fa fa-check"></i><b>21</b> ethics: some topics for discussion</a><ul>
+<li class="chapter" data-level="" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#status-40"><i class="fa fa-check"></i>status 40%</a></li>
+<li class="chapter" data-level="21.1" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#discussion-should-digital-tracking-be-used-to-coronavirus"><i class="fa fa-check"></i><b>21.1</b> discussion: should digital tracking be used to … coronavirus…</a></li>
+<li class="chapter" data-level="21.2" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#is-open-source-software-secure"><i class="fa fa-check"></i><b>21.2</b> is open-source software secure?</a></li>
+<li class="chapter" data-level="21.3" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#discussion-is-open-source-software-secure"><i class="fa fa-check"></i><b>21.3</b> discussion: is open-source software secure?</a></li>
+<li class="chapter" data-level="21.4" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#background"><i class="fa fa-check"></i><b>21.4</b> background</a></li>
+<li class="chapter" data-level="21.5" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#principles"><i class="fa fa-check"></i><b>21.5</b> principles</a></li>
+<li class="chapter" data-level="21.6" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#remedies"><i class="fa fa-check"></i><b>21.6</b> remedies</a><ul>
+<li class="chapter" data-level="21.6.1" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#a-checklist-for-people-who-are-working-on-data-projects"><i class="fa fa-check"></i><b>21.6.1</b> a checklist for people who are working on data projects</a></li>
+<li class="chapter" data-level="21.6.2" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#additional-ideas"><i class="fa fa-check"></i><b>21.6.2</b> additional ideas</a></li>
+</ul></li>
+<li class="chapter" data-level="21.7" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#some-case-studies"><i class="fa fa-check"></i><b>21.7</b> some case studies</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>22</b> references</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -358,60 +389,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="from-regression-to-classification-selection-of-a-threshold" class="section level2">
 <h2><span class="header-section-number">19.1</span> from regression to classification: selection of a threshold</h2>
 <p>We will continue to work with the affairs data; here’s the relevant code from last chapter:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="co"># code from last chapter on Fair data</span></a>
-<a class="sourceLine" id="cb1-2" title="2">Fair &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">rootAffair =</span> </a>
-<a class="sourceLine" id="cb1-4" title="4">              <span class="kw">as.integer</span>(<span class="kw">sqrt</span>(nbaffairs))) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1-5" title="5"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">affairYN =</span></a>
-<a class="sourceLine" id="cb1-6" title="6">               <span class="kw">ifelse</span> (nbaffairs <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>))</a>
-<a class="sourceLine" id="cb1-7" title="7"><span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
-<a class="sourceLine" id="cb1-8" title="8">n &lt;-<span class="st"> </span><span class="kw">nrow</span>(Fair)</a>
-<a class="sourceLine" id="cb1-9" title="9">trainIndex &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="dt">size =</span> <span class="kw">round</span>(<span class="fl">0.6</span><span class="op">*</span>n),</a>
-<a class="sourceLine" id="cb1-10" title="10">                     <span class="dt">replace=</span><span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb1-11" title="11">trainFair &lt;-<span class="st"> </span>Fair[trainIndex ,]</a>
-<a class="sourceLine" id="cb1-12" title="12">testFair &lt;-<span class="st"> </span>Fair[<span class="op">-</span>trainIndex ,]</a>
-<a class="sourceLine" id="cb1-13" title="13">trainFair2 &lt;-<span class="st"> </span>trainFair <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-14" title="14"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>nbaffairs, <span class="op">-</span>affairYN)</a>
-<a class="sourceLine" id="cb1-15" title="15">testFair2 &lt;-<span class="st"> </span>testFair <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-16" title="16"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>nbaffairs, <span class="op">-</span>affairYN)</a>
-<a class="sourceLine" id="cb1-17" title="17">model2 &lt;-<span class="st"> </span><span class="kw">lm</span>(rootAffair <span class="op">~</span><span class="st"> </span>.,</a>
-<a class="sourceLine" id="cb1-18" title="18">             <span class="dt">data =</span> trainFair2)</a>
-<a class="sourceLine" id="cb1-19" title="19">predictTrain &lt;-<span class="st"> </span><span class="kw">predict</span>(model2, trainFair, </a>
-<a class="sourceLine" id="cb1-20" title="20">                        <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" title="1"><span class="co"># code from last chapter on Fair data</span></a>
+<a class="sourceLine" id="cb225-2" title="2">Fair &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb225-3" title="3"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">rootAffair =</span> </a>
+<a class="sourceLine" id="cb225-4" title="4">              <span class="kw">as.integer</span>(<span class="kw">sqrt</span>(nbaffairs))) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb225-5" title="5"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">affairYN =</span></a>
+<a class="sourceLine" id="cb225-6" title="6">               <span class="kw">ifelse</span> (nbaffairs <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>))</a>
+<a class="sourceLine" id="cb225-7" title="7"><span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
+<a class="sourceLine" id="cb225-8" title="8">n &lt;-<span class="st"> </span><span class="kw">nrow</span>(Fair)</a>
+<a class="sourceLine" id="cb225-9" title="9">trainIndex &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="dt">size =</span> <span class="kw">round</span>(<span class="fl">0.6</span><span class="op">*</span>n),</a>
+<a class="sourceLine" id="cb225-10" title="10">                     <span class="dt">replace=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb225-11" title="11">trainFair &lt;-<span class="st"> </span>Fair[trainIndex ,]</a>
+<a class="sourceLine" id="cb225-12" title="12">testFair &lt;-<span class="st"> </span>Fair[<span class="op">-</span>trainIndex ,]</a>
+<a class="sourceLine" id="cb225-13" title="13">trainFair2 &lt;-<span class="st"> </span>trainFair <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb225-14" title="14"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>nbaffairs, <span class="op">-</span>affairYN)</a>
+<a class="sourceLine" id="cb225-15" title="15">testFair2 &lt;-<span class="st"> </span>testFair <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb225-16" title="16"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>nbaffairs, <span class="op">-</span>affairYN)</a>
+<a class="sourceLine" id="cb225-17" title="17">model2 &lt;-<span class="st"> </span><span class="kw">lm</span>(rootAffair <span class="op">~</span><span class="st"> </span>.,</a>
+<a class="sourceLine" id="cb225-18" title="18">             <span class="dt">data =</span> trainFair2)</a>
+<a class="sourceLine" id="cb225-19" title="19">predictTrain &lt;-<span class="st"> </span><span class="kw">predict</span>(model2, trainFair, </a>
+<a class="sourceLine" id="cb225-20" title="20">                        <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)</a></code></pre></div>
 <p>To maximise overall prediction, we will create a threshold equal to the actual proportion of people who don’t have affairs in our sample:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">(threshold &lt;-<span class="st"> </span><span class="kw">mean</span>(trainFair<span class="op">$</span>affairYN))</a></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" title="1">(threshold &lt;-<span class="st"> </span><span class="kw">mean</span>(trainFair<span class="op">$</span>affairYN))</a></code></pre></div>
 <pre><code>## [1] 0.2548476</code></pre>
 <p>This is equal to both the mean of our predicted scores (above) and the mean of our actual scores, and, because this is a dichotomous variable, the proportion of people in the sample who have affairs. We’ll predict that if a person has a predicted score more than this we’ll predict that s/he will be unfaithful, else we will “PredictOK.” Then we will create a <em>confusion matrix,</em> to compare our correct predictions (PredictOK and affairYN = 1, Predictunfaithful and affairYN = 0) with the remainder.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">classification &lt;-<span class="st"> </span><span class="kw">ifelse</span>(predictTrain <span class="op">&gt;</span><span class="st"> </span>threshold,</a>
-<a class="sourceLine" id="cb4-2" title="2">                         <span class="st">&quot;Predictunfaithful&quot;</span>, <span class="st">&quot;PredictOK&quot;</span>)</a>
-<a class="sourceLine" id="cb4-3" title="3">(b &lt;-<span class="st"> </span><span class="kw">table</span>(classification, trainFair<span class="op">$</span>affairYN))</a></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" title="1">classification &lt;-<span class="st"> </span><span class="kw">ifelse</span>(predictTrain <span class="op">&gt;</span><span class="st"> </span>threshold,</a>
+<a class="sourceLine" id="cb228-2" title="2">                         <span class="st">&quot;Predictunfaithful&quot;</span>, <span class="st">&quot;PredictOK&quot;</span>)</a>
+<a class="sourceLine" id="cb228-3" title="3">(b &lt;-<span class="st"> </span><span class="kw">table</span>(classification, trainFair<span class="op">$</span>affairYN))</a></code></pre></div>
 <pre><code>##                    
 ## classification        0   1
 ##   PredictOK         107  18
 ##   Predictunfaithful 162  74</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">(correct &lt;-<span class="st"> </span>b[<span class="dv">1</span>,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">2</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" title="1">(correct &lt;-<span class="st"> </span>b[<span class="dv">1</span>,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">2</span>])</a></code></pre></div>
 <pre><code>## [1] 181</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">(errors &lt;-<span class="st"> </span>b[<span class="dv">1</span>,<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">1</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" title="1">(errors &lt;-<span class="st"> </span>b[<span class="dv">1</span>,<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">1</span>])</a></code></pre></div>
 <pre><code>## [1] 180</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">(accuracy &lt;-<span class="st"> </span>correct<span class="op">/</span>(correct <span class="op">+</span><span class="st"> </span>errors))</a></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" title="1">(accuracy &lt;-<span class="st"> </span>correct<span class="op">/</span>(correct <span class="op">+</span><span class="st"> </span>errors))</a></code></pre></div>
 <pre><code>## [1] 0.501385</code></pre>
 <div id="applying-the-model-to-the-test-data" class="section level3">
 <h3><span class="header-section-number">19.1.1</span> applying the model to the test data</h3>
 <p>We shouldn’t trust these results, though, because the model is based on the same data that it is tested upon. Now we will apply the model to the test data. With the linear regression model above, we examined ‘shrinkage’ in the overall R-square. Here, we can assess shrinkage in terms of the percent of erroneous classifications.</p>
 <p>Typically (but not invariably), the percent of accurate classifications will decline, especially if the model is a complex one with many variables or if the number of observations is low.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">predictTest &lt;-<span class="st"> </span><span class="kw">predict</span>(model2, testFair, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)</a>
-<a class="sourceLine" id="cb12-2" title="2">classification &lt;-<span class="st"> </span><span class="kw">ifelse</span>(predictTest <span class="op">&gt;</span><span class="st"> </span>threshold,</a>
-<a class="sourceLine" id="cb12-3" title="3">                         <span class="st">&quot;Predictunfaithful&quot;</span>, <span class="st">&quot;PredictOK&quot;</span>)</a>
-<a class="sourceLine" id="cb12-4" title="4">(b &lt;-<span class="st"> </span><span class="kw">table</span>(classification, testFair<span class="op">$</span>affairYN))</a></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" title="1">predictTest &lt;-<span class="st"> </span><span class="kw">predict</span>(model2, testFair, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)</a>
+<a class="sourceLine" id="cb236-2" title="2">classification &lt;-<span class="st"> </span><span class="kw">ifelse</span>(predictTest <span class="op">&gt;</span><span class="st"> </span>threshold,</a>
+<a class="sourceLine" id="cb236-3" title="3">                         <span class="st">&quot;Predictunfaithful&quot;</span>, <span class="st">&quot;PredictOK&quot;</span>)</a>
+<a class="sourceLine" id="cb236-4" title="4">(b &lt;-<span class="st"> </span><span class="kw">table</span>(classification, testFair<span class="op">$</span>affairYN))</a></code></pre></div>
 <pre><code>##                    
 ## classification        0   1
 ##   PredictOK          73   9
 ##   Predictunfaithful 109  49</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">(correct &lt;-<span class="st"> </span>b[<span class="dv">1</span>,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">2</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" title="1">(correct &lt;-<span class="st"> </span>b[<span class="dv">1</span>,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">2</span>])</a></code></pre></div>
 <pre><code>## [1] 122</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1">(errors &lt;-<span class="st"> </span>b[<span class="dv">1</span>,<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">1</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" title="1">(errors &lt;-<span class="st"> </span>b[<span class="dv">1</span>,<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">1</span>])</a></code></pre></div>
 <pre><code>## [1] 118</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">(accuracy &lt;-<span class="st"> </span>correct<span class="op">/</span>(correct <span class="op">+</span><span class="st"> </span>errors))</a></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" title="1">(accuracy &lt;-<span class="st"> </span>correct<span class="op">/</span>(correct <span class="op">+</span><span class="st"> </span>errors))</a></code></pre></div>
 <pre><code>## [1] 0.5083333</code></pre>
 <p>On the test data, we are correct 51 percent of the time. This describes our <em>out of sample risk.</em></p>
 </div>
@@ -419,35 +450,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">19.1.2</span> changing our decision threshold</h3>
 <p>In many decision problems, there is an asymmetry in the cost of different types of errors: if you are foraging for mushrooms, for example, an error of the form (you decide its safe and it is poisonous) is more costly than the converse (you decide its poisonous and it is safe).</p>
 <p>This may be true in the present example as well. Consider someone who is looking for a spouse, but is really averse to the idea of getting hurt by an affair. That person might feel like the cost of marrying an unfaithful person is much greater than the cost of not marrying a faithful one. So we adjust the threshold downwards:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">threshold &lt;-<span class="st"> </span><span class="fl">.05</span></a>
-<a class="sourceLine" id="cb20-2" title="2">classification &lt;-<span class="st"> </span><span class="kw">ifelse</span>(predictTest <span class="op">&gt;</span><span class="st"> </span>threshold,</a>
-<a class="sourceLine" id="cb20-3" title="3">                         <span class="st">&quot;Predictunfaithful&quot;</span>, <span class="st">&quot;PredictOK&quot;</span>)</a>
-<a class="sourceLine" id="cb20-4" title="4">(b &lt;-<span class="st"> </span><span class="kw">table</span>(classification, testFair<span class="op">$</span>affairYN))</a></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" title="1">threshold &lt;-<span class="st"> </span><span class="fl">.05</span></a>
+<a class="sourceLine" id="cb244-2" title="2">classification &lt;-<span class="st"> </span><span class="kw">ifelse</span>(predictTest <span class="op">&gt;</span><span class="st"> </span>threshold,</a>
+<a class="sourceLine" id="cb244-3" title="3">                         <span class="st">&quot;Predictunfaithful&quot;</span>, <span class="st">&quot;PredictOK&quot;</span>)</a>
+<a class="sourceLine" id="cb244-4" title="4">(b &lt;-<span class="st"> </span><span class="kw">table</span>(classification, testFair<span class="op">$</span>affairYN))</a></code></pre></div>
 <pre><code>##                    
 ## classification        0   1
 ##   PredictOK          27   3
 ##   Predictunfaithful 155  55</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1">(correct &lt;-<span class="st"> </span>b[<span class="dv">1</span>,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">2</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" title="1">(correct &lt;-<span class="st"> </span>b[<span class="dv">1</span>,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">2</span>])</a></code></pre></div>
 <pre><code>## [1] 82</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1">(errors &lt;-<span class="st">  </span>b[<span class="dv">1</span>,<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">1</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb248-1" title="1">(errors &lt;-<span class="st">  </span>b[<span class="dv">1</span>,<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">1</span>])</a></code></pre></div>
 <pre><code>## [1] 158</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">(accuracy &lt;-<span class="st"> </span>correct<span class="op">/</span>(correct <span class="op">+</span><span class="st"> </span>errors))</a></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" title="1">(accuracy &lt;-<span class="st"> </span>correct<span class="op">/</span>(correct <span class="op">+</span><span class="st"> </span>errors))</a></code></pre></div>
 <pre><code>## [1] 0.3416667</code></pre>
 <p>The “overall accuracy” - that is, number of correct classifications - drops. But that’s not what we are really interested in, rather, we are interested in minimizing hurt.</p>
 <p>Here’s another example: Someone who is very lonely might feel the opposite, and be willing to accept greater substantially greater risk.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1">threshold &lt;-<span class="st"> </span><span class="fl">.5</span></a>
-<a class="sourceLine" id="cb28-2" title="2">classification &lt;-<span class="st"> </span><span class="kw">ifelse</span>(predictTest <span class="op">&gt;</span><span class="st"> </span>threshold,</a>
-<a class="sourceLine" id="cb28-3" title="3">                         <span class="st">&quot;Predictunfaithful&quot;</span>, <span class="st">&quot;PredictOK&quot;</span>)</a>
-<a class="sourceLine" id="cb28-4" title="4">(b &lt;-<span class="st"> </span><span class="kw">table</span>(classification, testFair<span class="op">$</span>affairYN))</a></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" title="1">threshold &lt;-<span class="st"> </span><span class="fl">.5</span></a>
+<a class="sourceLine" id="cb252-2" title="2">classification &lt;-<span class="st"> </span><span class="kw">ifelse</span>(predictTest <span class="op">&gt;</span><span class="st"> </span>threshold,</a>
+<a class="sourceLine" id="cb252-3" title="3">                         <span class="st">&quot;Predictunfaithful&quot;</span>, <span class="st">&quot;PredictOK&quot;</span>)</a>
+<a class="sourceLine" id="cb252-4" title="4">(b &lt;-<span class="st"> </span><span class="kw">table</span>(classification, testFair<span class="op">$</span>affairYN))</a></code></pre></div>
 <pre><code>##                    
 ## classification        0   1
 ##   PredictOK         111  21
 ##   Predictunfaithful  71  37</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1">(correct &lt;-<span class="st"> </span>b[<span class="dv">1</span>,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">2</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" title="1">(correct &lt;-<span class="st"> </span>b[<span class="dv">1</span>,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">2</span>])</a></code></pre></div>
 <pre><code>## [1] 148</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1">(errors &lt;-<span class="st"> </span>b[<span class="dv">1</span>,<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">1</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" title="1">(errors &lt;-<span class="st"> </span>b[<span class="dv">1</span>,<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span>b[<span class="dv">2</span>,<span class="dv">1</span>])</a></code></pre></div>
 <pre><code>## [1] 92</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1">(accuracy &lt;-<span class="st"> </span>correct<span class="op">/</span>(correct <span class="op">+</span><span class="st"> </span>errors))</a></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" title="1">(accuracy &lt;-<span class="st"> </span>correct<span class="op">/</span>(correct <span class="op">+</span><span class="st"> </span>errors))</a></code></pre></div>
 <pre><code>## [1] 0.6166667</code></pre>
 <p>Prediction is higher here - but not much higher than it would be if we raised the threshold even further, and just assumed that everyone can be trusted. Then, our error rate would be 25 percent. When overall predictability is low, it’s often the case that you can maximize correct predictions by simply predicting that everyone will be in the most popular category. Predicting rare events, such as suicides, is particularly difficult.</p>
 </div>
@@ -460,16 +491,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>hit rate ~ sensitivity ~ (“no affair” | no affair)</li>
 <li>correct rejection ~ specificity ~ (“affair” | affair)</li>
 </ul>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1">threshold &lt;-<span class="st"> </span><span class="fl">.5</span></a>
-<a class="sourceLine" id="cb36-2" title="2"><span class="co"># syntax for classification in caret is a little different</span></a>
-<a class="sourceLine" id="cb36-3" title="3"><span class="co"># (the labels for the actual and predicted scores have to be the same)</span></a>
-<a class="sourceLine" id="cb36-4" title="4"><span class="co">#classification &lt;- ifelse(predictTest &gt; threshold,</span></a>
-<a class="sourceLine" id="cb36-5" title="5"><span class="co">#                         &quot;Predictunfaithful&quot;, &quot;PredictOK&quot;)</span></a>
-<a class="sourceLine" id="cb36-6" title="6">classification &lt;-<span class="st"> </span><span class="kw">ifelse</span>(predictTest <span class="op">&gt;</span><span class="st"> </span>threshold, <span class="dv">1</span>,<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb36-7" title="7"><span class="co"># caret package (newest) requires explicit matching of factors</span></a>
-<a class="sourceLine" id="cb36-8" title="8">classification &lt;-<span class="st"> </span><span class="kw">as.factor</span>(classification)</a>
-<a class="sourceLine" id="cb36-9" title="9">testFair<span class="op">$</span>affairYN &lt;-<span class="st"> </span><span class="kw">as.factor</span>(testFair<span class="op">$</span>affairYN)</a>
-<a class="sourceLine" id="cb36-10" title="10"><span class="kw">confusionMatrix</span>(classification, testFair<span class="op">$</span>affairYN)</a></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" title="1">threshold &lt;-<span class="st"> </span><span class="fl">.5</span></a>
+<a class="sourceLine" id="cb260-2" title="2"><span class="co"># syntax for classification in caret is a little different</span></a>
+<a class="sourceLine" id="cb260-3" title="3"><span class="co"># (the labels for the actual and predicted scores have to be the same)</span></a>
+<a class="sourceLine" id="cb260-4" title="4"><span class="co">#classification &lt;- ifelse(predictTest &gt; threshold,</span></a>
+<a class="sourceLine" id="cb260-5" title="5"><span class="co">#                         &quot;Predictunfaithful&quot;, &quot;PredictOK&quot;)</span></a>
+<a class="sourceLine" id="cb260-6" title="6">classification &lt;-<span class="st"> </span><span class="kw">ifelse</span>(predictTest <span class="op">&gt;</span><span class="st"> </span>threshold, <span class="dv">1</span>,<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb260-7" title="7"><span class="co"># caret package (newest) requires explicit matching of factors</span></a>
+<a class="sourceLine" id="cb260-8" title="8">classification &lt;-<span class="st"> </span><span class="kw">as.factor</span>(classification)</a>
+<a class="sourceLine" id="cb260-9" title="9">testFair<span class="op">$</span>affairYN &lt;-<span class="st"> </span><span class="kw">as.factor</span>(testFair<span class="op">$</span>affairYN)</a>
+<a class="sourceLine" id="cb260-10" title="10"><span class="kw">confusionMatrix</span>(classification, testFair<span class="op">$</span>affairYN)</a></code></pre></div>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##           Reference
@@ -501,11 +532,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="rocs-and-auc" class="section level3">
 <h3><span class="header-section-number">19.1.4</span> ROCs and AUC</h3>
 <p>Each of these decision thresholds describes the performance of a model at a particular point. We can combine the thresholds and plot them in Receiver Operating Characteristic (ROC) curves. The area under the curve (AUC) is a great measure of model accuracy, in that it summarizes how effective a classifier is across all possible thresholds.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="co"># fig.width and fig.height specified to get square plots</span></a>
-<a class="sourceLine" id="cb38-2" title="2"><span class="co"># colAUC function gets stats etc</span></a>
-<a class="sourceLine" id="cb38-3" title="3">AUCModel &lt;-<span class="st"> </span><span class="kw">colAUC</span>(predictTest, testFair[[<span class="st">&quot;affairYN&quot;</span>]], <span class="dt">plotROC =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb262-1" title="1"><span class="co"># fig.width and fig.height specified to get square plots</span></a>
+<a class="sourceLine" id="cb262-2" title="2"><span class="co"># colAUC function gets stats etc</span></a>
+<a class="sourceLine" id="cb262-3" title="3">AUCModel &lt;-<span class="st"> </span><span class="kw">colAUC</span>(predictTest, testFair[[<span class="st">&quot;affairYN&quot;</span>]], <span class="dt">plotROC =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><img src="DataSciLibArts_files/figure-html/0414model1ROC-1.png" width="480" /></p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1">AUCModel</a></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" title="1">AUCModel</a></code></pre></div>
 <pre><code>##              [,1]
 ## 0 vs. 1 0.6662562</code></pre>
 </div>
@@ -522,39 +553,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="application-the-affairs-data" class="section level3">
 <h3><span class="header-section-number">19.2.1</span> application: the affairs data</h3>
 <p>Begin by loading the affairs data from last time. Using the same seed (33458) means that the same set of training and test cases will be extracted as in the prior analysis</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1"><span class="kw">data</span>(Fair)</a>
-<a class="sourceLine" id="cb41-2" title="2"><span class="co"># one change here: Note the bidirectional pipe to simplify code</span></a>
-<a class="sourceLine" id="cb41-3" title="3"><span class="co"># use only when you are sure that your file update is ok</span></a>
-<a class="sourceLine" id="cb41-4" title="4">Fair <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="co"># &lt;- Fair %&gt;% </span></a>
-<a class="sourceLine" id="cb41-5" title="5"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">affairYN =</span></a>
-<a class="sourceLine" id="cb41-6" title="6"><span class="co"># nbaffairs is set up as a factor</span></a>
-<a class="sourceLine" id="cb41-7" title="7"><span class="co"># to allow confusionmatrix to run</span></a>
-<a class="sourceLine" id="cb41-8" title="8">               <span class="kw">as.factor</span>(<span class="kw">ifelse</span>(nbaffairs <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>))) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb41-9" title="9"><span class="co"># unlike the lm and glm commands, knn will not automatically create our dummy # variables for us. so we need to do this manually.</span></a>
-<a class="sourceLine" id="cb41-10" title="10"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">sexMale =</span> <span class="kw">ifelse</span>(sex <span class="op">==</span><span class="st"> &quot;female&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb41-11" title="11"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">childyes =</span> <span class="kw">ifelse</span>(child <span class="op">==</span><span class="st"> &quot;no&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb41-12" title="12"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>(<span class="kw">c</span>(sex,child,nbaffairs)))</a>
-<a class="sourceLine" id="cb41-13" title="13"></a>
-<a class="sourceLine" id="cb41-14" title="14"><span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
-<a class="sourceLine" id="cb41-15" title="15">n &lt;-<span class="st"> </span><span class="kw">nrow</span>(Fair)</a>
-<a class="sourceLine" id="cb41-16" title="16">trainIndex &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="dt">size =</span> <span class="kw">round</span>(<span class="fl">0.6</span><span class="op">*</span>n), <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb41-17" title="17"><span class="co"># create training and test samples</span></a>
-<a class="sourceLine" id="cb41-18" title="18">trainFair &lt;-<span class="st"> </span>Fair[trainIndex ,]</a>
-<a class="sourceLine" id="cb41-19" title="19">testFair &lt;-<span class="st"> </span>Fair[<span class="op">-</span>trainIndex ,]</a></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb265-1" title="1"><span class="kw">data</span>(Fair)</a>
+<a class="sourceLine" id="cb265-2" title="2"><span class="co"># one change here: Note the bidirectional pipe to simplify code</span></a>
+<a class="sourceLine" id="cb265-3" title="3"><span class="co"># use only when you are sure that your file update is ok</span></a>
+<a class="sourceLine" id="cb265-4" title="4">Fair <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="co"># &lt;- Fair %&gt;% </span></a>
+<a class="sourceLine" id="cb265-5" title="5"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">affairYN =</span></a>
+<a class="sourceLine" id="cb265-6" title="6"><span class="co"># nbaffairs is set up as a factor</span></a>
+<a class="sourceLine" id="cb265-7" title="7"><span class="co"># to allow confusionmatrix to run</span></a>
+<a class="sourceLine" id="cb265-8" title="8">               <span class="kw">as.factor</span>(<span class="kw">ifelse</span>(nbaffairs <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb265-9" title="9"><span class="co"># unlike the lm and glm commands, knn will not automatically create our dummy # variables for us. so we need to do this manually.</span></a>
+<a class="sourceLine" id="cb265-10" title="10"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">sexMale =</span> <span class="kw">ifelse</span>(sex <span class="op">==</span><span class="st"> &quot;female&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb265-11" title="11"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">childyes =</span> <span class="kw">ifelse</span>(child <span class="op">==</span><span class="st"> &quot;no&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb265-12" title="12"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>(<span class="kw">c</span>(sex,child,nbaffairs)))</a>
+<a class="sourceLine" id="cb265-13" title="13"></a>
+<a class="sourceLine" id="cb265-14" title="14"><span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
+<a class="sourceLine" id="cb265-15" title="15">n &lt;-<span class="st"> </span><span class="kw">nrow</span>(Fair)</a>
+<a class="sourceLine" id="cb265-16" title="16">trainIndex &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="dt">size =</span> <span class="kw">round</span>(<span class="fl">0.6</span><span class="op">*</span>n), <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb265-17" title="17"><span class="co"># create training and test samples</span></a>
+<a class="sourceLine" id="cb265-18" title="18">trainFair &lt;-<span class="st"> </span>Fair[trainIndex ,]</a>
+<a class="sourceLine" id="cb265-19" title="19">testFair &lt;-<span class="st"> </span>Fair[<span class="op">-</span>trainIndex ,]</a></code></pre></div>
 <p>To run a k-nearest neighbor analysis, we need three inputs: our predictors in the training data, our predictors in the test data, and our outcome/classes in the training data.</p>
 <p>Here, as in the regression analysis in the last chapter, we can generate a confusion matrix to assess the accuracy of prediction:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1"><span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
-<a class="sourceLine" id="cb42-2" title="2">trainPredictors &lt;-<span class="st"> </span>trainFair <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb42-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)</a>
-<a class="sourceLine" id="cb42-4" title="4">testPredictors &lt;-<span class="st"> </span>testFair <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb42-5" title="5"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)</a>
-<a class="sourceLine" id="cb42-6" title="6">knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainPredictors, <span class="co"># training data</span></a>
-<a class="sourceLine" id="cb42-7" title="7">             testPredictors, <span class="co"># test data</span></a>
-<a class="sourceLine" id="cb42-8" title="8">             trainFair<span class="op">$</span>affairYN, <span class="co"># class</span></a>
-<a class="sourceLine" id="cb42-9" title="9">             <span class="dv">1</span> <span class="co"># number of neighbors</span></a>
-<a class="sourceLine" id="cb42-10" title="10">             )</a>
-<a class="sourceLine" id="cb42-11" title="11">b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, testFair<span class="op">$</span>affairYN)</a>
-<a class="sourceLine" id="cb42-12" title="12">b</a></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" title="1"><span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
+<a class="sourceLine" id="cb266-2" title="2">trainPredictors &lt;-<span class="st"> </span>trainFair <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb266-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)</a>
+<a class="sourceLine" id="cb266-4" title="4">testPredictors &lt;-<span class="st"> </span>testFair <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb266-5" title="5"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)</a>
+<a class="sourceLine" id="cb266-6" title="6">knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainPredictors, <span class="co"># training data</span></a>
+<a class="sourceLine" id="cb266-7" title="7">             testPredictors, <span class="co"># test data</span></a>
+<a class="sourceLine" id="cb266-8" title="8">             trainFair<span class="op">$</span>affairYN, <span class="co"># class</span></a>
+<a class="sourceLine" id="cb266-9" title="9">             <span class="dv">1</span> <span class="co"># number of neighbors</span></a>
+<a class="sourceLine" id="cb266-10" title="10">             )</a>
+<a class="sourceLine" id="cb266-11" title="11">b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, testFair<span class="op">$</span>affairYN)</a>
+<a class="sourceLine" id="cb266-12" title="12">b</a></code></pre></div>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##           Reference
@@ -582,7 +613,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                                           
 ##        &#39;Positive&#39; Class : 0               
 ## </code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1">b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]]</a></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" title="1">b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]]</a></code></pre></div>
 <pre><code>## [1] 0.7041667</code></pre>
 </div>
 <div id="from-one-doppelganger-to-many" class="section level3">
@@ -600,7 +631,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>… P (addiction | “age &gt; 100” &amp; “pain = 10”) = .09</p>
 </blockquote>
 <p>In this case she would prescribe the drug for every case where the conditional probability was greater than .5, and never otherwise. This is called the <strong>Bayesian classifier</strong>, and if we have the entire matrix of conditional probabilities we could do no better.</p>
-<p>In real world problems, we are typically dealing with many predictors, and we don’t have the full matrix of conditional probabilities. But this two predictor case “sets up” the illustration drawn from <span class="citation">(James et al. <a href="#ref-james2013introduction" role="doc-biblioref">2013</a>)</span>.</p>
+<p>In real world problems, we are typically dealing with many predictors, and we don’t have the full matrix of conditional probabilities. But this two predictor case “sets up” the illustration drawn from <span class="citation">(James et al. <a href="#ref-james2013introduction" role="doc-biblioref">2013</a><a href="#ref-james2013introduction" role="doc-biblioref">a</a>)</span>.</p>
 <div class="figure">
 <img src="knnTwovaluesfromJames2013.PNG" alt="Figure 10.1: Comparing two values of k (From (???))" />
 <p class="caption">Figure 10.1: Comparing two values of k (From <span class="citation">(<span class="citeproc-not-found" data-reference-id="jamesintroduction"><strong>???</strong></span>)</span>)</p>
@@ -611,41 +642,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="back-to-the-affairs-data" class="section level3">
 <h3><span class="header-section-number">19.2.4</span> Back to the affairs data</h3>
 <p>To test a range of values, we can first set up our knn analysis as a function (compare this code with the code in the prior section).</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1">trainPredictors &lt;-<span class="st"> </span>trainFair <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb46-2" title="2"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)</a>
-<a class="sourceLine" id="cb46-3" title="3">testPredictors &lt;-<span class="st"> </span>testFair <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb46-4" title="4"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)</a>
-<a class="sourceLine" id="cb46-5" title="5">knnFairdata &lt;-<span class="st"> </span><span class="cf">function</span> (k) {</a>
-<a class="sourceLine" id="cb46-6" title="6">    <span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
-<a class="sourceLine" id="cb46-7" title="7">    knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainPredictors, <span class="co"># training data</span></a>
-<a class="sourceLine" id="cb46-8" title="8">                 testPredictors, <span class="co"># test data</span></a>
-<a class="sourceLine" id="cb46-9" title="9">                 trainFair<span class="op">$</span>affairYN, <span class="co"># class</span></a>
-<a class="sourceLine" id="cb46-10" title="10">                 k <span class="co"># number of neighbors</span></a>
-<a class="sourceLine" id="cb46-11" title="11">                 )</a>
-<a class="sourceLine" id="cb46-12" title="12">    b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, testFair<span class="op">$</span>affairYN)</a>
-<a class="sourceLine" id="cb46-13" title="13">    b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]]</a>
-<a class="sourceLine" id="cb46-14" title="14">}</a></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb270-1" title="1">trainPredictors &lt;-<span class="st"> </span>trainFair <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb270-2" title="2"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)</a>
+<a class="sourceLine" id="cb270-3" title="3">testPredictors &lt;-<span class="st"> </span>testFair <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb270-4" title="4"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)</a>
+<a class="sourceLine" id="cb270-5" title="5">knnFairdata &lt;-<span class="st"> </span><span class="cf">function</span> (k) {</a>
+<a class="sourceLine" id="cb270-6" title="6">    <span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
+<a class="sourceLine" id="cb270-7" title="7">    knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainPredictors, <span class="co"># training data</span></a>
+<a class="sourceLine" id="cb270-8" title="8">                 testPredictors, <span class="co"># test data</span></a>
+<a class="sourceLine" id="cb270-9" title="9">                 trainFair<span class="op">$</span>affairYN, <span class="co"># class</span></a>
+<a class="sourceLine" id="cb270-10" title="10">                 k <span class="co"># number of neighbors</span></a>
+<a class="sourceLine" id="cb270-11" title="11">                 )</a>
+<a class="sourceLine" id="cb270-12" title="12">    b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, testFair<span class="op">$</span>affairYN)</a>
+<a class="sourceLine" id="cb270-13" title="13">    b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]]</a>
+<a class="sourceLine" id="cb270-14" title="14">}</a></code></pre></div>
 <p>We run the function on k = 1 and k = 2 to test it:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" title="1"><span class="kw">knnFairdata</span>(<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb271-1" title="1"><span class="kw">knnFairdata</span>(<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## [1] 0.7041667</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1"><span class="kw">knnFairdata</span>(<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb273-1" title="1"><span class="kw">knnFairdata</span>(<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 0.6958333</code></pre>
 <p>Now we can apply it to as many as 100 values of k, using the purrr::map command:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1">kAccuracy &lt;-<span class="st"> </span>(<span class="kw">map</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,knnFairdata)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map the knnFunction onto numbers 1-100</span></a>
-<a class="sourceLine" id="cb51-2" title="2"><span class="st">    </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map generates a list, so we will pull these out into a vector</span></a>
-<a class="sourceLine" id="cb51-3" title="3"><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># then a tibble so we can do a quick plot</span></a>
-<a class="sourceLine" id="cb51-4" title="4"><span class="st">    </span><span class="kw">rename</span>(<span class="dt">Accuracy=</span>value) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb51-5" title="5"><span class="st">    </span><span class="kw">mutate</span> (<span class="dt">k =</span> <span class="kw">seq_along</span>(Accuracy))</a></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb275-1" title="1">kAccuracy &lt;-<span class="st"> </span>(<span class="kw">map_dbl</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,knnFairdata)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map the knnFunction onto numbers 1-100</span></a>
+<a class="sourceLine" id="cb275-2" title="2"><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># then a tibble so we can do a quick plot</span></a>
+<a class="sourceLine" id="cb275-3" title="3"><span class="st">    </span><span class="kw">rename</span>(<span class="dt">Accuracy =</span> <span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb275-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">k =</span> <span class="kw">seq_along</span>(Accuracy))</a></code></pre></div>
 <p>We can graph this, using the syntax from the beginning of the class:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" title="1">kAccuracy <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb52-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(k, Accuracy)) <span class="op">+</span><span class="co">#%&gt;% </span></a>
-<a class="sourceLine" id="cb52-3" title="3"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb52-4" title="4"><span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Overall accuracy for varying levels of k&quot;</span>)</a></code></pre></div>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1"><span class="co"># This pulls out the maximum accuracy, and the value of k for which it occurs:</span></a>
-<a class="sourceLine" id="cb53-2" title="2">(ka &lt;-<span class="st"> </span><span class="kw">which.max</span>(kAccuracy<span class="op">$</span>Accuracy))</a></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb276-1" title="1">kAccuracy <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb276-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(k, Accuracy)) <span class="op">+</span><span class="co">#%&gt;% </span></a>
+<a class="sourceLine" id="cb276-3" title="3"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb276-4" title="4"><span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Overall accuracy for varying levels of k&quot;</span>)</a></code></pre></div>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-117-1.png" width="672" /></p>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb277-1" title="1"><span class="co"># This pulls out the maximum accuracy, and the value of k for which it occurs:</span></a>
+<a class="sourceLine" id="cb277-2" title="2">(ka &lt;-<span class="st"> </span><span class="kw">which.max</span>(kAccuracy<span class="op">$</span>Accuracy))</a></code></pre></div>
 <pre><code>## [1] 33</code></pre>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" title="1">(kb &lt;-<span class="st"> </span><span class="kw">max</span>(kAccuracy<span class="op">$</span>Accuracy))</a></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb279-1" title="1">(kb &lt;-<span class="st"> </span><span class="kw">max</span>(kAccuracy<span class="op">$</span>Accuracy))</a></code></pre></div>
 <pre><code>## [1] 0.7583333</code></pre>
 </div>
 <div id="avoiding-capitalization-on-chance-again" class="section level3">
@@ -654,45 +684,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Would this hold if we used a different random split? Remember, here, we have tested not one model, but 100 of them, then chosen the best one. The peak in the curve at 33 may well be due to chance characteristics of the test data.</p>
 <p>We could address this empirically using one of several techniques. One approach is to have a third independent sample on which to test the accuracy of prediction at k = 33. This would require the separate validation sample that was introduced in the last chapter.</p>
 <p>In the following block, I resplit the Fair data, using proportions of 60%, 30%, 10%. These values are likely not optimal given the (relatively small) size of the Fair data, but will work to illustrate the approach:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1"><span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
-<a class="sourceLine" id="cb57-2" title="2">threeWaySplit &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">size=</span><span class="kw">nrow</span>(Fair),</a>
-<a class="sourceLine" id="cb57-3" title="3">                        <span class="dt">prob=</span><span class="kw">c</span>(<span class="fl">0.6</span>,<span class="fl">0.3</span>,<span class="fl">0.1</span>),</a>
-<a class="sourceLine" id="cb57-4" title="4">                        <span class="dt">replace =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb57-5" title="5">trainFair2 &lt;-<span class="st"> </span>Fair[threeWaySplit<span class="op">==</span><span class="dv">1</span>,]</a>
-<a class="sourceLine" id="cb57-6" title="6">testFair2 &lt;-<span class="st"> </span>Fair[threeWaySplit<span class="op">==</span><span class="dv">2</span>,]</a>
-<a class="sourceLine" id="cb57-7" title="7">validFair2 &lt;-<span class="st"> </span>Fair[threeWaySplit<span class="op">==</span><span class="dv">3</span>,]</a></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb281-1" title="1"><span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
+<a class="sourceLine" id="cb281-2" title="2">threeWaySplit &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">size =</span> <span class="kw">nrow</span>(Fair),</a>
+<a class="sourceLine" id="cb281-3" title="3">                        <span class="dt">prob =</span> <span class="kw">c</span>(<span class="fl">0.6</span>,<span class="fl">0.3</span>,<span class="fl">0.1</span>),</a>
+<a class="sourceLine" id="cb281-4" title="4">                        <span class="dt">replace =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb281-5" title="5">trainFair2 &lt;-<span class="st"> </span>Fair[threeWaySplit <span class="op">==</span><span class="st"> </span><span class="dv">1</span>,]</a>
+<a class="sourceLine" id="cb281-6" title="6">testFair2 &lt;-<span class="st"> </span>Fair[threeWaySplit <span class="op">==</span><span class="st"> </span><span class="dv">2</span>,]</a>
+<a class="sourceLine" id="cb281-7" title="7">validFair2 &lt;-<span class="st"> </span>Fair[threeWaySplit <span class="op">==</span><span class="st"> </span><span class="dv">3</span>,]</a></code></pre></div>
 <p>I tweak my function here to use the new data, then run it 100 times as before.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1">trainPredictors &lt;-<span class="st"> </span>trainFair2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb58-2" title="2"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)</a>
-<a class="sourceLine" id="cb58-3" title="3">testPredictors &lt;-<span class="st"> </span>testFair2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb58-4" title="4"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)</a>
-<a class="sourceLine" id="cb58-5" title="5">knnFairdata2 &lt;-<span class="st"> </span><span class="cf">function</span> (k) {</a>
-<a class="sourceLine" id="cb58-6" title="6">    <span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
-<a class="sourceLine" id="cb58-7" title="7">    knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainPredictors, <span class="co"># training data</span></a>
-<a class="sourceLine" id="cb58-8" title="8">             testPredictors, <span class="co"># test data</span></a>
-<a class="sourceLine" id="cb58-9" title="9">             trainFair2<span class="op">$</span>affairYN, <span class="co"># class</span></a>
-<a class="sourceLine" id="cb58-10" title="10">             k <span class="co"># number of neighbors</span></a>
-<a class="sourceLine" id="cb58-11" title="11">             )</a>
-<a class="sourceLine" id="cb58-12" title="12">    b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, testFair2<span class="op">$</span>affairYN)</a>
-<a class="sourceLine" id="cb58-13" title="13">    b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]]</a>
-<a class="sourceLine" id="cb58-14" title="14">}</a>
-<a class="sourceLine" id="cb58-15" title="15">kAccuracy &lt;-<span class="st"> </span>(<span class="kw">map</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,knnFairdata2)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map the knnFunction onto numbers 1-100</span></a>
-<a class="sourceLine" id="cb58-16" title="16"><span class="st">    </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map generates a list, so we will pull these out into a vector</span></a>
-<a class="sourceLine" id="cb58-17" title="17"><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># then a tibble so we can do a quick plot</span></a>
-<a class="sourceLine" id="cb58-18" title="18"><span class="st">    </span><span class="kw">rename</span>(<span class="dt">Accuracy=</span>value) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb58-19" title="19"><span class="st">    </span><span class="kw">mutate</span> (<span class="dt">k =</span> <span class="kw">seq_along</span>(Accuracy))</a>
-<a class="sourceLine" id="cb58-20" title="20">(ka2 &lt;-<span class="st"> </span><span class="kw">which.max</span>(kAccuracy<span class="op">$</span>Accuracy))</a></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" title="1">trainPredictors &lt;-<span class="st"> </span>trainFair2 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb282-2" title="2"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)</a>
+<a class="sourceLine" id="cb282-3" title="3">testPredictors &lt;-<span class="st"> </span>testFair2 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb282-4" title="4"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>affairYN)</a>
+<a class="sourceLine" id="cb282-5" title="5">knnFairdata2 &lt;-<span class="st"> </span><span class="cf">function</span> (k) {</a>
+<a class="sourceLine" id="cb282-6" title="6">    <span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
+<a class="sourceLine" id="cb282-7" title="7">    knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainPredictors, <span class="co"># training data</span></a>
+<a class="sourceLine" id="cb282-8" title="8">             testPredictors, <span class="co"># test data</span></a>
+<a class="sourceLine" id="cb282-9" title="9">             trainFair2<span class="op">$</span>affairYN, <span class="co"># class</span></a>
+<a class="sourceLine" id="cb282-10" title="10">             k <span class="co"># number of neighbors</span></a>
+<a class="sourceLine" id="cb282-11" title="11">             )</a>
+<a class="sourceLine" id="cb282-12" title="12">    b&lt;-<span class="kw">confusionMatrix</span>(knnAffair, testFair2<span class="op">$</span>affairYN)</a>
+<a class="sourceLine" id="cb282-13" title="13">    b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]]</a>
+<a class="sourceLine" id="cb282-14" title="14">}</a>
+<a class="sourceLine" id="cb282-15" title="15">kAccuracy &lt;-<span class="st"> </span>(<span class="kw">map_dbl</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,knnFairdata2)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map the knnFunction onto numbers 1-100</span></a>
+<a class="sourceLine" id="cb282-16" title="16"><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># then a tibble so we can do a quick plot</span></a>
+<a class="sourceLine" id="cb282-17" title="17"><span class="st">    </span><span class="kw">rename</span>(<span class="dt">Accuracy=</span>value) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb282-18" title="18"><span class="st">    </span><span class="kw">mutate</span> (<span class="dt">k =</span> <span class="kw">seq_along</span>(Accuracy))</a>
+<a class="sourceLine" id="cb282-19" title="19">(ka2 &lt;-<span class="st"> </span><span class="kw">which.max</span>(kAccuracy<span class="op">$</span>Accuracy))</a></code></pre></div>
 <pre><code>## [1] 15</code></pre>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1">(kb2 &lt;-<span class="st"> </span><span class="kw">max</span>(kAccuracy<span class="op">$</span>Accuracy))</a></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb284-1" title="1">(kb2 &lt;-<span class="st"> </span><span class="kw">max</span>(kAccuracy<span class="op">$</span>Accuracy))</a></code></pre></div>
 <pre><code>## [1] 0.7802198</code></pre>
 <p>So here, on the (contaminated) test data, the maximum predictability occurs at k = 15, with an overall accuracy of 0.7802198. We apply this back to the validation data by pulling the knn code out of the function, and running it just once against the validation data:</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" title="1">knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainFair2[,<span class="op">-</span><span class="dv">7</span>], <span class="co"># training data</span></a>
-<a class="sourceLine" id="cb62-2" title="2">             validFair2[,<span class="op">-</span><span class="dv">7</span>], <span class="co"># VALIDATION data</span></a>
-<a class="sourceLine" id="cb62-3" title="3">             trainFair2<span class="op">$</span>affairYN, <span class="co"># class</span></a>
-<a class="sourceLine" id="cb62-4" title="4">             ka2 <span class="co"># number of neighbors</span></a>
-<a class="sourceLine" id="cb62-5" title="5">             )</a>
-<a class="sourceLine" id="cb62-6" title="6">b &lt;-<span class="st"> </span><span class="kw">confusionMatrix</span>(knnAffair, validFair2<span class="op">$</span>affairYN)</a>
-<a class="sourceLine" id="cb62-7" title="7">(kb3 &lt;-<span class="st"> </span>b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]])</a></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb286-1" title="1">knnAffair &lt;-<span class="st"> </span><span class="kw">knn</span>(trainFair2[,<span class="op">-</span><span class="dv">7</span>], <span class="co"># training data</span></a>
+<a class="sourceLine" id="cb286-2" title="2">             validFair2[,<span class="op">-</span><span class="dv">7</span>], <span class="co"># VALIDATION data</span></a>
+<a class="sourceLine" id="cb286-3" title="3">             trainFair2<span class="op">$</span>affairYN, <span class="co"># class</span></a>
+<a class="sourceLine" id="cb286-4" title="4">             ka2 <span class="co"># number of neighbors</span></a>
+<a class="sourceLine" id="cb286-5" title="5">             )</a>
+<a class="sourceLine" id="cb286-6" title="6">b &lt;-<span class="st"> </span><span class="kw">confusionMatrix</span>(knnAffair, validFair2<span class="op">$</span>affairYN)</a>
+<a class="sourceLine" id="cb286-7" title="7">(kb3 &lt;-<span class="st"> </span>b[[<span class="st">&quot;overall&quot;</span>]][[<span class="st">&quot;Accuracy&quot;</span>]])</a></code></pre></div>
 <pre><code>## [1] 0.703125</code></pre>
 <p>The overall predictability using the k-nearest neighbor analysis on the clean validation data, is now 0.703125.</p>
 <p>You might note that in our two splits of the Fair data - the two-way split of 60% Training and 40% Test, and the three-way split of 60% Training, 30% Test, 10% Validation, we got two different solutions to the question of the ‘optimal k’ (i.e., 33 and 15). With larger sample sizes, these values would be more stable.</p>
@@ -701,13 +730,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">19.2.6</span> the multinomial case</h3>
 <p>A final comment on the k-nearest neighbors approach: You can extend this to classification problems in which we are predicting not just a dichotomous outcome, but a multinomial one - such as a personality type or college concentration.</p>
 
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb288-1" title="1">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">echo =</span> <span class="ot">TRUE</span>, <span class="dt">warn =</span> <span class="ot">FALSE</span>, <span class="dt">message =</span> <span class="ot">FALSE</span>) <span class="co"># defaults for all chunks after this one</span></a>
+<a class="sourceLine" id="cb288-2" title="2"><span class="kw">library</span>(citr)</a>
+<a class="sourceLine" id="cb288-3" title="3"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb288-4" title="4"><span class="co"># library(ggplot2)</span></a>
+<a class="sourceLine" id="cb288-5" title="5"><span class="kw">library</span>(Ecdat) <span class="co"># for Swiss data</span></a>
+<a class="sourceLine" id="cb288-6" title="6"><span class="kw">library</span>(rpart) <span class="co"># for decision trees</span></a>
+<a class="sourceLine" id="cb288-7" title="7"><span class="kw">library</span>(kableExtra)</a>
+<a class="sourceLine" id="cb288-8" title="8"><span class="co"># library (class) # for knn</span></a>
+<a class="sourceLine" id="cb288-9" title="9"><span class="co"># library(caret) # confusion matrix</span></a>
+<a class="sourceLine" id="cb288-10" title="10"><span class="co"># library(magrittr) # allows bidirectional pipe for updating file easily %&lt;&gt;% </span></a></code></pre></div>
 </div>
 </div>
 </div>
 <h3> references</h3>
 <div id="refs" class="references">
 <div id="ref-james2013introduction">
-<p>James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2013. <em>An Introduction to Statistical Learning</em>. Vol. 112. Springer.</p>
+<p>James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2013a. <em>An Introduction to Statistical Learning</em>. Vol. 112. Springer.</p>
 </div>
 </div>
             </section>
@@ -716,7 +755,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="cross-validation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -767,6 +806,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

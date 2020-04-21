@@ -24,7 +24,7 @@
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2020-04-13" />
+<meta name="date" content="2020-04-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,6 +50,15 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 
 
 <style type="text/css">
@@ -331,7 +340,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.2.6" data-path="prediction-and-classification.html"><a href="prediction-and-classification.html#the-multinomial-case"><i class="fa fa-check"></i><b>19.2.6</b> the multinomial case</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>20</b> references</a></li>
+<li class="chapter" data-level="20" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><i class="fa fa-check"></i><b>20</b> machine learning: chihuahuas vs muffins, and other distinctions and ideas</a><ul>
+<li class="chapter" data-level="20.1" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#supervised-versus-unsupervised"><i class="fa fa-check"></i><b>20.1</b> supervised versus unsupervised</a></li>
+<li class="chapter" data-level="20.2" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#prediction-versus-classification"><i class="fa fa-check"></i><b>20.2</b> prediction versus classification</a></li>
+<li class="chapter" data-level="20.3" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#understanding-versus-prediction"><i class="fa fa-check"></i><b>20.3</b> understanding versus prediction</a></li>
+<li class="chapter" data-level="20.4" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#bias-versus-variability"><i class="fa fa-check"></i><b>20.4</b> bias versus variability</a><ul>
+<li class="chapter" data-level="20.4.1" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#resampling-beyond-test-training-and-validation-samples"><i class="fa fa-check"></i><b>20.4.1</b> resampling: beyond test, training, and validation samples</a></li>
+</ul></li>
+<li class="chapter" data-level="20.5" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#compensatory-versus-non-compensatory-problems"><i class="fa fa-check"></i><b>20.5</b> compensatory versus non-compensatory problems</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html"><i class="fa fa-check"></i><b>21</b> ethics: some topics for discussion</a><ul>
+<li class="chapter" data-level="" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#status-40"><i class="fa fa-check"></i>status 40%</a></li>
+<li class="chapter" data-level="21.1" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#discussion-should-digital-tracking-be-used-to-coronavirus"><i class="fa fa-check"></i><b>21.1</b> discussion: should digital tracking be used to … coronavirus…</a></li>
+<li class="chapter" data-level="21.2" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#is-open-source-software-secure"><i class="fa fa-check"></i><b>21.2</b> is open-source software secure?</a></li>
+<li class="chapter" data-level="21.3" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#discussion-is-open-source-software-secure"><i class="fa fa-check"></i><b>21.3</b> discussion: is open-source software secure?</a></li>
+<li class="chapter" data-level="21.4" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#background"><i class="fa fa-check"></i><b>21.4</b> background</a></li>
+<li class="chapter" data-level="21.5" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#principles"><i class="fa fa-check"></i><b>21.5</b> principles</a></li>
+<li class="chapter" data-level="21.6" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#remedies"><i class="fa fa-check"></i><b>21.6</b> remedies</a><ul>
+<li class="chapter" data-level="21.6.1" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#a-checklist-for-people-who-are-working-on-data-projects"><i class="fa fa-check"></i><b>21.6.1</b> a checklist for people who are working on data projects</a></li>
+<li class="chapter" data-level="21.6.2" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#additional-ideas"><i class="fa fa-check"></i><b>21.6.2</b> additional ideas</a></li>
+</ul></li>
+<li class="chapter" data-level="21.7" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#some-case-studies"><i class="fa fa-check"></i><b>21.7</b> some case studies</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>22</b> references</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -364,19 +395,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>(This section is excerpted directly from From <a href="https://github.com/datasciencelabs" class="uri">https://github.com/datasciencelabs</a>)</p>
 <p><a href="https://en.wikipedia.org/wiki/Francis_Galton">Francis Galton</a>, a polymath and cousin of Charles Darwin was interested, among other things, in how well can we predict a son’s height based on the parents’ heights.</p>
 <p>We have access to Galton’s family height data through the <code>HistData</code> package. We will create a dataset with the heights of fathers and the first son of each family. Here are the key summary statistics for the two variables of father and son height taken alone:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(HistData)</a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="kw">data</span>(<span class="st">&quot;GaltonFamilies&quot;</span>)</a>
-<a class="sourceLine" id="cb1-3" title="3">galton_heights &lt;-<span class="st"> </span>GaltonFamilies <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-4" title="4"><span class="st">  </span><span class="kw">filter</span>(childNum <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>gender <span class="op">==</span><span class="st"> &quot;male&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-5" title="5"><span class="st">  </span><span class="kw">select</span>(father, childHeight) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-6" title="6"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">son =</span> childHeight)</a>
-<a class="sourceLine" id="cb1-7" title="7">galton_heights <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1-8" title="8"><span class="st">  </span><span class="kw">summarise</span>(<span class="kw">mean</span>(father), <span class="kw">sd</span>(father), <span class="kw">mean</span>(son), <span class="kw">sd</span>(son))</a></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" title="1"><span class="kw">library</span>(HistData)</a>
+<a class="sourceLine" id="cb187-2" title="2"><span class="kw">data</span>(<span class="st">&quot;GaltonFamilies&quot;</span>)</a>
+<a class="sourceLine" id="cb187-3" title="3">galton_heights &lt;-<span class="st"> </span>GaltonFamilies <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb187-4" title="4"><span class="st">  </span><span class="kw">filter</span>(childNum <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>gender <span class="op">==</span><span class="st"> &quot;male&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb187-5" title="5"><span class="st">  </span><span class="kw">select</span>(father, childHeight) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb187-6" title="6"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">son =</span> childHeight)</a>
+<a class="sourceLine" id="cb187-7" title="7">galton_heights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb187-8" title="8"><span class="st">  </span><span class="kw">summarise</span>(<span class="kw">mean</span>(father), <span class="kw">sd</span>(father), <span class="kw">mean</span>(son), <span class="kw">sd</span>(son))</a></code></pre></div>
 <pre><code>##   mean(father) sd(father) mean(son)  sd(son)
 ## 1     69.09888   2.546555  70.45475 2.557061</code></pre>
 <p>This <strong>univariate</strong> description fails to capture the key characteristic of the data, namely, the idea that there is a relationship between the two variables:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">galton_heights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(father, son)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb189-1" title="1">galton_heights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(father, son)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb189-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:scatterplot"></span>
 <img src="DataSciLibArts_files/figure-html/scatterplot-1.png" alt="Heights of father and son pairs plotted against each other." width="672" />
 <p class="caption">
@@ -384,77 +415,77 @@ Figure 17.1: Heights of father and son pairs plotted against each other.
 </p>
 </div>
 <p>The correlation summarizes this relationship. In these data, the correlation (r) is about .50.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">galton_heights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="kw">cor</span>(father, son))</a></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" title="1">galton_heights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="kw">cor</span>(father, son))</a></code></pre></div>
 <pre><code>##   cor(father, son)
 ## 1        0.5007248</code></pre>
 <p>Incidentally, correlations based on small samples can bounce around quite a bit. Consider what happens when, for example, we sample just 25 cases from Galton’s data, then repeat this in a Monte Carlo analysis 1000 times to see the distribution of these sample rs:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">B &lt;-<span class="st"> </span><span class="dv">1000</span></a>
-<a class="sourceLine" id="cb6-2" title="2">N &lt;-<span class="st"> </span><span class="dv">25</span></a>
-<a class="sourceLine" id="cb6-3" title="3">R &lt;-<span class="st"> </span><span class="kw">replicate</span>(B, {</a>
-<a class="sourceLine" id="cb6-4" title="4">  <span class="kw">sample_n</span>(galton_heights, N, <span class="dt">replace =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># sample with replacement here</span></a>
-<a class="sourceLine" id="cb6-5" title="5"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">r=</span><span class="kw">cor</span>(father, son)) <span class="op">%&gt;%</span><span class="st"> </span>.<span class="op">$</span>r</a>
-<a class="sourceLine" id="cb6-6" title="6">})</a>
-<a class="sourceLine" id="cb6-7" title="7"><span class="kw">data.frame</span>(R) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(R)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.05</span>, <span class="dt">color =</span> <span class="st">&quot;grey&quot;</span>)</a></code></pre></div>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" title="1">B &lt;-<span class="st"> </span><span class="dv">1000</span></a>
+<a class="sourceLine" id="cb192-2" title="2">N &lt;-<span class="st"> </span><span class="dv">25</span></a>
+<a class="sourceLine" id="cb192-3" title="3">R &lt;-<span class="st"> </span><span class="kw">replicate</span>(B, {</a>
+<a class="sourceLine" id="cb192-4" title="4">  <span class="kw">sample_n</span>(galton_heights, N, <span class="dt">replace =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># sample with replacement here</span></a>
+<a class="sourceLine" id="cb192-5" title="5"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">r=</span><span class="kw">cor</span>(father, son)) <span class="op">%&gt;%</span><span class="st"> </span>.<span class="op">$</span>r</a>
+<a class="sourceLine" id="cb192-6" title="6">})</a>
+<a class="sourceLine" id="cb192-7" title="7"><span class="kw">data.frame</span>(R) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(R)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.05</span>, <span class="dt">color =</span> <span class="st">&quot;grey&quot;</span>)</a></code></pre></div>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-92-1.png" width="672" /></p>
 <div id="the-regression-line" class="section level3">
 <h3><span class="header-section-number">17.1.1</span> The regression line</h3>
 <p>If we are predicting a random variable <span class="math inline">\(Y\)</span> knowing the value of another <span class="math inline">\(X=x\)</span> using a regression line, then we predict that for every standard deviation, <span class="math inline">\(\sigma_X\)</span>, that <span class="math inline">\(x\)</span> increases above the average <span class="math inline">\(mu_X\)</span>, <span class="math inline">\(Y\)</span> increases <span class="math inline">\(\rho\)</span> standard deviations <span class="math inline">\(\sigma_Y\)</span> above the average <span class="math inline">\(\mu_Y\)</span>, where <span class="math inline">\(\rho\)</span> is the correlation between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
 <p>To manually add a regression line to a plots, we will need the means and standard deviations of each variable together with their correlation:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">mu_x &lt;-<span class="st"> </span><span class="kw">mean</span>(galton_heights<span class="op">$</span>father)</a>
-<a class="sourceLine" id="cb7-2" title="2">mu_y &lt;-<span class="st"> </span><span class="kw">mean</span>(galton_heights<span class="op">$</span>son)</a>
-<a class="sourceLine" id="cb7-3" title="3">s_x &lt;-<span class="st"> </span><span class="kw">sd</span>(galton_heights<span class="op">$</span>father)</a>
-<a class="sourceLine" id="cb7-4" title="4">s_y &lt;-<span class="st"> </span><span class="kw">sd</span>(galton_heights<span class="op">$</span>son)</a>
-<a class="sourceLine" id="cb7-5" title="5">r &lt;-<span class="st"> </span><span class="kw">cor</span>(galton_heights<span class="op">$</span>father, galton_heights<span class="op">$</span>son)</a>
-<a class="sourceLine" id="cb7-6" title="6"></a>
-<a class="sourceLine" id="cb7-7" title="7">m &lt;-<span class="st">  </span>r <span class="op">*</span><span class="st"> </span>s_y <span class="op">/</span><span class="st"> </span>s_x</a>
-<a class="sourceLine" id="cb7-8" title="8">b &lt;-<span class="st"> </span>mu_y <span class="op">-</span><span class="st"> </span>m<span class="op">*</span>mu_x</a>
-<a class="sourceLine" id="cb7-9" title="9"></a>
-<a class="sourceLine" id="cb7-10" title="10">galton_heights <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-11" title="11"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(father, son)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-12" title="12"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-13" title="13"><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> b, <span class="dt">slope =</span> m ) </a></code></pre></div>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb193-1" title="1">mu_x &lt;-<span class="st"> </span><span class="kw">mean</span>(galton_heights<span class="op">$</span>father)</a>
+<a class="sourceLine" id="cb193-2" title="2">mu_y &lt;-<span class="st"> </span><span class="kw">mean</span>(galton_heights<span class="op">$</span>son)</a>
+<a class="sourceLine" id="cb193-3" title="3">s_x &lt;-<span class="st"> </span><span class="kw">sd</span>(galton_heights<span class="op">$</span>father)</a>
+<a class="sourceLine" id="cb193-4" title="4">s_y &lt;-<span class="st"> </span><span class="kw">sd</span>(galton_heights<span class="op">$</span>son)</a>
+<a class="sourceLine" id="cb193-5" title="5">r &lt;-<span class="st"> </span><span class="kw">cor</span>(galton_heights<span class="op">$</span>father, galton_heights<span class="op">$</span>son)</a>
+<a class="sourceLine" id="cb193-6" title="6"></a>
+<a class="sourceLine" id="cb193-7" title="7">m &lt;-<span class="st">  </span>r <span class="op">*</span><span class="st"> </span>s_y <span class="op">/</span><span class="st"> </span>s_x</a>
+<a class="sourceLine" id="cb193-8" title="8">b &lt;-<span class="st"> </span>mu_y <span class="op">-</span><span class="st"> </span>m<span class="op">*</span>mu_x</a>
+<a class="sourceLine" id="cb193-9" title="9"></a>
+<a class="sourceLine" id="cb193-10" title="10">galton_heights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb193-11" title="11"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(father, son)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb193-12" title="12"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb193-13" title="13"><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> b, <span class="dt">slope =</span> m ) </a></code></pre></div>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-93-1.png" width="672" /></p>
 <p>If we first standardize the variables, then the regression line has intercept 0 and slope equal to the correlation <span class="math inline">\(\rho\)</span>. Here, the slope, regression line, and correlation are all equal (I’ve made the plot square to better indicate this).</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">galton_heights <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="kw">scale</span>(father), <span class="kw">scale</span>(son))) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb8-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-4" title="4"><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="dv">0</span>, <span class="dt">slope =</span> r) </a></code></pre></div>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-6-1.png" width="384" /></p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" title="1">galton_heights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb194-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="kw">scale</span>(father), <span class="kw">scale</span>(son))) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb194-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb194-4" title="4"><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="dv">0</span>, <span class="dt">slope =</span> r) </a></code></pre></div>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-94-1.png" width="384" /></p>
 </div>
 <div id="warning-there-are-two-regression-lines" class="section level3">
 <h3><span class="header-section-number">17.1.2</span> Warning: there are two regression lines</h3>
 <p>In general, when describing bivariate relationships, we talk of predicting y from x. But what if we want to reverse this? Here, for example, what if we want to predict the father’s height based on the son’s?</p>
 <p>For this, the intercept and slope of the lines will differ</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="co"># son from father</span></a>
-<a class="sourceLine" id="cb9-2" title="2">m_<span class="dv">1</span> &lt;-<span class="st">  </span>r <span class="op">*</span><span class="st"> </span>s_y <span class="op">/</span><span class="st"> </span>s_x</a>
-<a class="sourceLine" id="cb9-3" title="3">b_<span class="dv">1</span> &lt;-<span class="st"> </span>mu_y <span class="op">-</span><span class="st"> </span>m_<span class="dv">1</span><span class="op">*</span>mu_x</a>
-<a class="sourceLine" id="cb9-4" title="4"><span class="co"># vice-versa</span></a>
-<a class="sourceLine" id="cb9-5" title="5">m_<span class="dv">2</span> &lt;-<span class="st">  </span>r <span class="op">*</span><span class="st"> </span>s_x <span class="op">/</span><span class="st"> </span>s_y</a>
-<a class="sourceLine" id="cb9-6" title="6">b_<span class="dv">2</span> &lt;-<span class="st"> </span>mu_x <span class="op">-</span><span class="st"> </span>m_<span class="dv">2</span><span class="op">*</span>mu_y</a></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" title="1"><span class="co"># son from father</span></a>
+<a class="sourceLine" id="cb195-2" title="2">m_<span class="dv">1</span> &lt;-<span class="st">  </span>r <span class="op">*</span><span class="st"> </span>s_y <span class="op">/</span><span class="st"> </span>s_x</a>
+<a class="sourceLine" id="cb195-3" title="3">b_<span class="dv">1</span> &lt;-<span class="st"> </span>mu_y <span class="op">-</span><span class="st"> </span>m_<span class="dv">1</span><span class="op">*</span>mu_x</a>
+<a class="sourceLine" id="cb195-4" title="4"><span class="co"># vice-versa</span></a>
+<a class="sourceLine" id="cb195-5" title="5">m_<span class="dv">2</span> &lt;-<span class="st">  </span>r <span class="op">*</span><span class="st"> </span>s_x <span class="op">/</span><span class="st"> </span>s_y</a>
+<a class="sourceLine" id="cb195-6" title="6">b_<span class="dv">2</span> &lt;-<span class="st"> </span>mu_x <span class="op">-</span><span class="st"> </span>m_<span class="dv">2</span><span class="op">*</span>mu_y</a></code></pre></div>
 <p>We will still see regression to the mean (the prediction for the father is closer to the father average than the son heights <span class="math inline">\(y\)</span> is to the son average).</p>
 <p>Here is a plot showing the two regression lines, with blue for the predicting son heights with father heights and red for predicting father heights with son heights.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">galton_heights <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(father, son)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-4" title="4"><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> b_<span class="dv">1</span>, <span class="dt">slope =</span> m_<span class="dv">1</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-5" title="5"><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="op">-</span>b_<span class="dv">2</span><span class="op">/</span>m_<span class="dv">2</span>, <span class="dt">slope =</span> <span class="dv">1</span><span class="op">/</span>m_<span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) </a></code></pre></div>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-8-1.png" width="384" /></p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" title="1">galton_heights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb196-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(father, son)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb196-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb196-4" title="4"><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> b_<span class="dv">1</span>, <span class="dt">slope =</span> m_<span class="dv">1</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb196-5" title="5"><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="op">-</span>b_<span class="dv">2</span><span class="op">/</span>m_<span class="dv">2</span>, <span class="dt">slope =</span> <span class="dv">1</span><span class="op">/</span>m_<span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) </a></code></pre></div>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-96-1.png" width="384" /></p>
 </div>
 </div>
 <div id="multiple-regression" class="section level2">
 <h2><span class="header-section-number">17.2</span> multiple regression</h2>
 <p>We extend regression (predicting one continuous variable from another) to the multivariate case (predicting one variable from many). We extend this logic to the cases where our variables are not normally distributed, as in the case of dichotomous variables (yes/no, true/false), as well as counts, which often are skewed.</p>
 <p>(This section is drawn from Peng, Caffo, and Leek’s treatment from Coursera/ the Johns Hopkins Data Science Program. You may need to install the packages “UsingR”, “GGally” and/or“Hmisc”)</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">library</span>(broom) <span class="co"># an older package for unlisting regression results</span></a>
-<a class="sourceLine" id="cb11-2" title="2"><span class="kw">library</span>(modelr)</a>
-<a class="sourceLine" id="cb11-3" title="3"><span class="kw">library</span>(GGally) <span class="co"># for scatterplot matrix</span></a>
-<a class="sourceLine" id="cb11-4" title="4"><span class="kw">library</span>(Ecdat) <span class="co"># Econometric data incl. affairs dataset </span></a></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" title="1"><span class="kw">library</span>(broom) <span class="co"># an older package for unlisting regression results</span></a>
+<a class="sourceLine" id="cb197-2" title="2"><span class="kw">library</span>(modelr)</a>
+<a class="sourceLine" id="cb197-3" title="3"><span class="kw">library</span>(GGally) <span class="co"># for scatterplot matrix</span></a>
+<a class="sourceLine" id="cb197-4" title="4"><span class="kw">library</span>(Ecdat) <span class="co"># Econometric data incl. affairs dataset </span></a></code></pre></div>
 </div>
 <div id="swiss-fertility-data" class="section level2">
 <h2><span class="header-section-number">17.3</span> Swiss fertility data</h2>
 <p>To consider the multivariate case, we examine a second dataset.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">data</span>(swiss)</a>
-<a class="sourceLine" id="cb12-2" title="2"><span class="kw">str</span>(swiss)</a></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" title="1"><span class="kw">data</span>(swiss)</a>
+<a class="sourceLine" id="cb198-2" title="2"><span class="kw">str</span>(swiss)</a></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    47 obs. of  6 variables:
 ##  $ Fertility       : num  80.2 83.1 92.5 85.8 76.9 76.1 83.8 92.4 82.4 82.9 ...
 ##  $ Agriculture     : num  17 45.1 39.7 36.5 43.5 35.3 70.2 67.8 53.3 45.2 ...
@@ -463,15 +494,15 @@ Figure 17.1: Heights of father and son pairs plotted against each other.
 ##  $ Catholic        : num  9.96 84.84 93.4 33.77 5.16 ...
 ##  $ Infant.Mortality: num  22.2 22.2 20.2 20.3 20.6 26.6 23.6 24.9 21 24.4 ...</code></pre>
 <p>Here’s a <em>scatterplot matrix</em> of the Swiss data. Look at the first column of plots (or first row of the correlations). What is the relationship between fertility and each of the other variables?</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">ggpairs</span> (swiss,</a>
-<a class="sourceLine" id="cb14-2" title="2">        <span class="dt">lower =</span> <span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb14-3" title="3">            <span class="dt">continuous =</span> <span class="st">&quot;smooth&quot;</span>),</a>
-<a class="sourceLine" id="cb14-4" title="4">        <span class="dt">axisLabels =</span><span class="st">&quot;none&quot;</span>,</a>
-<a class="sourceLine" id="cb14-5" title="5">        <span class="dt">switch =</span> <span class="st">&#39;both&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" title="1"><span class="kw">ggpairs</span> (swiss,</a>
+<a class="sourceLine" id="cb200-2" title="2">        <span class="dt">lower =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb200-3" title="3">            <span class="dt">continuous =</span> <span class="st">&quot;smooth&quot;</span>),</a>
+<a class="sourceLine" id="cb200-4" title="4">        <span class="dt">axisLabels =</span><span class="st">&quot;none&quot;</span>,</a>
+<a class="sourceLine" id="cb200-5" title="5">        <span class="dt">switch =</span> <span class="st">&#39;both&#39;</span>)</a></code></pre></div>
 <p><img src="DataSciLibArts_files/figure-html/scatterplot%20matrix%20with%20ggpairs,%20swiss-1.png" width="672" /></p>
 <p>Here, we predict fertility from all of the remaining variables together in a single regression analysis, using the lm (linear model) command. As we saw in Chapter 15, the result of this analysis is a list. We can pull out the key features of the data using the summary() command. How do you interpret this?</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">swissReg &lt;-<span class="st"> </span><span class="kw">lm</span>(Fertility <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>swiss)</a>
-<a class="sourceLine" id="cb15-2" title="2"><span class="kw">summary</span>(swissReg)</a></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" title="1">swissReg &lt;-<span class="st"> </span><span class="kw">lm</span>(Fertility <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>swiss)</a>
+<a class="sourceLine" id="cb201-2" title="2"><span class="kw">summary</span>(swissReg)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Fertility ~ ., data = swiss)
@@ -498,21 +529,21 @@ Figure 17.1: Heights of father and son pairs plotted against each other.
 <div id="marital-affairs-data" class="section level2">
 <h2><span class="header-section-number">17.4</span> marital affairs data</h2>
 <p>Here’s another dataset. We’ll apply ggpairs here, but for clarity will show only half of the data at a time. The dependent variable of interest (nbaffairs) will be included in both plots:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1">Fair1 &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb17-2" title="2"><span class="st">  </span><span class="kw">select</span>(sex<span class="op">:</span>child, nbaffairs)</a>
-<a class="sourceLine" id="cb17-3" title="3"><span class="kw">ggpairs</span>(Fair1,  </a>
-<a class="sourceLine" id="cb17-4" title="4"><span class="co"># if you wanted to jam all 9 vars onto one page you could do this</span></a>
-<a class="sourceLine" id="cb17-5" title="5"><span class="co">#        upper = list(continuous = wrap(ggally_cor, size = 10)),</span></a>
-<a class="sourceLine" id="cb17-6" title="6">         <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">continuous =</span> <span class="st">&#39;smooth&#39;</span>),</a>
-<a class="sourceLine" id="cb17-7" title="7">         <span class="dt">axisLabels =</span> <span class="st">&quot;none&quot;</span>,</a>
-<a class="sourceLine" id="cb17-8" title="8">        <span class="dt">switch =</span> <span class="st">&#39;both&#39;</span>)</a></code></pre></div>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-10-1.png" width="100%" /></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">Fair2 &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb18-2" title="2"><span class="st">  </span><span class="kw">select</span>(religious<span class="op">:</span>nbaffairs) </a>
-<a class="sourceLine" id="cb18-3" title="3"><span class="kw">ggpairs</span>(Fair2, <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">continuous =</span> <span class="st">&#39;smooth&#39;</span>),</a>
-<a class="sourceLine" id="cb18-4" title="4">           <span class="dt">axisLabels =</span> <span class="st">&quot;none&quot;</span>,</a>
-<a class="sourceLine" id="cb18-5" title="5">           <span class="dt">switch =</span> <span class="st">&#39;both&#39;</span>)</a></code></pre></div>
-<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-10-2.png" width="100%" /></p>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" title="1">Fair1 &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb203-2" title="2"><span class="st">  </span><span class="kw">select</span>(sex<span class="op">:</span>child, nbaffairs)</a>
+<a class="sourceLine" id="cb203-3" title="3"><span class="kw">ggpairs</span>(Fair1,  </a>
+<a class="sourceLine" id="cb203-4" title="4"><span class="co"># if you wanted to jam all 9 vars onto one page you could do this</span></a>
+<a class="sourceLine" id="cb203-5" title="5"><span class="co">#        upper = list(continuous = wrap(ggally_cor, size = 10)),</span></a>
+<a class="sourceLine" id="cb203-6" title="6">         <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">continuous =</span> <span class="st">&#39;smooth&#39;</span>),</a>
+<a class="sourceLine" id="cb203-7" title="7">         <span class="dt">axisLabels =</span> <span class="st">&quot;none&quot;</span>,</a>
+<a class="sourceLine" id="cb203-8" title="8">        <span class="dt">switch =</span> <span class="st">&#39;both&#39;</span>)</a></code></pre></div>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-98-1.png" width="100%" /></p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" title="1">Fair2 &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb204-2" title="2"><span class="st">  </span><span class="kw">select</span>(religious<span class="op">:</span>nbaffairs) </a>
+<a class="sourceLine" id="cb204-3" title="3"><span class="kw">ggpairs</span>(Fair2, <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">continuous =</span> <span class="st">&#39;smooth&#39;</span>),</a>
+<a class="sourceLine" id="cb204-4" title="4">           <span class="dt">axisLabels =</span> <span class="st">&quot;none&quot;</span>,</a>
+<a class="sourceLine" id="cb204-5" title="5">           <span class="dt">switch =</span> <span class="st">&#39;both&#39;</span>)</a></code></pre></div>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-98-2.png" width="100%" /></p>
 <blockquote>
 <p>Exercise</p>
 <ol style="list-style-type: decimal">
@@ -521,8 +552,8 @@ Figure 17.1: Heights of father and son pairs plotted against each other.
 <li>Can you just run a regression on it as is? Try predicting nbaffairs from the remaining 8 variables in Fair (not Fair1 or Fair2), using the same syntax in the Swiss data. Does it work? What do the results suggest?</li>
 </ol>
 </blockquote>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1">affairReg &lt;-<span class="st"> </span><span class="kw">lm</span>(nbaffairs <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>Fair)</a>
-<a class="sourceLine" id="cb19-2" title="2"><span class="kw">summary</span>(affairReg)</a></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" title="1">affairReg &lt;-<span class="st"> </span><span class="kw">lm</span>(nbaffairs <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>Fair)</a>
+<a class="sourceLine" id="cb205-2" title="2"><span class="kw">summary</span>(affairReg)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = nbaffairs ~ ., data = Fair)
