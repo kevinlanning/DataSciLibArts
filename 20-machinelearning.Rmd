@@ -22,7 +22,7 @@ library(kableExtra)
 
 In the last few chapters, we have considered linear and logistic regression and k-nearest neighbor analysis as tools for prediction and classification. We've shown how to split the data into training, test and (in some cases) validation samples, then how to assess the robustness or accuracy of a model on these new datasets.  We've also considered measures such as R-squared, overall accuracy, and area under the ROC as measures of validity.
 
-These ideas and techniques form a starting point for the study of *machine learning*. My approach is drawn largely from @jamesIntroductionStatisticalLearning2013a, which is available freely on the web and includes links to additional materials - including exercises in R - for those who would like to study this further. 
+These ideas and techniques form a starting point for the study of *machine learning*. My approach is drawn largely from @jamesIntroductionStatisticalLearning2013a, which is available freely on the web and includes links to additional materials and R-based exercises for those who would like to study this further. 
 
 ## supervised versus unsupervised 
 
