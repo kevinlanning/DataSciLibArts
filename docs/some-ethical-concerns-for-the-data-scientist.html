@@ -50,6 +50,15 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 
 
 <style type="text/css">
@@ -372,7 +381,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="some-ethical-concerns-for-the-data-scientist" class="section level1">
 <h1><span class="header-section-number">21</span> some ethical concerns for the data scientist</h1>
-<p>The Latin word <em>scientia</em> is commonly translated as both “science” and “knowledge.” Modern science or modern knowledge has led not only to dramatic improvements in public health and human life expectancy, but also to weapons of war that allow the slaughter of millions at a distance. The idea that science or knowledge is ethically fraught is not new: Adam and Even are said to have been cast out of the Garden of Eden after tasting the forbidden fruit from the tree of <em>knowledge</em> <span class="citation">(Shattuck <a href="#ref-shattuck_forbidden_1997" role="doc-biblioref">1997</a>)</span>. And, as we have seen in our discussion of the “most dangerous equation,” the lack of knowledge can also be dangerous - perhaps particularly today, as we are in the grips of a pandemic with leaders who govern by intuition rather than science, by hunch rather than data <span class="citation">(Wainer <a href="#ref-wainer_most_2007" role="doc-biblioref">2007</a>)</span>.</p>
+<p>The Latin word <em>scientia</em> is commonly translated as both “science” and “knowledge.” Modern science or modern knowledge has led not only to dramatic improvements in public health and human life expectancy, but also to weapons of war that allow the slaughter of millions at a distance. The idea that science or knowledge is ethically fraught is not new: Adam and Even are said to have been cast out of the Garden of Eden after tasting the forbidden fruit from the tree of <em>knowledge</em> <span class="citation">(Shattuck <a href="#ref-shattuck_forbidden_1997" role="doc-biblioref">1997</a>)</span>. And, as we have seen in our discussion of the “most dangerous equation,” the lack of knowledge can also be dangerous - perhaps particularly today, as we are in the grips of a pandemic with leaders who govern by intuition rather than science, by hunch rather than data <span class="citation">(Wainer <a href="#ref-wainer_most_2007" role="doc-biblioref">2007</a><a href="#ref-wainer_most_2007" role="doc-biblioref">b</a>)</span>.</p>
 <p>In this final chapter, I consider a few case studies which exemplify some of the ethical issues and concerns that frame data science. Note the word “frame” - this is little more than the beginning of a scaffolding. But I hope that it is sufficient to bolster the claim that ethical concerns are or should be at the foundation of data science, and that individuals with training in the liberal arts (and not just math and engineering) should play an important role.</p>
 <div id="ethics-and-personality-harvesting" class="section level2">
 <h2><span class="header-section-number">21.1</span> ethics and personality harvesting</h2>
@@ -452,7 +461,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Shattuck, Roger. 1997. “Forbidden Knowledge: From Prometheus to Pornography.” https://www.amazon.com/Forbidden-Knowledge-Pornography-Roger-Shattuck/dp/0156005514.</p>
 </div>
 <div id="ref-wainer_most_2007">
-<p>Wainer, Howard. 2007. “The Most Dangerous Equation,” 9.</p>
+<p>Wainer, Howard. 2007b. “The Most Dangerous Equation,” 9.</p>
 </div>
 </div>
             </section>
@@ -503,7 +512,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["DataSciLibArts.pdf", "DataSciLibArts.epub"],
+"download": null,
 "toc": {
 "collapse": "subsection"
 },
@@ -512,6 +521,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

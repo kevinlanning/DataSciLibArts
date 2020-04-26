@@ -24,7 +24,7 @@
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2020-04-21" />
+<meta name="date" content="2020-04-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="prediction-and-classification.html"/>
-<link rel="next" href="ethics-some-topics-for-discussion.html"/>
+<link rel="next" href="some-ethical-concerns-for-the-data-scientist.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,15 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 
 
 <style type="text/css">
@@ -340,18 +349,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="20.5" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#compensatory-versus-non-compensatory-problems"><i class="fa fa-check"></i><b>20.5</b> compensatory versus non-compensatory problems</a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html"><i class="fa fa-check"></i><b>21</b> ethics: some topics for discussion</a><ul>
-<li class="chapter" data-level="" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#status-40"><i class="fa fa-check"></i>status 40%</a></li>
-<li class="chapter" data-level="21.1" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#discussion-should-digital-tracking-be-used-to-coronavirus"><i class="fa fa-check"></i><b>21.1</b> discussion: should digital tracking be used to … coronavirus…</a></li>
-<li class="chapter" data-level="21.2" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#is-open-source-software-secure"><i class="fa fa-check"></i><b>21.2</b> is open-source software secure?</a></li>
-<li class="chapter" data-level="21.3" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#discussion-is-open-source-software-secure"><i class="fa fa-check"></i><b>21.3</b> discussion: is open-source software secure?</a></li>
-<li class="chapter" data-level="21.4" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#background"><i class="fa fa-check"></i><b>21.4</b> background</a></li>
-<li class="chapter" data-level="21.5" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#principles"><i class="fa fa-check"></i><b>21.5</b> principles</a></li>
-<li class="chapter" data-level="21.6" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#remedies"><i class="fa fa-check"></i><b>21.6</b> remedies</a><ul>
-<li class="chapter" data-level="21.6.1" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#a-checklist-for-people-who-are-working-on-data-projects"><i class="fa fa-check"></i><b>21.6.1</b> a checklist for people who are working on data projects</a></li>
-<li class="chapter" data-level="21.6.2" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#additional-ideas"><i class="fa fa-check"></i><b>21.6.2</b> additional ideas</a></li>
-</ul></li>
-<li class="chapter" data-level="21.7" data-path="ethics-some-topics-for-discussion.html"><a href="ethics-some-topics-for-discussion.html#some-case-studies"><i class="fa fa-check"></i><b>21.7</b> some case studies</a></li>
+<li class="chapter" data-level="21" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html"><i class="fa fa-check"></i><b>21</b> some ethical concerns for the data scientist</a><ul>
+<li class="chapter" data-level="21.1" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#ethics-and-personality-harvesting"><i class="fa fa-check"></i><b>21.1</b> ethics and personality harvesting</a></li>
+<li class="chapter" data-level="21.2" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#the-law-of-unintended-consequences"><i class="fa fa-check"></i><b>21.2</b> the law of unintended consequences</a></li>
+<li class="chapter" data-level="21.3" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#your-privacy-is-my-concern"><i class="fa fa-check"></i><b>21.3</b> your privacy is my concern</a></li>
+<li class="chapter" data-level="21.4" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#who-should-hold-the-digital-keys"><i class="fa fa-check"></i><b>21.4</b> who should hold the digital keys?</a></li>
+<li class="chapter" data-level="21.5" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#contact-tracing-and-covid-19"><i class="fa fa-check"></i><b>21.5</b> contact-tracing and COVID-19</a></li>
+<li class="chapter" data-level="21.6" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#the-digital-divide"><i class="fa fa-check"></i><b>21.6</b> the digital divide</a></li>
+<li class="chapter" data-level="21.7" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#some-potential-remedies"><i class="fa fa-check"></i><b>21.7</b> some potential remedies</a></li>
 </ul></li>
 <li class="chapter" data-level="22" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>22</b> references</a></li>
 <li class="divider"></li>
@@ -377,7 +382,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas" class="section level1">
 <h1><span class="header-section-number">20</span> machine learning: chihuahuas vs muffins, and other distinctions and ideas</h1>
 <p>In the last few chapters, we have considered linear and logistic regression and k-nearest neighbor analysis as tools for prediction and classification. We’ve shown how to split the data into training, test and (in some cases) validation samples, then how to assess the robustness or accuracy of a model on these new datasets. We’ve also considered measures such as R-squared, overall accuracy, and area under the ROC as measures of validity.</p>
-<p>These ideas and techniques form a starting point for the study of <em>machine learning</em>. My approach is drawn largely from <span class="citation">James et al. (<a href="#ref-jamesIntroductionStatisticalLearning2013a" role="doc-biblioref">2013</a><a href="#ref-jamesIntroductionStatisticalLearning2013a" role="doc-biblioref">a</a>)</span>, which is available freely on the web and includes links to additional materials and R-based exercises for those who would like to study this further.</p>
+<p>These ideas and techniques form a starting point for the study of <em>machine learning</em>. My approach is drawn largely from <span class="citation">James et al. (<a href="#ref-jamesIntroductionStatisticalLearning2013a" role="doc-biblioref">2013</a><a href="#ref-jamesIntroductionStatisticalLearning2013a" role="doc-biblioref">b</a>)</span>, which is available freely on the web and includes links to additional materials and R-based exercises for those who would like to study this further.</p>
 <div id="supervised-versus-unsupervised" class="section level2">
 <h2><span class="header-section-number">20.1</span> supervised versus unsupervised</h2>
 <p>One problem that we haven’t yet considered is the distinction between supervised and unsupervised problems, arguably the most fundamental distinction in machine learning.</p>
@@ -420,22 +425,22 @@ Consider the Chihuahua-Muffin problem illustrated above.</p>
 <h2><span class="header-section-number">20.4</span> bias versus variability</h2>
 <p>If you read further about machine learning, you are likely to encounter the phrase “bias-variability tradeoff.” You may remember that, in our initial analyses of the Swiss fertility data, we discussed how reducing the number of observations increases the fit of the model on the (training) data - and that, ultimately, the fit of the model would become perfect when we reduce the number of observations to the number of variables in the model.</p>
 <p>Here, we construct two independent samples, each with 9 subjects.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">data</span>(Fair)</a>
-<a class="sourceLine" id="cb14-2" title="2"><span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
-<a class="sourceLine" id="cb14-3" title="3">FairSample1 &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sample_n</span>(<span class="dv">9</span>)</a>
-<a class="sourceLine" id="cb14-4" title="4"><span class="kw">set.seed</span>(<span class="dv">94611</span>)</a>
-<a class="sourceLine" id="cb14-5" title="5">FairSample2 &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sample_n</span>(<span class="dv">9</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" title="1"><span class="kw">data</span>(Fair)</a>
+<a class="sourceLine" id="cb289-2" title="2"><span class="kw">set.seed</span>(<span class="dv">33458</span>)</a>
+<a class="sourceLine" id="cb289-3" title="3">FairSample1 &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sample_n</span>(<span class="dv">9</span>)</a>
+<a class="sourceLine" id="cb289-4" title="4"><span class="kw">set.seed</span>(<span class="dv">94611</span>)</a>
+<a class="sourceLine" id="cb289-5" title="5">FairSample2 &lt;-<span class="st"> </span>Fair <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sample_n</span>(<span class="dv">9</span>)</a></code></pre></div>
 <p>In the following chunk, we run a regression analysis witin each of these samples, predicting the number of affairs from the 9 predictors (including the intercept).</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">affairReg1 &lt;-<span class="st"> </span><span class="kw">lm</span>(nbaffairs <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>FairSample1)</a>
-<a class="sourceLine" id="cb15-2" title="2">affairReg2 &lt;-<span class="st"> </span><span class="kw">lm</span>(nbaffairs <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>FairSample2)</a>
-<a class="sourceLine" id="cb15-3" title="3"></a>
-<a class="sourceLine" id="cb15-4" title="4">R21 &lt;-<span class="st"> </span><span class="kw">summary</span>(affairReg1)<span class="op">$</span>r.squared</a>
-<a class="sourceLine" id="cb15-5" title="5">R22 &lt;-<span class="st"> </span><span class="kw">summary</span>(affairReg2)<span class="op">$</span>r.squared</a>
-<a class="sourceLine" id="cb15-6" title="6"><span class="kw">t</span>(<span class="kw">c</span>(<span class="dt">sample1 =</span> R21, <span class="dt">sample2 =</span> R22)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb15-7" title="7"><span class="st">    </span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&quot;R^2 from two small samples&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb290-1" title="1">affairReg1 &lt;-<span class="st"> </span><span class="kw">lm</span>(nbaffairs <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>FairSample1)</a>
+<a class="sourceLine" id="cb290-2" title="2">affairReg2 &lt;-<span class="st"> </span><span class="kw">lm</span>(nbaffairs <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>FairSample2)</a>
+<a class="sourceLine" id="cb290-3" title="3"></a>
+<a class="sourceLine" id="cb290-4" title="4">R21 &lt;-<span class="st"> </span><span class="kw">summary</span>(affairReg1)<span class="op">$</span>r.squared</a>
+<a class="sourceLine" id="cb290-5" title="5">R22 &lt;-<span class="st"> </span><span class="kw">summary</span>(affairReg2)<span class="op">$</span>r.squared</a>
+<a class="sourceLine" id="cb290-6" title="6"><span class="kw">t</span>(<span class="kw">c</span>(<span class="dt">sample1 =</span> R21, <span class="dt">sample2 =</span> R22)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb290-7" title="7"><span class="st">    </span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&quot;R^2 from two small samples&quot;</span>)</a></code></pre></div>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-2">Table 20.1: </span>R^2 from two small samples
+<span id="tab:unnamed-chunk-119">Table 20.1: </span>R^2 from two small samples
 </caption>
 <thead>
 <tr>
@@ -458,21 +463,17 @@ sample2
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">names</span>(affairReg1[[<span class="st">&quot;coefficients&quot;</span>]]) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb16-2" title="2"><span class="st">    </span><span class="kw">cbind</span>(<span class="kw">round</span>(affairReg1[[<span class="st">&quot;coefficients&quot;</span>]], <span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb16-3" title="3"><span class="st">    </span><span class="kw">cbind</span>(<span class="kw">round</span>(affairReg2[[<span class="st">&quot;coefficients&quot;</span>]], <span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb16-4" title="4"><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb16-5" title="5"><span class="st">    </span><span class="kw">rename</span>(<span class="dt">variable =</span> <span class="dv">1</span>, </a>
-<a class="sourceLine" id="cb16-6" title="6">           <span class="dt">sample1 =</span> <span class="dv">2</span>, </a>
-<a class="sourceLine" id="cb16-7" title="7">           <span class="dt">sample2 =</span> <span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb16-8" title="8"><span class="st">    </span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&quot;Regression coefficients from two small samples&quot;</span>) </a></code></pre></div>
-<pre><code>## Warning: The `x` argument of `as_tibble.matrix()` must have column names if `.name_repair` is omitted as of tibble 2.0.0.
-## Using compatibility `.name_repair`.
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" title="1"><span class="kw">names</span>(affairReg1[[<span class="st">&quot;coefficients&quot;</span>]]) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb291-2" title="2"><span class="st">    </span><span class="kw">cbind</span>(<span class="kw">round</span>(affairReg1[[<span class="st">&quot;coefficients&quot;</span>]], <span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb291-3" title="3"><span class="st">    </span><span class="kw">cbind</span>(<span class="kw">round</span>(affairReg2[[<span class="st">&quot;coefficients&quot;</span>]], <span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb291-4" title="4"><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb291-5" title="5"><span class="st">    </span><span class="kw">rename</span>(<span class="dt">variable =</span> <span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb291-6" title="6">           <span class="dt">sample1 =</span> <span class="dv">2</span>, </a>
+<a class="sourceLine" id="cb291-7" title="7">           <span class="dt">sample2 =</span> <span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb291-8" title="8"><span class="st">    </span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&quot;Regression coefficients from two small samples&quot;</span>) </a></code></pre></div>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-2">Table 20.1: </span>Regression coefficients from two small samples
+<span id="tab:unnamed-chunk-119">Table 20.1: </span>Regression coefficients from two small samples
 </caption>
 <thead>
 <tr>
@@ -606,18 +607,19 @@ rate
 For the grad school and airline pilot problems, draw a pair of coordinate axes, together with points representing a few dozen “positive” (apply or hire) and “unacceptable” (don’t apply, don’t hire) observations. What can you say about the boundary between these two regions in each problem?</p>
 </blockquote>
 <p>We can think of problems such as the grad school problem in a regression framework, while the pilot problem is instead a decision tree or “multiple cutoff” model. Very simple decision trees, including “fast and frugal trees,” can be useful tools both to describe how people decide and how they might make better decisions <span class="citation">(<span class="citeproc-not-found" data-reference-id="phillipsFFTreesToolboxCreate2017"><strong>???</strong></span>)</span>.</p>
-<p>In machine learning problems, there may be hundreds or thousands of predictors (features). The logic of decision trees is extended in techniques including bootstrap aggregation or <strong>bagging</strong> (in which a large number of trees are considered, then averaged), and <strong>random forests</strong> (which sequentially examines subsets of predictors in an effort to increase the reliability of predictions). These models are often predictively useful, but can be complex and difficult to interpret. Chapter 8 of <span class="citation">(James et al. <a href="#ref-james2013introduction" role="doc-biblioref">2013</a><a href="#ref-james2013introduction" role="doc-biblioref">b</a>)</span> goes into more detail on these methods.</p>
+<p>In machine learning problems, there may be hundreds or thousands of predictors (features). The logic of decision trees is extended in techniques including bootstrap aggregation or <strong>bagging</strong> (in which a large number of trees are considered, then averaged), and <strong>random forests</strong> (which sequentially examines subsets of predictors in an effort to increase the reliability of predictions). These models are often predictively useful, but can be complex and difficult to interpret. Chapter 8 of <span class="citation">(James et al. <a href="#ref-james2013introduction" role="doc-biblioref">2013</a><a href="#ref-james2013introduction" role="doc-biblioref">a</a>)</span> goes into more detail on these methods.</p>
 <p>Two additional methods bear mention: <strong>Support vector machines (SVM)</strong> are classifiers which attempt to find optimal margins (hyperplanes) between two or more sets of criteria. Finally, <strong>neural networks</strong> are models which typically include multiple layers (akin to biological neurons) each of which can be activated based on the sum of the inputs of the prior layer. The chain of prediction from input (pixel) to output (“chihuahua”) is not a simple forward path, rather, errors of prediction are used to tune weights of intermediate layers in a process known as <strong>backpropagation.</strong> Artificial neural networks are, at present, the most important set of techniques in artificial intelligence problems including image, speech, and even taste recognition.</p>
 
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" title="1">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">echo =</span> <span class="ot">TRUE</span>, <span class="dt">warn =</span> <span class="ot">FALSE</span>, <span class="dt">message =</span> <span class="ot">FALSE</span>) </a></code></pre></div>
 </div>
 </div>
 <h3> references</h3>
 <div id="refs" class="references">
-<div id="ref-jamesIntroductionStatisticalLearning2013a">
-<p>James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2013a. <em>An Introduction to Statistical Learning</em>. Vol. 103. Springer Texts in Statistics. New York, NY: Springer New York. <a href="https://doi.org/10.1007/978-1-4614-7138-7">https://doi.org/10.1007/978-1-4614-7138-7</a>.</p>
-</div>
 <div id="ref-james2013introduction">
-<p>James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2013b. <em>An Introduction to Statistical Learning</em>. Vol. 112. Springer.</p>
+<p>James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2013a. <em>An Introduction to Statistical Learning</em>. Vol. 112. Springer.</p>
+</div>
+<div id="ref-jamesIntroductionStatisticalLearning2013a">
+<p>James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2013b. <em>An Introduction to Statistical Learning</em>. Vol. 103. Springer Texts in Statistics. New York, NY: Springer New York. <a href="https://doi.org/10.1007/978-1-4614-7138-7">https://doi.org/10.1007/978-1-4614-7138-7</a>.</p>
 </div>
 <div id="ref-kumar2017explaining">
 <p>Kumar, Devinder, Alexander Wong, and Graham W Taylor. 2017. “Explaining the Unexplained: A Class-Enhanced Attentive Response (Clear) Approach to Understanding Deep Neural Networks.” In <em>Proceedings of the Ieee Conference on Computer Vision and Pattern Recognition Workshops</em>, 36–44.</p>
@@ -635,7 +637,7 @@ For the grad school and airline pilot problems, draw a pair of coordinate axes, 
         </div>
       </div>
 <a href="prediction-and-classification.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ethics-some-topics-for-discussion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="some-ethical-concerns-for-the-data-scientist.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -677,7 +679,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["DataSciLibArts.pdf", "DataSciLibArts.epub"],
+"download": null,
 "toc": {
 "collapse": "subsection"
 },
@@ -686,6 +688,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
