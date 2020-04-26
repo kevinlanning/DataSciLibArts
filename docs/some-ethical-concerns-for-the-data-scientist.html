@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Data science for the liberal arts</title>
+  <title>21 some ethical concerns for the data scientist | Data science for the liberal arts</title>
   <meta name="description" content="Test" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Data science for the liberal arts" />
+  <meta property="og:title" content="21 some ethical concerns for the data scientist | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="chihuahuamuffin.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Data science for the liberal arts" />
+  <meta name="twitter:title" content="21 some ethical concerns for the data scientist | Data science for the liberal arts" />
   
   <meta name="twitter:description" content="Test" />
   <meta name="twitter:image" content="chihuahuamuffin.jpg" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="preface.html"/>
+<link rel="prev" href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,6 +52,68 @@
 
 
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -308,22 +370,98 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Data science for the liberal arts</h1>
-<p class="author"><em>Kevin Lanning</em></p>
-<p class="date"><em>2020-04-26</em></p>
+<div id="some-ethical-concerns-for-the-data-scientist" class="section level1">
+<h1><span class="header-section-number">21</span> some ethical concerns for the data scientist</h1>
+<p>The Latin word <em>scientia</em> is commonly translated as both “science” and “knowledge.” Modern science or modern knowledge has led not only to dramatic improvements in public health and human life expectancy, but also to weapons of war that allow the slaughter of millions at a distance. The idea that science or knowledge is ethically fraught is not new: Adam and Even are said to have been cast out of the Garden of Eden after tasting the forbidden fruit from the tree of <em>knowledge</em> <span class="citation">(Shattuck <a href="#ref-shattuck_forbidden_1997" role="doc-biblioref">1997</a>)</span>. And, as we have seen in our discussion of the “most dangerous equation,” the lack of knowledge can also be dangerous - perhaps particularly today, as we are in the grips of a pandemic with leaders who govern by intuition rather than science, by hunch rather than data <span class="citation">(Wainer <a href="#ref-wainer_most_2007" role="doc-biblioref">2007</a>)</span>.</p>
+<p>In this final chapter, I consider a few case studies which exemplify some of the ethical issues and concerns that frame data science. Note the word “frame” - this is little more than the beginning of a scaffolding. But I hope that it is sufficient to bolster the claim that ethical concerns are or should be at the foundation of data science, and that individuals with training in the liberal arts (and not just math and engineering) should play an important role.</p>
+<div id="ethics-and-personality-harvesting" class="section level2">
+<h2><span class="header-section-number">21.1</span> ethics and personality harvesting</h2>
+<p>In personality psychology, concerns about how personality tests might invade privacy have been raised for over fifty years. Today, these concerns are newly relevant. One issue is measurement and experimentation without consent <span class="citation">(Gleibs <a href="#ref-gleibs_turning_2014" role="doc-biblioref">2014</a>)</span>. Here, the most dramatic and arguably consequential example of this occurred when Cambridge Analytica scraped the online activity of individuals whose friends had participated in a study of personality, then leveraged this further to assess the personality of all or nearly all American adults. Cambridge Analytica, Facebook, and other data-rich firms such as Experian engage in practices such as “shadow profiling,” which is the nonconsensual profiling of individuals through their social connections (Garcia, 2017; Quodling, 2018).</p>
+<p>This profiling leads to the selective tailoring of messages (ads, political appeals) which, at the very least, attenuates freedom of choice. At a societal level, it can lead to manipulations of consumer and political behavior, including voting decisions (Bond et al., 2012; Confessore &amp; Hakim, 2017; Corbyn, 2012; Matz, Gladstone, &amp; Stillwell, 2016). Tailored messaging can not only harm our social fabric, deepening partisan divides among us, but can have consequences for social institutions as well.</p>
+<p>In a recent paper, expressed our concern that the harvesting of personality information is likely to become more common in the years to come (Boyd et al). This argument derives from a series of claims, which are listed below:</p>
+<ol style="list-style-type: decimal">
+<li><strong>It takes very little data to identify someone</strong>. We can often discover the identity of an individual from a very small number of data points (Sweeney 2005).</li>
+<li><strong>There is a great deal of data available</strong>. For example, credit card purchases, Uber trips, exercise routes tracked on Strava, turnpike itineraries, medical records - are becoming increasingly digital, and so the potential for linking data increases.</li>
+<li><strong>Combining data leads to new value</strong>. As we have seen this term, there can be meaningful value, new knowledge, when different datasets are joined.</li>
+<li><strong>There are few constraints on data collection and synthesis</strong>. The collection of digital data is typically undertaken by private companies motivated by profit, who are often unconstrained by ethical concerns that might be raised by, for example, human subjects review boards (Thompson &amp; Warzel, 2019).</li>
+<li><strong>Information is valuable</strong> to a range of parties - from potential employers to insurance companies to potential romantic partners. For these and other reasons, we anticipate that there will be a growing market for data about our personalities Wu, 2019.</li>
+</ol>
 </div>
-<div id="section" class="section level1 unnumbered">
-<h1></h1>
+<div id="the-law-of-unintended-consequences" class="section level2">
+<h2><span class="header-section-number">21.2</span> the law of unintended consequences</h2>
+<p>One of the recurring issues in digital ethics has been the so-called “law of unintended consequences” (merton, 1936). When we initiate a new policy, or collect a new dataset, or give permission to a social media application to share our information, or investigate our family tree using a service such as Ancestry.com or 23andMe.com, we do not know what will happen with the information that we share or create. For example, assume that Fred signs up to learn about his family and health on 23andMe. He finds that he has a health vulnerability with an already known, or even a soon-to-be-discovered, genetic predisposition. That information has consequences not just for him but, potentially, for his offspring. If that genetic information is shared, it takes little in the way of a dystopian imagination to consider that Fred ’s grandchildren might have to pay higher health insurance premiums, be prohibited from migrating to certain other countries, be seen as less desirable partners, etc. These examples might seem extreme, but unintended consequences are typically unforeseeable. For example, when the good folks at Netflix shared some of their movie-preference data and offered a million-dollar prize to anyone who could substantially improve on their recommendation-engine, they did not intend to “out” individuals including a closeted lesbian mom who was identified by several “white-hat” (i.e., non-malicious hackers) data scientists (Narayanan).</p>
+</div>
+<div id="your-privacy-is-my-concern" class="section level2">
+<h2><span class="header-section-number">21.3</span> your privacy is my concern</h2>
+<p>It is not paradoxical that I should be concerned with your (right to) privacy. I’m invested in your ability to choose what to reveal about yourself, when, and to whom, in part because I want you to be able to live in and contribute to the world. Even if I am not that concerned about having details of my own life revealed, I must be sympathetic to your concerns. The concern for privacy is not a fetish, but is critical if we are to live and work in a just and decent society.</p>
+</div>
+<div id="who-should-hold-the-digital-keys" class="section level2">
+<h2><span class="header-section-number">21.4</span> who should hold the digital keys?</h2>
+<p>Let’s shift gears somewhat, and consider some of the issues surrounding autonomous vehicles.</p>
+<p>In a data-dependent world, who should be the guardians of the code that connects us? To consider just one example, the computer systems in modern cars typically run millions of lines of code. As cars become increasingly autonomous, this complexity will only increase. (Incidentally, the Society of Automotive Engineers, or SAE, describes 6 levels of ‘auto autonomy.’ At this writing, the most sophisticated systems available to consumers, such as Tesla Autopilot, are at level 2. What lies ahead are cars which are self-driving on carefully selected, geo-fenced roads, and ultimately cars “<a href="https://www.caranddriver.com/features/a15079828/autonomous-self-driving-car-levels-car-levels/">which can operate on any road… a human driver could negotiate</a>”). Our roads and highways will become an Internet of Vehicles (IOV), which will include not just connections between cars and an intelligent <em>cloud</em> ‘above us’ but also direct links between a distributed system of intelligent cars, stoplights, and road sensors in a <em>fog</em> ‘around us’ <span class="citation">(Bonomi et al. <a href="#ref-bonomi2012fog" role="doc-biblioref">2012</a>)</span>. <strong>Fog computing</strong> and the IOV will reduce travel times and increase both fuel efficiency and automotive safety.</p>
+<p>Obviously, there are <strong>cybersecurity</strong> concerns. While the prospects for <a href="https://www.youtube.com/watch?v=OvewYslou9g">a chaotic, choreographed hack of hundreds of vehicles on the streets of Manhattan</a>, such as that in the 2017 movie “The Fate of the Furious”, are remote at best (or worst), there have been examples of “white-hat hackers” who have successfully infiltrated (and thereby helped secure) car information systems.</p>
+<p>As the IOV develops, there will be vulnerabilities to privacy as well as safety, and the security of the system will be paramount. Different car manufacturers are taking different approaches to developing secure information systems, with many using a closed or proprietary approach. But the scope of the problem is so large that there is a movement towards pooling resources and encouraging collaboration among industry partners, academics, and citizen scientists in the development of an open-source autonomous driving platform, such as <a href="http://apollo.auto/">Apollo</a>. Perhaps counterintuitively, there may be significant security advantages to using source code that is open to all <span class="citation">(Clarke, Dorwin, and Nash <a href="#ref-clarke2009open" role="doc-biblioref">2009</a>; FitzGerald, Levin, and Parziale <a href="#ref-fitzgerald2016open" role="doc-biblioref">2016</a>)</span>.</p>
+</div>
+<div id="contact-tracing-and-covid-19" class="section level2">
+<h2><span class="header-section-number">21.5</span> contact-tracing and COVID-19</h2>
+<p>On April 10, 2020, Google and Apple announced that they would collaborate on a contact-tracing system to try and slow the COVID-19 pandemic. Keeping in mind the ethical issues of (a) the law of unintended consequences, (b) prior failures to maintain anonymity, (c) arguments that data should be best secured by industry, government, or crowdsourcing, as well as the tech issues of (d) the potential methods for contact tracing, and (e) the costs of the pandemic to public health and to world economies, to what extent should digital tracking be used to assess and limit the spread of the novel coronavirus?</p>
+<p>You can learn more about the Google-Apple collaboration at <a href="https://www.apple.com/covid19/contacttracing/">their FAQ</a>, and consider some of the ethical issues in <a href="https://fivethirtyeight.com/features/big-data-is-helping-us-fight-the-coronavirus-but-at-what-cost-to-our-privacy/">this piece at fivethirtyeight.com</a>, and in this more recent piece at <a href="https://www.theverge.com/2020/4/24/21234457/apple-google-coronavirus-contact-tracing-tracker-exposure-notification-shut-down">the Verge</a>.</p>
+</div>
+<div id="the-digital-divide" class="section level2">
+<h2><span class="header-section-number">21.6</span> the digital divide</h2>
+<p>Not all are benefiting equally from the birth of the digital age. Unfortunately, the “Matthew-effect,” by which resources flow to those who have them most and need them less, is a fundamental property of networked, complex systems. As we become more interconnected, the gap between rich and poor is accelerating. The primary path to a successful life is to find a “scalable” occupation - that is, one in which you can serve many people with little effort. But that means that fewer will “serve.”</p>
+<p>So yes, spend your summer trying to become a social media influencer. Better still, make a commitment to working to try to reduce the growing digital divide, and more broadly to address issues of equality and social justice in your own applications of data science. Google, which once had the mantra “don’t be evil” in its core of conduct, has now moved to a set of positive (do’s) as well as negative (don’ts) <a href="https://ai.google/principles">guidelines for their work in Artificial Intelligence</a>. Information can be empowering (for those who have it).</p>
+</div>
+<div id="some-potential-remedies" class="section level2">
+<h2><span class="header-section-number">21.7</span> some potential remedies</h2>
+<p>In the European Union, the <a href="https://gdpr-info.eu/">General Data Protection Regulation (GDPR)</a> has been in effect since 2018, and provides guidelines for protecting people and personal data in the digital age. In a related piece, <span class="citation">Loukides (<a href="#ref-loukides2018ethics" role="doc-biblioref">2018</a>)</span> provided a briefer set of guidelines. They argued that it is not enough that people provide <strong>consent</strong>, but also that there must be <strong>clarity</strong>: That it, it’s not enough that people agree to share their data, they must also understand what they are agreeing to. Other issues that they highlight include the need for data security (as stolen data often include, for example, SSNs and passwords), and protection of vulnerable populations such as children. Finally, they provide a checklist for those developing data products:</p>
+<p>❏ Have we listed how this technology can be attacked or abused?</p>
+<p>❏ Have we tested our training data to ensure it is fair and representative?</p>
+<p>❏ Have we studied and understood possible sources of bias in our data?</p>
+<p>❏ Does our team reflect diversity of opinions, backgrounds, and kinds of thought?</p>
+<p>❏ What kind of user consent do we need to collect to use the data?</p>
+<p>❏ Do we have a mechanism for gathering consent from users?</p>
+<p>❏ Have we explained clearly what users are consenting to?</p>
+<p>❏ Do we have a mechanism for redress if people are harmed by the results?</p>
+<p>❏ Can we shut down this software in production if it is behaving badly?</p>
+<p>❏ Have we tested for fairness with respect to different user groups?</p>
+<p>❏ Have we tested for disparate error rates among different user groups?</p>
+<p>❏ Do we test and monitor for model drift to ensure our software remains fair over time?</p>
+<p>❏ Do we have a plan to protect and secure user data?</p>
 
+</div>
+</div>
+<h3> references</h3>
+<div id="refs" class="references">
+<div id="ref-bonomi2012fog">
+<p>Bonomi, Flavio, Rodolfo Milito, Jiang Zhu, and Sateesh Addepalli. 2012. “Fog Computing and Its Role in the Internet of Things.” In <em>Proceedings of the First Edition of the Mcc Workshop on Mobile Cloud Computing</em>, 13–16. ACM.</p>
+</div>
+<div id="ref-clarke2009open">
+<p>Clarke, Russell, David Dorwin, and Rob Nash. 2009. “Is Open Source Software More Secure?” <em>Homeland Security/Cyber Security</em>.</p>
+</div>
+<div id="ref-fitzgerald2016open">
+<p>FitzGerald, Ben, Peter L Levin, and Jacqueline Parziale. 2016. <em>Open Source Software &amp; the Department of Defense</em>. Center for a New American Security.</p>
+</div>
+<div id="ref-gleibs_turning_2014">
+<p>Gleibs, Ilka H. 2014. “Turning Virtual Public Spaces into Laboratories: Thoughts on Conducting Online Field Studies Using Social Network Sites.” <em>Analyses of Social Issues and Public Policy</em> 14 (1): 352–70.</p>
+</div>
+<div id="ref-loukides2018ethics">
+<p>Loukides, Mason, Mike. 2018. <em>Ethics and Data Science</em>. O’Reilly.</p>
+</div>
+<div id="ref-shattuck_forbidden_1997">
+<p>Shattuck, Roger. 1997. “Forbidden Knowledge: From Prometheus to Pornography.” https://www.amazon.com/Forbidden-Knowledge-Pornography-Roger-Shattuck/dp/0156005514.</p>
+</div>
+<div id="ref-wainer_most_2007">
+<p>Wainer, Howard. 2007. “The Most Dangerous Equation,” 9.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="preface.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
