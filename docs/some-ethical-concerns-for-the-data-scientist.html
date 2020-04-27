@@ -24,7 +24,7 @@
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2020-04-26" />
+<meta name="date" content="2020-04-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,15 +50,6 @@
 
 
 
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
-<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 
 
 <style type="text/css">
@@ -356,7 +347,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="21.4" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#who-should-hold-the-digital-keys"><i class="fa fa-check"></i><b>21.4</b> who should hold the digital keys?</a></li>
 <li class="chapter" data-level="21.5" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#contact-tracing-and-covid-19"><i class="fa fa-check"></i><b>21.5</b> contact-tracing and COVID-19</a></li>
 <li class="chapter" data-level="21.6" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#the-digital-divide"><i class="fa fa-check"></i><b>21.6</b> the digital divide</a></li>
-<li class="chapter" data-level="21.7" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#some-potential-remedies"><i class="fa fa-check"></i><b>21.7</b> some potential remedies</a></li>
+<li class="chapter" data-level="21.7" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#still-more-case-studies"><i class="fa fa-check"></i><b>21.7</b> still more case studies</a></li>
+<li class="chapter" data-level="21.8" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#some-potential-remedies"><i class="fa fa-check"></i><b>21.8</b> some potential remedies</a></li>
 </ul></li>
 <li class="chapter" data-level="22" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>22</b> references</a></li>
 <li class="divider"></li>
@@ -381,24 +373,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="some-ethical-concerns-for-the-data-scientist" class="section level1">
 <h1><span class="header-section-number">21</span> some ethical concerns for the data scientist</h1>
-<p>The Latin word <em>scientia</em> is commonly translated as both “science” and “knowledge.” Modern science or modern knowledge has led not only to dramatic improvements in public health and human life expectancy, but also to weapons of war that allow the slaughter of millions at a distance. The idea that science or knowledge is ethically fraught is not new: Adam and Even are said to have been cast out of the Garden of Eden after tasting the forbidden fruit from the tree of <em>knowledge</em> <span class="citation">(Shattuck <a href="#ref-shattuck_forbidden_1997" role="doc-biblioref">1997</a>)</span>. And, as we have seen in our discussion of the “most dangerous equation,” the lack of knowledge can also be dangerous - perhaps particularly today, as we are in the grips of a pandemic with leaders who govern by intuition rather than science, by hunch rather than data <span class="citation">(Wainer <a href="#ref-wainer_most_2007" role="doc-biblioref">2007</a><a href="#ref-wainer_most_2007" role="doc-biblioref">b</a>)</span>.</p>
+<p>The Latin word <em>scientia</em> is commonly translated as both “science” and “knowledge.” Modern science or modern knowledge has led not only to dramatic improvements in public health and human life expectancy, but also to weapons of war that allow the slaughter of millions at a distance. The idea that science or knowledge is ethically fraught is not new: Adam and Even are said to have been cast out of the Garden of Eden after tasting the forbidden fruit from the tree of <em>knowledge</em> <span class="citation">(Shattuck <a href="#ref-shattuck_forbidden_1997" role="doc-biblioref">1997</a>)</span>. And, as we have seen in our discussion of the “most dangerous equation,” the lack of knowledge can also be dangerous - perhaps particularly today, as we are in the grips of a pandemic with leaders who govern by intuition rather than science, by hunch rather than data <span class="citation">(Wainer <a href="#ref-wainer_most_2007" role="doc-biblioref">2007</a>)</span>.</p>
 <p>In this final chapter, I consider a few case studies which exemplify some of the ethical issues and concerns that frame data science. Note the word “frame” - this is little more than the beginning of a scaffolding. But I hope that it is sufficient to bolster the claim that ethical concerns are or should be at the foundation of data science, and that individuals with training in the liberal arts (and not just math and engineering) should play an important role.</p>
 <div id="ethics-and-personality-harvesting" class="section level2">
 <h2><span class="header-section-number">21.1</span> ethics and personality harvesting</h2>
 <p>In personality psychology, concerns about how personality tests might invade privacy have been raised for over fifty years. Today, these concerns are newly relevant. One issue is measurement and experimentation without consent <span class="citation">(Gleibs <a href="#ref-gleibs_turning_2014" role="doc-biblioref">2014</a>)</span>. Here, the most dramatic and arguably consequential example of this occurred when Cambridge Analytica scraped the online activity of individuals whose friends had participated in a study of personality, then leveraged this further to assess the personality of all or nearly all American adults. Cambridge Analytica, Facebook, and other data-rich firms such as Experian engage in practices such as “shadow profiling,” which is the nonconsensual profiling of individuals through their social connections (Garcia, 2017; Quodling, 2018).</p>
 <p>This profiling leads to the selective tailoring of messages (ads, political appeals) which, at the very least, attenuates freedom of choice. At a societal level, it can lead to manipulations of consumer and political behavior, including voting decisions (Bond et al., 2012; Confessore &amp; Hakim, 2017; Corbyn, 2012; Matz, Gladstone, &amp; Stillwell, 2016). Tailored messaging can not only harm our social fabric, deepening partisan divides among us, but can have consequences for social institutions as well.</p>
-<p>In a recent paper, expressed our concern that the harvesting of personality information is likely to become more common in the years to come (Boyd et al). This argument derives from a series of claims, which are listed below:</p>
+<p>In a recent paper, several of us expressed our concern that the harvesting of personality information is likely to become more common in the years to come <span class="citation">(Boyd, Pasca, and Lanning <a href="#ref-boyd_personality_2020" role="doc-biblioref">2020</a>)</span>. This argument derives from a series of claims, which are listed below:</p>
 <ol style="list-style-type: decimal">
 <li><strong>It takes very little data to identify someone</strong>. We can often discover the identity of an individual from a very small number of data points (Sweeney 2005).</li>
 <li><strong>There is a great deal of data available</strong>. For example, credit card purchases, Uber trips, exercise routes tracked on Strava, turnpike itineraries, medical records - are becoming increasingly digital, and so the potential for linking data increases.</li>
 <li><strong>Combining data leads to new value</strong>. As we have seen this term, there can be meaningful value, new knowledge, when different datasets are joined.</li>
 <li><strong>There are few constraints on data collection and synthesis</strong>. The collection of digital data is typically undertaken by private companies motivated by profit, who are often unconstrained by ethical concerns that might be raised by, for example, human subjects review boards (Thompson &amp; Warzel, 2019).</li>
-<li><strong>Information is valuable</strong> to a range of parties - from potential employers to insurance companies to potential romantic partners. For these and other reasons, we anticipate that there will be a growing market for data about our personalities Wu, 2019.</li>
+<li><strong>Information is valuable</strong> to a range of parties - from potential employers to insurance companies to potential romantic partners. For these and other reasons, we anticipate that there will be a growing market for data about our personalities (Wu, 2019).</li>
 </ol>
 </div>
 <div id="the-law-of-unintended-consequences" class="section level2">
 <h2><span class="header-section-number">21.2</span> the law of unintended consequences</h2>
-<p>One of the recurring issues in digital ethics has been the so-called “law of unintended consequences” (merton, 1936). When we initiate a new policy, or collect a new dataset, or give permission to a social media application to share our information, or investigate our family tree using a service such as Ancestry.com or 23andMe.com, we do not know what will happen with the information that we share or create. For example, assume that Fred signs up to learn about his family and health on 23andMe. He finds that he has a health vulnerability with an already known, or even a soon-to-be-discovered, genetic predisposition. That information has consequences not just for him but, potentially, for his offspring. If that genetic information is shared, it takes little in the way of a dystopian imagination to consider that Fred ’s grandchildren might have to pay higher health insurance premiums, be prohibited from migrating to certain other countries, be seen as less desirable partners, etc. These examples might seem extreme, but unintended consequences are typically unforeseeable. For example, when the good folks at Netflix shared some of their movie-preference data and offered a million-dollar prize to anyone who could substantially improve on their recommendation-engine, they did not intend to “out” individuals including a closeted lesbian mom who was identified by several “white-hat” (i.e., non-malicious hackers) data scientists (Narayanan).</p>
+<p>One of the recurring issues in digital ethics has been the so-called “law of unintended consequences” (Merton, 1936). When we initiate a new policy, or collect a new dataset, or give permission to a social media application to share our information, or investigate our family tree using a service such as Ancestry.com or 23andMe.com, we do not know what will happen with the information that we share or create. For example, assume that Fred signs up to learn about his family and health on 23andMe. He finds that he has a health vulnerability with an already known, or even a soon-to-be-discovered, genetic predisposition. That information has consequences not just for him but, potentially, for his offspring. If that genetic information is shared, it takes little in the way of a dystopian imagination to consider that Fred ’s grandchildren might have to pay higher health insurance premiums, be prohibited from migrating to certain other countries, be seen as less desirable partners, etc. These examples might seem extreme, but unintended consequences are typically unforeseeable. For example, when the good folks at Netflix shared some of their movie-preference data and offered a million-dollar prize to anyone who could substantially improve on their recommendation-engine, they did not intend to “out” individuals including a closeted lesbian mom who was identified by several data scientists <span class="citation">(Narayanan and Shmatikov <a href="#ref-narayanan_robust_2008" role="doc-biblioref">2008</a>)</span>.</p>
 </div>
 <div id="your-privacy-is-my-concern" class="section level2">
 <h2><span class="header-section-number">21.3</span> your privacy is my concern</h2>
@@ -414,15 +406,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="contact-tracing-and-covid-19" class="section level2">
 <h2><span class="header-section-number">21.5</span> contact-tracing and COVID-19</h2>
 <p>On April 10, 2020, Google and Apple announced that they would collaborate on a contact-tracing system to try and slow the COVID-19 pandemic. Keeping in mind the ethical issues of (a) the law of unintended consequences, (b) prior failures to maintain anonymity, (c) arguments that data should be best secured by industry, government, or crowdsourcing, as well as the tech issues of (d) the potential methods for contact tracing, and (e) the costs of the pandemic to public health and to world economies, to what extent should digital tracking be used to assess and limit the spread of the novel coronavirus?</p>
-<p>You can learn more about the Google-Apple collaboration at <a href="https://www.apple.com/covid19/contacttracing/">their FAQ</a>, and consider some of the ethical issues in <a href="https://fivethirtyeight.com/features/big-data-is-helping-us-fight-the-coronavirus-but-at-what-cost-to-our-privacy/">this piece at fivethirtyeight.com</a>, and in this more recent piece at <a href="https://www.theverge.com/2020/4/24/21234457/apple-google-coronavirus-contact-tracing-tracker-exposure-notification-shut-down">the Verge</a>.</p>
+<p>You can learn more about the Google-Apple collaboration at <a href="https://www.apple.com/covid19/contacttracing/">their FAQ</a> and this piece at <a href="https://techcrunch.com/2020/04/10/apple-and-google-are-launching-a-joint-covid-19-tracing-tool/">techcrunch</a>. Consider some of the ethical issues raised in this essay at <a href="https://fivethirtyeight.com/features/big-data-is-helping-us-fight-the-coronavirus-but-at-what-cost-to-our-privacy/">fivethirtyeight.com</a>, and in this more recent piece at <a href="https://www.theverge.com/2020/4/24/21234457/apple-google-coronavirus-contact-tracing-tracker-exposure-notification-shut-down">the Verge</a>.</p>
 </div>
 <div id="the-digital-divide" class="section level2">
 <h2><span class="header-section-number">21.6</span> the digital divide</h2>
 <p>Not all are benefiting equally from the birth of the digital age. Unfortunately, the “Matthew-effect,” by which resources flow to those who have them most and need them less, is a fundamental property of networked, complex systems. As we become more interconnected, the gap between rich and poor is accelerating. The primary path to a successful life is to find a “scalable” occupation - that is, one in which you can serve many people with little effort. But that means that fewer will “serve.”</p>
 <p>So yes, spend your summer trying to become a social media influencer. Better still, make a commitment to working to try to reduce the growing digital divide, and more broadly to address issues of equality and social justice in your own applications of data science. Google, which once had the mantra “don’t be evil” in its core of conduct, has now moved to a set of positive (do’s) as well as negative (don’ts) <a href="https://ai.google/principles">guidelines for their work in Artificial Intelligence</a>. Information can be empowering (for those who have it).</p>
 </div>
+<div id="still-more-case-studies" class="section level2">
+<h2><span class="header-section-number">21.7</span> still more case studies</h2>
+<p>As we face ubiquitous observation as our world becomes an Internet of Things, and live in a world in which decisions will increasingly be made for us by applications of machine learning and artifical intelligence, new questions will be raised about the social impact of our science. Some of these are illustrated in these <a href="https://aiethics.princeton.edu/case-studies/case-study-pdfs/">six hypothetical case studies</a> proposed by an interdisciplinary team at Princeton. They warrant your consideration.</p>
+</div>
 <div id="some-potential-remedies" class="section level2">
-<h2><span class="header-section-number">21.7</span> some potential remedies</h2>
+<h2><span class="header-section-number">21.8</span> some potential remedies</h2>
 <p>In the European Union, the <a href="https://gdpr-info.eu/">General Data Protection Regulation (GDPR)</a> has been in effect since 2018, and provides guidelines for protecting people and personal data in the digital age. In a related piece, <span class="citation">Loukides (<a href="#ref-loukides2018ethics" role="doc-biblioref">2018</a>)</span> provided a briefer set of guidelines. They argued that it is not enough that people provide <strong>consent</strong>, but also that there must be <strong>clarity</strong>: That it, it’s not enough that people agree to share their data, they must also understand what they are agreeing to. Other issues that they highlight include the need for data security (as stolen data often include, for example, SSNs and passwords), and protection of vulnerable populations such as children. Finally, they provide a checklist for those developing data products:</p>
 <p>❏ Have we listed how this technology can be attacked or abused?</p>
 <p>❏ Have we tested our training data to ensure it is fair and representative?</p>
@@ -445,6 +441,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ref-bonomi2012fog">
 <p>Bonomi, Flavio, Rodolfo Milito, Jiang Zhu, and Sateesh Addepalli. 2012. “Fog Computing and Its Role in the Internet of Things.” In <em>Proceedings of the First Edition of the Mcc Workshop on Mobile Cloud Computing</em>, 13–16. ACM.</p>
 </div>
+<div id="ref-boyd_personality_2020">
+<p>Boyd, Ryan L., Paola Pasca, and Kevin Lanning. 2020. “The Personality Panorama: Conceptualizing Personality Through Big Behavioural Data: The Personality Panorama.” Edited by John Rauthmann. <em>European Journal of Personality</em>, April. <a href="https://doi.org/10.1002/per.2254">https://doi.org/10.1002/per.2254</a>.</p>
+</div>
 <div id="ref-clarke2009open">
 <p>Clarke, Russell, David Dorwin, and Rob Nash. 2009. “Is Open Source Software More Secure?” <em>Homeland Security/Cyber Security</em>.</p>
 </div>
@@ -457,11 +456,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ref-loukides2018ethics">
 <p>Loukides, Mason, Mike. 2018. <em>Ethics and Data Science</em>. O’Reilly.</p>
 </div>
+<div id="ref-narayanan_robust_2008">
+<p>Narayanan, Arvind, and Vitaly Shmatikov. 2008. “Robust de-Anonymization of Large Sparse Datasets.” In <em>2008 IEEE Symposium on Security and Privacy (Sp 2008)</em>, 111–25. Oakland, CA, USA: IEEE. <a href="https://doi.org/10.1109/SP.2008.33">https://doi.org/10.1109/SP.2008.33</a>.</p>
+</div>
 <div id="ref-shattuck_forbidden_1997">
 <p>Shattuck, Roger. 1997. “Forbidden Knowledge: From Prometheus to Pornography.” https://www.amazon.com/Forbidden-Knowledge-Pornography-Roger-Shattuck/dp/0156005514.</p>
 </div>
 <div id="ref-wainer_most_2007">
-<p>Wainer, Howard. 2007b. “The Most Dangerous Equation,” 9.</p>
+<p>Wainer, Howard. 2007. “The Most Dangerous Equation,” 9.</p>
 </div>
 </div>
             </section>
@@ -521,20 +523,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
