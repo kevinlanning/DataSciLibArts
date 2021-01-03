@@ -1,1 +1,1 @@
-Notes for Lanning's 2019 Introduction to Data Science course.
+Notes for Lanning's 2021 Introduction to Data Science course.
