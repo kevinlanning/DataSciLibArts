@@ -3,18 +3,17 @@ title: "Data science for the liberal arts"
 author: "Kevin Lanning"
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
+output: 
+    bookdown::gitbook
 documentclass: "book"
-classoption: "openany"
-biblio-style: "apalike"
 bibliography: 
-  - ../9Bibliography/dataSciRefs.bib
-  - ../9Bibliography/MyLibrary.bib
+    ../9Bibliography/MyLibrary.bib
+biblio-style: apalike
 description: "Test"
-link-citations: true
-cover-image: chihuahuamuffin.jpg
+link-citations: yes
 github-repo: kevinlanning/DataSciLibArts
-urlcolor: blue
-output:
-  bookdown::gitbook
+# classoption: "openany"
+# cover-image: chihuahuamuffin.jpg
+# urlcolor: blue
 ---
-#  {-} 
+# {-} 

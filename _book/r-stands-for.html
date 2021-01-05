@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>preface | Data science for the liberal arts</title>
+  <title>3 R stands for … | Data science for the liberal arts</title>
   <meta name="description" content="Test" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="preface | Data science for the liberal arts" />
+  <meta property="og:title" content="3 R stands for … | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="preface | Data science for the liberal arts" />
+  <meta name="twitter:title" content="3 R stands for … | Data science for the liberal arts" />
   
   <meta name="twitter:description" content="Test" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="data-science-for-the-liberal-arts.html"/>
+<link rel="prev" href="getting-started.html"/>
+<link rel="next" href="now-draw-the-rest-of-the-owl.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -194,42 +194,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="preface" class="section level1 unnumbered">
-<h1>preface</h1>
-<p>This work-in-progress will ultimately serve as a textbook for introductory undergraduate courses in data sciences. No prior knowledge of computer programming is presumed, though, ideally, students will have had college algebra (or its equivalent) and an introductory course in statistics, methods, or data analysis.</p>
-<p>Data science is still a new field of study, and there are multiple approaches to teaching it and to its place in the college curriculum. This book is intended to serve courses such as the <a href="https://kevinlanning.github.io/DataSciSpring2020/"><em>Introduction to Data Science</em></a> at the Wilkes Honors College of Florida Atlantic University which, in turn, has drawn from data science classes at the universities of <a href="https://idc9.github.io/stor390/">North Carolina</a>, <a href="https://github.com/STAT545-UBC/STAT545-UBC.github.io">British Columbia</a>, <a href="https://www2.stat.duke.edu/courses/Fall15/sta112.01/">Duke</a>, <a href="http://www.hcbravo.org/IntroDataSci/calendar/">Maryland</a>, <a href="http://pages.stat.wisc.edu/~yandell/R_for_data_sciences/syllabus.html">Wisconsin</a>, <a href="https://github.com/dcl-2017-04/curriculum">Stanford</a>, <a href="https://byuistats.github.io/M335/syllabus.html">BYU</a>, <a href="http://datasciencelabs.github.io/">Harvard</a>, <a href="https://github.com/MUSA-620-Spring-2017/Course-Materials">Pennsylvania</a>, and <a href="https://github.com/FAUDataScience/stat259">UC Berkeley</a> At each of these schools, the Introduction to Data Science appears, to my eyes at least, closer to Statistics than to Computer Science.</p>
-<p>But if our approach is closer to statistics than to programming, it is particularly close to statistics in its most applied and pragmatic form. The choice of statistical methods should follow from the data and problem at hand - that is, statistics should serve the needs of the user rather than dictate them <span class="citation">(Loevinger <a href="#ref-loevinger1957" role="doc-biblioref">1957</a>)</span>. This pragmatic focus is driving the growth of data science in industry, and it is reflected in the way data science is taught at still other schools including <a href="https://github.com/UC-MACSS/persp-analysis">Chicago</a>, <a href="https://github.com/jacobeisenstein/gt-css-class">Georgia Tech</a>, <a href="https://github.com/raviolli77/dataScience-UCSBProjectGroup-Syllabus">UC Santa Barbara</a>, <a href="http://www.princeton.edu/~mjs3/soc596_f2016/">Princeton</a>, <a href="https://github.com/rochelleterman/PS239T">UC Berkeley</a>, at <a href="https://github.com/HertieDataScience/SyllabusAndLectures">Berlin’s Hertie School of Governance</a>, and in <a href="https://github.com/tommeagher/data1-fall2015">Columbia’s School of Journalism</a>.</p>
-<div id="some-features-of-the-text" class="section level2 unnumbered">
-<h2>some features of the text</h2>
-<p>There are a number of different approaches to teaching data science. The present text includes several distinguishing features.</p>
-<p><strong>R</strong></p>
-<p>In a recent informal survey of introductory data science courses, I saw a pretty even split between those which begin with Python and those which begin with the statistical programming language R. This difference corresponds, very loosely, to the split noted above: Computer science based approaches to data science are frequently grounded in Python, while statistics-based approaches are generally grounded in R. Our course, like those for most of the syllabi and courses linked above, will be based in R.</p>
-<p><strong>Reproducible science</strong></p>
-<p>The course will provide an introduction to some of the methods and tools of reproducible science. We will consider the replication crisis in the natural and social sciences, and then consider three distinct approaches which serve as partial solutions to the crisis. The first of these is training in a notebook-based approach to writing analyses, reports and projects (using R markdown documents). The second is using public repositories (such as the <a href="https://osf.io/">Open Science Framework</a> and <a href="https://github.com/">GitHub</a>) to provide snapshots of projects over time. Finally, the third is to consider the place of significance testing in the age of Big Data, and to provide training in the use of descriptive, exploratory techniques of data analysis.</p>
-<p><strong>Good visualizations</strong></p>
-<p>Part of Type C data science is communication, and this includes not just writing up results, but also designing data displays that incisively convey the key ideas or features in a flood of data. We’ll examine and develop data visualizations such as plots, networks and text clouds. More advanced topics may include maps, interactive displays, and animations.</p>
-<p><del><strong>All</strong></del> <strong><em>Some of</em></strong> <strong>the data</strong></p>
-<p>It’s been claimed that in the last fifteen years, humans have produced more than 60 times as much information as existed in the entire previous history of humankind. (It sounds like hyperbole, but even if it’s off by an order of magnitude it’s still amazing). There are plenty of data sources for us to examine, and we’ll consider existing datasets from disciplines ranging from literature to economics to public health, with sizes ranging from a few dozen to millions of data points. We will also clean and create new datasets.</p>
-<p><del><strong>All</strong></del> <strong><em>A few of</em></strong> <strong>the latest tools</strong></p>
-<p>One feature of Data Science is that it is changing rapidly. The tools, methods, data sources, and ethical concerns that face us in 2021 are different from those which shaped the field just one or two years ago.</p>
-<p>In fields that are undergoing rapid change, there is some trade-off between building expertise with existing (older) tools and trying the newer approaches. Partly because I want to equip you with skills which will not be obsolete, partly because some of these new approaches promise more accessibility, elegance, and/or power, and partly because of my own interest in staying current, we’ll be using some of the latest packages and programs.</p>
-<p>In the last few years, I’ve shifted the class from the standard R dialect (as I learned it from the <a href="https://www.coursera.org/specializations/jhu-data-science">Johns Hopkins-Coursera Data Science Specialization</a>) to the Tidyverse. This year, for the first time, most of our work with the R language will take place online, using <a href="https://rstudio.cloud/">RStudio cloud</a>, for this should help overcome some hiccups that arise when students are using different machines, operating systems, etc., and should facilitate collaboration among us as well. We’ll also be experimenting for the first time with the <a href="https://rstudio.github.io/learnr/">learnr</a> package, and emphasizing other approaches to learning R, including <a href="https://swirlstats.com/">Swirl</a> less.</p>
-<p>In the past, I’ve used the Slack platform for messaging, communication and collaboration; this year, I’ve somewhat reluctantly moved to the Canvas LMS. And, in the past, I’ve recommended using dedicated markdown editors such as <a href="https://typora.io/">Typora</a>. While I still think that these are great for some text-editing and note-taking, we’ll do our work instead with the editor in the latest variant of RStudio on our laptops, as this allows WYSIWIG (what you see is what you get) formatting of documents - such as this one - that are intended as “publication-ready” texts.</p>
-<p>We’ll continue to use spreadsheets such as Excel or Google Sheets as well.</p>
+<div id="r-stands-for" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> R stands for …</h1>
+<p>Historically, R grew out of S which could stand for Statistics. But what does R stand for?</p>
+<p>R is a system for <strong>Reproducible</strong> analysis, and reproducibility is essential. R markdown documents, like Jupyter notebooks in the Python world, facilitate reproducible work, as they include comments or explanations, code, links to data, and results.</p>
+<p>R is for <strong>Research.</strong> Research is not just an end-product, not just a published paper or book:</p>
+<blockquote>
+<p>… these documents are not the research [rather] these documents are the “advertising”. The research is the “full software environment, code, and data that produced the results”</p>
+</blockquote>
+<p><span class="citation">(Buckheit and Donoho <a href="#ref-buckheit1995" role="doc-biblioref">1995</a>; Donoho <a href="#ref-donoho2010" role="doc-biblioref">2010</a>, 385)</span>. When we separate the research from its advertisement we are making it difficult for others to verify the findings by reproducing them <span class="citation">(Gandrud <a href="#ref-gandrud2013" role="doc-biblioref">2013</a>)</span>.</p>
+<p>R is a system for <strong>Representing</strong> data in cool, insight-facilitating ways, a tool for creating (reproducible) data visualizations which can provide insights and communicate results.</p>
+<p>R is <strong>Really popular</strong>, and this matters, because learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.</p>
+<p>Because R is popular, there are many <strong>Resources</strong>, including, for example -</p>
+<ul>
+<li>Online resources include the simple (and less simple) lessons of <a href="http://swirlstats.com/">SwirlR</a>, which offers the possibility of “learning R in R,” as well as <a href="https://www.datacamp.com/home">DataCamp</a>, the <a href="https://www.coursera.org/specializations/jhu-data-science">Data Science Certificate Program at Johns Hopkins,</a> and other MOOCs.<br />
+</li>
+<li>Books include <span class="citation">(Peng <a href="#ref-peng2014" role="doc-biblioref">2014</a>)</span> - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and <span class="citation">(Wickham and Grolemund <a href="#ref-wickham2017" role="doc-biblioref">2017</a>)</span>.</li>
+<li>You’ll also learn (more directly) from people, including your classmates, as well as the broader community of people around the world. There are hundreds if not thousands of people, young and old, who are on the road with you. I am as well, just a step or two (hopefully) ahead.</li>
+</ul>
+<p>R might stand for <em>Relatively high level.</em> Programming languages can be described along a continuum from high to low level, the former (like R) are more accessible to humans, the latter (like assembly language) more accessible to machines. Python, Java, and C++ are all more towards the middle of this continuum.</p>
+<p>R does not stand for ‘<strong>[arggh]</strong>(<a href="https://www.urbandictionary.com/define.php?term=ARGH" class="uri">https://www.urbandictionary.com/define.php?term=ARGH</a>),’ although you may proclaim this in frustration (‘arggh, why can’t I get this to work?) or, perhaps, in satisfaction (’arggh, matey, that be a clever way of doing this’).</p>
+<p>But R does stand for <strong><em>Rewarding</em></strong>. A language is a way of thinking about the world, and this is true for computer languages as well. You’ll be challenged by its complexity, its idiosyncracy, its alien logic. But you will succeed, and you will find that you can do things that you did not believe possible.</p>
+<div id="a-few-characteristics-of-r" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> a few characteristics of R</h2>
+<p>R includes the base together with <strong>packages</strong>. These packages (libraries) are customized add-ons which simplify certain tasks, such as text analysis. There are, at this writing, 15,373 available packages on the CRAN package repository - and though there is not yet an R package for ordering pizza <span class="citation">(Peng <a href="#ref-peng2014" role="doc-biblioref">2014</a>)</span>, there are many for most data tasks, including, for example, <a href="https://cran.r-project.org/web/views/NaturalLanguageProcessing.html">over 50 different packages for text analysis</a>. So how do you choose, and where do you begin? We will start with the curated list of packages which jointly comprise the <strong>tidyverse</strong> <span class="citation">(Wickham and Grolemund <a href="#ref-wickham2017" role="doc-biblioref">2017</a>)</span>, which is effectively a dialect of R.</p>
+<p>R is an <strong>object-oriented</strong> language - one conceptually organized around objects and data rather than actions and logic. In R, at the atomic level, objects include <em>characters, real numbers, integers, complex numbers, and logical.</em> These atoms are combined into vectors, which generally include objects of the same type <span class="citation">(one kind of object, “lists,” is an exception to this; Peng <a href="#ref-peng2014" role="doc-biblioref">2014</a>)</span>. Vectors can be further combined into <strong>data frames</strong>, which are two-dimensional tables or arrays. A <strong>tibble</strong> is a particular type of data frame which is used in the tidyverse. It is, in some ways, handier to work with than other data frames. We’ll be working extensively with data frames in general, and tibbles in particular, as we move forward.</p>
+<p>Objects have <strong>attributes</strong>. Attributes of R include such things as name, dimensions (for vectors and arrays), class (that’s the type of object described in the previous paragraph), length, etc.</p>
+<p>Real world data sets are messy, and frequently have <strong>missing values.</strong> In R, missing values may be characterized by NA (not available) or NaN (not a number, implying an undefined or impossible value).</p>
+<p><strong>RStudio,</strong> the environment we will use to write, test, and run R code, is a commercial enterprise whose business model, judged from afar, is an important one in the world of technology. Most of what RStudio offers is free (97% according to Garrett Grolemund in the video below). The commercial product they offer makes sense for a relative few, but it is sufficiently lucrative to fund the enterprise. The free product helps to drive the popularity of Rstudio; this widespread use, in turn, makes it increasingly essential for businesses to use. This mixed free/premium, or ‘freemium,’ model characterizes Slack as well, but while <a href="https://www.statista.com/statistics/652779/worldwide-slack-users-total-vs-paid/">the ratio of free to paid users of Slack is on the order of 3:1</a>, for R it is, I am guessing, an order of magnitude higher than this.</p>
 </div>
-<div id="the-book-is-for-you" class="section level2 unnumbered">
-<h2>the book is for you</h2>
-<p>It’s my intention that this text should serve every college student, regardless of concentration or college major. The skills and insights that you will gain in this course will help you in graduate and professional schools, will help you in your careers, and will help you in your goal of making a better world. And it will help you train the next generation of data scientists as well.</p>
+<div id="finding-help" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> finding help</h2>
+<p><strong>One does not simply ‘learn R.’</strong> Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one can be said to have mastered and from which one then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn. And, the complexity of R syntax is such that, for almost all of us, we will need help for coding on any non-trivial task.</p>
+<p>For us, the key ideas in “looking for help” will include not just the tools on the RStudio IDE, but also (a) using Google searches wisely, and (b) reaching out to your classmates on Slack.</p>
+<p>Here, as in the real world, there is an etiquette for help-seeking which is based on consideration. Your search for help should begin by making sure that others will encounter the same result, then by stripping the problem down to its essence. Once you have reduced the problem to this <em>minimal, reproducible</em> essence, you will often be able to spot the problem yourself - and, if not, you will make it easier for others to help you. There is an R package (reprex) which will likely facilitate this, but I haven’t tried it yet. <a href="https://www.tidyverse.org/help/">Here</a> is a good introduction.</p>
+<p>Finally, to get a sense of some of the ways you can get help in RStudio (and to see how a master uses the R Studio interface), consider this video:</p>
+<p><a href="https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-part-1/?wvideo=k8kz4e0p2v"><img src="https://embedwistia-a.akamaihd.net/deliveries/85f90f89c20cf329c8e6091508fe44c045e70167.jpg?image_play_button_size=2x&amp;image_crop_resized=960x585&amp;image_play_button=1&amp;image_play_button_color=4287c7e0" alt="RStudio Essentials Webinar Series – Programming Part 1 – RStudio" /></a> <em>Video 3.1: Garrett Grolemund of <a href="https://www.rstudio.com/">RStudio</a></em></p>
+</div>
+<div id="wickham-and-r-for-data-science" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Wickham and R for Data Science</h2>
+<p><a href="https://r4ds.had.co.nz/introduction.html">The first chapter of the Wickham text</a> <span class="citation">(Wickham and Grolemund <a href="#ref-wickham2017" role="doc-biblioref">2017</a>)</span> provides a framework for his approach and a brief introduction to the <em>tidyverse</em> which will be the dialect of R we will study in the weeks ahead.</p>
+<p>Please read it now.</p>
 
 </div>
 </div>
-
-
-
 <h3>References</h3>
 <div id="refs" class="references">
-<div id="ref-loevinger1957">
-<p>Loevinger, Jane. 1957. “Objective Tests as Instruments of Psychological Theory.” <em>Psychological Reports</em> 3 (3): 635–94. <a href="https://doi.org/10.2466/pr0.1957.3.3.635">https://doi.org/10.2466/pr0.1957.3.3.635</a>.</p>
+<div id="ref-buckheit1995">
+<p>Buckheit, Jonathan B., and David L. Donoho. 1995. “Wavelab and Reproducible Research.” In <em>Wavelets and Statistics</em>, 55–81. Springer.</p>
+</div>
+<div id="ref-donoho2010">
+<p>Donoho, David L. 2010. “An Invitation to Reproducible Computational Research.” <em>Biostatistics</em> 11 (3): 385–88. <a href="https://doi.org/10.1093/biostatistics/kxq028">https://doi.org/10.1093/biostatistics/kxq028</a>.</p>
+</div>
+<div id="ref-gandrud2013">
+<p>Gandrud, Christopher. 2013. <em>Reproducible Research with R and R Studio</em>. CRC Press.</p>
+</div>
+<div id="ref-peng2014">
+<p>Peng, Roger D. 2014. <em>R Programming for Data Science</em>.</p>
+</div>
+<div id="ref-wickham2017">
+<p>Wickham, Hadley, and Garrett Grolemund. 2017. <em>R for Data Science</em>.</p>
 </div>
 </div>
             </section>
@@ -237,8 +261,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-science-for-the-liberal-arts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="getting-started.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="now-draw-the-rest-of-the-owl.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

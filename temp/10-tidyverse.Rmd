@@ -21,7 +21,7 @@ The tidyverse is a growing set of interconnected packages which share a common s
 
 The workflow is one that you have seen here and in R4DS. In this 2017 slide, the main processes of data analysis are accompanied by the packages in the tidyverse.  (As of 2019, there have been a few small changes in the packages associated with modeling). All of these are installed on your computer with install.packages("tidyverse"), but only those in bold are loaded into memory when you issue the command library(tidyverse):
 
-![Fig 10.1: Schematic of the tidyverse. From Wickham's 2017 rstudio:conf keynote](tidyworld.PNG)
+![Fig 10.1: Schematic of the tidyverse. From Wickham's 2017 rstudio:conf keynote](images/tidyworld.PNG)
 
 ## some simple principles
 

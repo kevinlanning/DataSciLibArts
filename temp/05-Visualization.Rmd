@@ -27,13 +27,13 @@ Visual displays of information reach back to prehistoric times; modern graphs da
 
 >   *"... spatial dimensions were used to represent nonspatial, quantitative, idiographic, empirical data. Although it now seems natural to represent, for example, rising and falling imports over time as a rising and falling line, it does not seem to have been done before that time and was quite an accomplishment. Notably, in addition to the statistical line chart, Playfair at one fell swoop single-handedly invented most of the remaining forms of the statistical graphic repertoire used today-the bar chart and histogram, the surface chart, and the circle diagram or "pie chart."* [@wainer1981graphical]
 
-![Fig 5.1: Playfair's 1786 analysis of trade deficits.](playfair1786.PNG)[source](https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march)
+![Fig 5.1: Playfair's 1786 analysis of trade deficits.](images/playfair1786.PNG)[source](https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march)
 
 ----
 
 The most celebrated early graph is that of Minard: 
 
-![Fig 5.2: Minard's display of Napolean's catastrophic assault on Moscow, 1812](minard1812.PNG)[source](https://datavizblog.com/2013/05/30/dataviz-history-charles-minards-flow-map-of-napoleons-russian-campaign-of-1812-polotsk-smolensk-and-on-to-borodino/) 
+![Fig 5.2: Minard's display of Napolean's catastrophic assault on Moscow, 1812](images/minard1812.PNG)[source](https://datavizblog.com/2013/05/30/dataviz-history-charles-minards-flow-map-of-napoleons-russian-campaign-of-1812-polotsk-smolensk-and-on-to-borodino/) 
 
 ------
 
@@ -71,13 +71,13 @@ In thinking about how to design graphs, we can begin with abstract theory, with 
 
 In a cold morning in January, 1986, Space Shuttle Challenger lifted off from Cape Canaveral. Because of the cold weather, engineers at Morton Thiokol, who designed the rocket boosters, considered the possibility that the O-rings which sealed joints on the rockets would be too hard and brittle to prevent the release of potentially explosive fuel.  They examined the relation between temperature and o-ring damage on prior flights, using the following visualization:
 
-![Figure 5.3: What Motron Thiokol engineers saw prior to deciding to launch the Challenger Space Shuttle in January, 1986](mortonthiokolChallenger.PNG)
+![Figure 5.3: What Motron Thiokol engineers saw prior to deciding to launch the Challenger Space Shuttle in January, 1986](images/mortonthiokolChallenger.PNG)
 
 
 
 What, if anything, can we see here? The graphic was chaotic and poorly designed; if the engineers had wanted to systematically explore the relation between o-ring damage and temperature they could have removed the rockets and arranged them on a single axis by liftoff-temperature rather on several rows by liftoff-date.  Here's what they would have seen:
 
-![Figure 5.4: What the engineers could have seen, perhaps, with a better graph.](tufteChallenger.PNG)
+![Figure 5.4: What the engineers could have seen, perhaps, with a better graph.](images/tufteChallenger.PNG)
 
 The forecast for the morning of the launch was far colder than that for prior launches, and within the set of prior launches a clear relationship between temperature and o-ring damage is evident. But the Challenger did launch, exploding shortly after takeoff, killing the seven astronauts on board. With a clearer display of the data, the Challenger launch would likely have been postponed [@tufte2001visual ].
 
@@ -85,7 +85,7 @@ The forecast for the morning of the launch was far colder than that for prior la
 
 In the flood of information that surrounds us, our peripheral and sometimes our focal attention will be drawn to pictorial summaries of consequential events and effects. But while data visualizations and data journalism has become more responsible, poorly designed graphs - what Tufte has described as "chartjunk" - are still common. Consider the following graph, which recently appeared in a number of newspapers or feeds in the United States (including the *Palm Beach Post,* on January 12, 2019). 
 
-![Figure 5.5: Which smartphone manufacturers are doing well?](badgraph.PNG)
+![Figure 5.5: Which smartphone manufacturers are doing well?](images/badgraph.PNG)
 
 >   **Exercise 5_1** 
 >   *Examine the graph shown above.*
@@ -102,13 +102,13 @@ Poorly designed graphs don't just confuse rocket scientists.  They reach us, mis
 
 ### Poor design can be a tool to deceive
 
-![Figure 5.6: Trump as "the first datavis President" ([Meeks, 2019](https://datastori.es/152-year-in-review-2019/#t=1:15:06.516)). ](C:\Users\the_l\Dropbox\0DataSciLibArts\trumpDorian.jpg)
+![Figure 5.6: Trump as "the first datavis President" ([Meeks, 2019](https://datastori.es/152-year-in-review-2019/#t=1:15:06.516)). ](images/trumpDorian.jpg)
 
 The apps on our smartphones and electronic devices are meticulously designed to maintain our attention. They are largely successful, but, for many of us, made it more difficult to read in depth (Wu, *The Attention Merchants*).  With information all around us demanding our attention, visual representations of data have become particularly important.  The data visualization is, increasingly, not just a supplement to the story, but the story itself. When this premise is coupled with the idea that the truth is malleable, the product of what our leaders say rather than empirical statements of fact, we approach a dangerous situation, one in which real threats are misrepresented and lives are again endangered.
 
 Presenting information in self-promoting ways includes so-called "Sharpie-gate," where President Trump simply altered a hurricane prediction map in defense of a misstatement.  It also includes more subtle misrepresentations: Does stand-your-ground really make us safer?
 
- ![Figure 5.7: Stand your ground makes us all not-safer.](standground.PNG)
+ ![Figure 5.7: Stand your ground makes us all not-safer.](images/standground.PNG)
 
 
 
@@ -116,7 +116,7 @@ Presenting information in self-promoting ways includes so-called "Sharpie-gate,"
 
 Speaking of America, consider the following:
 
-![Figure 5.8: Chernoff's too-clever faces](Chernoff.PNG)
+![Figure 5.8: Chernoff's too-clever faces](images/Chernoff.PNG)
 
 In this figure, from @wainer1981graphical, (Chernoff's) faces are used to represent multivariate data. The display is loosely based on the (psychological) premise that, from infancy,  we are inordinately sensitive to facial features. Consequently, the most powerful, effective, or informative data displays should manipulate facial features. Does this graph succeed? Why or why not? Would an updated model, based on richer, more complex, and more realistic simulations of facial expressions [@thies2015real] be more successful?
 

@@ -103,7 +103,7 @@ In this case she would prescribe the drug for every case where the conditional p
 
 In real world problems, we are typically dealing with many predictors, and we don't have the full matrix of conditional probabilities. But this two predictor case "sets up" the illustration drawn from [@james2013introduction].
 
-![Figure 10.1: Comparing two values of k (From @jamesintroduction)](C:\Users\lanning\Dropbox\0DataSciLibArts\knnTwovaluesfromJames2013.PNG)
+![Figure 10.1: Comparing two values of k (From @jamesintroduction)](images/knnTwovaluesfromJames2013.PNG)
 
 In the figure above, assume that the horizontal and vertical axes correspond to scores on the two predictors (age and pain). The orange and blue colored dots correspond to cases of abuse and non-abuse in the training data. The dashed line is the Bayesian classifier.  The solid line is the k-nn decision boundary, which distinguishes the regions in which we will predict abuse and non abuse in the test data.  We see that when k is small (a single neighbor), prediction is flexible, non-linear, and that as k increases, the boundary differentiating the decision to prescribe and not prescribe becomes more nearly linear. 
 

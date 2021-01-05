@@ -1,23 +1,10 @@
----
-title: "00-invitation"
-author: "Kevin Lanning"
-date: "`r Sys.Date()`"
-output:
-  pdf_document: default
-  html_document: default
-urlcolor: blue
-bibliography: references.yaml
----
-
 # preface {.unnumbered}
 
 This work-in-progress will ultimately serve as a textbook for introductory undergraduate courses in data sciences. No prior knowledge of computer programming is presumed, though, ideally, students will have had college algebra (or its equivalent) and an introductory course in statistics, methods, or data analysis.
 
 Data science is still a new field of study, and there are multiple approaches to teaching it and to its place in the college curriculum. This book is intended to serve courses such as the [*Introduction to Data Science*](https://kevinlanning.github.io/DataSciSpring2020/) at the Wilkes Honors College of Florida Atlantic University which, in turn, has drawn from data science classes at the universities of [North Carolina](https://idc9.github.io/stor390/), [British Columbia](https://github.com/STAT545-UBC/STAT545-UBC.github.io), [Duke](https://www2.stat.duke.edu/courses/Fall15/sta112.01/), [Maryland](http://www.hcbravo.org/IntroDataSci/calendar/), [Wisconsin](http://pages.stat.wisc.edu/~yandell/R_for_data_sciences/syllabus.html), [Stanford](https://github.com/dcl-2017-04/curriculum), [BYU](https://byuistats.github.io/M335/syllabus.html), [Harvard](http://datasciencelabs.github.io/), [Pennsylvania](https://github.com/MUSA-620-Spring-2017/Course-Materials), and [UC Berkeley](https://github.com/FAUDataScience/stat259) At each of these schools, the Introduction to Data Science appears, to my eyes at least, closer to Statistics than to Computer Science.
 
-But if our approach is closer to statistics than to programming, it is particularly close to statistics in its most applied and pragmatic form. The choice of statistical methods should follow from the data and problem at hand - or, as [@loevinger1957] once put it, statistics should be the handmaiden of real-world concerns rather than technology.
-
-This pragmatic focus is driving the growth of data science in industry, and it is reflected in the way data science is taught at still other schools including [Chicago](https://github.com/UC-MACSS/persp-analysis), [Georgia Tech](https://github.com/jacobeisenstein/gt-css-class), [UC Santa Barbara](https://github.com/raviolli77/dataScience-UCSBProjectGroup-Syllabus), [Princeton](http://www.princeton.edu/~mjs3/soc596_f2016/), [UC Berkeley](https://github.com/rochelleterman/PS239T), at [Berlin's Hertie School of Governance](https://github.com/HertieDataScience/SyllabusAndLectures), and in [Columbia's School of Journalism](https://github.com/tommeagher/data1-fall2015).
+But if our approach is closer to statistics than to programming, it is particularly close to statistics in its most applied and pragmatic form. The choice of statistical methods should follow from the data and problem at hand - that is, statistics should serve the needs of the user rather than dictate them [@loevinger1957]. This pragmatic focus is driving the growth of data science in industry, and it is reflected in the way data science is taught at still other schools including [Chicago](https://github.com/UC-MACSS/persp-analysis), [Georgia Tech](https://github.com/jacobeisenstein/gt-css-class), [UC Santa Barbara](https://github.com/raviolli77/dataScience-UCSBProjectGroup-Syllabus), [Princeton](http://www.princeton.edu/~mjs3/soc596_f2016/), [UC Berkeley](https://github.com/rochelleterman/PS239T), at [Berlin's Hertie School of Governance](https://github.com/HertieDataScience/SyllabusAndLectures), and in [Columbia's School of Journalism](https://github.com/tommeagher/data1-fall2015).
 
 ## some features of the text {.unnumbered}
 

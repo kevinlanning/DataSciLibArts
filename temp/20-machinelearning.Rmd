@@ -30,13 +30,13 @@ There is a second type of problem in which we don't have an outcome, which would
 
 In the unsupervised approach, objectives include finding unknown patterns, developing a set of types (or a taxonomy), and assessing the dimensionality of a latent set of variables. In psychology, a focal problems involves assessing the factor structure of personality (if you have taken introductory psychology, you are likely familiar with the five-factor or Big Five model of personality).  The unsupervised approach is also used to solve problems of community detection in the study of social and scientific networks (see Figure 20.1, from [@lanningWhatRelationshipPersonality2017]. Questions about dimensionality and internal structure can be compelling [[@lanning1994dimensionality, @lanning1996robustness], but we will not consider them further here.
 
-![Figure 20.1. Part of the structure of personality research. From @lanningWhatRelationshipPersonality2017](SoniaFigure.PNG)
+![Figure 20.1. Part of the structure of personality research. From @lanningWhatRelationshipPersonality2017](images/SoniaFigure.PNG)
 
 ## prediction versus classification
 
 Within the category of supervised problems, we can distinguish problems in classification (those in which the outcome is nominal or discrete) from problems where the outcome is ordered or numeric.  We examined the Fair data in both these ways, first treating the outcome as the rescaled number of reported affairs, then as a distinction between those who did and did not have affairs.  
 
-Somewhere in between these two approaches are problems in which the criterion is an ordered set of categories - such as small, medium, and large pizza sizes or, to consider a problem in my own area of study, a sequence of seven levels of social maturity or personality development.  Working with several colleagues, I constructed "dictionaries" which empirically distinguished these levels; the object is to allow assessment of the level of maturity or ego development of a given text.  In the diagram below, the words in these initial dictionaries are arranged clockwise, with those characteristic of the earliest (Impulsive) level in the upper right quadrant (i.e., at 1 o'clock), then moving through the middle stages at the bottom, etc.(@lanningPersonalityDevelopmentNatural2018a). ![diffprop_cloud_top_250_wordsyda](diffprop_cloud_top_250_wordsyda.png)
+Somewhere in between these two approaches are problems in which the criterion is an ordered set of categories - such as small, medium, and large pizza sizes or, to consider a problem in my own area of study, a sequence of seven levels of social maturity or personality development.  Working with several colleagues, I constructed "dictionaries" which empirically distinguished these levels; the object is to allow assessment of the level of maturity or ego development of a given text.  In the diagram below, the words in these initial dictionaries are arranged clockwise, with those characteristic of the earliest (Impulsive) level in the upper right quadrant (i.e., at 1 o'clock), then moving through the middle stages at the bottom, etc.(@lanningPersonalityDevelopmentNatural2018a). ![diffprop_cloud_top_250_wordsyda](images/diffprop_cloud_top_250_wordsyda.png)
 
 ## understanding versus prediction
 
@@ -46,7 +46,7 @@ For example, in the 'Fair' data, we were initially concerned with the question o
 
 These two objectives of "understanding and thinking in terms of equations and models" and "prediction and thinking only in terms of optimization" can be thought of as two points on a continuum of **interpretability.** Some techniques used in machine learning give results that are quite interpretable (including multiple regression, particularly restricted regression techniques such as the **lasso**). Others, including **support vector machines** and, in particular, **deep neural networks** sacrifice interpretability in the service of prediction.  For complex approaches in image recognition, such as the chihuahua versus muffin problem, deep neural networks provide the best solutions, but are particularly challenging to understand [@kumar2017explaining].
 
-![Fig 20.1: The chihuahua-muffin problem.](chihuahuamuffin.jpg)
+![Fig 20.1: The chihuahua-muffin problem.](images/chihuahuamuffin.jpg)
 
 > Exercise 20.1:
 > Consider the Chihuahua-Muffin problem illustrated above.

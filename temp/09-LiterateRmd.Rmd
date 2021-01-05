@@ -22,11 +22,11 @@ We begin with R4DS Chapter 6, which shows the R studio interface and encourages 
 
 Note the recommendations - for example, include packages (libraries) at the beginning of your code. One more thing - in setting up R studio, consider adjusting the "insert spaces for tab" setting to something more than 2. This will allow you to more easily see the nested structure of functions, loops, etc. - and will create a modest disincentive against making these nested structures too deep or complex:
 
-![Fig 9.1: I use 4 spaces here. YMMV.](RStudioOptions.jpg)
+![Fig 9.1: I use 4 spaces here. YMMV.](images/RStudioOptions.jpg)
 
 Note, too, the [code diagnostics](https://support.rstudio.com/hc/en-us/articles/205753617-Code-Diagnostics) in R. Consider enabling all of these, including the R style diagnostics, to help you keep your code readable:
 
-  ![Fig 9.2: Enable code diagnostics](codediagnostics.PNG)
+  ![Fig 9.2: Enable code diagnostics](images/codediagnostics.PNG)
 
 ### some elements of coding style
 
