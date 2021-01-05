@@ -1,0 +1,85 @@
+---
+references:
+- id: loevinger1957
+  type: article-journal
+  author:
+  - family: Loevinger
+    given: Jane
+  issued:
+  - year: 1957
+    month: 6
+    day: 1
+  accessed:
+  - year: 2020
+    month: 12
+    day: 31
+  title: Objective Tests as Instruments of Psychological Theory
+  container-title: Psychological Reports
+  container-title-short: Psychol Rep
+  page: 635-694
+  volume: '3'
+  issue: '3'
+  note: 'Publisher: SAGE Publications Inc'
+  URL: https://doi.org/10.2466/pr0.1957.3.3.635
+  DOI: 10.2466/pr0.1957.3.3.635
+  language: en
+- id: hicks2018
+  type: article-journal
+  author:
+  - family: Hicks
+    given: Stephanie C.
+  - family: Irizarry
+    given: Rafael A.
+  issued:
+  - year: 2018
+    month: 10
+    day: 2
+  accessed:
+  - year: 13
+  title: A Guide to Teaching Data Science
+  container-title: The American Statistician
+  container-title-short: The American Statistician
+  page: 382-391
+  volume: '72'
+  issue: '4'
+  source: DOI.org (Crossref)
+  URL: https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1356747
+  DOI: 10/gfr5tf
+  ISSN: 0003-1305, 1537-2731
+  language: en
+- id: buckheit1995
+  type: chapter
+  author:
+  - family: Buckheit
+    given: Jonathan B.
+  - family: Donoho
+    given: David L.
+  issued:
+  - year: 1995
+  title: Wavelab and reproducible research
+  container-title: Wavelets and statistics
+  publisher: Springer
+  page: 55–81
+  source: Google Scholar
+- id: donoho2010
+  type: article-journal
+  author:
+  - family: Donoho
+    given: David L.
+  issued:
+  - year: 2010
+    month: 7
+    day: 1
+  accessed:
+  - year: 21
+  title: An invitation to reproducible computational research
+  container-title: Biostatistics
+  container-title-short: Biostatistics
+  page: 385-388
+  volume: '11'
+  issue: '3'
+  source: Silverchair
+  URL: https://doi.org/10.1093/biostatistics/kxq028
+  DOI: 10.1093/biostatistics/kxq028
+  ISSN: 1465-4644
+...

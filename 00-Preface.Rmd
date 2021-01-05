@@ -6,42 +6,51 @@ output:
   pdf_document: default
   html_document: default
 urlcolor: blue
+bibliography: references.yaml
 ---
 
-# preface {-}
+# preface {.unnumbered}
 
-This work-in-progress will ultimately serve as a textbook for introductory undergraduate courses in data sciences.  No prior knowledge of computer programming is presumed, though, ideally, students will have had college algebra (or its equivalent) and an introductory course in statistics, methods, or data analysis.
+This work-in-progress will ultimately serve as a textbook for introductory undergraduate courses in data sciences. No prior knowledge of computer programming is presumed, though, ideally, students will have had college algebra (or its equivalent) and an introductory course in statistics, methods, or data analysis.
 
-Data science is still a new field of study, and there are multiple approaches to teaching it and to its place in the college curriculum. This book is intended to serve courses such as the [*_Introduction to Data Science_*](https://kevinlanning.github.io/DataSciSpring2020/) at the Wilkes Honors College of Florida Atlantic University which, in turn, draws from data science classes at the universities of [North Carolina](https://idc9.github.io/stor390/), [British Columbia](https://github.com/STAT545-UBC/STAT545-UBC.github.io), [Duke](https://www2.stat.duke.edu/courses/Fall15/sta112.01/), [Maryland](http://www.hcbravo.org/IntroDataSci/calendar/), [Wisconsin](http://pages.stat.wisc.edu/~yandell/R_for_data_sciences/syllabus.html), [Stanford](https://github.com/dcl-2017-04/curriculum), [BYU](https://byuistats.github.io/M335/syllabus.html), [Harvard](http://datasciencelabs.github.io/), [Pennsylvania](https://github.com/MUSA-620-Spring-2017/Course-Materials), and [UC Berkeley](https://github.com/FAUDataScience/stat259) At each of these schools, the Introduction to Data Science appears, to my eyes at least, closer to Statistics than to Computer Science. 
+Data science is still a new field of study, and there are multiple approaches to teaching it and to its place in the college curriculum. This book is intended to serve courses such as the [*Introduction to Data Science*](https://kevinlanning.github.io/DataSciSpring2020/) at the Wilkes Honors College of Florida Atlantic University which, in turn, has drawn from data science classes at the universities of [North Carolina](https://idc9.github.io/stor390/), [British Columbia](https://github.com/STAT545-UBC/STAT545-UBC.github.io), [Duke](https://www2.stat.duke.edu/courses/Fall15/sta112.01/), [Maryland](http://www.hcbravo.org/IntroDataSci/calendar/), [Wisconsin](http://pages.stat.wisc.edu/~yandell/R_for_data_sciences/syllabus.html), [Stanford](https://github.com/dcl-2017-04/curriculum), [BYU](https://byuistats.github.io/M335/syllabus.html), [Harvard](http://datasciencelabs.github.io/), [Pennsylvania](https://github.com/MUSA-620-Spring-2017/Course-Materials), and [UC Berkeley](https://github.com/FAUDataScience/stat259) At each of these schools, the Introduction to Data Science appears, to my eyes at least, closer to Statistics than to Computer Science.
 
-But if our approach is closer to statistics than to programming, it is particularly close to statistics in its most applied and pragmatic form. The choice of statistical methods should follow from the data and problem at hand - or, as @loevinger1957objective once put it, statistics should be the handmaiden of real-world concerns rather than technology.
+But if our approach is closer to statistics than to programming, it is particularly close to statistics in its most applied and pragmatic form. The choice of statistical methods should follow from the data and problem at hand - or, as [@loevinger1957] once put it, statistics should be the handmaiden of real-world concerns rather than technology.
 
 This pragmatic focus is driving the growth of data science in industry, and it is reflected in the way data science is taught at still other schools including [Chicago](https://github.com/UC-MACSS/persp-analysis), [Georgia Tech](https://github.com/jacobeisenstein/gt-css-class), [UC Santa Barbara](https://github.com/raviolli77/dataScience-UCSBProjectGroup-Syllabus), [Princeton](http://www.princeton.edu/~mjs3/soc596_f2016/), [UC Berkeley](https://github.com/rochelleterman/PS239T), at [Berlin's Hertie School of Governance](https://github.com/HertieDataScience/SyllabusAndLectures), and in [Columbia's School of Journalism](https://github.com/tommeagher/data1-fall2015).
 
-## some features of the text {-}
+## some features of the text {.unnumbered}
 
-There are a number of different approaches to teaching data science.  The present text includes several distinguishing features. 
+There are a number of different approaches to teaching data science. The present text includes several distinguishing features.
 
 **R**
 
-In a recent informal survey of introductory data science courses, I saw a pretty even split between those which begin with Python and those which begin with the statistical programming language R. This difference corresponds, very loosely, to the split noted above: Computer science based approaches to data science are frequently grounded in Python, while statistics-based approaches are generally grounded in R. Our course, like those for most of the syllabi and courses linked above, will be based in R. 
+In a recent informal survey of introductory data science courses, I saw a pretty even split between those which begin with Python and those which begin with the statistical programming language R. This difference corresponds, very loosely, to the split noted above: Computer science based approaches to data science are frequently grounded in Python, while statistics-based approaches are generally grounded in R. Our course, like those for most of the syllabi and courses linked above, will be based in R.
 
 **Reproducible science**
 
-The course will provide an introduction to some of the methods and tools of reproducible science. We will consider the replication crisis in the natural and social sciences, and then consider three distinct approaches which serve as partial solutions to the crisis.  The first of these is training in a notebook-based approach to writing analyses, reports and projects (using R markdown documents). The second is using public repositories (such as the [Open Science Framework](https://osf.io/) and [GitHub](https://github.com/)) to provide snapshots of projects over time. Finally, the third is to consider the place of significance testing in the age of Big Data, and to provide training in the use of descriptive, exploratory techniques of data analysis.
+The course will provide an introduction to some of the methods and tools of reproducible science. We will consider the replication crisis in the natural and social sciences, and then consider three distinct approaches which serve as partial solutions to the crisis. The first of these is training in a notebook-based approach to writing analyses, reports and projects (using R markdown documents). The second is using public repositories (such as the [Open Science Framework](https://osf.io/) and [GitHub](https://github.com/)) to provide snapshots of projects over time. Finally, the third is to consider the place of significance testing in the age of Big Data, and to provide training in the use of descriptive, exploratory techniques of data analysis.
 
 **Good visualizations**
 
 Part of Type C data science is communication, and this includes not just writing up results, but also designing data displays that incisively convey the key ideas or features in a flood of data. We'll examine and develop data visualizations such as plots, networks and text clouds. More advanced topics may include maps, interactive displays, and animations.
 
-**~~All~~ *Some of* the data**
+~~**All**~~ ***Some of*** **the data**
 
-It's been claimed that in the last dozen years, humans have produced more than 60 times as much information as existed in the entire previous history of humankind. (It sounds like hyperbole, but even if it's off by an order of magnitude it's still amazing).  There are plenty of data sources for us to examine, and we'll consider existing datasets from disciplines ranging from literature to economics to public health, with sizes ranging from a few dozen to millions of data points.  We will also clean and create new datasets.
+It's been claimed that in the last fifteen years, humans have produced more than 60 times as much information as existed in the entire previous history of humankind. (It sounds like hyperbole, but even if it's off by an order of magnitude it's still amazing). There are plenty of data sources for us to examine, and we'll consider existing datasets from disciplines ranging from literature to economics to public health, with sizes ranging from a few dozen to millions of data points. We will also clean and create new datasets.
 
-**~~All~~ *Some of* the tools**
+~~**All**~~ ***A few of*** **the latest tools**
 
-In addition to R, we'll use a range of other tools: We'll communicate on the Slack platform. We'll write using markdown editors such as [Typora](https://typora.io/). We'll certainly use spreadsheets such as Excel or Google Sheets. We *may* use additional tools for visualizing data such as Gephi and Tableau.  In any event, **there will be computing throughout the course.** You will be expected to bring a laptop every day. (Please let Dr. Lanning know ASAP if you don't have access to this).
+One feature of Data Science is that it is changing rapidly. The tools, methods, data sources, and ethical concerns that face us in 2021 are different from those which shaped the field just one or two years ago.
 
-## the book is for you {-}
+In fields that are undergoing rapid change, there is some trade-off between building expertise with existing (older) tools and trying the newer approaches. Partly because I want to equip you with skills which will not be obsolete, partly because some of these new approaches promise more accessibility, elegance, and/or power, and partly because of my own interest in staying current, we'll be using some of the latest packages and programs.
+
+In the last few years, I've shifted the class from the standard R dialect (as I learned it from the [Johns Hopkins-Coursera Data Science Specialization](https://www.coursera.org/specializations/jhu-data-science)) to the Tidyverse. This year, for the first time, most of our work with the R language will take place online, using [RStudio cloud](https://rstudio.cloud/), for this should help overcome some hiccups that arise when students are using different machines, operating systems, etc., and should facilitate collaboration among us as well. We'll also be experimenting for the first time with the [learnr](https://rstudio.github.io/learnr/) package, and emphasizing other approaches to learning R, including [Swirl](https://swirlstats.com/) less.
+
+In the past, I've used the Slack platform for messaging, communication and collaboration; this year, I've somewhat reluctantly moved to the Canvas LMS. And, in the past, I've recommended using dedicated markdown editors such as [Typora](https://typora.io/). While I still think that these are great for some text-editing and note-taking, we'll do our work instead with the editor in the latest variant of RStudio on our laptops, as this allows WYSIWIG (what you see is what you get) formatting of documents - such as this one - that are intended as "publication-ready" texts.
+
+We'll continue to use spreadsheets such as Excel or Google Sheets as well.
+
+## the book is for you {.unnumbered}
 
 It's my intention that this text should serve every college student, regardless of concentration or college major. The skills and insights that you will gain in this course will help you in graduate and professional schools, will help you in your careers, and will help you in your goal of making a better world. And it will help you train the next generation of data scientists as well.

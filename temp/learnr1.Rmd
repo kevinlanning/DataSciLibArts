@@ -1,0 +1,24 @@
+---
+title: "Hello, Tutorial!"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+```
+
+This code computes the answer to one plus one, change it so it computes two plus two:
+
+```{r addition, exercise=TRUE}
+1 + 1
+```
+
+```{r letter-a, echo=FALSE}
+question("What number is the letter A in the English alphabet?",
+  answer("8"),
+  answer("14"),
+  answer("1", correct = TRUE),
+  answer("23")
+)
+```
