@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | Data science for the liberal arts</title>
+  <title>3 welcome to R world | Data science for the liberal arts</title>
   <meta name="description" content="Test" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | Data science for the liberal arts" />
+  <meta property="og:title" content="3 welcome to R world | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="chihuahuamuffin.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | Data science for the liberal arts" />
+  <meta name="twitter:title" content="3 welcome to R world | Data science for the liberal arts" />
   
   <meta name="twitter:description" content="Test" />
   <meta name="twitter:image" content="chihuahuamuffin.png" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="r-stands-for.html"/>
-
+<link rel="prev" href="getting-started.html"/>
+<link rel="next" href="r-stands-for.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -119,49 +119,38 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
+<div id="welcome-to-r-world" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> welcome to R world</h1>
+<p>In this chapter, we’ll learn how to install and use R in two ways - in the cloud and on your own laptop. For each of these, we’ll use RStudio as a front end (an ‘integrated development environment’, or IDE).</p>
+<div id="using-rstudio-cloud" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Using RStudio cloud</h2>
+<p>Using the link provided to you by your instructor, set up a new account in RStudio (it is free for you). Then click on the Join Space button. It will bring you to the Welcome page. (Not much to see here as yet). Click on the <a href="https://en.wikipedia.org/wiki/Hamburger_button">hamburger menu</a>. You should see, on the left side of the screen, a menu with three sections: Spaces, Learn, and Help.</p>
+<p>The <strong>Spaces</strong> menu will likely include three options. The first will be “Your Workspace,” the second will be the workspace for this class (e.g., IntroDataSciSpring21), and the third will allow you to create a “New Space.”</p>
+<p>Click on the class workspace, then on the first assignment. After a few seconds, you’ll see a screen that looks something like the following:</p>
+<div class="figure">
+<img src="images/03-R_insertimage_4.png" alt="" />
+<p class="caption">Fig 3.1 - R Studio Cloud.</p>
+</div>
+<p><strong>Click on the assignment</strong>, and you’ll see that there are now four windows on the screen (note that these windows are fully customizable, so that the locations and characterizations I am giving here are just a starting point):</p>
+<p>In the upper left is the <strong>source</strong> window - the code you are working on.. This is where we will be doing much of our work, typically in R markdown documents like this one. R markdown is, not surprisingly, a ‘flavor’ of markdown. Other tabs in this quadrant may include displays of your data and other scripts that you may be working on.</p>
+<p>The <strong>console</strong>, by default in the lower left quadrant, can be used to execute single lines of code. You may occasionally use the terminal tab here as well.</p>
+<p>The <strong>environment</strong>, in the upper right, includes datasets, variables, and functions that are available to us. The Build and Git tabs are useful for producing documents and version control/collaboration, respectively. The history tab is useful to go back and look at the syntax you used in a prior chunk of code.</p>
+<p>The <strong>files</strong> in our directory are listed in the lower right; additional tabs include a list of available packages (libraries) and some resources for help.</p>
+<p>(If nothing happens, make sure that you have enabled pop-ups on your browser, then try it again). Congratulations, you’ve just run your first code in R.</p>
+<p>Now read the code in the console, and follow the instructions to complete your first homework assignment.</p>
+</div>
+<div id="using-r-studio-on-your-laptop" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Using R Studio on your laptop</h2>
+<p>Install the latest version of <a href="https://www.r-project.org/">R</a> on your own Windows or Mac laptop. Then install the <a href="https://rstudio.com/products/rstudio/download/preview/">preview version of R studio</a>, as this has a visual (WYSIWYG) editor that is a significant advance over the existing version.</p>
+<p><strong>Feeling ambitious?</strong> Once this is loaded, (a) set up a directory for this class, then (b) a subdirectory you can call Assignment01.</p>
+<p>Go back to your Rstudio.cloud / Assignment01, and check the boxes next to Assiignment01.Rmd, movies.Rdata, and project.rproj. Then click on ‘More’, then ‘Export…’ and put these in your new subdirectory.</p>
+<p>Now go back to your desktop environment, and try to run the same code on your home machine. (Note that to be successful, you will need to first execute the command on your laptop).</p>
+<blockquote>
+<p>install.packages(“tidyverse”)</p>
+</blockquote>
+<hr />
+<p>Get as far as you can, but remember the 15 minute rule.</p>
 
-<div id="refs" class="references hanging-indent">
-<div>
-<p>Broman, Karl W., and Kara H. Woo. 2018. “Data Organization in Spreadsheets.” <em>The American Statistician</em> 72 (1): 2–10. <a href="https://doi.org/10.1080/00031305.2017.1375989">https://doi.org/10.1080/00031305.2017.1375989</a>.</p>
-</div>
-<div>
-<p>Buckheit, Jonathan B., and David L. Donoho. 1995. “Wavelab and Reproducible Research.” In <em>Wavelets and Statistics</em>, 55–81. Springer.</p>
-</div>
-<div>
-<p>Donoho, David. 2017. “50 Years of Data Science.” <em>Journal of Computational and Graphical Statistics</em> 26 (4): 745–66. <a href="https://doi.org/10.1080/10618600.2017.1384734">https://doi.org/10.1080/10618600.2017.1384734</a>.</p>
-</div>
-<div>
-<p>Donoho, David L. 2010. “An Invitation to Reproducible Computational Research.” <em>Biostatistics</em> 11 (3): 385–88. <a href="https://doi.org/10.1093/biostatistics/kxq028">https://doi.org/10.1093/biostatistics/kxq028</a>.</p>
-</div>
-<div>
-<p>Freeman, Michael, and Joel Ross. 2017. <em>Technical Foundations of Informatics, U Washington INFO 201</em>.</p>
-</div>
-<div>
-<p>Gandrud, Christopher. 2013. <em>Reproducible Research with R and R Studio</em>. CRC Press.</p>
-</div>
-<div>
-<p>Henrich, Joseph, Steven J. Heine, and Ara Norenzayan. 2010. “The Weirdest People in the World?” <em>Behavioral and Brain Sciences</em> 33 (2-3): 61–83. <a href="https://doi.org/10/c9j35b">https://doi.org/10/c9j35b</a>.</p>
-</div>
-<div>
-<p>Hicks, Stephanie C., and Rafael A. Irizarry. 2018. “A Guide to Teaching Data Science.” <em>The American Statistician</em> 72 (4): 382–91. <a href="https://doi.org/10/gfr5tf">https://doi.org/10/gfr5tf</a>.</p>
-</div>
-<div>
-<p>Isaacson, Walter. 2014. <em>The Innovators: How a Group of Hackers, Geniuses, and Geeks Created the Digital Revolution</em>. Simon and Schuster.</p>
-</div>
-<div>
-<p>Loevinger, Jane. 1957. “Objective Tests as Instruments of Psychological Theory.” <em>Psychological Reports</em> 3 (3): 635–94. <a href="https://doi.org/10.2466/pr0.1957.3.3.635">https://doi.org/10.2466/pr0.1957.3.3.635</a>.</p>
-</div>
-<div>
-<p>Peng, Roger D. 2014. <em>R Programming for Data Science</em>.</p>
-</div>
-<div>
-<p>Tversky, Amos, and Daniel Kahneman. 1974. “Judgment Under Uncertainty: Heuristics and Biases.” <em>Science</em> 185 (4157): 1124–31. <a href="https://doi.org/10.1126/science.185.4157.1124">https://doi.org/10.1126/science.185.4157.1124</a>.</p>
-</div>
-<div>
-<p>Wickham, Hadley, and Garrett Grolemund. 2017. <em>R for Data Science</em>.</p>
-</div>
 </div>
 </div>
             </section>
@@ -169,8 +158,8 @@
           </div>
         </div>
       </div>
-<a href="r-stands-for.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="getting-started.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-stands-for.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

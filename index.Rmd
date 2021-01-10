@@ -13,7 +13,7 @@ description: "Test"
 link-citations: yes
 github-repo: kevinlanning/DataSciLibArts
 # classoption: "openany"
-# cover-image: chihuahuamuffin.jpg
+cover-image: chihuahuamuffin.png
 # urlcolor: blue
 ---
 # {-} 

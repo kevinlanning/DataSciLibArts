@@ -1,0 +1,29 @@
+---
+references:
+- id: 2018
+  type: article-journal
+  author:
+  - family: Broman
+    given: Karl W.
+  - family: Woo
+    given: Kara H.
+  issued:
+  - year: 2018
+    month: 1
+    day: 2
+  accessed:
+  - year: 20
+  title: Data Organization in Spreadsheets
+  container-title: The American Statistician
+  container-title-short: The American Statistician
+  publisher: Taylor & Francis
+  page: 2-10
+  volume: '72'
+  issue: '1'
+  source: DOI.org (Crossref)
+  note: 'tex.ids: broman2017'
+  URL: https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989
+  DOI: 10.1080/00031305.2017.1375989
+  ISSN: 0003-1305, 1537-2731
+  language: en
+...

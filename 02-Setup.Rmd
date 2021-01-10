@@ -26,7 +26,7 @@ As a post-millennial student from a WEIRD culture, or Western, Educated, Industr
 
 > **Exercise 2\_1** *Susie is applying to two med schools. At School A, 25% of students are accepted, and at School B, 25% are accepted as well. You are Susie. Are you going to get in to at least one of these programs? What is the probability? Does your estimate depend upon any assumptions?*
 
-Questions such as these are important for us. If the combined probability is low, it *likely* (another probability concept) will make sense for Susie to spend time, money, and energy to apply to additional programs. If the probability is higher, it may not. But problems like this are hard - our estimates of probability are frequently poorly calibrated, and combining probability estimates is challenging (see, e.g., [@tversky1974], and consider taking a course in *Behavioral Economics* or *Thinking and Decision Making* to learn more).
+Questions such as these are important for us. If the combined probability is low, it will *likely* (another probability concept) make sense for Susie to spend time, money, and energy to apply to additional programs. If the probability is higher, it may not. But problems like this are hard - our estimates of probability are frequently poorly calibrated, and combining probability estimates is challenging (see, e.g., [@tversky1974], and consider taking a course in *Behavioral Economics* or *Thinking and Decision Making* to learn more).
 
 You may have worked with data in spreadsheets such as Excel or Google Sheets.
 
@@ -38,21 +38,23 @@ You may have worked with data in spreadsheets such as Excel or Google Sheets.
 >
 > Now **copy cell B7 to C7**
 >
-> What happens? Is this the result you expected? Would another approach be more useful?\*\*
+> What happens? Is this the result you expected? Would another approach be more useful?
 
-**Spreadsheets** are great tools - the first one, Visi-Calc, was the first "killer app" to usher in the personal computer revolution. But they have limitations as well. [@broman2018] propose some *best practices* for using spreadsheets in data science such as, for example, including only data (and not calculations) in spreadsheets, using what we will recognize as a 'tidy' format in which data are in a simple rectangle (avoiding the combination of cells and the use of multi-line headers), and saving spreadsheets as simple text files (often as csvs). When we sort data in spreadsheets, we risk chaos, for example, only certain columns may be sorted. When we manipulate data in spreadsheets, we typically will not have a record of what was (and wasn't) changed, this compromises the reproducibility of our work.
+## some best practices for spreadsheets
 
-The bottom line is that spreadsheets should generally be used to store data rather than to analyze it.
+**Spreadsheets** are great tools - the first one, Visi-Calc, was the first "killer app" to usher in the personal computer revolution. But they have limitations as well. **Best practices** have been proposed for using spreadsheets in data science such as, for example, include only data (and not calculations) in spreadsheets, use what we will recognize as a 'tidy' format in which data are in a simple rectangle (avoid combining cells and using multi-line headers), and save spreadsheets as simple text files, typically in comma-delimited or CSV format [@broman2018]. Typically, this means that each worksheet will be in a separate file, rather than in workbooks with multiple tabs.
+
+There are good reasons for these recommendations: For example, when we sort data in spreadsheets, we risk chaos, for example, only certain columns may be sorted. When we manipulate data in spreadsheets, we typically will not have a record of what was (and wasn't) changed, and this compromises the reproducibility of our work.
+
+**The bottom line is that spreadsheets should generally be used to store data rather than to analyze it.** But don't be a slave to this - if you are making some quick calculations that are inconsequential and/or to be used on just one occasion, working in Excel or Google Sheets is often the way to go.
 
 ## setting up your machine: some basic tools
 
-Collaboration and communication are integral to data science. In the world beyond universities, the most important messaging and collaboration platform is [Slack](https://slack.com/). Slack is a commercial app, but we will use the free tier. We'll use Slack for group work, class announcements, and help-seeking and help-providing.
+Collaboration and communication are integral to data science. In the world beyond universities, the most important messaging and collaboration platform is [Slack](https://slack.com/). Slack is a commercial app, but it has a free tier. Slack is handy for group work of all forms, but most students in full-time programs will be expected to use a Learning Management System such as Canvas so that all of their classes are on the same platform.
 
-Slack includes a simple *markdown* editor (for 'posts'). You can find an introduction to markdown syntax in Chapter 3 of [@freeman2017]. I use [Typora](https://www.typora.io/) (currently free for both Windows and Mac), but there are many alternatives. Install this or another Markdown editor on your laptop and play with it.
+Documents produced in word processors typically include invisible characters used for formatting, security, etc. These characters, when fed into a computer program, lead to unpredictable results. *Markdown* is a simple syntax for producing documents that are easily read by both humans and machines. Most of the documents you will produce and work with this term, including the present chapter, are and will be written in some version of Markdown.
 
-Install [R](https://cran.rstudio.com/) then [R studio](https://rstudio.com/products/rstudio/#Desktop) on your own Windows or Mac laptop. We'll use R studio as a front end (an 'integrated development environment', or IDE) for R, and will write most of our code in R markdown which is, not surprisingly, a 'flavor' of markdown. We'll go into R in increasing depth beginning in the next chapter; if you want to get a head start, consider [Carmichael (2017) Getting started](https://idc9.github.io/stor390/notes/getting_started/getting_started.html) and the first chapter of [@wickham2017]. (Those documents, like this one, are all written in R markdown).
-
-> **Eager to start coding in R?** Go to Chapter 4 (draw the rest of the owl), and begin the exercises in swirl (swirlstats).
+You can find an introduction to markdown syntax in Chapter 3 of [@freeman2017]. I use [Typora](https://www.typora.io/) (currently free for both Windows and Mac), but there are many alternatives. Install this or another Markdown editor on your laptop and play with it.
 
 **Google Docs** is free and is convenient for collaborative work. One other important feature of Google Docs is that it provides a framework for *version control,* a critical skill in information management. You can learn more about how to see and revert to prior versions of a project in Google Docs [here](https://sites.google.com/site/scriptsexamples/home/announcements/named-versions-new-version-history-google-docs). Version control can help you avoid the chaos and confusion of having a computer (or several computers) full of files that look like Cham's (2012) comic:
 
