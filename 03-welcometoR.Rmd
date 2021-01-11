@@ -22,9 +22,7 @@ The **environment**, in the upper right, includes datasets, variables, and funct
 
 The **files** in our directory are listed in the lower right; additional tabs include a list of available packages (libraries) and some resources for help.
 
-(If nothing happens, make sure that you have enabled pop-ups on your browser, then try it again). Congratulations, you've just run your first code in R.
-
-Now read the code in the console, and follow the instructions to complete your first homework assignment.
+Now read the code in the console, and follow the instructions to complete your first homework assignment. Congratulations, you've just run your first code in R.
 
 ## Using R Studio on your laptop
 
@@ -40,4 +38,4 @@ Now go back to your desktop environment, and try to run the same code on your ho
 
 ------------------------------------------------------------------------
 
-Get as far as you can, but remember the 15 minute rule.
+Get as far as you can, but remember the 15 minute rule. How far did you get? Be prepared to share your frustrations, discoveries, and accomplishments with your classmates.
