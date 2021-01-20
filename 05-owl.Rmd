@@ -77,6 +77,8 @@ Finally, consider the text and videos from the Coursera R class. Most of the mat
 
 Among these [resources for R studio beginners](https://education.rstudio.com/learn/beginner/), you will find [Thomas Mock's introduction to Tidy statistics in R](https://rstudio.com/resources/webinars/a-gentle-introduction-to-tidy-statistics-in-r/). It includes a link to the code used in the seminar at the bottom of the launch screen.
 
+The Grolemund video linked in the prior chapter is part of [a series of videos on programming in RStudio](https://rstudio.com/resources/webinars/programming-part-1-writing-code-in-rstudio/?wvideo=k8kz4e0p2v). It's a little out of date now (from 2015), but still likely to be useful.
+
 Most of the offerings at the Rstudio::global conference are aimed at more experienced R users, some are aimed at (relative) noobs, including [Learning R with Humorous Side Projects](https://gbr01.safelinks.protection.outlook.com/?url=https%3A%2F%2Finfo.rstudio.com%2Ff00xY0S0YZ017X2eNCNtb0r&data=04%7C01%7Cdavid.a.egan%40merseyside.police.uk%7C0bcfc46873594beb93b408d8b7002ba3%7Cf3955ea24c5d4e27ab8df6f577fa122d%7C0%7C0%7C637460558642128429%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=m1xysQw%2F9Y1VwGVgSa0Q0DS2Y2UAdCbtE245ccMo1GE%3D&reserved=0). The 2021 conference, to be held on January 21, 2021, is free; you can enroll and explore [here](https://global.rstudio.com/student/catalog)
 
 ## Something else
