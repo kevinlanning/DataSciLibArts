@@ -56,6 +56,6 @@ Finally, to get a sense of some of the ways you can get help in RStudio (and to 
 
 ## Wickham and R for Data Science
 
-[The first chapter of the Wickham text](https://r4ds.had.co.nz/introduction.html) [@wickham2017] provides a framework for his approach and a brief introduction to the *tidyverse* which will be the dialect of R we will study in the weeks ahead.
+[The first chapter of the Wickham text](https://r4ds.had.co.nz/introduction.html) [@wickham2017] provides both a framework for his approach and a brief introduction to the *tidyverse* which will be the dialect of R we will study in the weeks ahead.
 
 Please read it now.
