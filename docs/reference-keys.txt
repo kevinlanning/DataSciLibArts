@@ -18,3 +18,13 @@ r-stands-for
 a-few-characteristics-of-r
 finding-help
 wickham-and-r-for-data-science
+now-draw-the-rest-of-the-owl
+review-the-rstudio-cloud-primers
+play-with-rstudio-on-your-laptop
+create-a-new-r-markdown-document-and-knit-it-to-a-pdf-or-a-word-doc
+play-with-and-explore-the-movies-data
+take-a-datacamp-class
+swirl-swirlstats
+read-pengs-text-andor-watch-the-associated-videos
+code-along-with-a-tidy-webinar-or-attend-a-virtual-conference
+something-else
