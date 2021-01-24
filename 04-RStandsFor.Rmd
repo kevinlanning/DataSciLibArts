@@ -17,7 +17,7 @@ R is **Really popular**, and this matters, because learning R will make you a mo
 Because R is popular, there are many **Resources**, including, for example -
 
 -   Online resources include the simple (and less simple) lessons of [SwirlR](http://swirlstats.com/), which offers the possibility of "learning R in R," as well as [DataCamp](https://www.datacamp.com/home), the [Data Science Certificate Program at Johns Hopkins,](https://www.coursera.org/specializations/jhu-data-science) and other MOOCs.\
--   Books include [@peng2014] - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and [@wickham2017].
+-   Books include [@peng2014] - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and [@wickham2016].
 -   You'll also learn (more directly) from people, including your classmates, as well as the broader community of people around the world. There are hundreds if not thousands of people, young and old, who are on the road with you. I am as well, just a step or two (hopefully) ahead.
 
 R might stand for *Relatively high level.* Programming languages can be described along a continuum from high to low level, the former (like R) are more accessible to humans, the latter (like assembly language) more accessible to machines. Python, Java, and C++ are all more towards the middle of this continuum.
@@ -28,7 +28,7 @@ But R does stand for ***Rewarding***. A language is a way of thinking about the 
 
 ## a few characteristics of R
 
-R includes the base together with **packages**. These packages (libraries) are customized add-ons which simplify certain tasks, such as text analysis. There are, at this writing, 15,373 available packages on the CRAN package repository - and though there is not yet an R package for ordering pizza [@peng2014], there are many for most data tasks, including, for example, [over 50 different packages for text analysis](https://cran.r-project.org/web/views/NaturalLanguageProcessing.html). So how do you choose, and where do you begin? We will start with the curated list of packages which jointly comprise the **tidyverse** [@wickham2017], which is effectively a dialect of R.
+R includes the base together with **packages**. These packages (libraries) are customized add-ons which simplify certain tasks, such as text analysis. There are, at this writing, 15,373 available packages on the CRAN package repository - and though there is not yet an R package for ordering pizza [@peng2014], there are many for most data tasks, including, for example, [over 50 different packages for text analysis](https://cran.r-project.org/web/views/NaturalLanguageProcessing.html). So how do you choose, and where do you begin? We will start with the curated list of packages which jointly comprise the **tidyverse** [@wickham2016], which is effectively a dialect of R.
 
 R is an **object-oriented** language - one conceptually organized around objects and data rather than actions and logic. In R, at the atomic level, objects include *characters, real numbers, integers, complex numbers, and logical.* These atoms are combined into vectors, which generally include objects of the same type [one kind of object, 'lists,' is an exception to this; @peng2014]. Vectors can be further combined into **data frames**, which are two-dimensional tables or arrays. A **tibble** is a particular type of data frame which is used in the tidyverse. It is, in some ways, handier to work with than other data frames. We'll be working extensively with data frames in general, and tibbles in particular, as we move forward.
 
@@ -52,10 +52,10 @@ Finally, to get a sense of some of the ways you can get help in RStudio (and to 
 
 [![](https://embed-fastly.wistia.com/deliveries/85f90f89c20cf329c8e6091508fe44c045e70167.jpg?image_play_button_size=2x&image_crop_resized=960x585&image_play_button=1&image_play_button_color=4287c7e0)](https://rstudio.com/resources/webinars/programming-part-1-writing-code-in-rstudio/?wvideo=k8kz4e0p2v)
 
-*Video 3.1: Garrett Grolemund of [RStudio](https://www.rstudio.com/)*
+*video 4.1: Garrett Grolemund of [RStudio](https://www.rstudio.com/)*
 
 ## Wickham and R for Data Science
 
-[The first chapter of the Wickham text](https://r4ds.had.co.nz/introduction.html) [@wickham2017] provides both a framework for his approach and a brief introduction to the *tidyverse* which will be the dialect of R we will study in the weeks ahead.
+[The first chapter of the Wickham text](https://r4ds.had.co.nz/introduction.html) [@wickham2016] provides both a framework for his approach and a brief introduction to the *tidyverse* which will be the dialect of R we will study in the weeks ahead.
 
 Please read it now.

@@ -67,7 +67,7 @@ Answer no... then do another lesson.
 
 ## Read Peng's text and/or watch the associated videos
 
-Finally, consider the text and videos from the Coursera R class. Most of the material from that class can be found in [@peng2014]. A slightly updated version of the text can be found at <https://bookdown.org/rdpeng/rprogdatascience/>, and the videos in the series may be found by clicking on the following:
+Finally, consider the text and videos from the Coursera R class. Most of the material from that class can be found in the Peng text [-@peng2014]. A slightly updated version of the text can be found at <https://bookdown.org/rdpeng/rprogdatascience/>, and the videos in the series may be found by clicking on the following:
 
 [![Roger Peng](https://img.youtube.com/vi/wy0h1f5awRI/0.jpg)](https://youtu.be/wy0h1f5awRI).
 
@@ -76,6 +76,8 @@ Finally, consider the text and videos from the Coursera R class. Most of the mat
 ## Code along with a tidy webinar, or attend a virtual conference
 
 Among these [resources for R studio beginners](https://education.rstudio.com/learn/beginner/), you will find [Thomas Mock's introduction to Tidy statistics in R](https://rstudio.com/resources/webinars/a-gentle-introduction-to-tidy-statistics-in-r/). It includes a link to the code used in the seminar at the bottom of the launch screen.
+
+The second chapter of [Healy's online book about Data visualizations](https://socviz.co/) provides an introduction to R and R studio which largely parallels the discussions here and in the [Wickham and Grolemund text](https://r4ds.had.co.nz/index.html) [@healy2017; @wickham2016]
 
 The Grolemund video linked in the prior chapter is part of [a series of videos on programming in RStudio](https://rstudio.com/resources/webinars/programming-part-1-writing-code-in-rstudio/?wvideo=k8kz4e0p2v). It's a little out of date now (from 2015), but still likely to be useful.
 

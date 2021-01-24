@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 getting started | Data science for the liberal arts</title>
+  <title>7 visualization in R with ggplot | Data science for the liberal arts</title>
   <meta name="description" content="Test" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 getting started | Data science for the liberal arts" />
+  <meta property="og:title" content="7 visualization in R with ggplot | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="chihuahuamuffin.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 getting started | Data science for the liberal arts" />
+  <meta name="twitter:title" content="7 visualization in R with ggplot | Data science for the liberal arts" />
   
   <meta name="twitter:description" content="Test" />
   <meta name="twitter:image" content="chihuahuamuffin.png" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-science-for-the-liberal-arts.html"/>
-<link rel="next" href="welcome-to-r-world.html"/>
+<link rel="prev" href="principles-of-data-visualization.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -160,80 +160,61 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="getting-started" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> getting started</h1>
-<hr />
-<p>We begin with a brief self-assessment, asking you to reflect on your own knowledge of data science, including the necessary-but-not-sufficient areas of computer programming and statistics. We then move to a description of some rudimentary tools that we will be using.</p>
-<div id="are-you-already-a-programmer-and-statistician" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> are you already a programmer and statistician?</h2>
-<p>Regarding <strong>programming</strong>, you may know more than you think you do. Here’s a simple program - a set of instructions - for producing a cup of coffee:</p>
-<blockquote>
-<p>add water to the kettle and turn it on</p>
-<p>if it’s morning, put regular coffee in the French press, otherwise use decaf</p>
-<p>if the water has boiled, add it to the French press, else keep waiting</p>
-<p>if the coffee has steeped for four minutes, depress (smash) piston/plunger, else keep waiting</p>
-<p>pour coffee into cup</p>
-<p>enjoy</p>
-</blockquote>
-<p>As a post-millennial student from a WEIRD culture, or Western, Educated, Industrialized, Rich Democracy <span class="citation">(Henrich, Heine, and Norenzayan <a href="#ref-henrich2010" role="doc-biblioref">2010</a>)</span>, you’ve ‘programmed’ computers, too, if only to enter a password, open an app, and upload a photo on your cell phone.</p>
-<p><strong>Statistics</strong> is of fundamental importance, not just for understanding abstract trends, but for making decisions about everyday life. Consider the case of Susie, a college senior:</p>
-<blockquote>
-<p><strong>Exercise 2_1</strong> <em>Susie is applying to two med schools. At School A, 25% of students are accepted, and at School B, 25% are accepted as well. You are Susie. Are you going to get in to at least one of these programs? What is the probability? Does your estimate depend upon any assumptions?</em></p>
-</blockquote>
-<p>Questions such as these are important for us. If the combined probability is low, it will <em>likely</em> (another probability concept) make sense for Susie to spend time, money, and energy to apply to additional programs. If the probability is higher, it may not. But problems like this are hard - our estimates of probability are frequently poorly calibrated, and combining probability estimates is challenging (see, e.g., <span class="citation">(Tversky and Kahneman <a href="#ref-tversky1974" role="doc-biblioref">1974</a>)</span>, and consider taking a course in <em>Behavioral Economics</em> or <em>Thinking and Decision Making</em> to learn more).</p>
-<p>You may have worked with data in spreadsheets such as Excel or Google Sheets.</p>
-<blockquote>
-<p><strong>Exercise 2_2</strong> Open the Google Sheet at <a href="http://bit.ly/dslaX2_1" class="uri">http://bit.ly/dslaX2_1</a>. Save a copy and edit it, entering the following in cell B7:</p>
-<p><em>=SUM (B2:B6)</em></p>
-<p>What is the result?</p>
-<p>Now <strong>copy cell B7 to C7</strong></p>
-<p>What happens? Is this the result you expected? Would another approach be more useful?</p>
-</blockquote>
-</div>
-<div id="some-best-practices-for-spreadsheets" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> some best practices for spreadsheets</h2>
-<p><strong>Spreadsheets</strong> are great tools - the first one, Visi-Calc, was the first “killer app” to usher in the personal computer revolution. But they have limitations as well. <strong>Best practices</strong> have been proposed for using spreadsheets in data science such as, for example, include only data (and not calculations) in spreadsheets, use what we will recognize as a ‘tidy’ format in which data are in a simple rectangle (avoid combining cells and using multi-line headers), and save spreadsheets as simple text files, typically in comma-delimited or CSV format <span class="citation">(Broman and Woo <a href="#ref-broman2018" role="doc-biblioref">2018</a>)</span>. Typically, this means that each worksheet will be in a separate file, rather than in workbooks with multiple tabs.</p>
-<p>There are good reasons for these recommendations: For example, when we sort data in spreadsheets, we risk chaos, for example, only certain columns may be sorted. When we manipulate data in spreadsheets, we typically will not have a record of what was (and wasn’t) changed, and this compromises the reproducibility of our work.</p>
-<p><strong>The bottom line is that spreadsheets should generally be used to store data rather than to analyze it.</strong> But don’t be a slave to this - if you are making some quick calculations that are inconsequential and/or to be used on just one occasion, working in Excel or Google Sheets is often the way to go.</p>
-</div>
-<div id="setting-up-your-machine-some-basic-tools" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> setting up your machine: some basic tools</h2>
-<p>Collaboration and communication are integral to data science. In the world beyond universities, the most important messaging and collaboration platform is <a href="https://slack.com/">Slack</a>. Slack is a commercial app, but it has a free tier. Slack is handy for group work of all forms, but most students in full-time programs will be expected to use a Learning Management System such as Canvas so that all of their classes are on the same platform.</p>
-<p>Documents produced in word processors typically include invisible characters used for formatting, security, etc. These characters, when fed into a computer program, lead to unpredictable results. <em>Markdown</em> is a simple syntax for producing documents that are easily read by both humans and machines. Most of the documents you will produce and work with this term, including the present chapter, are and will be written in some version of Markdown.</p>
-<p>You can find an introduction to markdown syntax in Chapter 3 of <span class="citation">(Freeman and Ross <a href="#ref-freeman2017" role="doc-biblioref">2017</a>)</span>. I use <a href="https://www.typora.io/">Typora</a> (currently free for both Windows and Mac), but there are many alternatives. Install this or another Markdown editor on your laptop and play with it.</p>
-<p><strong>Google Docs</strong> is free and is convenient for collaborative work. One other important feature of Google Docs is that it provides a framework for <em>version control,</em> a critical skill in information management. You can learn more about how to see and revert to prior versions of a project in Google Docs <a href="https://sites.google.com/site/scriptsexamples/home/announcements/named-versions-new-version-history-google-docs">here</a>. Version control can help you avoid the chaos and confusion of having a computer (or several computers) full of files that look like Cham’s (2012) comic:</p>
+<div id="visualization-in-r-with-ggplot" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> visualization in R with ggplot</h1>
+<p>In the last chapter, we introduced data visualization, citing “vision-aries” including Edward Tufte and Hans Rosling, inspired works such as Minard’s <em>Carte Figurative</em> and Periscopic’s <em>stolen years</em>, as well as a few cautionary tales of misleading and confusing graphs.</p>
+<p>Here, in playing with and learning the R package <strong>ggplot</strong>, we begin to move from consumers to creators of data visualizations.</p>
+<p>As the first visualization in <span class="citation">Wickham and Grolemund (<a href="#ref-wickham2016" role="doc-biblioref">2016</a>)</span> reminds us, data visualization is at the core of exploratory data analysis:</p>
 <div class="figure">
-<img src="images/final.jpg" alt="" />
-<p class="caption"><em>Fig 2.1: Never call anything ‘final.doc’.</em></p>
+<img src="images/dataviscycle.PNG" alt="" />
+<p class="caption">Fig 7.1: Data visualization is at the core of data analysis (<span class="citation">Wickham and Grolemund (<a href="#ref-wickham2016" role="doc-biblioref">2016</a>)</span>)</p>
 </div>
-<p>Version control is an important concept in data science. Collaboratively built programs and platforms, including most of the add-ons (libraries, packages) which make R so powerful, are open-source projects built by many individuals over time. For projects such as these, both the current build and its associated history are typically maintained on <a href="https://github.com/">GitHub</a>, a website for hosting code. When we contribute to these projects, we will first mirror the web-based GitHub site using a program on our own Macs or Windows PCs called <a href="https://git-scm.com/">Git</a>, then upload our proposed changes. Keeping remote and local branches of files in sync can be challenging, however, and you will not be expected to use this technology in this class. But if you are curious, or want to learn more, an introduction to using Git and R together may be found <a href="https://happygitwithr.com/">here</a>.</p>
+<p>In the world of data science, statistical programming is about discovering and communicating truths within your data. This <strong>exploratory data analysis is the corner of science, particularly at a time in which confirmatory studies are increasingly found to be unreproducible</strong>.</p>
+<p>Most of your reading will be from Chapter 3 of <span class="citation">Wickham and Grolemund (<a href="#ref-wickham2016" role="doc-biblioref">2016</a>)</span>, this is intended only as a supplement.</p>
+<div id="a-picture-words-numbers" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> a picture &gt; (words, numbers)?</h2>
+<p>The chapter begins with a quote from John Tukey about the importance of graphs. Yet there is a tendency among some statisticians and scientists to discount graphs, to consider graphic representations of data as less valuable than statistical ones. It is true that, because there are many ways to graph data, and because scientists and data journalists are humans with pre-existing beliefs and values, a graphical displays should not be assumed to simply depict a singular reality. But the same can be said about statistical analyses (see Chapter 8).</p>
+<p>To consider the value of statistical versus graphical displays, consider ‘Anscombe’s quartet’ (screenshot below, live at <a href="http://bit.ly/anscombe2019" class="uri">http://bit.ly/anscombe2019</a>):</p>
+<div class="figure">
+<img src="images/spreadsheet61.PNG" alt="" />
+<p class="caption">Table 7.1: An adaptation of Anscombe’s “quartet” <span class="citation">(Anscombe <a href="#ref-anscombe1973" role="doc-biblioref">1973</a>)</span></p>
 </div>
-<div id="a-modified-15-minute-rule" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> a modified 15-minute rule</h2>
-<p>You will run into problems, if not here, then elsewhere. An important determinant of your success will be the balance you maintain between persistence and help-seeking.</p>
-<p>The 15-minute rule is one guideline for this balance: It has been cleverly summarized as “<a href="https://blogs.akamai.com/2013/10/you-must-try-and-then-you-must-ask.html">You must try, and then you must ask</a>.” That is, if you get stuck, keep trying for 15 minutes, then reach out to others. I think that this rule is basically sound, particularly if it is applied with cognitive flexibility, social sensitivity, and reciprocity. So when you get stuck, make a note of the problem, then move to another part of your project (that’s the cognitive flexibility part): This allows your problem to percolate and still make progress. When you ask others for help, ask in a way that shows an awareness of the demands on their time (social sensitivity): Part of this means that you should explain your problem in as detailed a fashion as possible - in technical terms, a “reprex” or reproducible example. Finally, you should be willing to provide as well as give help (reciprocity).</p>
+<blockquote>
+<p><strong>Exercise 7_1</strong>
+<em>Consider the spreadsheet chunk presented above, which I am characterizing as data collected on a sample of ten primary school children at recess on four consecutive days. Working with your classmates, compute the mean, standard deviation, and correlation between the two measures for one day. Share your results with the class.</em></p>
+</blockquote>
+<p>The four pairs of variables in <span class="citation">Anscombe (<a href="#ref-anscombe1973" role="doc-biblioref">1973</a>)</span> appear statistically “the same,” yet the data suggest something else. Later, we’ll try to plot these. Perhaps graphs can reveal truths that statistics can hide.</p>
+<blockquote>
+<p><strong>Exercise 7_2</strong>
+<em>The anscombe data is included as a library in R. Can you find, load, and explore it?</em></p>
+</blockquote>
 </div>
-<div id="discussion-who-deserves-a-good-grade" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> discussion: who deserves a good grade?</h2>
-<p>In an introductory class in data science, students invariably come to class with different backgrounds. Should this be taken into account in assigning grades? That is, would it be possible (and desirable) to assign grades in a class based not just on what students know at the end of the term, but also on how much they have learned?</p>
-<p>A formal, statistical approach to this could use regression analysis. That is, one could predict final exam scores from pretest scores, and use the residuals - the extent to which students did better or worse than expected - as a contributor to final exam grades. Interestingly, there would be an unusual incentive for students on this ‘pretest’ to do, seemingly perversely, as poorly as possible. How could this be addressed?</p>
-<p>Another problem with this approach is that there may be ‘ceiling effects’ - students who are the strongest coming in to the class can’t improve as much as those who have more room to grow. Again, how might this be addressed? Should it?</p>
+<div id="read-hadley-ggplots" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Read Hadley ggplots</h2>
+<p>In class, we will review and recreate the plots in section 3.2 of <span class="citation">Wickham and Grolemund (<a href="#ref-wickham2016" role="doc-biblioref">2016</a>)</span> and exercises through 3.4.</p>
+<p>Savor this section, reading slowly, and playing around with the RStudio interface. For example, read about the mpg data in the ‘help’ panel, pull up the mpg data in a view window, and sort through it by clicking on various columns.</p>
+<div class="figure">
+<img src="images/rstudio62.PNG" alt="" />
+<p class="caption">Fig. 7.2: A screenshot from RStudio, showing the mpg dataset</p>
+</div>
+</div>
+<div id="exploring-more-data" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> exploring more data</h2>
+<p>Explore the Gapminder data <a href="https://cran.r-project.org/web/packages/gapminder/README.html" class="uri">https://cran.r-project.org/web/packages/gapminder/README.html</a></p>
+<p>Choose one of the datasets in R, pull out a few variables, and explore these.</p>
+<p>Try to make a cool graph - one that informs the viewer, and, to paraphrase Tukey, helps us see what we don’t expect.</p>
+<p>Try several different displays. Which fail? Which succeed? Be prepared to share your efforts.</p>
+<p>Don’t be afraid to screw up.</p>
 
 </div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
-<div id="ref-broman2018">
-<p>Broman, Karl W., and Kara H. Woo. 2018. “Data Organization in Spreadsheets.” <em>The American Statistician</em> 72 (1): 2–10. <a href="https://doi.org/10.1080/00031305.2017.1375989">https://doi.org/10.1080/00031305.2017.1375989</a>.</p>
+<div id="ref-anscombe1973">
+<p>Anscombe, FJ. 1973. “Graphs in Statistical Analysis.” <em>American Statistician</em> 27 (1): 17–21.</p>
 </div>
-<div id="ref-freeman2017">
-<p>Freeman, Michael, and Joel Ross. 2017. <em>Technical Foundations of Informatics, U Washington INFO 201</em>.</p>
-</div>
-<div id="ref-henrich2010">
-<p>Henrich, Joseph, Steven J. Heine, and Ara Norenzayan. 2010. “The Weirdest People in the World?” <em>Behavioral and Brain Sciences</em> 33 (2-3): 61–83. <a href="https://doi.org/10/c9j35b">https://doi.org/10/c9j35b</a>.</p>
-</div>
-<div id="ref-tversky1974">
-<p>Tversky, Amos, and Daniel Kahneman. 1974. “Judgment Under Uncertainty: Heuristics and Biases.” <em>Science</em> 185 (4157): 1124–31. <a href="https://doi.org/10.1126/science.185.4157.1124">https://doi.org/10.1126/science.185.4157.1124</a>.</p>
+<div id="ref-wickham2016">
+<p>Wickham, Hadley, and Garrett Grolemund. 2016. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. " O’Reilly Media, Inc.".</p>
 </div>
 </div>
             </section>
@@ -241,8 +222,8 @@
           </div>
         </div>
       </div>
-<a href="data-science-for-the-liberal-arts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="welcome-to-r-world.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="principles-of-data-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

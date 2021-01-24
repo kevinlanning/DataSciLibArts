@@ -26,4 +26,81 @@ references:
   DOI: 10.1080/00031305.2017.1375989
   ISSN: 0003-1305, 1537-2731
   language: en
+- id: healy2017
+  type: article-journal
+  author:
+  - family: Healy
+    given: Kieran
+  issued:
+  - year: 2017
+  title: 'Data visualization for social science: A practical introduction with r and
+    ggplot2'
+  URL: https://socviz.co
+- id: 2017
+  type: article-journal
+  author:
+  - family: Healy
+    given: Kieran
+  issued:
+  - year: 2017
+  title: 'Data visualization for social science: A practical introduction with r and
+    ggplot2'
+  URL: https://socviz.co
+- id: wickham2016
+  type: article-journal
+  author:
+  - family: Wickham
+    given: Hadley
+  - family: Grolemund
+    given: Garrett
+  issued:
+  - year: 2016
+  title: R for data science
+  note: 'Publisher: Sebastopol, CA: O’Reilly. http://​ r4ds.​ had.​ co.​ nz'
+- id: peng2014
+  type: book
+  author:
+  - family: Peng
+    given: Roger D.
+  issued:
+  - year: 2014
+    month: 2
+    day: 25
+  accessed:
+  - year: 17
+  title: R Programming for Data Science
+  publisher: Leanpub
+  source: leanpub.com
+  URL: https://leanpub.com/rprogramming
+  language: eng
+- id: wainer1981
+  type: article-journal
+  author:
+  - family: Wainer
+    given: Howard
+  - family: Thissen
+    given: David
+  issued:
+  - year: 1981
+  title: Graphical data analysis
+  container-title: ETS Research Report Series
+  page: 191–241
+  volume: '1981'
+  issue: '1'
+  note: 'Publisher: Wiley Online Library'
+- id: cox2013
+  type: article-journal
+  author:
+  - family: Cox
+    given: Jonathan
+  - family: Lindell
+    given: Michael
+  issued:
+  - year: 2013
+  title: Visualizing uncertainty in predicted hurricane tracks
+  container-title: International Journal for Uncertainty Quantification
+  publisher: Begel House Inc.
+  volume: '3'
+  issue: '2'
+  note: 'tex.ids: cox2013'
 ...
