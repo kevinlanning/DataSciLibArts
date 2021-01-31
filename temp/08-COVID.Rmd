@@ -1,17 +1,7 @@
----
-title: "Untitled"
-author: "Lanning"
-date: "1/31/2021"
-output: html_document
----
 
-```{r setup, include=TRUE}
-knitr::opts_chunk$set(echo = TRUE)
-```
- 
 # Examining local COVID data in R
 
-In Winter 2020, as the COVID-19 pandemic began to take hold, I began chronicling the course of the virus. What follows is an archive, followed by a consideration of some possible new directions.
+In Winter 2020, as the COVID-19 pandemic began to take hold, I began chronicling the course of the virus. What follows is an archive, followed by a consideration of some possible new directions. Note that the data reading section in the first few paragraphs is very slow.
 
 ## Tracking the Novel Coronavirus (from Feb 2020)
 
@@ -23,9 +13,9 @@ This is an educational script for students learning R with the Tidyverse. It rea
 
 It was modified February 3 because of new GoogleSheet link and altered variable names, on Feb 5 because of a new URL for the data and additional changes in the variable name for date, and Feb 7 to (a) remove need for OAuth and (b) separate Wuhan from other China. On Feb 9, additional data cleaning was performed and interactive plots were added. On February 11, the code was rewritten to read files from a Github repo rather than Google Sheets.
 
-This does not use an API or require authorization from Github. 
+This does not use an API or require authorization from Github.
 
-```{r coronasetup}
+```{r coronasetup, message = FALSE}
 library(tidyverse)
 library(magrittr)
 library(lubridate)
@@ -332,5 +322,4 @@ p
 ### Additional notes
 
 If you are interested in looking at additional epidemiological datasets and how they might be looked at in R, consider this source by Tomás J. Aragón (https://bookdown.org/medepi/phds/). For Plotly in R, check out https://plotly-r.com/ 
-
 

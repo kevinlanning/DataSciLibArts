@@ -1,0 +1,38 @@
+---
+title: "08-COVID"
+author: "Lanning"
+date: "1/31/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## \#\# New data sources
+
+[Florida COVID19 06032020 ByZip CSV \| Florida COVID-19 Hub (arcgis.com)](https://covid19-usflibrary.hub.arcgis.com/datasets/bb4b850f2cc74c16a37cbdcd89b32c85)
+
+New repos, see [Project/Data No Longer Updated? · Issue \#29 · gadenbuie/covid19-florida (github.com)]([https://github.com/gadenbuie/covid19-florida/issues/29)](https://github.com/gadenbuie/covid19-florida/issues/29))
+
+New/old sources [COVID-19 United States Cases by County - Johns Hopkins Coronavirus Resource Center (jhu.edu)
+
+[[The Covid-19 Tracker - STAT (statnews.com)]([https://www.statnews.com/feature/coronavirus/covid-19-tracker/)](https://coronavirus.jhu.edu/us-map)](https://www.statnews.com/feature/coronavirus/covid-19-tracker/)](https://coronavirus.jhu.edu/us-map))
+
+[CDC COVID Data Tracker]([https://covid.cdc.gov/covid-data-tracker/\#cases\_casesper100klast7days)](https://covid.cdc.gov/covid-data-tracker/#cases_casesper100klast7days))
+
+Forecasting [CDC COVID Data Tracker]([https://covid.cdc.gov/covid-data-tracker/\#forecasting\_weeklydeaths)](https://covid.cdc.gov/covid-data-tracker/#forecasting_weeklydeaths))
+
+[Tracking COVID-19 in Near Real Time: Open-Source Data Tool Shows the Health, Social, and Economic Effects of COVID-19 \| County Health Rankings & Roadmaps]([https://www.countyhealthrankings.org/news-events/tracking-covid-19-in-near-real-time-open-source-data-tool-shows-the-health-social-and-economic)](https://www.countyhealthrankings.org/news-events/tracking-covid-19-in-near-real-time-open-source-data-tool-shows-the-health-social-and-economic))
+
+\#\# R packages
+
+<https://github.com/covid19datahub/COVID19>
+
+<https://github.com/aedobbyn/covid19us>
+
+<https://github.com/Covid19R/covid19nytimes>
+
+New data sources
+
+\#\# How to create new knowledge in Data Science

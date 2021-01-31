@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Examining local COVID data in R | Data science for the liberal arts</title>
+  <meta name="description" content="Test" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Examining local COVID data in R | Data science for the liberal arts" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="chihuahuamuffin.png" />
+  <meta property="og:description" content="Test" />
+  <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Examining local COVID data in R | Data science for the liberal arts" />
+  
+  <meta name="twitter:description" content="Test" />
+  <meta name="twitter:image" content="chihuahuamuffin.png" />
+
+<meta name="author" content="Kevin Lanning" />
+
+
+<meta name="date" content="2021-01-31" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="visualization-in-r-with-ggplot.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#some-features-of-the-text"><i class="fa fa-check"></i>some features of the text</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#the-book-is-for-you"><i class="fa fa-check"></i>the book is for you</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#part-introduction"><i class="fa fa-check"></i>(PART) Introduction</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="preface.html"><a href="preface.html#type-c-data-science-data-science-for-the-liberal-arts"><i class="fa fa-check"></i><b>0.1</b> type C data science = data science for the liberal arts</a></li>
+<li class="chapter" data-level="0.2" data-path="preface.html"><a href="preface.html#the-incompleteness-of-the-data-science-venn-diagram"><i class="fa fa-check"></i><b>0.2</b> the incompleteness of the data science Venn diagram</a></li>
+<li class="chapter" data-level="0.3" data-path="preface.html"><a href="preface.html#a-dimension-of-depth"><i class="fa fa-check"></i><b>0.3</b> a dimension of depth</a></li>
+<li class="chapter" data-level="0.4" data-path="preface.html"><a href="preface.html#google-and-the-liberal-arts"><i class="fa fa-check"></i><b>0.4</b> Google and the liberal arts</a></li>
+<li class="chapter" data-level="0.5" data-path="preface.html"><a href="preface.html#data-sci-and-tmi"><i class="fa fa-check"></i><b>0.5</b> data sci and TMI</a></li>
+<li class="chapter" data-level="0.6" data-path="preface.html"><a href="preface.html#discussion-what-will-you-do-with-data-science"><i class="fa fa-check"></i><b>0.6</b> discussion: what will you do with data science?</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> getting started</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#are-you-already-a-programmer-and-statistician"><i class="fa fa-check"></i><b>1.1</b> are you already a programmer and statistician?</a></li>
+<li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#some-best-practices-for-spreadsheets"><i class="fa fa-check"></i><b>1.2</b> some best practices for spreadsheets</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#setting-up-your-machine-some-basic-tools"><i class="fa fa-check"></i><b>1.3</b> setting up your machine: some basic tools</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#a-modified-15-minute-rule"><i class="fa fa-check"></i><b>1.4</b> a modified 15-minute rule</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#discussion-who-deserves-a-good-grade"><i class="fa fa-check"></i><b>1.5</b> discussion: who deserves a good grade?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="welcome-to-r-world.html"><a href="welcome-to-r-world.html"><i class="fa fa-check"></i><b>2</b> welcome to R world</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="welcome-to-r-world.html"><a href="welcome-to-r-world.html#using-rstudio-cloud"><i class="fa fa-check"></i><b>2.1</b> Using RStudio cloud</a></li>
+<li class="chapter" data-level="2.2" data-path="welcome-to-r-world.html"><a href="welcome-to-r-world.html#using-r-studio-on-your-laptop"><i class="fa fa-check"></i><b>2.2</b> Using R Studio on your laptop</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-stands-for.html"><a href="r-stands-for.html"><i class="fa fa-check"></i><b>3</b> R stands for …</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-stands-for.html"><a href="r-stands-for.html#a-few-characteristics-of-r"><i class="fa fa-check"></i><b>3.1</b> a few characteristics of R</a></li>
+<li class="chapter" data-level="3.2" data-path="r-stands-for.html"><a href="r-stands-for.html#finding-help"><i class="fa fa-check"></i><b>3.2</b> finding help</a></li>
+<li class="chapter" data-level="3.3" data-path="r-stands-for.html"><a href="r-stands-for.html#wickham-and-r-for-data-science"><i class="fa fa-check"></i><b>3.3</b> Wickham and R for Data Science</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html"><i class="fa fa-check"></i><b>4</b> now draw the rest of the owl</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#review-the-rstudio-cloud-primers"><i class="fa fa-check"></i><b>4.1</b> Review the RStudio cloud primers</a></li>
+<li class="chapter" data-level="4.2" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#play-with-rstudio-on-your-laptop"><i class="fa fa-check"></i><b>4.2</b> Play with RStudio on your laptop</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#create-a-new-r-markdown-document-and-knit-it-to-a-pdf-or-a-word-doc"><i class="fa fa-check"></i><b>4.2.1</b> Create a new R Markdown document and knit it to a PDF or a Word doc</a></li>
+<li class="chapter" data-level="4.2.2" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#play-with-and-explore-the-movies-data"><i class="fa fa-check"></i><b>4.2.2</b> Play with and explore the movies data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#take-a-datacamp-class"><i class="fa fa-check"></i><b>4.3</b> Take a DataCamp class</a></li>
+<li class="chapter" data-level="4.4" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#swirl-swirlstats"><i class="fa fa-check"></i><b>4.4</b> Swirl (Swirlstats)</a></li>
+<li class="chapter" data-level="4.5" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#read-pengs-text-andor-watch-the-associated-videos"><i class="fa fa-check"></i><b>4.5</b> Read Peng’s text and/or watch the associated videos</a></li>
+<li class="chapter" data-level="4.6" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#code-along-with-a-tidy-webinar-or-attend-a-virtual-conference"><i class="fa fa-check"></i><b>4.6</b> Code along with a tidy webinar, or attend a virtual conference</a></li>
+<li class="chapter" data-level="4.7" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#something-else"><i class="fa fa-check"></i><b>4.7</b> Something else</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#part-part-ii-towards-data-literacy"><i class="fa fa-check"></i>(PART) Part II Towards data literacy</a>
+<ul>
+<li class="chapter" data-level="4.8" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#some-opening-thoughts"><i class="fa fa-check"></i><b>4.8</b> Some opening thoughts</a></li>
+<li class="chapter" data-level="4.9" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#some-early-graphs"><i class="fa fa-check"></i><b>4.9</b> Some early graphs</a></li>
+<li class="chapter" data-level="4.10" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#tukey-and-eda"><i class="fa fa-check"></i><b>4.10</b> Tukey and EDA</a></li>
+<li class="chapter" data-level="4.11" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#approaches-to-graphs"><i class="fa fa-check"></i><b>4.11</b> Approaches to graphs</a></li>
+<li class="chapter" data-level="4.12" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#tufte-first-principles"><i class="fa fa-check"></i><b>4.12</b> Tufte: First principles</a></li>
+<li class="chapter" data-level="4.13" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#the-politics-of-data-visualization"><i class="fa fa-check"></i><b>4.13</b> The politics of data visualization</a>
+<ul>
+<li class="chapter" data-level="4.13.1" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#poor-design-leads-to-an-uninformed-or-misinformed-world"><i class="fa fa-check"></i><b>4.13.1</b> Poor design leads to an uninformed or misinformed world</a></li>
+<li class="chapter" data-level="4.13.2" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#poor-design-can-be-a-tool-to-deceive"><i class="fa fa-check"></i><b>4.13.2</b> Poor design can be a tool to deceive</a></li>
+</ul></li>
+<li class="chapter" data-level="4.14" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#the-psychology-of-data-visualization"><i class="fa fa-check"></i><b>4.14</b> The psychology of data visualization</a>
+<ul>
+<li class="chapter" data-level="4.14.1" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#the-power-of-animation"><i class="fa fa-check"></i><b>4.14.1</b> The power of animation</a></li>
+<li class="chapter" data-level="4.14.2" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#telling-the-truth-when-the-truth-is-unclear"><i class="fa fa-check"></i><b>4.14.2</b> Telling the truth when the truth is unclear</a></li>
+<li class="chapter" data-level="4.14.3" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#visualizing-uncertainty"><i class="fa fa-check"></i><b>4.14.3</b> Visualizing uncertainty</a></li>
+</ul></li>
+<li class="chapter" data-level="4.15" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#further-reading-and-resources"><i class="fa fa-check"></i><b>4.15</b> further reading and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html"><i class="fa fa-check"></i><b>5</b> visualization in R with ggplot</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#a-picture-words-numbers"><i class="fa fa-check"></i><b>5.1</b> a picture &gt; (words, numbers)?</a></li>
+<li class="chapter" data-level="5.2" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#read-hadley-ggplots"><i class="fa fa-check"></i><b>5.2</b> Read Hadley ggplots</a></li>
+<li class="chapter" data-level="5.3" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#exploring-more-data"><i class="fa fa-check"></i><b>5.3</b> exploring more data</a></li>
+<li class="chapter" data-level="5.4" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#resources-for-looking-at-covd-19"><i class="fa fa-check"></i><b>5.4</b> resources for looking at COVD-19</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html"><i class="fa fa-check"></i><b>6</b> Examining local COVID data in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#tracking-the-novel-coronavirus-from-feb-2020"><i class="fa fa-check"></i><b>6.1</b> Tracking the Novel Coronavirus (from Feb 2020)</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#reading-the-data-feb-2020"><i class="fa fa-check"></i><b>6.1.1</b> Reading the data (Feb 2020)</a></li>
+<li class="chapter" data-level="6.1.2" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#cleaning-wrangling-munging-the-data-feb-2020"><i class="fa fa-check"></i><b>6.1.2</b> Cleaning (wrangling, munging) the data (Feb 2020)</a></li>
+<li class="chapter" data-level="6.1.3" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#months-later-the-code-still-runs"><i class="fa fa-check"></i><b>6.1.3</b> 11 months later: The code still runs!</a></li>
+<li class="chapter" data-level="6.1.4" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#shall-we-graph-it-feb-2021"><i class="fa fa-check"></i><b>6.1.4</b> Shall we graph it? (Feb 2021)</a></li>
+<li class="chapter" data-level="6.1.5" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#too-bad-mar-2021"><i class="fa fa-check"></i><b>6.1.5</b> Too bad (Mar 2021)</a></li>
+<li class="chapter" data-level="6.1.6" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#what-now"><i class="fa fa-check"></i><b>6.1.6</b> What now?</a></li>
+<li class="chapter" data-level="6.1.7" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#an-initial-plot-feb-2020"><i class="fa fa-check"></i><b>6.1.7</b> An initial plot (Feb 2020)</a></li>
+<li class="chapter" data-level="6.1.8" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#five-weeks-later-mar-2020"><i class="fa fa-check"></i><b>6.1.8</b> five weeks later (Mar 2020)</a></li>
+<li class="chapter" data-level="6.1.9" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#adding-recovered-cases-code-from-feb-data-through-mar-2020"><i class="fa fa-check"></i><b>6.1.9</b> Adding recovered cases (code from Feb, data through Mar 2020)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#plotting-confirmed-cases-feb-mar-2020"><i class="fa fa-check"></i><b>6.2</b> Plotting confirmed cases (Feb-Mar 2020)</a></li>
+<li class="chapter" data-level="6.3" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#status-feb-2021"><i class="fa fa-check"></i><b>6.3</b> Status (Feb 2021)</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#an-assignment"><i class="fa fa-check"></i><b>6.3.1</b> An assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#how-to-create-new-knowledge"><i class="fa fa-check"></i><b>6.4</b> How to create new knowledge</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data science for the liberal arts</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="examining-local-covid-data-in-r" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Examining local COVID data in R</h1>
+<p>In Winter 2020, as the COVID-19 pandemic began to take hold, I began chronicling the course of the virus. What follows is an archive, followed by a consideration of some possible new directions.</p>
+<div id="tracking-the-novel-coronavirus-from-feb-2020" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Tracking the Novel Coronavirus (from Feb 2020)</h2>
+<p>Here, I want to consider a timely (but challenging) dataset.</p>
+<p>The Novel Coronavirus is an emerging health crisis, particularly in Wuhan (a Chinese city larger than New York City) and the surrounding province of Hubei. <strong>It is not yet a threat in the United States - there have, at this writing (02/11/20) been zero cases in Florida.</strong> Still, tracking the spread of the virus - the unfolding number of people infected and recovered, as well as the number of deaths - is a fascinating exercise.</p>
+<p>This is an educational script for students learning R with the Tidyverse. It reads data provided by the Johns Hopkins Center for Systems Science and Engineering (JHU/CSSE).</p>
+<p>It was modified February 3 because of new GoogleSheet link and altered variable names, on Feb 5 because of a new URL for the data and additional changes in the variable name for date, and Feb 7 to (a) remove need for OAuth and (b) separate Wuhan from other China. On Feb 9, additional data cleaning was performed and interactive plots were added. On February 11, the code was rewritten to read files from a Github repo rather than Google Sheets.</p>
+<p>This does not use an API or require authorization from Github.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="examining-local-covid-data-in-r.html#cb1-1" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="examining-local-covid-data-in-r.html#cb1-2" aria-hidden="true"></a><span class="kw">library</span>(magrittr)</span>
+<span id="cb1-3"><a href="examining-local-covid-data-in-r.html#cb1-3" aria-hidden="true"></a><span class="kw">library</span>(lubridate)</span>
+<span id="cb1-4"><a href="examining-local-covid-data-in-r.html#cb1-4" aria-hidden="true"></a><span class="kw">library</span>(htmlwidgets)</span>
+<span id="cb1-5"><a href="examining-local-covid-data-in-r.html#cb1-5" aria-hidden="true"></a><span class="kw">library</span>(httr)</span>
+<span id="cb1-6"><a href="examining-local-covid-data-in-r.html#cb1-6" aria-hidden="true"></a><span class="kw">library</span>(purrr)</span>
+<span id="cb1-7"><a href="examining-local-covid-data-in-r.html#cb1-7" aria-hidden="true"></a><span class="co"># get list of files</span></span>
+<span id="cb1-8"><a href="examining-local-covid-data-in-r.html#cb1-8" aria-hidden="true"></a>filelist &lt;-<span class="st"> </span><span class="kw">GET</span>(<span class="st">&quot;https://api.github.com/repos/CSSEGISandData/2019-nCoV/git/trees/master?recursive=1&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb1-9"><a href="examining-local-covid-data-in-r.html#cb1-9" aria-hidden="true"></a><span class="st">  </span><span class="kw">content</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb1-10"><a href="examining-local-covid-data-in-r.html#cb1-10" aria-hidden="true"></a><span class="co"># there is probably a more efficient way to reduce this</span></span>
+<span id="cb1-11"><a href="examining-local-covid-data-in-r.html#cb1-11" aria-hidden="true"></a><span class="co"># list to a set of filenames</span></span>
+<span id="cb1-12"><a href="examining-local-covid-data-in-r.html#cb1-12" aria-hidden="true"></a><span class="st">  </span><span class="kw">flatten</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb1-13"><a href="examining-local-covid-data-in-r.html#cb1-13" aria-hidden="true"></a><span class="st">  </span><span class="kw">map</span> (<span class="st">&quot;path&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb1-14"><a href="examining-local-covid-data-in-r.html#cb1-14" aria-hidden="true"></a><span class="st">  </span><span class="kw">flatten</span>() <span class="op">%&gt;%</span></span>
+<span id="cb1-15"><a href="examining-local-covid-data-in-r.html#cb1-15" aria-hidden="true"></a><span class="st">  </span><span class="kw">tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb1-16"><a href="examining-local-covid-data-in-r.html#cb1-16" aria-hidden="true"></a><span class="st">  </span><span class="kw">rename</span>(<span class="dt">filename =</span> <span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb1-17"><a href="examining-local-covid-data-in-r.html#cb1-17" aria-hidden="true"></a><span class="st">  </span><span class="kw">filter</span>(<span class="kw">str_detect</span>(filename,<span class="st">&quot;.csv&quot;</span>) <span class="op">&amp;</span></span>
+<span id="cb1-18"><a href="examining-local-covid-data-in-r.html#cb1-18" aria-hidden="true"></a><span class="st">           </span><span class="kw">str_detect</span>(filename,<span class="st">&quot;daily&quot;</span>)) </span>
+<span id="cb1-19"><a href="examining-local-covid-data-in-r.html#cb1-19" aria-hidden="true"></a>nsheets &lt;-<span class="st"> </span><span class="kw">nrow</span>(filelist)</span>
+<span id="cb1-20"><a href="examining-local-covid-data-in-r.html#cb1-20" aria-hidden="true"></a>rawGitFiles &lt;-<span class="st"> &quot;https://raw.githubusercontent.com/CSSEGISandData/2019-nCoV/master/&quot;</span></span></code></pre></div>
+<div id="reading-the-data-feb-2020" class="section level3" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Reading the data (Feb 2020)</h3>
+<p>The Novel Coronavirus data consists of a series of csv files in a Github repository. This combines them into a single sheet in R.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="examining-local-covid-data-in-r.html#cb2-1" aria-hidden="true"></a><span class="co"># variables to retain or create</span></span>
+<span id="cb2-2"><a href="examining-local-covid-data-in-r.html#cb2-2" aria-hidden="true"></a>numvars &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Confirmed&quot;</span>, <span class="st">&quot;Deaths&quot;</span>, <span class="st">&quot;Recovered&quot;</span>)</span>
+<span id="cb2-3"><a href="examining-local-covid-data-in-r.html#cb2-3" aria-hidden="true"></a>varlist &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Province/State&quot;</span>, <span class="st">&quot;Country/Region&quot;</span>,</span>
+<span id="cb2-4"><a href="examining-local-covid-data-in-r.html#cb2-4" aria-hidden="true"></a>             <span class="st">&quot;Last Update&quot;</span>, numvars) </span>
+<span id="cb2-5"><a href="examining-local-covid-data-in-r.html#cb2-5" aria-hidden="true"></a><span class="co"># one cool trick to initialize a tibble</span></span>
+<span id="cb2-6"><a href="examining-local-covid-data-in-r.html#cb2-6" aria-hidden="true"></a>coronaData &lt;-<span class="st"> </span>varlist <span class="op">%&gt;%</span></span>
+<span id="cb2-7"><a href="examining-local-covid-data-in-r.html#cb2-7" aria-hidden="true"></a><span class="st">     </span><span class="kw">map_dfr</span>( <span class="op">~</span><span class="kw">tibble</span>(<span class="op">!!</span><span class="dt">.x :=</span> <span class="kw">logical</span>() ) )</span>
+<span id="cb2-8"><a href="examining-local-covid-data-in-r.html#cb2-8" aria-hidden="true"></a><span class="co"># add data from files to tibble</span></span>
+<span id="cb2-9"><a href="examining-local-covid-data-in-r.html#cb2-9" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>nsheets) {</span>
+<span id="cb2-10"><a href="examining-local-covid-data-in-r.html#cb2-10" aria-hidden="true"></a>  j &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">paste0</span>(rawGitFiles,filelist<span class="op">$</span>filename[i]))</span>
+<span id="cb2-11"><a href="examining-local-covid-data-in-r.html#cb2-11" aria-hidden="true"></a><span class="co"># if a variable doesn&#39;t exist in sheet, add it</span></span>
+<span id="cb2-12"><a href="examining-local-covid-data-in-r.html#cb2-12" aria-hidden="true"></a>  j[<span class="kw">setdiff</span>(varlist,<span class="kw">names</span>(j))] &lt;-<span class="st"> </span><span class="ot">NA</span></span>
+<span id="cb2-13"><a href="examining-local-covid-data-in-r.html#cb2-13" aria-hidden="true"></a><span class="co"># datetime is formatted inconsistently</span></span>
+<span id="cb2-14"><a href="examining-local-covid-data-in-r.html#cb2-14" aria-hidden="true"></a><span class="co"># across files, this must be done before merging  </span></span>
+<span id="cb2-15"><a href="examining-local-covid-data-in-r.html#cb2-15" aria-hidden="true"></a>  j <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="st">`</span><span class="dt">Last Update</span><span class="st">`</span> =<span class="st"> </span></span>
+<span id="cb2-16"><a href="examining-local-covid-data-in-r.html#cb2-16" aria-hidden="true"></a><span class="st">           </span><span class="kw">parse_date_time</span>(<span class="st">`</span><span class="dt">Last Update</span><span class="st">`</span>,</span>
+<span id="cb2-17"><a href="examining-local-covid-data-in-r.html#cb2-17" aria-hidden="true"></a>                           <span class="kw">c</span>(<span class="st">&#39;mdy hp&#39;</span>,<span class="st">&#39;mdy HM&#39;</span>,</span>
+<span id="cb2-18"><a href="examining-local-covid-data-in-r.html#cb2-18" aria-hidden="true"></a>                             <span class="st">&#39;mdy HMS&#39;</span>,<span class="st">&#39;ymd HMS&#39;</span>))) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-19"><a href="examining-local-covid-data-in-r.html#cb2-19" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span>(varlist) </span>
+<span id="cb2-20"><a href="examining-local-covid-data-in-r.html#cb2-20" aria-hidden="true"></a>  coronaData &lt;-<span class="st"> </span><span class="kw">rbind</span>(coronaData, j) </span>
+<span id="cb2-21"><a href="examining-local-covid-data-in-r.html#cb2-21" aria-hidden="true"></a>}</span>
+<span id="cb2-22"><a href="examining-local-covid-data-in-r.html#cb2-22" aria-hidden="true"></a><span class="kw">head</span>(coronaData)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 6
+##   `Province/State` `Country/Region` `Last Update`       Confirmed Deaths
+##   &lt;chr&gt;            &lt;chr&gt;            &lt;dttm&gt;                  &lt;dbl&gt;  &lt;dbl&gt;
+## 1 Anhui            Mainland China   2020-01-21 22:00:00        NA     NA
+## 2 Beijing          Mainland China   2020-01-21 22:00:00        10     NA
+## 3 Chongqing        Mainland China   2020-01-21 22:00:00         5     NA
+## 4 Guangdong        Mainland China   2020-01-21 22:00:00        17     NA
+## 5 Guangxi          Mainland China   2020-01-21 22:00:00        NA     NA
+## 6 Guizhou          Mainland China   2020-01-21 22:00:00        NA     NA
+## # ... with 1 more variable: Recovered &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="examining-local-covid-data-in-r.html#cb4-1" aria-hidden="true"></a><span class="kw">str</span>(coronaData)</span></code></pre></div>
+<pre><code>## tibble [1,210,334 x 6] (S3: tbl_df/tbl/data.frame)
+##  $ Province/State: chr [1:1210334] &quot;Anhui&quot; &quot;Beijing&quot; &quot;Chongqing&quot; &quot;Guangdong&quot; ...
+##  $ Country/Region: chr [1:1210334] &quot;Mainland China&quot; &quot;Mainland China&quot; &quot;Mainland China&quot; &quot;Mainland China&quot; ...
+##  $ Last Update   : POSIXct[1:1210334], format: &quot;2020-01-21 22:00:00&quot; &quot;2020-01-21 22:00:00&quot; ...
+##  $ Confirmed     : num [1:1210334] NA 10 5 17 NA NA NA NA 1 NA ...
+##  $ Deaths        : num [1:1210334] NA NA NA NA NA NA NA NA NA NA ...
+##  $ Recovered     : num [1:1210334] NA NA NA NA NA NA NA NA NA NA ...</code></pre>
+</div>
+<div id="cleaning-wrangling-munging-the-data-feb-2020" class="section level3" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Cleaning (wrangling, munging) the data (Feb 2020)</h3>
+<p>Cleaning the data includes not just finding “errors,” but adapting it for our own use. It’s generally time consuming, as was the case here. The following letters refer to sections of the code below.</p>
+<ul>
+<li>a - fix a few missing values outside of China for province and country</li>
+<li>b - the earliest cases, all in China, did not include country</li>
+<li>c - because province/state is included inconsistently, an unambiguous place variable is created</li>
+<li>d - reportdate is standardized (above) and renamed</li>
+<li>e - in some cases, multiple reports are issued for each day. only the last of these is used for each place.</li>
+<li>f - for dates where no data was supplied, the most recent (previous) data are used</li>
+<li>g - values of NA for Deaths, Confirmed, and Recovered cases are replaced by zero.</li>
+<li>h - Prior to Feb 1, 2020 reporting for US included only state, since then, city and state. This drops the (duplicated) province/state-only values beginning Feb 1.</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="examining-local-covid-data-in-r.html#cb6-1" aria-hidden="true"></a><span class="co"># the bidirectional pipe edits and replaces a dataset. use with caution.</span></span>
+<span id="cb6-2"><a href="examining-local-covid-data-in-r.html#cb6-2" aria-hidden="true"></a>coronaData &lt;-<span class="st"> </span>coronaData <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-3"><a href="examining-local-covid-data-in-r.html#cb6-3" aria-hidden="true"></a><span class="co"># a </span></span>
+<span id="cb6-4"><a href="examining-local-covid-data-in-r.html#cb6-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span> (<span class="st">`</span><span class="dt">Province/State</span><span class="st">`</span> =<span class="st"> </span><span class="kw">case_when</span>(</span>
+<span id="cb6-5"><a href="examining-local-covid-data-in-r.html#cb6-5" aria-hidden="true"></a>    (<span class="kw">is.na</span>(<span class="st">`</span><span class="dt">Province/State</span><span class="st">`</span>) <span class="op">&amp;</span><span class="st"> </span></span>
+<span id="cb6-6"><a href="examining-local-covid-data-in-r.html#cb6-6" aria-hidden="true"></a><span class="st">       </span>(<span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span> <span class="op">==</span><span class="st"> &quot;Australia&quot;</span>)) <span class="op">~</span><span class="st"> &quot;New South Wales&quot;</span>,</span>
+<span id="cb6-7"><a href="examining-local-covid-data-in-r.html#cb6-7" aria-hidden="true"></a>    (<span class="kw">is.na</span>(<span class="st">`</span><span class="dt">Province/State</span><span class="st">`</span>) <span class="op">&amp;</span><span class="st"> </span></span>
+<span id="cb6-8"><a href="examining-local-covid-data-in-r.html#cb6-8" aria-hidden="true"></a><span class="st">       </span>(<span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span> <span class="op">==</span><span class="st"> &quot;Germany&quot;</span>)) <span class="op">~</span><span class="st"> &quot;Bavaria&quot;</span>, </span>
+<span id="cb6-9"><a href="examining-local-covid-data-in-r.html#cb6-9" aria-hidden="true"></a>    <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> `</span><span class="dt">Province/State</span><span class="st">`</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-10"><a href="examining-local-covid-data-in-r.html#cb6-10" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span> (<span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span> =<span class="st"> </span><span class="kw">case_when</span>(</span>
+<span id="cb6-11"><a href="examining-local-covid-data-in-r.html#cb6-11" aria-hidden="true"></a>    <span class="st">`</span><span class="dt">Province/State</span><span class="st">`</span> <span class="op">==</span><span class="st"> &quot;Hong Kong&quot;</span> <span class="op">~</span><span class="st"> &quot;Hong Kong&quot;</span>,</span>
+<span id="cb6-12"><a href="examining-local-covid-data-in-r.html#cb6-12" aria-hidden="true"></a>    <span class="st">`</span><span class="dt">Province/State</span><span class="st">`</span> <span class="op">==</span><span class="st"> &quot;Taiwan&quot;</span> <span class="op">~</span><span class="st"> &quot;Taiwan&quot;</span>,</span>
+<span id="cb6-13"><a href="examining-local-covid-data-in-r.html#cb6-13" aria-hidden="true"></a>    <span class="st">`</span><span class="dt">Province/State</span><span class="st">`</span> <span class="op">==</span><span class="st"> &quot;Washington&quot;</span> <span class="op">~</span><span class="st"> &quot;US&quot;</span>,</span>
+<span id="cb6-14"><a href="examining-local-covid-data-in-r.html#cb6-14" aria-hidden="true"></a><span class="co"># b</span></span>
+<span id="cb6-15"><a href="examining-local-covid-data-in-r.html#cb6-15" aria-hidden="true"></a>    <span class="kw">is.na</span> (<span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">~</span><span class="st"> &quot;Mainland China&quot;</span>,</span>
+<span id="cb6-16"><a href="examining-local-covid-data-in-r.html#cb6-16" aria-hidden="true"></a>    <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> `</span><span class="dt">Country/Region</span><span class="st">`</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-17"><a href="examining-local-covid-data-in-r.html#cb6-17" aria-hidden="true"></a><span class="co"># c </span></span>
+<span id="cb6-18"><a href="examining-local-covid-data-in-r.html#cb6-18" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">place =</span> <span class="kw">ifelse</span>(<span class="kw">is.na</span>(<span class="st">`</span><span class="dt">Province/State</span><span class="st">`</span>),</span>
+<span id="cb6-19"><a href="examining-local-covid-data-in-r.html#cb6-19" aria-hidden="true"></a>                        <span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>,</span>
+<span id="cb6-20"><a href="examining-local-covid-data-in-r.html#cb6-20" aria-hidden="true"></a>                        <span class="kw">paste0</span>(<span class="st">`</span><span class="dt">Province/State</span><span class="st">`</span>,<span class="st">&quot;, &quot;</span>,</span>
+<span id="cb6-21"><a href="examining-local-covid-data-in-r.html#cb6-21" aria-hidden="true"></a>                               <span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>))) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-22"><a href="examining-local-covid-data-in-r.html#cb6-22" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">reportDate =</span> </span>
+<span id="cb6-23"><a href="examining-local-covid-data-in-r.html#cb6-23" aria-hidden="true"></a>           <span class="kw">date</span>(<span class="st">`</span><span class="dt">Last Update</span><span class="st">`</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-24"><a href="examining-local-covid-data-in-r.html#cb6-24" aria-hidden="true"></a><span class="st">  </span><span class="kw">group_by</span>(place,reportDate) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-25"><a href="examining-local-covid-data-in-r.html#cb6-25" aria-hidden="true"></a><span class="co"># e</span></span>
+<span id="cb6-26"><a href="examining-local-covid-data-in-r.html#cb6-26" aria-hidden="true"></a><span class="st">  </span><span class="kw">slice</span>(<span class="kw">which.max</span>(<span class="st">`</span><span class="dt">Last Update</span><span class="st">`</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-27"><a href="examining-local-covid-data-in-r.html#cb6-27" aria-hidden="true"></a><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></span>
+<span id="cb6-28"><a href="examining-local-covid-data-in-r.html#cb6-28" aria-hidden="true"></a><span class="co"># fill in missing dates for each place for time series</span></span>
+<span id="cb6-29"><a href="examining-local-covid-data-in-r.html#cb6-29" aria-hidden="true"></a><span class="co"># f</span></span>
+<span id="cb6-30"><a href="examining-local-covid-data-in-r.html#cb6-30" aria-hidden="true"></a><span class="st">  </span><span class="kw">group_by</span>(place) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-31"><a href="examining-local-covid-data-in-r.html#cb6-31" aria-hidden="true"></a><span class="st">  </span><span class="kw">complete</span>(<span class="dt">reportDate =</span> <span class="kw">seq.Date</span>(<span class="kw">min</span>(reportDate),</span>
+<span id="cb6-32"><a href="examining-local-covid-data-in-r.html#cb6-32" aria-hidden="true"></a>                                 <span class="kw">today</span>(),</span>
+<span id="cb6-33"><a href="examining-local-covid-data-in-r.html#cb6-33" aria-hidden="true"></a>                                 <span class="dt">by=</span><span class="st">&quot;day&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-34"><a href="examining-local-covid-data-in-r.html#cb6-34" aria-hidden="true"></a><span class="st">  </span><span class="kw">fill</span>(<span class="kw">c</span>(Confirmed,Deaths,Recovered,</span>
+<span id="cb6-35"><a href="examining-local-covid-data-in-r.html#cb6-35" aria-hidden="true"></a>         <span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>,<span class="st">`</span><span class="dt">Province/State</span><span class="st">`</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-36"><a href="examining-local-covid-data-in-r.html#cb6-36" aria-hidden="true"></a><span class="co"># g</span></span>
+<span id="cb6-37"><a href="examining-local-covid-data-in-r.html#cb6-37" aria-hidden="true"></a><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-38"><a href="examining-local-covid-data-in-r.html#cb6-38" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate_if</span>(is.numeric, <span class="op">~</span><span class="kw">replace_na</span>(., <span class="dv">0</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-39"><a href="examining-local-covid-data-in-r.html#cb6-39" aria-hidden="true"></a><span class="co"># h</span></span>
+<span id="cb6-40"><a href="examining-local-covid-data-in-r.html#cb6-40" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">dropcase =</span> ((<span class="op">!</span><span class="kw">str_detect</span>(<span class="st">`</span><span class="dt">Province/State</span><span class="st">`</span>,<span class="st">&quot;,&quot;</span>)) <span class="op">&amp;</span><span class="st"> </span></span>
+<span id="cb6-41"><a href="examining-local-covid-data-in-r.html#cb6-41" aria-hidden="true"></a><span class="st">                       </span>(reportDate  <span class="op">&gt;</span><span class="st"> &quot;2020-01-31&quot;</span>) <span class="op">&amp;</span></span>
+<span id="cb6-42"><a href="examining-local-covid-data-in-r.html#cb6-42" aria-hidden="true"></a><span class="st">                       </span>(<span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span> <span class="op">==</span><span class="st"> &quot;Canada&quot;</span> <span class="op">|</span><span class="st"> `</span><span class="dt">Country/Region</span><span class="st">`</span> <span class="op">==</span><span class="st"> &quot;US&quot;</span>))) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-43"><a href="examining-local-covid-data-in-r.html#cb6-43" aria-hidden="true"></a><span class="co"># dplyr called explicitly here because plotly has taken over &#39;filter&#39;</span></span>
+<span id="cb6-44"><a href="examining-local-covid-data-in-r.html#cb6-44" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span> (<span class="op">!</span>dropcase) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-45"><a href="examining-local-covid-data-in-r.html#cb6-45" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span><span class="kw">c</span>(<span class="st">`</span><span class="dt">Last Update</span><span class="st">`</span>,<span class="st">`</span><span class="dt">Province/State</span><span class="st">`</span>,<span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>,dropcase)) </span>
+<span id="cb6-46"><a href="examining-local-covid-data-in-r.html#cb6-46" aria-hidden="true"></a><span class="kw">head</span>(coronaData)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 5
+##   place       reportDate Confirmed Deaths Recovered
+##   &lt;chr&gt;       &lt;date&gt;         &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
+## 1 Afghanistan 2020-02-24         1      0         0
+## 2 Afghanistan 2020-02-25         1      0         0
+## 3 Afghanistan 2020-02-26         1      0         0
+## 4 Afghanistan 2020-02-27         1      0         0
+## 5 Afghanistan 2020-02-28         1      0         0
+## 6 Afghanistan 2020-02-29         1      0         0</code></pre>
+</div>
+<div id="months-later-the-code-still-runs" class="section level3" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> 11 months later: The code still runs!</h3>
+<p>The above code runs without apparent error, and leads to a dataset of 149341 rows by 5 columns. Here’s a quick peek (Note that I use the group_by and summarize functions to collapse the file to one line per date):</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="examining-local-covid-data-in-r.html#cb8-1" aria-hidden="true"></a>coronaData <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(reportDate) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb8-2"><a href="examining-local-covid-data-in-r.html#cb8-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">Confirmed =</span> <span class="kw">sum</span>(Confirmed)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb8-3"><a href="examining-local-covid-data-in-r.html#cb8-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">head</span>() </span></code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##   reportDate Confirmed
+##   &lt;date&gt;         &lt;dbl&gt;
+## 1 2020-01-21       332
+## 2 2020-01-22       557
+## 3 2020-01-23       654
+## 4 2020-01-24       941
+## 5 2020-01-25      1771
+## 6 2020-01-26      2795</code></pre>
+</div>
+<div id="shall-we-graph-it-feb-2021" class="section level3" number="6.1.4">
+<h3><span class="header-section-number">6.1.4</span> Shall we graph it? (Feb 2021)</h3>
+<p>So far, so good. Let’s plot the whole range. What do we see? This will generate a quick graph in ggPlot which shows the global incidence of confirmed cases.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="examining-local-covid-data-in-r.html#cb10-1" aria-hidden="true"></a>coronaData <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-2"><a href="examining-local-covid-data-in-r.html#cb10-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">group_by</span>(reportDate) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-3"><a href="examining-local-covid-data-in-r.html#cb10-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">Confirmed =</span> <span class="kw">sum</span>(Confirmed)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-4"><a href="examining-local-covid-data-in-r.html#cb10-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>reportDate)) <span class="op">+</span></span>
+<span id="cb10-5"><a href="examining-local-covid-data-in-r.html#cb10-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y=</span>Confirmed)) </span></code></pre></div>
+<p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<div id="too-bad-mar-2021" class="section level3" number="6.1.5">
+<h3><span class="header-section-number">6.1.5</span> Too bad (Mar 2021)</h3>
+<p>According to the above graph, there have been no additional COVID cases since mid-March or so. Too bad that the data aren’t right here - for us and especially the world.</p>
+<blockquote>
+<p><strong>Exercise 8_1</strong> <em>Working with classmates, find the exact date when the file stopped updating. Use whatever method you like for this - kludgy or clever - but you should describe your results in explicit language or code so that anyone else would get the same results.</em></p>
+</blockquote>
+</div>
+<div id="what-now" class="section level3" number="6.1.6">
+<h3><span class="header-section-number">6.1.6</span> What now?</h3>
+<p>I want to make sure that the rest of my code still works, so I’ll look more closely at the valid data. I’ll generate a new variable (‘firstbaddate,’ which sounds like a corny romcom), and filter by it.</p>
+<p>When the code was written a year ago, the COVID outbreak was largely contained to the Hubei province (which includes the city of Wuhan). So I tried breaking down the data into three locations, breaking down China into Hubei, other China, and the rest of the world.</p>
+<p>And I generated summaries for three measures - Confirmed, Deaths, and Recovered cases</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="examining-local-covid-data-in-r.html#cb11-1" aria-hidden="true"></a>firstbaddate &lt;-<span class="st"> &#39;2020-03-22&#39;</span> <span class="co"># This line is added in 2021</span></span>
+<span id="cb11-2"><a href="examining-local-covid-data-in-r.html#cb11-2" aria-hidden="true"></a>coronaDataSimple &lt;-<span class="st"> </span>coronaData <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb11-3"><a href="examining-local-covid-data-in-r.html#cb11-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">filter</span>(reportDate <span class="op">&lt;</span><span class="st"> </span>firstbaddate) <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># added in 2021</span></span>
+<span id="cb11-4"><a href="examining-local-covid-data-in-r.html#cb11-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">country =</span> <span class="kw">case_when</span>(</span>
+<span id="cb11-5"><a href="examining-local-covid-data-in-r.html#cb11-5" aria-hidden="true"></a>    <span class="kw">str_detect</span>(place,<span class="st">&quot;China&quot;</span>) <span class="op">~</span><span class="st"> &quot;China&quot;</span>,</span>
+<span id="cb11-6"><a href="examining-local-covid-data-in-r.html#cb11-6" aria-hidden="true"></a>    <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> &quot;Other countries&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb11-7"><a href="examining-local-covid-data-in-r.html#cb11-7" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">location =</span> <span class="kw">case_when</span>(</span>
+<span id="cb11-8"><a href="examining-local-covid-data-in-r.html#cb11-8" aria-hidden="true"></a>    place <span class="op">==</span><span class="st"> &quot;Hubei, Mainland China&quot;</span> <span class="op">~</span><span class="st"> &quot;Hubei (Wuhan)&quot;</span>,</span>
+<span id="cb11-9"><a href="examining-local-covid-data-in-r.html#cb11-9" aria-hidden="true"></a>    country <span class="op">==</span><span class="st"> &quot;China&quot;</span> <span class="op">~</span><span class="st"> &quot;Other China&quot;</span>,</span>
+<span id="cb11-10"><a href="examining-local-covid-data-in-r.html#cb11-10" aria-hidden="true"></a><span class="co"># what happens when this line is not commented out?</span></span>
+<span id="cb11-11"><a href="examining-local-covid-data-in-r.html#cb11-11" aria-hidden="true"></a><span class="co"># why is it written this way?</span></span>
+<span id="cb11-12"><a href="examining-local-covid-data-in-r.html#cb11-12" aria-hidden="true"></a><span class="co"># str_detect(place, &quot;ruise&quot;) ~ &quot;Cruise Ship&quot;, </span></span>
+<span id="cb11-13"><a href="examining-local-covid-data-in-r.html#cb11-13" aria-hidden="true"></a>    <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> &quot;Elsewhere&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb11-14"><a href="examining-local-covid-data-in-r.html#cb11-14" aria-hidden="true"></a><span class="st">  </span><span class="kw">group_by</span>(location,reportDate) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb11-15"><a href="examining-local-covid-data-in-r.html#cb11-15" aria-hidden="true"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">Confirmed =</span> <span class="kw">sum</span>(Confirmed),</span>
+<span id="cb11-16"><a href="examining-local-covid-data-in-r.html#cb11-16" aria-hidden="true"></a>            <span class="dt">Deaths =</span> <span class="kw">sum</span>(Deaths),</span>
+<span id="cb11-17"><a href="examining-local-covid-data-in-r.html#cb11-17" aria-hidden="true"></a>            <span class="dt">Recovered =</span> <span class="kw">sum</span>(Recovered)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb11-18"><a href="examining-local-covid-data-in-r.html#cb11-18" aria-hidden="true"></a><span class="st">  </span><span class="kw">ungroup</span>()</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;location&#39;. You can override using the `.groups` argument.</code></pre>
+</div>
+<div id="an-initial-plot-feb-2020" class="section level3" number="6.1.7">
+<h3><span class="header-section-number">6.1.7</span> An initial plot (Feb 2020)</h3>
+<p>The first plot is simple, including data for only deaths. A caption is added to show the source of the data. Here’s what the data looked like last February 11:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="examining-local-covid-data-in-r.html#cb13-1" aria-hidden="true"></a>myCaption &lt;-<span class="st"> &quot; Data courtesy JHU/CSSE http://bit.ly/ncvdata&quot;</span></span>
+<span id="cb13-2"><a href="examining-local-covid-data-in-r.html#cb13-2" aria-hidden="true"></a>oldData &lt;-<span class="st"> </span>coronaDataSimple <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb13-3"><a href="examining-local-covid-data-in-r.html#cb13-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">filter</span>(reportDate <span class="op">&lt;</span><span class="st"> &#39;2020-02-12&#39;</span>)</span>
+<span id="cb13-4"><a href="examining-local-covid-data-in-r.html#cb13-4" aria-hidden="true"></a>coronaPlot0 &lt;-<span class="st"> </span>oldData <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb13-5"><a href="examining-local-covid-data-in-r.html#cb13-5" aria-hidden="true"></a><span class="co">#  filter(reportDate &lt; &#39;2020-02-12&#39;)</span></span>
+<span id="cb13-6"><a href="examining-local-covid-data-in-r.html#cb13-6" aria-hidden="true"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>reportDate)) <span class="op">+</span></span>
+<span id="cb13-7"><a href="examining-local-covid-data-in-r.html#cb13-7" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y=</span>Deaths, <span class="dt">color =</span> location)) <span class="op">+</span></span>
+<span id="cb13-8"><a href="examining-local-covid-data-in-r.html#cb13-8" aria-hidden="true"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">caption =</span> myCaption)</span>
+<span id="cb13-9"><a href="examining-local-covid-data-in-r.html#cb13-9" aria-hidden="true"></a>coronaPlot0</span></code></pre></div>
+<p><img src="DataSciLibArts_files/figure-html/simpleplot-1.png" width="672" /></p>
+</div>
+<div id="five-weeks-later-mar-2020" class="section level3" number="6.1.8">
+<h3><span class="header-section-number">6.1.8</span> five weeks later (Mar 2020)</h3>
+<p>About five weeks later our data would stop updating. But the world had already changed: Here’s the same graph, through March 21, 2020:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="examining-local-covid-data-in-r.html#cb14-1" aria-hidden="true"></a>coronaPlot0 &lt;-<span class="st"> </span>coronaDataSimple <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb14-2"><a href="examining-local-covid-data-in-r.html#cb14-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>reportDate)) <span class="op">+</span></span>
+<span id="cb14-3"><a href="examining-local-covid-data-in-r.html#cb14-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y=</span>Deaths, <span class="dt">color =</span> location)) <span class="op">+</span></span>
+<span id="cb14-4"><a href="examining-local-covid-data-in-r.html#cb14-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">caption =</span> myCaption)</span>
+<span id="cb14-5"><a href="examining-local-covid-data-in-r.html#cb14-5" aria-hidden="true"></a>coronaPlot0</span></code></pre></div>
+<p><img src="DataSciLibArts_files/figure-html/simpleplot2-1.png" width="672" /></p>
+</div>
+<div id="adding-recovered-cases-code-from-feb-data-through-mar-2020" class="section level3" number="6.1.9">
+<h3><span class="header-section-number">6.1.9</span> Adding recovered cases (code from Feb, data through Mar 2020)</h3>
+<p>Here, recovered cases and deaths are included (as these are roughly on the same scale). Additional changes are self-evident.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="examining-local-covid-data-in-r.html#cb15-1" aria-hidden="true"></a>mySubtitle &lt;-<span class="st"> </span><span class="kw">paste0</span>(</span>
+<span id="cb15-2"><a href="examining-local-covid-data-in-r.html#cb15-2" aria-hidden="true"></a>         <span class="st">&quot;Recovered cases (solid line) and deaths (dotted) by region through &quot;</span>,</span>
+<span id="cb15-3"><a href="examining-local-covid-data-in-r.html#cb15-3" aria-hidden="true"></a>         firstbaddate)</span>
+<span id="cb15-4"><a href="examining-local-covid-data-in-r.html#cb15-4" aria-hidden="true"></a> <span class="co">#        (month(today())), &quot;/&quot;,</span></span>
+<span id="cb15-5"><a href="examining-local-covid-data-in-r.html#cb15-5" aria-hidden="true"></a> <span class="co">#         (day(today())),&quot;/&quot;,</span></span>
+<span id="cb15-6"><a href="examining-local-covid-data-in-r.html#cb15-6" aria-hidden="true"></a> <span class="co">#         (year(today())),&quot;.&quot;)</span></span>
+<span id="cb15-7"><a href="examining-local-covid-data-in-r.html#cb15-7" aria-hidden="true"></a>myCaption &lt;-<span class="st"> &quot; Data courtesy JHU/CSSE http://bit.ly/ncvdata&quot;</span></span>
+<span id="cb15-8"><a href="examining-local-covid-data-in-r.html#cb15-8" aria-hidden="true"></a>coronaPlot1 &lt;-<span class="st"> </span>coronaDataSimple <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb15-9"><a href="examining-local-covid-data-in-r.html#cb15-9" aria-hidden="true"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>reportDate)) <span class="op">+</span></span>
+<span id="cb15-10"><a href="examining-local-covid-data-in-r.html#cb15-10" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y=</span>Recovered, </span>
+<span id="cb15-11"><a href="examining-local-covid-data-in-r.html#cb15-11" aria-hidden="true"></a>                <span class="dt">color =</span> location), </span>
+<span id="cb15-12"><a href="examining-local-covid-data-in-r.html#cb15-12" aria-hidden="true"></a>            <span class="dt">linetype =</span> <span class="st">&quot;solid&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb15-13"><a href="examining-local-covid-data-in-r.html#cb15-13" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y=</span>Deaths, </span>
+<span id="cb15-14"><a href="examining-local-covid-data-in-r.html#cb15-14" aria-hidden="true"></a>                <span class="dt">color =</span> location), </span>
+<span id="cb15-15"><a href="examining-local-covid-data-in-r.html#cb15-15" aria-hidden="true"></a>            <span class="dt">linetype =</span> <span class="st">&quot;dotted&quot;</span>) <span class="op">+</span></span>
+<span id="cb15-16"><a href="examining-local-covid-data-in-r.html#cb15-16" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> </span>
+<span id="cb15-17"><a href="examining-local-covid-data-in-r.html#cb15-17" aria-hidden="true"></a>        <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>,</span>
+<span id="cb15-18"><a href="examining-local-covid-data-in-r.html#cb15-18" aria-hidden="true"></a>                     <span class="dt">vjust =</span> <span class="dv">1</span>,<span class="dt">size =</span> <span class="dv">14</span>),</span>
+<span id="cb15-19"><a href="examining-local-covid-data-in-r.html#cb15-19" aria-hidden="true"></a>        <span class="dt">legend.position =</span> (<span class="kw">c</span>(.<span class="dv">2</span>,.<span class="dv">8</span>))) <span class="op">+</span></span>
+<span id="cb15-20"><a href="examining-local-covid-data-in-r.html#cb15-20" aria-hidden="true"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Novel coronavirus&quot;</span>,</span>
+<span id="cb15-21"><a href="examining-local-covid-data-in-r.html#cb15-21" aria-hidden="true"></a>       <span class="dt">subtitle =</span> mySubtitle,</span>
+<span id="cb15-22"><a href="examining-local-covid-data-in-r.html#cb15-22" aria-hidden="true"></a>       <span class="dt">y =</span> <span class="st">&quot;Cases&quot;</span>, </span>
+<span id="cb15-23"><a href="examining-local-covid-data-in-r.html#cb15-23" aria-hidden="true"></a>       <span class="dt">caption =</span> myCaption)</span>
+<span id="cb15-24"><a href="examining-local-covid-data-in-r.html#cb15-24" aria-hidden="true"></a>coronaPlot1</span></code></pre></div>
+<p><img src="DataSciLibArts_files/figure-html/deathsrecovered-1.png" width="672" /></p>
+</div>
+</div>
+<div id="plotting-confirmed-cases-feb-mar-2020" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Plotting confirmed cases (Feb-Mar 2020)</h2>
+<p>Confirmed cases are plotted on a different scale:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="examining-local-covid-data-in-r.html#cb16-1" aria-hidden="true"></a>mySubtitle &lt;-<span class="st"> </span><span class="kw">paste0</span>(</span>
+<span id="cb16-2"><a href="examining-local-covid-data-in-r.html#cb16-2" aria-hidden="true"></a>         <span class="st">&quot;Confirmed cases (solid line)  through &quot;</span>,</span>
+<span id="cb16-3"><a href="examining-local-covid-data-in-r.html#cb16-3" aria-hidden="true"></a>         firstbaddate)</span>
+<span id="cb16-4"><a href="examining-local-covid-data-in-r.html#cb16-4" aria-hidden="true"></a> <span class="co">#        (month(today())), &quot;/&quot;,</span></span>
+<span id="cb16-5"><a href="examining-local-covid-data-in-r.html#cb16-5" aria-hidden="true"></a> <span class="co">#         (day(today())),&quot;/&quot;,</span></span>
+<span id="cb16-6"><a href="examining-local-covid-data-in-r.html#cb16-6" aria-hidden="true"></a> <span class="co">#         (year(today())),&quot;.&quot;)</span></span>
+<span id="cb16-7"><a href="examining-local-covid-data-in-r.html#cb16-7" aria-hidden="true"></a>myCaption &lt;-<span class="st"> &quot; Data courtesy JHU/CSSE http://bit.ly/ncvdata&quot;</span></span>
+<span id="cb16-8"><a href="examining-local-covid-data-in-r.html#cb16-8" aria-hidden="true"></a>coronaPlot1 &lt;-<span class="st"> </span>coronaDataSimple <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-9"><a href="examining-local-covid-data-in-r.html#cb16-9" aria-hidden="true"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>reportDate)) <span class="op">+</span></span>
+<span id="cb16-10"><a href="examining-local-covid-data-in-r.html#cb16-10" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y=</span>Confirmed, </span>
+<span id="cb16-11"><a href="examining-local-covid-data-in-r.html#cb16-11" aria-hidden="true"></a>                <span class="dt">color =</span> location), </span>
+<span id="cb16-12"><a href="examining-local-covid-data-in-r.html#cb16-12" aria-hidden="true"></a>            <span class="dt">linetype =</span> <span class="st">&quot;solid&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb16-13"><a href="examining-local-covid-data-in-r.html#cb16-13" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> </span>
+<span id="cb16-14"><a href="examining-local-covid-data-in-r.html#cb16-14" aria-hidden="true"></a>        <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>,</span>
+<span id="cb16-15"><a href="examining-local-covid-data-in-r.html#cb16-15" aria-hidden="true"></a>                     <span class="dt">vjust =</span> <span class="dv">1</span>,<span class="dt">size =</span> <span class="dv">14</span>),</span>
+<span id="cb16-16"><a href="examining-local-covid-data-in-r.html#cb16-16" aria-hidden="true"></a>        <span class="dt">legend.position =</span> (<span class="kw">c</span>(.<span class="dv">2</span>,.<span class="dv">8</span>))) <span class="op">+</span></span>
+<span id="cb16-17"><a href="examining-local-covid-data-in-r.html#cb16-17" aria-hidden="true"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Novel coronavirus&quot;</span>,</span>
+<span id="cb16-18"><a href="examining-local-covid-data-in-r.html#cb16-18" aria-hidden="true"></a>       <span class="dt">subtitle =</span> mySubtitle,</span>
+<span id="cb16-19"><a href="examining-local-covid-data-in-r.html#cb16-19" aria-hidden="true"></a>       <span class="dt">y =</span> <span class="st">&quot;Cases&quot;</span>, </span>
+<span id="cb16-20"><a href="examining-local-covid-data-in-r.html#cb16-20" aria-hidden="true"></a>       <span class="dt">caption =</span> myCaption)</span>
+<span id="cb16-21"><a href="examining-local-covid-data-in-r.html#cb16-21" aria-hidden="true"></a>coronaPlot1</span></code></pre></div>
+<p><img src="DataSciLibArts_files/figure-html/confirmed-1.png" width="672" /></p>
+</div>
+<div id="status-feb-2021" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Status (Feb 2021)</h2>
+<p>The code above works fine, but the data have not been updated in 11 months. In that time, as the pandemic has spread, numerous other resources for tracking COVID have been developed, most of which are far more sophisticated and less cumbersome than the code above.</p>
+<p>There are new datasets, new R packages, and, perhaps most importantly, new questions that we might consider about variables such as vaccination rates, test-positivity rates, and hospital capacity.</p>
+<div id="an-assignment" class="section level3" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> An assignment</h3>
+<p><strong>For Wednesday, please study and be prepared to report on at least one of the following packages for studying COVID data using R:</strong></p>
+<blockquote>
+<p>If the last digit of your Z number is 1 or 2, begin with <a href="https://github.com/covid19datahub/COVID19">covid19datahub/COVID19: Unified dataset for a better understanding of COVID-19 (github.com)</a></p>
+<p>If the last digit of your Z number is 3 or 4, begin with <a href="https://github.com/aedobbyn/covid19us">aedobbyn/covid19us: R package for the COVID Tracking Project API providing US COVID-19 data (github.com)</a></p>
+<p>If the last digit of your Z number is 5 or 6, begin with <a href="https://github.com/RamiKrispin/coronavirus">RamiKrispin/coronavirus: The coronavirus dataset (github.com)</a></p>
+<p>If the last digit of your Z number is 7 or 8, begin with <a href="https://github.com/Covid19R/covid19nytimes">Covid19R/covid19nytimes: Pulls the covid-19 data from the New York Times Public Data Source (github.com)</a></p>
+<p>If the last digit of your Z number is 9 or 0, begin with <a href="https://github.com/joachim-gassen/tidycovid19">joachim-gassen/tidycovid19: {tidycovid19}: An R Package to Download, Tidy and Visualize Covid-19 Related Data (github.com)</a></p>
+</blockquote>
+<p>Review the GitHub page, especially the README.md section to get a sense of what is available in the data. How current is it (when was the code last modified?). How popular is it (look at the number of ‘watches’ ‘stars’ and ‘forks’ in the upper right hand corner of the webpage)? How buggy is it (look at the ‘issues’ tab, then look at ‘Open’ and ‘Closed’ issues? Is it worth looking further at this library)?</p>
+<p>If you get this far, consider looking at a second package, Googling ‘R COVID data’, and/or installing and playing with a package on your home machine. We’ll discuss your findings and work together on this in class on Wednesday.</p>
+</div>
+</div>
+<div id="how-to-create-new-knowledge" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> How to create new knowledge</h2>
+<p>One thing to keep in mind as we move forward is that, despite the fact that hundreds if not thousands of statisticians, data scientists, epidemiologists, policy makers, and journalists have looked at COVID data, there are still unanswered questions.</p>
+<blockquote>
+<p>For example, here in Florida, there was recently some controversy as the Governor chose to disperse COVID vaccinations at Publix pharmacies; the controversy arose, in large part, because poorer communities (including those in the Western part of Palm Beach County) appear less likely to have a Publix supermarket. Is it the case that there is a relationship between COVID disease rates and the number of Publix/per capita by city or zip code (Florida data by Zip code is available at <a href="https://covid19-usflibrary.hub.arcgis.com/datasets/">https://covid19-usflibrary.hub.arcgis.com/datasets/)?</a>?) If so, what would this tell us?</p>
+</blockquote>
+<p>In data science, we can often create new knowledge by putting together two data sources which haven’t been combined before, together with an interesting and potentially important question. 8</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="visualization-in-r-with-ggplot.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

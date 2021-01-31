@@ -1,14 +1,3 @@
----
-title: "Untitled"
-author: "Lanning"
-date: "1/31/2021"
-output: html_document
----
-
-```{r setup, include=TRUE}
-knitr::opts_chunk$set(echo = TRUE)
-```
- 
 # Examining local COVID data in R
 
 In Winter 2020, as the COVID-19 pandemic began to take hold, I began chronicling the course of the virus. What follows is an archive, followed by a consideration of some possible new directions.
@@ -19,17 +8,16 @@ Here, I want to consider a timely (but challenging) dataset.
 
 The Novel Coronavirus is an emerging health crisis, particularly in Wuhan (a Chinese city larger than New York City) and the surrounding province of Hubei. **It is not yet a threat in the United States - there have, at this writing (02/11/20) been zero cases in Florida.** Still, tracking the spread of the virus - the unfolding number of people infected and recovered, as well as the number of deaths - is a fascinating exercise.
 
-This is an educational script for students learning R with the Tidyverse. It reads data provided by the Johns Hopkins Center for Systems Science and Engineering (JHU/CSSE).  
+This is an educational script for students learning R with the Tidyverse. It reads data provided by the Johns Hopkins Center for Systems Science and Engineering (JHU/CSSE).
 
 It was modified February 3 because of new GoogleSheet link and altered variable names, on Feb 5 because of a new URL for the data and additional changes in the variable name for date, and Feb 7 to (a) remove need for OAuth and (b) separate Wuhan from other China. On Feb 9, additional data cleaning was performed and interactive plots were added. On February 11, the code was rewritten to read files from a Github repo rather than Google Sheets.
 
-This does not use an API or require authorization from Github. 
+This does not use an API or require authorization from Github.
 
-```{r coronasetup}
+```{r coronasetup, message = FALSE}
 library(tidyverse)
 library(magrittr)
 library(lubridate)
-library(plotly)
 library(htmlwidgets)
 library(httr)
 library(purrr)
@@ -49,9 +37,9 @@ nsheets <- nrow(filelist)
 rawGitFiles <- "https://raw.githubusercontent.com/CSSEGISandData/2019-nCoV/master/"
 ```
 
-### Reading the data
+### Reading the data (Feb 2020)
 
-The Novel Coronavirus data consists of a series of csv files in a Github repository. This combines them into a single sheet in R. 
+The Novel Coronavirus data consists of a series of csv files in a Github repository. This combines them into a single sheet in R.
 
 ```{r readcoronadata, message = FALSE}
 # variables to retain or create
@@ -83,14 +71,14 @@ str(coronaData)
 
 Cleaning the data includes not just finding "errors," but adapting it for our own use. It's generally time consuming, as was the case here. The following letters refer to sections of the code below.
 
-* a - fix a few missing values outside of China for province and country
-* b - the earliest cases, all in China, did not include country
-* c - because province/state is included inconsistently, an unambiguous place variable is created
-* d - reportdate is standardized (above) and renamed
-* e - in some cases, multiple reports are issued for each day. only the last of these is used for each place.
-* f - for dates where no data was supplied, the most recent (previous) data are used
-* g - values of NA for Deaths, Confirmed, and Recovered cases are replaced by zero.
-* h - Prior to Feb 1, 2020 reporting for US included only state, since then, city and state. This drops the (duplicated) province/state-only values beginning Feb 1. 
+-   a - fix a few missing values outside of China for province and country
+-   b - the earliest cases, all in China, did not include country
+-   c - because province/state is included inconsistently, an unambiguous place variable is created
+-   d - reportdate is standardized (above) and renamed
+-   e - in some cases, multiple reports are issued for each day. only the last of these is used for each place.
+-   f - for dates where no data was supplied, the most recent (previous) data are used
+-   g - values of NA for Deaths, Confirmed, and Recovered cases are replaced by zero.
+-   h - Prior to Feb 1, 2020 reporting for US included only state, since then, city and state. This drops the (duplicated) province/state-only values beginning Feb 1.
 
 ```{r cleaningcorona}
 # the bidirectional pipe edits and replaces a dataset. use with caution.
@@ -141,9 +129,9 @@ coronaData <- coronaData %>%
 head(coronaData)
 ```
 
-### 11 months later: The code still runs! 
+### 11 months later: The code still runs!
 
-The above code runs without apparent error, and leads to a dataset of `r nrow(coronaData)` rows by `r ncol(CoronaData)` columns. Here's a quick peek (Note that I use the group_by and summarize functions to collapse the file to one line per date):
+The above code runs without apparent error, and leads to a dataset of `r nrow(coronaData)` rows by `r ncol(coronaData)` columns. Here's a quick peek (Note that I use the group\_by and summarize functions to collapse the file to one line per date):
 
 ```{r}
 coronaData %>% group_by(reportDate) %>% 
@@ -151,9 +139,9 @@ coronaData %>% group_by(reportDate) %>%
   head() 
 ```
 
-### Shall we graph it?
+### Shall we graph it? (Feb 2021)
 
-So far, so good. Let's plot the whole range. What do we see? This will generate a quick graph in ggPlot which shows the global incidence of confirmed cases. 
+So far, so good. Let's plot the whole range. What do we see? This will generate a quick graph in ggPlot which shows the global incidence of confirmed cases.
 
 ```{r}
 coronaData %>% 
@@ -162,15 +150,16 @@ coronaData %>%
   ggplot(aes(x=reportDate)) +
   geom_line(aes(y=Confirmed)) 
 ```
-### Too bad
-  
-According to the above graph, there have been no additional COVID cases since mid-March or so. Too bad that the data aren't right here - for us and the world.
-  
+
+### Too bad (Mar 2021)
+
+According to the above graph, there have been no additional COVID cases since mid-March or so. Too bad that the data aren't right here - for us and especially the world.
+
 > **Exercise 8\_1** *Working with classmates, find the exact date when the file stopped updating. Use whatever method you like for this - kludgy or clever - but you should describe your results in explicit language or code so that anyone else would get the same results.*
 
-### What now? 
+### What now?
 
-I want to make sure that the rest of my code still works, so I'll look more closely at the valid data. I'll generate a new variable ('firstbaddate,' which sounds like a corny romcom), and filter by it. 
+I want to make sure that the rest of my code still works, so I'll look more closely at the valid data. I'll generate a new variable ('firstbaddate,' which sounds like a corny romcom), and filter by it.
 
 When the code was written a year ago, the COVID outbreak was largely contained to the Hubei province (which includes the city of Wuhan). So I tried breaking down the data into three locations, breaking down China into Hubei, other China, and the rest of the world.
 
@@ -198,10 +187,9 @@ coronaDataSimple <- coronaData %>%
   ungroup()
 ```
 
-### An initial plot: Data through February 11
+### An initial plot (Feb 2020)
 
-The first plot is simple, including data for only deaths. A caption is added to show the source of the data.
-Here's what the data looked like last February 11:
+The first plot is simple, including data for only deaths. A caption is added to show the source of the data. Here's what the data looked like last February 11:
 
 ```{r simpleplot}
 myCaption <- " Data courtesy JHU/CSSE http://bit.ly/ncvdata"
@@ -215,9 +203,9 @@ coronaPlot0 <- oldData %>%
 coronaPlot0
 ```
 
-### five weeks later
+### five weeks later (Mar 2020)
 
-About five weeks later our data would stop updating. But the world had already changed: Here's the same graph, through March 21, 2020: 
+About five weeks later our data would stop updating. But the world had already changed: Here's the same graph, through March 21, 2020:
 
 ```{r simpleplot2 }
 coronaPlot0 <- coronaDataSimple %>% 
@@ -227,7 +215,7 @@ coronaPlot0 <- coronaDataSimple %>%
 coronaPlot0
 ```
 
-### Adding recovered cases (Feb 2020)
+### Adding recovered cases (code from Feb, data through Mar 2020)
 
 Here, recovered cases and deaths are included (as these are roughly on the same scale). Additional changes are self-evident.
 
@@ -258,35 +246,19 @@ coronaPlot1 <- coronaDataSimple %>%
 coronaPlot1
 ```
 
-### Make the graph interactive
+## Plotting confirmed cases (Feb-Mar 2020)
 
-Plotly is an open-source, javascript based library that produces interactive graphs. The syntax that Plotly requires is (a little) different from ggplot, so, for example, the subtitle and caption are folded in to the title here, and the legend is moved a little further over. 
+Confirmed cases are plotted on a different scale:
 
 ```{r confirmed}
-p <- ggplotly(coronaPlot1) %>% 
-  # make interactive
-  layout(legend = list(x=.1,y=.9),
-         title = list(text = paste0('Novel coronavirus',
-                                    '<br>',
-                                    '<sup>',
-                                    mySubtitle,
-                                    myCaption,
-                                    '</sup>')))
-# saveWidget(p, file="coronaDeathsRecovered.html")
-p
-```
-
-### Plotting confirmed cases
-
-In this last figure, data for confirmed cases are shown (only the interactive version is included here): 
-
-```{r}
 mySubtitle <- paste0(
-         "Confirmed cases by region through ",
-         (month(today())), "/",
-         (day(today())),"/",
-         (year(today())),".")
-coronaPlot2 <- coronaDataSimple %>% 
+         "Confirmed cases (solid line)  through ",
+         firstbaddate)
+ #        (month(today())), "/",
+ #         (day(today())),"/",
+ #         (year(today())),".")
+myCaption <- " Data courtesy JHU/CSSE http://bit.ly/ncvdata"
+coronaPlot1 <- coronaDataSimple %>% 
   ggplot(aes(x=reportDate)) +
   geom_line(aes(y=Confirmed, 
                 color = location), 
@@ -299,38 +271,37 @@ coronaPlot2 <- coronaDataSimple %>%
        subtitle = mySubtitle,
        y = "Cases", 
        caption = myCaption)
-
-p <- ggplotly(coronaPlot2) %>% 
-  # make interactive
-  layout(legend = list(x=.1,y=.9),
-         title = list(text = paste0('Novel coronavirus',
-                                    '<br>',
-                                    '<sup>',
-                                    mySubtitle,
-                                    myCaption,
-                                    '</sup>')))
-# saveWidget(p, file="coronaConfirmed.html")
-p
+coronaPlot1
 ```
 
-### Some questions
+## Status (Feb 2021)
 
-1. Consider the data and try to run the code yourself.
-  + What problems did you encounter? 
-  + What parts need to be annotated more?
+The code above works fine, but the data have not been updated in 11 months. In that time, as the pandemic has spread, numerous other resources for tracking COVID have been developed, most of which are far more sophisticated and less cumbersome than the code above.
 
-2. Can you reverse-engineer my code? Where is it confusing? (remember the 15 minute rule).
+There are new datasets, new R packages, and, perhaps most importantly, new questions that we might consider about variables such as vaccination rates, test-positivity rates, and hospital capacity.
 
-3. What is the relationship between 'confirmed cases' and 'deaths'? Which appears to be increasing more quickly?  Is this cause for optimism?
+### An assignment
 
-4. Can you improve on these plots? 
+**For Wednesday, please study and be prepared to report on at least one of the following packages for studying COVID data using R:**
 
-5. Some more challenging questions.
-  + What is (roughly) the shape of the function for each of the three variables, and for China/Other? 
-  + What values would you expect for, say, ten days from now?
+> If the last digit of your Z number is 1 or 2, begin with [covid19datahub/COVID19: Unified dataset for a better understanding of COVID-19 (github.com)](https://github.com/covid19datahub/COVID19)
+>
+> If the last digit of your Z number is 3 or 4, begin with [aedobbyn/covid19us: R package for the COVID Tracking Project API providing US COVID-19 data (github.com)](https://github.com/aedobbyn/covid19us)
+>
+> If the last digit of your Z number is 5 or 6, begin with [RamiKrispin/coronavirus: The coronavirus dataset (github.com)](https://github.com/RamiKrispin/coronavirus)
+>
+> If the last digit of your Z number is 7 or 8, begin with [Covid19R/covid19nytimes: Pulls the covid-19 data from the New York Times Public Data Source (github.com)](https://github.com/Covid19R/covid19nytimes)
+>
+> If the last digit of your Z number is 9 or 0, begin with [joachim-gassen/tidycovid19: {tidycovid19}: An R Package to Download, Tidy and Visualize Covid-19 Related Data (github.com)](https://github.com/joachim-gassen/tidycovid19)
 
-### Additional notes
+Review the GitHub page, especially the README.md section to get a sense of what is available in the data. How current is it (when was the code last modified?). How popular is it (look at the number of 'watches' 'stars' and 'forks' in the upper right hand corner of the webpage)? How buggy is it (look at the 'issues' tab, then look at 'Open' and 'Closed' issues? Is it worth looking further at this library)?
 
-If you are interested in looking at additional epidemiological datasets and how they might be looked at in R, consider this source by Tomás J. Aragón (https://bookdown.org/medepi/phds/). For Plotly in R, check out https://plotly-r.com/ 
+If you get this far, consider looking at a second package, Googling 'R COVID data', and/or installing and playing with a package on your home machine. We'll discuss your findings and work together on this in class on Wednesday.
 
+## How to create new knowledge 
 
+One thing to keep in mind as we move forward is that, despite the fact that hundreds if not thousands of statisticians, data scientists, epidemiologists, policy makers, and journalists have looked at COVID data, there are still unanswered questions.
+
+> For example, here in Florida, there was recently some controversy as the Governor chose to disperse COVID vaccinations at Publix pharmacies; the controversy arose, in large part, because poorer communities (including those in the Western part of Palm Beach County) appear less likely to have a Publix supermarket. Is it the case that there is a relationship between COVID disease rates and the number of Publix/per capita by city or zip code (Florida data by Zip code is available at [https://covid19-usflibrary.hub.arcgis.com/datasets/)?](https://covid19-usflibrary.hub.arcgis.com/datasets/)?) If so, what would this tell us?
+
+In data science, we can often create new knowledge by putting together two data sources which haven't been combined before, together with an interesting and potentially important question.

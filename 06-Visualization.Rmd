@@ -26,7 +26,7 @@ Visual displays of information reach back to prehistoric times; modern graphs da
 
 The most celebrated early graph is that of [Minard](https://datavizblog.com/2013/05/30/dataviz-history-charles-minards-flow-map-of-napoleons-russian-campaign-of-1812-polotsk-smolensk-and-on-to-borodino/):
 
-![*Fig 6.2: Minard's display of Napolean's catastrophic assault on Moscow, 1812*](images/minard1812.PNG)
+![*Fig 6.2: Minard's display of Napoleon's catastrophic assault on Moscow, 1812*](images/minard1812.PNG)
 
 The visualization depicts the size, latitude, and longitude of Napoleon's army as they moved towards (tan line) then away (black line) from Moscow; temperature during the retreat is plotted as well. Further, vertical lines linking the temperature display to the number of troops indicate the often perilous river crossings which further decimated Napoleon's troops). [Cheng (2014)](https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march) decomposes the graph and provides some simpler visualizations; she also provides the following background:
 

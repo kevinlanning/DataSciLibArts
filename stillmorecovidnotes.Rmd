@@ -1,0 +1,25 @@
+---
+title: "Untitled"
+author: "Lanning"
+date: "1/31/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+coronaData %>% 
+  group_by(reportDate) %>% 
+  summarize(Confirmed = sum(Confirmed)) %>% 
+  arrange(reportDate) %>%
+  mutate(diff = Confirmed - lag(Confirmed, default = first(Confirmed))) %>% 
+  filter(diff == 0)
+
+```
+
+\
+
+\`\`\`
