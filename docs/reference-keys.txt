@@ -1,3 +1,4 @@
+data-science-for-the-liberal-arts
 type-c-data-science-data-science-for-the-liberal-arts
 the-incompleteness-of-the-data-science-venn-diagram
 a-dimension-of-depth
@@ -27,6 +28,7 @@ swirl-swirlstats
 read-pengs-text-andor-watch-the-associated-videos
 code-along-with-a-tidy-webinar-or-attend-a-virtual-conference
 something-else
+principles-of-data-visualization
 some-opening-thoughts
 some-early-graphs
 tukey-and-eda
@@ -44,14 +46,13 @@ visualization-in-r-with-ggplot
 a-picture-words-numbers
 read-hadley-ggplots
 exploring-more-data
-resources-for-looking-at-covd-19
 examining-local-covid-data-in-r
 tracking-the-novel-coronavirus-from-feb-2020
 reading-the-data-feb-2020
 cleaning-wrangling-munging-the-data-feb-2020
-months-later-the-code-still-runs
+eleven-months-later-the-code-still-runs
 shall-we-graph-it-feb-2021
-too-bad-mar-2021
+too-bad
 what-now
 an-initial-plot-feb-2020
 five-weeks-later-mar-2020

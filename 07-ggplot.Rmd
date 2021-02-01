@@ -44,12 +44,6 @@ Try to make a cool graph - one that informs the viewer, and, to paraphrase Tukey
 
 Try several different displays. Which fail? Which succeed? **Be prepared to share your efforts.**
 
-Don't be afraid to screw up.
+Don't be afraid to screw up. Each mistake you wisdom.
 
-## resources for looking at COVD-19
 
-Data sources
-
-Visualizations
-
-Sources of R code

@@ -1,8 +1,8 @@
 # (PART) Part II Towards data literacy {.unnumbered}
 
-# Principles of data visualization
+# principles of data visualization
 
-## Some opening thoughts
+## some opening thoughts
 
 Graphs aren't just to inform, but to make you reflect.
 
@@ -14,7 +14,7 @@ When you see a graph, what do you notice, what do you wonder, and what is the st
 
 A graph might begin with perception and understanding (the consumer), with knowledge and design values (the producer), but it also reflects the truth of the data. How much is each?
 
-## Some early graphs
+## some early graphs
 
 Visual displays of information reach back to prehistoric times; modern graphs date back, arguably, to [Playfair's 1786 Political Atlas](https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march) - in which
 
@@ -40,13 +40,13 @@ For [@donoho2017], the publication of John Tukey's "Future of Data Analysis" [@t
 
 In EDA, Tukey presented an idiosyncratic, coherent approach to looking at data, beginning with tallying. The distributions of small counts of single variables, for Tukey, could best be presented in **stem and leaf displays.** Comparisons between groups can be presented in **box plots.** To examine relationships between variables and the adequacy of simple models, he argues for thoughtfully transforming data to uncover linear trends, then to examine **residuals** to find where these trends do not hold.
 
-## Approaches to graphs
+## approaches to graphs
 
 A graph might begin with perception and understanding (the consumer), with knowledge and design values (the producer), but it also reflects the truth of the data. How much is each?
 
 In thinking about how to design graphs, we can begin with abstract theory, with principles of design informed by our understanding of perception, or with empirical analyses of understanding and memory.
 
-## Tufte: First principles
+## Tufte: first principles
 
 [@tufte2001] describes **Graphical Excellence**. Graphs should, among other things, "Induce the viewer to think about the substance, rather than about methodology, graphic design, the technology of graphic productions, or something else." Graphs should "Present many numbers in a small space, make large data sets coherent, and encourage the eye to compare different pieces of data." Graphs should "serve a reasonably clear purpose: description, exploration, tabulation, or decoration [and] be closely integrated with the statistical and verbal descriptions of a data set." Tufte concludes with the following Principles of Graphical Excellence, which I quote verbatim:
 
@@ -56,7 +56,7 @@ In thinking about how to design graphs, we can begin with abstract theory, with 
 -   Graphical excellence is nearly always multivariate.
 -   And graphical excellence requires telling the truth.
 
-## The politics of data visualization
+## the politics of data visualization
 
 On a cold morning in January, 1986, Space Shuttle Challenger lifted off from Cape Canaveral. Because of the cold weather, engineers at Morton Thiokol, who designed the rocket boosters, considered the possibility that the O-rings which sealed joints on the rockets would be too hard and brittle to prevent the release of potentially explosive fuel. They examined the relation between temperature and o-ring damage on prior flights, using the following visualization:
 
@@ -68,7 +68,7 @@ What, if anything, can we see here? The graphic was chaotic and poorly designed;
 
 The forecast for the morning of the launch was far colder than that for prior launches, and within the set of prior launches a clear relationship between temperature and o-ring damage is evident. But the Challenger did launch, exploding shortly after takeoff, killing the seven astronauts on board. With a clearer display of the data, the Challenger launch would likely have been postponed [@tufte2001].
 
-### Poor design leads to an uninformed or misinformed world
+### poor design leads to an uninformed or misinformed world
 
 In the flood of information that surrounds us, our peripheral and sometimes our focal attention will be drawn to pictorial summaries of consequential events and effects. But while data visualizations and data journalism has become more responsible, poorly designed graphs - what Tufte has described as "chartjunk" - are still common. Consider the following graph, which recently appeared in a number of newspapers or feeds in the United States (including the *Palm Beach Post,* on January 12, 2019).
 
@@ -86,7 +86,7 @@ In the flood of information that surrounds us, our peripheral and sometimes our 
 
 Poorly designed graphs don't just confuse rocket scientists. They reach us, mislead us, and make fools of all of us as well. With better graphs, we become a better informed, better educated citizenry.
 
-### Poor design can be a tool to deceive
+### poor design can be a tool to deceive
 
 ![*Figure 6.6: Trump as "the first datavis President" ([Meeks, 2019](https://datastori.es/152-year-in-review-2019/#t=1:15:06.516)).*](images/trumpDorian.jpg)
 
@@ -96,7 +96,7 @@ Presenting information in self-promoting ways includes so-called "Sharpie-gate,"
 
 ![*Figure 6.7: Stand your ground makes us all safer. Or not.*](images/standground.PNG)
 
-## The psychology of data visualization
+## the psychology of data visualization
 
 Speaking of America, consider the following:
 
@@ -104,7 +104,7 @@ Speaking of America, consider the following:
 
 In this figure, from [@wainer1981], (Chernoff's) faces are used to represent multivariate data. The display is loosely based on the (psychological) premise that, from infancy, we are inordinately sensitive to facial features. Consequently, the most powerful, effective, or informative data displays should manipulate facial features. Does this graph succeed? Why or why not? Would an updated model, based on richer, more complex, and more realistic simulations of facial expressions [@thies2015] be more successful?
 
-### The power of animation
+### the power of animation
 
 Animated data displays bring the dimension of time into data visualization. Here are two brief (\< 5 minutes) animated data displays, each powerful in its own way, and each of which gives the viewer an appreciation of an important social phenomenon.
 
@@ -120,13 +120,13 @@ The second is from Kim Rees and her ex-colleagues at [Periscopic](https://perisc
 
 *Video 6.10: Rees and stolen years*
 
-### Telling the truth when the truth is unclear
+### telling the truth when the truth is unclear
 
 We live in an uncertain world, and a major challenge in data visualization is how to convey this uncertainty in a way that people understand readily. Examples of this are familiar. Here in Florida, projected hurricane paths are frequently represented by a "cone of uncertainty" surrounding a single track. An alternative approach is to use a display which shows a distribution of possible tracks.
 
 ![*Figure 6.11: Two approaches to displaying hurricane paths*](https://i1.wp.com/datastori.es/wp-content/uploads/2019/01/02.jpg?w=650&h=434)
 
-### Visualizing uncertainty
+### visualizing uncertainty
 
 To further illustrate the idea of uncertainty, data visualizations may be animated. To display hurricane outcomes, for example, individual lines in a spaghetti plot might fade in and out [@cox2013a]. Another use of animation is suggested by [@hullman2015] who use [hypothetical outcome plots](https://cdn-images-1.medium.com/max/600/1*vol7-537cqnpucRgBP-j9A.gif) rather than simple error bars to illustrate sampling distributions. Empirically, subjects have a better understanding of the meaning of statistical effects when these are represented by dynamic displays.
 

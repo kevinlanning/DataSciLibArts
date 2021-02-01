@@ -1,8 +1,8 @@
-# Examining local COVID data in R
+# examining local COVID data in R
 
 In Winter 2020, as the COVID-19 pandemic began to take hold, I began chronicling the course of the virus. What follows is an archive, followed by a consideration of some possible new directions.
 
-## Tracking the Novel Coronavirus (from Feb 2020)
+## tracking the Novel Coronavirus (from Feb 2020)
 
 Here, I want to consider a timely (but challenging) dataset.
 
@@ -10,9 +10,7 @@ The Novel Coronavirus is an emerging health crisis, particularly in Wuhan (a Chi
 
 This is an educational script for students learning R with the Tidyverse. It reads data provided by the Johns Hopkins Center for Systems Science and Engineering (JHU/CSSE).
 
-It was modified February 3 because of new GoogleSheet link and altered variable names, on Feb 5 because of a new URL for the data and additional changes in the variable name for date, and Feb 7 to (a) remove need for OAuth and (b) separate Wuhan from other China. On Feb 9, additional data cleaning was performed and interactive plots were added. On February 11, the code was rewritten to read files from a Github repo rather than Google Sheets.
-
-This does not use an API or require authorization from Github.
+It was modified February 3 because of a new GoogleSheet link and altered variable names, on Feb 5 because of a new URL for the data and additional changes in the variable name for date, and Feb 7 to (a) remove need for OAuth and (b) separate Wuhan from 'other China.' On Feb 9, additional data cleaning was performed and interactive plots were added. On February 11, the code was rewritten to read files from a Github repo rather than Google Sheets. Consequently, this does not use an API or require authorization from Github.
 
 ```{r coronasetup, message = FALSE}
 library(tidyverse)
@@ -37,7 +35,7 @@ nsheets <- nrow(filelist)
 rawGitFiles <- "https://raw.githubusercontent.com/CSSEGISandData/2019-nCoV/master/"
 ```
 
-### Reading the data (Feb 2020)
+### reading the data (Feb 2020)
 
 The Novel Coronavirus data consists of a series of csv files in a Github repository. This combines them into a single sheet in R.
 
@@ -67,7 +65,7 @@ head(coronaData)
 str(coronaData)
 ```
 
-### Cleaning (wrangling, munging) the data (Feb 2020)
+### cleaning (wrangling, munging) the data (Feb 2020)
 
 Cleaning the data includes not just finding "errors," but adapting it for our own use. It's generally time consuming, as was the case here. The following letters refer to sections of the code below.
 
@@ -81,7 +79,7 @@ Cleaning the data includes not just finding "errors," but adapting it for our ow
 -   h - Prior to Feb 1, 2020 reporting for US included only state, since then, city and state. This drops the (duplicated) province/state-only values beginning Feb 1.
 
 ```{r cleaningcorona}
-# the bidirectional pipe edits and replaces a dataset. use with caution.
+
 coronaData <- coronaData %>% 
 # a 
   mutate (`Province/State` = case_when(
@@ -129,7 +127,7 @@ coronaData <- coronaData %>%
 head(coronaData)
 ```
 
-### 11 months later: The code still runs!
+### eleven months later: the code still runs!
 
 The above code runs without apparent error, and leads to a dataset of `r nrow(coronaData)` rows by `r ncol(coronaData)` columns. Here's a quick peek (Note that I use the group\_by and summarize functions to collapse the file to one line per date):
 
@@ -139,7 +137,7 @@ coronaData %>% group_by(reportDate) %>%
   head() 
 ```
 
-### Shall we graph it? (Feb 2021)
+### shall we graph it? (Feb 2021)
 
 So far, so good. Let's plot the whole range. What do we see? This will generate a quick graph in ggPlot which shows the global incidence of confirmed cases.
 
@@ -151,13 +149,13 @@ coronaData %>%
   geom_line(aes(y=Confirmed)) 
 ```
 
-### Too bad (Mar 2021)
+### too bad 
 
 According to the above graph, there have been no additional COVID cases since mid-March or so. Too bad that the data aren't right here - for us and especially the world.
 
-> **Exercise 8\_1** *Working with classmates, find the exact date when the file stopped updating. Use whatever method you like for this - kludgy or clever - but you should describe your results in explicit language or code so that anyone else would get the same results.*
+> **Exercise 8\_1** *How would we find the exact date when the file stopped updating? In class, we'll consider this question (we'll use pre-downloaded data to save time and computer resources). Use whatever method you like for this - kludgy or clever - but you should describe your results in explicit language or code so that anyone else would get the same results.*
 
-### What now?
+### what now?
 
 I want to make sure that the rest of my code still works, so I'll look more closely at the valid data. I'll generate a new variable ('firstbaddate,' which sounds like a corny romcom), and filter by it.
 
@@ -187,7 +185,7 @@ coronaDataSimple <- coronaData %>%
   ungroup()
 ```
 
-### An initial plot (Feb 2020)
+### an initial plot (Feb 2020)
 
 The first plot is simple, including data for only deaths. A caption is added to show the source of the data. Here's what the data looked like last February 11:
 
@@ -215,9 +213,11 @@ coronaPlot0 <- coronaDataSimple %>%
 coronaPlot0
 ```
 
-### Adding recovered cases (code from Feb, data through Mar 2020)
+It's apparent that the coding for Wuhan versus the rest of China is off for some of the newer data, as one of these increases while the other reaches a plateau. Still, the overall picture is clear.
 
-Here, recovered cases and deaths are included (as these are roughly on the same scale). Additional changes are self-evident.
+### adding recovered cases (code from Feb, data through Mar 2020)
+
+Similar results are obtained if we examine two other populations of interest, recovered and confirmed cases. Here, recovered cases and deaths are included on a single plot, as these are roughly on the same scale. Additional changes to the graph are self-evident.
 
 ```{r deathsrecovered}
 mySubtitle <- paste0(
@@ -246,9 +246,9 @@ coronaPlot1 <- coronaDataSimple %>%
 coronaPlot1
 ```
 
-## Plotting confirmed cases (Feb-Mar 2020)
+## plotting confirmed cases (Feb-Mar 2020)
 
-Confirmed cases are plotted on a different scale:
+Finally, confirmed cases are plotted on a different scale:
 
 ```{r confirmed}
 mySubtitle <- paste0(
@@ -274,15 +274,15 @@ coronaPlot1 <- coronaDataSimple %>%
 coronaPlot1
 ```
 
-## Status (Feb 2021)
+## status (Feb 2021)
 
-The code above works fine, but the data have not been updated in 11 months. In that time, as the pandemic has spread, numerous other resources for tracking COVID have been developed, most of which are far more sophisticated and less cumbersome than the code above.
+The code above works ok, but the March 2020 data need further cleaning, and no new data have been added in 11 months. In that time, as the pandemic has spread, numerous other resources for tracking COVID have been developed, most of which are far more sophisticated and less cumbersome than the code above.
 
 There are new datasets, new R packages, and, perhaps most importantly, new questions that we might consider about variables such as vaccination rates, test-positivity rates, and hospital capacity.
 
-### An assignment
+### an assignment
 
-**For Wednesday, please study and be prepared to report on at least one of the following packages for studying COVID data using R:**
+**for Wednesday, please study and be prepared to report on at least one of the following packages for studying COVID data using R:**
 
 > If the last digit of your Z number is 1 or 2, begin with [covid19datahub/COVID19: Unified dataset for a better understanding of COVID-19 (github.com)](https://github.com/covid19datahub/COVID19)
 >
@@ -298,7 +298,7 @@ Review the GitHub page, especially the README.md section to get a sense of what 
 
 If you get this far, consider looking at a second package, Googling 'R COVID data', and/or installing and playing with a package on your home machine. We'll discuss your findings and work together on this in class on Wednesday.
 
-## How to create new knowledge 
+## how to create new knowledge
 
 One thing to keep in mind as we move forward is that, despite the fact that hundreds if not thousands of statisticians, data scientists, epidemiologists, policy makers, and journalists have looked at COVID data, there are still unanswered questions.
 
