@@ -149,7 +149,7 @@ coronaData %>%
   geom_line(aes(y=Confirmed)) 
 ```
 
-### too bad 
+### too bad
 
 According to the above graph, there have been no additional COVID cases since mid-March or so. Too bad that the data aren't right here - for us and especially the world.
 

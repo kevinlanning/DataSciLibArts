@@ -24,7 +24,7 @@
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2021-01-31" />
+<meta name="date" content="2021-02-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -309,13 +309,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6 Guizhou          Mainland China   2020-01-21 22:00:00        NA     NA
 ## # ... with 1 more variable: Recovered &lt;dbl&gt;</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="examining-local-covid-data-in-r.html#cb5-1" aria-hidden="true"></a><span class="kw">str</span>(coronaData)</span></code></pre></div>
-<pre><code>## tibble [1,210,334 x 6] (S3: tbl_df/tbl/data.frame)
-##  $ Province/State: chr [1:1210334] &quot;Anhui&quot; &quot;Beijing&quot; &quot;Chongqing&quot; &quot;Guangdong&quot; ...
-##  $ Country/Region: chr [1:1210334] &quot;Mainland China&quot; &quot;Mainland China&quot; &quot;Mainland China&quot; &quot;Mainland China&quot; ...
-##  $ Last Update   : POSIXct[1:1210334], format: &quot;2020-01-21 22:00:00&quot; &quot;2020-01-21 22:00:00&quot; ...
-##  $ Confirmed     : num [1:1210334] NA 10 5 17 NA NA NA NA 1 NA ...
-##  $ Deaths        : num [1:1210334] NA NA NA NA NA NA NA NA NA NA ...
-##  $ Recovered     : num [1:1210334] NA NA NA NA NA NA NA NA NA NA ...</code></pre>
+<pre><code>## tibble [1,214,371 x 6] (S3: tbl_df/tbl/data.frame)
+##  $ Province/State: chr [1:1214371] &quot;Anhui&quot; &quot;Beijing&quot; &quot;Chongqing&quot; &quot;Guangdong&quot; ...
+##  $ Country/Region: chr [1:1214371] &quot;Mainland China&quot; &quot;Mainland China&quot; &quot;Mainland China&quot; &quot;Mainland China&quot; ...
+##  $ Last Update   : POSIXct[1:1214371], format: &quot;2020-01-21 22:00:00&quot; &quot;2020-01-21 22:00:00&quot; ...
+##  $ Confirmed     : num [1:1214371] NA 10 5 17 NA NA NA NA 1 NA ...
+##  $ Deaths        : num [1:1214371] NA NA NA NA NA NA NA NA NA NA ...
+##  $ Recovered     : num [1:1214371] NA NA NA NA NA NA NA NA NA NA ...</code></pre>
 </div>
 <div id="cleaning-wrangling-munging-the-data-feb-2020" class="section level3" number="8.1.2">
 <h3><span class="header-section-number">8.1.2</span> cleaning (wrangling, munging) the data (Feb 2020)</h3>
@@ -387,7 +387,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="eleven-months-later-the-code-still-runs" class="section level3" number="8.1.3">
 <h3><span class="header-section-number">8.1.3</span> eleven months later: the code still runs!</h3>
-<p>The above code runs without apparent error, and leads to a dataset of 149341 rows by 5 columns. Here’s a quick peek (Note that I use the group_by and summarize functions to collapse the file to one line per date):</p>
+<p>The above code runs without apparent error, and leads to a dataset of 149783 rows by 5 columns. Here’s a quick peek (Note that I use the group_by and summarize functions to collapse the file to one line per date):</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="examining-local-covid-data-in-r.html#cb9-1" aria-hidden="true"></a>coronaData <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(reportDate) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb9-2"><a href="examining-local-covid-data-in-r.html#cb9-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">Confirmed =</span> <span class="kw">sum</span>(Confirmed)) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb9-3"><a href="examining-local-covid-data-in-r.html#cb9-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">head</span>() </span></code></pre></div>
@@ -584,7 +584,7 @@ gitbook.start({
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "white",
+"theme": "sepia",
 "family": "sans",
 "size": 2
 },
