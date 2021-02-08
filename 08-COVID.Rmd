@@ -125,6 +125,7 @@ coronaData <- coronaData %>%
   dplyr::filter (!dropcase) %>% 
   select(-c(`Last Update`,`Province/State`,`Country/Region`,dropcase)) 
 head(coronaData)
+write_csv(coronaData,"coronaData.csv")
 ```
 
 ### eleven months later: the code still runs!

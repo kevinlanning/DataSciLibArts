@@ -103,4 +103,25 @@ references:
   volume: '3'
   issue: '2'
   note: 'tex.ids: cox2013'
+- id: opensciencecollaboration2015
+  type: article-journal
+  author:
+  - family: Open Science Collaboration
+  issued:
+  - year: 2015
+    month: 8
+    day: 28
+  accessed:
+  - year: 19
+  title: Estimating the reproducibility of psychological science
+  container-title: Science
+  container-title-short: Science
+  page: aac4716-aac4716
+  volume: '349'
+  issue: '6251'
+  source: DOI.org (Crossref)
+  URL: http://www.sciencemag.org/cgi/doi/10.1126/science.aac4716
+  DOI: 10/68c
+  ISSN: 0036-8075, 1095-9203
+  language: en
 ...

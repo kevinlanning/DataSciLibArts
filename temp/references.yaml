@@ -1,0 +1,14 @@
+---
+references:
+- id: anscombe1973
+  type: article-journal
+  author:
+  - family: Anscombe
+    given: FJ
+  issued:
+  - year: 1973
+  title: The american statistician 27
+  container-title: Graphs in Statistical Analysis
+  page: 17–21
+  issue: '1'
+...

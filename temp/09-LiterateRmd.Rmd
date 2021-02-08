@@ -22,11 +22,11 @@ We begin with R4DS Chapter 6, which shows the R studio interface and encourages 
 
 Note the recommendations - for example, include packages (libraries) at the beginning of your code. One more thing - in setting up R studio, consider adjusting the "insert spaces for tab" setting to something more than 2. This will allow you to more easily see the nested structure of functions, loops, etc. - and will create a modest disincentive against making these nested structures too deep or complex:
 
-![Fig 9.1: I use 4 spaces here. YMMV.](images/RStudioOptions.jpg)
+![Fig 11.1: I use 4 spaces here. YMMV.](images/RStudioOptions.jpg)
 
 Note, too, the [code diagnostics](https://support.rstudio.com/hc/en-us/articles/205753617-Code-Diagnostics) in R. Consider enabling all of these, including the R style diagnostics, to help you keep your code readable:
 
-  ![Fig 9.2: Enable code diagnostics](images/codediagnostics.PNG)
+  ![Fig 11.2: Enable code diagnostics](images/codediagnostics.PNG)
 
 ### some elements of coding style
 
@@ -61,7 +61,7 @@ Within R studio, open up a new R markdown document. There are as many as four pa
 
 There is a handy [R Markdown cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) which can give you a sense of what R markdown is about. It describes eight steps, from "workflow" to "publish" (and a ninth, "learn more").  Don't worry about all of the detail here, but do get a sense of how it works.
 
-> Exercise 9.1:
+> Exercise 11.1:
 >
 > Working in groups, do the exercises in section 27.4.7 of R4DS.
 >
