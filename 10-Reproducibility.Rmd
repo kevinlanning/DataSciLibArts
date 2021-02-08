@@ -1,8 +1,4 @@
----
-bibliography: references.yaml
----
-
-# Reproducibility and the replication crisis
+# reproducibility and the replication crisis
 
 Probability theory is elegant, and the logic of **Null Hypothesis Significance Testing (NHST)** is compelling. But philosophers of science have long recognized that this is not really how science works [@lakatos1969]. That is, science is not primarily built by the testing and rejecting of null hypotheses. (Think, for example, of how you might describe an experiment for testing the hypothesis that gravity exists, and whether you would ever reject this hypothesis).
 
@@ -52,7 +48,7 @@ The first cluster of responses to the reproducibility crisis is concerned with s
 
 ![munafo2017threats](images/munafo2017threats.PNG)
 
-### Keep a log of every step of every analysis in R markdown or Jupyter notebooks
+### keep a log of every step of every analysis in R markdown or Jupyter notebooks
 
 A second cluster of responses is concerned with keeping good records. Let's say that you are running a study, say, which looks at the hypothesis of differential variation of females and males in a cognitive measure; your interest is to critically examine the hypothesis discussed by [@wainer2007] that males show more variability.
 
@@ -62,10 +58,10 @@ The alternative is to keep a record of your work in R markdown. This is more tim
 
 Part of the problem of scientific reproducibility is to keep comprehensive records. This record-keeping and research transparency is at the heart of R markdown documents.
 
-## Answers to the reproducibility crisis III: Pre-registration
+## answers to the reproducibility crisis III: Pre-registration
 
 The third answer to the reproducibility crisis is the most comprehensive; it involves not merely keeping a record of what you have done, but preregistering your work, that is, fully specifying your planned analyses beforehand [@miguel2014]. The author, an economist, outlines his argument in a five-minute video [here](https://www.futurelearn.com/courses/open-social-science-research/0/steps/31436). For randomized controlled trials, consider socialscienceregistry.org, and for more general use, use the open science framework page.
 
-## Further readings
+## further readings
 
 Finally, if you would like to learn more about the reproducibility crisis, there is a collection of papers in Nature [here](https://www.nature.com/collections/prbfkwmwvz/).

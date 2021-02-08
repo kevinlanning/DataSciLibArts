@@ -80,3 +80,5 @@ some-elements-of-coding-style
 projects-are-directories-containing-related-scripts
 r-markdown-documents-integrate-rationale-script-and-results
 what-to-do-when-you-are-stuck
+the-tidyverse
+some-simple-principles
