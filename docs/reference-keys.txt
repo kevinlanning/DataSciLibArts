@@ -67,7 +67,6 @@ the-rules-of-probability
 keeping-conditional-probabilities-straight
 continuous-probability-distributions
 the-most-dangerous-equation
-section-1
 reproducibility-and-the-replication-crisis
 answers-to-the-reproducibility-crisis
 tweak-or-abandon-nhst
@@ -82,3 +81,9 @@ r-markdown-documents-integrate-rationale-script-and-results
 what-to-do-when-you-are-stuck
 the-tidyverse
 some-simple-principles
+finding-exploring-and-cleaning-data
+data-in-r-libraries
+other-prepared-datasets
+makeextractcombine-your-own-data
+exploring-data
+messy-data-cleaning-and-curation

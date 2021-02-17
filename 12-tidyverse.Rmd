@@ -1,4 +1,3 @@
-# (PART) Part III Towards data proficiency {.unnumbered}
 
 ------------------------------------------------------------------------
 

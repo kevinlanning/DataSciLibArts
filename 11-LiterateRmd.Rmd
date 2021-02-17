@@ -1,3 +1,5 @@
+# (PART) Part III Towards data proficiency {.unnumbered}
+
 # literate programming with R markdown
 
 Showing your work, to (future) you as well as others, is a key part of reproducible science. R Markdown documents facilitate this, as they allow you to include comments, code, and results in a single place. But before we consider R markdown, we begin with two more elemental ideas: *scripts* (R4DS, Chapter 6) and *projects* (Chapter 8).

@@ -78,4 +78,3 @@ He argues that deMoivre's equation is the most dangerous equation - this equatio
 
 I would argue that, from the standpoint of psychology, ignorance of regression to the mean was arguably more 'dangerous' than ignorance about the central limit theorem and standard error, in particular because regression effects contribute to an overestimate of the effectiveness of punishment and an under-appreciation of the effectiveness of positive reinforcement as tools for behavior change [@hastie2010].
 
-## 
