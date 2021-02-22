@@ -55,7 +55,7 @@ There is a handy [R Markdown cheat sheet](https://www.rstudio.com/wp-content/upl
 >
 > Begin with the R markdown file that is included at the beginning of Chapter 27. You can download it [here](https://raw.githubusercontent.com/hadley/r4ds/master/rmarkdown/diamond-sizes.Rmd).
 >
-> Study the code, and annotate it so that you have a better sense of how it works. For example, "this block loads needed libraries, then takes the \_\_\_\_\_dataset and \_\_\_\_\_\_\_\_\_\_\_ ."
+> Study the code, and annotate it so that you have a better sense of how it works. For example, "this block loads needed libraries, then takes the \_\_\_\_\_ dataset and \_\_\_\_\_\_\_\_\_\_\_ ."
 >
 > Play with the graph. Change one or more parameters of it to make it more useful. Again, annotate your changes.
 

@@ -1,30 +1,38 @@
 # finding, exploring, and cleaning data
 
-**Data science, oddly enough, begins not with R... but with *data*.** There is no shortage of datasets available to analyze, and each can give rise to a host of interesting analyses and insights, as we saw last week with the **babynames library.**
+**Data science, oddly enough, begins not with R... but with *data*.** There is no shortage of datasets available to analyze, and each can give rise to a host of interesting analyses and insights.
 
 What do you want to study?
 
 ## Data in R libraries
 
-There are a number of R packages (libraries) which provide 'easy' access to data. One is the built-in **R dataset library**, which includes, at this writing, `r length((library(help = "datasets"))$info[[2]])` different datasets. Another is the **R dslabs** library, with `r length((library(help = "dslabs"))$info[[2]])` additional datasets. And the **R fivethirtyeight library** provides access to `r length((library(help = "fivethirtyeight"))$info[[2]])` clever, clean, and largely manageable datasets, each of which underlies the empirical analyses and reports of Nate Silver and his team (You can learn more at <https://data.fivethirtyeight.com/>).
+A few weeks back, we explored five different R packages (libraries) for looking at COVID data. There are a number of other R packages which provide 'easy' access to data - for example, consider the [**babynames package**](https://cran.r-project.org/web/packages/babynames/babynames.pdf). Install it on your machine, load the library, and View it.
 
-The datasets in these libraries should be relatively easy to work with, requiring minimal munging prior to analysis. If you are up for something a little more ambitious, read on.
+> Exercise 13.1 Come up with an interesting question about the babynames dataset. How would you go about examining it?
+
+Libraries in R with multiple datasets include the built-in **R dataset library**, which includes, at this writing, `r length((library(help = "datasets"))$info[[2]])` different datasets. Another is the **R dslabs** library, with `r length((library(help = "dslabs"))$info[[2]])` additional datasets. And the **R fivethirtyeight library** provides access to `r length((library(help = "fivethirtyeight"))$info[[2]])` clever, clean, and largely manageable datasets, each of which underlies the empirical analyses and reports of Nate Silver and his team (You can learn more at <https://data.fivethirtyeight.com/>).
+
+Less tidy, somewhat more ambitious, and more far-ranging datasets include these [**Nineteen datasets and sources**](https://www.springboard.com/blog/free-public-data-sets-data-science-project), ranging from Census data to Yelp reviews.
 
 ## Other prepared datasets
 
-Less tidy, more ambitious, and more far-ranging datasets include the **Nineteen datasets and sources**, ranging from Census data to Yelp reviews, that can be found at <https://www.springboard.com/blog/free-public-data-sets-data-science-project/>.
+The datasets in the libraries described above should be relatively easy to work with, requiring minimal munging prior to analysis. If you are up for something a little more ambitious, read on.
 
-**Kaggle** is a noun (a community, a website, a challenge), and a verb (to kaggle is to participate in a data challenge) which describes a crowdsourced competition to improve on a problem in prediction. Perhaps the first and best known example of this was the Netflix prize [@jackson2017], which, in 2006, promised one million dollars to the first team to improve the algorithm by which that company recommended movies to its customer base. The competition took several years, and inspired substantial improvements in machine learning as well as in crowdsourced science. At this writing, Kaggle hosts many active competitions - including a \$1,500,000 award offered by the United States Department of Homeland Security known as the "passenger screening algorithm challenge." (Good luck!) Kaggle also hosts hundreds if not thousands of datasets. A good place to start is with their datasets stored in comma separated value format (.csv); you can find them here: <https://www.kaggle.com/datasets?fileType=csv>. Kaggling is an important feature of data science culture.
+[**Kaggle**](https://www.kaggle.com)is a noun (a community, a website, a challenge), and a verb (to kaggle is to participate in a data challenge) which describes a crowdsourced competition to improve on a problem in prediction. Perhaps the first and best known example of this was the Netflix prize [@jackson2017], which, in 2006, promised one million dollars to the first team to improve the algorithm by which that company recommended movies to its customer base. The competition took several years, and inspired substantial improvements in machine learning as well as in crowdsourced science. At this writing, Kaggle hosts many active competitions - including a \$1,500,000 award offered by the United States Department of Homeland Security known as the "passenger screening algorithm challenge." (Good luck!) Kaggle also hosts hundreds if not thousands of datasets. A good place to start is with their datasets stored in comma separated value format (.csv); you can find them [here](https://www.kaggle.com/datasets?fileType=csv). Kaggling is an important feature of data science culture.
 
-Reddit, the meta-bulletin-board, includes a **dataset subreddit** where you may find less curated (i.e., potentially messier), topical datasets and discussions about data. Search for csv files here: <https://www.reddit.com/r/datasets/search?q=csv&restrict_sr=1&sort=top>.
+If you are into psychology and behavioral science, the **Open Science Framework** (OSF) provides a system for hosting and sharing code and data from research articles. One OSF page is a compilation of many [**datasets from prominent papers in psychology and psychiatry**](https://osf.io/r38qu/) Incidentally, almost all of the data and code from papers I have published is on the OSF as well. Beyond OSF, there is some **[structured personality test dat](https://openpsychometrics.org/_rawdata/)**[a](https://openpsychometrics.org/_rawdata/) available, too.
 
-If you are into psychology and behavioral science, the **Open Science Framework** (OSF) provides a system for hosting and sharing code and data from research articles. One OSF page may be of particular interest, and that is a compilation of many datasets from prominent papers in psychology and psychiatry (<https://osf.io/r38qu/>). Incidentally, almost all of the data and code from papers I have published is on the OSF as well.
+Outside of psychology, repositories of data from many disciplines may be found at **Re3data** <https://www.re3data.org/>.
 
-Outside of psychology, repositories of data from many disciplines may be found at **Re3data** <https://www.re3data.org/>. Proceed with caution - many of these datasets are likely to be quite large (for example, analyses of images) and/or in formats that for now are too challenging (JSON). Stick with data that are available in a .csv format and that don't have more than, say, a million data points (e.g., 50,000 observations \* 20 variables).
+There are many datasets about **music** - songs, artists, lyrics, etc. - at [**millionsongdataset**](http://millionsongdataset.com/pages/additional-datasets/){.uri}. Note that many of these are quite large, but there are "smaller" files of \~ 10000 songs that are available.
 
-There are many datasets about **music** - songs, artists, lyrics, etc. - at <http://millionsongdataset.com/pages/additional-datasets/>. Note that many of these are quite large, but there are "smaller" files of \~ 10000 songs that are available.
+**Github** is the primary site for coders to share and improve upon their work. Git is a system in which one can upload (*push*) one's work from a local computer to the cloud in a repository (*repo*), share this with collaborators who copy (*fork*) the repo, *pull* it down to their computers, and possibly make changes which will appear as a separate branch of the repo. Each change is time-stamped, and efficiently stored as only its difference from the prior edit (or *commit*). There are, in all of these pushes and pulls, opportunities for collisions and problems, but learning Git remains a critical part of the data scientist's toolkit. You can set up an account on Github if you like, but even without this you can access some of the datasets that are stored there, including a set of [**curated datasets on topics such as economics, demographics, air quality, flights and house prices**](https://github.com/datasets/). Perhaps the easiest way to access these is to click through repos until you find a data directory, open the files up as 'raw' files, and paste them into a spreadsheet or notepad program of your choice. Github also hosts the '[**awesome public datasets**](https://github.com/awesomedata/awesome-public-datasets)**'** (many of which probably are). You can work with R repositories straight from R studio.
 
-**Github** is the primary site for coders to share and improve upon their work. Git is a system in which one can upload (*push*) one's work from a local computer to the cloud in a repository (*repo*), share this with collaborators who copy (*fork*) the repo, *pull* it down to their computers, and possibly make changes which will appear as a separate branch of the repo. Each change is time-stamped, and efficiently stored as only its difference from the prior edit (or *commit*). There are, in all of these pushes and pulls, opportunities for collisions and problems, but learning Git remains a critical part of the data scientist's toolkit. You can set up an account on Github if you like, but even without this you can access some of the datasets that are stored there, including a set of **curated datasets on topics such as economics, demographics, air quality, flights and house prices at <https://github.com/datasets/>**. Perhaps the easiest way to access these is to click through repos until you find a data directory, open the files up as 'raw' files, and paste them into a spreadsheet or notepad program of your choice. Github also hosts the '**awesome public datasets'** (many of which probably are) at <https://github.com/awesomedata/awesome-public-datasets>. You can work with R repositories straight from R studio.
+Or just **[Google datasets](https://toolbox.google.com/datasetsearch)**.
+
+### Keep it manageable
+
+Proceed with caution - many of these datasets are likely to be quite large (for example, analyses of images) and/or in formats that for now are too challenging (JSON). I encourage you to stick with data that are available in a .csv format and that don't have more than, say, a million data points (e.g., 50,000 observations \* 20 variables). And probably avoid, for the time being, datasets consisting primarily of natural language samples or networks - for those who are interested, we will look at these in the Computational Social Science class in the Fall.
 
 ## Make/extract/combine your own data
 
@@ -65,7 +73,7 @@ Between 50 and 80% of the work of the data scientist consists of the compiling, 
 
 One part of data wrangling is looking for and dealing with encoding inconsistencies, missing values, and errors. Consider the following:
 
-> Exercise 13.1
+> Exercise 13.2
 >
 > Run the following code in an R markdown document. You'll need to add a library beforehand.
 >
