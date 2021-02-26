@@ -1,7 +1,6 @@
 # transforming and joining data
 
-Once you have your data, you will almost invariably need to transform it - to sort it, to select observations or variables from it, to create new variables, to partition it into groups, or to summarize it. In R, there is a general purpose tool (ok, package) that exists for this called dplyr ("d-plier").
-Dplyr is a core part of the tidyverse and hence is loaded automatically when you load the tidyverse ensemble of libraries:
+Once you have your data, you will almost invariably need to transform it - to sort it, to select observations or variables from it, to create new variables, to partition it into groups, or to summarize it. In R, there is a general purpose tool (ok, package) that exists for this called dplyr ("d-plier"). Dplyr is a core part of the tidyverse and hence is loaded automatically when you load the tidyverse ensemble of libraries:
 
 ```{r echo=TRUE, results="hide", message=FALSE}
 library(tidyverse)
@@ -9,15 +8,15 @@ library(maps)
 library(maptools)
 ```
 
-The versatility of dplyr is demonstrated in Chapter 5 of R4DS, which shows how to do many basic, and some not so basic, operations on your data.  Read it closely if you haven't already done so.
+The versatility of dplyr is demonstrated in Chapter 5 of R4DS, which shows how to do many basic, and some not so basic, operations on your data. Read it closely if you haven't already done so.
 
 ## from data on the web to data in R
 
 Let's consider a dataset consisting of 10,000 songs (observations) and 35 measures (variables including artist). The first step here (and for your class project and the data science challenge) will be to get the data into R. How do you this?
 
-> Method 1: Download the file to your computer as a csv file. Some advantages of this include  (a) it will allow the code to run even if the website changes or disappears, (b) in the likely event that I will run the code several times, it is faster to get data from my own machine than from the cloud, and (c) if there are any anomalies in the data I can look at them locally (e.g., in Notepad++). If you use this approach, make sure that you know where your data is on your computer.  The easiest way to do this is to work with an R project. Within R studio, create a new R project (or use an existing one). Move the csv file into this directory, so that data, code, and results will all be in the same place.
+> Method 1: Download the file to your computer as a csv file. Some advantages of this include (a) it will allow the code to run even if the website changes or disappears, (b) in the likely event that I will run the code several times, it is faster to get data from my own machine than from the cloud, and (c) if there are any anomalies in the data I can look at them locally (e.g., in Notepad++). If you use this approach, make sure that you know where your data is on your computer. The easiest way to do this is to work with an R project. Within R studio, create a new R project (or use an existing one). Move the csv file into this directory, so that data, code, and results will all be in the same place.
 >
-> Method 2:  Import the data from the cloud directly into R. You can do this either by specifying the musicURL separately (Method 2a) or call it directly within the read_csv statement (2b).  Here, too, I would encourage you to set up and work within a project.
+> Method 2: Import the data from the cloud directly into R. You can do this either by specifying the musicURL separately (Method 2a) or call it directly within the read\_csv statement (2b). Here, too, I would encourage you to set up and work within a project.
 
 ```{r echo=TRUE, results="hide", message=FALSE}
 ### Method 1
@@ -36,7 +35,7 @@ What can you do with the data in its existing form? What questions do you wish y
 
 ## working with geodata: a function to get US states from latitude/longitude
 
-When I first ran this code in 2018, the variables included states and countries.  The current dataset doesn't have these, but it does have longitude and latitude. To get state data from this, reverse  geocoding is needed. A Google search turned up the following function. Note that it requires two additional libraries, 'maps' and 'maptools.'
+When I first ran this code in 2018, the variables included states and countries. The current dataset doesn't have these, but it does have longitude and latitude. To get state data from this, reverse geocoding is needed. A Google search turned up the following function. Note that it requires two additional libraries, 'maps' and 'maptools.'
 
 ```{r}
 # source is https://github.com/abresler
@@ -63,10 +62,10 @@ latlong2state <- function(pointsDF) {
 
 ### applying the function to the music data
 
-If you have run the chunk above, the latlong2state function will now exists in your environment. You still need to apply the function to your data.  
+If you have run the chunk above, the latlong2state function will now exists in your environment. You still need to apply the function to your data.
 
-We do this using three of the essential tools in the munger's toolbox:
-*select* (to choose several columns from the data), *mutate* (to create a new variable), and finally *drop_na* (to drop cases with missing data - here, artists from outside of the US).
+We do this using three of the essential tools in the munger's toolbox: *select* (to choose several columns from the data), *mutate* (to create a new variable), and finally *drop\_na* (to drop cases with missing data - here, artists from outside of the US).
+
 ```{r}
 # create a new dataset with just latitude and longitude
 tempLatLong <- music1 %>% 
@@ -79,19 +78,19 @@ USartists <- music1 %>%
 rm(tempLatLong)
 ```
 
-## drowning in the sea of songs (with apologies to *ARIVOIM1187B990643*)
+## drowning in the sea of songs (with apologies to Artist #*ARIVOIM1187B990643*)
 
-At this point, we have a list of songs and artists and some measures of "hotttness," restricted to US artists and now including states as well as latitude and longitude. There is a field called song-id, but it doesn't have song titles.  
+At this point, we have a list of songs and artists and some measures of "hotttness," restricted to US artists and now including states as well as latitude and longitude. There is a field called song-id, but it doesn't have song titles.
 
 (*several hours later*)
 
-I found the titles on the 'net. They were part of a file "millionsongsubset," which is an archive of many files, and which is altogether about 2 GB in size. Within this, there is a file that looks right - let's try it.  
+I found the titles on the 'net. They were part of a file "millionsongsubset," which is an archive of many files, and which is altogether about 2 GB in size. Within this, there is a file that looks right - let's try it.
 
-The file is delimited by the characters "\<SEP\>", but read_delim requires that data fields be separated by a single character (like a comma or a tab).  So the file is read as a single variable, which R assigns the default name "X1". I use mutate to replace each "\<SEP>\"  by a tab, then the *separate* command to split X1 up into its constituent variables - the first is a mysterious ID, the second looks like the song.id in the original file, the third is an artist name, and the fourth is a song title.
+The file is delimited by the characters "\<SEP\>", but read\_delim requires that data fields be separated by a single character (like a comma or a tab). So the file is read as a single variable, which R assigns the default name "X1". I use mutate to replace each "\<SEP\>" by a tab, then the *separate* command to split X1 up into its constituent variables - the first is a mysterious ID, the second looks like the song.id in the original file, the third is an artist name, and the fourth is a song title.
 
 ### combining the song titles with our US artists
 
-Finally, we can *join* this to the USartist data, as each row of the two files have a common key (song.id). Join is discussed in more detail below. Here, we use a *right_join* - implicitly, "maybeTitles", which is at the head of the pipe, is on the left. The right_join will link the left (maybeTitles) file with the right (USartists), by what appears to be a common key:
+Finally, we can *join* this to the USartist data, as each row of the two files have a common key (song.id). Join is discussed in more detail below. Here, we use a *right\_join* - implicitly, "maybeTitles", which is at the head of the pipe, is on the left. The right\_join will link the left (maybeTitles) file with the right (USartists), by what appears to be a common key:
 
 ```{r warning=FALSE}
 maybeTitles <- read_delim("data/subset_unique_tracks.txt","~",
@@ -104,7 +103,7 @@ maybeTitles <- read_delim("data/subset_unique_tracks.txt","~",
   right_join(USartists, key = "song.id")
 ```
 
-So far, so good. Do things line up correctly? If the match is perfect, the two artist fields should be identical. We can use the [not] oddly-titled logical function "identical" to check this: 
+So far, so good. Do things line up correctly? If the match is perfect, the two artist fields should be identical. We can use the [not] oddly-titled logical function "identical" to check this:
 
 ```{r}
 identical(maybeTitles$artistFromMaybeTitles,
@@ -122,29 +121,28 @@ maybeTitles %>%
 ```
 
 ### exercises
->
->1) What happened with the artist names? How would you move forward with these data?
-> 
->2) Do something interesting with the data - use filter, arrange, and select in your piped code.
->
->3) Work with the babynames data. Use mutate to create an interesting new variable. 
->
->4) most importantly, make progress on your class project. You will be presenting this two weeks from today.
 
+> 1)  What happened with the artist names? How would you move forward with these data?
+>
+> 2)  Do something interesting with the data - use filter, arrange, and select in your piped code.
+>
+> 3)  Work with the babynames data. Use mutate to create an interesting new variable.
+>
+> 4)  most importantly, make progress on your class project. You will be presenting this two weeks from today.
 
 ## review of munging tools
 
 The primary tools, at least in my experience, are these:
 
-* If you want to pull out only certain columns, use *select*.
+-   If you want to pull out only certain columns, use *select*.
 
-* If you want to pull out only certain rows, use *filter*.
+-   If you want to pull out only certain rows, use *filter*.
 
-* If you want to sort, you *arrange*.
+-   If you want to sort, you *arrange*.
 
-* If you want to create, you *mutate*.
+-   If you want to create, you *mutate*.
 
-* If you want to combine data, you *join*.
+-   If you want to combine data, you *join*.
 
 ## more about joining
 
@@ -152,17 +150,14 @@ There are many different approaches to joining datasets. We might want to retain
 
 These three approaches - an inner join, a left join, and a full join - begin to illustrate the richness and challenges of combining datasets. Joins are at the heart of Structured Query Language (or SQL, which is pronounced es-que-ell or sequel). Joins of multiple databases can become very complex - think about links in a company between sales data, salary, hours worked, seniority, and a client base, or, better, links in a University between lists of students, classes, faculties, grades, and parking violations). Relational Database Management Systems (RDBMS) are linked networks of datasets such as these, and a rudimentary understanding of the ideas behind these is an essential part of proficiency in data science.
 
-There are two sources which I will refer you to for now. The first is chapter 13 of R4DS.  The second is what Jenny Bryan describes as a cheatsheet, but is I think more than this (https://stat545.com/bit001_dplyr-cheatsheet.html). This shows how the various "joins" of dplyr work in combining two tibbles (superheroes and publishers). If you want to get a feel for how combining data works, it is a great start.
+There are two sources which I will refer you to for now. The first is chapter 13 of R4DS. The second is what Jenny Bryan describes as a cheatsheet, but is I think more than this (<https://stat545.com/bit001_dplyr-cheatsheet.html>). This shows how the various "joins" of dplyr work in combining two tibbles (superheroes and publishers). If you want to get a feel for how combining data works, it is a great start.
 
 ### more about munging
 
-We've also used *separate* to split a column into several; the complement of this is *unite.* 
+We've also used *separate* to split a column into several; the complement of this is *unite.*
 
-You may want to add new measures for all cases without a common key.  Here, you can use the *bind_cols* function.  If you instead want to add observations to an existing dataframe, you may *bind_rows.* 
+You may want to add new measures for all cases without a common key. Here, you can use the *bind\_cols* function. If you instead want to add observations to an existing dataframe, you may *bind\_rows.*
 
-We haven't yet considered the tools used to *reshape* data frames from short-and-wide to long-and-narrow, and vice-versa. In our music data, we might, for example, want to think about the data by artist (with possibly multiple songs on each line), or song-titles (with possibly covers by different artists on each line). 
+We haven't yet considered the tools used to *reshape* data frames from short-and-wide to long-and-narrow, and vice-versa. In our music data, we might, for example, want to think about the data by artist (with possibly multiple songs on each line), or song-titles (with possibly covers by different artists on each line).
 
-More typically, consider repeated-measures data in which each score reflects a measure taken on one of ten subjects and one of three occasions - for example, scores on the Beck Depression Inventory (BDI) before, during, and after treatment.  Here, we may wish to structure the data in a "long" format with thirty rows (one for each subject X occasion) and three columns (person, occasion, and BDI), or in a "wide" format with just ten rows (one for each subject), and four columns (person, BDI-before, etc). To move from "long" to "wide," use the *pivot_longer* ~*spread*~ command, and to move instead from "wide" to "long," use *pivot_wider* ~*gather~.* (These changes were introduced in ~ 2020).
-
-
-
+More typically, consider repeated-measures data in which each score reflects a measure taken on one of ten subjects and one of three occasions - for example, scores on the Beck Depression Inventory (BDI) before, during, and after treatment. Here, we may wish to structure the data in a "long" format with thirty rows (one for each subject X occasion) and three columns (person, occasion, and BDI), or in a "wide" format with just ten rows (one for each subject), and four columns (person, BDI-before, etc). To move from "long" to "wide," use the *pivot\_longer* ~~*spread*~~ command, and to move instead from "wide" to "long," use *pivot\_wider* ~~*gather*~~. (These changes were introduced in \~ 2020).

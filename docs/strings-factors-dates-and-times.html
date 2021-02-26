@@ -282,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="14.2.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#applying-the-function-to-the-music-data"><i class="fa fa-check"></i><b>14.2.1</b> applying the function to the music data</a></li>
 </ul></li>
-<li class="chapter" data-level="14.3" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#drowning-in-the-sea-of-songs-with-apologies-to-arivoim1187b990643"><i class="fa fa-check"></i><b>14.3</b> drowning in the sea of songs (with apologies to <em>ARIVOIM1187B990643</em>)</a>
+<li class="chapter" data-level="14.3" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#drowning-in-the-sea-of-songs-with-apologies-to-artist-arivoim1187b990643"><i class="fa fa-check"></i><b>14.3</b> drowning in the sea of songs (with apologies to Artist #<em>ARIVOIM1187B990643</em>)</a>
 <ul>
 <li class="chapter" data-level="14.3.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#combining-the-song-titles-with-our-us-artists"><i class="fa fa-check"></i><b>14.3.1</b> combining the song titles with our US artists</a></li>
 <li class="chapter" data-level="14.3.2" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#exercises"><i class="fa fa-check"></i><b>14.3.2</b> exercises</a></li>
@@ -350,8 +350,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb40-2"><a href="strings-factors-dates-and-times.html#cb40-2" aria-hidden="true"></a>                     <span class="st">&quot;Revenge o&#39; </span><span class="ch">\&#39;</span><span class="st">McSlashy&#39;&quot;</span>, </span>
 <span id="cb40-3"><a href="strings-factors-dates-and-times.html#cb40-3" aria-hidden="true"></a>                     <span class="st">&quot;Star Wars: Episode </span><span class="ch">\\</span><span class="st">slash&quot;</span>)</span>
 <span id="cb40-4"><a href="strings-factors-dates-and-times.html#cb40-4" aria-hidden="true"></a>dumbSlashMovieTitles <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_view</span> (<span class="st">&quot;sh&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-94e11cc8f7da2d5bc960" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-94e11cc8f7da2d5bc960">{"x":{"html":"<ul>\n  <li>Crasla<span class='match'>sh<\/span><\/li>\n  <li>Revenge o' 'McSla<span class='match'>sh<\/span>y'<\/li>\n  <li>Star Wars: Episode \\sla<span class='match'>sh<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9f1deb973b46d5d8c539" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9f1deb973b46d5d8c539">{"x":{"html":"<ul>\n  <li>Crasla<span class='match'>sh<\/span><\/li>\n  <li>Revenge o' 'McSla<span class='match'>sh<\/span>y'<\/li>\n  <li>Star Wars: Episode \\sla<span class='match'>sh<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Note the effects of the backslash: For example, the Star Wars movie has two slashes in the input, but only one in the output, as the backslash is the escape character that tells R to take the next character literally (as in the ‘Revenge’ movie).</p>
 <blockquote>
 <p>So. How would you use str_view to find strings which include the backslash character in our dumbSlashMovieTitles? [Experiment. Google. Ask your classmates.]</p>

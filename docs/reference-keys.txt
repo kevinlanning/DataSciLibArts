@@ -92,7 +92,7 @@ transforming-and-joining-data
 from-data-on-the-web-to-data-in-r
 working-with-geodata-a-function-to-get-us-states-from-latitudelongitude
 applying-the-function-to-the-music-data
-drowning-in-the-sea-of-songs-with-apologies-to-arivoim1187b990643
+drowning-in-the-sea-of-songs-with-apologies-to-artist-arivoim1187b990643
 combining-the-song-titles-with-our-us-artists
 exercises
 review-of-munging-tools

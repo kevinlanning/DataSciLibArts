@@ -282,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="14.2.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#applying-the-function-to-the-music-data"><i class="fa fa-check"></i><b>14.2.1</b> applying the function to the music data</a></li>
 </ul></li>
-<li class="chapter" data-level="14.3" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#drowning-in-the-sea-of-songs-with-apologies-to-arivoim1187b990643"><i class="fa fa-check"></i><b>14.3</b> drowning in the sea of songs (with apologies to <em>ARIVOIM1187B990643</em>)</a>
+<li class="chapter" data-level="14.3" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#drowning-in-the-sea-of-songs-with-apologies-to-artist-arivoim1187b990643"><i class="fa fa-check"></i><b>14.3</b> drowning in the sea of songs (with apologies to Artist #<em>ARIVOIM1187B990643</em>)</a>
 <ul>
 <li class="chapter" data-level="14.3.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#combining-the-song-titles-with-our-us-artists"><i class="fa fa-check"></i><b>14.3.1</b> combining the song titles with our US artists</a></li>
 <li class="chapter" data-level="14.3.2" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#exercises"><i class="fa fa-check"></i><b>14.3.2</b> exercises</a></li>
@@ -324,8 +324,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="transforming-and-joining-data" class="section level1" number="14">
 <h1><span class="header-section-number">14</span> transforming and joining data</h1>
-<p>Once you have your data, you will almost invariably need to transform it - to sort it, to select observations or variables from it, to create new variables, to partition it into groups, or to summarize it. In R, there is a general purpose tool (ok, package) that exists for this called dplyr (“d-plier”).
-Dplyr is a core part of the tidyverse and hence is loaded automatically when you load the tidyverse ensemble of libraries:</p>
+<p>Once you have your data, you will almost invariably need to transform it - to sort it, to select observations or variables from it, to create new variables, to partition it into groups, or to summarize it. In R, there is a general purpose tool (ok, package) that exists for this called dplyr (“d-plier”). Dplyr is a core part of the tidyverse and hence is loaded automatically when you load the tidyverse ensemble of libraries:</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="transforming-and-joining-data.html#cb23-1" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span>
 <span id="cb23-2"><a href="transforming-and-joining-data.html#cb23-2" aria-hidden="true"></a><span class="kw">library</span>(maps)</span>
 <span id="cb23-3"><a href="transforming-and-joining-data.html#cb23-3" aria-hidden="true"></a><span class="kw">library</span>(maptools)</span></code></pre></div>
@@ -375,8 +374,7 @@ Dplyr is a core part of the tidyverse and hence is loaded automatically when you
 <div id="applying-the-function-to-the-music-data" class="section level3" number="14.2.1">
 <h3><span class="header-section-number">14.2.1</span> applying the function to the music data</h3>
 <p>If you have run the chunk above, the latlong2state function will now exists in your environment. You still need to apply the function to your data.</p>
-<p>We do this using three of the essential tools in the munger’s toolbox:
-<em>select</em> (to choose several columns from the data), <em>mutate</em> (to create a new variable), and finally <em>drop_na</em> (to drop cases with missing data - here, artists from outside of the US).</p>
+<p>We do this using three of the essential tools in the munger’s toolbox: <em>select</em> (to choose several columns from the data), <em>mutate</em> (to create a new variable), and finally <em>drop_na</em> (to drop cases with missing data - here, artists from outside of the US).</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="transforming-and-joining-data.html#cb26-1" aria-hidden="true"></a><span class="co"># create a new dataset with just latitude and longitude</span></span>
 <span id="cb26-2"><a href="transforming-and-joining-data.html#cb26-2" aria-hidden="true"></a>tempLatLong &lt;-<span class="st"> </span>music1 <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb26-3"><a href="transforming-and-joining-data.html#cb26-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span> (artist.longitude, </span>
@@ -388,12 +386,12 @@ Dplyr is a core part of the tidyverse and hence is loaded automatically when you
 <span id="cb26-9"><a href="transforming-and-joining-data.html#cb26-9" aria-hidden="true"></a><span class="kw">rm</span>(tempLatLong)</span></code></pre></div>
 </div>
 </div>
-<div id="drowning-in-the-sea-of-songs-with-apologies-to-arivoim1187b990643" class="section level2" number="14.3">
-<h2><span class="header-section-number">14.3</span> drowning in the sea of songs (with apologies to <em>ARIVOIM1187B990643</em>)</h2>
+<div id="drowning-in-the-sea-of-songs-with-apologies-to-artist-arivoim1187b990643" class="section level2" number="14.3">
+<h2><span class="header-section-number">14.3</span> drowning in the sea of songs (with apologies to Artist #<em>ARIVOIM1187B990643</em>)</h2>
 <p>At this point, we have a list of songs and artists and some measures of “hotttness,” restricted to US artists and now including states as well as latitude and longitude. There is a field called song-id, but it doesn’t have song titles.</p>
 <p>(<em>several hours later</em>)</p>
 <p>I found the titles on the ’net. They were part of a file “millionsongsubset,” which is an archive of many files, and which is altogether about 2 GB in size. Within this, there is a file that looks right - let’s try it.</p>
-<p>The file is delimited by the characters “&lt;SEP&gt;”, but read_delim requires that data fields be separated by a single character (like a comma or a tab). So the file is read as a single variable, which R assigns the default name “X1”. I use mutate to replace each "&lt;SEP&gt;" by a tab, then the <em>separate</em> command to split X1 up into its constituent variables - the first is a mysterious ID, the second looks like the song.id in the original file, the third is an artist name, and the fourth is a song title.</p>
+<p>The file is delimited by the characters “&lt;SEP&gt;”, but read_delim requires that data fields be separated by a single character (like a comma or a tab). So the file is read as a single variable, which R assigns the default name “X1”. I use mutate to replace each “&lt;SEP&gt;” by a tab, then the <em>separate</em> command to split X1 up into its constituent variables - the first is a mysterious ID, the second looks like the song.id in the original file, the third is an artist name, and the fourth is a song title.</p>
 <div id="combining-the-song-titles-with-our-us-artists" class="section level3" number="14.3.1">
 <h3><span class="header-section-number">14.3.1</span> combining the song titles with our US artists</h3>
 <p>Finally, we can <em>join</em> this to the USartist data, as each row of the two files have a common key (song.id). Join is discussed in more detail below. Here, we use a <em>right_join</em> - implicitly, “maybeTitles”, which is at the head of the pipe, is on the left. The right_join will link the left (maybeTitles) file with the right (USartists), by what appears to be a common key:</p>
@@ -464,7 +462,7 @@ Dplyr is a core part of the tidyverse and hence is loaded automatically when you
 <p>We’ve also used <em>separate</em> to split a column into several; the complement of this is <em>unite.</em></p>
 <p>You may want to add new measures for all cases without a common key. Here, you can use the <em>bind_cols</em> function. If you instead want to add observations to an existing dataframe, you may <em>bind_rows.</em></p>
 <p>We haven’t yet considered the tools used to <em>reshape</em> data frames from short-and-wide to long-and-narrow, and vice-versa. In our music data, we might, for example, want to think about the data by artist (with possibly multiple songs on each line), or song-titles (with possibly covers by different artists on each line).</p>
-<p>More typically, consider repeated-measures data in which each score reflects a measure taken on one of ten subjects and one of three occasions - for example, scores on the Beck Depression Inventory (BDI) before, during, and after treatment. Here, we may wish to structure the data in a “long” format with thirty rows (one for each subject X occasion) and three columns (person, occasion, and BDI), or in a “wide” format with just ten rows (one for each subject), and four columns (person, BDI-before, etc). To move from “long” to “wide,” use the <em>pivot_longer</em> <sub><em>spread</em></sub> command, and to move instead from “wide” to “long,” use <em>pivot_wider</em> ~<em>gather~.</em> (These changes were introduced in ~ 2020).</p>
+<p>More typically, consider repeated-measures data in which each score reflects a measure taken on one of ten subjects and one of three occasions - for example, scores on the Beck Depression Inventory (BDI) before, during, and after treatment. Here, we may wish to structure the data in a “long” format with thirty rows (one for each subject X occasion) and three columns (person, occasion, and BDI), or in a “wide” format with just ten rows (one for each subject), and four columns (person, BDI-before, etc). To move from “long” to “wide,” use the <em>pivot_longer</em> <del><em>spread</em></del> command, and to move instead from “wide” to “long,” use <em>pivot_wider</em> <del><em>gather</em></del>. (These changes were introduced in ~ 2020).</p>
 
 </div>
 </div>
