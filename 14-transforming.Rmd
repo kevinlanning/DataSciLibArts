@@ -1,11 +1,3 @@
----
-title: "14-Dplyr data"
-author: "Kevin Lanning"
-date: "`r Sys.Date()`"
-output:
-  pdf_document: default
-  html_document: default
----
 # transforming and joining data
 
 Once you have your data, you will almost invariably need to transform it - to sort it, to select observations or variables from it, to create new variables, to partition it into groups, or to summarize it. In R, there is a general purpose tool (ok, package) that exists for this called dplyr ("d-plier").

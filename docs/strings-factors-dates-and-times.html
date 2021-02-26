@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>15 strings, factors, dates, and times | 15 - some types of data</title>
+  <title>15 strings, factors, dates, and times | Data science for the liberal arts</title>
   <meta name="description" content="Test" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="15 strings, factors, dates, and times | 15 - some types of data" />
+  <meta property="og:title" content="15 strings, factors, dates, and times | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="chihuahuamuffin.png" />
@@ -16,12 +16,12 @@
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="15 strings, factors, dates, and times | 15 - some types of data" />
+  <meta name="twitter:title" content="15 strings, factors, dates, and times | Data science for the liberal arts" />
   
   <meta name="twitter:description" content="Test" />
   <meta name="twitter:image" content="chihuahuamuffin.png" />
 
-<meta name="author" content="Lanning" />
+<meta name="author" content="Kevin Lanning" />
 
 
 <meta name="date" content="2021-02-26" />
@@ -314,7 +314,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">15 - some types of data</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data science for the liberal arts</a>
           </h1>
         </div>
 
@@ -350,8 +350,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb40-2"><a href="strings-factors-dates-and-times.html#cb40-2" aria-hidden="true"></a>                     <span class="st">&quot;Revenge o&#39; </span><span class="ch">\&#39;</span><span class="st">McSlashy&#39;&quot;</span>, </span>
 <span id="cb40-3"><a href="strings-factors-dates-and-times.html#cb40-3" aria-hidden="true"></a>                     <span class="st">&quot;Star Wars: Episode </span><span class="ch">\\</span><span class="st">slash&quot;</span>)</span>
 <span id="cb40-4"><a href="strings-factors-dates-and-times.html#cb40-4" aria-hidden="true"></a>dumbSlashMovieTitles <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_view</span> (<span class="st">&quot;sh&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-3c90807592bda2f68525" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3c90807592bda2f68525">{"x":{"html":"<ul>\n  <li>Crasla<span class='match'>sh<\/span><\/li>\n  <li>Revenge o' 'McSla<span class='match'>sh<\/span>y'<\/li>\n  <li>Star Wars: Episode \\sla<span class='match'>sh<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-94e11cc8f7da2d5bc960" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-94e11cc8f7da2d5bc960">{"x":{"html":"<ul>\n  <li>Crasla<span class='match'>sh<\/span><\/li>\n  <li>Revenge o' 'McSla<span class='match'>sh<\/span>y'<\/li>\n  <li>Star Wars: Episode \\sla<span class='match'>sh<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Note the effects of the backslash: For example, the Star Wars movie has two slashes in the input, but only one in the output, as the backslash is the escape character that tells R to take the next character literally (as in the ‘Revenge’ movie).</p>
 <blockquote>
 <p>So. How would you use str_view to find strings which include the backslash character in our dumbSlashMovieTitles? [Experiment. Google. Ask your classmates.]</p>
