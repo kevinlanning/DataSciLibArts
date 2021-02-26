@@ -21,14 +21,9 @@ In the last 48 hours, the Florida department of health has moved to [a sophistic
 
 By the way, we talked about how we can use the [wayback machine](https://web.archive.org/) to look at historical changes in a website . You can use this not just to recover changes in a dataset, but also uncover neat things such as the [first honors college web page](https://web.archive.org/web/20000408210019/http://www.fau.edu/divdept/honcol/honors.htm).
 
-
-
 ## network models
 
 There are many news stories focused on how to constrain the spread of the virus, and whether it is worthwhile to restrict individual freedom (quarantines, closed borders) and invade individual privacy (use cell-phone tracking data to examine the histories of persons discovered to have been infected). I think that our answers to these questions should depend not just on these values (and how we value an individual life), but also on models - what happens if we (try to) keep people away from each other?
 
 These can be understood as questions about *networks*, and how networks change over time when various parameters are changed.  Agent-based models using simple tools such as [NetLogo](http://ccl.northwestern.edu/netlogo/) examine such phenomena as contagion change under various conditions, and they are fun to play around with.  I encourage you to explore them, and to consider some of the built in games, such as the [spread of disease model](http://ccl.northwestern.edu/netlogo/models/SpreadofDisease). Can you generate results consistent with the "flatten the curve" idea?
 
-## back to R: relational data
-
-There are two sources which I will refer you to for now. The first is chapter 13 of R4DS.  The second is what Jenny Bryan describes as a cheatsheet, but is I think more than this (https://stat545.com/bit001_dplyr-cheatsheet.html). This shows how the various "joins" of dplyr work in combining two tibbles (superheroes and publishers). If you want to get a feel for how combining data works, it is a great start.

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 examining local COVID data in R | Data science for the liberal arts</title>
+  <title>8 examining local COVID data in R | 15 - some types of data</title>
   <meta name="description" content="Test" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 examining local COVID data in R | Data science for the liberal arts" />
+  <meta property="og:title" content="8 examining local COVID data in R | 15 - some types of data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="chihuahuamuffin.png" />
@@ -16,15 +16,15 @@
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 examining local COVID data in R | Data science for the liberal arts" />
+  <meta name="twitter:title" content="8 examining local COVID data in R | 15 - some types of data" />
   
   <meta name="twitter:description" content="Test" />
   <meta name="twitter:image" content="chihuahuamuffin.png" />
 
-<meta name="author" content="Kevin Lanning" />
+<meta name="author" content="Lanning" />
 
 
-<meta name="date" content="2021-02-22" />
+<meta name="date" content="2021-02-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,6 +51,9 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 
 
 <style type="text/css">
@@ -272,6 +275,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.4" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#exploring-data"><i class="fa fa-check"></i><b>13.4</b> exploring data</a></li>
 <li class="chapter" data-level="13.5" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#messy-data-cleaning-and-curation"><i class="fa fa-check"></i><b>13.5</b> messy data: Cleaning and curation</a></li>
 </ul></li>
+<li class="chapter" data-level="14" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html"><i class="fa fa-check"></i><b>14</b> transforming and joining data</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#from-data-on-the-web-to-data-in-r"><i class="fa fa-check"></i><b>14.1</b> from data on the web to data in R</a></li>
+<li class="chapter" data-level="14.2" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#working-with-geodata-a-function-to-get-us-states-from-latitudelongitude"><i class="fa fa-check"></i><b>14.2</b> working with geodata: a function to get US states from latitude/longitude</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#applying-the-function-to-the-music-data"><i class="fa fa-check"></i><b>14.2.1</b> applying the function to the music data</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#drowning-in-the-sea-of-songs-with-apologies-to-arivoim1187b990643"><i class="fa fa-check"></i><b>14.3</b> drowning in the sea of songs (with apologies to <em>ARIVOIM1187B990643</em>)</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#combining-the-song-titles-with-our-us-artists"><i class="fa fa-check"></i><b>14.3.1</b> combining the song titles with our US artists</a></li>
+<li class="chapter" data-level="14.3.2" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#exercises"><i class="fa fa-check"></i><b>14.3.2</b> exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#review-of-munging-tools"><i class="fa fa-check"></i><b>14.4</b> review of munging tools</a></li>
+<li class="chapter" data-level="14.5" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#more-about-joining"><i class="fa fa-check"></i><b>14.5</b> more about joining</a>
+<ul>
+<li class="chapter" data-level="14.5.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#more-about-munging"><i class="fa fa-check"></i><b>14.5.1</b> more about munging</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html"><i class="fa fa-check"></i><b>15</b> strings, factors, dates, and times</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#strings"><i class="fa fa-check"></i><b>15.1</b> strings</a></li>
+<li class="chapter" data-level="15.2" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#factors"><i class="fa fa-check"></i><b>15.2</b> factors</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#types-of-babies"><i class="fa fa-check"></i><b>15.2.1</b> types of babies</a></li>
+<li class="chapter" data-level="15.2.2" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#types-of-grown-ups"><i class="fa fa-check"></i><b>15.2.2</b> types of grown-ups</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#dates"><i class="fa fa-check"></i><b>15.3</b> dates</a></li>
+<li class="chapter" data-level="15.4" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#times"><i class="fa fa-check"></i><b>15.4</b> times</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
@@ -282,7 +314,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data science for the liberal arts</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">15 - some types of data</a>
           </h1>
         </div>
 
@@ -355,13 +387,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6 Guizhou          Mainland China   2020-01-21 22:00:00        NA     NA
 ## # ... with 1 more variable: Recovered &lt;dbl&gt;</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="examining-local-covid-data-in-r.html#cb5-1" aria-hidden="true"></a><span class="kw">str</span>(coronaData)</span></code></pre></div>
-<pre><code>## tibble [1,299,151 x 6] (S3: tbl_df/tbl/data.frame)
-##  $ Province/State: chr [1:1299151] &quot;Anhui&quot; &quot;Beijing&quot; &quot;Chongqing&quot; &quot;Guangdong&quot; ...
-##  $ Country/Region: chr [1:1299151] &quot;Mainland China&quot; &quot;Mainland China&quot; &quot;Mainland China&quot; &quot;Mainland China&quot; ...
-##  $ Last Update   : POSIXct[1:1299151], format: &quot;2020-01-21 22:00:00&quot; &quot;2020-01-21 22:00:00&quot; ...
-##  $ Confirmed     : num [1:1299151] NA 10 5 17 NA NA NA NA 1 NA ...
-##  $ Deaths        : num [1:1299151] NA NA NA NA NA NA NA NA NA NA ...
-##  $ Recovered     : num [1:1299151] NA NA NA NA NA NA NA NA NA NA ...</code></pre>
+<pre><code>## tibble [1,315,641 x 6] (S3: tbl_df/tbl/data.frame)
+##  $ Province/State: chr [1:1315641] &quot;Anhui&quot; &quot;Beijing&quot; &quot;Chongqing&quot; &quot;Guangdong&quot; ...
+##  $ Country/Region: chr [1:1315641] &quot;Mainland China&quot; &quot;Mainland China&quot; &quot;Mainland China&quot; &quot;Mainland China&quot; ...
+##  $ Last Update   : POSIXct[1:1315641], format: &quot;2020-01-21 22:00:00&quot; &quot;2020-01-21 22:00:00&quot; ...
+##  $ Confirmed     : num [1:1315641] NA 10 5 17 NA NA NA NA 1 NA ...
+##  $ Deaths        : num [1:1315641] NA NA NA NA NA NA NA NA NA NA ...
+##  $ Recovered     : num [1:1315641] NA NA NA NA NA NA NA NA NA NA ...</code></pre>
 </div>
 <div id="cleaning-wrangling-munging-the-data-feb-2020" class="section level3" number="8.1.2">
 <h3><span class="header-section-number">8.1.2</span> cleaning (wrangling, munging) the data (Feb 2020)</h3>
@@ -434,7 +466,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="eleven-months-later-the-code-still-runs" class="section level3" number="8.1.3">
 <h3><span class="header-section-number">8.1.3</span> eleven months later: the code still runs!</h3>
-<p>The above code runs without apparent error, and leads to a dataset of 159065 rows by 5 columns. Here’s a quick peek (Note that I use the group_by and summarize functions to collapse the file to one line per date):</p>
+<p>The above code runs without apparent error, and leads to a dataset of 160833 rows by 5 columns. Here’s a quick peek (Note that I use the group_by and summarize functions to collapse the file to one line per date):</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="examining-local-covid-data-in-r.html#cb10-1" aria-hidden="true"></a>coronaData <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(reportDate) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb10-2"><a href="examining-local-covid-data-in-r.html#cb10-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">Confirmed =</span> <span class="kw">sum</span>(Confirmed)) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb10-3"><a href="examining-local-covid-data-in-r.html#cb10-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">head</span>() </span></code></pre></div>

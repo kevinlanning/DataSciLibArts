@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>14 transforming and joining data | 15 - some types of data</title>
+  <meta name="description" content="Test" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="14 transforming and joining data | 15 - some types of data" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="chihuahuamuffin.png" />
+  <meta property="og:description" content="Test" />
+  <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="14 transforming and joining data | 15 - some types of data" />
+  
+  <meta name="twitter:description" content="Test" />
+  <meta name="twitter:image" content="chihuahuamuffin.png" />
+
+<meta name="author" content="Lanning" />
+
+
+<meta name="date" content="2021-02-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="finding-exploring-and-cleaning-data.html"/>
+<link rel="next" href="strings-factors-dates-and-times.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#some-features-of-the-text"><i class="fa fa-check"></i>some features of the text</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#the-book-is-for-you"><i class="fa fa-check"></i>the book is for you</a></li>
+</ul></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html"><i class="fa fa-check"></i><b>1</b> data science for the liberal arts</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#type-c-data-science-data-science-for-the-liberal-arts"><i class="fa fa-check"></i><b>1.1</b> type C data science = data science for the liberal arts</a></li>
+<li class="chapter" data-level="1.2" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#the-incompleteness-of-the-data-science-venn-diagram"><i class="fa fa-check"></i><b>1.2</b> the incompleteness of the data science Venn diagram</a></li>
+<li class="chapter" data-level="1.3" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#a-dimension-of-depth"><i class="fa fa-check"></i><b>1.3</b> a dimension of depth</a></li>
+<li class="chapter" data-level="1.4" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#google-and-the-liberal-arts"><i class="fa fa-check"></i><b>1.4</b> Google and the liberal arts</a></li>
+<li class="chapter" data-level="1.5" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#data-sci-and-tmi"><i class="fa fa-check"></i><b>1.5</b> data sci and TMI</a></li>
+<li class="chapter" data-level="1.6" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#discussion-what-will-you-do-with-data-science"><i class="fa fa-check"></i><b>1.6</b> discussion: what will you do with data science?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>2</b> getting started</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started.html"><a href="getting-started.html#are-you-already-a-programmer-and-statistician"><i class="fa fa-check"></i><b>2.1</b> are you already a programmer and statistician?</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started.html"><a href="getting-started.html#some-best-practices-for-spreadsheets"><i class="fa fa-check"></i><b>2.2</b> some best practices for spreadsheets</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started.html"><a href="getting-started.html#setting-up-your-machine-some-basic-tools"><i class="fa fa-check"></i><b>2.3</b> setting up your machine: some basic tools</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started.html"><a href="getting-started.html#a-modified-15-minute-rule"><i class="fa fa-check"></i><b>2.4</b> a modified 15-minute rule</a></li>
+<li class="chapter" data-level="2.5" data-path="getting-started.html"><a href="getting-started.html#discussion-who-deserves-a-good-grade"><i class="fa fa-check"></i><b>2.5</b> discussion: who deserves a good grade?</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="welcome-to-r-world.html"><a href="welcome-to-r-world.html"><i class="fa fa-check"></i><b>3</b> welcome to R world</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="welcome-to-r-world.html"><a href="welcome-to-r-world.html#using-rstudio-cloud"><i class="fa fa-check"></i><b>3.1</b> Using RStudio cloud</a></li>
+<li class="chapter" data-level="3.2" data-path="welcome-to-r-world.html"><a href="welcome-to-r-world.html#using-r-studio-on-your-laptop"><i class="fa fa-check"></i><b>3.2</b> Using R Studio on your laptop</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-stands-for.html"><a href="r-stands-for.html"><i class="fa fa-check"></i><b>4</b> R stands for …</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="r-stands-for.html"><a href="r-stands-for.html#a-few-characteristics-of-r"><i class="fa fa-check"></i><b>4.1</b> a few characteristics of R</a></li>
+<li class="chapter" data-level="4.2" data-path="r-stands-for.html"><a href="r-stands-for.html#finding-help"><i class="fa fa-check"></i><b>4.2</b> finding help</a></li>
+<li class="chapter" data-level="4.3" data-path="r-stands-for.html"><a href="r-stands-for.html#wickham-and-r-for-data-science"><i class="fa fa-check"></i><b>4.3</b> Wickham and R for Data Science</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html"><i class="fa fa-check"></i><b>5</b> now draw the rest of the owl</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#review-the-rstudio-cloud-primers"><i class="fa fa-check"></i><b>5.1</b> Review the RStudio cloud primers</a></li>
+<li class="chapter" data-level="5.2" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#play-with-rstudio-on-your-laptop"><i class="fa fa-check"></i><b>5.2</b> Play with RStudio on your laptop</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#create-a-new-r-markdown-document-and-knit-it-to-a-pdf-or-a-word-doc"><i class="fa fa-check"></i><b>5.2.1</b> Create a new R Markdown document and knit it to a PDF or a Word doc</a></li>
+<li class="chapter" data-level="5.2.2" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#play-with-and-explore-the-movies-data"><i class="fa fa-check"></i><b>5.2.2</b> Play with and explore the movies data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#take-a-datacamp-class"><i class="fa fa-check"></i><b>5.3</b> Take a DataCamp class</a></li>
+<li class="chapter" data-level="5.4" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#swirl-swirlstats"><i class="fa fa-check"></i><b>5.4</b> Swirl (Swirlstats)</a></li>
+<li class="chapter" data-level="5.5" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#read-pengs-text-andor-watch-the-associated-videos"><i class="fa fa-check"></i><b>5.5</b> Read Peng’s text and/or watch the associated videos</a></li>
+<li class="chapter" data-level="5.6" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#code-along-with-a-tidy-webinar-or-attend-a-virtual-conference"><i class="fa fa-check"></i><b>5.6</b> Code along with a tidy webinar, or attend a virtual conference</a></li>
+<li class="chapter" data-level="5.7" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#something-else"><i class="fa fa-check"></i><b>5.7</b> Something else</a></li>
+</ul></li>
+<li class="part"><span><b>II Part II Towards data literacy</b></span></li>
+<li class="chapter" data-level="6" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html"><i class="fa fa-check"></i><b>6</b> principles of data visualization</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#some-opening-thoughts"><i class="fa fa-check"></i><b>6.1</b> some opening thoughts</a></li>
+<li class="chapter" data-level="6.2" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#some-early-graphs"><i class="fa fa-check"></i><b>6.2</b> some early graphs</a></li>
+<li class="chapter" data-level="6.3" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#tukey-and-eda"><i class="fa fa-check"></i><b>6.3</b> Tukey and EDA</a></li>
+<li class="chapter" data-level="6.4" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#approaches-to-graphs"><i class="fa fa-check"></i><b>6.4</b> approaches to graphs</a></li>
+<li class="chapter" data-level="6.5" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#tufte-first-principles"><i class="fa fa-check"></i><b>6.5</b> Tufte: first principles</a></li>
+<li class="chapter" data-level="6.6" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#the-politics-of-data-visualization"><i class="fa fa-check"></i><b>6.6</b> the politics of data visualization</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#poor-design-leads-to-an-uninformed-or-misinformed-world"><i class="fa fa-check"></i><b>6.6.1</b> poor design leads to an uninformed or misinformed world</a></li>
+<li class="chapter" data-level="6.6.2" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#poor-design-can-be-a-tool-to-deceive"><i class="fa fa-check"></i><b>6.6.2</b> poor design can be a tool to deceive</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#the-psychology-of-data-visualization"><i class="fa fa-check"></i><b>6.7</b> the psychology of data visualization</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#the-power-of-animation"><i class="fa fa-check"></i><b>6.7.1</b> the power of animation</a></li>
+<li class="chapter" data-level="6.7.2" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#telling-the-truth-when-the-truth-is-unclear"><i class="fa fa-check"></i><b>6.7.2</b> telling the truth when the truth is unclear</a></li>
+<li class="chapter" data-level="6.7.3" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#visualizing-uncertainty"><i class="fa fa-check"></i><b>6.7.3</b> visualizing uncertainty</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#further-reading-and-resources"><i class="fa fa-check"></i><b>6.8</b> further reading and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html"><i class="fa fa-check"></i><b>7</b> visualization in R with ggplot</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#a-picture-words-numbers"><i class="fa fa-check"></i><b>7.1</b> a picture &gt; (words, numbers)?</a></li>
+<li class="chapter" data-level="7.2" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#read-hadley-ggplots"><i class="fa fa-check"></i><b>7.2</b> Read Hadley ggplots</a></li>
+<li class="chapter" data-level="7.3" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#exploring-more-data"><i class="fa fa-check"></i><b>7.3</b> exploring more data</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html"><i class="fa fa-check"></i><b>8</b> examining local COVID data in R</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#tracking-the-novel-coronavirus-from-feb-2020"><i class="fa fa-check"></i><b>8.1</b> tracking the Novel Coronavirus (from Feb 2020)</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#reading-the-data-feb-2020"><i class="fa fa-check"></i><b>8.1.1</b> reading the data (Feb 2020)</a></li>
+<li class="chapter" data-level="8.1.2" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#cleaning-wrangling-munging-the-data-feb-2020"><i class="fa fa-check"></i><b>8.1.2</b> cleaning (wrangling, munging) the data (Feb 2020)</a></li>
+<li class="chapter" data-level="8.1.3" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#eleven-months-later-the-code-still-runs"><i class="fa fa-check"></i><b>8.1.3</b> eleven months later: the code still runs!</a></li>
+<li class="chapter" data-level="8.1.4" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#shall-we-graph-it-feb-2021"><i class="fa fa-check"></i><b>8.1.4</b> shall we graph it? (Feb 2021)</a></li>
+<li class="chapter" data-level="8.1.5" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#too-bad"><i class="fa fa-check"></i><b>8.1.5</b> too bad</a></li>
+<li class="chapter" data-level="8.1.6" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#what-now"><i class="fa fa-check"></i><b>8.1.6</b> what now?</a></li>
+<li class="chapter" data-level="8.1.7" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#an-initial-plot-feb-2020"><i class="fa fa-check"></i><b>8.1.7</b> an initial plot (Feb 2020)</a></li>
+<li class="chapter" data-level="8.1.8" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#five-weeks-later-mar-2020"><i class="fa fa-check"></i><b>8.1.8</b> five weeks later (Mar 2020)</a></li>
+<li class="chapter" data-level="8.1.9" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#adding-recovered-cases-code-from-feb-data-through-mar-2020"><i class="fa fa-check"></i><b>8.1.9</b> adding recovered cases (code from Feb, data through Mar 2020)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#plotting-confirmed-cases-feb-mar-2020"><i class="fa fa-check"></i><b>8.2</b> plotting confirmed cases (Feb-Mar 2020)</a></li>
+<li class="chapter" data-level="8.3" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#status-feb-2021"><i class="fa fa-check"></i><b>8.3</b> status (Feb 2021)</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#an-assignment"><i class="fa fa-check"></i><b>8.3.1</b> an assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#how-to-create-new-knowledge"><i class="fa fa-check"></i><b>8.4</b> how to create new knowledge</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html"><i class="fa fa-check"></i><b>9</b> on probability and statistics</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#on-probability"><i class="fa fa-check"></i><b>9.1</b> on probability</a></li>
+<li class="chapter" data-level="9.2" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#the-rules-of-probability"><i class="fa fa-check"></i><b>9.2</b> the rules of probability</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#keeping-conditional-probabilities-straight"><i class="fa fa-check"></i><b>9.2.1</b> keeping conditional probabilities straight</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#continuous-probability-distributions"><i class="fa fa-check"></i><b>9.3</b> continuous probability distributions</a></li>
+<li class="chapter" data-level="9.4" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#the-most-dangerous-equation"><i class="fa fa-check"></i><b>9.4</b> the most dangerous equation</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html"><i class="fa fa-check"></i><b>10</b> reproducibility and the replication crisis</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis"><i class="fa fa-check"></i><b>10.1</b> Answers to the reproducibility crisis</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#tweak-or-abandon-nhst"><i class="fa fa-check"></i><b>10.1.1</b> Tweak or abandon NHST</a></li>
+<li class="chapter" data-level="10.1.2" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#keep-a-log-of-every-step-of-every-analysis-in-r-markdown-or-jupyter-notebooks"><i class="fa fa-check"></i><b>10.1.2</b> keep a log of every step of every analysis in R markdown or Jupyter notebooks</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-iii-pre-registration"><i class="fa fa-check"></i><b>10.2</b> answers to the reproducibility crisis III: Pre-registration</a></li>
+<li class="chapter" data-level="10.3" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#further-readings"><i class="fa fa-check"></i><b>10.3</b> further readings</a></li>
+</ul></li>
+<li class="part"><span><b>III Part III Towards data proficiency</b></span></li>
+<li class="chapter" data-level="11" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html"><i class="fa fa-check"></i><b>11</b> literate programming with R markdown</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#scripts-are-files-of-code"><i class="fa fa-check"></i><b>11.1</b> scripts are files of code</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#some-elements-of-coding-style"><i class="fa fa-check"></i><b>11.1.1</b> some elements of coding style</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#projects-are-directories-containing-related-scripts"><i class="fa fa-check"></i><b>11.2</b> projects are directories containing related scripts</a></li>
+<li class="chapter" data-level="11.3" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#r-markdown-documents-integrate-rationale-script-and-results"><i class="fa fa-check"></i><b>11.3</b> R markdown documents integrate rationale, script, and results</a></li>
+<li class="chapter" data-level="11.4" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#what-to-do-when-you-are-stuck"><i class="fa fa-check"></i><b>11.4</b> What to do when you are stuck</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="the-tidyverse.html"><a href="the-tidyverse.html"><i class="fa fa-check"></i><b>12</b> the tidyverse</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#some-simple-principles"><i class="fa fa-check"></i><b>12.1</b> some simple principles</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html"><i class="fa fa-check"></i><b>13</b> finding, exploring, and cleaning data</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#data-in-r-libraries"><i class="fa fa-check"></i><b>13.1</b> Data in R libraries</a></li>
+<li class="chapter" data-level="13.2" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#other-prepared-datasets"><i class="fa fa-check"></i><b>13.2</b> Other prepared datasets</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#keep-it-manageable"><i class="fa fa-check"></i><b>13.2.1</b> Keep it manageable</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#makeextractcombine-your-own-data"><i class="fa fa-check"></i><b>13.3</b> Make/extract/combine your own data</a></li>
+<li class="chapter" data-level="13.4" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#exploring-data"><i class="fa fa-check"></i><b>13.4</b> exploring data</a></li>
+<li class="chapter" data-level="13.5" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#messy-data-cleaning-and-curation"><i class="fa fa-check"></i><b>13.5</b> messy data: Cleaning and curation</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html"><i class="fa fa-check"></i><b>14</b> transforming and joining data</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#from-data-on-the-web-to-data-in-r"><i class="fa fa-check"></i><b>14.1</b> from data on the web to data in R</a></li>
+<li class="chapter" data-level="14.2" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#working-with-geodata-a-function-to-get-us-states-from-latitudelongitude"><i class="fa fa-check"></i><b>14.2</b> working with geodata: a function to get US states from latitude/longitude</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#applying-the-function-to-the-music-data"><i class="fa fa-check"></i><b>14.2.1</b> applying the function to the music data</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#drowning-in-the-sea-of-songs-with-apologies-to-arivoim1187b990643"><i class="fa fa-check"></i><b>14.3</b> drowning in the sea of songs (with apologies to <em>ARIVOIM1187B990643</em>)</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#combining-the-song-titles-with-our-us-artists"><i class="fa fa-check"></i><b>14.3.1</b> combining the song titles with our US artists</a></li>
+<li class="chapter" data-level="14.3.2" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#exercises"><i class="fa fa-check"></i><b>14.3.2</b> exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#review-of-munging-tools"><i class="fa fa-check"></i><b>14.4</b> review of munging tools</a></li>
+<li class="chapter" data-level="14.5" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#more-about-joining"><i class="fa fa-check"></i><b>14.5</b> more about joining</a>
+<ul>
+<li class="chapter" data-level="14.5.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#more-about-munging"><i class="fa fa-check"></i><b>14.5.1</b> more about munging</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html"><i class="fa fa-check"></i><b>15</b> strings, factors, dates, and times</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#strings"><i class="fa fa-check"></i><b>15.1</b> strings</a></li>
+<li class="chapter" data-level="15.2" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#factors"><i class="fa fa-check"></i><b>15.2</b> factors</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#types-of-babies"><i class="fa fa-check"></i><b>15.2.1</b> types of babies</a></li>
+<li class="chapter" data-level="15.2.2" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#types-of-grown-ups"><i class="fa fa-check"></i><b>15.2.2</b> types of grown-ups</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#dates"><i class="fa fa-check"></i><b>15.3</b> dates</a></li>
+<li class="chapter" data-level="15.4" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#times"><i class="fa fa-check"></i><b>15.4</b> times</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">15 - some types of data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="transforming-and-joining-data" class="section level1" number="14">
+<h1><span class="header-section-number">14</span> transforming and joining data</h1>
+<p>Once you have your data, you will almost invariably need to transform it - to sort it, to select observations or variables from it, to create new variables, to partition it into groups, or to summarize it. In R, there is a general purpose tool (ok, package) that exists for this called dplyr (“d-plier”).
+Dplyr is a core part of the tidyverse and hence is loaded automatically when you load the tidyverse ensemble of libraries:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="transforming-and-joining-data.html#cb23-1" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb23-2"><a href="transforming-and-joining-data.html#cb23-2" aria-hidden="true"></a><span class="kw">library</span>(maps)</span>
+<span id="cb23-3"><a href="transforming-and-joining-data.html#cb23-3" aria-hidden="true"></a><span class="kw">library</span>(maptools)</span></code></pre></div>
+<p>The versatility of dplyr is demonstrated in Chapter 5 of R4DS, which shows how to do many basic, and some not so basic, operations on your data. Read it closely if you haven’t already done so.</p>
+<div id="from-data-on-the-web-to-data-in-r" class="section level2" number="14.1">
+<h2><span class="header-section-number">14.1</span> from data on the web to data in R</h2>
+<p>Let’s consider a dataset consisting of 10,000 songs (observations) and 35 measures (variables including artist). The first step here (and for your class project and the data science challenge) will be to get the data into R. How do you this?</p>
+<blockquote>
+<p>Method 1: Download the file to your computer as a csv file. Some advantages of this include (a) it will allow the code to run even if the website changes or disappears, (b) in the likely event that I will run the code several times, it is faster to get data from my own machine than from the cloud, and (c) if there are any anomalies in the data I can look at them locally (e.g., in Notepad++). If you use this approach, make sure that you know where your data is on your computer. The easiest way to do this is to work with an R project. Within R studio, create a new R project (or use an existing one). Move the csv file into this directory, so that data, code, and results will all be in the same place.</p>
+<p>Method 2: Import the data from the cloud directly into R. You can do this either by specifying the musicURL separately (Method 2a) or call it directly within the read_csv statement (2b). Here, too, I would encourage you to set up and work within a project.</p>
+</blockquote>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="transforming-and-joining-data.html#cb24-1" aria-hidden="true"></a><span class="co">### Method 1</span></span>
+<span id="cb24-2"><a href="transforming-and-joining-data.html#cb24-2" aria-hidden="true"></a><span class="co"># music1 &lt;- read_csv(&quot;music.csv&quot;) </span></span>
+<span id="cb24-3"><a href="transforming-and-joining-data.html#cb24-3" aria-hidden="true"></a><span class="co">### Method 2a</span></span>
+<span id="cb24-4"><a href="transforming-and-joining-data.html#cb24-4" aria-hidden="true"></a>musicURL &lt;-<span class="st"> </span></span>
+<span id="cb24-5"><a href="transforming-and-joining-data.html#cb24-5" aria-hidden="true"></a><span class="st">  &quot;https://think.cs.vt.edu/corgis/datasets/csv/music/music.csv?forcedownload=1&quot;</span></span>
+<span id="cb24-6"><a href="transforming-and-joining-data.html#cb24-6" aria-hidden="true"></a>music1 &lt;-<span class="st"> </span><span class="kw">read_csv</span>(musicURL)</span>
+<span id="cb24-7"><a href="transforming-and-joining-data.html#cb24-7" aria-hidden="true"></a><span class="co">### Method 2b</span></span>
+<span id="cb24-8"><a href="transforming-and-joining-data.html#cb24-8" aria-hidden="true"></a><span class="co"># music1 &lt;- read_csv(</span></span>
+<span id="cb24-9"><a href="transforming-and-joining-data.html#cb24-9" aria-hidden="true"></a><span class="co">#  &quot;https://think.cs.vt.edu/corgis/csv/music/music.csv?forcedownload=1&quot;</span></span>
+<span id="cb24-10"><a href="transforming-and-joining-data.html#cb24-10" aria-hidden="true"></a><span class="co">#  )</span></span></code></pre></div>
+<p>What can you do with the data in its existing form? What questions do you wish you could ask about these songs, artists, and the places they come from?</p>
+</div>
+<div id="working-with-geodata-a-function-to-get-us-states-from-latitudelongitude" class="section level2" number="14.2">
+<h2><span class="header-section-number">14.2</span> working with geodata: a function to get US states from latitude/longitude</h2>
+<p>When I first ran this code in 2018, the variables included states and countries. The current dataset doesn’t have these, but it does have longitude and latitude. To get state data from this, reverse geocoding is needed. A Google search turned up the following function. Note that it requires two additional libraries, ‘maps’ and ‘maptools.’</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="transforming-and-joining-data.html#cb25-1" aria-hidden="true"></a><span class="co"># source is https://github.com/abresler</span></span>
+<span id="cb25-2"><a href="transforming-and-joining-data.html#cb25-2" aria-hidden="true"></a><span class="co"># The single argument to this function, pointsDF, is a data.frame in which:</span></span>
+<span id="cb25-3"><a href="transforming-and-joining-data.html#cb25-3" aria-hidden="true"></a><span class="co">#   - column 1 contains the longitude in degrees (negative in the US)</span></span>
+<span id="cb25-4"><a href="transforming-and-joining-data.html#cb25-4" aria-hidden="true"></a><span class="co">#   - column 2 contains the latitude in degrees</span></span>
+<span id="cb25-5"><a href="transforming-and-joining-data.html#cb25-5" aria-hidden="true"></a>latlong2state &lt;-<span class="st"> </span><span class="cf">function</span>(pointsDF) {</span>
+<span id="cb25-6"><a href="transforming-and-joining-data.html#cb25-6" aria-hidden="true"></a>    <span class="co"># Prepare SpatialPolygons object with one SpatialPolygon</span></span>
+<span id="cb25-7"><a href="transforming-and-joining-data.html#cb25-7" aria-hidden="true"></a>    <span class="co"># per state (plus DC, minus HI &amp; AK)</span></span>
+<span id="cb25-8"><a href="transforming-and-joining-data.html#cb25-8" aria-hidden="true"></a>    states &lt;-<span class="st"> </span><span class="kw">map</span>(<span class="st">&#39;state&#39;</span>, <span class="dt">fill=</span><span class="ot">TRUE</span>, <span class="dt">col=</span><span class="st">&quot;transparent&quot;</span>, <span class="dt">plot=</span><span class="ot">FALSE</span>)</span>
+<span id="cb25-9"><a href="transforming-and-joining-data.html#cb25-9" aria-hidden="true"></a>    IDs &lt;-<span class="st"> </span><span class="kw">sapply</span>(<span class="kw">strsplit</span>(states<span class="op">$</span>names, <span class="st">&quot;:&quot;</span>), <span class="cf">function</span>(x) x[<span class="dv">1</span>])</span>
+<span id="cb25-10"><a href="transforming-and-joining-data.html#cb25-10" aria-hidden="true"></a>    states_sp &lt;-<span class="st"> </span><span class="kw">map2SpatialPolygons</span>(states, <span class="dt">IDs=</span>IDs,</span>
+<span id="cb25-11"><a href="transforming-and-joining-data.html#cb25-11" aria-hidden="true"></a>                     <span class="dt">proj4string=</span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>))</span>
+<span id="cb25-12"><a href="transforming-and-joining-data.html#cb25-12" aria-hidden="true"></a>    <span class="co"># Convert pointsDF to a SpatialPoints object </span></span>
+<span id="cb25-13"><a href="transforming-and-joining-data.html#cb25-13" aria-hidden="true"></a>    pointsSP &lt;-<span class="st"> </span><span class="kw">SpatialPoints</span>(pointsDF, </span>
+<span id="cb25-14"><a href="transforming-and-joining-data.html#cb25-14" aria-hidden="true"></a>                    <span class="dt">proj4string=</span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>))</span>
+<span id="cb25-15"><a href="transforming-and-joining-data.html#cb25-15" aria-hidden="true"></a>    <span class="co"># Use &#39;over&#39; to get _indices_ of the Polygons object containing each point </span></span>
+<span id="cb25-16"><a href="transforming-and-joining-data.html#cb25-16" aria-hidden="true"></a>    indices &lt;-<span class="st"> </span><span class="kw">over</span>(pointsSP, states_sp)</span>
+<span id="cb25-17"><a href="transforming-and-joining-data.html#cb25-17" aria-hidden="true"></a>    <span class="co"># Return the state names of the Polygons object containing each point</span></span>
+<span id="cb25-18"><a href="transforming-and-joining-data.html#cb25-18" aria-hidden="true"></a>    stateNames &lt;-<span class="st"> </span><span class="kw">sapply</span>(states_sp<span class="op">@</span>polygons, <span class="cf">function</span>(x) x<span class="op">@</span>ID)</span>
+<span id="cb25-19"><a href="transforming-and-joining-data.html#cb25-19" aria-hidden="true"></a>    stateNames[indices]</span>
+<span id="cb25-20"><a href="transforming-and-joining-data.html#cb25-20" aria-hidden="true"></a>}</span></code></pre></div>
+<div id="applying-the-function-to-the-music-data" class="section level3" number="14.2.1">
+<h3><span class="header-section-number">14.2.1</span> applying the function to the music data</h3>
+<p>If you have run the chunk above, the latlong2state function will now exists in your environment. You still need to apply the function to your data.</p>
+<p>We do this using three of the essential tools in the munger’s toolbox:
+<em>select</em> (to choose several columns from the data), <em>mutate</em> (to create a new variable), and finally <em>drop_na</em> (to drop cases with missing data - here, artists from outside of the US).</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="transforming-and-joining-data.html#cb26-1" aria-hidden="true"></a><span class="co"># create a new dataset with just latitude and longitude</span></span>
+<span id="cb26-2"><a href="transforming-and-joining-data.html#cb26-2" aria-hidden="true"></a>tempLatLong &lt;-<span class="st"> </span>music1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb26-3"><a href="transforming-and-joining-data.html#cb26-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span> (artist.longitude, </span>
+<span id="cb26-4"><a href="transforming-and-joining-data.html#cb26-4" aria-hidden="true"></a>              artist.latitude)</span>
+<span id="cb26-5"><a href="transforming-and-joining-data.html#cb26-5" aria-hidden="true"></a>USartists &lt;-<span class="st"> </span>music1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb26-6"><a href="transforming-and-joining-data.html#cb26-6" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">state =</span> </span>
+<span id="cb26-7"><a href="transforming-and-joining-data.html#cb26-7" aria-hidden="true"></a>            <span class="kw">latlong2state</span>(tempLatLong)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb26-8"><a href="transforming-and-joining-data.html#cb26-8" aria-hidden="true"></a><span class="st">  </span><span class="kw">drop_na</span>(state)</span>
+<span id="cb26-9"><a href="transforming-and-joining-data.html#cb26-9" aria-hidden="true"></a><span class="kw">rm</span>(tempLatLong)</span></code></pre></div>
+</div>
+</div>
+<div id="drowning-in-the-sea-of-songs-with-apologies-to-arivoim1187b990643" class="section level2" number="14.3">
+<h2><span class="header-section-number">14.3</span> drowning in the sea of songs (with apologies to <em>ARIVOIM1187B990643</em>)</h2>
+<p>At this point, we have a list of songs and artists and some measures of “hotttness,” restricted to US artists and now including states as well as latitude and longitude. There is a field called song-id, but it doesn’t have song titles.</p>
+<p>(<em>several hours later</em>)</p>
+<p>I found the titles on the ’net. They were part of a file “millionsongsubset,” which is an archive of many files, and which is altogether about 2 GB in size. Within this, there is a file that looks right - let’s try it.</p>
+<p>The file is delimited by the characters “&lt;SEP&gt;”, but read_delim requires that data fields be separated by a single character (like a comma or a tab). So the file is read as a single variable, which R assigns the default name “X1”. I use mutate to replace each "&lt;SEP&gt;" by a tab, then the <em>separate</em> command to split X1 up into its constituent variables - the first is a mysterious ID, the second looks like the song.id in the original file, the third is an artist name, and the fourth is a song title.</p>
+<div id="combining-the-song-titles-with-our-us-artists" class="section level3" number="14.3.1">
+<h3><span class="header-section-number">14.3.1</span> combining the song titles with our US artists</h3>
+<p>Finally, we can <em>join</em> this to the USartist data, as each row of the two files have a common key (song.id). Join is discussed in more detail below. Here, we use a <em>right_join</em> - implicitly, “maybeTitles”, which is at the head of the pipe, is on the left. The right_join will link the left (maybeTitles) file with the right (USartists), by what appears to be a common key:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="transforming-and-joining-data.html#cb27-1" aria-hidden="true"></a>maybeTitles &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;data/subset_unique_tracks.txt&quot;</span>,<span class="st">&quot;~&quot;</span>,</span>
+<span id="cb27-2"><a href="transforming-and-joining-data.html#cb27-2" aria-hidden="true"></a>                          <span class="dt">col_names =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb27-3"><a href="transforming-and-joining-data.html#cb27-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">X1 =</span> <span class="kw">str_replace_all</span>(X1, <span class="st">&quot;&lt;SEP&gt;&quot;</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb27-4"><a href="transforming-and-joining-data.html#cb27-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">separate</span>(X1, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;ID1&quot;</span>,</span>
+<span id="cb27-5"><a href="transforming-and-joining-data.html#cb27-5" aria-hidden="true"></a>                                   <span class="st">&quot;song.id&quot;</span>,</span>
+<span id="cb27-6"><a href="transforming-and-joining-data.html#cb27-6" aria-hidden="true"></a>                                   <span class="st">&quot;artistFromMaybeTitles&quot;</span>,</span>
+<span id="cb27-7"><a href="transforming-and-joining-data.html#cb27-7" aria-hidden="true"></a>                                   <span class="st">&quot;SongTitle&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb27-8"><a href="transforming-and-joining-data.html#cb27-8" aria-hidden="true"></a><span class="st">  </span><span class="kw">right_join</span>(USartists, <span class="dt">key =</span> <span class="st">&quot;song.id&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## -- Column specification --------------------------------------------------------
+## cols(
+##   X1 = col_character()
+## )</code></pre>
+<pre><code>## Joining, by = &quot;song.id&quot;</code></pre>
+<p>So far, so good. Do things line up correctly? If the match is perfect, the two artist fields should be identical. We can use the [not] oddly-titled logical function “identical” to check this:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="transforming-and-joining-data.html#cb30-1" aria-hidden="true"></a><span class="kw">identical</span>(maybeTitles<span class="op">$</span>artistFromMaybeTitles,</span>
+<span id="cb30-2"><a href="transforming-and-joining-data.html#cb30-2" aria-hidden="true"></a>          maybeTitles<span class="op">$</span>artist.name)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Whoops. The two variables aren’t the same - or are they? Run the following commands, which includes two more of the essential munging tools - <em>select</em> and <em>arrange.</em> Here, note that the “filter” function is used to select cases where the two variables are different.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="transforming-and-joining-data.html#cb32-1" aria-hidden="true"></a>maybeTitles <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb32-2"><a href="transforming-and-joining-data.html#cb32-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">filter</span> (artistFromMaybeTitles <span class="op">!=</span><span class="st"> </span>artist.name) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb32-3"><a href="transforming-and-joining-data.html#cb32-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span> (artistFromMaybeTitles, artist.name) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb32-4"><a href="transforming-and-joining-data.html#cb32-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">arrange</span>(artistFromMaybeTitles) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb32-5"><a href="transforming-and-joining-data.html#cb32-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##   artistFromMaybeTitles        artist.name                    
+##   &lt;chr&gt;                        &lt;chr&gt;                          
+## 1 Alvin Youngblood Hart        Alvin YoungbloodA Hart         
+## 2 Andraé Crouch &amp; Solid Gospel AndraA(c) Crouch &amp; Solid Gospel
+## 3 Angélica María               AngA(c)lica MarAa              
+## 4 Fabián                       FabiA!n                        
+## 5 Ill Niño                     Ill NiA+-o                     
+## 6 Los Muñequitos De Matanzas   Los MuA+-equitos De Matanzas</code></pre>
+</div>
+<div id="exercises" class="section level3" number="14.3.2">
+<h3><span class="header-section-number">14.3.2</span> exercises</h3>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li><p>What happened with the artist names? How would you move forward with these data?</p></li>
+<li><p>Do something interesting with the data - use filter, arrange, and select in your piped code.</p></li>
+<li><p>Work with the babynames data. Use mutate to create an interesting new variable.</p></li>
+<li><p>most importantly, make progress on your class project. You will be presenting this two weeks from today.</p></li>
+</ol>
+</blockquote>
+</div>
+</div>
+<div id="review-of-munging-tools" class="section level2" number="14.4">
+<h2><span class="header-section-number">14.4</span> review of munging tools</h2>
+<p>The primary tools, at least in my experience, are these:</p>
+<ul>
+<li><p>If you want to pull out only certain columns, use <em>select</em>.</p></li>
+<li><p>If you want to pull out only certain rows, use <em>filter</em>.</p></li>
+<li><p>If you want to sort, you <em>arrange</em>.</p></li>
+<li><p>If you want to create, you <em>mutate</em>.</p></li>
+<li><p>If you want to combine data, you <em>join</em>.</p></li>
+</ul>
+</div>
+<div id="more-about-joining" class="section level2" number="14.5">
+<h2><span class="header-section-number">14.5</span> more about joining</h2>
+<p>There are many different approaches to joining datasets. We might want to retain only cases which are present in both datasets: A political consultant might want to target calls to people who were on both ‘a list of Democrats’ and ‘a list of people who voted in 2020.’ We might want to include all members of one Dataset who are absent in a second: An investigative journalist might want to interview ‘People who worked for Amazon in November 2020,’ but not January 2021. We might even want to join two datasets in which people appear in either of two lists - a private investigator might look for any individuals who rented cars from Hertz or Avis.</p>
+<p>These three approaches - an inner join, a left join, and a full join - begin to illustrate the richness and challenges of combining datasets. Joins are at the heart of Structured Query Language (or SQL, which is pronounced es-que-ell or sequel). Joins of multiple databases can become very complex - think about links in a company between sales data, salary, hours worked, seniority, and a client base, or, better, links in a University between lists of students, classes, faculties, grades, and parking violations). Relational Database Management Systems (RDBMS) are linked networks of datasets such as these, and a rudimentary understanding of the ideas behind these is an essential part of proficiency in data science.</p>
+<p>There are two sources which I will refer you to for now. The first is chapter 13 of R4DS. The second is what Jenny Bryan describes as a cheatsheet, but is I think more than this (<a href="https://stat545.com/bit001_dplyr-cheatsheet.html" class="uri">https://stat545.com/bit001_dplyr-cheatsheet.html</a>). This shows how the various “joins” of dplyr work in combining two tibbles (superheroes and publishers). If you want to get a feel for how combining data works, it is a great start.</p>
+<div id="more-about-munging" class="section level3" number="14.5.1">
+<h3><span class="header-section-number">14.5.1</span> more about munging</h3>
+<p>We’ve also used <em>separate</em> to split a column into several; the complement of this is <em>unite.</em></p>
+<p>You may want to add new measures for all cases without a common key. Here, you can use the <em>bind_cols</em> function. If you instead want to add observations to an existing dataframe, you may <em>bind_rows.</em></p>
+<p>We haven’t yet considered the tools used to <em>reshape</em> data frames from short-and-wide to long-and-narrow, and vice-versa. In our music data, we might, for example, want to think about the data by artist (with possibly multiple songs on each line), or song-titles (with possibly covers by different artists on each line).</p>
+<p>More typically, consider repeated-measures data in which each score reflects a measure taken on one of ten subjects and one of three occasions - for example, scores on the Beck Depression Inventory (BDI) before, during, and after treatment. Here, we may wish to structure the data in a “long” format with thirty rows (one for each subject X occasion) and three columns (person, occasion, and BDI), or in a “wide” format with just ten rows (one for each subject), and four columns (person, BDI-before, etc). To move from “long” to “wide,” use the <em>pivot_longer</em> <sub><em>spread</em></sub> command, and to move instead from “wide” to “long,” use <em>pivot_wider</em> ~<em>gather~.</em> (These changes were introduced in ~ 2020).</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="finding-exploring-and-cleaning-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="strings-factors-dates-and-times.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "sepia",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

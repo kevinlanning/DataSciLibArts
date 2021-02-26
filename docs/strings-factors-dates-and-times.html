@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>15 strings, factors, dates, and times | 15 - some types of data</title>
+  <meta name="description" content="Test" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="15 strings, factors, dates, and times | 15 - some types of data" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="chihuahuamuffin.png" />
+  <meta property="og:description" content="Test" />
+  <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="15 strings, factors, dates, and times | 15 - some types of data" />
+  
+  <meta name="twitter:description" content="Test" />
+  <meta name="twitter:image" content="chihuahuamuffin.png" />
+
+<meta name="author" content="Lanning" />
+
+
+<meta name="date" content="2021-02-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="transforming-and-joining-data.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#some-features-of-the-text"><i class="fa fa-check"></i>some features of the text</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#the-book-is-for-you"><i class="fa fa-check"></i>the book is for you</a></li>
+</ul></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html"><i class="fa fa-check"></i><b>1</b> data science for the liberal arts</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#type-c-data-science-data-science-for-the-liberal-arts"><i class="fa fa-check"></i><b>1.1</b> type C data science = data science for the liberal arts</a></li>
+<li class="chapter" data-level="1.2" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#the-incompleteness-of-the-data-science-venn-diagram"><i class="fa fa-check"></i><b>1.2</b> the incompleteness of the data science Venn diagram</a></li>
+<li class="chapter" data-level="1.3" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#a-dimension-of-depth"><i class="fa fa-check"></i><b>1.3</b> a dimension of depth</a></li>
+<li class="chapter" data-level="1.4" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#google-and-the-liberal-arts"><i class="fa fa-check"></i><b>1.4</b> Google and the liberal arts</a></li>
+<li class="chapter" data-level="1.5" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#data-sci-and-tmi"><i class="fa fa-check"></i><b>1.5</b> data sci and TMI</a></li>
+<li class="chapter" data-level="1.6" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#discussion-what-will-you-do-with-data-science"><i class="fa fa-check"></i><b>1.6</b> discussion: what will you do with data science?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>2</b> getting started</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started.html"><a href="getting-started.html#are-you-already-a-programmer-and-statistician"><i class="fa fa-check"></i><b>2.1</b> are you already a programmer and statistician?</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started.html"><a href="getting-started.html#some-best-practices-for-spreadsheets"><i class="fa fa-check"></i><b>2.2</b> some best practices for spreadsheets</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started.html"><a href="getting-started.html#setting-up-your-machine-some-basic-tools"><i class="fa fa-check"></i><b>2.3</b> setting up your machine: some basic tools</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started.html"><a href="getting-started.html#a-modified-15-minute-rule"><i class="fa fa-check"></i><b>2.4</b> a modified 15-minute rule</a></li>
+<li class="chapter" data-level="2.5" data-path="getting-started.html"><a href="getting-started.html#discussion-who-deserves-a-good-grade"><i class="fa fa-check"></i><b>2.5</b> discussion: who deserves a good grade?</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="welcome-to-r-world.html"><a href="welcome-to-r-world.html"><i class="fa fa-check"></i><b>3</b> welcome to R world</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="welcome-to-r-world.html"><a href="welcome-to-r-world.html#using-rstudio-cloud"><i class="fa fa-check"></i><b>3.1</b> Using RStudio cloud</a></li>
+<li class="chapter" data-level="3.2" data-path="welcome-to-r-world.html"><a href="welcome-to-r-world.html#using-r-studio-on-your-laptop"><i class="fa fa-check"></i><b>3.2</b> Using R Studio on your laptop</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-stands-for.html"><a href="r-stands-for.html"><i class="fa fa-check"></i><b>4</b> R stands for …</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="r-stands-for.html"><a href="r-stands-for.html#a-few-characteristics-of-r"><i class="fa fa-check"></i><b>4.1</b> a few characteristics of R</a></li>
+<li class="chapter" data-level="4.2" data-path="r-stands-for.html"><a href="r-stands-for.html#finding-help"><i class="fa fa-check"></i><b>4.2</b> finding help</a></li>
+<li class="chapter" data-level="4.3" data-path="r-stands-for.html"><a href="r-stands-for.html#wickham-and-r-for-data-science"><i class="fa fa-check"></i><b>4.3</b> Wickham and R for Data Science</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html"><i class="fa fa-check"></i><b>5</b> now draw the rest of the owl</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#review-the-rstudio-cloud-primers"><i class="fa fa-check"></i><b>5.1</b> Review the RStudio cloud primers</a></li>
+<li class="chapter" data-level="5.2" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#play-with-rstudio-on-your-laptop"><i class="fa fa-check"></i><b>5.2</b> Play with RStudio on your laptop</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#create-a-new-r-markdown-document-and-knit-it-to-a-pdf-or-a-word-doc"><i class="fa fa-check"></i><b>5.2.1</b> Create a new R Markdown document and knit it to a PDF or a Word doc</a></li>
+<li class="chapter" data-level="5.2.2" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#play-with-and-explore-the-movies-data"><i class="fa fa-check"></i><b>5.2.2</b> Play with and explore the movies data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#take-a-datacamp-class"><i class="fa fa-check"></i><b>5.3</b> Take a DataCamp class</a></li>
+<li class="chapter" data-level="5.4" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#swirl-swirlstats"><i class="fa fa-check"></i><b>5.4</b> Swirl (Swirlstats)</a></li>
+<li class="chapter" data-level="5.5" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#read-pengs-text-andor-watch-the-associated-videos"><i class="fa fa-check"></i><b>5.5</b> Read Peng’s text and/or watch the associated videos</a></li>
+<li class="chapter" data-level="5.6" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#code-along-with-a-tidy-webinar-or-attend-a-virtual-conference"><i class="fa fa-check"></i><b>5.6</b> Code along with a tidy webinar, or attend a virtual conference</a></li>
+<li class="chapter" data-level="5.7" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#something-else"><i class="fa fa-check"></i><b>5.7</b> Something else</a></li>
+</ul></li>
+<li class="part"><span><b>II Part II Towards data literacy</b></span></li>
+<li class="chapter" data-level="6" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html"><i class="fa fa-check"></i><b>6</b> principles of data visualization</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#some-opening-thoughts"><i class="fa fa-check"></i><b>6.1</b> some opening thoughts</a></li>
+<li class="chapter" data-level="6.2" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#some-early-graphs"><i class="fa fa-check"></i><b>6.2</b> some early graphs</a></li>
+<li class="chapter" data-level="6.3" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#tukey-and-eda"><i class="fa fa-check"></i><b>6.3</b> Tukey and EDA</a></li>
+<li class="chapter" data-level="6.4" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#approaches-to-graphs"><i class="fa fa-check"></i><b>6.4</b> approaches to graphs</a></li>
+<li class="chapter" data-level="6.5" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#tufte-first-principles"><i class="fa fa-check"></i><b>6.5</b> Tufte: first principles</a></li>
+<li class="chapter" data-level="6.6" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#the-politics-of-data-visualization"><i class="fa fa-check"></i><b>6.6</b> the politics of data visualization</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#poor-design-leads-to-an-uninformed-or-misinformed-world"><i class="fa fa-check"></i><b>6.6.1</b> poor design leads to an uninformed or misinformed world</a></li>
+<li class="chapter" data-level="6.6.2" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#poor-design-can-be-a-tool-to-deceive"><i class="fa fa-check"></i><b>6.6.2</b> poor design can be a tool to deceive</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#the-psychology-of-data-visualization"><i class="fa fa-check"></i><b>6.7</b> the psychology of data visualization</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#the-power-of-animation"><i class="fa fa-check"></i><b>6.7.1</b> the power of animation</a></li>
+<li class="chapter" data-level="6.7.2" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#telling-the-truth-when-the-truth-is-unclear"><i class="fa fa-check"></i><b>6.7.2</b> telling the truth when the truth is unclear</a></li>
+<li class="chapter" data-level="6.7.3" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#visualizing-uncertainty"><i class="fa fa-check"></i><b>6.7.3</b> visualizing uncertainty</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#further-reading-and-resources"><i class="fa fa-check"></i><b>6.8</b> further reading and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html"><i class="fa fa-check"></i><b>7</b> visualization in R with ggplot</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#a-picture-words-numbers"><i class="fa fa-check"></i><b>7.1</b> a picture &gt; (words, numbers)?</a></li>
+<li class="chapter" data-level="7.2" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#read-hadley-ggplots"><i class="fa fa-check"></i><b>7.2</b> Read Hadley ggplots</a></li>
+<li class="chapter" data-level="7.3" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#exploring-more-data"><i class="fa fa-check"></i><b>7.3</b> exploring more data</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html"><i class="fa fa-check"></i><b>8</b> examining local COVID data in R</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#tracking-the-novel-coronavirus-from-feb-2020"><i class="fa fa-check"></i><b>8.1</b> tracking the Novel Coronavirus (from Feb 2020)</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#reading-the-data-feb-2020"><i class="fa fa-check"></i><b>8.1.1</b> reading the data (Feb 2020)</a></li>
+<li class="chapter" data-level="8.1.2" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#cleaning-wrangling-munging-the-data-feb-2020"><i class="fa fa-check"></i><b>8.1.2</b> cleaning (wrangling, munging) the data (Feb 2020)</a></li>
+<li class="chapter" data-level="8.1.3" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#eleven-months-later-the-code-still-runs"><i class="fa fa-check"></i><b>8.1.3</b> eleven months later: the code still runs!</a></li>
+<li class="chapter" data-level="8.1.4" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#shall-we-graph-it-feb-2021"><i class="fa fa-check"></i><b>8.1.4</b> shall we graph it? (Feb 2021)</a></li>
+<li class="chapter" data-level="8.1.5" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#too-bad"><i class="fa fa-check"></i><b>8.1.5</b> too bad</a></li>
+<li class="chapter" data-level="8.1.6" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#what-now"><i class="fa fa-check"></i><b>8.1.6</b> what now?</a></li>
+<li class="chapter" data-level="8.1.7" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#an-initial-plot-feb-2020"><i class="fa fa-check"></i><b>8.1.7</b> an initial plot (Feb 2020)</a></li>
+<li class="chapter" data-level="8.1.8" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#five-weeks-later-mar-2020"><i class="fa fa-check"></i><b>8.1.8</b> five weeks later (Mar 2020)</a></li>
+<li class="chapter" data-level="8.1.9" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#adding-recovered-cases-code-from-feb-data-through-mar-2020"><i class="fa fa-check"></i><b>8.1.9</b> adding recovered cases (code from Feb, data through Mar 2020)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#plotting-confirmed-cases-feb-mar-2020"><i class="fa fa-check"></i><b>8.2</b> plotting confirmed cases (Feb-Mar 2020)</a></li>
+<li class="chapter" data-level="8.3" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#status-feb-2021"><i class="fa fa-check"></i><b>8.3</b> status (Feb 2021)</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#an-assignment"><i class="fa fa-check"></i><b>8.3.1</b> an assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#how-to-create-new-knowledge"><i class="fa fa-check"></i><b>8.4</b> how to create new knowledge</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html"><i class="fa fa-check"></i><b>9</b> on probability and statistics</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#on-probability"><i class="fa fa-check"></i><b>9.1</b> on probability</a></li>
+<li class="chapter" data-level="9.2" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#the-rules-of-probability"><i class="fa fa-check"></i><b>9.2</b> the rules of probability</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#keeping-conditional-probabilities-straight"><i class="fa fa-check"></i><b>9.2.1</b> keeping conditional probabilities straight</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#continuous-probability-distributions"><i class="fa fa-check"></i><b>9.3</b> continuous probability distributions</a></li>
+<li class="chapter" data-level="9.4" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#the-most-dangerous-equation"><i class="fa fa-check"></i><b>9.4</b> the most dangerous equation</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html"><i class="fa fa-check"></i><b>10</b> reproducibility and the replication crisis</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis"><i class="fa fa-check"></i><b>10.1</b> Answers to the reproducibility crisis</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#tweak-or-abandon-nhst"><i class="fa fa-check"></i><b>10.1.1</b> Tweak or abandon NHST</a></li>
+<li class="chapter" data-level="10.1.2" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#keep-a-log-of-every-step-of-every-analysis-in-r-markdown-or-jupyter-notebooks"><i class="fa fa-check"></i><b>10.1.2</b> keep a log of every step of every analysis in R markdown or Jupyter notebooks</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-iii-pre-registration"><i class="fa fa-check"></i><b>10.2</b> answers to the reproducibility crisis III: Pre-registration</a></li>
+<li class="chapter" data-level="10.3" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#further-readings"><i class="fa fa-check"></i><b>10.3</b> further readings</a></li>
+</ul></li>
+<li class="part"><span><b>III Part III Towards data proficiency</b></span></li>
+<li class="chapter" data-level="11" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html"><i class="fa fa-check"></i><b>11</b> literate programming with R markdown</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#scripts-are-files-of-code"><i class="fa fa-check"></i><b>11.1</b> scripts are files of code</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#some-elements-of-coding-style"><i class="fa fa-check"></i><b>11.1.1</b> some elements of coding style</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#projects-are-directories-containing-related-scripts"><i class="fa fa-check"></i><b>11.2</b> projects are directories containing related scripts</a></li>
+<li class="chapter" data-level="11.3" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#r-markdown-documents-integrate-rationale-script-and-results"><i class="fa fa-check"></i><b>11.3</b> R markdown documents integrate rationale, script, and results</a></li>
+<li class="chapter" data-level="11.4" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#what-to-do-when-you-are-stuck"><i class="fa fa-check"></i><b>11.4</b> What to do when you are stuck</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="the-tidyverse.html"><a href="the-tidyverse.html"><i class="fa fa-check"></i><b>12</b> the tidyverse</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#some-simple-principles"><i class="fa fa-check"></i><b>12.1</b> some simple principles</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html"><i class="fa fa-check"></i><b>13</b> finding, exploring, and cleaning data</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#data-in-r-libraries"><i class="fa fa-check"></i><b>13.1</b> Data in R libraries</a></li>
+<li class="chapter" data-level="13.2" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#other-prepared-datasets"><i class="fa fa-check"></i><b>13.2</b> Other prepared datasets</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#keep-it-manageable"><i class="fa fa-check"></i><b>13.2.1</b> Keep it manageable</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#makeextractcombine-your-own-data"><i class="fa fa-check"></i><b>13.3</b> Make/extract/combine your own data</a></li>
+<li class="chapter" data-level="13.4" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#exploring-data"><i class="fa fa-check"></i><b>13.4</b> exploring data</a></li>
+<li class="chapter" data-level="13.5" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#messy-data-cleaning-and-curation"><i class="fa fa-check"></i><b>13.5</b> messy data: Cleaning and curation</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html"><i class="fa fa-check"></i><b>14</b> transforming and joining data</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#from-data-on-the-web-to-data-in-r"><i class="fa fa-check"></i><b>14.1</b> from data on the web to data in R</a></li>
+<li class="chapter" data-level="14.2" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#working-with-geodata-a-function-to-get-us-states-from-latitudelongitude"><i class="fa fa-check"></i><b>14.2</b> working with geodata: a function to get US states from latitude/longitude</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#applying-the-function-to-the-music-data"><i class="fa fa-check"></i><b>14.2.1</b> applying the function to the music data</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#drowning-in-the-sea-of-songs-with-apologies-to-arivoim1187b990643"><i class="fa fa-check"></i><b>14.3</b> drowning in the sea of songs (with apologies to <em>ARIVOIM1187B990643</em>)</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#combining-the-song-titles-with-our-us-artists"><i class="fa fa-check"></i><b>14.3.1</b> combining the song titles with our US artists</a></li>
+<li class="chapter" data-level="14.3.2" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#exercises"><i class="fa fa-check"></i><b>14.3.2</b> exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#review-of-munging-tools"><i class="fa fa-check"></i><b>14.4</b> review of munging tools</a></li>
+<li class="chapter" data-level="14.5" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#more-about-joining"><i class="fa fa-check"></i><b>14.5</b> more about joining</a>
+<ul>
+<li class="chapter" data-level="14.5.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#more-about-munging"><i class="fa fa-check"></i><b>14.5.1</b> more about munging</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html"><i class="fa fa-check"></i><b>15</b> strings, factors, dates, and times</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#strings"><i class="fa fa-check"></i><b>15.1</b> strings</a></li>
+<li class="chapter" data-level="15.2" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#factors"><i class="fa fa-check"></i><b>15.2</b> factors</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#types-of-babies"><i class="fa fa-check"></i><b>15.2.1</b> types of babies</a></li>
+<li class="chapter" data-level="15.2.2" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#types-of-grown-ups"><i class="fa fa-check"></i><b>15.2.2</b> types of grown-ups</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#dates"><i class="fa fa-check"></i><b>15.3</b> dates</a></li>
+<li class="chapter" data-level="15.4" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#times"><i class="fa fa-check"></i><b>15.4</b> times</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">15 - some types of data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="strings-factors-dates-and-times" class="section level1" number="15">
+<h1><span class="header-section-number">15</span> strings, factors, dates, and times</h1>
+<p>This chapter discusses some of the types of data other than numeric and logical, in particular strings, factors, and dates/times.</p>
+<p>In this chapter, as in the last few, I refer primarily to three of the chapters in R4DS. Consider these notes supplementary.</p>
+<div id="strings" class="section level2" number="15.1">
+<h2><span class="header-section-number">15.1</span> strings</h2>
+<p>Strings are sets of characters which may include “123” as well as “why *DID* the chicken cross the road?” Samples of text, from names to novels, are the most interesting type of string.</p>
+<p>Among the tools that are used in examining texts are searches (do these tweets include language associated with hate speech?), validity checks (does the string correspond to a valid zip code?), and reformatting (to lower case so that BOB, Bob, and bob are all coded as identical). These ideas are simple, but quickly become challenging when, for example, the strings in which we are interested include characters that R usually interprets as code - such as commas, quotes, and slashes. See the section on string basics (14.2) for how to “escape” these characters, for example, how to treat a hashtag (#) as just a character as opposed to the beginning of a comment. These rules are codified as <strong>regular expressions</strong> (regex, sometimes regexp). Regex are not unique to R, but are shared with other languages as well.</p>
+<p>In R, particularly in the tidyverse package, regex are typically implicit, represented within commands that are part of the stringr package and that typically begin with str_. For example, str_detect returns a set of logical values:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="strings-factors-dates-and-times.html#cb34-1" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb34-2"><a href="strings-factors-dates-and-times.html#cb34-2" aria-hidden="true"></a>donuts &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;glazed&quot;</span>, <span class="st">&quot;cakes&quot;</span>, <span class="st">&quot;Pink sprinkled&quot;</span>,</span>
+<span id="cb34-3"><a href="strings-factors-dates-and-times.html#cb34-3" aria-hidden="true"></a>            <span class="st">&quot;cream filled&quot;</span>,</span>
+<span id="cb34-4"><a href="strings-factors-dates-and-times.html#cb34-4" aria-hidden="true"></a>            <span class="st">&quot;day-old frosted&quot;</span>, <span class="st">&quot;chocolates&quot;</span>)</span>
+<span id="cb34-5"><a href="strings-factors-dates-and-times.html#cb34-5" aria-hidden="true"></a>donuts <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb34-6"><a href="strings-factors-dates-and-times.html#cb34-6" aria-hidden="true"></a><span class="st">    </span><span class="kw">str_detect</span>(<span class="st">&quot; &quot;</span>)</span></code></pre></div>
+<pre><code>## [1] FALSE FALSE  TRUE  TRUE  TRUE FALSE</code></pre>
+<p>Most of the str_ functions are straightforward, but remember that str_sub provides a subset, not a substitution; to change a string, use str_replace. As Hadley points out in R4DS, the autocomplete function in R_studio is very handy for helping you explore the different functions - in your console, type str_ … then scroll through the possibilities.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="strings-factors-dates-and-times.html#cb36-1" aria-hidden="true"></a>donuts <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_sub</span>(<span class="dv">1</span>,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;glaze&quot; &quot;cakes&quot; &quot;Pink &quot; &quot;cream&quot; &quot;day-o&quot; &quot;choco&quot;</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="strings-factors-dates-and-times.html#cb38-1" aria-hidden="true"></a>donuts <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_replace</span>(<span class="st">&quot; &quot;</span>,<span class="st">&quot;_&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;glazed&quot;          &quot;cakes&quot;           &quot;Pink_sprinkled&quot;  &quot;cream_filled&quot;   
+## [5] &quot;day-old_frosted&quot; &quot;chocolates&quot;</code></pre>
+<p>As you work with texts, simple problems sometimes require sophisticated codes. The regex that are used to solve these problems quickly become dense and challenging.</p>
+<p>One tool that can help you is the str_view command, which returns (when used in R studio) highlighted text showing corresponding passages. For example:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="strings-factors-dates-and-times.html#cb40-1" aria-hidden="true"></a>dumbSlashMovieTitles &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Craslash&quot;</span>, </span>
+<span id="cb40-2"><a href="strings-factors-dates-and-times.html#cb40-2" aria-hidden="true"></a>                     <span class="st">&quot;Revenge o&#39; </span><span class="ch">\&#39;</span><span class="st">McSlashy&#39;&quot;</span>, </span>
+<span id="cb40-3"><a href="strings-factors-dates-and-times.html#cb40-3" aria-hidden="true"></a>                     <span class="st">&quot;Star Wars: Episode </span><span class="ch">\\</span><span class="st">slash&quot;</span>)</span>
+<span id="cb40-4"><a href="strings-factors-dates-and-times.html#cb40-4" aria-hidden="true"></a>dumbSlashMovieTitles <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_view</span> (<span class="st">&quot;sh&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-3c90807592bda2f68525" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3c90807592bda2f68525">{"x":{"html":"<ul>\n  <li>Crasla<span class='match'>sh<\/span><\/li>\n  <li>Revenge o' 'McSla<span class='match'>sh<\/span>y'<\/li>\n  <li>Star Wars: Episode \\sla<span class='match'>sh<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>Note the effects of the backslash: For example, the Star Wars movie has two slashes in the input, but only one in the output, as the backslash is the escape character that tells R to take the next character literally (as in the ‘Revenge’ movie).</p>
+<blockquote>
+<p>So. How would you use str_view to find strings which include the backslash character in our dumbSlashMovieTitles? [Experiment. Google. Ask your classmates.]</p>
+</blockquote>
+<p>The density of regex statements can make them challenging. The backslash case is an unusual one, but other special characters are more common, and can be useful, including (for example) indicators for the beginning (^) or end ($) of a string:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="strings-factors-dates-and-times.html#cb41-1" aria-hidden="true"></a><span class="co"># get rid of suspected plural </span></span>
+<span id="cb41-2"><a href="strings-factors-dates-and-times.html#cb41-2" aria-hidden="true"></a>donuts <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_replace</span> (<span class="st">&quot;s$&quot;</span>, <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;glazed&quot;          &quot;cake&quot;            &quot;Pink sprinkled&quot;  &quot;cream filled&quot;   
+## [5] &quot;day-old frosted&quot; &quot;chocolate&quot;</code></pre>
+<p>A particularly useful function in stringr is str_split, which can be used to quickly break a text into discrete words. Note that using a space and the explicit “word” boundary give different results.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="strings-factors-dates-and-times.html#cb43-1" aria-hidden="true"></a><span class="kw">str_split</span>(donuts, <span class="st">&quot; &quot;</span>, <span class="dt">simplify =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>##      [,1]         [,2]       
+## [1,] &quot;glazed&quot;     &quot;&quot;         
+## [2,] &quot;cakes&quot;      &quot;&quot;         
+## [3,] &quot;Pink&quot;       &quot;sprinkled&quot;
+## [4,] &quot;cream&quot;      &quot;filled&quot;   
+## [5,] &quot;day-old&quot;    &quot;frosted&quot;  
+## [6,] &quot;chocolates&quot; &quot;&quot;</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="strings-factors-dates-and-times.html#cb45-1" aria-hidden="true"></a><span class="kw">str_split</span>(donuts, <span class="kw">boundary</span> (<span class="st">&quot;word&quot;</span>), <span class="dt">simplify =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>##      [,1]         [,2]        [,3]     
+## [1,] &quot;glazed&quot;     &quot;&quot;          &quot;&quot;       
+## [2,] &quot;cakes&quot;      &quot;&quot;          &quot;&quot;       
+## [3,] &quot;Pink&quot;       &quot;sprinkled&quot; &quot;&quot;       
+## [4,] &quot;cream&quot;      &quot;filled&quot;    &quot;&quot;       
+## [5,] &quot;day&quot;        &quot;old&quot;       &quot;frosted&quot;
+## [6,] &quot;chocolates&quot; &quot;&quot;          &quot;&quot;</code></pre>
+<p>The output of str_split is generally a list (more on that soon), but here the lists are simplified into tibbles. In the tidyverse, str_split is typically one of the first steps in preparing text. The tidytext package (<a href="https://www.tidytextmining.com/" class="uri">https://www.tidytextmining.com/</a>), which is discussed at length in the computational social science course, builds on this foundation and is a powerful set of tools for all sorts of problems in formal text analysis.</p>
+</div>
+<div id="factors" class="section level2" number="15.2">
+<h2><span class="header-section-number">15.2</span> factors</h2>
+<p>Conditions (experimental vs control), categories (male or female), types (scorpio, “hates astrology”) and other nominal measures are categorical variables or factors. In the tidyverse, the r package for dealing with this type of measure is <em>forcats</em>, one of the core parts of the tidyverse.</p>
+<p>Here’s an example of a categorical variable. Why is it set up like this, and what does it do?</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="strings-factors-dates-and-times.html#cb47-1" aria-hidden="true"></a><span class="co"># Example of a factor</span></span>
+<span id="cb47-2"><a href="strings-factors-dates-and-times.html#cb47-2" aria-hidden="true"></a>eyes &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>,</span>
+<span id="cb47-3"><a href="strings-factors-dates-and-times.html#cb47-3" aria-hidden="true"></a>                     <span class="st">&quot;green&quot;</span>, <span class="st">&quot;zombieRed&quot;</span>), </span>
+<span id="cb47-4"><a href="strings-factors-dates-and-times.html#cb47-4" aria-hidden="true"></a>               <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;brown&quot;</span>,</span>
+<span id="cb47-5"><a href="strings-factors-dates-and-times.html#cb47-5" aria-hidden="true"></a>                          <span class="st">&quot;green&quot;</span>))</span>
+<span id="cb47-6"><a href="strings-factors-dates-and-times.html#cb47-6" aria-hidden="true"></a>eyes</span></code></pre></div>
+<pre><code>## [1] blue  green green &lt;NA&gt; 
+## Levels: blue brown green</code></pre>
+<p>In base R, string variables (“donut”, “anti-Brexit”, and “yellow”) are generally treated as factors by default. In the tidyverse, string variables are treated as strings until they are explicitly declared as factors.</p>
+<p>The syntax for working with factors-as-categories is given in Chapter 15 of R4DS. I will not duplicate that here, but I will point out that factors are represented internally in R as numbers, and converting (coercing) factors to other data types can occasionally lead to nasty surprises. Sections 15.4 and 15.5 describe how factors can be cleanly reordered and modified.</p>
+<div id="types-of-babies" class="section level3" number="15.2.1">
+<h3><span class="header-section-number">15.2.1</span> types of babies</h3>
+<p>In the babynames data, baby’s gender is a categorical variable, which is treated (because tidyverse) as a character or string. Here, we make it into a factor. We create two other factors as well.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="strings-factors-dates-and-times.html#cb49-1" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb49-2"><a href="strings-factors-dates-and-times.html#cb49-2" aria-hidden="true"></a><span class="kw">library</span>(babynames)</span>
+<span id="cb49-3"><a href="strings-factors-dates-and-times.html#cb49-3" aria-hidden="true"></a><span class="co"># adding third level for non-binary babies</span></span>
+<span id="cb49-4"><a href="strings-factors-dates-and-times.html#cb49-4" aria-hidden="true"></a>sexlevels &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;O&quot;</span>)</span>
+<span id="cb49-5"><a href="strings-factors-dates-and-times.html#cb49-5" aria-hidden="true"></a>babynames2 &lt;-<span class="st"> </span>babynames <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb49-6"><a href="strings-factors-dates-and-times.html#cb49-6" aria-hidden="true"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">sex =</span> <span class="kw">factor</span>(sex,</span>
+<span id="cb49-7"><a href="strings-factors-dates-and-times.html#cb49-7" aria-hidden="true"></a>               <span class="dt">levels =</span>  sexlevels)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb49-8"><a href="strings-factors-dates-and-times.html#cb49-8" aria-hidden="true"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">beginVowel =</span> <span class="kw">case_when</span>(</span>
+<span id="cb49-9"><a href="strings-factors-dates-and-times.html#cb49-9" aria-hidden="true"></a>        <span class="kw">substr</span>(name,<span class="dv">1</span>,<span class="dv">1</span>) <span class="op">%in%</span></span>
+<span id="cb49-10"><a href="strings-factors-dates-and-times.html#cb49-10" aria-hidden="true"></a><span class="st">            </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;E&quot;</span>,<span class="st">&quot;I&quot;</span>,<span class="st">&quot;O&quot;</span>,<span class="st">&quot;U&quot;</span>) <span class="op">~</span><span class="st"> &quot;Vowel&quot;</span>,</span>
+<span id="cb49-11"><a href="strings-factors-dates-and-times.html#cb49-11" aria-hidden="true"></a>        <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> &quot;Consonant&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb49-12"><a href="strings-factors-dates-and-times.html#cb49-12" aria-hidden="true"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">beginVowel =</span> <span class="kw">factor</span>(beginVowel)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb49-13"><a href="strings-factors-dates-and-times.html#cb49-13" aria-hidden="true"></a><span class="st">    </span><span class="kw">mutate</span> (<span class="dt">century =</span> <span class="kw">case_when</span>(</span>
+<span id="cb49-14"><a href="strings-factors-dates-and-times.html#cb49-14" aria-hidden="true"></a>        year <span class="op">&lt;</span><span class="st"> </span><span class="dv">1900</span> <span class="op">~</span><span class="st"> &quot;19th&quot;</span>,</span>
+<span id="cb49-15"><a href="strings-factors-dates-and-times.html#cb49-15" aria-hidden="true"></a>        year <span class="op">&lt;</span><span class="st"> </span><span class="dv">2000</span> <span class="op">~</span><span class="st"> &quot;20th&quot;</span>,</span>
+<span id="cb49-16"><a href="strings-factors-dates-and-times.html#cb49-16" aria-hidden="true"></a>        year <span class="op">&gt;</span><span class="st"> </span><span class="dv">1999</span> <span class="op">~</span><span class="st"> &quot;21st&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb49-17"><a href="strings-factors-dates-and-times.html#cb49-17" aria-hidden="true"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">century =</span> <span class="kw">factor</span>(century))</span></code></pre></div>
+<blockquote>
+<p>Use the syntax above to create types of names for different generations (boomers, gen x, Millenials, gen z). Use <a href="https://www.kasasa.com/articles/generations/gen-x-gen-y-gen-z" class="uri">https://www.kasasa.com/articles/generations/gen-x-gen-y-gen-z</a> to determine your groupings.</p>
+</blockquote>
+<blockquote>
+<p>Say something interesting about the data - names, genders, etc. Plot this.</p>
+</blockquote>
+</div>
+<div id="types-of-grown-ups" class="section level3" number="15.2.2">
+<h3><span class="header-section-number">15.2.2</span> types of grown-ups</h3>
+<p>If you would instead like to examine survey data, the forcats package includes a set of categorical variables.</p>
+<blockquote>
+<p>Using the discussion in Chapter 15 of R4DS as your guide, examine the relationship between two or more of these categorical variables. Again, plot these</p>
+</blockquote>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="strings-factors-dates-and-times.html#cb50-1" aria-hidden="true"></a>gss_cat</span></code></pre></div>
+<pre><code>## # A tibble: 21,483 x 9
+##     year marital     age race  rincome    partyid     relig     denom    tvhours
+##    &lt;int&gt; &lt;fct&gt;     &lt;int&gt; &lt;fct&gt; &lt;fct&gt;      &lt;fct&gt;       &lt;fct&gt;     &lt;fct&gt;      &lt;int&gt;
+##  1  2000 Never ma~    26 White $8000 to ~ Ind,near r~ Protesta~ Souther~      12
+##  2  2000 Divorced     48 White $8000 to ~ Not str re~ Protesta~ Baptist~      NA
+##  3  2000 Widowed      67 White Not appli~ Independent Protesta~ No deno~       2
+##  4  2000 Never ma~    39 White Not appli~ Ind,near r~ Orthodox~ Not app~       4
+##  5  2000 Divorced     25 White Not appli~ Not str de~ None      Not app~       1
+##  6  2000 Married      25 White $20000 - ~ Strong dem~ Protesta~ Souther~      NA
+##  7  2000 Never ma~    36 White $25000 or~ Not str re~ Christian Not app~       3
+##  8  2000 Divorced     44 White $7000 to ~ Ind,near d~ Protesta~ Luthera~      NA
+##  9  2000 Married      44 White $25000 or~ Not str de~ Protesta~ Other          0
+## 10  2000 Married      47 White $25000 or~ Strong rep~ Protesta~ Souther~       3
+## # ... with 21,473 more rows</code></pre>
+</div>
+</div>
+<div id="dates" class="section level2" number="15.3">
+<h2><span class="header-section-number">15.3</span> dates</h2>
+<p>The challenges of combining time-demarcated data (Chapter 16) are significant. For dates, a variety of different formats (3-April, October 23, 1943, 10/12/92) must be made sense of. Sometimes we are concerned with durations (how many days, etc.); on other occasions, we are concerned with characteristics of particular dates (as in figuring out the day of the week on which you were born). And don’t forget about leap years.</p>
+<p>In R, the <em>lubridate</em> package (a non-core part of the tidyverse, i.e., one that you must load separately) helps to handle dates and times smoothly. It anticipates many of the problems we might encounter in extracting date and time information from strings. Lubridate generally works well to simplify files with dates and times, and can be used to help in data munging. For example, in my analyses of the Corona data, dates and times were reported in four different ways. The code below decodes these transparently and combines them into a common date/time format .</p>
+<blockquote>
+<p>2/3/20 6 PM</p>
+<p>2/3/20 18:00</p>
+<p>2/3/20 18:00:00</p>
+<p>2020-02-03 18:00:00</p>
+</blockquote>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="strings-factors-dates-and-times.html#cb52-1" aria-hidden="true"></a><span class="co"># not run</span></span>
+<span id="cb52-2"><a href="strings-factors-dates-and-times.html#cb52-2" aria-hidden="true"></a>coronaData2 &lt;-<span class="st"> </span>coronaData <span class="op">%&gt;%</span><span class="st"> </span>mutate</span>
+<span id="cb52-3"><a href="strings-factors-dates-and-times.html#cb52-3" aria-hidden="true"></a>    (<span class="st">`</span><span class="dt">FixedDate = </span></span>
+<span id="cb52-4"><a href="strings-factors-dates-and-times.html#cb52-4" aria-hidden="true"></a><span class="dt">           parse_date_time(</span><span class="st">`</span>Last Update<span class="st">`</span><span class="dt">,</span></span>
+<span id="cb52-5"><a href="strings-factors-dates-and-times.html#cb52-5" aria-hidden="true"></a><span class="dt">                           c(&#39;mdy hp&#39;,&#39;mdy HM&#39;,</span></span>
+<span id="cb52-6"><a href="strings-factors-dates-and-times.html#cb52-6" aria-hidden="true"></a><span class="dt">                             &#39;mdy HMS&#39;,&#39;ymd HMS&#39;))) </span></span></code></pre></div>
+</div>
+<div id="times" class="section level2" number="15.4">
+<h2><span class="header-section-number">15.4</span> times</h2>
+<p>Working with temporal data is often challenging. The existence of, for example, 12 versus 24 hour clocks, time zones, and daylight savings, can make a simple question about duration quite challenging.</p>
+<blockquote>
+<p>Imagine that Fred was born in Singapore at the exact moment of Y2K. He now lives in NYC. How many hours has he been alive as of right now? How would you solve this?</p>
+</blockquote>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="strings-factors-dates-and-times.html#cb53-1" aria-hidden="true"></a><span class="co"># find timezones for Singapore and NYC</span></span>
+<span id="cb53-2"><a href="strings-factors-dates-and-times.html#cb53-2" aria-hidden="true"></a><span class="co"># a = get datetime for Y2K in Singapore in UTC</span></span>
+<span id="cb53-3"><a href="strings-factors-dates-and-times.html#cb53-3" aria-hidden="true"></a><span class="co"># b = get datetime for now in NYC in UTC</span></span>
+<span id="cb53-4"><a href="strings-factors-dates-and-times.html#cb53-4" aria-hidden="true"></a><span class="co"># compute difference and express in sensible metric</span></span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="transforming-and-joining-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "sepia",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

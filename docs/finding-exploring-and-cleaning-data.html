@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>13 finding, exploring, and cleaning data | Data science for the liberal arts</title>
+  <title>13 finding, exploring, and cleaning data | 15 - some types of data</title>
   <meta name="description" content="Test" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="13 finding, exploring, and cleaning data | Data science for the liberal arts" />
+  <meta property="og:title" content="13 finding, exploring, and cleaning data | 15 - some types of data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="chihuahuamuffin.png" />
@@ -16,15 +16,15 @@
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="13 finding, exploring, and cleaning data | Data science for the liberal arts" />
+  <meta name="twitter:title" content="13 finding, exploring, and cleaning data | 15 - some types of data" />
   
   <meta name="twitter:description" content="Test" />
   <meta name="twitter:image" content="chihuahuamuffin.png" />
 
-<meta name="author" content="Kevin Lanning" />
+<meta name="author" content="Lanning" />
 
 
-<meta name="date" content="2021-02-22" />
+<meta name="date" content="2021-02-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="the-tidyverse.html"/>
-<link rel="next" href="references.html"/>
+<link rel="next" href="transforming-and-joining-data.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,6 +51,9 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 
 
 <style type="text/css">
@@ -272,6 +275,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.4" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#exploring-data"><i class="fa fa-check"></i><b>13.4</b> exploring data</a></li>
 <li class="chapter" data-level="13.5" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#messy-data-cleaning-and-curation"><i class="fa fa-check"></i><b>13.5</b> messy data: Cleaning and curation</a></li>
 </ul></li>
+<li class="chapter" data-level="14" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html"><i class="fa fa-check"></i><b>14</b> transforming and joining data</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#from-data-on-the-web-to-data-in-r"><i class="fa fa-check"></i><b>14.1</b> from data on the web to data in R</a></li>
+<li class="chapter" data-level="14.2" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#working-with-geodata-a-function-to-get-us-states-from-latitudelongitude"><i class="fa fa-check"></i><b>14.2</b> working with geodata: a function to get US states from latitude/longitude</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#applying-the-function-to-the-music-data"><i class="fa fa-check"></i><b>14.2.1</b> applying the function to the music data</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#drowning-in-the-sea-of-songs-with-apologies-to-arivoim1187b990643"><i class="fa fa-check"></i><b>14.3</b> drowning in the sea of songs (with apologies to <em>ARIVOIM1187B990643</em>)</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#combining-the-song-titles-with-our-us-artists"><i class="fa fa-check"></i><b>14.3.1</b> combining the song titles with our US artists</a></li>
+<li class="chapter" data-level="14.3.2" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#exercises"><i class="fa fa-check"></i><b>14.3.2</b> exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#review-of-munging-tools"><i class="fa fa-check"></i><b>14.4</b> review of munging tools</a></li>
+<li class="chapter" data-level="14.5" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#more-about-joining"><i class="fa fa-check"></i><b>14.5</b> more about joining</a>
+<ul>
+<li class="chapter" data-level="14.5.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#more-about-munging"><i class="fa fa-check"></i><b>14.5.1</b> more about munging</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html"><i class="fa fa-check"></i><b>15</b> strings, factors, dates, and times</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#strings"><i class="fa fa-check"></i><b>15.1</b> strings</a></li>
+<li class="chapter" data-level="15.2" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#factors"><i class="fa fa-check"></i><b>15.2</b> factors</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#types-of-babies"><i class="fa fa-check"></i><b>15.2.1</b> types of babies</a></li>
+<li class="chapter" data-level="15.2.2" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#types-of-grown-ups"><i class="fa fa-check"></i><b>15.2.2</b> types of grown-ups</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#dates"><i class="fa fa-check"></i><b>15.3</b> dates</a></li>
+<li class="chapter" data-level="15.4" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#times"><i class="fa fa-check"></i><b>15.4</b> times</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
@@ -282,7 +314,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data science for the liberal arts</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">15 - some types of data</a>
           </h1>
         </div>
 
@@ -307,11 +339,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">13.2</span> Other prepared datasets</h2>
 <p>The datasets in the libraries described above should be relatively easy to work with, requiring minimal munging prior to analysis. If you are up for something a little more ambitious, read on.</p>
 <p><a href="https://www.kaggle.com"><strong>Kaggle</strong></a>is a noun (a community, a website, a challenge), and a verb (to kaggle is to participate in a data challenge) which describes a crowdsourced competition to improve on a problem in prediction. Perhaps the first and best known example of this was the Netflix prize <span class="citation">(Jackson <a href="#ref-jackson2017" role="doc-biblioref">2017</a>)</span>, which, in 2006, promised one million dollars to the first team to improve the algorithm by which that company recommended movies to its customer base. The competition took several years, and inspired substantial improvements in machine learning as well as in crowdsourced science. At this writing, Kaggle hosts many active competitions - including a $1,500,000 award offered by the United States Department of Homeland Security known as the “passenger screening algorithm challenge.” (Good luck!) Kaggle also hosts hundreds if not thousands of datasets. A good place to start is with their datasets stored in comma separated value format (.csv); you can find them <a href="https://www.kaggle.com/datasets?fileType=csv">here</a>. Kaggling is an important feature of data science culture.</p>
-<p>If you are into psychology and behavioral science, the <strong>Open Science Framework</strong> (OSF) provides a system for hosting and sharing code and data from research articles. One OSF page is a compilation of many <a href="https://osf.io/r38qu/"><strong>datasets from prominent papers in psychology and psychiatry</strong></a> Incidentally, almost all of the data and code from papers I have published is on the OSF as well. Beyond OSF, there is some <strong><a href="https://openpsychometrics.org/_rawdata/">structured personality test dat</a></strong><a href="https://openpsychometrics.org/_rawdata/">a</a> available, too.</p>
+<p>If you are into psychology and behavioral science, the <strong>Open Science Framework</strong> (OSF) provides a system for hosting and sharing code and data from research articles. One OSF page is a compilation of many <a href="https://osf.io/r38qu/"><strong>datasets from prominent papers in psychology and psychiatry</strong></a> Incidentally, almost all of the data and code from papers I have published is on the OSF as well. Beyond OSF, there is some <a href="https://openpsychometrics.org/_rawdata/"><strong>structured personality test dat</strong>a</a> available, too.</p>
 <p>Outside of psychology, repositories of data from many disciplines may be found at <strong>Re3data</strong> <a href="https://www.re3data.org/" class="uri">https://www.re3data.org/</a>.</p>
 <p>There are many datasets about <strong>music</strong> - songs, artists, lyrics, etc. - at <a href="http://millionsongdataset.com/pages/additional-datasets/" class="uri"><strong>millionsongdataset</strong></a>. Note that many of these are quite large, but there are “smaller” files of ~ 10000 songs that are available.</p>
 <p><strong>Github</strong> is the primary site for coders to share and improve upon their work. Git is a system in which one can upload (<em>push</em>) one’s work from a local computer to the cloud in a repository (<em>repo</em>), share this with collaborators who copy (<em>fork</em>) the repo, <em>pull</em> it down to their computers, and possibly make changes which will appear as a separate branch of the repo. Each change is time-stamped, and efficiently stored as only its difference from the prior edit (or <em>commit</em>). There are, in all of these pushes and pulls, opportunities for collisions and problems, but learning Git remains a critical part of the data scientist’s toolkit. You can set up an account on Github if you like, but even without this you can access some of the datasets that are stored there, including a set of <a href="https://github.com/datasets/"><strong>curated datasets on topics such as economics, demographics, air quality, flights and house prices</strong></a>. Perhaps the easiest way to access these is to click through repos until you find a data directory, open the files up as ‘raw’ files, and paste them into a spreadsheet or notepad program of your choice. Github also hosts the ’<a href="https://github.com/awesomedata/awesome-public-datasets"><strong>awesome public datasets</strong></a><strong>’</strong> (many of which probably are). You can work with R repositories straight from R studio.</p>
-<p>Or just <strong><a href="https://toolbox.google.com/datasetsearch">Google datasets</a></strong>.</p>
+<p>Or just <a href="https://toolbox.google.com/datasetsearch"><strong>Google datasets</strong></a>.</p>
 <div id="keep-it-manageable" class="section level3" number="13.2.1">
 <h3><span class="header-section-number">13.2.1</span> Keep it manageable</h3>
 <p>Proceed with caution - many of these datasets are likely to be quite large (for example, analyses of images) and/or in formats that for now are too challenging (JSON). I encourage you to stick with data that are available in a .csv format and that don’t have more than, say, a million data points (e.g., 50,000 observations * 20 variables). And probably avoid, for the time being, datasets consisting primarily of natural language samples or networks - for those who are interested, we will look at these in the Computational Social Science class in the Fall.</p>
@@ -370,7 +402,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="the-tidyverse.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="transforming-and-joining-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
