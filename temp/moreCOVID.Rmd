@@ -1,0 +1,29 @@
+---
+title: "13 - data in the age of coronavirus"
+author: "Lanning"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# an interlude
+
+Over the last few weeks of the class, we have spent an increasing amount of time discussing the coronavirus and its growth into what is now a pandemic (a global epidemic). For over a month now, we've studied and plotted global trends in the data; in the last week, classes have been moved online as an attempt to increase social distancing and to do our part to slow the growth of the network. Here, I bring together a few of the things that we have discussed
+
+## global data
+
+My R code for examining the global data is available on [Github](https://github.com/kevinlanning/2019-nCoV). That code illustrates some of the challenges in working with an emerging dataset, including the changing formats for dates and times talked about in chapter 14.  As of a few days ago, unfortunately, the data have been [problematic](https://github.com/CSSEGISandData/COVID-19/issues). Still, there are neat representations of the global data, including  [maps](https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6) from ArcGIS and interactive tools, some of which use [the R "shiny" package](https://dxdinfo.shinyapps.io/Coronavirus_stat/); you can find the code for one of these [here](https://github.com/korur/shiny-server). 
+
+Data scientists all over the world are looking at this (and because of this any new tools that we might create will likely duplicate the work of others), but there are still questions about the data that are worth asking rigorously, for example, is the US really two weeks behind Italy?
+
+## Florida data
+
+In the last 48 hours, the Florida department of health has moved to [a sophisticated county-by-county map of infection rates](https://experience.arcgis.com/experience/96dd742462124fa0b38ddedb9b25e429).  One thing to consider about this map, as well as maps of the USA and world, is that they don't adjust for population density. Is the proportion of infected cases greater in Florida than, say, in Massachusetts? How would you find this, examine it, plot it, and what would it tell you?
+
+By the way, we talked about how we can use the [wayback machine](https://web.archive.org/) to look at historical changes in a website . You can use this not just to recover changes in a dataset, but also uncover neat things such as the [first honors college web page](https://web.archive.org/web/20000408210019/http://www.fau.edu/divdept/honcol/honors.htm).
+
+## network models
+
+There are many news stories focused on how to constrain the spread of the virus, and whether it is worthwhile to restrict individual freedom (quarantines, closed borders) and invade individual privacy (use cell-phone tracking data to examine the histories of persons discovered to have been infected). I think that our answers to these questions should depend not just on these values (and how we value an individual life), but also on models - what happens if we (try to) keep people away from each other?
+
+These can be understood as questions about *networks*, and how networks change over time when various parameters are changed.  Agent-based models using simple tools such as [NetLogo](http://ccl.northwestern.edu/netlogo/) examine such phenomena as contagion change under various conditions, and they are fun to play around with.  I encourage you to explore them, and to consider some of the built in games, such as the [spread of disease model](http://ccl.northwestern.edu/netlogo/models/SpreadofDisease). Can you generate results consistent with the "flatten the curve" idea?
+

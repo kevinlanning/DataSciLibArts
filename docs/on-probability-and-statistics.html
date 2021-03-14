@@ -24,7 +24,7 @@
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2021-02-26" />
+<meta name="date" content="2021-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="examining-local-covid-data-in-r.html"/>
 <link rel="next" href="reproducibility-and-the-replication-crisis.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -60,6 +60,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -304,6 +305,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.3" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#dates"><i class="fa fa-check"></i><b>15.3</b> dates</a></li>
 <li class="chapter" data-level="15.4" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#times"><i class="fa fa-check"></i><b>15.4</b> times</a></li>
 </ul></li>
+<li class="chapter" data-level="16" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>16</b> lists</a></li>
+<li class="chapter" data-level="17" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html"><i class="fa fa-check"></i><b>17</b> loops, functions, and beyond</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#loops"><i class="fa fa-check"></i><b>17.1</b> loops</a></li>
+<li class="chapter" data-level="17.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#from-loop-to-apply-to-purrrmap"><i class="fa fa-check"></i><b>17.2</b> from loop to apply to purrr::map</a></li>
+<li class="chapter" data-level="17.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#some-examples-of-functions"><i class="fa fa-check"></i><b>17.3</b> some examples of functions</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#preliminaries"><i class="fa fa-check"></i><b>17.3.1</b> preliminaries</a></li>
+<li class="chapter" data-level="17.3.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#the-function"><i class="fa fa-check"></i><b>17.3.2</b> the function</a></li>
+<li class="chapter" data-level="17.3.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#applying-the-function"><i class="fa fa-check"></i><b>17.3.3</b> applying the function</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#how-many-bottles-of-what"><i class="fa fa-check"></i><b>17.4</b> how many bottles of what?</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
@@ -324,10 +338,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="on-probability-and-statistics" class="section level1" number="9">
 <h1><span class="header-section-number">9</span> on probability and statistics</h1>
-<p>Last week, we considered <span class="citation">(Anscombe <a href="#ref-anscombe1973" role="doc-biblioref">1973</a>)</span> and his quartet, and how visualizing data is valuable. This week, we move to a brief discussion of principles of statistics.</p>
+<p>Last week, we considered <span class="citation">(<a href="references.html#ref-anscombe1973" role="doc-biblioref">Anscombe 1973</a>)</span> and his quartet, and how visualizing data is valuable. This week, we move to a brief discussion of principles of statistics.</p>
 <div id="on-probability" class="section level2" number="9.1">
 <h2><span class="header-section-number">9.1</span> on probability</h2>
-<p><strong>Discrete</strong> probability is used to understand the likelihood of categorical events. We can think of initial estimates of probability as subjective or personal. For some events (<em>what is the probability this plane will crash?</em>), an estimate of probability can be drawn from a base rate or relative frequency (e.g., <em>p(this plane will crash) = (number of flights with crashes/ number of flights)</em>). For other events (what is the probability that a US President will resign or be impeached before completing his term of office?), it may be hard to arrive at a suitable base rate. Here, a number of subjective beliefs or principles may be combined to arrive at a subjective or personal probability. In a sense, all probability estimates begin with a personal belief such as this, in part because the choice of the most informative base rate is often not self-evident - in the plane crash example, maybe we should consider a reference group rates such as ‘for this airline’ etc. <span class="citation">(Lanning <a href="#ref-lanning1987" role="doc-biblioref">1987</a>)</span>. The personal origins of probability estimates should become less important as we are exposed to data and revise our estimates in accordance with Bayes theorem. But over the last 45 years, a substantial body of evidence has demonstrates that, under at least some circumstances, we don’t make estimates of probability in this way. (This material is discussed in the Thinking and Decision Making/Behavioral Economics class).</p>
+<p><strong>Discrete</strong> probability is used to understand the likelihood of categorical events. We can think of initial estimates of probability as subjective or personal. For some events (<em>what is the probability this plane will crash?</em>), an estimate of probability can be drawn from a base rate or relative frequency (e.g., <em>p(this plane will crash) = (number of flights with crashes/ number of flights)</em>). For other events (what is the probability that a US President will resign or be impeached before completing his term of office?), it may be hard to arrive at a suitable base rate. Here, a number of subjective beliefs or principles may be combined to arrive at a subjective or personal probability. In a sense, all probability estimates begin with a personal belief such as this, in part because the choice of the most informative base rate is often not self-evident - in the plane crash example, maybe we should consider a reference group rates such as ‘for this airline’ etc. <span class="citation">(<a href="references.html#ref-lanning1987" role="doc-biblioref">Lanning 1987</a>)</span>. The personal origins of probability estimates should become less important as we are exposed to data and revise our estimates in accordance with Bayes theorem. But over the last 45 years, a substantial body of evidence has demonstrates that, under at least some circumstances, we don’t make estimates of probability in this way. (This material is discussed in the Thinking and Decision Making/Behavioral Economics class).</p>
 </div>
 <div id="the-rules-of-probability" class="section level2" number="9.2">
 <h2><span class="header-section-number">9.2</span> the rules of probability</h2>
@@ -387,28 +401,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="the-most-dangerous-equation" class="section level2" number="9.4">
 <h2><span class="header-section-number">9.4</span> the most dangerous equation</h2>
-<p>Just as <span class="citation">(Tufte <a href="#ref-tufte2001" role="doc-biblioref">2001</a>)</span> demonstrated that poor data visualizations can be dangerous, leading, for example, to the loss of life in the Challenger disaster, <span class="citation">(Wainer <a href="#ref-wainer2007" role="doc-biblioref">2007</a>)</span> shows that a lack of statistical literacy is also “dangerous.”</p>
+<p>Just as <span class="citation">(<a href="references.html#ref-tufte2001" role="doc-biblioref">Tufte 2001</a>)</span> demonstrated that poor data visualizations can be dangerous, leading, for example, to the loss of life in the Challenger disaster, <span class="citation">(<a href="references.html#ref-wainer2007" role="doc-biblioref">Howard Wainer 2007</a>)</span> shows that a lack of statistical literacy is also “dangerous.”</p>
 <p>He argues that deMoivre’s equation is the most dangerous equation - this equation (for the standard error) shows that variability decreases with the square root of sample size. Other nominees include the linear regression equation (and, in particular, how coefficients may change or reverse when new variables are added) and regression to the mean. Regarding linear regression, Simpson’s paradox shows how the direction of regression coefficients may change when additional variables are added to a model.</p>
-<p>I would argue that, from the standpoint of psychology, ignorance of regression to the mean was arguably more ‘dangerous’ than ignorance about the central limit theorem and standard error, in particular because regression effects contribute to an overestimate of the effectiveness of punishment and an under-appreciation of the effectiveness of positive reinforcement as tools for behavior change <span class="citation">(Hastie and Dawes <a href="#ref-hastie2010" role="doc-biblioref">2010</a>)</span>.</p>
+<p>I would argue that, from the standpoint of psychology, ignorance of regression to the mean was arguably more ‘dangerous’ than ignorance about the central limit theorem and standard error, in particular because regression effects contribute to an overestimate of the effectiveness of punishment and an under-appreciation of the effectiveness of positive reinforcement as tools for behavior change <span class="citation">(<a href="references.html#ref-hastie2010" role="doc-biblioref">Hastie and Dawes 2010</a>)</span>.</p>
 
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-anscombe1973">
-<p>Anscombe, FJ. 1973. “Graphs in Statistical Analysis.” <em>American Statistician</em> 27 (1): 17–21.</p>
-</div>
-<div id="ref-hastie2010">
-<p>Hastie, Reid, and Robyn M Dawes. 2010. <em>Rational Choice in an Uncertain World: The Psychology of Judgment and Decision Making</em>. Sage.</p>
-</div>
-<div id="ref-lanning1987">
-<p>Lanning, Kevin. 1987. “Some Reasons for Distinguishing Between ‘Non-Normative Response’ and ‘Irrational Decision’.” <em>The Journal of Psychology</em> 121 (2): 109–17. <a href="https://doi.org/10/fv4hh5">https://doi.org/10/fv4hh5</a>.</p>
-</div>
-<div id="ref-tufte2001">
-<p>Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information</em>. Second. Cheshire, CT: Graphics Press.</p>
-</div>
-<div id="ref-wainer2007">
-<p>Wainer, Howard. 2007. “The Most Dangerous Equation,” 9.</p>
 </div>
 </div>
             </section>

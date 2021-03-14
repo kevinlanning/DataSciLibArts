@@ -24,7 +24,7 @@
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2021-02-26" />
+<meta name="date" content="2021-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="data-science-for-the-liberal-arts.html"/>
 <link rel="next" href="welcome-to-r-world.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -60,6 +60,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -304,6 +305,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.3" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#dates"><i class="fa fa-check"></i><b>15.3</b> dates</a></li>
 <li class="chapter" data-level="15.4" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#times"><i class="fa fa-check"></i><b>15.4</b> times</a></li>
 </ul></li>
+<li class="chapter" data-level="16" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>16</b> lists</a></li>
+<li class="chapter" data-level="17" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html"><i class="fa fa-check"></i><b>17</b> loops, functions, and beyond</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#loops"><i class="fa fa-check"></i><b>17.1</b> loops</a></li>
+<li class="chapter" data-level="17.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#from-loop-to-apply-to-purrrmap"><i class="fa fa-check"></i><b>17.2</b> from loop to apply to purrr::map</a></li>
+<li class="chapter" data-level="17.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#some-examples-of-functions"><i class="fa fa-check"></i><b>17.3</b> some examples of functions</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#preliminaries"><i class="fa fa-check"></i><b>17.3.1</b> preliminaries</a></li>
+<li class="chapter" data-level="17.3.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#the-function"><i class="fa fa-check"></i><b>17.3.2</b> the function</a></li>
+<li class="chapter" data-level="17.3.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#applying-the-function"><i class="fa fa-check"></i><b>17.3.3</b> applying the function</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#how-many-bottles-of-what"><i class="fa fa-check"></i><b>17.4</b> how many bottles of what?</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
@@ -337,12 +351,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>pour coffee into cup</p>
 <p>enjoy</p>
 </blockquote>
-<p>As a post-millennial student from a WEIRD culture, or Western, Educated, Industrialized, Rich Democracy <span class="citation">(Henrich, Heine, and Norenzayan <a href="#ref-henrich2010" role="doc-biblioref">2010</a>)</span>, you’ve ‘programmed’ computers, too, if only to enter a password, open an app, and upload a photo on your cell phone.</p>
+<p>As a post-millennial student from a WEIRD culture, or Western, Educated, Industrialized, Rich Democracy <span class="citation">(<a href="references.html#ref-henrich2010" role="doc-biblioref">Henrich, Heine, and Norenzayan 2010</a>)</span>, you’ve ‘programmed’ computers, too, if only to enter a password, open an app, and upload a photo on your cell phone.</p>
 <p><strong>Statistics</strong> is of fundamental importance, not just for understanding abstract trends, but for making decisions about everyday life. Consider the case of Susie, a college senior:</p>
 <blockquote>
 <p><strong>Exercise 2_1</strong> <em>Susie is applying to two med schools. At School A, 25% of students are accepted, and at School B, 25% are accepted as well. You are Susie. Are you going to get in to at least one of these programs? What is the probability? Does your estimate depend upon any assumptions?</em></p>
 </blockquote>
-<p>Questions such as these are important for us. If the combined probability is low, it will <em>likely</em> (another probability concept) make sense for Susie to spend time, money, and energy to apply to additional programs. If the probability is higher, it may not. But problems like this are hard - our estimates of probability are frequently poorly calibrated, and combining probability estimates is challenging (see, e.g., <span class="citation">(Tversky and Kahneman <a href="#ref-tversky1974" role="doc-biblioref">1974</a>)</span>, and consider taking a course in <em>Behavioral Economics</em> or <em>Thinking and Decision Making</em> to learn more).</p>
+<p>Questions such as these are important for us. If the combined probability is low, it will <em>likely</em> (another probability concept) make sense for Susie to spend time, money, and energy to apply to additional programs. If the probability is higher, it may not. But problems like this are hard - our estimates of probability are frequently poorly calibrated, and combining probability estimates is challenging (see, e.g., <span class="citation">(<a href="references.html#ref-tversky1974" role="doc-biblioref">Tversky and Kahneman 1974</a>)</span>, and consider taking a course in <em>Behavioral Economics</em> or <em>Thinking and Decision Making</em> to learn more).</p>
 <p>You may have worked with data in spreadsheets such as Excel or Google Sheets.</p>
 <blockquote>
 <p><strong>Exercise 2_2</strong> Open the Google Sheet at <a href="http://bit.ly/dslaX2_1" class="uri">http://bit.ly/dslaX2_1</a>. Save a copy and edit it, entering the following in cell B7:</p>
@@ -354,7 +368,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="some-best-practices-for-spreadsheets" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> some best practices for spreadsheets</h2>
-<p><strong>Spreadsheets</strong> are great tools - the first one, Visi-Calc, was the first “killer app” to usher in the personal computer revolution. But they have limitations as well. <strong>Best practices</strong> have been proposed for using spreadsheets in data science such as, for example, include only data (and not calculations) in spreadsheets, use what we will recognize as a ‘tidy’ format in which data are in a simple rectangle (avoid combining cells and using multi-line headers), and save spreadsheets as simple text files, typically in comma-delimited or CSV format <span class="citation">(Broman and Woo <a href="#ref-broman2018" role="doc-biblioref">2018</a>)</span>. Typically, this means that each worksheet will be in a separate file, rather than in workbooks with multiple tabs.</p>
+<p><strong>Spreadsheets</strong> are great tools - the first one, Visi-Calc, was the first “killer app” to usher in the personal computer revolution. But they have limitations as well. <strong>Best practices</strong> have been proposed for using spreadsheets in data science such as, for example, include only data (and not calculations) in spreadsheets, use what we will recognize as a ‘tidy’ format in which data are in a simple rectangle (avoid combining cells and using multi-line headers), and save spreadsheets as simple text files, typically in comma-delimited or CSV format <span class="citation">(<a href="references.html#ref-broman2018" role="doc-biblioref">Broman and Woo 2018</a>)</span>. Typically, this means that each worksheet will be in a separate file, rather than in workbooks with multiple tabs.</p>
 <p>There are good reasons for these recommendations: For example, when we sort data in spreadsheets, we risk chaos, for example, only certain columns may be sorted. When we manipulate data in spreadsheets, we typically will not have a record of what was (and wasn’t) changed, and this compromises the reproducibility of our work.</p>
 <p><strong>The bottom line is that spreadsheets should generally be used to store data rather than to analyze it.</strong> But don’t be a slave to this - if you are making some quick calculations that are inconsequential and/or to be used on just one occasion, working in Excel or Google Sheets is often the way to go.</p>
 </div>
@@ -362,11 +376,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.3</span> setting up your machine: some basic tools</h2>
 <p>Collaboration and communication are integral to data science. In the world beyond universities, the most important messaging and collaboration platform is <a href="https://slack.com/">Slack</a>. Slack is a commercial app, but it has a free tier. Slack is handy for group work of all forms, but most students in full-time programs will be expected to use a Learning Management System such as Canvas so that all of their classes are on the same platform.</p>
 <p>Documents produced in word processors typically include invisible characters used for formatting, security, etc. These characters, when fed into a computer program, lead to unpredictable results. <em>Markdown</em> is a simple syntax for producing documents that are easily read by both humans and machines. Most of the documents you will produce and work with this term, including the present chapter, are and will be written in some version of Markdown.</p>
-<p>You can find an introduction to markdown syntax in Chapter 3 of <span class="citation">(Freeman and Ross <a href="#ref-freeman2017" role="doc-biblioref">2017</a>)</span>. I use <a href="https://www.typora.io/">Typora</a> (currently free for both Windows and Mac), but there are many alternatives. Install this or another Markdown editor on your laptop and play with it.</p>
+<p>You can find an introduction to markdown syntax in Chapter 3 of <span class="citation">(<a href="references.html#ref-freeman2017" role="doc-biblioref">Freeman and Ross 2017</a>)</span>. I use <a href="https://www.typora.io/">Typora</a> (currently free for both Windows and Mac), but there are many alternatives. Install this or another Markdown editor on your laptop and play with it.</p>
 <p><strong>Google Docs</strong> is free and is convenient for collaborative work. One other important feature of Google Docs is that it provides a framework for <em>version control,</em> a critical skill in information management. You can learn more about how to see and revert to prior versions of a project in Google Docs <a href="https://sites.google.com/site/scriptsexamples/home/announcements/named-versions-new-version-history-google-docs">here</a>. Version control can help you avoid the chaos and confusion of having a computer (or several computers) full of files that look like Cham’s (2012) comic:</p>
 <div class="figure">
 <img src="images/final.jpg" alt="" />
-<p class="caption"><em>Fig 2.1: Never call anything ‘final.doc’.</em></p>
+<p class="caption"><em>Fig 2.1: Never call anything ‘final.doc.’</em></p>
 </div>
 <p>Version control is an important concept in data science. Collaboratively built programs and platforms, including most of the add-ons (libraries, packages) which make R so powerful, are open-source projects built by many individuals over time. For projects such as these, both the current build and its associated history are typically maintained on <a href="https://github.com/">GitHub</a>, a website for hosting code. When we contribute to these projects, we will first mirror the web-based GitHub site using a program on our own Macs or Windows PCs called <a href="https://git-scm.com/">Git</a>, then upload our proposed changes. Keeping remote and local branches of files in sync can be challenging, however, and you will not be expected to use this technology in this class. But if you are curious, or want to learn more, an introduction to using Git and R together may be found <a href="https://happygitwithr.com/">here</a>.</p>
 </div>
@@ -381,21 +395,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A formal, statistical approach to this could use regression analysis. That is, one could predict final exam scores from pretest scores, and use the residuals - the extent to which students did better or worse than expected - as a contributor to final exam grades. Interestingly, there would be an unusual incentive for students on this ‘pretest’ to do, seemingly perversely, as poorly as possible. How could this be addressed?</p>
 <p>Another problem with this approach is that there may be ‘ceiling effects’ - students who are the strongest coming in to the class can’t improve as much as those who have more room to grow. Again, how might this be addressed? Should it?</p>
 
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-broman2018">
-<p>Broman, Karl W., and Kara H. Woo. 2018. “Data Organization in Spreadsheets.” <em>The American Statistician</em> 72 (1): 2–10. <a href="https://doi.org/10.1080/00031305.2017.1375989">https://doi.org/10.1080/00031305.2017.1375989</a>.</p>
-</div>
-<div id="ref-freeman2017">
-<p>Freeman, Michael, and Joel Ross. 2017. <em>Technical Foundations of Informatics, U Washington INFO 201</em>.</p>
-</div>
-<div id="ref-henrich2010">
-<p>Henrich, Joseph, Steven J. Heine, and Ara Norenzayan. 2010. “The Weirdest People in the World?” <em>Behavioral and Brain Sciences</em> 33 (2-3): 61–83. <a href="https://doi.org/10/c9j35b">https://doi.org/10/c9j35b</a>.</p>
-</div>
-<div id="ref-tversky1974">
-<p>Tversky, Amos, and Daniel Kahneman. 1974. “Judgment Under Uncertainty: Heuristics and Biases.” <em>Science</em> 185 (4157): 1124–31. <a href="https://doi.org/10.1126/science.185.4157.1124">https://doi.org/10.1126/science.185.4157.1124</a>.</p>
 </div>
 </div>
             </section>

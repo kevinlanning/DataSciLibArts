@@ -105,3 +105,12 @@ types-of-babies
 types-of-grown-ups
 dates
 times
+lists
+loops-functions-and-beyond
+loops
+from-loop-to-apply-to-purrrmap
+some-examples-of-functions
+preliminaries
+the-function
+applying-the-function
+how-many-bottles-of-what

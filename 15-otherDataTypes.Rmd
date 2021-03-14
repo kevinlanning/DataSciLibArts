@@ -1,6 +1,6 @@
 # strings, factors, dates, and times
 
-This chapter discusses some of the types of data other than numeric and logical, in particular strings, factors, and dates/times. 
+This chapter discusses some of the types of data other than numeric and logical, in particular strings, factors, and dates/times.
 
 In this chapter, as in the last few, I refer primarily to three of the chapters in R4DS. Consider these notes supplementary.
 
@@ -8,9 +8,10 @@ In this chapter, as in the last few, I refer primarily to three of the chapters 
 
 Strings are sets of characters which may include "123" as well as "why \*DID\* the chicken cross the road?" Samples of text, from names to novels, are the most interesting type of string.
 
-Among the tools that are used in examining texts are searches (do these tweets include language associated with hate speech?), validity checks (does the string correspond to a valid zip code?), and reformatting (to lower case so that BOB, Bob, and bob are all coded as identical). These ideas are simple, but quickly become challenging when, for example, the strings in which we are interested include characters that R usually interprets as code - such as commas, quotes, and slashes. See the section on string basics (14.2) for how to "escape" these characters, for example, how to treat a hashtag (#) as just a character as opposed to the beginning of a comment. These rules are codified as **regular expressions** (regex, sometimes regexp).  Regex are not unique to R, but are shared with other languages as well. 
+Among the tools that are used in examining texts are searches (do these tweets include language associated with hate speech?), validity checks (does the string correspond to a valid zip code?), and reformatting (to lower case so that BOB, Bob, and bob are all coded as identical). These ideas are simple, but quickly become challenging when, for example, the strings in which we are interested include characters that R usually interprets as code - such as commas, quotes, and slashes. See the section on string basics (14.2) for how to "escape" these characters, for example, how to treat a hashtag (\#) as just a character as opposed to the beginning of a comment. These rules are codified as **regular expressions** (regex, sometimes regexp). Regex are not unique to R, but are shared with other languages as well.
 
-In R, particularly in the tidyverse package, regex are typically implicit, represented within commands that are part of the stringr package and that typically begin with str_. For example, str_detect returns a set of logical values:
+In R, particularly in the tidyverse package, regex are typically implicit, represented within commands that are part of the stringr package and that typically begin with str\_. For example, str_detect returns a set of logical values:
+
 ```{r message=FALSE}
 library(tidyverse)
 donuts <- c("glazed", "cakes", "Pink sprinkled",
@@ -20,15 +21,17 @@ donuts %>%
     str_detect(" ")
 ```
 
-Most of the str_ functions are straightforward, but remember that str_sub provides a subset, not a substitution; to change a string, use str_replace. As Hadley points out in R4DS, the autocomplete function in R_studio is very handy for helping you explore the different functions - in your console, type str_ ... then scroll through the possibilities.
+Most of the str\_ functions are straightforward, but remember that str_sub provides a subset, not a substitution; to change a string, use str_replace. As Hadley points out in R4DS, the autocomplete function in R_studio is very handy for helping you explore the different functions - in your console, type str\_ ... then scroll through the possibilities.
+
 ```{r}
 donuts %>% str_sub(1,5)
 donuts %>% str_replace(" ","_")
 ```
 
-As you work with texts, simple problems sometimes require sophisticated codes. The regex that are used to solve these problems quickly become dense and challenging. 
+As you work with texts, simple problems sometimes require sophisticated codes. The regex that are used to solve these problems quickly become dense and challenging.
 
-One tool that can help you is the str_view command, which returns (when used in R studio) highlighted text showing corresponding passages. For example: 
+One tool that can help you is the str_view command, which returns (when used in R studio) highlighted text showing corresponding passages. For example:
+
 ```{r}
 dumbSlashMovieTitles <- c("Craslash", 
                      "Revenge o' \'McSlashy'", 
@@ -40,7 +43,7 @@ Note the effects of the backslash: For example, the Star Wars movie has two slas
 
 > So. How would you use str_view to find strings which include the backslash character in our dumbSlashMovieTitles? [Experiment. Google. Ask your classmates.]
 
-The density of regex statements can make them challenging. The backslash case is an unusual one, but other special characters are more common, and can be useful, including (for example) indicators for the beginning (^) or end ($) of a string:
+The density of regex statements can make them challenging. The backslash case is an unusual one, but other special characters are more common, and can be useful, including (for example) indicators for the beginning (\^) or end (\$) of a string:
 
 ```{r}
 # get rid of suspected plural 
@@ -48,16 +51,17 @@ donuts %>% str_replace ("s$", "")
 ```
 
 A particularly useful function in stringr is str_split, which can be used to quickly break a text into discrete words. Note that using a space and the explicit "word" boundary give different results.
+
 ```{r}
 str_split(donuts, " ", simplify = TRUE)
 str_split(donuts, boundary ("word"), simplify = TRUE)
 ```
 
-The output of str_split is generally a list (more on that soon), but here the lists are simplified into tibbles. In the tidyverse, str_split is typically one of the first steps in preparing text.  The tidytext package (https://www.tidytextmining.com/), which is discussed at length in the computational social science course, builds on this foundation and is a powerful set of tools for all sorts of problems in formal text analysis.
+The output of str_split is generally a list (more on that soon), but here the lists are simplified into tibbles. In the tidyverse, str_split is typically one of the first steps in preparing text. The tidytext package (<https://www.tidytextmining.com/>), which is discussed at length in the computational social science course, builds on this foundation and is a powerful set of tools for all sorts of problems in formal text analysis.
 
 ## factors
 
-Conditions (experimental vs control), categories (male or female), types (scorpio, "hates astrology") and other nominal measures are categorical variables or factors. In the tidyverse, the r package for dealing with this type of measure is *forcats*, one of the core parts of the tidyverse. 
+Conditions (experimental vs control), categories (male or female), types (scorpio, "hates astrology") and other nominal measures are categorical variables or factors. In the tidyverse, the r package for dealing with this type of measure is *forcats*, one of the core parts of the tidyverse.
 
 Here's an example of a categorical variable. Why is it set up like this, and what does it do?
 
@@ -70,13 +74,13 @@ eyes <- factor(x = c("blue", "green",
 eyes
 ```
 
-In base R, string variables ("donut", "anti-Brexit", and "yellow") are generally treated as factors by default.  In the tidyverse, string variables are treated as strings until they are explicitly declared as factors.  
+In base R, string variables ("donut", "anti-Brexit", and "yellow") are generally treated as factors by default. In the tidyverse, string variables are treated as strings until they are explicitly declared as factors.
 
-The syntax for working with factors-as-categories is given in Chapter 15 of R4DS. I will not duplicate that here, but I will point out that factors are represented internally in R as numbers, and converting (coercing) factors to other data types can occasionally lead to nasty surprises. Sections 15.4 and 15.5 describe how factors can be cleanly reordered and modified. 
+The syntax for working with factors-as-categories is given in Chapter 15 of R4DS. I will not duplicate that here, but I will point out that factors are represented internally in R as numbers, and converting (coercing) factors to other data types can occasionally lead to nasty surprises. Sections 15.4 and 15.5 describe how factors can be cleanly reordered and modified.
 
 ### types of babies
 
-In the babynames data, baby's gender is a categorical variable, which is treated (because tidyverse) as a character or string.  Here, we make it into a factor. We create two other factors as well.
+In the babynames data, baby's gender is a categorical variable, which is treated (because tidyverse) as a character or string. Here, we make it into a factor. We create two other factors as well.
 
 ```{r echo=TRUE, results="hide", message=FALSE}
 library(tidyverse)
@@ -98,15 +102,15 @@ babynames2 <- babynames %>%
     mutate(century = factor(century))
 ```
 
-> Use the syntax above to create types of names for different generations (boomers, gen x, Millenials, gen z). Use https://www.kasasa.com/articles/generations/gen-x-gen-y-gen-z to determine your groupings. 
+> Use the syntax above to create types of names for different generations (boomers, gen x, Millenials, gen z). Use <https://www.kasasa.com/articles/generations/gen-x-gen-y-gen-z> to determine your groupings.
 
 > Say something interesting about the data - names, genders, etc. Plot this.
 
 ### types of grown-ups
 
-If you would instead like to examine survey data, the forcats package includes a set of categorical variables.  
+If you would instead like to examine survey data, the forcats package includes a set of categorical variables.
 
-> Using the discussion in Chapter 15 of R4DS as your guide, examine the relationship between two or more of these categorical variables. Again, plot these 
+> Using the discussion in Chapter 15 of R4DS as your guide, examine the relationship between two or more of these categorical variables. Again, plot these
 
 ```{r}
 gss_cat
@@ -114,9 +118,9 @@ gss_cat
 
 ## dates
 
-The challenges of combining time-demarcated data (Chapter 16) are significant.  For dates, a variety of different formats (3-April, October 23, 1943, 10/12/92) must be made sense of. Sometimes we are concerned with durations (how many days, etc.); on other occasions, we are concerned with characteristics of particular dates (as in figuring out the day of the week on which you were born). And don't forget about leap years.
+The challenges of combining time-demarcated data (Chapter 16) are significant. For dates, a variety of different formats (3-April, October 23, 1943, 10/12/92) must be made sense of. Sometimes we are concerned with durations (how many days, etc.); on other occasions, we are concerned with characteristics of particular dates (as in figuring out the day of the week on which you were born). And don't forget about leap years.
 
-In R, the *lubridate* package (a non-core part of the tidyverse, i.e., one that you must load separately) helps to handle dates and times smoothly. It anticipates many of the problems we might encounter in extracting date and time information from strings.  Lubridate generally works well to simplify files with dates and times, and can be used to help in data munging. For example, in my analyses of the Corona data, dates and times were reported in four different ways. The code below decodes these transparently and combines them into a common date/time format . 
+In R, the *lubridate* package (a non-core part of the tidyverse, i.e., one that you must load separately) helps to handle dates and times smoothly. It anticipates many of the problems we might encounter in extracting date and time information from strings. Lubridate generally works well to simplify files with dates and times, and can be used to help in data munging. For example, in my analyses of the Corona data, dates and times were reported in four different ways. The code below decodes these transparently and combines them into a common date/time format .
 
 > 2/3/20 6 PM
 >
@@ -137,7 +141,7 @@ coronaData2 <- coronaData %>% mutate
 
 ## times
 
-Working with temporal data is often challenging. The existence of, for example, 12 versus 24 hour clocks, time zones, and daylight savings, can make a simple question about duration quite challenging. 
+Working with temporal data is often challenging. The existence of, for example, 12 versus 24 hour clocks, time zones, and daylight savings, can make a simple question about duration quite challenging.
 
 > Imagine that Fred was born in Singapore at the exact moment of Y2K. He now lives in NYC. How many hours has he been alive as of right now? How would you solve this?
 
@@ -147,5 +151,3 @@ Working with temporal data is often challenging. The existence of, for example, 
 # b = get datetime for now in NYC in UTC
 # compute difference and express in sensible metric
 ```
-
-

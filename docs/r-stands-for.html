@@ -24,7 +24,7 @@
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2021-02-26" />
+<meta name="date" content="2021-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="welcome-to-r-world.html"/>
 <link rel="next" href="now-draw-the-rest-of-the-owl.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -60,6 +60,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -304,6 +305,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.3" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#dates"><i class="fa fa-check"></i><b>15.3</b> dates</a></li>
 <li class="chapter" data-level="15.4" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#times"><i class="fa fa-check"></i><b>15.4</b> times</a></li>
 </ul></li>
+<li class="chapter" data-level="16" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>16</b> lists</a></li>
+<li class="chapter" data-level="17" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html"><i class="fa fa-check"></i><b>17</b> loops, functions, and beyond</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#loops"><i class="fa fa-check"></i><b>17.1</b> loops</a></li>
+<li class="chapter" data-level="17.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#from-loop-to-apply-to-purrrmap"><i class="fa fa-check"></i><b>17.2</b> from loop to apply to purrr::map</a></li>
+<li class="chapter" data-level="17.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#some-examples-of-functions"><i class="fa fa-check"></i><b>17.3</b> some examples of functions</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#preliminaries"><i class="fa fa-check"></i><b>17.3.1</b> preliminaries</a></li>
+<li class="chapter" data-level="17.3.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#the-function"><i class="fa fa-check"></i><b>17.3.2</b> the function</a></li>
+<li class="chapter" data-level="17.3.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#applying-the-function"><i class="fa fa-check"></i><b>17.3.3</b> applying the function</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#how-many-bottles-of-what"><i class="fa fa-check"></i><b>17.4</b> how many bottles of what?</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
@@ -328,16 +342,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>R is a system for <strong>Reproducible</strong> analysis, and reproducibility is essential. R markdown documents, like Jupyter notebooks in the Python world, facilitate reproducible work, as they include comments or explanations, code, links to data, and results.</p>
 <p>R is for <strong>Research.</strong> Research is not just an end-product, not just a published paper or book:</p>
 <blockquote>
-<p>… these documents are not the research [rather] these documents are the “advertising”. The research is the “full software environment, code, and data that produced the results”</p>
+<p>… these documents are not the research [rather] these documents are the “advertising.” The research is the “full software environment, code, and data that produced the results”</p>
 </blockquote>
-<p><span class="citation">(Buckheit and Donoho <a href="#ref-buckheit1995" role="doc-biblioref">1995</a>; Donoho <a href="#ref-donoho2010" role="doc-biblioref">2010</a>, 385)</span>. When we separate the research from its advertisement we are making it difficult for others to verify the findings by reproducing them <span class="citation">(Gandrud <a href="#ref-gandrud2013" role="doc-biblioref">2013</a>)</span>.</p>
+<p><span class="citation">(<a href="references.html#ref-buckheit1995" role="doc-biblioref">Buckheit and Donoho 1995</a>; <a href="references.html#ref-donoho2010" role="doc-biblioref">D. L. Donoho 2010, 385</a>)</span>. When we separate the research from its advertisement we are making it difficult for others to verify the findings by reproducing them <span class="citation">(<a href="references.html#ref-gandrud2013" role="doc-biblioref">Gandrud 2013</a>)</span>.</p>
 <p>R is a system for <strong>Representing</strong> data in cool, insight-facilitating ways, a tool for creating (reproducible) data visualizations which can provide insights and communicate results.</p>
 <p>R is <strong>Really popular</strong>, and this matters, because learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.</p>
 <p>Because R is popular, there are many <strong>Resources</strong>, including, for example -</p>
 <ul>
 <li>Online resources include the simple (and less simple) lessons of <a href="http://swirlstats.com/">SwirlR</a>, which offers the possibility of “learning R in R,” as well as <a href="https://www.datacamp.com/home">DataCamp</a>, the <a href="https://www.coursera.org/specializations/jhu-data-science">Data Science Certificate Program at Johns Hopkins,</a> and other MOOCs.<br />
 </li>
-<li>Books include <span class="citation">(Peng <a href="#ref-peng2014" role="doc-biblioref">2014</a>)</span> - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and <span class="citation">(Wickham and Grolemund <a href="#ref-wickham2016" role="doc-biblioref">2016</a>)</span>.</li>
+<li>Books include <span class="citation">(<a href="references.html#ref-peng2014" role="doc-biblioref">Peng 2014</a>)</span> - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and <span class="citation">(<a href="references.html#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span>.</li>
 <li>You’ll also learn (more directly) from people, including your classmates, as well as the broader community of people around the world. There are hundreds if not thousands of people, young and old, who are on the road with you. I am as well, just a step or two (hopefully) ahead.</li>
 </ul>
 <p>R might stand for <em>Relatively high level.</em> Programming languages can be described along a continuum from high to low level, the former (like R) are more accessible to humans, the latter (like assembly language) more accessible to machines. Python, Java, and C++ are all more towards the middle of this continuum.</p>
@@ -345,8 +359,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>But R does stand for <strong><em>Rewarding</em></strong>. A language is a way of thinking about the world, and this is true for computer languages as well. You’ll be challenged by its complexity, its idiosyncracy, its alien logic. But you will succeed, and you will find that you can do things that you did not believe possible.</p>
 <div id="a-few-characteristics-of-r" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> a few characteristics of R</h2>
-<p>R includes the base together with <strong>packages</strong>. These packages (libraries) are customized add-ons which simplify certain tasks, such as text analysis. There are, at this writing, 15,373 available packages on the CRAN package repository - and though there is not yet an R package for ordering pizza <span class="citation">(Peng <a href="#ref-peng2014" role="doc-biblioref">2014</a>)</span>, there are many for most data tasks, including, for example, <a href="https://cran.r-project.org/web/views/NaturalLanguageProcessing.html">over 50 different packages for text analysis</a>. So how do you choose, and where do you begin? We will start with the curated list of packages which jointly comprise the <strong>tidyverse</strong> <span class="citation">(Wickham and Grolemund <a href="#ref-wickham2016" role="doc-biblioref">2016</a>)</span>, which is effectively a dialect of R.</p>
-<p>R is an <strong>object-oriented</strong> language - one conceptually organized around objects and data rather than actions and logic. In R, at the atomic level, objects include <em>characters, real numbers, integers, complex numbers, and logical.</em> These atoms are combined into vectors, which generally include objects of the same type <span class="citation">(one kind of object, “lists,” is an exception to this; Peng <a href="#ref-peng2014" role="doc-biblioref">2014</a>)</span>. Vectors can be further combined into <strong>data frames</strong>, which are two-dimensional tables or arrays. A <strong>tibble</strong> is a particular type of data frame which is used in the tidyverse. It is, in some ways, handier to work with than other data frames. We’ll be working extensively with data frames in general, and tibbles in particular, as we move forward.</p>
+<p>R includes the base together with <strong>packages</strong>. These packages (libraries) are customized add-ons which simplify certain tasks, such as text analysis. There are, at this writing, 15,373 available packages on the CRAN package repository - and though there is not yet an R package for ordering pizza <span class="citation">(<a href="references.html#ref-peng2014" role="doc-biblioref">Peng 2014</a>)</span>, there are many for most data tasks, including, for example, <a href="https://cran.r-project.org/web/views/NaturalLanguageProcessing.html">over 50 different packages for text analysis</a>. So how do you choose, and where do you begin? We will start with the curated list of packages which jointly comprise the <strong>tidyverse</strong> <span class="citation">(<a href="references.html#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span>, which is effectively a dialect of R.</p>
+<p>R is an <strong>object-oriented</strong> language - one conceptually organized around objects and data rather than actions and logic. In R, at the atomic level, objects include <em>characters, real numbers, integers, complex numbers, and logical.</em> These atoms are combined into vectors, which generally include objects of the same type [one kind of object, ‘lists,’ is an exception to this; <span class="citation"><a href="references.html#ref-peng2014" role="doc-biblioref">Peng</a> (<a href="references.html#ref-peng2014" role="doc-biblioref">2014</a>)</span>]. Vectors can be further combined into <strong>data frames</strong>, which are two-dimensional tables or arrays. A <strong>tibble</strong> is a particular type of data frame which is used in the tidyverse. It is, in some ways, handier to work with than other data frames. We’ll be working extensively with data frames in general, and tibbles in particular, as we move forward.</p>
 <p>Objects have <strong>attributes</strong>. Attributes of R include such things as name, dimensions (for vectors and arrays), class (that’s the type of object described in the previous paragraph), length, etc.</p>
 <p>Real world data sets are messy, and frequently have <strong>missing values.</strong> In R, missing values may be characterized by NA (not available) or NaN (not a number, implying an undefined or impossible value).</p>
 <p><strong>RStudio,</strong> the environment we will use to write, test, and run R code, is a commercial enterprise whose business model, judged from afar, is an important one in the world of technology. Most of what RStudio offers is free (97% according to Garrett Grolemund in the video below). The commercial product they offer makes sense for a relative few, but it is sufficiently lucrative to fund the enterprise. The free product helps to drive the popularity of Rstudio; this widespread use, in turn, makes it increasingly essential for businesses to use. This mixed free/premium, or ‘freemium,’ model characterizes Slack as well, but while <a href="https://www.statista.com/statistics/652779/worldwide-slack-users-total-vs-paid/">the ratio of free to paid users of Slack is on the order of 3:1</a>, for R it is, I am guessing, an order of magnitude higher than this.</p>
@@ -363,27 +377,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="wickham-and-r-for-data-science" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> Wickham and R for Data Science</h2>
-<p><a href="https://r4ds.had.co.nz/introduction.html">The first chapter of the Wickham text</a> <span class="citation">(Wickham and Grolemund <a href="#ref-wickham2016" role="doc-biblioref">2016</a>)</span> provides both a framework for his approach and a brief introduction to the <em>tidyverse</em> which will be the dialect of R we will study in the weeks ahead.</p>
+<p><a href="https://r4ds.had.co.nz/introduction.html">The first chapter of the Wickham text</a> <span class="citation">(<a href="references.html#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span> provides both a framework for his approach and a brief introduction to the <em>tidyverse</em> which will be the dialect of R we will study in the weeks ahead.</p>
 <p>Please read it now.</p>
 
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-buckheit1995">
-<p>Buckheit, Jonathan B., and David L. Donoho. 1995. “Wavelab and Reproducible Research.” In <em>Wavelets and Statistics</em>, 55–81. Springer.</p>
-</div>
-<div id="ref-donoho2010">
-<p>Donoho, David L. 2010. “An Invitation to Reproducible Computational Research.” <em>Biostatistics</em> 11 (3): 385–88. <a href="https://doi.org/10.1093/biostatistics/kxq028">https://doi.org/10.1093/biostatistics/kxq028</a>.</p>
-</div>
-<div id="ref-gandrud2013">
-<p>Gandrud, Christopher. 2013. <em>Reproducible Research with R and R Studio</em>. CRC Press.</p>
-</div>
-<div id="ref-peng2014">
-<p>Peng, Roger D. 2014. <em>R Programming for Data Science</em>.</p>
-</div>
-<div id="ref-wickham2016">
-<p>Wickham, Hadley, and Garrett Grolemund. 2016. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. " O’Reilly Media, Inc.".</p>
 </div>
 </div>
             </section>

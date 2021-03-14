@@ -24,7 +24,7 @@
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2021-02-26" />
+<meta name="date" content="2021-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="finding-exploring-and-cleaning-data.html"/>
 <link rel="next" href="strings-factors-dates-and-times.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -60,6 +60,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -304,6 +305,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.3" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#dates"><i class="fa fa-check"></i><b>15.3</b> dates</a></li>
 <li class="chapter" data-level="15.4" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#times"><i class="fa fa-check"></i><b>15.4</b> times</a></li>
 </ul></li>
+<li class="chapter" data-level="16" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>16</b> lists</a></li>
+<li class="chapter" data-level="17" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html"><i class="fa fa-check"></i><b>17</b> loops, functions, and beyond</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#loops"><i class="fa fa-check"></i><b>17.1</b> loops</a></li>
+<li class="chapter" data-level="17.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#from-loop-to-apply-to-purrrmap"><i class="fa fa-check"></i><b>17.2</b> from loop to apply to purrr::map</a></li>
+<li class="chapter" data-level="17.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#some-examples-of-functions"><i class="fa fa-check"></i><b>17.3</b> some examples of functions</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#preliminaries"><i class="fa fa-check"></i><b>17.3.1</b> preliminaries</a></li>
+<li class="chapter" data-level="17.3.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#the-function"><i class="fa fa-check"></i><b>17.3.2</b> the function</a></li>
+<li class="chapter" data-level="17.3.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#applying-the-function"><i class="fa fa-check"></i><b>17.3.3</b> applying the function</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#how-many-bottles-of-what"><i class="fa fa-check"></i><b>17.4</b> how many bottles of what?</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
@@ -325,9 +339,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="transforming-and-joining-data" class="section level1" number="14">
 <h1><span class="header-section-number">14</span> transforming and joining data</h1>
 <p>Once you have your data, you will almost invariably need to transform it - to sort it, to select observations or variables from it, to create new variables, to partition it into groups, or to summarize it. In R, there is a general purpose tool (ok, package) that exists for this called dplyr (“d-plier”). Dplyr is a core part of the tidyverse and hence is loaded automatically when you load the tidyverse ensemble of libraries:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="transforming-and-joining-data.html#cb23-1" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb23-2"><a href="transforming-and-joining-data.html#cb23-2" aria-hidden="true"></a><span class="kw">library</span>(maps)</span>
-<span id="cb23-3"><a href="transforming-and-joining-data.html#cb23-3" aria-hidden="true"></a><span class="kw">library</span>(maptools)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="transforming-and-joining-data.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb23-2"><a href="transforming-and-joining-data.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maps)</span>
+<span id="cb23-3"><a href="transforming-and-joining-data.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maptools)</span></code></pre></div>
 <p>The versatility of dplyr is demonstrated in Chapter 5 of R4DS, which shows how to do many basic, and some not so basic, operations on your data. Read it closely if you haven’t already done so.</p>
 <div id="from-data-on-the-web-to-data-in-r" class="section level2" number="14.1">
 <h2><span class="header-section-number">14.1</span> from data on the web to data in R</h2>
@@ -336,54 +350,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Method 1: Download the file to your computer as a csv file. Some advantages of this include (a) it will allow the code to run even if the website changes or disappears, (b) in the likely event that I will run the code several times, it is faster to get data from my own machine than from the cloud, and (c) if there are any anomalies in the data I can look at them locally (e.g., in Notepad++). If you use this approach, make sure that you know where your data is on your computer. The easiest way to do this is to work with an R project. Within R studio, create a new R project (or use an existing one). Move the csv file into this directory, so that data, code, and results will all be in the same place.</p>
 <p>Method 2: Import the data from the cloud directly into R. You can do this either by specifying the musicURL separately (Method 2a) or call it directly within the read_csv statement (2b). Here, too, I would encourage you to set up and work within a project.</p>
 </blockquote>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="transforming-and-joining-data.html#cb24-1" aria-hidden="true"></a><span class="co">### Method 1</span></span>
-<span id="cb24-2"><a href="transforming-and-joining-data.html#cb24-2" aria-hidden="true"></a><span class="co"># music1 &lt;- read_csv(&quot;music.csv&quot;) </span></span>
-<span id="cb24-3"><a href="transforming-and-joining-data.html#cb24-3" aria-hidden="true"></a><span class="co">### Method 2a</span></span>
-<span id="cb24-4"><a href="transforming-and-joining-data.html#cb24-4" aria-hidden="true"></a>musicURL &lt;-<span class="st"> </span></span>
-<span id="cb24-5"><a href="transforming-and-joining-data.html#cb24-5" aria-hidden="true"></a><span class="st">  &quot;https://think.cs.vt.edu/corgis/datasets/csv/music/music.csv?forcedownload=1&quot;</span></span>
-<span id="cb24-6"><a href="transforming-and-joining-data.html#cb24-6" aria-hidden="true"></a>music1 &lt;-<span class="st"> </span><span class="kw">read_csv</span>(musicURL)</span>
-<span id="cb24-7"><a href="transforming-and-joining-data.html#cb24-7" aria-hidden="true"></a><span class="co">### Method 2b</span></span>
-<span id="cb24-8"><a href="transforming-and-joining-data.html#cb24-8" aria-hidden="true"></a><span class="co"># music1 &lt;- read_csv(</span></span>
-<span id="cb24-9"><a href="transforming-and-joining-data.html#cb24-9" aria-hidden="true"></a><span class="co">#  &quot;https://think.cs.vt.edu/corgis/csv/music/music.csv?forcedownload=1&quot;</span></span>
-<span id="cb24-10"><a href="transforming-and-joining-data.html#cb24-10" aria-hidden="true"></a><span class="co">#  )</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="transforming-and-joining-data.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Method 1</span></span>
+<span id="cb24-2"><a href="transforming-and-joining-data.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># music1 &lt;- read_csv(&quot;music.csv&quot;) </span></span>
+<span id="cb24-3"><a href="transforming-and-joining-data.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="do">### Method 2a</span></span>
+<span id="cb24-4"><a href="transforming-and-joining-data.html#cb24-4" aria-hidden="true" tabindex="-1"></a>musicURL <span class="ot">&lt;-</span> </span>
+<span id="cb24-5"><a href="transforming-and-joining-data.html#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;https://think.cs.vt.edu/corgis/datasets/csv/music/music.csv?forcedownload=1&quot;</span></span>
+<span id="cb24-6"><a href="transforming-and-joining-data.html#cb24-6" aria-hidden="true" tabindex="-1"></a>music1 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(musicURL)</span>
+<span id="cb24-7"><a href="transforming-and-joining-data.html#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="do">### Method 2b</span></span>
+<span id="cb24-8"><a href="transforming-and-joining-data.html#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="co"># music1 &lt;- read_csv(</span></span>
+<span id="cb24-9"><a href="transforming-and-joining-data.html#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co">#  &quot;https://think.cs.vt.edu/corgis/csv/music/music.csv?forcedownload=1&quot;</span></span>
+<span id="cb24-10"><a href="transforming-and-joining-data.html#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  )</span></span></code></pre></div>
 <p>What can you do with the data in its existing form? What questions do you wish you could ask about these songs, artists, and the places they come from?</p>
 </div>
 <div id="working-with-geodata-a-function-to-get-us-states-from-latitudelongitude" class="section level2" number="14.2">
 <h2><span class="header-section-number">14.2</span> working with geodata: a function to get US states from latitude/longitude</h2>
 <p>When I first ran this code in 2018, the variables included states and countries. The current dataset doesn’t have these, but it does have longitude and latitude. To get state data from this, reverse geocoding is needed. A Google search turned up the following function. Note that it requires two additional libraries, ‘maps’ and ‘maptools.’</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="transforming-and-joining-data.html#cb25-1" aria-hidden="true"></a><span class="co"># source is https://github.com/abresler</span></span>
-<span id="cb25-2"><a href="transforming-and-joining-data.html#cb25-2" aria-hidden="true"></a><span class="co"># The single argument to this function, pointsDF, is a data.frame in which:</span></span>
-<span id="cb25-3"><a href="transforming-and-joining-data.html#cb25-3" aria-hidden="true"></a><span class="co">#   - column 1 contains the longitude in degrees (negative in the US)</span></span>
-<span id="cb25-4"><a href="transforming-and-joining-data.html#cb25-4" aria-hidden="true"></a><span class="co">#   - column 2 contains the latitude in degrees</span></span>
-<span id="cb25-5"><a href="transforming-and-joining-data.html#cb25-5" aria-hidden="true"></a>latlong2state &lt;-<span class="st"> </span><span class="cf">function</span>(pointsDF) {</span>
-<span id="cb25-6"><a href="transforming-and-joining-data.html#cb25-6" aria-hidden="true"></a>    <span class="co"># Prepare SpatialPolygons object with one SpatialPolygon</span></span>
-<span id="cb25-7"><a href="transforming-and-joining-data.html#cb25-7" aria-hidden="true"></a>    <span class="co"># per state (plus DC, minus HI &amp; AK)</span></span>
-<span id="cb25-8"><a href="transforming-and-joining-data.html#cb25-8" aria-hidden="true"></a>    states &lt;-<span class="st"> </span><span class="kw">map</span>(<span class="st">&#39;state&#39;</span>, <span class="dt">fill=</span><span class="ot">TRUE</span>, <span class="dt">col=</span><span class="st">&quot;transparent&quot;</span>, <span class="dt">plot=</span><span class="ot">FALSE</span>)</span>
-<span id="cb25-9"><a href="transforming-and-joining-data.html#cb25-9" aria-hidden="true"></a>    IDs &lt;-<span class="st"> </span><span class="kw">sapply</span>(<span class="kw">strsplit</span>(states<span class="op">$</span>names, <span class="st">&quot;:&quot;</span>), <span class="cf">function</span>(x) x[<span class="dv">1</span>])</span>
-<span id="cb25-10"><a href="transforming-and-joining-data.html#cb25-10" aria-hidden="true"></a>    states_sp &lt;-<span class="st"> </span><span class="kw">map2SpatialPolygons</span>(states, <span class="dt">IDs=</span>IDs,</span>
-<span id="cb25-11"><a href="transforming-and-joining-data.html#cb25-11" aria-hidden="true"></a>                     <span class="dt">proj4string=</span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>))</span>
-<span id="cb25-12"><a href="transforming-and-joining-data.html#cb25-12" aria-hidden="true"></a>    <span class="co"># Convert pointsDF to a SpatialPoints object </span></span>
-<span id="cb25-13"><a href="transforming-and-joining-data.html#cb25-13" aria-hidden="true"></a>    pointsSP &lt;-<span class="st"> </span><span class="kw">SpatialPoints</span>(pointsDF, </span>
-<span id="cb25-14"><a href="transforming-and-joining-data.html#cb25-14" aria-hidden="true"></a>                    <span class="dt">proj4string=</span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>))</span>
-<span id="cb25-15"><a href="transforming-and-joining-data.html#cb25-15" aria-hidden="true"></a>    <span class="co"># Use &#39;over&#39; to get _indices_ of the Polygons object containing each point </span></span>
-<span id="cb25-16"><a href="transforming-and-joining-data.html#cb25-16" aria-hidden="true"></a>    indices &lt;-<span class="st"> </span><span class="kw">over</span>(pointsSP, states_sp)</span>
-<span id="cb25-17"><a href="transforming-and-joining-data.html#cb25-17" aria-hidden="true"></a>    <span class="co"># Return the state names of the Polygons object containing each point</span></span>
-<span id="cb25-18"><a href="transforming-and-joining-data.html#cb25-18" aria-hidden="true"></a>    stateNames &lt;-<span class="st"> </span><span class="kw">sapply</span>(states_sp<span class="op">@</span>polygons, <span class="cf">function</span>(x) x<span class="op">@</span>ID)</span>
-<span id="cb25-19"><a href="transforming-and-joining-data.html#cb25-19" aria-hidden="true"></a>    stateNames[indices]</span>
-<span id="cb25-20"><a href="transforming-and-joining-data.html#cb25-20" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="transforming-and-joining-data.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># source is https://github.com/abresler</span></span>
+<span id="cb25-2"><a href="transforming-and-joining-data.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The single argument to this function, pointsDF, is a data.frame in which:</span></span>
+<span id="cb25-3"><a href="transforming-and-joining-data.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   - column 1 contains the longitude in degrees (negative in the US)</span></span>
+<span id="cb25-4"><a href="transforming-and-joining-data.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   - column 2 contains the latitude in degrees</span></span>
+<span id="cb25-5"><a href="transforming-and-joining-data.html#cb25-5" aria-hidden="true" tabindex="-1"></a>latlong2state <span class="ot">&lt;-</span> <span class="cf">function</span>(pointsDF) {</span>
+<span id="cb25-6"><a href="transforming-and-joining-data.html#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Prepare SpatialPolygons object with one SpatialPolygon</span></span>
+<span id="cb25-7"><a href="transforming-and-joining-data.html#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># per state (plus DC, minus HI &amp; AK)</span></span>
+<span id="cb25-8"><a href="transforming-and-joining-data.html#cb25-8" aria-hidden="true" tabindex="-1"></a>    states <span class="ot">&lt;-</span> <span class="fu">map</span>(<span class="st">&#39;state&#39;</span>, <span class="at">fill=</span><span class="cn">TRUE</span>, <span class="at">col=</span><span class="st">&quot;transparent&quot;</span>, <span class="at">plot=</span><span class="cn">FALSE</span>)</span>
+<span id="cb25-9"><a href="transforming-and-joining-data.html#cb25-9" aria-hidden="true" tabindex="-1"></a>    IDs <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="fu">strsplit</span>(states<span class="sc">$</span>names, <span class="st">&quot;:&quot;</span>), <span class="cf">function</span>(x) x[<span class="dv">1</span>])</span>
+<span id="cb25-10"><a href="transforming-and-joining-data.html#cb25-10" aria-hidden="true" tabindex="-1"></a>    states_sp <span class="ot">&lt;-</span> <span class="fu">map2SpatialPolygons</span>(states, <span class="at">IDs=</span>IDs,</span>
+<span id="cb25-11"><a href="transforming-and-joining-data.html#cb25-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">proj4string=</span><span class="fu">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>))</span>
+<span id="cb25-12"><a href="transforming-and-joining-data.html#cb25-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convert pointsDF to a SpatialPoints object </span></span>
+<span id="cb25-13"><a href="transforming-and-joining-data.html#cb25-13" aria-hidden="true" tabindex="-1"></a>    pointsSP <span class="ot">&lt;-</span> <span class="fu">SpatialPoints</span>(pointsDF, </span>
+<span id="cb25-14"><a href="transforming-and-joining-data.html#cb25-14" aria-hidden="true" tabindex="-1"></a>                    <span class="at">proj4string=</span><span class="fu">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>))</span>
+<span id="cb25-15"><a href="transforming-and-joining-data.html#cb25-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Use &#39;over&#39; to get _indices_ of the Polygons object containing each point </span></span>
+<span id="cb25-16"><a href="transforming-and-joining-data.html#cb25-16" aria-hidden="true" tabindex="-1"></a>    indices <span class="ot">&lt;-</span> <span class="fu">over</span>(pointsSP, states_sp)</span>
+<span id="cb25-17"><a href="transforming-and-joining-data.html#cb25-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return the state names of the Polygons object containing each point</span></span>
+<span id="cb25-18"><a href="transforming-and-joining-data.html#cb25-18" aria-hidden="true" tabindex="-1"></a>    stateNames <span class="ot">&lt;-</span> <span class="fu">sapply</span>(states_sp<span class="sc">@</span>polygons, <span class="cf">function</span>(x) x<span class="sc">@</span>ID)</span>
+<span id="cb25-19"><a href="transforming-and-joining-data.html#cb25-19" aria-hidden="true" tabindex="-1"></a>    stateNames[indices]</span>
+<span id="cb25-20"><a href="transforming-and-joining-data.html#cb25-20" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <div id="applying-the-function-to-the-music-data" class="section level3" number="14.2.1">
 <h3><span class="header-section-number">14.2.1</span> applying the function to the music data</h3>
 <p>If you have run the chunk above, the latlong2state function will now exists in your environment. You still need to apply the function to your data.</p>
 <p>We do this using three of the essential tools in the munger’s toolbox: <em>select</em> (to choose several columns from the data), <em>mutate</em> (to create a new variable), and finally <em>drop_na</em> (to drop cases with missing data - here, artists from outside of the US).</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="transforming-and-joining-data.html#cb26-1" aria-hidden="true"></a><span class="co"># create a new dataset with just latitude and longitude</span></span>
-<span id="cb26-2"><a href="transforming-and-joining-data.html#cb26-2" aria-hidden="true"></a>tempLatLong &lt;-<span class="st"> </span>music1 <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb26-3"><a href="transforming-and-joining-data.html#cb26-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span> (artist.longitude, </span>
-<span id="cb26-4"><a href="transforming-and-joining-data.html#cb26-4" aria-hidden="true"></a>              artist.latitude)</span>
-<span id="cb26-5"><a href="transforming-and-joining-data.html#cb26-5" aria-hidden="true"></a>USartists &lt;-<span class="st"> </span>music1 <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb26-6"><a href="transforming-and-joining-data.html#cb26-6" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">state =</span> </span>
-<span id="cb26-7"><a href="transforming-and-joining-data.html#cb26-7" aria-hidden="true"></a>            <span class="kw">latlong2state</span>(tempLatLong)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb26-8"><a href="transforming-and-joining-data.html#cb26-8" aria-hidden="true"></a><span class="st">  </span><span class="kw">drop_na</span>(state)</span>
-<span id="cb26-9"><a href="transforming-and-joining-data.html#cb26-9" aria-hidden="true"></a><span class="kw">rm</span>(tempLatLong)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="transforming-and-joining-data.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a new dataset with just latitude and longitude</span></span>
+<span id="cb26-2"><a href="transforming-and-joining-data.html#cb26-2" aria-hidden="true" tabindex="-1"></a>tempLatLong <span class="ot">&lt;-</span> music1 <span class="sc">%&gt;%</span> </span>
+<span id="cb26-3"><a href="transforming-and-joining-data.html#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span> (artist.longitude, </span>
+<span id="cb26-4"><a href="transforming-and-joining-data.html#cb26-4" aria-hidden="true" tabindex="-1"></a>              artist.latitude)</span>
+<span id="cb26-5"><a href="transforming-and-joining-data.html#cb26-5" aria-hidden="true" tabindex="-1"></a>USartists <span class="ot">&lt;-</span> music1 <span class="sc">%&gt;%</span> </span>
+<span id="cb26-6"><a href="transforming-and-joining-data.html#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">state =</span> </span>
+<span id="cb26-7"><a href="transforming-and-joining-data.html#cb26-7" aria-hidden="true" tabindex="-1"></a>            <span class="fu">latlong2state</span>(tempLatLong)) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-8"><a href="transforming-and-joining-data.html#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(state)</span>
+<span id="cb26-9"><a href="transforming-and-joining-data.html#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(tempLatLong)</span></code></pre></div>
 </div>
 </div>
 <div id="drowning-in-the-sea-of-songs-with-apologies-to-artist-arivoim1187b990643" class="section level2" number="14.3">
@@ -391,18 +405,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>At this point, we have a list of songs and artists and some measures of “hotttness,” restricted to US artists and now including states as well as latitude and longitude. There is a field called song-id, but it doesn’t have song titles.</p>
 <p>(<em>several hours later</em>)</p>
 <p>I found the titles on the ’net. They were part of a file “millionsongsubset,” which is an archive of many files, and which is altogether about 2 GB in size. Within this, there is a file that looks right - let’s try it.</p>
-<p>The file is delimited by the characters “&lt;SEP&gt;”, but read_delim requires that data fields be separated by a single character (like a comma or a tab). So the file is read as a single variable, which R assigns the default name “X1”. I use mutate to replace each “&lt;SEP&gt;” by a tab, then the <em>separate</em> command to split X1 up into its constituent variables - the first is a mysterious ID, the second looks like the song.id in the original file, the third is an artist name, and the fourth is a song title.</p>
+<p>The <a href="https://raw.githubusercontent.com/bgmartins/geocoding-music/master/MillionSongSubset/AdditionalFiles/subset_unique_tracks.txt">file</a> is delimited by the characters “&lt;SEP&gt;,” but read_delim requires that data fields be separated by a single character (like a comma or a tab). So the file is read as a single variable, which R assigns the default name “X1.” I use mutate to replace each “&lt;SEP&gt;” by a tab, then the <em>separate</em> command to split X1 up into its constituent variables - the first is a mysterious ID, the second looks like the song.id in the original file, the third is an artist name, and the fourth is a song title.</p>
 <div id="combining-the-song-titles-with-our-us-artists" class="section level3" number="14.3.1">
 <h3><span class="header-section-number">14.3.1</span> combining the song titles with our US artists</h3>
-<p>Finally, we can <em>join</em> this to the USartist data, as each row of the two files have a common key (song.id). Join is discussed in more detail below. Here, we use a <em>right_join</em> - implicitly, “maybeTitles”, which is at the head of the pipe, is on the left. The right_join will link the left (maybeTitles) file with the right (USartists), by what appears to be a common key:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="transforming-and-joining-data.html#cb27-1" aria-hidden="true"></a>maybeTitles &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;data/subset_unique_tracks.txt&quot;</span>,<span class="st">&quot;~&quot;</span>,</span>
-<span id="cb27-2"><a href="transforming-and-joining-data.html#cb27-2" aria-hidden="true"></a>                          <span class="dt">col_names =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb27-3"><a href="transforming-and-joining-data.html#cb27-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">X1 =</span> <span class="kw">str_replace_all</span>(X1, <span class="st">&quot;&lt;SEP&gt;&quot;</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb27-4"><a href="transforming-and-joining-data.html#cb27-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">separate</span>(X1, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;ID1&quot;</span>,</span>
-<span id="cb27-5"><a href="transforming-and-joining-data.html#cb27-5" aria-hidden="true"></a>                                   <span class="st">&quot;song.id&quot;</span>,</span>
-<span id="cb27-6"><a href="transforming-and-joining-data.html#cb27-6" aria-hidden="true"></a>                                   <span class="st">&quot;artistFromMaybeTitles&quot;</span>,</span>
-<span id="cb27-7"><a href="transforming-and-joining-data.html#cb27-7" aria-hidden="true"></a>                                   <span class="st">&quot;SongTitle&quot;</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb27-8"><a href="transforming-and-joining-data.html#cb27-8" aria-hidden="true"></a><span class="st">  </span><span class="kw">right_join</span>(USartists, <span class="dt">key =</span> <span class="st">&quot;song.id&quot;</span>)</span></code></pre></div>
+<p>Finally, we can <em>join</em> this to the USartist data, as each row of the two files have a common key (song.id). Join is discussed in more detail below. Here, we use a <em>right_join</em> - implicitly, “maybeTitles,” which is at the head of the pipe, is on the left. The right_join will link the left (maybeTitles) file with the right (USartists), by what appears to be a common key:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="transforming-and-joining-data.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># again, several different ways to load the data</span></span>
+<span id="cb27-2"><a href="transforming-and-joining-data.html#cb27-2" aria-hidden="true" tabindex="-1"></a>maybeTitles <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;https://raw.githubusercontent.com/xbucchiotty/xpua/master/src/main/resources/AdditionalFiles/subset_unique_tracks.txt&quot;</span>,<span class="st">&quot;~&quot;</span>,</span>
+<span id="cb27-3"><a href="transforming-and-joining-data.html#cb27-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">col_names =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-4"><a href="transforming-and-joining-data.html#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="transforming-and-joining-data.html#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co">#maybeTitles &lt;- read_delim(&quot;data/subset_unique_tracks.txt&quot;,&quot;~&quot;,</span></span>
+<span id="cb27-6"><a href="transforming-and-joining-data.html#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="co">#                          col_names = FALSE) %&gt;% </span></span>
+<span id="cb27-7"><a href="transforming-and-joining-data.html#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">X1 =</span> <span class="fu">str_replace_all</span>(X1, <span class="st">&quot;&lt;SEP&gt;&quot;</span>, <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-8"><a href="transforming-and-joining-data.html#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(X1, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;ID1&quot;</span>,</span>
+<span id="cb27-9"><a href="transforming-and-joining-data.html#cb27-9" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;song.id&quot;</span>,</span>
+<span id="cb27-10"><a href="transforming-and-joining-data.html#cb27-10" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;artistFromMaybeTitles&quot;</span>,</span>
+<span id="cb27-11"><a href="transforming-and-joining-data.html#cb27-11" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;SongTitle&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb27-12"><a href="transforming-and-joining-data.html#cb27-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(USartists, <span class="at">key =</span> <span class="st">&quot;song.id&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## -- Column specification --------------------------------------------------------
 ## cols(
@@ -410,15 +428,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## )</code></pre>
 <pre><code>## Joining, by = &quot;song.id&quot;</code></pre>
 <p>So far, so good. Do things line up correctly? If the match is perfect, the two artist fields should be identical. We can use the [not] oddly-titled logical function “identical” to check this:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="transforming-and-joining-data.html#cb30-1" aria-hidden="true"></a><span class="kw">identical</span>(maybeTitles<span class="op">$</span>artistFromMaybeTitles,</span>
-<span id="cb30-2"><a href="transforming-and-joining-data.html#cb30-2" aria-hidden="true"></a>          maybeTitles<span class="op">$</span>artist.name)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="transforming-and-joining-data.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(maybeTitles<span class="sc">$</span>artistFromMaybeTitles,</span>
+<span id="cb30-2"><a href="transforming-and-joining-data.html#cb30-2" aria-hidden="true" tabindex="-1"></a>          maybeTitles<span class="sc">$</span>artist.name)</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>Whoops. The two variables aren’t the same - or are they? Run the following commands, which includes two more of the essential munging tools - <em>select</em> and <em>arrange.</em> Here, note that the “filter” function is used to select cases where the two variables are different.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="transforming-and-joining-data.html#cb32-1" aria-hidden="true"></a>maybeTitles <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb32-2"><a href="transforming-and-joining-data.html#cb32-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">filter</span> (artistFromMaybeTitles <span class="op">!=</span><span class="st"> </span>artist.name) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb32-3"><a href="transforming-and-joining-data.html#cb32-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span> (artistFromMaybeTitles, artist.name) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb32-4"><a href="transforming-and-joining-data.html#cb32-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">arrange</span>(artistFromMaybeTitles) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb32-5"><a href="transforming-and-joining-data.html#cb32-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="transforming-and-joining-data.html#cb32-1" aria-hidden="true" tabindex="-1"></a>maybeTitles <span class="sc">%&gt;%</span> </span>
+<span id="cb32-2"><a href="transforming-and-joining-data.html#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span> (artistFromMaybeTitles <span class="sc">!=</span> artist.name) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-3"><a href="transforming-and-joining-data.html#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span> (artistFromMaybeTitles, artist.name) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-4"><a href="transforming-and-joining-data.html#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(artistFromMaybeTitles) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-5"><a href="transforming-and-joining-data.html#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 2
 ##   artistFromMaybeTitles        artist.name                    
 ##   &lt;chr&gt;                        &lt;chr&gt;                          

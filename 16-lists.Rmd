@@ -1,0 +1,83 @@
+# lists
+
+Up until now, we have we have thought about 'data structures' as matrices (rectangles, two-dimensional arrays), in which columns typically correspond to variables and rows to observations, and in which each variable has a particular type, such as numeric or character (or, in the last chapter, special types such as factors and dates/times).
+
+In base R, data matrices are typically represented as data frames (type = df). In the Tidyverse, we have been using a special type of data frame, the tibble (type = df and tbl_df). The diamonds dataset, for example, is a tibble:
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(message = FALSE)
+```
+
+```{r tibble.0319, warning=FALSE}
+library(tidyverse)
+library(babynames)
+babynames2 <- babynames %>% 
+    mutate(generation = case_when( 
+        (1944 <= year) & (year <= 1964) ~ "boomer",
+        (1965 <= year) & (year <= 1979) ~ "genX",
+        (1980 <= year) & (year <= 1994) ~ "millenial",
+        (1995 <= year) & (year <= 2019) ~ "genZ")) %>%
+    mutate(generation = factor(generation))
+str(babynames2$generation)
+library(magrittr)
+babynames3 <- babynames2 %>% 
+ #   count(generation) %>% 
+    na.omit(generation)
+    
+```
+
+Within the diamonds tibble, we can examine the types of each variable. This uses the *sapply* function to SIMPLY APPLY a function (class) to the columns of a data frame or tibble. Here, each column (such as \$carat) is a vector, and each vector is homogeneous (of one particular type):
+
+```{r classesColumns.0319}
+diamonds %>% 
+    sapply(class) 
+```
+
+Beyond these *atomic vectors,* data can take more complex forms, such as hierarchical or tree-like structures such as the following.
+
+    Honors College Courses
+    ├───Area: Psychology
+        ├───Name: Personality and Social Development
+        └───Term: Spring 2021
+        └───Instructors: Lanning
+        └───Students: 
+            └───Al
+                └───Year: Freshman
+                └───Concentration: Psychology 
+            └───Barb
+            └───etc.
+        ├───Name: Political Psychology
+            └───Term: Fall 2020
+            └───Instructors: Lanning
+        ├───etc.
+            
+
+Nested data sets such as these are common across the Internet. They describe the structure of the webpage you are looking at (which you can see, depending upon your browser, by clicking on something like 'developer tools'). Data formats for representing nested structures include XML (Extensible Markup Language) and JSON (Java Script Object Notation). Many datasets of interest, such as this [set of ratings of 10,000 books on Goodreads](http://fastml.com/goodbooks-10k) are structured as XML as well.
+
+In R, XML and JSON files will (after some likely massaging), be represented as lists. Lists are recursive, that is, they may include other lists.
+
+In addition to external data sources, the results of many procedures within R may also be represented as lists.
+
+> Consider the following code. What does it do? What is in 'mod'? Why is it stored like this?
+
+```{r ASSIGNMENTlm.0319}
+mod <- lm(price ~ carat, 
+          data = diamonds)
+```
+
+In R studio, you can inspect the structure of the list by clicking on it in the global environment window, by using the View tab, or with the command str(mod).
+
+You can extract rows of your list by including them in single brackets (which will return another list), or double brackets (which will return a vector or data frame).
+
+Compare the structure of the following data sets:
+
+```{r}
+b1 <- mod['coefficients'] 
+b2 <- mod[['coefficients']]  
+c1 <- mod['model']
+c2 <- mod[['model']]
+```
+
+Lists are, in a sense, containers (see the example of the pepper shakers in Chapter 20). The single bracket gives us the wrapper as well as what is inside; the double bracket extracts only the inner element.
+
+Lists can be challenging, but they are necessary in a world where data is complexly structured. The R package purrr, a core part of the tidyverse, includes functions which simplify working with lists; to learn more, there is a tutorial [here](https://jennybc.github.io/purrr-tutorial/index.html), and an overview of the package (with a cheatsheet) [here](https://purrr.tidyverse.org/).
