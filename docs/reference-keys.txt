@@ -1,3 +1,4 @@
+fig:scatterplot
 data-science-for-the-liberal-arts
 type-c-data-science-data-science-for-the-liberal-arts
 the-incompleteness-of-the-data-science-venn-diagram
@@ -114,3 +115,11 @@ preliminaries
 the-function
 applying-the-function
 how-many-bottles-of-what
+from-correlation-to-regression
+correlation
+correlations-based-on-small-samples-are-unstable-a-monte-carlo-demonstration
+the-regression-line
+warning-there-are-two-regression-lines
+multiple-regression
+swiss-fertility-data
+marital-affairs-data

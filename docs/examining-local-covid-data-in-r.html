@@ -24,7 +24,7 @@
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2021-03-14" />
+<meta name="date" content="2021-03-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -318,6 +318,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="17.4" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#how-many-bottles-of-what"><i class="fa fa-check"></i><b>17.4</b> how many bottles of what?</a></li>
 </ul></li>
+<li class="chapter" data-level="18" data-path="from-correlation-to-regression.html"><a href="from-correlation-to-regression.html"><i class="fa fa-check"></i><b>18</b> from correlation to regression</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="from-correlation-to-regression.html"><a href="from-correlation-to-regression.html#correlation"><i class="fa fa-check"></i><b>18.1</b> correlation</a></li>
+<li class="chapter" data-level="18.2" data-path="from-correlation-to-regression.html"><a href="from-correlation-to-regression.html#correlations-based-on-small-samples-are-unstable-a-monte-carlo-demonstration"><i class="fa fa-check"></i><b>18.2</b> correlations based on small samples are unstable: A Monte Carlo demonstration</a>
+<ul>
+<li class="chapter" data-level="18.2.1" data-path="from-correlation-to-regression.html"><a href="from-correlation-to-regression.html#the-regression-line"><i class="fa fa-check"></i><b>18.2.1</b> The regression line</a></li>
+<li class="chapter" data-level="18.2.2" data-path="from-correlation-to-regression.html"><a href="from-correlation-to-regression.html#warning-there-are-two-regression-lines"><i class="fa fa-check"></i><b>18.2.2</b> Warning: there are two regression lines</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="from-correlation-to-regression.html"><a href="from-correlation-to-regression.html#multiple-regression"><i class="fa fa-check"></i><b>18.3</b> multiple regression</a></li>
+<li class="chapter" data-level="18.4" data-path="from-correlation-to-regression.html"><a href="from-correlation-to-regression.html#swiss-fertility-data"><i class="fa fa-check"></i><b>18.4</b> Swiss fertility data</a></li>
+<li class="chapter" data-level="18.5" data-path="from-correlation-to-regression.html"><a href="from-correlation-to-regression.html#marital-affairs-data"><i class="fa fa-check"></i><b>18.5</b> marital affairs data</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
@@ -401,13 +413,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6 Guizhou          Mainland China   2020-01-21 22:00:00        NA     NA
 ## # ... with 1 more variable: Recovered &lt;dbl&gt;</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="examining-local-covid-data-in-r.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(coronaData)</span></code></pre></div>
-<pre><code>## tibble [1,380,265 x 6] (S3: tbl_df/tbl/data.frame)
-##  $ Province/State: chr [1:1380265] &quot;Anhui&quot; &quot;Beijing&quot; &quot;Chongqing&quot; &quot;Guangdong&quot; ...
-##  $ Country/Region: chr [1:1380265] &quot;Mainland China&quot; &quot;Mainland China&quot; &quot;Mainland China&quot; &quot;Mainland China&quot; ...
-##  $ Last Update   : POSIXct[1:1380265], format: &quot;2020-01-21 22:00:00&quot; &quot;2020-01-21 22:00:00&quot; ...
-##  $ Confirmed     : num [1:1380265] NA 10 5 17 NA NA NA NA 1 NA ...
-##  $ Deaths        : num [1:1380265] NA NA NA NA NA NA NA NA NA NA ...
-##  $ Recovered     : num [1:1380265] NA NA NA NA NA NA NA NA NA NA ...</code></pre>
+<pre><code>## tibble [1,412,577 x 6] (S3: tbl_df/tbl/data.frame)
+##  $ Province/State: chr [1:1412577] &quot;Anhui&quot; &quot;Beijing&quot; &quot;Chongqing&quot; &quot;Guangdong&quot; ...
+##  $ Country/Region: chr [1:1412577] &quot;Mainland China&quot; &quot;Mainland China&quot; &quot;Mainland China&quot; &quot;Mainland China&quot; ...
+##  $ Last Update   : POSIXct[1:1412577], format: &quot;2020-01-21 22:00:00&quot; &quot;2020-01-21 22:00:00&quot; ...
+##  $ Confirmed     : num [1:1412577] NA 10 5 17 NA NA NA NA 1 NA ...
+##  $ Deaths        : num [1:1412577] NA NA NA NA NA NA NA NA NA NA ...
+##  $ Recovered     : num [1:1412577] NA NA NA NA NA NA NA NA NA NA ...</code></pre>
 </div>
 <div id="cleaning-wrangling-munging-the-data-feb-2020" class="section level3" number="8.1.2">
 <h3><span class="header-section-number">8.1.2</span> cleaning (wrangling, munging) the data (Feb 2020)</h3>
@@ -480,7 +492,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="eleven-months-later-the-code-still-runs" class="section level3" number="8.1.3">
 <h3><span class="header-section-number">8.1.3</span> eleven months later: the code still runs!</h3>
-<p>The above code runs without apparent error, and leads to a dataset of 167905 rows by 5 columns. Here’s a quick peek (Note that I use the group_by and summarize functions to collapse the file to one line per date):</p>
+<p>The above code runs without apparent error, and leads to a dataset of 171441 rows by 5 columns. Here’s a quick peek (Note that I use the group_by and summarize functions to collapse the file to one line per date):</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="examining-local-covid-data-in-r.html#cb10-1" aria-hidden="true" tabindex="-1"></a>coronaData <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(reportDate) <span class="sc">%&gt;%</span> </span>
 <span id="cb10-2"><a href="examining-local-covid-data-in-r.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Confirmed =</span> <span class="fu">sum</span>(Confirmed)) <span class="sc">%&gt;%</span> </span>
 <span id="cb10-3"><a href="examining-local-covid-data-in-r.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>() </span></code></pre></div>
@@ -701,6 +713,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

@@ -45,27 +45,41 @@ galton_heights %>%
 This **univariate** description fails to capture the key characteristic of the data, namely, the idea that there is a relationship between the two variables: 
 
 ```{r scatterplot, fig.cap="Heights of father and son pairs plotted against each other."}
-galton_heights %>% ggplot(aes(father, son)) + 
-  geom_point(alpha = 0.5)
+galton_heights %>% 
+  ggplot(aes(father, son)) + 
+  geom_point(col  = 'forestgreen')
 ```
 
 The correlation summarizes this relationship. In these data, the correlation (r) is about .50.
 
 ```{r}
-galton_heights %>% summarize(cor(father, son))
+galton_heights %>% 
+  summarize(cor(father, son)) %>% 
+  round(3)
 ```
 
-Incidentally, correlations based on small samples can bounce around quite a bit.  Consider what happens when, for example, we sample just 25 cases from Galton's data, then repeat this in a Monte Carlo analysis 1000 times to see the distribution of these sample rs:
+## correlations based on small samples are unstable: A Monte Carlo demonstration
+
+Correlations based on small samples can bounce around quite a bit.  Consider what happens when, for example, we sample just 25 cases from Galton's data, and compute the correlation from this. We repeat this 1000 times, then plot the distribution of these sample rs:
 
 ```{r}
-B <- 1000
-N <- 25
-R <- replicate(B, {
-  sample_n(galton_heights, N, replace = TRUE) %>% # sample with replacement here
-    summarize(r=cor(father, son)) %>% .$r
+set.seed(33458) # why do I do this?
+nTrials <- 1000
+nPerTrial <- 25
+replications <- replicate(nTrials, {
+  sample_n(galton_heights, nPerTrial, replace = TRUE) %>% # we sample with replacement here
+    summarize(r=cor(father, son)) %>% 
+    .$r
 })
-data.frame(R) %>% ggplot(aes(R)) + geom_histogram(binwidth = 0.05, color = "grey")
+replications %>% 
+  as.tibble() %>%
+  ggplot(aes(replications)) +
+  geom_histogram(binwidth = 0.05, col = "blue", fill = "cyan")
 ```
+
+These sample correlations range from `r round(min(replications),3)` to `r round(max(replications),3)`. Their average, however, at  `r round(mean(replications),3)` is almost exactly that of the overall population. Often in daat science, we wille stimate population parameters in this way - by repeated sampling, and by studying the extent to which results are consistent across samples. More on that later. 
+
+mean(replications)
 
 ### The regression line
 
