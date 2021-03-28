@@ -8,19 +8,17 @@ set.seed(0)
 
 # from correlation to regression
 
-
-
-In Chapter 22 of R4DS, Wickham introduces **modeling** as a complement to data visualization.  At the beginning of Chapter 23, he points out that: 
+In Chapter 22 of R4DS, Wickham introduces **modeling** as a complement to data visualization. At the beginning of Chapter 23, he points out that:
 
 > *The goal of a model is to provide a simple low-dimensional summary of a dataset.*
 
-In the remainder of his section on modeling (Chapters 23 - 25), he presents an innovative approach to introducing models. Feel free to explore these.  Our treatment, however, will deviate from this.
+In the remainder of his section on modeling (Chapters 23 - 25), he presents an innovative approach to introducing models. Feel free to explore these. Our treatment, however, will deviate from this.
 
-## correlation 
+## correlation
 
-(This section is excerpted directly from From https://github.com/datasciencelabs)
+(This section is excerpted directly from From <https://github.com/datasciencelabs>)
 
-[Francis Galton](https://en.wikipedia.org/wiki/Francis_Galton), a polymath and cousin of Charles Darwin was interested, among other things, in how well can we predict a son's height based on the parents' heights. 
+[Francis Galton](https://en.wikipedia.org/wiki/Francis_Galton), a polymath and cousin of Charles Darwin was interested, among other things, in how well can we predict a son's height based on the parents' heights.
 
 We have access to Galton's family height data through the `HistData` package. We will create a dataset with the heights of fathers and the first son of each family. Here are the key summary statistics for the two variables of father and son height taken alone:
 
@@ -35,7 +33,7 @@ galton_heights %>%
   summarise(mean(father), sd(father), mean(son), sd(son))
 ```
 
-This **univariate** description fails to capture the key characteristic of the data, namely, the idea that there is a relationship between the two variables: 
+This **univariate** description fails to capture the key characteristic of the data, namely, the idea that there is a relationship between the two variables:
 
 ```{r scatterplot, fig.cap="Heights of father and son pairs plotted against each other."}
 galton_heights %>% 
@@ -53,7 +51,7 @@ galton_heights %>%
 
 ## correlations based on small samples are unstable: A Monte Carlo demonstration
 
-Correlations based on small samples can bounce around quite a bit.  Consider what happens when, for example, we sample just 25 cases from Galton's data, and compute the correlation from this. We repeat this 1000 times, then plot the distribution of these sample rs:
+Correlations based on small samples can bounce around quite a bit. Consider what happens when, for example, we sample just 25 cases from Galton's data, and compute the correlation from this. We repeat this 1000 times, then plot the distribution of these sample rs:
 
 ```{r}
 set.seed(33458) # why do I do this?
@@ -70,13 +68,11 @@ replications %>%
   geom_histogram(binwidth = 0.05, col = "blue", fill = "cyan")
 ```
 
-These sample correlations range from `r round(min(replications),3)` to `r round(max(replications),3)`. Their average, however, at  `r round(mean(replications),3)` is almost exactly that of the overall population. Often in daat science, we wille stimate population parameters in this way - by repeated sampling, and by studying the extent to which results are consistent across samples. More on that later. 
-
-mean(replications)
+These sample correlations range from `r round(min(replications),3)` to `r round(max(replications),3)`. Their average, however, at `r round(mean(replications),3)` is almost exactly that of the overall population. Often in data science, we will estimate population parameters in this way - by repeated sampling, and by studying the extent to which results are consistent across samples. More on that later.
 
 ### The regression line
 
-If we are predicting a random variable $Y$ knowing the value of another $X=x$ using a regression line, then we predict that for every standard deviation, $\sigma_X$, that $x$ increases above the average $mu_X$, $Y$ increases $\rho$ standard deviations $\sigma_Y$ above the average $\mu_Y$, where $\rho$ is the correlation between $X$ and $Y$. 
+If we are predicting a random variable $Y$ knowing the value of another $X=x$ using a regression line, then we predict that for every standard deviation, $\sigma_X$, that $x$ increases above the average $mu_X$, $Y$ increases $\rho$ standard deviations $\sigma_Y$ above the average $\mu_Y$, where $\rho$ is the correlation between $X$ and $Y$. (Confusing, yes? Make sense of it by making it concrete: Let $Y$ = College GPA, $X$ = HS GPA, $X = x$ = 3.2 ... )
 
 To manually add a regression line to a plots, we will need the means and standard deviations of each variable together with their correlation:
 
@@ -107,7 +103,7 @@ galton_heights %>%
 
 ### Warning: there are two regression lines
 
-In general, when describing bivariate relationships, we talk of predicting y from x. But what if we want to reverse this? Here, for example, what if we want to predict the father's height based on the son's? 
+In general, when describing bivariate relationships, we talk of predicting y from x. But what if we want to reverse this? Here, for example, what if we want to predict the father's height based on the son's?
 
 For this, the intercept and slope of the lines will differ
 
@@ -147,7 +143,7 @@ library(Ecdat) # Econometric data incl. affairs dataset
 
 ## Swiss fertility data
 
-To consider the multivariate case, we examine a second dataset. 
+To consider the multivariate case, we examine a second dataset.
 
 ```{r swiss data}
 data(swiss)
@@ -164,7 +160,7 @@ ggpairs (swiss,
         switch = 'both')
 ```
 
-Here, we predict fertility from all of the remaining variables together in a single regression analysis, using the lm (linear model) command. As we saw in Chapter 15, the result of this analysis is a list.  We can pull out the key features of the data using the summary() command. How do you interpret this?
+Here, we predict fertility from all of the remaining variables together in a single regression analysis, using the lm (linear model) command. As we saw in Chapter 15, the result of this analysis is a list. We can pull out the key features of the data using the summary() command. How do you interpret this?
 
 ```{r multiple regression - swiss data}
 swissReg <- lm(Fertility ~ ., data=swiss)
@@ -173,7 +169,7 @@ summary(swissReg)
 
 ## marital affairs data
 
-Here's another dataset. We'll apply ggpairs here, but for clarity will show only half of the data at a time.  The dependent variable of interest (nbaffairs) will be included in both plots:
+Here's another dataset. We'll apply ggpairs here, but for clarity will show only half of the data at a time. The dependent variable of interest (nbaffairs) will be included in both plots:
 
 ```{r out.width = "100%", warning= FALSE, message = FALSE}
 Fair1 <- Fair %>% 
@@ -193,12 +189,11 @@ ggpairs(Fair2, lower = list(continuous = 'smooth'),
 
 > Exercise
 >
-> 1) Study the data. Learn about the measures by looking at Fair in the help tab of R studio.
-> 2) What do the scatterplot matrices shown above tell us?
-> 3) Can you just run a regression on it as is? Try predicting nbaffairs from the remaining 8 variables in Fair (not Fair1 or Fair2), using the same syntax in the Swiss data. Does it work? What do the results suggest? 
+> 1)  Study the data. Learn about the measures by looking at Fair in the help tab of R studio.
+> 2)  What do the scatterplot matrices shown above tell us?
+> 3)  Can you just run a regression on it as is? Try predicting nbaffairs from the remaining 8 variables in Fair (not Fair1 or Fair2), using the same syntax in the Swiss data. Does it work? What do the results suggest?
 
 ```{r multiple regression - affairs}
 affairReg <- lm(nbaffairs ~ ., data=Fair)
 summary(affairReg)
 ```
-
