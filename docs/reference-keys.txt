@@ -1,4 +1,5 @@
 fig:scatterplot
+tab:unnamed-chunk-69
 data-science-for-the-liberal-arts
 type-c-data-science-data-science-for-the-liberal-arts
 the-incompleteness-of-the-data-science-venn-diagram
@@ -142,3 +143,20 @@ the-bayesian-classifier
 back-to-the-affairs-data
 avoiding-capitalization-on-chance-again
 the-multinomial-case
+machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas
+supervised-versus-unsupervised
+prediction-versus-classification
+understanding-versus-prediction
+bias-versus-variability
+resampling-beyond-test-training-and-validation-samples
+compensatory-versus-non-compensatory-problems
+a-postscript-the-tidymodels-packages
+some-ethical-concerns-for-the-data-scientist
+ethics-and-personality-harvesting
+the-law-of-unintended-consequences
+your-privacy-is-my-concern
+who-should-hold-the-digital-keys
+contact-tracing-and-covid-19
+the-digital-divide
+still-more-case-studies
+some-potential-remedies

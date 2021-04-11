@@ -63,7 +63,7 @@ replications <- replicate(nTrials, {
     .$r
 })
 replications %>% 
-  as.tibble() %>%
+  as_tibble() %>%
   ggplot(aes(replications)) +
   geom_histogram(binwidth = 0.05, col = "blue", fill = "cyan")
 ```

@@ -1,3 +1,9 @@
+```{r otherdata, include=FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(babynames)
+library(lubridate)
+```
 # strings, factors, dates, and times
 
 This chapter discusses some of the types of data other than numeric and logical, in particular strings, factors, and dates/times.
@@ -13,7 +19,6 @@ Among the tools that are used in examining texts are searches (do these tweets i
 In R, particularly in the tidyverse package, regex are typically implicit, represented within commands that are part of the stringr package and that typically begin with str\_. For example, str_detect returns a set of logical values:
 
 ```{r message=FALSE}
-library(tidyverse)
 donuts <- c("glazed", "cakes", "Pink sprinkled",
             "cream filled",
             "day-old frosted", "chocolates")
@@ -83,8 +88,6 @@ The syntax for working with factors-as-categories is given in Chapter 15 of R4DS
 In the babynames data, baby's gender is a categorical variable, which is treated (because tidyverse) as a character or string. Here, we make it into a factor. We create two other factors as well.
 
 ```{r echo=TRUE, results="hide", message=FALSE}
-library(tidyverse)
-library(babynames)
 # adding third level for non-binary babies
 sexlevels <- c("M", "F", "O")
 babynames2 <- babynames %>% 

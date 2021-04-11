@@ -42,11 +42,11 @@ The first cluster of responses to the reproducibility crisis is concerned with s
 
 [@leek2015] argue that the problems are not merely with NHST, but with the whole of data analysis. They maintain that better training in data science - courses like ours, perhaps, are part of the answer.
 
-![leek2015pipeline](images/leek2015pipeline.PNG) (figure)
+![leek2015](images/leek2015pipeline.PNG) (figure)
 
 [@munafo2017] also argue that threats to reproducible science occur at a number of places in science, not just with the evaluation of hypotheses.
 
-![munafo2017threats](images/munafo2017threats.PNG)
+![munafo2017](images/munafo2017threats.PNG)
 
 ### keep a log of every step of every analysis in R markdown or Jupyter notebooks
 

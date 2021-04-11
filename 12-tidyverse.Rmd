@@ -1,8 +1,8 @@
-------------------------------------------------------------------------
-
+```{r tidyverse, include=FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
 # the tidyverse
-
-------------------------------------------------------------------------
 
 > *The tidyverse is an opinionated collection of R packages designed for data science -* <https://www.tidyverse.org/>
 

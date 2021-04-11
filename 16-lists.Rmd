@@ -1,3 +1,8 @@
+```{r lists, include=FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(babynames)
+```
 # lists
 
 Up until now, we have we have thought about 'data structures' as matrices (rectangles, two-dimensional arrays), in which columns typically correspond to variables and rows to observations, and in which each variable has a particular type, such as numeric or character (or, in the last chapter, special types such as factors and dates/times).
@@ -9,8 +14,6 @@ knitr::opts_chunk$set(message = FALSE)
 ```
 
 ```{r tibble.0319, warning=FALSE}
-library(tidyverse)
-library(babynames)
 babynames2 <- babynames %>% 
     mutate(generation = case_when( 
         (1944 <= year) & (year <= 1964) ~ "boomer",
@@ -19,7 +22,6 @@ babynames2 <- babynames %>%
         (1995 <= year) & (year <= 2019) ~ "genZ")) %>%
     mutate(generation = factor(generation))
 str(babynames2$generation)
-library(magrittr)
 babynames3 <- babynames2 %>% 
  #   count(generation) %>% 
     na.omit(generation)

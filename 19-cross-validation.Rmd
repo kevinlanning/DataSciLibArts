@@ -1,18 +1,8 @@
----
-title: "18-cross-validation"
-author: "Lanning"
-date: "`r Sys.Date()`"
-output: html_document
----
-
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warn = FALSE, message = FALSE) # defaults for all chunks after this one
 library(tidyverse)
-# library(dslabs)
-# library(broom) 
 library(modelr)
 library(Ecdat) 
-# library (class) # for knn
 library (caret)# machine learning package
 library (caTools) # ditto
 ```

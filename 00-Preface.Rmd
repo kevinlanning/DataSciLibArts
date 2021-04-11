@@ -1,3 +1,10 @@
+
+```{r preface, include=FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(citr)
+library(tidyverse)
+```
+
 # preface {.unnumbered}
 
 This work-in-progress will ultimately serve as a textbook for introductory undergraduate courses in data sciences. No prior knowledge of computer programming is presumed, though, ideally, students will have had college algebra (or its equivalent) and an introductory course in statistics, methods, or data analysis.

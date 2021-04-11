@@ -1,3 +1,10 @@
+
+```{r echo=TRUE, results="hide", message=FALSE, include=FALSE}
+library(gapminder)
+library(babynames)
+library(tidyverse)
+```
+
 # finding, exploring, and cleaning data
 
 **Data science, oddly enough, begins not with R... but with *data*.** There is no shortage of datasets available to analyze, and each can give rise to a host of interesting analyses and insights.
@@ -47,8 +54,6 @@ Finally, you might want to **combine multiple datasets**, such as county-level h
 To look at the datasets in the prior section, remember that there are a few key commands, which are here applied to the gapminder dataset:
 
 ```{r echo=TRUE, results="hide", message=FALSE}
-library(gapminder)
-library(tidyverse)
 str(gapminder)
 head(gapminder)
 summary(gapminder)

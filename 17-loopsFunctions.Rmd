@@ -1,3 +1,9 @@
+```{r, include=FALSE, message = FALSE }
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+library(kableExtra)
+library(tidyverse)
+library(babynames)
+```
 # loops, functions, and beyond
 
 In one of the most important contemporary theoretical models of intelligence, [@sternberg1999] has argued that the ability to automatize, that is, to work efficiently on repeated or habitual tasks, is a key component of intelligent behavior. Solving habitual problems efficiently - whether it is making a cup of coffee, finding the shortest path to complete a shopping list in a supermarket or a series of errands across town - allows us to focus our limited resources on other challenging tasks that, in turn, may determine whether we survive, or at least prosper.  
@@ -11,11 +17,6 @@ In R, loops are supplemented by additional tools for simplifying and avoiding re
 Consider the task of printing out a series of numbers.  Here's a simple example of how this could be done in a loop in R. It prints numbers between 1995 and 1998 (inclusive). 
 
 ```{r }
-knitr::opts_chunk$set(message = FALSE, warning = FALSE)
-library(kableExtra)
-library(tidyverse)
-library(babynames)
-
 for (i in 1995:1998) { # i is an index code
     print(i) # print the ith value in the sequence 
 } # go to the next one until the range is complete

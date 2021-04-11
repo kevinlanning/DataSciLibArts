@@ -1,3 +1,11 @@
+```{r coronasetup, include=FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(magrittr)
+library(lubridate)
+library(htmlwidgets)
+library(httr)
+library(tidyverse)
+```
 # examining local COVID data in R
 
 In Winter 2020, as the COVID-19 pandemic began to take hold, I began chronicling the course of the virus. What follows is an archive, followed by a consideration of some possible new directions.
@@ -12,13 +20,7 @@ This is an educational script for students learning R with the Tidyverse. It rea
 
 It was modified February 3 because of a new GoogleSheet link and altered variable names, on Feb 5 because of a new URL for the data and additional changes in the variable name for date, and Feb 7 to (a) remove need for OAuth and (b) separate Wuhan from 'other China.' On Feb 9, additional data cleaning was performed and interactive plots were added. On February 11, the code was rewritten to read files from a Github repo rather than Google Sheets. Consequently, this does not use an API or require authorization from Github.
 
-```{r coronasetup, message = FALSE}
-library(tidyverse)
-library(magrittr)
-library(lubridate)
-library(htmlwidgets)
-library(httr)
-library(purrr)
+```{r, message = FALSE}
 # get list of files
 filelist <- GET("https://api.github.com/repos/CSSEGISandData/2019-nCoV/git/trees/master?recursive=1") %>% 
   content() %>% 

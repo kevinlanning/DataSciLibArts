@@ -20,11 +20,11 @@ To consider the value of statistical versus graphical displays, consider 'Anscom
 
 ![Table 7.1: An adaptation of Anscombe's "quartet" [@anscombe1973]](images/spreadsheet61.PNG)
 
-> **Exercise 7\_1** *Consider the spreadsheet chunk presented above, which I am characterizing as data collected on a sample of ten primary school children at recess on four consecutive days. Working with your classmates, compute the mean, standard deviation, and correlation between the two measures for one day. Share your results with the class.*
+> **Exercise 7_1** *Consider the spreadsheet chunk presented above, which I am characterizing as data collected on a sample of ten primary school children at recess on four consecutive days. Working with your classmates, compute the mean, standard deviation, and correlation between the two measures for one day. Share your results with the class.*
 
 The four pairs of variables in [@anscombe1973] appear statistically "the same," yet the data suggest something else. Later, we'll try to plot these. Perhaps graphs can reveal truths that statistics can hide.
 
-> **Exercise 7\_2** *The anscombe data is included as a library in R. Can you find, load, and explore it?*
+> **Exercise 7_2** *The anscombe data is included as a library in R. Can you find, load, and explore it?*
 
 ## Read Hadley ggplots
 
@@ -44,6 +44,4 @@ Try to make a cool graph - one that informs the viewer, and, to paraphrase Tukey
 
 Try several different displays. Which fail? Which succeed? **Be prepared to share your efforts.**
 
-Don't be afraid to screw up. Each mistake you wisdom.
-
-
+Don't be afraid to screw up. *Each mistake you wisdom*.

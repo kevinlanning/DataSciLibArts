@@ -1,14 +1,13 @@
-# transforming and joining data
-
-Once you have your data, you will almost invariably need to transform it - to sort it, to select observations or variables from it, to create new variables, to partition it into groups, or to summarize it. In R, there is a general purpose tool (ok, package) that exists for this called dplyr ("d-plier"). Dplyr is a core part of the tidyverse and hence is loaded automatically when you load the tidyverse ensemble of libraries:
 
 ```{r echo=TRUE, results="hide", message=FALSE}
 library(tidyverse)
-library(maps)
+library(maps) # maps must be loaded after tidyverse, else purrr::map takes over
 library(maptools)
 ```
 
-The versatility of dplyr is demonstrated in Chapter 5 of R4DS, which shows how to do many basic, and some not so basic, operations on your data. Read it closely if you haven't already done so.
+# transforming and joining data
+
+Once you have your data, you will almost invariably need to transform it - to sort it, to select observations or variables from it, to create new variables, to partition it into groups, or to summarize it. In R, there is a general purpose tool (ok, package) that exists for this called dplyr ("d-plier"). Dplyr is a core part of the tidyverse and hence is loaded automatically when you load the tidyverse ensemble of libraries. The versatility of dplyr is demonstrated in Chapter 5 of R4DS, which shows how to do many basic, and some not so basic, operations on your data. Read it closely if you haven't already done so.
 
 ## from data on the web to data in R
 
@@ -71,12 +70,13 @@ We do this using three of the essential tools in the munger's toolbox: *select* 
 tempLatLong <- music1 %>% 
   select (artist.longitude, 
               artist.latitude)
-USartists <- music1 %>% 
-  mutate(state = 
-            latlong2state(tempLatLong)) %>% 
+music1$state <- latlong2state(tempLatLong)
+USartists <- music1 %>% mutate(state =
+                                 latlong2state(tempLatLong)) %>% 
   drop_na(state)
 rm(tempLatLong)
 ```
+
 
 ## drowning in the sea of songs (with apologies to Artist \#*ARIVOIM1187B990643*)
 

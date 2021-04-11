@@ -1,3 +1,8 @@
+```{r owl, include=FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(swirl)
+```
+
 # now draw the rest of the owl
 
 ![Fig 5.1: Draw the rest of the owl.](images/InkedrCr9A_LI.jpg)
@@ -19,7 +24,7 @@ Last week, we began exploring [Mine Çetinkaya-Rundel](http://www2.stat.duke.edu
 In *literate programming*, comments, code, and results are integrated in a clear and reproducible way - they *document* our work. R markdown is built around this idea. To create an R markdown (Rmd) document in Rstudio (on your laptop) or Rstudio.cloud, begin with (**File -\> New File -\> R Markdown**). A window will open up with a file that begins with some *YAML* (Yet Another Markdown Language). You can edit this as needed:
 
     ---
-    title: "Yo movies in R Markdown Document"
+    title: "Your movies in R Markdown Document"
     author: "Frankie McFrank Frank"
     date: "1/27/2020"
     output: html_document
