@@ -26,7 +26,7 @@ Now read the code in the console, and follow the instructions to complete your f
 
 ## Using R Studio on your laptop
 
-Install the latest version of [R](https://www.r-project.org/) on your own Windows or Mac laptop. Then install the [preview version of R studio](https://rstudio.com/products/rstudio/download/preview/), as this has a visual (WYSIWYG) editor that is a significant advance over the existing version.
+Install the latest version of [R](https://www.r-project.org/) on your own Windows or Mac laptop. Then install [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/#download).
 
 **Feeling ambitious?** Once this is loaded, (a) set up a directory for this class, then (b) a subdirectory you can call Assignment01.
 

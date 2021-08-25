@@ -16,4 +16,4 @@ BuildType: Website
 
 PythonType: system
 PythonVersion: 3.8.4
-PythonPath: C:\Python38\/python.exe
+PythonPath: C:/Python38//python.exe
