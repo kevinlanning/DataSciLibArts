@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 R stands for … | Data science for the liberal arts</title>
   <meta name="description" content="Test" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 R stands for … | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:image" content="chihuahuamuffin.png" />
+  <meta property="og:image" content="/chihuahuamuffin.png" />
   <meta property="og:description" content="Test" />
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
@@ -19,12 +19,12 @@
   <meta name="twitter:title" content="4 R stands for … | Data science for the liberal arts" />
   
   <meta name="twitter:description" content="Test" />
-  <meta name="twitter:image" content="chihuahuamuffin.png" />
+  <meta name="twitter:image" content="/chihuahuamuffin.png" />
 
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2021-04-11" />
+<meta name="date" content="2021-08-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,8 @@
   
 <link rel="prev" href="welcome-to-r-world.html"/>
 <link rel="next" href="now-draw-the-rest-of-the-owl.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,6 +51,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
@@ -119,6 +121,29 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 </head>
@@ -410,14 +435,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>… these documents are not the research [rather] these documents are the “advertising.” The research is the “full software environment, code, and data that produced the results”</p>
 </blockquote>
-<p><span class="citation">(<a href="references.html#ref-buckheit1995" role="doc-biblioref">Buckheit and Donoho 1995</a>; <a href="references.html#ref-donoho2010" role="doc-biblioref">D. L. Donoho 2010, 385</a>)</span>. When we separate the research from its advertisement we are making it difficult for others to verify the findings by reproducing them <span class="citation">(<a href="references.html#ref-gandrud2013" role="doc-biblioref">Gandrud 2013</a>)</span>.</p>
+<p><span class="citation">(<a href="#ref-buckheit1995" role="doc-biblioref">Buckheit and Donoho 1995</a>; <a href="#ref-donoho2010" role="doc-biblioref">D. L. Donoho 2010, 385</a>)</span>. When we separate the research from its advertisement we are making it difficult for others to verify the findings by reproducing them <span class="citation">(<a href="#ref-gandrud2013" role="doc-biblioref">Gandrud 2013</a>)</span>.</p>
 <p>R is a system for <strong>Representing</strong> data in cool, insight-facilitating ways, a tool for creating (reproducible) data visualizations which can provide insights and communicate results.</p>
 <p>R is <strong>Really popular</strong>, and this matters, because learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.</p>
 <p>Because R is popular, there are many <strong>Resources</strong>, including, for example -</p>
 <ul>
 <li>Online resources include the simple (and less simple) lessons of <a href="http://swirlstats.com/">SwirlR</a>, which offers the possibility of “learning R in R,” as well as <a href="https://www.datacamp.com/home">DataCamp</a>, the <a href="https://www.coursera.org/specializations/jhu-data-science">Data Science Certificate Program at Johns Hopkins,</a> and other MOOCs.<br />
 </li>
-<li>Books include <span class="citation">(<a href="references.html#ref-peng2014" role="doc-biblioref">Peng 2014</a>)</span> - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and <span class="citation">(<a href="references.html#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span>.</li>
+<li>Books include <span class="citation">(<a href="#ref-peng2014" role="doc-biblioref">Peng 2014</a>)</span> - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and <span class="citation">(<a href="#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span>.</li>
 <li>You’ll also learn (more directly) from people, including your classmates, as well as the broader community of people around the world. There are hundreds if not thousands of people, young and old, who are on the road with you. I am as well, just a step or two (hopefully) ahead.</li>
 </ul>
 <p>R might stand for <em>Relatively high level.</em> Programming languages can be described along a continuum from high to low level, the former (like R) are more accessible to humans, the latter (like assembly language) more accessible to machines. Python, Java, and C++ are all more towards the middle of this continuum.</p>
@@ -425,8 +450,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>But R does stand for <strong><em>Rewarding</em></strong>. A language is a way of thinking about the world, and this is true for computer languages as well. You’ll be challenged by its complexity, its idiosyncracy, its alien logic. But you will succeed, and you will find that you can do things that you did not believe possible.</p>
 <div id="a-few-characteristics-of-r" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> a few characteristics of R</h2>
-<p>R includes the base together with <strong>packages</strong>. These packages (libraries) are customized add-ons which simplify certain tasks, such as text analysis. There are, at this writing, 15,373 available packages on the CRAN package repository - and though there is not yet an R package for ordering pizza <span class="citation">(<a href="references.html#ref-peng2014" role="doc-biblioref">Peng 2014</a>)</span>, there are many for most data tasks, including, for example, <a href="https://cran.r-project.org/web/views/NaturalLanguageProcessing.html">over 50 different packages for text analysis</a>. So how do you choose, and where do you begin? We will start with the curated list of packages which jointly comprise the <strong>tidyverse</strong> <span class="citation">(<a href="references.html#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span>, which is effectively a dialect of R.</p>
-<p>R is an <strong>object-oriented</strong> language - one conceptually organized around objects and data rather than actions and logic. In R, at the atomic level, objects include <em>characters, real numbers, integers, complex numbers, and logical.</em> These atoms are combined into vectors, which generally include objects of the same type [one kind of object, ‘lists,’ is an exception to this; <span class="citation"><a href="references.html#ref-peng2014" role="doc-biblioref">Peng</a> (<a href="references.html#ref-peng2014" role="doc-biblioref">2014</a>)</span>]. Vectors can be further combined into <strong>data frames</strong>, which are two-dimensional tables or arrays. A <strong>tibble</strong> is a particular type of data frame which is used in the tidyverse. It is, in some ways, handier to work with than other data frames. We’ll be working extensively with data frames in general, and tibbles in particular, as we move forward.</p>
+<p>R includes the base together with <strong>packages</strong>. These packages (libraries) are customized add-ons which simplify certain tasks, such as text analysis. There are, at this writing, 15,373 available packages on the CRAN package repository - and though there is not yet an R package for ordering pizza <span class="citation">(<a href="#ref-peng2014" role="doc-biblioref">Peng 2014</a>)</span>, there are many for most data tasks, including, for example, <a href="https://cran.r-project.org/web/views/NaturalLanguageProcessing.html">over 50 different packages for text analysis</a>. So how do you choose, and where do you begin? We will start with the curated list of packages which jointly comprise the <strong>tidyverse</strong> <span class="citation">(<a href="#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span>, which is effectively a dialect of R.</p>
+<p>R is an <strong>object-oriented</strong> language - one conceptually organized around objects and data rather than actions and logic. In R, at the atomic level, objects include <em>characters, real numbers, integers, complex numbers, and logical.</em> These atoms are combined into vectors, which generally include objects of the same type [one kind of object, ‘lists,’ is an exception to this; <span class="citation"><a href="#ref-peng2014" role="doc-biblioref">Peng</a> (<a href="#ref-peng2014" role="doc-biblioref">2014</a>)</span>]. Vectors can be further combined into <strong>data frames</strong>, which are two-dimensional tables or arrays. A <strong>tibble</strong> is a particular type of data frame which is used in the tidyverse. It is, in some ways, handier to work with than other data frames. We’ll be working extensively with data frames in general, and tibbles in particular, as we move forward.</p>
 <p>Objects have <strong>attributes</strong>. Attributes of R include such things as name, dimensions (for vectors and arrays), class (that’s the type of object described in the previous paragraph), length, etc.</p>
 <p>Real world data sets are messy, and frequently have <strong>missing values.</strong> In R, missing values may be characterized by NA (not available) or NaN (not a number, implying an undefined or impossible value).</p>
 <p><strong>RStudio,</strong> the environment we will use to write, test, and run R code, is a commercial enterprise whose business model, judged from afar, is an important one in the world of technology. Most of what RStudio offers is free (97% according to Garrett Grolemund in the video below). The commercial product they offer makes sense for a relative few, but it is sufficiently lucrative to fund the enterprise. The free product helps to drive the popularity of Rstudio; this widespread use, in turn, makes it increasingly essential for businesses to use. This mixed free/premium, or ‘freemium,’ model characterizes Slack as well, but while <a href="https://www.statista.com/statistics/652779/worldwide-slack-users-total-vs-paid/">the ratio of free to paid users of Slack is on the order of 3:1</a>, for R it is, I am guessing, an order of magnitude higher than this.</p>
@@ -443,9 +468,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="wickham-and-r-for-data-science" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> Wickham and R for Data Science</h2>
-<p><a href="https://r4ds.had.co.nz/introduction.html">The first chapter of the Wickham text</a> <span class="citation">(<a href="references.html#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span> provides both a framework for his approach and a brief introduction to the <em>tidyverse</em> which will be the dialect of R we will study in the weeks ahead.</p>
+<p><a href="https://r4ds.had.co.nz/introduction.html">The first chapter of the Wickham text</a> <span class="citation">(<a href="#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span> provides both a framework for his approach and a brief introduction to the <em>tidyverse</em> which will be the dialect of R we will study in the weeks ahead.</p>
 <p>Please read it now.</p>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-buckheit1995" class="csl-entry">
+Buckheit, Jonathan B., and David L. Donoho. 1995. <span>“Wavelab and Reproducible Research.”</span> In <em>Wavelets and Statistics</em>, 55–81. <span>Springer</span>.
+</div>
+<div id="ref-donoho2010" class="csl-entry">
+Donoho, David L. 2010. <span>“An Invitation to Reproducible Computational Research.”</span> <em>Biostatistics</em> 11 (3): 385–88. <a href="https://doi.org/bxwkns">https://doi.org/bxwkns</a>.
+</div>
+<div id="ref-gandrud2013" class="csl-entry">
+Gandrud, Christopher. 2013. <em>Reproducible <span>Research</span> with <span>R</span> and <span>R Studio</span></em>. <span>CRC Press</span>.
+</div>
+<div id="ref-peng2014" class="csl-entry">
+Peng, Roger D. 2014. <em>R <span>Programming</span> for <span>Data Science</span></em>.
+</div>
+<div id="ref-wickham2016" class="csl-entry">
+Wickham, Hadley, and Garrett Grolemund. 2016. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. <span>" O’Reilly Media, Inc."</span>.
 </div>
 </div>
             </section>
@@ -477,10 +520,11 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "sepia",
+"theme": "white",
 "family": "sans",
 "size": 2
 },
@@ -497,6 +541,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

@@ -4,17 +4,18 @@ library(kableExtra)
 library(tidyverse)
 library(babynames)
 ```
+
 # loops, functions, and beyond
 
-In one of the most important contemporary theoretical models of intelligence, [@sternberg1999] has argued that the ability to automatize, that is, to work efficiently on repeated or habitual tasks, is a key component of intelligent behavior. Solving habitual problems efficiently - whether it is making a cup of coffee, finding the shortest path to complete a shopping list in a supermarket or a series of errands across town - allows us to focus our limited resources on other challenging tasks that, in turn, may determine whether we survive, or at least prosper.  
+In one of the most important contemporary theoretical models of intelligence, [@sternberg1999] has argued that the ability to automatize, that is, to work efficiently on repeated or habitual tasks, is a key component of intelligent behavior. Solving habitual problems efficiently - whether it is making a cup of coffee, finding the shortest path to complete a shopping list in a supermarket or a series of errands across town - allows us to focus our limited resources on other challenging tasks that, in turn, may determine whether we survive, or at least prosper.
 
 In programming, loops and functions are essential tools for making repetitive tasks simple. Simplifying your code is one of the more intellectually satisfying aspects of working in R or in any programming language.
 
-In R, loops are supplemented by additional tools for simplifying and avoiding repetition in code, including the 'apply' family and the map function in purrr.  Functions (and, beyond this, custom libraries) can further streamline your work.
+In R, loops are supplemented by additional tools for simplifying and avoiding repetition in code, including the 'apply' family and the map function in purrr. Functions (and, beyond this, custom libraries) can further streamline your work.
 
 ## loops
 
-Consider the task of printing out a series of numbers.  Here's a simple example of how this could be done in a loop in R. It prints numbers between 1995 and 1998 (inclusive). 
+Consider the task of printing out a series of numbers. Here's a simple example of how this could be done in a loop in R. It prints numbers between 1995 and 1998 (inclusive).
 
 ```{r }
 for (i in 1995:1998) { # i is an index code
@@ -40,9 +41,10 @@ for (i in (1:nrow(babyCounts))) {
     print(paste((babyCounts[i,1]), babyCounts[i,2]))
 }
 ```
-The syntax of loops, including where to put parentheses in index statements, can be tricky. Expect to refer to Google and StackExchange often in order to get your code running.  
 
-Another good source is Chapter 21 of R4DS.  There, Wickham goes in to additional detail, including a description of seq_along(df) as a tool for  creating an index corresponding to 1:ncol(df). Here's an example with the diamonds dataset:
+The syntax of loops, including where to put parentheses in index statements, can be tricky. Expect to refer to Google and StackExchange often in order to get your code running.
+
+Another good source is Chapter 21 of R4DS. There, Wickham goes in to additional detail, including a description of seq_along(df) as a tool for creating an index corresponding to 1:ncol(df). Here's an example with the diamonds dataset:
 
 ```{r}
 diamonds2 <- diamonds %>% 
@@ -53,11 +55,12 @@ for (i in seq_along(diamonds2)) {
                 round(mean(diamonds2[[i]]),2)))
 }
 ```
-Chapter 21 of R4DS also considers some extensions to related problems such as loops of indefinite length, which can often be addressed using the '*while*' command. 
+
+Chapter 21 of R4DS also considers some extensions to related problems such as loops of indefinite length, which can often be addressed using the '*while*' command.
 
 ## from loop to apply to purrr::map
 
-Understanding for loops is fundamental in programming, but in R they should often be sidestepped.  If the order of iteration isn't important (if, for example, it doesn't matter which of the diamonds variables we take the mean of first), then using one of the measures from the **apply** family can generally be used to make your code simpler and more efficient.
+Understanding for loops is fundamental in programming, but in R they should often be sidestepped. If the order of iteration isn't important (if, for example, it doesn't matter which of the diamonds variables we take the mean of first), then using one of the measures from the **apply** family can generally be used to make your code simpler and more efficient.
 
 The logic is that one takes a dataframe (df or tibble), then applies a function to its rows or columns:
 
@@ -68,9 +71,9 @@ diamonds2  %>% apply(2,mean)
 diamonds2  %>% sapply(mean) 
 ```
 
-The many variants of the apply family, including lapply [list apply] and tapply [table apply] as well as sapply, each have their own uses and can be quite efficient but, again, can be syntactically challenging. 
+The many variants of the apply family, including lapply [list apply] and tapply [table apply] as well as sapply, each have their own uses and can be quite efficient but, again, can be syntactically challenging.
 
-In the evolving tidyverse, the **map** family of commands is supplementing if not supplanting apply; these commands (part of the purrr package in the core tidyverse) may prove to be more convenient and clear.  For example, the **map_df** function will apply a function and return a dataframe (tibble), which can be handy for further analysis. 
+In the evolving tidyverse, the **map** family of commands is supplementing if not supplanting apply; these commands (part of the purrr package in the core tidyverse) may prove to be more convenient and clear. For example, the **map_df** function will apply a function and return a dataframe (tibble), which can be handy for further analysis.
 
 ```{r}
 diamonds2 %>% 
@@ -80,23 +83,22 @@ diamonds2 %>%
 
 ## some examples of functions
 
-If you repeat a series of lines of code several times in your program, it is often best to wrap this into a function. 
+If you repeat a series of lines of code several times in your program, it is often best to wrap this into a function.
 
-The first example is from a preregistered study I recently started of language and politics.  For the preregistration, I ran analyses using **simulated data,** both to increase the likelihood that the code will run without error on real data and to help anticipate the analyses which are to be run on 'real' data.  I began by getting a real body of text from the net and scrambling it, then constructing fake 'Republican' and 'Democratic' texts from this. Here, I illustrate this by constructing 50 sample documents, each consisting of between 5 and 20 words. 
+The first example is from a preregistered study I recently started of language and politics. For the preregistration, I ran analyses using **simulated data,** both to increase the likelihood that the code will run without error on real data and to help anticipate the analyses which are to be run on 'real' data. I began by getting a real body of text from the net and scrambling it, then constructing fake 'Republican' and 'Democratic' texts from this. Here, I illustrate this by constructing 50 sample documents, each consisting of between 5 and 20 words.
 
 The project is given in four steps:
 
 ### preliminaries
 
-Here is the preliminary stuff, where I pull the data off the net and initialize the variables
+Here is the preliminary stuff, where I pull the data ~~off the net~~ and initialize the variables
 
 ```{r simdata}
-sampledata <- read_csv(url(
-#      "https://www.crowdflower.com/wp-content/uploads/2016/03/sentiment-words-DFE-785960.csv"))
-"https://raw.githubusercontent.com/totalgood/hope/master/data/corpora/sentiment-words-DFE-785960.csv"))
+sampledata <- read_csv("data/sentiment-words-DFE-785960.csv")#url(
+#     "https://www.crowdflower.com/wp-content/uploads/2016/03/sentiment-words-DFE-785960.csv"))
+#"https://raw.githubusercontent.com/totalgood/hope/master/data/corpora/sentiment-words-DFE-785960.csv"))
   # pulls off four words
 sampledata <- sampledata[22:25] %>% na.omit()
-
 ndocs <- 50
 minDocLength <-  5
 maxDocLength <- 20
@@ -154,7 +156,7 @@ head(workingCorpus,5)
 
 ## how many bottles of what?
 
-To put the fun back into function, here's a solution to the "99 bottles of beer" function described in r4DS 21.2.1.  Study the code. Ask or answer a question about it in class or on Slack.
+To put the fun back into function, here's a solution to the "99 bottles of beer" function described in r4DS 21.2.1. Study the code. Ask or answer a question about it in class or on Slack.
 
 ```{r results=FALSE}
 beerSong <- function(liquid = "beer", count = 99, surface = "wall") {
@@ -173,7 +175,7 @@ beerSong <- function(liquid = "beer", count = 99, surface = "wall") {
 #beerSong() 
 ```
 
-And here are solutions proposed by some of your classmates over the last few years. How do they differ from each other, and from the solution given above? 
+And here are solutions proposed by some of your classmates over the last few years. How do they differ from each other, and from the solution given above?
 
 ```{r results ='hide'}
 beersng <- function(n) {
@@ -223,7 +225,7 @@ song <- function(bottlesofbeer){
 #song(99)
 ```
 
-Which code is 'best'? Good code is clear, but it is also efficient.  We probably shouldn't expect much in the way of differences between these functions in terms of speed (as each includes 99 iterations of a simple print command), but here's a simple way to compare. Note that I've used the "sink" command to write my output to files rather than consoles:
+Which code is 'best'? Good code is clear, but it is also efficient. We probably shouldn't expect much in the way of differences between these functions in terms of speed (as each includes 99 iterations of a simple print command), but here's a simple way to compare. Note that I've used the "sink" command to write my output to files rather than consoles:
 
 ```{r results = "hide"}
 start_time <- Sys.time()
@@ -271,4 +273,3 @@ tibble(functionName = c("beerSongtime",
            moreBeertime)) %>% 
           kable(digits = 2)
 ```
-

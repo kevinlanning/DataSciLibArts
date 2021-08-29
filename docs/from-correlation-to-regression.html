@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>18 from correlation to regression | Data science for the liberal arts</title>
   <meta name="description" content="Test" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="18 from correlation to regression | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:image" content="chihuahuamuffin.png" />
+  <meta property="og:image" content="/chihuahuamuffin.png" />
   <meta property="og:description" content="Test" />
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
@@ -19,12 +19,12 @@
   <meta name="twitter:title" content="18 from correlation to regression | Data science for the liberal arts" />
   
   <meta name="twitter:description" content="Test" />
-  <meta name="twitter:image" content="chihuahuamuffin.png" />
+  <meta name="twitter:image" content="/chihuahuamuffin.png" />
 
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2021-04-11" />
+<meta name="date" content="2021-08-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,8 @@
   
 <link rel="prev" href="loops-functions-and-beyond.html"/>
 <link rel="next" href="cross-validation.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,6 +51,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
@@ -119,6 +121,29 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 </head>
@@ -414,92 +439,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>(This section is excerpted directly from From <a href="https://github.com/datasciencelabs" class="uri">https://github.com/datasciencelabs</a>)</p>
 <p><a href="https://en.wikipedia.org/wiki/Francis_Galton">Francis Galton</a>, a polymath and cousin of Charles Darwin was interested, among other things, in how well can we predict a son’s height based on the parents’ heights.</p>
 <p>We have access to Galton’s family height data through the <code>HistData</code> package. We will create a dataset with the heights of fathers and the first son of each family. Here are the key summary statistics for the two variables of father and son height taken alone:</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="from-correlation-to-regression.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(HistData)</span>
-<span id="cb91-2"><a href="from-correlation-to-regression.html#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;GaltonFamilies&quot;</span>)</span>
-<span id="cb91-3"><a href="from-correlation-to-regression.html#cb91-3" aria-hidden="true" tabindex="-1"></a>galton_heights <span class="ot">&lt;-</span> GaltonFamilies <span class="sc">%&gt;%</span></span>
-<span id="cb91-4"><a href="from-correlation-to-regression.html#cb91-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(childNum <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> gender <span class="sc">==</span> <span class="st">&quot;male&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb91-5"><a href="from-correlation-to-regression.html#cb91-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(father, childHeight) <span class="sc">%&gt;%</span></span>
-<span id="cb91-6"><a href="from-correlation-to-regression.html#cb91-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">son =</span> childHeight)</span>
-<span id="cb91-7"><a href="from-correlation-to-regression.html#cb91-7" aria-hidden="true" tabindex="-1"></a>galton_heights <span class="sc">%&gt;%</span> </span>
-<span id="cb91-8"><a href="from-correlation-to-regression.html#cb91-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(father), <span class="fu">sd</span>(father), <span class="fu">mean</span>(son), <span class="fu">sd</span>(son))</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="from-correlation-to-regression.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(HistData)</span>
+<span id="cb93-2"><a href="from-correlation-to-regression.html#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;GaltonFamilies&quot;</span>)</span>
+<span id="cb93-3"><a href="from-correlation-to-regression.html#cb93-3" aria-hidden="true" tabindex="-1"></a>galton_heights <span class="ot">&lt;-</span> GaltonFamilies <span class="sc">%&gt;%</span></span>
+<span id="cb93-4"><a href="from-correlation-to-regression.html#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(childNum <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> gender <span class="sc">==</span> <span class="st">&quot;male&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb93-5"><a href="from-correlation-to-regression.html#cb93-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(father, childHeight) <span class="sc">%&gt;%</span></span>
+<span id="cb93-6"><a href="from-correlation-to-regression.html#cb93-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">son =</span> childHeight)</span>
+<span id="cb93-7"><a href="from-correlation-to-regression.html#cb93-7" aria-hidden="true" tabindex="-1"></a>galton_heights <span class="sc">%&gt;%</span> </span>
+<span id="cb93-8"><a href="from-correlation-to-regression.html#cb93-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(father), <span class="fu">sd</span>(father), <span class="fu">mean</span>(son), <span class="fu">sd</span>(son))</span></code></pre></div>
 <pre><code>##   mean(father) sd(father) mean(son)  sd(son)
 ## 1     69.09888   2.546555  70.45475 2.557061</code></pre>
 <p>This <strong>univariate</strong> description fails to capture the key characteristic of the data, namely, the idea that there is a relationship between the two variables:</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="from-correlation-to-regression.html#cb93-1" aria-hidden="true" tabindex="-1"></a>galton_heights <span class="sc">%&gt;%</span> </span>
-<span id="cb93-2"><a href="from-correlation-to-regression.html#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(father, son)) <span class="sc">+</span> </span>
-<span id="cb93-3"><a href="from-correlation-to-regression.html#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">col  =</span> <span class="st">&#39;forestgreen&#39;</span>)</span></code></pre></div>
-<div class="figure"><span id="fig:scatterplot"></span>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="from-correlation-to-regression.html#cb95-1" aria-hidden="true" tabindex="-1"></a>galton_heights <span class="sc">%&gt;%</span> </span>
+<span id="cb95-2"><a href="from-correlation-to-regression.html#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(father, son)) <span class="sc">+</span> </span>
+<span id="cb95-3"><a href="from-correlation-to-regression.html#cb95-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">col  =</span> <span class="st">&#39;forestgreen&#39;</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:scatterplot"></span>
 <img src="DataSciLibArts_files/figure-html/scatterplot-1.png" alt="Heights of father and son pairs plotted against each other." width="672" />
 <p class="caption">
 Figure 18.1: Heights of father and son pairs plotted against each other.
 </p>
 </div>
 <p>The correlation summarizes this relationship. In these data, the correlation (r) is about .50.</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="from-correlation-to-regression.html#cb94-1" aria-hidden="true" tabindex="-1"></a>galton_heights <span class="sc">%&gt;%</span> </span>
-<span id="cb94-2"><a href="from-correlation-to-regression.html#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">cor</span>(father, son)) <span class="sc">%&gt;%</span> </span>
-<span id="cb94-3"><a href="from-correlation-to-regression.html#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="from-correlation-to-regression.html#cb96-1" aria-hidden="true" tabindex="-1"></a>galton_heights <span class="sc">%&gt;%</span> </span>
+<span id="cb96-2"><a href="from-correlation-to-regression.html#cb96-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">cor</span>(father, son)) <span class="sc">%&gt;%</span> </span>
+<span id="cb96-3"><a href="from-correlation-to-regression.html#cb96-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##   cor(father, son)
 ## 1            0.501</code></pre>
 </div>
 <div id="correlations-based-on-small-samples-are-unstable-a-monte-carlo-demonstration" class="section level2" number="18.2">
 <h2><span class="header-section-number">18.2</span> correlations based on small samples are unstable: A Monte Carlo demonstration</h2>
 <p>Correlations based on small samples can bounce around quite a bit. Consider what happens when, for example, we sample just 25 cases from Galton’s data, and compute the correlation from this. We repeat this 1000 times, then plot the distribution of these sample rs:</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="from-correlation-to-regression.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">33458</span>) <span class="co"># why do I do this?</span></span>
-<span id="cb96-2"><a href="from-correlation-to-regression.html#cb96-2" aria-hidden="true" tabindex="-1"></a>nTrials <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb96-3"><a href="from-correlation-to-regression.html#cb96-3" aria-hidden="true" tabindex="-1"></a>nPerTrial <span class="ot">&lt;-</span> <span class="dv">25</span></span>
-<span id="cb96-4"><a href="from-correlation-to-regression.html#cb96-4" aria-hidden="true" tabindex="-1"></a>replications <span class="ot">&lt;-</span> <span class="fu">replicate</span>(nTrials, {</span>
-<span id="cb96-5"><a href="from-correlation-to-regression.html#cb96-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(galton_heights, nPerTrial, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> <span class="co"># we sample with replacement here</span></span>
-<span id="cb96-6"><a href="from-correlation-to-regression.html#cb96-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">r=</span><span class="fu">cor</span>(father, son)) <span class="sc">%&gt;%</span> </span>
-<span id="cb96-7"><a href="from-correlation-to-regression.html#cb96-7" aria-hidden="true" tabindex="-1"></a>    .<span class="sc">$</span>r</span>
-<span id="cb96-8"><a href="from-correlation-to-regression.html#cb96-8" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb96-9"><a href="from-correlation-to-regression.html#cb96-9" aria-hidden="true" tabindex="-1"></a>replications <span class="sc">%&gt;%</span> </span>
-<span id="cb96-10"><a href="from-correlation-to-regression.html#cb96-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb96-11"><a href="from-correlation-to-regression.html#cb96-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(replications)) <span class="sc">+</span></span>
-<span id="cb96-12"><a href="from-correlation-to-regression.html#cb96-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.05</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;cyan&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="from-correlation-to-regression.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">33458</span>) <span class="co"># why do I do this?</span></span>
+<span id="cb98-2"><a href="from-correlation-to-regression.html#cb98-2" aria-hidden="true" tabindex="-1"></a>nTrials <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb98-3"><a href="from-correlation-to-regression.html#cb98-3" aria-hidden="true" tabindex="-1"></a>nPerTrial <span class="ot">&lt;-</span> <span class="dv">25</span></span>
+<span id="cb98-4"><a href="from-correlation-to-regression.html#cb98-4" aria-hidden="true" tabindex="-1"></a>replications <span class="ot">&lt;-</span> <span class="fu">replicate</span>(nTrials, {</span>
+<span id="cb98-5"><a href="from-correlation-to-regression.html#cb98-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(galton_heights, nPerTrial, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> <span class="co"># we sample with replacement here</span></span>
+<span id="cb98-6"><a href="from-correlation-to-regression.html#cb98-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">r=</span><span class="fu">cor</span>(father, son)) <span class="sc">%&gt;%</span> </span>
+<span id="cb98-7"><a href="from-correlation-to-regression.html#cb98-7" aria-hidden="true" tabindex="-1"></a>    .<span class="sc">$</span>r</span>
+<span id="cb98-8"><a href="from-correlation-to-regression.html#cb98-8" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb98-9"><a href="from-correlation-to-regression.html#cb98-9" aria-hidden="true" tabindex="-1"></a>replications <span class="sc">%&gt;%</span> </span>
+<span id="cb98-10"><a href="from-correlation-to-regression.html#cb98-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb98-11"><a href="from-correlation-to-regression.html#cb98-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(replications)) <span class="sc">+</span></span>
+<span id="cb98-12"><a href="from-correlation-to-regression.html#cb98-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.05</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;cyan&quot;</span>)</span></code></pre></div>
 <p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
 <p>These sample correlations range from -0.002 to 0.882. Their average, however, at 0.503 is almost exactly that of the overall population. Often in data science, we will estimate population parameters in this way - by repeated sampling, and by studying the extent to which results are consistent across samples. More on that later.</p>
 <div id="the-regression-line" class="section level3" number="18.2.1">
 <h3><span class="header-section-number">18.2.1</span> The regression line</h3>
 <p>If we are predicting a random variable <span class="math inline">\(Y\)</span> knowing the value of another <span class="math inline">\(X=x\)</span> using a regression line, then we predict that for every standard deviation, <span class="math inline">\(\sigma_X\)</span>, that <span class="math inline">\(x\)</span> increases above the average <span class="math inline">\(mu_X\)</span>, <span class="math inline">\(Y\)</span> increases <span class="math inline">\(\rho\)</span> standard deviations <span class="math inline">\(\sigma_Y\)</span> above the average <span class="math inline">\(\mu_Y\)</span>, where <span class="math inline">\(\rho\)</span> is the correlation between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. (Confusing, yes? Make sense of it by making it concrete: Let <span class="math inline">\(Y\)</span> = College GPA, <span class="math inline">\(X\)</span> = HS GPA, <span class="math inline">\(X = x\)</span> = 3.2 … )</p>
 <p>To manually add a regression line to a plots, we will need the means and standard deviations of each variable together with their correlation:</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="from-correlation-to-regression.html#cb97-1" aria-hidden="true" tabindex="-1"></a>mu_x <span class="ot">&lt;-</span> <span class="fu">mean</span>(galton_heights<span class="sc">$</span>father)</span>
-<span id="cb97-2"><a href="from-correlation-to-regression.html#cb97-2" aria-hidden="true" tabindex="-1"></a>mu_y <span class="ot">&lt;-</span> <span class="fu">mean</span>(galton_heights<span class="sc">$</span>son)</span>
-<span id="cb97-3"><a href="from-correlation-to-regression.html#cb97-3" aria-hidden="true" tabindex="-1"></a>s_x <span class="ot">&lt;-</span> <span class="fu">sd</span>(galton_heights<span class="sc">$</span>father)</span>
-<span id="cb97-4"><a href="from-correlation-to-regression.html#cb97-4" aria-hidden="true" tabindex="-1"></a>s_y <span class="ot">&lt;-</span> <span class="fu">sd</span>(galton_heights<span class="sc">$</span>son)</span>
-<span id="cb97-5"><a href="from-correlation-to-regression.html#cb97-5" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">cor</span>(galton_heights<span class="sc">$</span>father, galton_heights<span class="sc">$</span>son)</span>
-<span id="cb97-6"><a href="from-correlation-to-regression.html#cb97-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-7"><a href="from-correlation-to-regression.html#cb97-7" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span>  r <span class="sc">*</span> s_y <span class="sc">/</span> s_x</span>
-<span id="cb97-8"><a href="from-correlation-to-regression.html#cb97-8" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> mu_y <span class="sc">-</span> m<span class="sc">*</span>mu_x</span>
-<span id="cb97-9"><a href="from-correlation-to-regression.html#cb97-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-10"><a href="from-correlation-to-regression.html#cb97-10" aria-hidden="true" tabindex="-1"></a>galton_heights <span class="sc">%&gt;%</span> </span>
-<span id="cb97-11"><a href="from-correlation-to-regression.html#cb97-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(father, son)) <span class="sc">+</span> </span>
-<span id="cb97-12"><a href="from-correlation-to-regression.html#cb97-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb97-13"><a href="from-correlation-to-regression.html#cb97-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> b, <span class="at">slope =</span> m ) </span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="from-correlation-to-regression.html#cb99-1" aria-hidden="true" tabindex="-1"></a>mu_x <span class="ot">&lt;-</span> <span class="fu">mean</span>(galton_heights<span class="sc">$</span>father)</span>
+<span id="cb99-2"><a href="from-correlation-to-regression.html#cb99-2" aria-hidden="true" tabindex="-1"></a>mu_y <span class="ot">&lt;-</span> <span class="fu">mean</span>(galton_heights<span class="sc">$</span>son)</span>
+<span id="cb99-3"><a href="from-correlation-to-regression.html#cb99-3" aria-hidden="true" tabindex="-1"></a>s_x <span class="ot">&lt;-</span> <span class="fu">sd</span>(galton_heights<span class="sc">$</span>father)</span>
+<span id="cb99-4"><a href="from-correlation-to-regression.html#cb99-4" aria-hidden="true" tabindex="-1"></a>s_y <span class="ot">&lt;-</span> <span class="fu">sd</span>(galton_heights<span class="sc">$</span>son)</span>
+<span id="cb99-5"><a href="from-correlation-to-regression.html#cb99-5" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">cor</span>(galton_heights<span class="sc">$</span>father, galton_heights<span class="sc">$</span>son)</span>
+<span id="cb99-6"><a href="from-correlation-to-regression.html#cb99-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-7"><a href="from-correlation-to-regression.html#cb99-7" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span>  r <span class="sc">*</span> s_y <span class="sc">/</span> s_x</span>
+<span id="cb99-8"><a href="from-correlation-to-regression.html#cb99-8" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> mu_y <span class="sc">-</span> m<span class="sc">*</span>mu_x</span>
+<span id="cb99-9"><a href="from-correlation-to-regression.html#cb99-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-10"><a href="from-correlation-to-regression.html#cb99-10" aria-hidden="true" tabindex="-1"></a>galton_heights <span class="sc">%&gt;%</span> </span>
+<span id="cb99-11"><a href="from-correlation-to-regression.html#cb99-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(father, son)) <span class="sc">+</span> </span>
+<span id="cb99-12"><a href="from-correlation-to-regression.html#cb99-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb99-13"><a href="from-correlation-to-regression.html#cb99-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> b, <span class="at">slope =</span> m ) </span></code></pre></div>
 <p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
 <p>If we first standardize the variables, then the regression line has intercept 0 and slope equal to the correlation <span class="math inline">\(\rho\)</span>. Here, the slope, regression line, and correlation are all equal (I’ve made the plot square to better indicate this).</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="from-correlation-to-regression.html#cb98-1" aria-hidden="true" tabindex="-1"></a>galton_heights <span class="sc">%&gt;%</span> </span>
-<span id="cb98-2"><a href="from-correlation-to-regression.html#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">scale</span>(father), <span class="fu">scale</span>(son))) <span class="sc">+</span> </span>
-<span id="cb98-3"><a href="from-correlation-to-regression.html#cb98-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb98-4"><a href="from-correlation-to-regression.html#cb98-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> r) </span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="from-correlation-to-regression.html#cb100-1" aria-hidden="true" tabindex="-1"></a>galton_heights <span class="sc">%&gt;%</span> </span>
+<span id="cb100-2"><a href="from-correlation-to-regression.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">scale</span>(father), <span class="fu">scale</span>(son))) <span class="sc">+</span> </span>
+<span id="cb100-3"><a href="from-correlation-to-regression.html#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb100-4"><a href="from-correlation-to-regression.html#cb100-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> r) </span></code></pre></div>
 <p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-44-1.png" width="384" /></p>
 </div>
 <div id="warning-there-are-two-regression-lines" class="section level3" number="18.2.2">
 <h3><span class="header-section-number">18.2.2</span> Warning: there are two regression lines</h3>
 <p>In general, when describing bivariate relationships, we talk of predicting y from x. But what if we want to reverse this? Here, for example, what if we want to predict the father’s height based on the son’s?</p>
 <p>For this, the intercept and slope of the lines will differ</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="from-correlation-to-regression.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># son from father</span></span>
-<span id="cb99-2"><a href="from-correlation-to-regression.html#cb99-2" aria-hidden="true" tabindex="-1"></a>m_1 <span class="ot">&lt;-</span>  r <span class="sc">*</span> s_y <span class="sc">/</span> s_x</span>
-<span id="cb99-3"><a href="from-correlation-to-regression.html#cb99-3" aria-hidden="true" tabindex="-1"></a>b_1 <span class="ot">&lt;-</span> mu_y <span class="sc">-</span> m_1<span class="sc">*</span>mu_x</span>
-<span id="cb99-4"><a href="from-correlation-to-regression.html#cb99-4" aria-hidden="true" tabindex="-1"></a><span class="co"># vice-versa</span></span>
-<span id="cb99-5"><a href="from-correlation-to-regression.html#cb99-5" aria-hidden="true" tabindex="-1"></a>m_2 <span class="ot">&lt;-</span>  r <span class="sc">*</span> s_x <span class="sc">/</span> s_y</span>
-<span id="cb99-6"><a href="from-correlation-to-regression.html#cb99-6" aria-hidden="true" tabindex="-1"></a>b_2 <span class="ot">&lt;-</span> mu_x <span class="sc">-</span> m_2<span class="sc">*</span>mu_y</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="from-correlation-to-regression.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co"># son from father</span></span>
+<span id="cb101-2"><a href="from-correlation-to-regression.html#cb101-2" aria-hidden="true" tabindex="-1"></a>m_1 <span class="ot">&lt;-</span>  r <span class="sc">*</span> s_y <span class="sc">/</span> s_x</span>
+<span id="cb101-3"><a href="from-correlation-to-regression.html#cb101-3" aria-hidden="true" tabindex="-1"></a>b_1 <span class="ot">&lt;-</span> mu_y <span class="sc">-</span> m_1<span class="sc">*</span>mu_x</span>
+<span id="cb101-4"><a href="from-correlation-to-regression.html#cb101-4" aria-hidden="true" tabindex="-1"></a><span class="co"># vice-versa</span></span>
+<span id="cb101-5"><a href="from-correlation-to-regression.html#cb101-5" aria-hidden="true" tabindex="-1"></a>m_2 <span class="ot">&lt;-</span>  r <span class="sc">*</span> s_x <span class="sc">/</span> s_y</span>
+<span id="cb101-6"><a href="from-correlation-to-regression.html#cb101-6" aria-hidden="true" tabindex="-1"></a>b_2 <span class="ot">&lt;-</span> mu_x <span class="sc">-</span> m_2<span class="sc">*</span>mu_y</span></code></pre></div>
 <p>We will still see regression to the mean (the prediction for the father is closer to the father average than the son heights <span class="math inline">\(y\)</span> is to the son average).</p>
 <p>Here is a plot showing the two regression lines, with blue for the predicting son heights with father heights and red for predicting father heights with son heights.</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="from-correlation-to-regression.html#cb100-1" aria-hidden="true" tabindex="-1"></a>galton_heights <span class="sc">%&gt;%</span> </span>
-<span id="cb100-2"><a href="from-correlation-to-regression.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(father, son)) <span class="sc">+</span> </span>
-<span id="cb100-3"><a href="from-correlation-to-regression.html#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb100-4"><a href="from-correlation-to-regression.html#cb100-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> b_1, <span class="at">slope =</span> m_1, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb100-5"><a href="from-correlation-to-regression.html#cb100-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="sc">-</span>b_2<span class="sc">/</span>m_2, <span class="at">slope =</span> <span class="dv">1</span><span class="sc">/</span>m_2, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="from-correlation-to-regression.html#cb102-1" aria-hidden="true" tabindex="-1"></a>galton_heights <span class="sc">%&gt;%</span> </span>
+<span id="cb102-2"><a href="from-correlation-to-regression.html#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(father, son)) <span class="sc">+</span> </span>
+<span id="cb102-3"><a href="from-correlation-to-regression.html#cb102-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb102-4"><a href="from-correlation-to-regression.html#cb102-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> b_1, <span class="at">slope =</span> m_1, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb102-5"><a href="from-correlation-to-regression.html#cb102-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="sc">-</span>b_2<span class="sc">/</span>m_2, <span class="at">slope =</span> <span class="dv">1</span><span class="sc">/</span>m_2, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) </span></code></pre></div>
 <p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-46-1.png" width="384" /></p>
 </div>
 </div>
@@ -507,16 +532,16 @@ Figure 18.1: Heights of father and son pairs plotted against each other.
 <h2><span class="header-section-number">18.3</span> multiple regression</h2>
 <p>We extend regression (predicting one continuous variable from another) to the multivariate case (predicting one variable from many). We extend this logic to the cases where our variables are not normally distributed, as in the case of dichotomous variables (yes/no, true/false), as well as counts, which often are skewed.</p>
 <p>(This section is drawn from Peng, Caffo, and Leek’s treatment from Coursera/ the Johns Hopkins Data Science Program. You may need to install the packages “UsingR,” “GGally” and/or“Hmisc”)</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="from-correlation-to-regression.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom) <span class="co"># an older package for unlisting regression results</span></span>
-<span id="cb101-2"><a href="from-correlation-to-regression.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelr)</span>
-<span id="cb101-3"><a href="from-correlation-to-regression.html#cb101-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally) <span class="co"># for scatterplot matrix</span></span>
-<span id="cb101-4"><a href="from-correlation-to-regression.html#cb101-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Ecdat) <span class="co"># Econometric data incl. affairs dataset </span></span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="from-correlation-to-regression.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom) <span class="co"># an older package for unlisting regression results</span></span>
+<span id="cb103-2"><a href="from-correlation-to-regression.html#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelr)</span>
+<span id="cb103-3"><a href="from-correlation-to-regression.html#cb103-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally) <span class="co"># for scatterplot matrix</span></span>
+<span id="cb103-4"><a href="from-correlation-to-regression.html#cb103-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Ecdat) <span class="co"># Econometric data incl. affairs dataset </span></span></code></pre></div>
 </div>
 <div id="swiss-fertility-data" class="section level2" number="18.4">
 <h2><span class="header-section-number">18.4</span> Swiss fertility data</h2>
 <p>To consider the multivariate case, we examine a second dataset.</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="from-correlation-to-regression.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(swiss)</span>
-<span id="cb102-2"><a href="from-correlation-to-regression.html#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(swiss)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="from-correlation-to-regression.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(swiss)</span>
+<span id="cb104-2"><a href="from-correlation-to-regression.html#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(swiss)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    47 obs. of  6 variables:
 ##  $ Fertility       : num  80.2 83.1 92.5 85.8 76.9 76.1 83.8 92.4 82.4 82.9 ...
 ##  $ Agriculture     : num  17 45.1 39.7 36.5 43.5 35.3 70.2 67.8 53.3 45.2 ...
@@ -525,15 +550,15 @@ Figure 18.1: Heights of father and son pairs plotted against each other.
 ##  $ Catholic        : num  9.96 84.84 93.4 33.77 5.16 ...
 ##  $ Infant.Mortality: num  22.2 22.2 20.2 20.3 20.6 26.6 23.6 24.9 21 24.4 ...</code></pre>
 <p>Here’s a <em>scatterplot matrix</em> of the Swiss data. Look at the first column of plots (or first row of the correlations). What is the relationship between fertility and each of the other variables?</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="from-correlation-to-regression.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span> (swiss,</span>
-<span id="cb104-2"><a href="from-correlation-to-regression.html#cb104-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">lower =</span> <span class="fu">list</span>(</span>
-<span id="cb104-3"><a href="from-correlation-to-regression.html#cb104-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">continuous =</span> <span class="st">&quot;smooth&quot;</span>),</span>
-<span id="cb104-4"><a href="from-correlation-to-regression.html#cb104-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">axisLabels =</span><span class="st">&quot;none&quot;</span>,</span>
-<span id="cb104-5"><a href="from-correlation-to-regression.html#cb104-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">switch =</span> <span class="st">&#39;both&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="from-correlation-to-regression.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span> (swiss,</span>
+<span id="cb106-2"><a href="from-correlation-to-regression.html#cb106-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">lower =</span> <span class="fu">list</span>(</span>
+<span id="cb106-3"><a href="from-correlation-to-regression.html#cb106-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">continuous =</span> <span class="st">&quot;smooth&quot;</span>),</span>
+<span id="cb106-4"><a href="from-correlation-to-regression.html#cb106-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">axisLabels =</span><span class="st">&quot;none&quot;</span>,</span>
+<span id="cb106-5"><a href="from-correlation-to-regression.html#cb106-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">switch =</span> <span class="st">&#39;both&#39;</span>)</span></code></pre></div>
 <p><img src="DataSciLibArts_files/figure-html/scatterplot%20matrix%20with%20ggpairs,%20swiss-1.png" width="672" /></p>
 <p>Here, we predict fertility from all of the remaining variables together in a single regression analysis, using the lm (linear model) command. As we saw in Chapter 15, the result of this analysis is a list. We can pull out the key features of the data using the summary() command. How do you interpret this?</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="from-correlation-to-regression.html#cb105-1" aria-hidden="true" tabindex="-1"></a>swissReg <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> ., <span class="at">data=</span>swiss)</span>
-<span id="cb105-2"><a href="from-correlation-to-regression.html#cb105-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(swissReg)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="from-correlation-to-regression.html#cb107-1" aria-hidden="true" tabindex="-1"></a>swissReg <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> ., <span class="at">data=</span>swiss)</span>
+<span id="cb107-2"><a href="from-correlation-to-regression.html#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(swissReg)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Fertility ~ ., data = swiss)
@@ -560,20 +585,20 @@ Figure 18.1: Heights of father and son pairs plotted against each other.
 <div id="marital-affairs-data" class="section level2" number="18.5">
 <h2><span class="header-section-number">18.5</span> marital affairs data</h2>
 <p>Here’s another dataset. We’ll apply ggpairs here, but for clarity will show only half of the data at a time. The dependent variable of interest (nbaffairs) will be included in both plots:</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="from-correlation-to-regression.html#cb107-1" aria-hidden="true" tabindex="-1"></a>Fair1 <span class="ot">&lt;-</span> Fair <span class="sc">%&gt;%</span> </span>
-<span id="cb107-2"><a href="from-correlation-to-regression.html#cb107-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sex<span class="sc">:</span>child, nbaffairs)</span>
-<span id="cb107-3"><a href="from-correlation-to-regression.html#cb107-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(Fair1,  </span>
-<span id="cb107-4"><a href="from-correlation-to-regression.html#cb107-4" aria-hidden="true" tabindex="-1"></a><span class="co"># if you wanted to jam all 9 vars onto one page you could do this</span></span>
-<span id="cb107-5"><a href="from-correlation-to-regression.html#cb107-5" aria-hidden="true" tabindex="-1"></a><span class="co">#        upper = list(continuous = wrap(ggally_cor, size = 10)),</span></span>
-<span id="cb107-6"><a href="from-correlation-to-regression.html#cb107-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">lower =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="st">&#39;smooth&#39;</span>),</span>
-<span id="cb107-7"><a href="from-correlation-to-regression.html#cb107-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">axisLabels =</span> <span class="st">&quot;none&quot;</span>,</span>
-<span id="cb107-8"><a href="from-correlation-to-regression.html#cb107-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">switch =</span> <span class="st">&#39;both&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="from-correlation-to-regression.html#cb109-1" aria-hidden="true" tabindex="-1"></a>Fair1 <span class="ot">&lt;-</span> Fair <span class="sc">%&gt;%</span> </span>
+<span id="cb109-2"><a href="from-correlation-to-regression.html#cb109-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sex<span class="sc">:</span>child, nbaffairs)</span>
+<span id="cb109-3"><a href="from-correlation-to-regression.html#cb109-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(Fair1,  </span>
+<span id="cb109-4"><a href="from-correlation-to-regression.html#cb109-4" aria-hidden="true" tabindex="-1"></a><span class="co"># if you wanted to jam all 9 vars onto one page you could do this</span></span>
+<span id="cb109-5"><a href="from-correlation-to-regression.html#cb109-5" aria-hidden="true" tabindex="-1"></a><span class="co">#        upper = list(continuous = wrap(ggally_cor, size = 10)),</span></span>
+<span id="cb109-6"><a href="from-correlation-to-regression.html#cb109-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">lower =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="st">&#39;smooth&#39;</span>),</span>
+<span id="cb109-7"><a href="from-correlation-to-regression.html#cb109-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">axisLabels =</span> <span class="st">&quot;none&quot;</span>,</span>
+<span id="cb109-8"><a href="from-correlation-to-regression.html#cb109-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">switch =</span> <span class="st">&#39;both&#39;</span>)</span></code></pre></div>
 <p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-48-1.png" width="100%" /></p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="from-correlation-to-regression.html#cb108-1" aria-hidden="true" tabindex="-1"></a>Fair2 <span class="ot">&lt;-</span> Fair <span class="sc">%&gt;%</span> </span>
-<span id="cb108-2"><a href="from-correlation-to-regression.html#cb108-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(religious<span class="sc">:</span>nbaffairs) </span>
-<span id="cb108-3"><a href="from-correlation-to-regression.html#cb108-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(Fair2, <span class="at">lower =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="st">&#39;smooth&#39;</span>),</span>
-<span id="cb108-4"><a href="from-correlation-to-regression.html#cb108-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">axisLabels =</span> <span class="st">&quot;none&quot;</span>,</span>
-<span id="cb108-5"><a href="from-correlation-to-regression.html#cb108-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">switch =</span> <span class="st">&#39;both&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="from-correlation-to-regression.html#cb110-1" aria-hidden="true" tabindex="-1"></a>Fair2 <span class="ot">&lt;-</span> Fair <span class="sc">%&gt;%</span> </span>
+<span id="cb110-2"><a href="from-correlation-to-regression.html#cb110-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(religious<span class="sc">:</span>nbaffairs) </span>
+<span id="cb110-3"><a href="from-correlation-to-regression.html#cb110-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(Fair2, <span class="at">lower =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="st">&#39;smooth&#39;</span>),</span>
+<span id="cb110-4"><a href="from-correlation-to-regression.html#cb110-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">axisLabels =</span> <span class="st">&quot;none&quot;</span>,</span>
+<span id="cb110-5"><a href="from-correlation-to-regression.html#cb110-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">switch =</span> <span class="st">&#39;both&#39;</span>)</span></code></pre></div>
 <p><img src="DataSciLibArts_files/figure-html/unnamed-chunk-48-2.png" width="100%" /></p>
 <blockquote>
 <p>Exercise</p>
@@ -583,8 +608,8 @@ Figure 18.1: Heights of father and son pairs plotted against each other.
 <li>Can you just run a regression on it as is? Try predicting nbaffairs from the remaining 8 variables in Fair (not Fair1 or Fair2), using the same syntax in the Swiss data. Does it work? What do the results suggest?</li>
 </ol>
 </blockquote>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="from-correlation-to-regression.html#cb109-1" aria-hidden="true" tabindex="-1"></a>affairReg <span class="ot">&lt;-</span> <span class="fu">lm</span>(nbaffairs <span class="sc">~</span> ., <span class="at">data=</span>Fair)</span>
-<span id="cb109-2"><a href="from-correlation-to-regression.html#cb109-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(affairReg)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="from-correlation-to-regression.html#cb111-1" aria-hidden="true" tabindex="-1"></a>affairReg <span class="ot">&lt;-</span> <span class="fu">lm</span>(nbaffairs <span class="sc">~</span> ., <span class="at">data=</span>Fair)</span>
+<span id="cb111-2"><a href="from-correlation-to-regression.html#cb111-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(affairReg)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = nbaffairs ~ ., data = Fair)
@@ -642,10 +667,11 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "sepia",
+"theme": "white",
 "family": "sans",
 "size": 2
 },
@@ -662,6 +688,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

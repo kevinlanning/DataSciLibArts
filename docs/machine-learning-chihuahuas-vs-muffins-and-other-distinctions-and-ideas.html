@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>21 machine learning: chihuahuas vs muffins, and other distinctions and ideas | Data science for the liberal arts</title>
   <meta name="description" content="Test" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="21 machine learning: chihuahuas vs muffins, and other distinctions and ideas | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:image" content="chihuahuamuffin.png" />
+  <meta property="og:image" content="/chihuahuamuffin.png" />
   <meta property="og:description" content="Test" />
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
@@ -19,12 +19,12 @@
   <meta name="twitter:title" content="21 machine learning: chihuahuas vs muffins, and other distinctions and ideas | Data science for the liberal arts" />
   
   <meta name="twitter:description" content="Test" />
-  <meta name="twitter:image" content="chihuahuamuffin.png" />
+  <meta name="twitter:image" content="/chihuahuamuffin.png" />
 
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2021-04-11" />
+<meta name="date" content="2021-08-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,8 @@
   
 <link rel="prev" href="prediction-and-classification.html"/>
 <link rel="next" href="some-ethical-concerns-for-the-data-scientist.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,6 +51,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
@@ -119,6 +121,29 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 </head>
@@ -405,28 +430,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas" class="section level1" number="21">
 <h1><span class="header-section-number">21</span> machine learning: chihuahuas vs muffins, and other distinctions and ideas</h1>
 <p>In the last few chapters, we have considered linear and logistic regression and k-nearest neighbor analysis as tools for prediction and classification. We’ve shown how to split the data into training, test and (in some cases) validation samples, then how to assess the robustness or accuracy of a model on these new datasets. We’ve also considered measures such as R-squared, overall accuracy, and area under the ROC as measures of validity.</p>
-<p>These ideas and techniques form a starting point for the study of <em>machine learning</em>. My approach is drawn largely from <span class="citation"><a href="references.html#ref-james2013a" role="doc-biblioref">James et al.</a> (<a href="references.html#ref-james2013a" role="doc-biblioref">2013</a>)</span>, which is available freely on the web and includes links to additional materials and R-based exercises for those who would like to study this further.</p>
+<p>These ideas and techniques form a starting point for the study of <em>machine learning</em>. My approach is drawn largely from <span class="citation"><a href="#ref-james2013a" role="doc-biblioref">James et al.</a> (<a href="#ref-james2013a" role="doc-biblioref">2013</a>)</span>, which is available freely on the web and includes links to additional materials and R-based exercises for those who would like to study this further.</p>
 <div id="supervised-versus-unsupervised" class="section level2" number="21.1">
 <h2><span class="header-section-number">21.1</span> supervised versus unsupervised</h2>
 <p>One problem that we haven’t yet considered is the distinction between supervised and unsupervised problems, arguably the most fundamental distinction in machine learning.</p>
 <p>In both the Swiss and the Fair problems, we had a known outcome (fertility, infidelity) which we were trying to predict from a set of independent variables. In these problems, we have an a priori split of the variables into two sets (outcomes and predictors). These are considered <strong>supervised</strong> problems. In these problems, we can think of the known outcome or criterion as guiding (supervising) the work of model-building.</p>
 <p>There is a second type of problem in which we don’t have an outcome, which would guide or supervise our model. Without an outcome or criterion, we must rely on the internal structure of the data. These are considered <strong>unsupervised</strong> problems. Methods used to address unsupervised problems include cluster analysis (of which there are many subtypes), component analysis, and exploratory factor analysis.</p>
-<p>In the unsupervised approach, objectives include finding unknown patterns, developing a set of types (or a taxonomy), and assessing the dimensionality of a latent set of variables. In psychology, a focal problems involves assessing the factor structure of personality (if you have taken introductory psychology, you are likely familiar with the five-factor or Big Five model of personality). The unsupervised approach is also used to solve problems of community detection in the study of social and scientific networks (see Figure 20.1, from <span class="citation"><a href="references.html#ref-lanning2017a" role="doc-biblioref">Lanning</a> (<a href="references.html#ref-lanning2017a" role="doc-biblioref">2017</a>)</span>). I think that questions about dimensionality and internal structure can be compelling <span class="citation">(<a href="references.html#ref-lanning1994" role="doc-biblioref">Lanning 1994</a>, <a href="references.html#ref-lanning1996" role="doc-biblioref">1996</a>; <a href="references.html#ref-lanning2009" role="doc-biblioref">Lanning and Rosenberg 2009</a>)</span>, but I will not consider them further here.</p>
+<p>In the unsupervised approach, objectives include finding unknown patterns, developing a set of types (or a taxonomy), and assessing the dimensionality of a latent set of variables. In psychology, a focal problems involves assessing the factor structure of personality (if you have taken introductory psychology, you are likely familiar with the five-factor or Big Five model of personality). The unsupervised approach is also used to solve problems of community detection in the study of social and scientific networks (see Figure 20.1, from <span class="citation"><a href="#ref-lanning2017a" role="doc-biblioref">Lanning</a> (<a href="#ref-lanning2017a" role="doc-biblioref">2017</a>)</span>). I think that questions about dimensionality and internal structure can be compelling <span class="citation">(<a href="#ref-lanning1994" role="doc-biblioref">Lanning 1994</a>, <a href="#ref-lanning1996" role="doc-biblioref">1996</a>; <a href="#ref-lanning2009" role="doc-biblioref">Lanning and Rosenberg 2009</a>)</span>, but I will not consider them further here.</p>
 <div class="figure">
 <img src="images/SoniaFigure.PNG" alt="" />
-<p class="caption">Figure 20.1. Part of the structure of personality research. From <span class="citation"><a href="references.html#ref-lanning2017a" role="doc-biblioref">Lanning</a> (<a href="references.html#ref-lanning2017a" role="doc-biblioref">2017</a>)</span></p>
+<p class="caption">Figure 20.1. Part of the structure of personality research. From <span class="citation"><a href="#ref-lanning2017a" role="doc-biblioref">Lanning</a> (<a href="#ref-lanning2017a" role="doc-biblioref">2017</a>)</span></p>
 </div>
 </div>
 <div id="prediction-versus-classification" class="section level2" number="21.2">
 <h2><span class="header-section-number">21.2</span> prediction versus classification</h2>
 <p>Within the category of supervised problems, we can distinguish problems in classification (those in which the outcome is nominal or discrete) from problems where the outcome is ordered or numeric. We examined the Fair data in both these ways, first treating the outcome as the rescaled number of reported affairs, then as a distinction between those who did and did not have affairs.</p>
-<p>Somewhere in between these two approaches are problems in which the criterion is an ordered set of categories - such as small, medium, and large pizza sizes or, to consider a problem in my own area of study, a sequence of seven levels of social maturity or personality development. Working with several colleagues, I constructed “dictionaries” which empirically distinguished these levels; the object is to allow assessment of the level of maturity or ego development of a given text. In the diagram below, the words in these initial dictionaries are arranged clockwise, with those characteristic of the earliest (Impulsive) level in the upper right quadrant (i.e., at 1 o’clock), then moving through the middle stages at the bottom, etc.(<span class="citation"><a href="references.html#ref-lanning2018" role="doc-biblioref">Lanning et al.</a> (<a href="references.html#ref-lanning2018" role="doc-biblioref">2018</a>)</span>). <img src="images/diffprop_cloud_top_250_wordsyda.png" alt="diffprop_cloud_top_250_wordsyda" /></p>
+<p>Somewhere in between these two approaches are problems in which the criterion is an ordered set of categories - such as small, medium, and large pizza sizes or, to consider a problem in my own area of study, a sequence of seven levels of social maturity or personality development. Working with several colleagues, I constructed “dictionaries” which empirically distinguished these levels; the object is to allow assessment of the level of maturity or ego development of a given text. In the diagram below, the words in these initial dictionaries are arranged clockwise, with those characteristic of the earliest (Impulsive) level in the upper right quadrant (i.e., at 1 o’clock), then moving through the middle stages at the bottom, etc.(<span class="citation"><a href="#ref-lanning2018" role="doc-biblioref">Lanning et al.</a> (<a href="#ref-lanning2018" role="doc-biblioref">2018</a>)</span>). <img src="images/diffprop_cloud_top_250_wordsyda.png" alt="diffprop_cloud_top_250_wordsyda" /></p>
 </div>
 <div id="understanding-versus-prediction" class="section level2" number="21.3">
 <h2><span class="header-section-number">21.3</span> understanding versus prediction</h2>
 <p>In machine learning, we are in general concerned with the problem of finding the <strong>function</strong> which relates an outcome (Y) to a set of predictors (X). This general principle spans two opposing, but overlapping, use-cases: understanding and prediction.</p>
 <p>For example, in the ‘Fair’ data, we were initially concerned with the question of “what predicts infidelity?,” which involves or suggests an interest in understanding. With the k-nn analysis, our focus increasingly shifted away from this towards the more pragmatic goal of increasing our hit rate or overall accuracy, away from a concern with inference and understanding to a position where we were satisfied to treat the algorithm as a <strong>black box</strong> from which we were only concerned with the accuracy of outputs.</p>
-<p>These two objectives of “understanding and thinking in terms of equations and models” and “prediction and thinking only in terms of optimization” can be thought of as two points on a continuum of <strong>interpretability.</strong> Some techniques used in machine learning give results that are quite interpretable (including multiple regression, particularly restricted regression techniques such as the <strong>lasso</strong>). Others, including <strong>support vector machines</strong> and, in particular, <strong>deep neural networks</strong> sacrifice interpretability in the service of prediction. For complex approaches in image recognition, such as the chihuahua versus muffin problem, deep neural networks provide the best solutions, but are particularly challenging to understand <span class="citation">(<a href="references.html#ref-kumar2017" role="doc-biblioref">Kumar, Wong, and Taylor 2017</a>)</span>.</p>
+<p>These two objectives of “understanding and thinking in terms of equations and models” and “prediction and thinking only in terms of optimization” can be thought of as two points on a continuum of <strong>interpretability.</strong> Some techniques used in machine learning give results that are quite interpretable (including multiple regression, particularly restricted regression techniques such as the <strong>lasso</strong>). Others, including <strong>support vector machines</strong> and, in particular, <strong>deep neural networks</strong> sacrifice interpretability in the service of prediction. For complex approaches in image recognition, such as the chihuahua versus muffin problem, deep neural networks provide the best solutions, but are particularly challenging to understand <span class="citation">(<a href="#ref-kumar2017" role="doc-biblioref">Kumar, Wong, and Taylor 2017</a>)</span>.</p>
 <div class="figure">
 <img src="images/chihuahuamuffin.jpg" alt="" />
 <p class="caption">Fig 21.1: The chihuahua-muffin problem.</p>
@@ -447,19 +472,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">21.4</span> bias versus variability</h2>
 <p>If you read further about machine learning, you are likely to encounter the phrase “bias-variability tradeoff.” You may remember that, in our initial analyses of the Swiss fertility data, we discussed how reducing the number of observations increases the fit of the model on the (training) data - and that, ultimately, the fit of the model would become perfect when we reduce the number of observations to the number of variables in the model.</p>
 <p>Here, we construct two independent samples, each with 9 subjects.</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Fair)</span>
-<span id="cb191-2"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb191-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">33458</span>)</span>
-<span id="cb191-3"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb191-3" aria-hidden="true" tabindex="-1"></a>FairSample1 <span class="ot">&lt;-</span> Fair <span class="sc">%&gt;%</span> <span class="fu">sample_n</span>(<span class="dv">9</span>)</span>
-<span id="cb191-4"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb191-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">94611</span>)</span>
-<span id="cb191-5"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb191-5" aria-hidden="true" tabindex="-1"></a>FairSample2 <span class="ot">&lt;-</span> Fair <span class="sc">%&gt;%</span> <span class="fu">sample_n</span>(<span class="dv">9</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Fair)</span>
+<span id="cb193-2"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb193-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">33458</span>)</span>
+<span id="cb193-3"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb193-3" aria-hidden="true" tabindex="-1"></a>FairSample1 <span class="ot">&lt;-</span> Fair <span class="sc">%&gt;%</span> <span class="fu">sample_n</span>(<span class="dv">9</span>)</span>
+<span id="cb193-4"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb193-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">94611</span>)</span>
+<span id="cb193-5"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb193-5" aria-hidden="true" tabindex="-1"></a>FairSample2 <span class="ot">&lt;-</span> Fair <span class="sc">%&gt;%</span> <span class="fu">sample_n</span>(<span class="dv">9</span>)</span></code></pre></div>
 <p>In the following chunk, we run a regression analysis witin each of these samples, predicting the number of affairs from the 9 predictors (including the intercept).</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb192-1" aria-hidden="true" tabindex="-1"></a>affairReg1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(nbaffairs <span class="sc">~</span> ., <span class="at">data=</span>FairSample1)</span>
-<span id="cb192-2"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb192-2" aria-hidden="true" tabindex="-1"></a>affairReg2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(nbaffairs <span class="sc">~</span> ., <span class="at">data=</span>FairSample2)</span>
-<span id="cb192-3"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb192-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb192-4"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb192-4" aria-hidden="true" tabindex="-1"></a>R21 <span class="ot">&lt;-</span> <span class="fu">summary</span>(affairReg1)<span class="sc">$</span>r.squared</span>
-<span id="cb192-5"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb192-5" aria-hidden="true" tabindex="-1"></a>R22 <span class="ot">&lt;-</span> <span class="fu">summary</span>(affairReg2)<span class="sc">$</span>r.squared</span>
-<span id="cb192-6"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb192-6" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(<span class="fu">c</span>(<span class="at">sample1 =</span> R21, <span class="at">sample2 =</span> R22)) <span class="sc">%&gt;%</span> </span>
-<span id="cb192-7"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb192-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;R^2 from two small samples&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb194-1" aria-hidden="true" tabindex="-1"></a>affairReg1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(nbaffairs <span class="sc">~</span> ., <span class="at">data=</span>FairSample1)</span>
+<span id="cb194-2"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb194-2" aria-hidden="true" tabindex="-1"></a>affairReg2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(nbaffairs <span class="sc">~</span> ., <span class="at">data=</span>FairSample2)</span>
+<span id="cb194-3"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb194-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb194-4"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb194-4" aria-hidden="true" tabindex="-1"></a>R21 <span class="ot">&lt;-</span> <span class="fu">summary</span>(affairReg1)<span class="sc">$</span>r.squared</span>
+<span id="cb194-5"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb194-5" aria-hidden="true" tabindex="-1"></a>R22 <span class="ot">&lt;-</span> <span class="fu">summary</span>(affairReg2)<span class="sc">$</span>r.squared</span>
+<span id="cb194-6"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb194-6" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(<span class="fu">c</span>(<span class="at">sample1 =</span> R21, <span class="at">sample2 =</span> R22)) <span class="sc">%&gt;%</span> </span>
+<span id="cb194-7"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb194-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;R^2 from two small samples&quot;</span>)</span></code></pre></div>
 <table>
 <caption>
 <span id="tab:unnamed-chunk-69">Table 21.1: </span>R^2 from two small samples
@@ -485,14 +510,14 @@ sample2
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(affairReg1[[<span class="st">&quot;coefficients&quot;</span>]]) <span class="sc">%&gt;%</span> </span>
-<span id="cb193-2"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb193-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cbind</span>(<span class="fu">round</span>(affairReg1[[<span class="st">&quot;coefficients&quot;</span>]], <span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb193-3"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb193-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cbind</span>(<span class="fu">round</span>(affairReg2[[<span class="st">&quot;coefficients&quot;</span>]], <span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb193-4"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb193-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb193-5"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb193-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">variable =</span> <span class="dv">1</span>, </span>
-<span id="cb193-6"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb193-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">sample1 =</span> <span class="dv">2</span>, </span>
-<span id="cb193-7"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb193-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">sample2 =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb193-8"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb193-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Regression coefficients from two small samples&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(affairReg1[[<span class="st">&quot;coefficients&quot;</span>]]) <span class="sc">%&gt;%</span> </span>
+<span id="cb195-2"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb195-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cbind</span>(<span class="fu">round</span>(affairReg1[[<span class="st">&quot;coefficients&quot;</span>]], <span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb195-3"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb195-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cbind</span>(<span class="fu">round</span>(affairReg2[[<span class="st">&quot;coefficients&quot;</span>]], <span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb195-4"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb195-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb195-5"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb195-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">variable =</span> <span class="dv">1</span>, </span>
+<span id="cb195-6"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb195-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">sample1 =</span> <span class="dv">2</span>, </span>
+<span id="cb195-7"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb195-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">sample2 =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb195-8"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#cb195-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Regression coefficients from two small samples&quot;</span>) </span></code></pre></div>
 <table>
 <caption>
 <span id="tab:unnamed-chunk-69">Table 21.1: </span>Regression coefficients from two small samples
@@ -627,8 +652,8 @@ rate
 <blockquote>
 <p>Exercise 21.2: For the grad school and airline pilot problems, draw a pair of coordinate axes, together with points representing a few dozen “positive” (apply or hire) and “unacceptable” (don’t apply, don’t hire) observations. What can you say about the boundary between these two regions in each problem?</p>
 </blockquote>
-<p>We can think of problems such as the grad school problem in a regression framework, while the pilot problem is instead a decision tree or “multiple cutoff” model. Very simple decision trees, including “fast and frugal trees,” can be useful tools both to describe how people decide and how they might make better decisions <span class="citation">(<a href="references.html#ref-phillips2017" role="doc-biblioref">Phillips et al. 2017</a>)</span>.</p>
-<p>In machine learning problems, there may be hundreds or thousands of predictors (features). The logic of decision trees is extended in techniques including bootstrap aggregation or <strong>bagging</strong> (in which a large number of trees are considered, then averaged), and <strong>random forests</strong> (which sequentially examines subsets of predictors in an effort to increase the reliability of predictions). These models are often predictively useful, but can be complex and difficult to interpret. Chapter 8 of <span class="citation">(<a href="references.html#ref-james2013a" role="doc-biblioref">James et al. 2013</a>)</span> goes into more detail on these methods.</p>
+<p>We can think of problems such as the grad school problem in a regression framework, while the pilot problem is instead a decision tree or “multiple cutoff” model. Very simple decision trees, including “fast and frugal trees,” can be useful tools both to describe how people decide and how they might make better decisions <span class="citation">(<a href="#ref-phillips2017" role="doc-biblioref">Phillips et al. 2017</a>)</span>.</p>
+<p>In machine learning problems, there may be hundreds or thousands of predictors (features). The logic of decision trees is extended in techniques including bootstrap aggregation or <strong>bagging</strong> (in which a large number of trees are considered, then averaged), and <strong>random forests</strong> (which sequentially examines subsets of predictors in an effort to increase the reliability of predictions). These models are often predictively useful, but can be complex and difficult to interpret. Chapter 8 of <span class="citation">(<a href="#ref-james2013a" role="doc-biblioref">James et al. 2013</a>)</span> goes into more detail on these methods.</p>
 <p>Two additional methods bear mention: <strong>Support vector machines (SVM)</strong> are classifiers which attempt to find optimal margins (hyperplanes) between two or more sets of criteria. Finally, <strong>neural networks</strong> are models which typically include multiple layers (akin to biological neurons) each of which can be activated based on the sum of the inputs of the prior layer. The chain of prediction from input (pixel) to output (“chihuahua”) is not a simple forward path, rather, errors of prediction are used to tune weights of intermediate layers in a process known as <strong>backpropagation.</strong> Artificial neural networks are, at present, the most important set of techniques in artificial intelligence problems including image, speech, and even taste recognition.</p>
 </div>
 <div id="a-postscript-the-tidymodels-packages" class="section level2" number="21.6">
@@ -639,9 +664,36 @@ rate
 <li><p>The <a href="https://cran.r-project.org/web/packages/broom/vignettes/broom.html">broom</a> package includes the tidy() function, which can be used to present the results of your analyses in data frames - this is handy for making tables of your data. Results of these models can be represented as data frames, which can then be easily tabled or used to create figures. You can see how these are used on the <a href="https://www.tidymodels.org/start/models/" title="https://www.tidymodels.org/start/models/">Build a model</a> page.</p></li>
 <li><p>Perhaps the most useful tool introduced in these pages is the <a href="https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html">Skimr</a> package. Skimr, though not part of the Tidymodels, is handy for getting a quick set of summary statistics - it’s substantially more convenient than the summarise function in the Tidyverse and, unlike the describe package in the psych package, is Tidyverse-compliant.</p></li>
 <li><p>The <a href="https://www.tidymodels.org/start/recipes/">preprocessing</a> of data includes several concepts that we have previously considered, including splitting data into training and test subsamples, the creation of dummy variables, and how we can treat time data. The <a href="https://recipes.tidymodels.org/">recipes</a> package include several functions that make it more convenient to work with only subsets of our variables, that is, to assign “roles” to include or exclude variables in our models. This section also includes an introduction to the yardstick package, which gives an easier way to implement ROC analysis than the code I used in the prior chapters.</p></li>
-<li><p><a href="https://www.tidymodels.org/start/resampling/">Resampling</a> is a process through which we can estimate model parameters by inspecting a series of subsets of the data. It is particularly useful when we want to compare a set of competing models on a small-ish dataset <span class="citation">(<a href="references.html#ref-lanning2018" role="doc-biblioref">Lanning et al. 2018</a>)</span>. This section also includes an application of the random forests model introduced above.</p></li>
+<li><p><a href="https://www.tidymodels.org/start/resampling/">Resampling</a> is a process through which we can estimate model parameters by inspecting a series of subsets of the data. It is particularly useful when we want to compare a set of competing models on a small-ish dataset <span class="citation">(<a href="#ref-lanning2018" role="doc-biblioref">Lanning et al. 2018</a>)</span>. This section also includes an application of the random forests model introduced above.</p></li>
 </ul>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-james2013a" class="csl-entry">
+James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2013. <em>An <span>Introduction</span> to <span>Statistical Learning</span></em>. Vol. 103. Springer <span>Texts</span> in <span>Statistics</span>. <span>New York, NY</span>: <span>Springer New York</span>. <a href="https://doi.org/10.1007/978-1-4614-7138-7">https://doi.org/10.1007/978-1-4614-7138-7</a>.
+</div>
+<div id="ref-kumar2017" class="csl-entry">
+Kumar, Devinder, Alexander Wong, and Graham W Taylor. 2017. <span>“Explaining the Unexplained: <span>A</span> Class-Enhanced Attentive Response (Clear) Approach to Understanding Deep Neural Networks.”</span> In <em>Proceedings of the <span>IEEE</span> Conference on Computer Vision and Pattern Recognition Workshops</em>, 36–44.
+</div>
+<div id="ref-lanning1994" class="csl-entry">
+———. 1994. <span>“Dimensionality of <span>Observer Ratings</span> on the <span>California Adult Q</span>-Set.”</span> <em>Journal of Personality and Social Psychology</em> 67 (July): 151–60. <a href="https://doi.org/drnkvm">https://doi.org/drnkvm</a>.
+</div>
+<div id="ref-lanning1996" class="csl-entry">
+———. 1996. <span>“Robustness Is Not Dimensionality: <span>On</span> the Sensitivity of Component Comparability Coefficients to Sample Size.”</span> <em>Multivariate Behavioral Research</em> 31 (1): 33–46. <a href="https://doi.org/dt6gb3">https://doi.org/dt6gb3</a>.
+</div>
+<div id="ref-lanning2017a" class="csl-entry">
+———. 2017. <span>“What Is the <span>Relationship Between</span> <span>‘<span>Personality</span>’</span> and <span>‘<span>Social</span>’</span> <span>Psychologies</span>? <span>Network</span>, <span>Community</span>, and <span>Whole Text Analyses</span> of <span>The Structure</span> of <span>Contemporary Scholarship</span>.”</span> <em>Collabra: Psychology</em> 3 (1): 8. <a href="https://doi.org/gf5299">https://doi.org/gf5299</a>.
+</div>
+<div id="ref-lanning2018" class="csl-entry">
+Lanning, Kevin, Rachel E. Pauletti, Laura A. King, and Dan P. McAdams. 2018. <span>“Personality Development Through Natural Language.”</span> <em>Nature Human Behaviour</em> 2 (5): 327–34. <a href="https://doi.org/gf5298">https://doi.org/gf5298</a>.
+</div>
+<div id="ref-lanning2009" class="csl-entry">
+Lanning, Kevin, and Ari Rosenberg. 2009. <span>“The Dimensionality of <span>American</span> Political Attitudes: Tensions Between Equality and Freedom in the Wake of <span>September</span> 11.”</span> <em>Behavioral Sciences of Terrorism and Political Aggression</em> 1 (2): 84–100. <a href="https://doi.org/fckr37">https://doi.org/fckr37</a>.
+</div>
+<div id="ref-phillips2017" class="csl-entry">
+Phillips, Nathaniel D., Hansjörg Neth, Jan K. Woike, and Wolfgang Gaissmaier. 2017. <span>“<span>FFTrees</span>: <span>A</span> Toolbox to Create, Visualize, and Evaluate Fast-and-Frugal Decision Trees.”</span> <em>Judgment and Decision Making</em> 12 (4): 344–68.
 </div>
 </div>
             </section>
@@ -673,10 +725,11 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "sepia",
+"theme": "white",
 "family": "sans",
 "size": 2
 },
@@ -693,6 +746,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

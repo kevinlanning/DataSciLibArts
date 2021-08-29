@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7 visualization in R with ggplot | Data science for the liberal arts</title>
   <meta name="description" content="Test" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7 visualization in R with ggplot | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:image" content="chihuahuamuffin.png" />
+  <meta property="og:image" content="/chihuahuamuffin.png" />
   <meta property="og:description" content="Test" />
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
@@ -19,12 +19,12 @@
   <meta name="twitter:title" content="7 visualization in R with ggplot | Data science for the liberal arts" />
   
   <meta name="twitter:description" content="Test" />
-  <meta name="twitter:image" content="chihuahuamuffin.png" />
+  <meta name="twitter:image" content="/chihuahuamuffin.png" />
 
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2021-04-11" />
+<meta name="date" content="2021-08-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,8 @@
   
 <link rel="prev" href="principles-of-data-visualization.html"/>
 <link rel="next" href="examining-local-covid-data-in-r.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,6 +51,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
@@ -119,6 +121,29 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 </head>
@@ -406,32 +431,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">7</span> visualization in R with ggplot</h1>
 <p>In the last chapter, we introduced data visualization, citing “vision-aries” including Edward Tufte and Hans Rosling, inspired works such as Minard’s <em>Carte Figurative</em> and Periscopic’s <em>stolen years</em>, as well as a few cautionary tales of misleading and confusing graphs.</p>
 <p>Here, in playing with and learning the R package <strong>ggplot</strong>, we begin to move from consumers to creators of data visualizations.</p>
-<p>As the first visualization in <span class="citation">(<a href="references.html#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span> reminds us, data visualization is at the core of exploratory data analysis:</p>
+<p>As the first visualization in <span class="citation">(<a href="#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span> reminds us, data visualization is at the core of exploratory data analysis:</p>
 <div class="figure">
 <img src="images/dataviscycle.PNG" alt="" />
-<p class="caption">Fig 7.1: Data visualization is at the core of data analysis (<span class="citation">(<a href="references.html#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span>)</p>
+<p class="caption">Fig 7.1: Data visualization is at the core of data analysis (<span class="citation">(<a href="#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span>)</p>
 </div>
 <p>In the world of data science, statistical programming is about discovering and communicating truths within your data. This <strong>exploratory data analysis is the corner of science, particularly at a time in which confirmatory studies are increasingly found to be unreproducible</strong>.</p>
-<p>Most of your reading will be from Chapter 3 of <span class="citation">(<a href="references.html#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span>, this is intended only as a supplement.</p>
+<p>Most of your reading will be from Chapter 3 of <span class="citation">(<a href="#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span>, this is intended only as a supplement.</p>
 <div id="a-picture-words-numbers" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> a picture &gt; (words, numbers)?</h2>
 <p>The chapter begins with a quote from John Tukey about the importance of graphs. Yet there is a tendency among some statisticians and scientists to discount graphs, to consider graphic representations of data as less valuable than statistical ones. It is true that, because there are many ways to graph data, and because scientists and data journalists are humans with pre-existing beliefs and values, a graphical displays should not be assumed to simply depict a singular reality. But the same can be said about statistical analyses (see Chapter 8).</p>
 <p>To consider the value of statistical versus graphical displays, consider ‘Anscombe’s quartet’ (screenshot below, live at <a href="http://bit.ly/anscombe2019" class="uri">http://bit.ly/anscombe2019</a>):</p>
 <div class="figure">
 <img src="images/spreadsheet61.PNG" alt="" />
-<p class="caption">Table 7.1: An adaptation of Anscombe’s “quartet” <span class="citation">(<a href="references.html#ref-anscombe1973" role="doc-biblioref">Anscombe 1973</a>)</span></p>
+<p class="caption">Table 7.1: An adaptation of Anscombe’s “quartet” <span class="citation">(<a href="#ref-anscombe1973" role="doc-biblioref">Anscombe 1973</a>)</span></p>
 </div>
 <blockquote>
 <p><strong>Exercise 7_1</strong> <em>Consider the spreadsheet chunk presented above, which I am characterizing as data collected on a sample of ten primary school children at recess on four consecutive days. Working with your classmates, compute the mean, standard deviation, and correlation between the two measures for one day. Share your results with the class.</em></p>
 </blockquote>
-<p>The four pairs of variables in <span class="citation">(<a href="references.html#ref-anscombe1973" role="doc-biblioref">Anscombe 1973</a>)</span> appear statistically “the same,” yet the data suggest something else. Later, we’ll try to plot these. Perhaps graphs can reveal truths that statistics can hide.</p>
+<p>The four pairs of variables in <span class="citation">(<a href="#ref-anscombe1973" role="doc-biblioref">Anscombe 1973</a>)</span> appear statistically “the same,” yet the data suggest something else. Later, we’ll try to plot these. Perhaps graphs can reveal truths that statistics can hide.</p>
 <blockquote>
 <p><strong>Exercise 7_2</strong> <em>The anscombe data is included as a library in R. Can you find, load, and explore it?</em></p>
 </blockquote>
 </div>
 <div id="read-hadley-ggplots" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Read Hadley ggplots</h2>
-<p>In class, we will review and recreate the plots in section 3.2 of <span class="citation">(<a href="references.html#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span> and exercises through 3.4.</p>
+<p>In class, we will review and recreate the plots in section 3.2 of <span class="citation">(<a href="#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span> and exercises through 3.4.</p>
 <p>Savor this section, reading slowly, and playing around with the RStudio interface. For example, read about the mpg data in the ‘help’ panel, pull up the mpg data in a view window, and sort through it by clicking on various columns.</p>
 <div class="figure">
 <img src="images/rstudio62.PNG" alt="" />
@@ -446,6 +471,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Try several different displays. Which fail? Which succeed? <strong>Be prepared to share your efforts.</strong></p>
 <p>Don’t be afraid to screw up. <em>Each mistake you wisdom</em>.</p>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-anscombe1973" class="csl-entry">
+Anscombe, FJ. 1973. <span>“Graphs in Statistical Analysis.”</span> <em>American Statistician</em> 27 (1): 17–21.
+</div>
+<div id="ref-wickham2016" class="csl-entry">
+Wickham, Hadley, and Garrett Grolemund. 2016. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. <span>" O’Reilly Media, Inc."</span>.
 </div>
 </div>
             </section>
@@ -477,10 +511,11 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "sepia",
+"theme": "white",
 "family": "sans",
 "size": 2
 },
@@ -497,6 +532,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

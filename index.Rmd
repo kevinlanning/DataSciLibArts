@@ -4,10 +4,10 @@ author: "Kevin Lanning"
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 output: 
-    bookdown::gitbook:
-        config:
-            fontsettings:
-                theme: sepia
+    bookdown::gitbook
+#        config:
+#            fontsettings:
+#                theme: sepia
 documentclass: "book"
 bibliography: 
     ../9Bibliography/MyLibrary.bib

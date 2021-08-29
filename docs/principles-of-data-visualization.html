@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6 principles of data visualization | Data science for the liberal arts</title>
   <meta name="description" content="Test" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6 principles of data visualization | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:image" content="chihuahuamuffin.png" />
+  <meta property="og:image" content="/chihuahuamuffin.png" />
   <meta property="og:description" content="Test" />
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
@@ -19,12 +19,12 @@
   <meta name="twitter:title" content="6 principles of data visualization | Data science for the liberal arts" />
   
   <meta name="twitter:description" content="Test" />
-  <meta name="twitter:image" content="chihuahuamuffin.png" />
+  <meta name="twitter:image" content="/chihuahuamuffin.png" />
 
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2021-04-11" />
+<meta name="date" content="2021-08-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,8 @@
   
 <link rel="prev" href="now-draw-the-rest-of-the-owl.html"/>
 <link rel="next" href="visualization-in-r-with-ggplot.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,6 +51,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
@@ -119,6 +121,29 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 </head>
@@ -416,7 +441,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">6.2</span> some early graphs</h2>
 <p>Visual displays of information reach back to prehistoric times; modern graphs date back, arguably, to <a href="https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march">Playfair’s 1786 Political Atlas</a> - in which</p>
 <blockquote>
-<p>“… spatial dimensions were used to represent nonspatial, quantitative, idiographic, empirical data. Although it now seems natural to represent, for example, rising and falling imports over time as a rising and falling line, it does not seem to have been done before that time and was quite an accomplishment. Notably, in addition to the statistical line chart, Playfair at one fell swoop single-handedly invented most of the remaining forms of the statistical graphic repertoire used today-the bar chart and histogram, the surface chart, and the circle diagram or”pie chart" <span class="citation">(<a href="references.html#ref-wainer1981" role="doc-biblioref">H. Wainer and Thissen 1981</a>)</span>.</p>
+<p>“… spatial dimensions were used to represent nonspatial, quantitative, idiographic, empirical data. Although it now seems natural to represent, for example, rising and falling imports over time as a rising and falling line, it does not seem to have been done before that time and was quite an accomplishment. Notably, in addition to the statistical line chart, Playfair at one fell swoop single-handedly invented most of the remaining forms of the statistical graphic repertoire used today-the bar chart and histogram, the surface chart, and the circle diagram or”pie chart" <span class="citation">(<a href="#ref-wainer1981" role="doc-biblioref">H. Wainer and Thissen 1981</a>)</span>.</p>
 </blockquote>
 <div class="figure">
 <img src="images/playfair1786.PNG" alt="" />
@@ -436,7 +461,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="tukey-and-eda" class="section level2" number="6.3">
 <h2><span class="header-section-number">6.3</span> Tukey and EDA</h2>
-<p>For <span class="citation">(<a href="references.html#ref-donoho2017" role="doc-biblioref">D. Donoho 2017</a>)</span>, the publication of John Tukey’s “Future of Data Analysis” <span class="citation">(<a href="references.html#ref-tukey1962" role="doc-biblioref">Tukey 1962</a>)</span> arguably marks the beginning of data science. As the first data scientist, Tukey embraced a descriptive and exploratory approach to data analysis, particularly in his publication of <em>Exploratory Data Analysis</em> <span class="citation">(<a href="references.html#ref-tukey1977" role="doc-biblioref">Tukey 1977</a>)</span>.</p>
+<p>For <span class="citation">(<a href="#ref-donoho2017" role="doc-biblioref">D. Donoho 2017</a>)</span>, the publication of John Tukey’s “Future of Data Analysis” <span class="citation">(<a href="#ref-tukey1962" role="doc-biblioref">Tukey 1962</a>)</span> arguably marks the beginning of data science. As the first data scientist, Tukey embraced a descriptive and exploratory approach to data analysis, particularly in his publication of <em>Exploratory Data Analysis</em> <span class="citation">(<a href="#ref-tukey1977" role="doc-biblioref">Tukey 1977</a>)</span>.</p>
 <p>In EDA, Tukey presented an idiosyncratic, coherent approach to looking at data, beginning with tallying. The distributions of small counts of single variables, for Tukey, could best be presented in <strong>stem and leaf displays.</strong> Comparisons between groups can be presented in <strong>box plots.</strong> To examine relationships between variables and the adequacy of simple models, he argues for thoughtfully transforming data to uncover linear trends, then to examine <strong>residuals</strong> to find where these trends do not hold.</p>
 </div>
 <div id="approaches-to-graphs" class="section level2" number="6.4">
@@ -446,7 +471,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="tufte-first-principles" class="section level2" number="6.5">
 <h2><span class="header-section-number">6.5</span> Tufte: first principles</h2>
-<p><span class="citation">(<a href="references.html#ref-tufte2001" role="doc-biblioref">Tufte 2001</a>)</span> describes <strong>Graphical Excellence</strong>. Graphs should, among other things, “Induce the viewer to think about the substance, rather than about methodology, graphic design, the technology of graphic productions, or something else.” Graphs should “Present many numbers in a small space, make large data sets coherent, and encourage the eye to compare different pieces of data.” Graphs should “serve a reasonably clear purpose: description, exploration, tabulation, or decoration [and] be closely integrated with the statistical and verbal descriptions of a data set.” Tufte concludes with the following Principles of Graphical Excellence, which I quote verbatim:</p>
+<p><span class="citation">(<a href="#ref-tufte2001" role="doc-biblioref">Tufte 2001</a>)</span> describes <strong>Graphical Excellence</strong>. Graphs should, among other things, “Induce the viewer to think about the substance, rather than about methodology, graphic design, the technology of graphic productions, or something else.” Graphs should “Present many numbers in a small space, make large data sets coherent, and encourage the eye to compare different pieces of data.” Graphs should “serve a reasonably clear purpose: description, exploration, tabulation, or decoration [and] be closely integrated with the statistical and verbal descriptions of a data set.” Tufte concludes with the following Principles of Graphical Excellence, which I quote verbatim:</p>
 <ul>
 <li>Graphical excellence is the well-designed presentation of interesting data—a matter of substance, of statistics, and of design.</li>
 <li>Graphical excellence consists of complex ideas communicated with clarity, precision and efficiency.</li>
@@ -467,7 +492,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <img src="images/tufteChallenger.PNG" alt="" />
 <p class="caption"><em>Figure 6.4: What the engineers could have seen, perhaps, with a better graph</em>.</p>
 </div>
-<p>The forecast for the morning of the launch was far colder than that for prior launches, and within the set of prior launches a clear relationship between temperature and o-ring damage is evident. But the Challenger did launch, exploding shortly after takeoff, killing the seven astronauts on board. With a clearer display of the data, the Challenger launch would likely have been postponed <span class="citation">(<a href="references.html#ref-tufte2001" role="doc-biblioref">Tufte 2001</a>)</span>.</p>
+<p>The forecast for the morning of the launch was far colder than that for prior launches, and within the set of prior launches a clear relationship between temperature and o-ring damage is evident. But the Challenger did launch, exploding shortly after takeoff, killing the seven astronauts on board. With a clearer display of the data, the Challenger launch would likely have been postponed <span class="citation">(<a href="#ref-tufte2001" role="doc-biblioref">Tufte 2001</a>)</span>.</p>
 <div id="poor-design-leads-to-an-uninformed-or-misinformed-world" class="section level3" number="6.6.1">
 <h3><span class="header-section-number">6.6.1</span> poor design leads to an uninformed or misinformed world</h3>
 <p>In the flood of information that surrounds us, our peripheral and sometimes our focal attention will be drawn to pictorial summaries of consequential events and effects. But while data visualizations and data journalism has become more responsible, poorly designed graphs - what Tufte has described as “chartjunk” - are still common. Consider the following graph, which recently appeared in a number of newspapers or feeds in the United States (including the <em>Palm Beach Post,</em> on January 12, 2019).</p>
@@ -505,14 +530,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <img src="images/Chernoff.PNG" alt="" />
 <p class="caption"><em>Figure 6.8: Chernoff’s too-clever faces</em></p>
 </div>
-<p>In this figure, from <span class="citation">(<a href="references.html#ref-wainer1981" role="doc-biblioref">H. Wainer and Thissen 1981</a>)</span>, (Chernoff’s) faces are used to represent multivariate data. The display is loosely based on the (psychological) premise that, from infancy, we are inordinately sensitive to facial features. Consequently, the most powerful, effective, or informative data displays should manipulate facial features. Does this graph succeed? Why or why not? Would an updated model, based on richer, more complex, and more realistic simulations of facial expressions <span class="citation">(<a href="references.html#ref-thies2015" role="doc-biblioref">Thies et al. 2015</a>)</span> be more successful?</p>
+<p>In this figure, from <span class="citation">(<a href="#ref-wainer1981" role="doc-biblioref">H. Wainer and Thissen 1981</a>)</span>, (Chernoff’s) faces are used to represent multivariate data. The display is loosely based on the (psychological) premise that, from infancy, we are inordinately sensitive to facial features. Consequently, the most powerful, effective, or informative data displays should manipulate facial features. Does this graph succeed? Why or why not? Would an updated model, based on richer, more complex, and more realistic simulations of facial expressions <span class="citation">(<a href="#ref-thies2015" role="doc-biblioref">Thies et al. 2015</a>)</span> be more successful?</p>
 <div id="the-power-of-animation" class="section level3" number="6.7.1">
 <h3><span class="header-section-number">6.7.1</span> the power of animation</h3>
 <p>Animated data displays bring the dimension of time into data visualization. Here are two brief (&lt; 5 minutes) animated data displays, each powerful in its own way, and each of which gives the viewer an appreciation of an important social phenomenon.</p>
 <p>The first is from the late Hans Rosling, and summarizes a chunk of the Gapminder data. There is a Gapminder package in R if you would like to explore the data further, and perhaps become the next Rosling:</p>
 <p><a href="https://youtu.be/jbkSRLYSojo"><img src="https://img.youtube.com/vi/jbkSRLYSojo/0.jpg" /></a></p>
 <p><em>Video 6.9: Rosling and social progress</em></p>
-<p>The second is from Kim Rees and her ex-colleagues at <a href="https://periscopic.com/">Periscopic</a> (Rees is now at CapitalOne). For me, it’s an important graphic because it tries to overcome what has been called “psychic numbing” - we are sensitive to the individual case, but lose our perspective when faced with large-scale tragedies, so that effectively the more lives lost… the less we care <span class="citation">(<a href="references.html#ref-slovic2013" role="doc-biblioref">Slovic et al. 2013</a>)</span>.</p>
+<p>The second is from Kim Rees and her ex-colleagues at <a href="https://periscopic.com/">Periscopic</a> (Rees is now at CapitalOne). For me, it’s an important graphic because it tries to overcome what has been called “psychic numbing” - we are sensitive to the individual case, but lose our perspective when faced with large-scale tragedies, so that effectively the more lives lost… the less we care <span class="citation">(<a href="#ref-slovic2013" role="doc-biblioref">Slovic et al. 2013</a>)</span>.</p>
 <p><a href="https://youtu.be/8R8UOjMy-5k"><img src="https://img.youtube.com/vi/8R8UOjMy-5k/0.jpg" /></a></p>
 <p><em>Video 6.10: Rees and stolen years</em></p>
 </div>
@@ -526,16 +551,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="visualizing-uncertainty" class="section level3" number="6.7.3">
 <h3><span class="header-section-number">6.7.3</span> visualizing uncertainty</h3>
-<p>To further illustrate the idea of uncertainty, data visualizations may be animated. To display hurricane outcomes, for example, individual lines in a spaghetti plot might fade in and out <span class="citation">(<a href="references.html#ref-cox2013a" role="doc-biblioref">Cox and Lindell 2013</a>)</span>. Another use of animation is suggested by <span class="citation">(<a href="references.html#ref-hullman2015" role="doc-biblioref">Hullman, Resnick, and Adar 2015</a>)</span> who use <a href="https://cdn-images-1.medium.com/max/600/1*vol7-537cqnpucRgBP-j9A.gif">hypothetical outcome plots</a> rather than simple error bars to illustrate sampling distributions. Empirically, subjects have a better understanding of the meaning of statistical effects when these are represented by dynamic displays.</p>
+<p>To further illustrate the idea of uncertainty, data visualizations may be animated. To display hurricane outcomes, for example, individual lines in a spaghetti plot might fade in and out <span class="citation">(<a href="#ref-cox2013a" role="doc-biblioref"><strong>cox2013a?</strong></a>)</span>. Another use of animation is suggested by <span class="citation">(<a href="#ref-hullman2015" role="doc-biblioref">Hullman, Resnick, and Adar 2015</a>)</span> who use <a href="https://cdn-images-1.medium.com/max/600/1*vol7-537cqnpucRgBP-j9A.gif">hypothetical outcome plots</a> rather than simple error bars to illustrate sampling distributions. Empirically, subjects have a better understanding of the meaning of statistical effects when these are represented by dynamic displays.</p>
 <p>During the 2016 US Presidential Election, the NY Times graphics presented the range of likely possibilities (here, between the 25th and 75th percentiles) as a dynamically changing <a href="https://www.vis4.net/blog/images/old/jitter4.gif">“jittery gauge”</a> . Following the election, there was some criticism of these gauges, as readers claimed that they tended to make them anxious. However, it appears that at least some of the anxiety was attributable not to the gauges themselves, but to the <a href="https://www.vis4.net/blog/2016/11/jittery-gauges-election-forecast/">electoral outcome itself</a>. The gauges were back in 2018, and will likely be used again in the future.</p>
 <p>Finally, animation may be used not just to display uncertainty or a possible range, but also data displays which both carry a great deal of information and unfold over time, such as <a href="http://wise.fau.edu/~lanning/EgoDevelopmentsmallest.gif">the language of personality development</a> in my own work.</p>
 </div>
 </div>
 <div id="further-reading-and-resources" class="section level2" number="6.8">
 <h2><span class="header-section-number">6.8</span> further reading and resources</h2>
-<p>If you’d like to learn more, <span class="citation">(<a href="references.html#ref-tufte2001" role="doc-biblioref">Tufte 2001</a>)</span> and his other books are beautiful and thought provoking. <span class="citation">(<a href="references.html#ref-cleveland1985" role="doc-biblioref">Cleveland and McGill 1985</a>)</span> examines graphs from a more rigorous psychological and empirical viewpoint. The Data Stories podcasts are often excellent, despite the challenge of an auditory medium for visual display (<a href="http://datastori.es/92-a-tribute-to-hans-rosling/">especially the episode on Hans Rosling</a>). And <span class="citation">(<a href="references.html#ref-healy2018" role="doc-biblioref">Healy 2018</a>)</span> provides a comprehensive introduction that, in essence, provides the basis for a semester-long course based in the ggplot2 package in R that we will be working with in the next chapter <span class="citation">(<a href="references.html#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span>.</p>
+<p>If you’d like to learn more, <span class="citation">(<a href="#ref-tufte2001" role="doc-biblioref">Tufte 2001</a>)</span> and his other books are beautiful and thought provoking. <span class="citation">(<a href="#ref-cleveland1985" role="doc-biblioref">Cleveland and McGill 1985</a>)</span> examines graphs from a more rigorous psychological and empirical viewpoint. The Data Stories podcasts are often excellent, despite the challenge of an auditory medium for visual display (<a href="http://datastori.es/92-a-tribute-to-hans-rosling/">especially the episode on Hans Rosling</a>). And <span class="citation">(<a href="#ref-healy2018" role="doc-biblioref">Healy 2018</a>)</span> provides a comprehensive introduction that, in essence, provides the basis for a semester-long course based in the ggplot2 package in R that we will be working with in the next chapter <span class="citation">(<a href="#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span>.</p>
 <p>Finally, several years ago Alberto Cairo of the University of Miami offered an online MOOC (massive open online course) on data visualizations. You can find the course materials <a href="https://journalismcourses.org/course/data-visualization-for-storytelling-and-discovery/">here</a>.</p>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-cleveland1985" class="csl-entry">
+Cleveland, William S., and Robert McGill. 1985. <span>“Graphical <span>Perception</span> and <span>Graphical Methods</span> for <span>Analyzing Scientific Data</span>.”</span> <em>Science, New Series</em> 229 (4716): 828–33.
+</div>
+<div id="ref-donoho2017" class="csl-entry">
+Donoho, David. 2017. <span>“50 <span>Years</span> of <span>Data Science</span>.”</span> <em>Journal of Computational and Graphical Statistics</em> 26 (4): 745–66. <a href="https://doi.org/10.1080/10618600.2017.1384734">https://doi.org/10.1080/10618600.2017.1384734</a>.
+</div>
+<div id="ref-healy2018" class="csl-entry">
+———. 2018. <em>Data <span>Visualization</span>: <span>A</span> Practical Introduction</em>.
+</div>
+<div id="ref-hullman2015" class="csl-entry">
+Hullman, Jessica, Paul Resnick, and Eytan Adar. 2015. <span>“Hypothetical <span>Outcome Plots Outperform Error Bars</span> and <span>Violin Plots</span> for <span>Inferences</span> about <span>Reliability</span> of <span>Variable Ordering</span>.”</span> Edited by Elena Papaleo. <em>PLOS ONE</em> 10 (11): e0142444. <a href="https://doi.org/10.1371/journal.pone.0142444">https://doi.org/10.1371/journal.pone.0142444</a>.
+</div>
+<div id="ref-slovic2013" class="csl-entry">
+Slovic, Paul, David Zionts, Andrew K Woods, Ryan Goodman, and Derek Jinks. 2013. <span>“Psychic Numbing and Mass Atrocity.”</span> <em>The Behavioral Foundations of Public Policy</em>, 126–42. <a href="https://doi.org/gk4945">https://doi.org/gk4945</a>.
+</div>
+<div id="ref-thies2015" class="csl-entry">
+Thies, Justus, Michael Zollhöfer, Matthias Nießner, Levi Valgaerts, Marc Stamminger, and Christian Theobalt. 2015. <span>“Real-Time Expression Transfer for Facial Reenactment.”</span> <em>ACM Trans. Graph.</em> 34 (6): 183–81. <a href="https://doi.org/f7wqz7">https://doi.org/f7wqz7</a>.
+</div>
+<div id="ref-tufte2001" class="csl-entry">
+Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information</em>. Second. <span>Cheshire, CT</span>: <span>Graphics Press</span>.
+</div>
+<div id="ref-tukey1962" class="csl-entry">
+Tukey, John W. 1962. <span>“The Future of Data Analysis.”</span> <em>The Annals of Mathematical Statistics</em> 33 (1): 1–67. <a href="https://doi.org/d48nqg">https://doi.org/d48nqg</a>.
+</div>
+<div id="ref-tukey1977" class="csl-entry">
+———. 1977. <span>“<span>EDA</span>: <span>Exploratory</span> Data Analysis.”</span> <em>Reading, Mass</em>.
+</div>
+<div id="ref-wainer1981" class="csl-entry">
+Wainer, H, and D Thissen. 1981. <span>“Graphical <span>Data Analysis</span>,”</span> 51.
+</div>
+<div id="ref-wickham2016" class="csl-entry">
+Wickham, Hadley, and Garrett Grolemund. 2016. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. <span>" O’Reilly Media, Inc."</span>.
 </div>
 </div>
             </section>
@@ -567,10 +628,11 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "sepia",
+"theme": "white",
 "family": "sans",
 "size": 2
 },
@@ -587,6 +649,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

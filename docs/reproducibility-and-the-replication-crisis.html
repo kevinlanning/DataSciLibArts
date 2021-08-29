@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>10 reproducibility and the replication crisis | Data science for the liberal arts</title>
   <meta name="description" content="Test" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="10 reproducibility and the replication crisis | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:image" content="chihuahuamuffin.png" />
+  <meta property="og:image" content="/chihuahuamuffin.png" />
   <meta property="og:description" content="Test" />
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
@@ -19,12 +19,12 @@
   <meta name="twitter:title" content="10 reproducibility and the replication crisis | Data science for the liberal arts" />
   
   <meta name="twitter:description" content="Test" />
-  <meta name="twitter:image" content="chihuahuamuffin.png" />
+  <meta name="twitter:image" content="/chihuahuamuffin.png" />
 
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2021-04-11" />
+<meta name="date" content="2021-08-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,8 @@
   
 <link rel="prev" href="on-probability-and-statistics.html"/>
 <link rel="next" href="literate-programming-with-r-markdown.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,6 +51,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
@@ -119,6 +121,29 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 </head>
@@ -404,9 +429,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="reproducibility-and-the-replication-crisis" class="section level1" number="10">
 <h1><span class="header-section-number">10</span> reproducibility and the replication crisis</h1>
-<p>Probability theory is elegant, and the logic of <strong>Null Hypothesis Significance Testing (NHST)</strong> is compelling. But philosophers of science have long recognized that this is not really how science works <span class="citation">(<a href="references.html#ref-lakatos1969" role="doc-biblioref">Lakatos 1969</a>)</span>. That is, science is not primarily built by the testing and rejecting of null hypotheses. (Think, for example, of how you might describe an experiment for testing the hypothesis that gravity exists, and whether you would ever reject this hypothesis).</p>
+<p>Probability theory is elegant, and the logic of <strong>Null Hypothesis Significance Testing (NHST)</strong> is compelling. But philosophers of science have long recognized that this is not really how science works <span class="citation">(<a href="#ref-lakatos1969" role="doc-biblioref">Lakatos 1969</a>)</span>. That is, science is not primarily built by the testing and rejecting of null hypotheses. (Think, for example, of how you might describe an experiment for testing the hypothesis that gravity exists, and whether you would ever reject this hypothesis).</p>
 <p>The problem is a multifaceted one. It arises partly because, in any experiment, there is a large (infinite?) number of conditions which might be invoked to explain-away results of a failure of our work. It arises because we are human, and prone to various biases of decision making and information integration (that is, we are poor Bayesians). It arises, too, because scientific institutions such as journals, funding agencies, and universities are competitive environments which incentivize positive findings.</p>
-<p>In recent years, the tension between <strong>the false ideal of NHST</strong> and the real world of science has become increasingly evident. Within psychology, experimental studies have often - even typically - failed to replicate well-known results <span class="citation">(<a href="references.html#ref-opensciencecollaboration2015" role="doc-biblioref">Open Science Collaboration 2015</a>)</span>. It’s not just psychology <span class="citation">(<a href="references.html#ref-baker2016" role="doc-biblioref">Baker 2016</a>)</span>. One of the first important papers to shine light in the area <span class="citation">(<a href="references.html#ref-ioannidis2005" role="doc-biblioref">Ioannidis 2005</a>)</span> came from medicine; it suggested six contributing factors, which I quote verbatim here:</p>
+<p>In recent years, the tension between <strong>the false ideal of NHST</strong> and the real world of science has become increasingly evident. Within psychology, experimental studies have often - even typically - failed to replicate well-known results <span class="citation">(<a href="#ref-opensciencecollaboration2015" role="doc-biblioref">Open Science Collaboration 2015</a>)</span>. It’s not just psychology <span class="citation">(<a href="#ref-baker2016" role="doc-biblioref">Baker 2016</a>)</span>. One of the first important papers to shine light in the area <span class="citation">(<a href="#ref-ioannidis2005" role="doc-biblioref">Ioannidis 2005</a>)</span> came from medicine; it suggested six contributing factors, which I quote verbatim here:</p>
 <blockquote>
 <p><em>The smaller the studies conducted in a scientific field, the less likely the research findings are to be true.</em></p>
 <ul>
@@ -434,11 +459,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>There have been a number of solutions proposed to the reproducibility crisis.</p>
 <div id="tweak-or-abandon-nhst" class="section level3" number="10.1.1">
 <h3><span class="header-section-number">10.1.1</span> Tweak or abandon NHST</h3>
-<p>The first cluster of responses to the reproducibility crisis is concerned with statistics, specifically problems with Null Hypothesis Significance Testing (NHST). These include (a) justifying one’s alpha - making it more stringent, for example, for counter-intuitive claims <span class="citation">(<a href="references.html#ref-grange2018" role="doc-biblioref">Grange et al. 2018</a>)</span>, (b) changing the default p value from .05 to .005 <span class="citation">(<a href="references.html#ref-benjamin2018" role="doc-biblioref">Benjamin et al. 2018</a>)</span>, and (c) abandoning significance testing altogether <span class="citation">(<a href="references.html#ref-mcshane2017" role="doc-biblioref">McShane et al. 2017</a>)</span>.</p>
-<p><span class="citation">(<a href="references.html#ref-szucs2017" role="doc-biblioref">Szucs and Ioannidis 2017</a>)</span> goes into some of these issues in more detail and discusses other limitations of significance testing, including the dichotomous, all-or-none silliness of the accept/reject decision. (If you play the NHST game, there is no ‘almost’ significant, ‘approached significance,’ ‘highly significant,’ etc.).</p>
-<p><span class="citation">(<a href="references.html#ref-leek2015" role="doc-biblioref">Leek and Peng 2015</a>)</span> argue that the problems are not merely with NHST, but with the whole of data analysis. They maintain that better training in data science - courses like ours, perhaps, are part of the answer.</p>
+<p>The first cluster of responses to the reproducibility crisis is concerned with statistics, specifically problems with Null Hypothesis Significance Testing (NHST). These include (a) justifying one’s alpha - making it more stringent, for example, for counter-intuitive claims <span class="citation">(<a href="#ref-grange2018" role="doc-biblioref">Grange et al. 2018</a>)</span>, (b) changing the default p value from .05 to .005 <span class="citation">(<a href="#ref-benjamin2018" role="doc-biblioref">Benjamin et al. 2018</a>)</span>, and (c) abandoning significance testing altogether <span class="citation">(<a href="#ref-mcshane2017" role="doc-biblioref">McShane et al. 2017</a>)</span>.</p>
+<p><span class="citation">(<a href="#ref-szucs2017" role="doc-biblioref">Szucs and Ioannidis 2017</a>)</span> goes into some of these issues in more detail and discusses other limitations of significance testing, including the dichotomous, all-or-none silliness of the accept/reject decision. (If you play the NHST game, there is no ‘almost’ significant, ‘approached significance,’ ‘highly significant,’ etc.).</p>
+<p><span class="citation">(<a href="#ref-leek2015" role="doc-biblioref">Leek and Peng 2015</a>)</span> argue that the problems are not merely with NHST, but with the whole of data analysis. They maintain that better training in data science - courses like ours, perhaps, are part of the answer.</p>
 <p><img src="images/leek2015pipeline.PNG" alt="leek2015" /> (figure)</p>
-<p><span class="citation">(<a href="references.html#ref-munafo2017" role="doc-biblioref">Munafò et al. 2017</a>)</span> also argue that threats to reproducible science occur at a number of places in science, not just with the evaluation of hypotheses.</p>
+<p><span class="citation">(<a href="#ref-munafo2017" role="doc-biblioref">Munafò et al. 2017</a>)</span> also argue that threats to reproducible science occur at a number of places in science, not just with the evaluation of hypotheses.</p>
 <div class="figure">
 <img src="images/munafo2017threats.PNG" alt="" />
 <p class="caption">munafo2017</p>
@@ -446,7 +471,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="keep-a-log-of-every-step-of-every-analysis-in-r-markdown-or-jupyter-notebooks" class="section level3" number="10.1.2">
 <h3><span class="header-section-number">10.1.2</span> keep a log of every step of every analysis in R markdown or Jupyter notebooks</h3>
-<p>A second cluster of responses is concerned with keeping good records. Let’s say that you are running a study, say, which looks at the hypothesis of differential variation of females and males in a cognitive measure; your interest is to critically examine the hypothesis discussed by <span class="citation">(<a href="references.html#ref-wainer2007" role="doc-biblioref">Howard Wainer 2007</a>)</span> that males show more variability.</p>
+<p>A second cluster of responses is concerned with keeping good records. Let’s say that you are running a study, say, which looks at the hypothesis of differential variation of females and males in a cognitive measure; your interest is to critically examine the hypothesis discussed by <span class="citation">(<a href="#ref-wainer2007" role="doc-biblioref">Howard Wainer 2007</a>)</span> that males show more variability.</p>
 <p>There have been <em>a lot</em> of studies related to this over the years, so that rather than collect new data you decide that you will work with existing data from several online archives. You find and download spreadsheets from two studies: In the first, gender is coded ‘1’ for male, ‘2’ for female. In the second, gender is coded ‘1’ for female, ‘2’ for male, and ‘3’ for other. There are, in essence, two ways that you can combine the variables into a common format: The first would be to take one of the spreadsheets and do a few find-and-replace commands on the appropriate column of the data. This is quick and easy - but when someone else, or even future you, returns to this data, you will not remember if you have recoded it.</p>
 <p>The alternative is to keep a record of your work in R markdown. This is more time consuming, and can sometimes be clumsy. But it is <del>virtuous</del> useful and clear - and when you screw up, you will have a full record of what happened.</p>
 <p>Part of the problem of scientific reproducibility is to keep comprehensive records. This record-keeping and research transparency is at the heart of R markdown documents.</p>
@@ -454,7 +479,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="answers-to-the-reproducibility-crisis-iii-pre-registration" class="section level2" number="10.2">
 <h2><span class="header-section-number">10.2</span> answers to the reproducibility crisis III: Pre-registration</h2>
-<p>The third answer to the reproducibility crisis is the most comprehensive; it involves not merely keeping a record of what you have done, but preregistering your work, that is, fully specifying your planned analyses beforehand <span class="citation">(<a href="references.html#ref-miguel2014" role="doc-biblioref">Miguel et al. 2014</a>)</span>. The author, an economist, outlines his argument in a five-minute video <a href="https://www.futurelearn.com/courses/open-social-science-research/0/steps/31436">here</a>. For randomized controlled trials, consider socialscienceregistry.org, and for more general use, use the open science framework page.</p>
+<p>The third answer to the reproducibility crisis is the most comprehensive; it involves not merely keeping a record of what you have done, but preregistering your work, that is, fully specifying your planned analyses beforehand <span class="citation">(<a href="#ref-miguel2014" role="doc-biblioref">Miguel et al. 2014</a>)</span>. The author, an economist, outlines his argument in a five-minute video <a href="https://www.futurelearn.com/courses/open-social-science-research/0/steps/31436">here</a>. For randomized controlled trials, consider socialscienceregistry.org, and for more general use, use the open science framework page.</p>
 </div>
 <div id="further-readings" class="section level2" number="10.3">
 <h2><span class="header-section-number">10.3</span> further readings</h2>
@@ -465,6 +490,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-baker2016" class="csl-entry">
+Baker, Monya. 2016. <span>“A <span>Nature</span> Survey Lifts the Lid on How Researchers View the <span>‘Crisis’</span> Rocking Science and What They Think Will Help.”</span> 3.
+</div>
+<div id="ref-benjamin2018" class="csl-entry">
+Benjamin, Daniel J., James O. Berger, Magnus Johannesson, Brian A. Nosek, E.-J. Wagenmakers, Richard Berk, Kenneth A. Bollen, et al. 2018. <span>“Redefine Statistical Significance.”</span> <em>Nature Human Behaviour</em> 2 (1): 6–10. <a href="https://doi.org/cff2">https://doi.org/cff2</a>.
+</div>
+<div id="ref-grange2018" class="csl-entry">
+Grange, JA, D Lakens, F Adolfi, C Albers, F Anvari, M Apps, S Argamon, et al. 2018. <span>“Justify Your Alpha.”</span> <em>Nature Human Behavior</em>.
+</div>
+<div id="ref-ioannidis2005" class="csl-entry">
+Ioannidis, John PA. 2005. <span>“Why Most Published Research Findings Are False.”</span> <em>PLoS Medicine</em> 2 (8): e124. <a href="https://doi.org/chhf6b">https://doi.org/chhf6b</a>.
+</div>
+<div id="ref-lakatos1969" class="csl-entry">
+Lakatos, Imre. 1969. <span>“Falsification and the Methodology of Scientific Research Programmes.”</span> <em>Criticism and the Growth of Knowledge. Cambridge University Press: Cambridge</em>.
+</div>
+<div id="ref-leek2015" class="csl-entry">
+Leek, Jeffrey T, and Roger D Peng. 2015. <span>“Statistics: <span>P</span> Values Are Just the Tip of the Iceberg.”</span> <em>Nature</em> 520 (7549): 612. <a href="https://doi.org/gfb8jm">https://doi.org/gfb8jm</a>.
+</div>
+<div id="ref-mcshane2017" class="csl-entry">
+McShane, Blakeley B., David Gal, Andrew Gelman, Christian Robert, and Jennifer L. Tackett. 2017. <span>“Abandon <span>Statistical Significance</span>.”</span> <em>arXiv:1709.07588 [Stat]</em>, September. <a href="http://arxiv.org/abs/1709.07588">http://arxiv.org/abs/1709.07588</a>.
+</div>
+<div id="ref-miguel2014" class="csl-entry">
+Miguel, Edward, Colin Camerer, Katherine Casey, Joshua Cohen, Kevin M Esterling, Alan Gerber, Rachel Glennerster, et al. 2014. <span>“Promoting Transparency in Social Science Research.”</span> <em>Science</em> 343 (6166): 30–31. <a href="https://doi.org/gdrcpz">https://doi.org/gdrcpz</a>.
+</div>
+<div id="ref-munafo2017" class="csl-entry">
+Munafò, Marcus R., Brian A. Nosek, Dorothy V. M. Bishop, Katherine S. Button, Christopher D. Chambers, Nathalie Percie du Sert, Uri Simonsohn, Eric-Jan Wagenmakers, Jennifer J. Ware, and John P. A. Ioannidis. 2017. <span>“A Manifesto for Reproducible Science.”</span> <em>Nature Human Behaviour</em> 1 (1): 0021. <a href="https://doi.org/10.1038/s41562-016-0021">https://doi.org/10.1038/s41562-016-0021</a>.
+</div>
+<div id="ref-opensciencecollaboration2015" class="csl-entry">
+Open Science Collaboration. 2015. <span>“Estimating the Reproducibility of Psychological Science.”</span> <em>Science</em> 349 (6251): aac4716–16. <a href="https://doi.org/68c">https://doi.org/68c</a>.
+</div>
+<div id="ref-szucs2017" class="csl-entry">
+Szucs, Denes, and John Ioannidis. 2017. <span>“When Null Hypothesis Significance Testing Is Unsuitable for Research: A Reassessment.”</span> <em>Frontiers in Human Neuroscience</em> 11: 390. <a href="https://doi.org/gc6vws">https://doi.org/gc6vws</a>.
+</div>
+<div id="ref-wainer2007" class="csl-entry">
+Wainer, Howard. 2007. <span>“The <span>Most Dangerous Equation</span>,”</span> 9.
+</div>
+</div>
             </section>
 
           </div>
@@ -494,10 +558,11 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "sepia",
+"theme": "white",
 "family": "sans",
 "size": 2
 },
@@ -514,6 +579,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

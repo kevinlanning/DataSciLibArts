@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>19 cross-validation | Data science for the liberal arts</title>
   <meta name="description" content="Test" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="19 cross-validation | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:image" content="chihuahuamuffin.png" />
+  <meta property="og:image" content="/chihuahuamuffin.png" />
   <meta property="og:description" content="Test" />
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
@@ -19,12 +19,12 @@
   <meta name="twitter:title" content="19 cross-validation | Data science for the liberal arts" />
   
   <meta name="twitter:description" content="Test" />
-  <meta name="twitter:image" content="chihuahuamuffin.png" />
+  <meta name="twitter:image" content="/chihuahuamuffin.png" />
 
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2021-04-11" />
+<meta name="date" content="2021-08-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,8 @@
   
 <link rel="prev" href="from-correlation-to-regression.html"/>
 <link rel="next" href="prediction-and-classification.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,6 +51,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
@@ -119,6 +121,29 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 </head>
@@ -408,8 +433,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="revisiting-the-affairs-data" class="section level2" number="19.1">
 <h2><span class="header-section-number">19.1</span> revisiting the affairs data</h2>
 <p>Let’s go back and do what we should have done earlier, that is, examine and think about the “number of affairs” variable. What does the distribution look like?</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="cross-validation.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Fair)</span>
-<span id="cb111-2"><a href="cross-validation.html#cb111-2" aria-hidden="true" tabindex="-1"></a>Fair <span class="sc">%&gt;%</span> <span class="fu">count</span>(nbaffairs)</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="cross-validation.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Fair)</span>
+<span id="cb113-2"><a href="cross-validation.html#cb113-2" aria-hidden="true" tabindex="-1"></a>Fair <span class="sc">%&gt;%</span> <span class="fu">count</span>(nbaffairs)</span></code></pre></div>
 <pre><code>##   nbaffairs   n
 ## 1         0 451
 ## 2         1  34
@@ -419,20 +444,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6        12  38</code></pre>
 <p>We note that the distribution is skewed - and we realize that perhaps we should think about it differently: The <em>meaning</em> of the difference between 0 and 1 is not the same as that between 1 and 2, or perhaps even 1 and 12.</p>
 <p>We can transform the data in several ways. We might perform a <em>root transform</em>, which we could then round to an integer:</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="cross-validation.html#cb113-1" aria-hidden="true" tabindex="-1"></a>Fair <span class="ot">&lt;-</span> Fair <span class="sc">%&gt;%</span> </span>
-<span id="cb113-2"><a href="cross-validation.html#cb113-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">rootAffair =</span> </span>
-<span id="cb113-3"><a href="cross-validation.html#cb113-3" aria-hidden="true" tabindex="-1"></a>              <span class="fu">as.integer</span>(<span class="fu">sqrt</span>(nbaffairs)))</span>
-<span id="cb113-4"><a href="cross-validation.html#cb113-4" aria-hidden="true" tabindex="-1"></a>Fair <span class="sc">%&gt;%</span> <span class="fu">count</span>(rootAffair)</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="cross-validation.html#cb115-1" aria-hidden="true" tabindex="-1"></a>Fair <span class="ot">&lt;-</span> Fair <span class="sc">%&gt;%</span> </span>
+<span id="cb115-2"><a href="cross-validation.html#cb115-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">rootAffair =</span> </span>
+<span id="cb115-3"><a href="cross-validation.html#cb115-3" aria-hidden="true" tabindex="-1"></a>              <span class="fu">as.integer</span>(<span class="fu">sqrt</span>(nbaffairs)))</span>
+<span id="cb115-4"><a href="cross-validation.html#cb115-4" aria-hidden="true" tabindex="-1"></a>Fair <span class="sc">%&gt;%</span> <span class="fu">count</span>(rootAffair)</span></code></pre></div>
 <pre><code>##   rootAffair   n
 ## 1          0 451
 ## 2          1  70
 ## 3          2  42
 ## 4          3  38</code></pre>
 <p>Or we could simply distinguish between those that do and don’t have affairs.</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="cross-validation.html#cb115-1" aria-hidden="true" tabindex="-1"></a>Fair <span class="ot">&lt;-</span> Fair <span class="sc">%&gt;%</span> </span>
-<span id="cb115-2"><a href="cross-validation.html#cb115-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">affairYN =</span></span>
-<span id="cb115-3"><a href="cross-validation.html#cb115-3" aria-hidden="true" tabindex="-1"></a>               <span class="fu">ifelse</span> (nbaffairs <span class="sc">&gt;</span> <span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>))</span>
-<span id="cb115-4"><a href="cross-validation.html#cb115-4" aria-hidden="true" tabindex="-1"></a>Fair <span class="sc">%&gt;%</span> <span class="fu">count</span>(affairYN)</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="cross-validation.html#cb117-1" aria-hidden="true" tabindex="-1"></a>Fair <span class="ot">&lt;-</span> Fair <span class="sc">%&gt;%</span> </span>
+<span id="cb117-2"><a href="cross-validation.html#cb117-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">affairYN =</span></span>
+<span id="cb117-3"><a href="cross-validation.html#cb117-3" aria-hidden="true" tabindex="-1"></a>               <span class="fu">ifelse</span> (nbaffairs <span class="sc">&gt;</span> <span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>))</span>
+<span id="cb117-4"><a href="cross-validation.html#cb117-4" aria-hidden="true" tabindex="-1"></a>Fair <span class="sc">%&gt;%</span> <span class="fu">count</span>(affairYN)</span></code></pre></div>
 <pre><code>##   affairYN   n
 ## 1        0 451
 ## 2        1 150</code></pre>
@@ -444,28 +469,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="splitting-the-data-into-training-and-test-subsamples" class="section level3" number="19.2.1">
 <h3><span class="header-section-number">19.2.1</span> splitting the data into training and test subsamples</h3>
 <p>The most basic solution to this problem is to split the data into two groups, a <em>training</em> sample from which we extract our model, and a <em>test</em> sample on which you will assess it. (Often, the logic of this will be extended to include a third group, a <em>validation</em> sample which would be used to tune or select the results of the training run before the test data are examined). Here, we will consider the simpler approach, splitting the Fair data into training and test samples. The critical feature of this analysis is that we will hold out the test data, and not even look at it until after our model building is complete.</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="cross-validation.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co"># establish a seed for your data-split</span></span>
-<span id="cb117-2"><a href="cross-validation.html#cb117-2" aria-hidden="true" tabindex="-1"></a><span class="co"># so that your results will be reproducible</span></span>
-<span id="cb117-3"><a href="cross-validation.html#cb117-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">33458</span>)</span>
-<span id="cb117-4"><a href="cross-validation.html#cb117-4" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(Fair)</span>
-<span id="cb117-5"><a href="cross-validation.html#cb117-5" aria-hidden="true" tabindex="-1"></a><span class="co"># create a set of line numbers </span></span>
-<span id="cb117-6"><a href="cross-validation.html#cb117-6" aria-hidden="true" tabindex="-1"></a><span class="co"># of size corresponding to the </span></span>
-<span id="cb117-7"><a href="cross-validation.html#cb117-7" aria-hidden="true" tabindex="-1"></a><span class="co"># desired training sample </span></span>
-<span id="cb117-8"><a href="cross-validation.html#cb117-8" aria-hidden="true" tabindex="-1"></a>trainIndex <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="at">size =</span> <span class="fu">round</span>(<span class="fl">0.6</span><span class="sc">*</span>n), <span class="at">replace=</span><span class="cn">FALSE</span>)</span>
-<span id="cb117-9"><a href="cross-validation.html#cb117-9" aria-hidden="true" tabindex="-1"></a><span class="co"># create training and test samples</span></span>
-<span id="cb117-10"><a href="cross-validation.html#cb117-10" aria-hidden="true" tabindex="-1"></a>trainFair <span class="ot">&lt;-</span> Fair[trainIndex ,]</span>
-<span id="cb117-11"><a href="cross-validation.html#cb117-11" aria-hidden="true" tabindex="-1"></a>testFair <span class="ot">&lt;-</span> Fair[<span class="sc">-</span>trainIndex ,]</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="cross-validation.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="co"># establish a seed for your data-split</span></span>
+<span id="cb119-2"><a href="cross-validation.html#cb119-2" aria-hidden="true" tabindex="-1"></a><span class="co"># so that your results will be reproducible</span></span>
+<span id="cb119-3"><a href="cross-validation.html#cb119-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">33458</span>)</span>
+<span id="cb119-4"><a href="cross-validation.html#cb119-4" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(Fair)</span>
+<span id="cb119-5"><a href="cross-validation.html#cb119-5" aria-hidden="true" tabindex="-1"></a><span class="co"># create a set of line numbers </span></span>
+<span id="cb119-6"><a href="cross-validation.html#cb119-6" aria-hidden="true" tabindex="-1"></a><span class="co"># of size corresponding to the </span></span>
+<span id="cb119-7"><a href="cross-validation.html#cb119-7" aria-hidden="true" tabindex="-1"></a><span class="co"># desired training sample </span></span>
+<span id="cb119-8"><a href="cross-validation.html#cb119-8" aria-hidden="true" tabindex="-1"></a>trainIndex <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="at">size =</span> <span class="fu">round</span>(<span class="fl">0.6</span><span class="sc">*</span>n), <span class="at">replace=</span><span class="cn">FALSE</span>)</span>
+<span id="cb119-9"><a href="cross-validation.html#cb119-9" aria-hidden="true" tabindex="-1"></a><span class="co"># create training and test samples</span></span>
+<span id="cb119-10"><a href="cross-validation.html#cb119-10" aria-hidden="true" tabindex="-1"></a>trainFair <span class="ot">&lt;-</span> Fair[trainIndex ,]</span>
+<span id="cb119-11"><a href="cross-validation.html#cb119-11" aria-hidden="true" tabindex="-1"></a>testFair <span class="ot">&lt;-</span> Fair[<span class="sc">-</span>trainIndex ,]</span></code></pre></div>
 </div>
 </div>
 <div id="an-example-of-cross-validated-linear-regression" class="section level2" number="19.3">
 <h2><span class="header-section-number">19.3</span> an example of cross-validated linear regression</h2>
 <p>We first predict the variable “rootAffair,” using just the training data:</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="cross-validation.html#cb118-1" aria-hidden="true" tabindex="-1"></a>trainFair2 <span class="ot">&lt;-</span> trainFair <span class="sc">%&gt;%</span></span>
-<span id="cb118-2"><a href="cross-validation.html#cb118-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>nbaffairs, <span class="sc">-</span>affairYN)</span>
-<span id="cb118-3"><a href="cross-validation.html#cb118-3" aria-hidden="true" tabindex="-1"></a>testFair2 <span class="ot">&lt;-</span> testFair <span class="sc">%&gt;%</span></span>
-<span id="cb118-4"><a href="cross-validation.html#cb118-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>nbaffairs, <span class="sc">-</span>affairYN)</span>
-<span id="cb118-5"><a href="cross-validation.html#cb118-5" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(rootAffair <span class="sc">~</span> ., <span class="at">data=</span>trainFair2)</span>
-<span id="cb118-6"><a href="cross-validation.html#cb118-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model2)</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="cross-validation.html#cb120-1" aria-hidden="true" tabindex="-1"></a>trainFair2 <span class="ot">&lt;-</span> trainFair <span class="sc">%&gt;%</span></span>
+<span id="cb120-2"><a href="cross-validation.html#cb120-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>nbaffairs, <span class="sc">-</span>affairYN)</span>
+<span id="cb120-3"><a href="cross-validation.html#cb120-3" aria-hidden="true" tabindex="-1"></a>testFair2 <span class="ot">&lt;-</span> testFair <span class="sc">%&gt;%</span></span>
+<span id="cb120-4"><a href="cross-validation.html#cb120-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>nbaffairs, <span class="sc">-</span>affairYN)</span>
+<span id="cb120-5"><a href="cross-validation.html#cb120-5" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(rootAffair <span class="sc">~</span> ., <span class="at">data=</span>trainFair2)</span>
+<span id="cb120-6"><a href="cross-validation.html#cb120-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = rootAffair ~ ., data = trainFair2)
@@ -492,34 +517,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Multiple R-squared:  0.1783, Adjusted R-squared:  0.1597 
 ## F-statistic: 9.549 on 8 and 352 DF,  p-value: 5.595e-12</code></pre>
 <p>To assess the effectiveness of this model on an independent sample, we write a simple function, which assesses R2, then applies it to both the training data and the test data:</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="cross-validation.html#cb120-1" aria-hidden="true" tabindex="-1"></a>R2.model.dep.data <span class="ot">&lt;-</span> <span class="cf">function</span>(myModel,myDep,myData) {</span>
-<span id="cb120-2"><a href="cross-validation.html#cb120-2" aria-hidden="true" tabindex="-1"></a>    errorscores <span class="ot">&lt;-</span> myDep <span class="sc">-</span> <span class="fu">predict</span>(myModel,myData)</span>
-<span id="cb120-3"><a href="cross-validation.html#cb120-3" aria-hidden="true" tabindex="-1"></a>    SS.error <span class="ot">&lt;-</span> <span class="fu">sum</span>(errorscores<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb120-4"><a href="cross-validation.html#cb120-4" aria-hidden="true" tabindex="-1"></a>    deviations <span class="ot">&lt;-</span> <span class="fu">scale</span>(myDep,<span class="at">scale =</span> <span class="cn">FALSE</span>)<span class="co">#)</span></span>
-<span id="cb120-5"><a href="cross-validation.html#cb120-5" aria-hidden="true" tabindex="-1"></a>    SS.total <span class="ot">&lt;-</span> <span class="fu">sum</span>(deviations<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb120-6"><a href="cross-validation.html#cb120-6" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span> <span class="sc">-</span> (SS.error<span class="sc">/</span>SS.total)</span>
-<span id="cb120-7"><a href="cross-validation.html#cb120-7" aria-hidden="true" tabindex="-1"></a>}    </span>
-<span id="cb120-8"><a href="cross-validation.html#cb120-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-9"><a href="cross-validation.html#cb120-9" aria-hidden="true" tabindex="-1"></a>R2Train <span class="ot">&lt;-</span> <span class="fu">R2.model.dep.data</span>(model2,trainFair2<span class="sc">$</span>rootAffair,trainFair2)</span>
-<span id="cb120-10"><a href="cross-validation.html#cb120-10" aria-hidden="true" tabindex="-1"></a>(R2Test <span class="ot">&lt;-</span> <span class="fu">R2.model.dep.data</span>(model2,testFair2<span class="sc">$</span>rootAffair,testFair2))</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="cross-validation.html#cb122-1" aria-hidden="true" tabindex="-1"></a>R2.model.dep.data <span class="ot">&lt;-</span> <span class="cf">function</span>(myModel,myDep,myData) {</span>
+<span id="cb122-2"><a href="cross-validation.html#cb122-2" aria-hidden="true" tabindex="-1"></a>    errorscores <span class="ot">&lt;-</span> myDep <span class="sc">-</span> <span class="fu">predict</span>(myModel,myData)</span>
+<span id="cb122-3"><a href="cross-validation.html#cb122-3" aria-hidden="true" tabindex="-1"></a>    SS.error <span class="ot">&lt;-</span> <span class="fu">sum</span>(errorscores<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb122-4"><a href="cross-validation.html#cb122-4" aria-hidden="true" tabindex="-1"></a>    deviations <span class="ot">&lt;-</span> <span class="fu">scale</span>(myDep,<span class="at">scale =</span> <span class="cn">FALSE</span>)<span class="co">#)</span></span>
+<span id="cb122-5"><a href="cross-validation.html#cb122-5" aria-hidden="true" tabindex="-1"></a>    SS.total <span class="ot">&lt;-</span> <span class="fu">sum</span>(deviations<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb122-6"><a href="cross-validation.html#cb122-6" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span> <span class="sc">-</span> (SS.error<span class="sc">/</span>SS.total)</span>
+<span id="cb122-7"><a href="cross-validation.html#cb122-7" aria-hidden="true" tabindex="-1"></a>}    </span>
+<span id="cb122-8"><a href="cross-validation.html#cb122-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-9"><a href="cross-validation.html#cb122-9" aria-hidden="true" tabindex="-1"></a>R2Train <span class="ot">&lt;-</span> <span class="fu">R2.model.dep.data</span>(model2,trainFair2<span class="sc">$</span>rootAffair,trainFair2)</span>
+<span id="cb122-10"><a href="cross-validation.html#cb122-10" aria-hidden="true" tabindex="-1"></a>(R2Test <span class="ot">&lt;-</span> <span class="fu">R2.model.dep.data</span>(model2,testFair2<span class="sc">$</span>rootAffair,testFair2))</span></code></pre></div>
 <pre><code>## [1] 0.003453435</code></pre>
 <p>The R2 on the training sample is 0.1783303, on the test sample it is 0.0034534. The difference between these is sometimes referred to as shrinkage. Shrinkage will be problematic particularly when there are a small number of observations, a large number of predictors (and consequently a complex model), or both of these.</p>
 <div id="applying-logistic-regression-analysis-to-the-training-data" class="section level3" number="19.3.1">
 <h3><span class="header-section-number">19.3.1</span> applying logistic regression analysis to the training data</h3>
 <p>Let’s go back to the “number of affairs” variable and consider a second way of thinking about it, that is, simply comparing those who do and don’t have affairs:</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="cross-validation.html#cb122-1" aria-hidden="true" tabindex="-1"></a>Fair <span class="ot">&lt;-</span> Fair <span class="sc">%&gt;%</span> </span>
-<span id="cb122-2"><a href="cross-validation.html#cb122-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">affairYN =</span></span>
-<span id="cb122-3"><a href="cross-validation.html#cb122-3" aria-hidden="true" tabindex="-1"></a>               <span class="fu">ifelse</span> (nbaffairs <span class="sc">&gt;</span> <span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>))</span>
-<span id="cb122-4"><a href="cross-validation.html#cb122-4" aria-hidden="true" tabindex="-1"></a>Fair <span class="sc">%&gt;%</span> <span class="fu">count</span>(affairYN)</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="cross-validation.html#cb124-1" aria-hidden="true" tabindex="-1"></a>Fair <span class="ot">&lt;-</span> Fair <span class="sc">%&gt;%</span> </span>
+<span id="cb124-2"><a href="cross-validation.html#cb124-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">affairYN =</span></span>
+<span id="cb124-3"><a href="cross-validation.html#cb124-3" aria-hidden="true" tabindex="-1"></a>               <span class="fu">ifelse</span> (nbaffairs <span class="sc">&gt;</span> <span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>))</span>
+<span id="cb124-4"><a href="cross-validation.html#cb124-4" aria-hidden="true" tabindex="-1"></a>Fair <span class="sc">%&gt;%</span> <span class="fu">count</span>(affairYN)</span></code></pre></div>
 <pre><code>##   affairYN   n
 ## 1        0 451
 ## 2        1 150</code></pre>
 <p>With this change, the regression problem becomes more clearly a problem in classification. How can we best predict which ‘type’ (affair-ers vs. not) a given person falls in to?</p>
 <p>With this change, we have moved from a variable which is essentially continuous (nbaffairs) to one which is dichotomous and therefore distributed binomially. The desired regression is now a logistic one.</p>
 <p>We begin by running this analysis using only the training data.</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="cross-validation.html#cb124-1" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(affairYN <span class="sc">~</span> ., <span class="at">data =</span> trainFair,</span>
-<span id="cb124-2"><a href="cross-validation.html#cb124-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
-<span id="cb124-3"><a href="cross-validation.html#cb124-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span> (model2)</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="cross-validation.html#cb126-1" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(affairYN <span class="sc">~</span> ., <span class="at">data =</span> trainFair,</span>
+<span id="cb126-2"><a href="cross-validation.html#cb126-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb126-3"><a href="cross-validation.html#cb126-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span> (model2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = affairYN ~ ., family = &quot;binomial&quot;, data = trainFair)
@@ -550,8 +575,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Number of Fisher Scoring iterations: 25</code></pre>
 <p>Our “predicted scores” are continuous, corresponding to the probability that a given person will have an affair. Here’s how they are distributed (still on the training data here):</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="cross-validation.html#cb126-1" aria-hidden="true" tabindex="-1"></a>predictTrain <span class="ot">&lt;-</span> <span class="fu">predict</span>(model2, trainFair, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
-<span id="cb126-2"><a href="cross-validation.html#cb126-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span> (predictTrain)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="cross-validation.html#cb128-1" aria-hidden="true" tabindex="-1"></a>predictTrain <span class="ot">&lt;-</span> <span class="fu">predict</span>(model2, trainFair, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb128-2"><a href="cross-validation.html#cb128-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span> (predictTrain)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##  0.0000  0.0000  0.0000  0.2548  1.0000  1.0000</code></pre>
 <p>As scores on predictTrain increase, the predicted likelihood of an affair increases. If you are considering marriage to a potential partner, what score would be too high? How do we distinguish “ok” from “not?”</p>
@@ -588,10 +613,11 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "sepia",
+"theme": "white",
 "family": "sans",
 "size": 2
 },
@@ -608,6 +634,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
