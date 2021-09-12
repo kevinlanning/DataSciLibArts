@@ -1,3 +1,9 @@
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
 ```{r coronasetup, include=FALSE, message = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(magrittr)
@@ -6,19 +12,39 @@ library(htmlwidgets)
 library(httr)
 library(tidyverse)
 ```
+
 # examining local COVID data in R
 
-In Winter 2020, as the COVID-19 pandemic began to take hold, I began chronicling the course of the virus. What follows is an archive, followed by a consideration of some possible new directions.
+In Winter 2020, as the COVID-19 pandemic began to take hold, I began
+chronicling the course of the virus. What follows is an archive,
+followed by a consideration of some possible new directions for COVID
+analysis (suggested in Spring of 2021) - and finally, some other
+datasets to continue (suggested in Fall 2021).
 
 ## tracking the Novel Coronavirus (from Feb 2020)
 
 Here, I want to consider a timely (but challenging) dataset.
 
-The Novel Coronavirus is an emerging health crisis, particularly in Wuhan (a Chinese city larger than New York City) and the surrounding province of Hubei. **It is not yet a threat in the United States - there have, at this writing (02/11/20) been zero cases in Florida.** Still, tracking the spread of the virus - the unfolding number of people infected and recovered, as well as the number of deaths - is a fascinating exercise.
+The Novel Coronavirus is an emerging health crisis, particularly in
+Wuhan (a Chinese city larger than New York City) and the surrounding
+province of Hubei. **It is not yet a threat in the United States - there
+have, at this writing (02/11/20) been zero cases in Florida.** Still,
+tracking the spread of the virus - the unfolding number of people
+infected and recovered, as well as the number of deaths - is a
+fascinating exercise.
 
-This is an educational script for students learning R with the Tidyverse. It reads data provided by the Johns Hopkins Center for Systems Science and Engineering (JHU/CSSE).
+This is an educational script for students learning R with the
+Tidyverse. It reads data provided by the Johns Hopkins Center for
+Systems Science and Engineering (JHU/CSSE).
 
-It was modified February 3 because of a new GoogleSheet link and altered variable names, on Feb 5 because of a new URL for the data and additional changes in the variable name for date, and Feb 7 to (a) remove need for OAuth and (b) separate Wuhan from 'other China.' On Feb 9, additional data cleaning was performed and interactive plots were added. On February 11, the code was rewritten to read files from a Github repo rather than Google Sheets. Consequently, this does not use an API or require authorization from Github.
+It was modified February 3 because of a new GoogleSheet link and altered
+variable names, on Feb 5 because of a new URL for the data and
+additional changes in the variable name for date, and Feb 7 to (a)
+remove need for OAuth and (b) separate Wuhan from 'other China.' On Feb
+9, additional data cleaning was performed and interactive plots were
+added. On February 11, the code was rewritten to read files from a
+Github repo rather than Google Sheets. Consequently, this does not use
+an API or require authorization from Github.
 
 ```{r, message = FALSE}
 # get list of files
@@ -39,7 +65,8 @@ rawGitFiles <- "https://raw.githubusercontent.com/CSSEGISandData/2019-nCoV/maste
 
 ### reading the data (Feb 2020)
 
-The Novel Coronavirus data consists of a series of csv files in a Github repository. This combines them into a single sheet in R.
+The Novel Coronavirus data consists of a series of csv files in a Github
+repository. This combines them into a single sheet in R.
 
 ```{r readcoronadata, message = FALSE}
 # variables to retain or create
@@ -69,16 +96,25 @@ str(coronaData)
 
 ### cleaning (wrangling, munging) the data (Feb 2020)
 
-Cleaning the data includes not just finding "errors," but adapting it for our own use. It's generally time consuming, as was the case here. The following letters refer to sections of the code below.
+Cleaning the data includes not just finding "errors," but adapting it
+for our own use. It's generally time consuming, as was the case here.
+The following letters refer to sections of the code below.
 
--   a - fix a few missing values outside of China for province and country
+-   a - fix a few missing values outside of China for province and
+    country
 -   b - the earliest cases, all in China, did not include country
--   c - because province/state is included inconsistently, an unambiguous place variable is created
+-   c - because province/state is included inconsistently, an
+    unambiguous place variable is created
 -   d - reportdate is standardized (above) and renamed
--   e - in some cases, multiple reports are issued for each day. only the last of these is used for each place.
--   f - for dates where no data was supplied, the most recent (previous) data are used
--   g - values of NA for Deaths, Confirmed, and Recovered cases are replaced by zero.
--   h - Prior to Feb 1, 2020 reporting for US included only state, since then, city and state. This drops the (duplicated) province/state-only values beginning Feb 1.
+-   e - in some cases, multiple reports are issued for each day. only
+    the last of these is used for each place.
+-   f - for dates where no data was supplied, the most recent (previous)
+    data are used
+-   g - values of NA for Deaths, Confirmed, and Recovered cases are
+    replaced by zero.
+-   h - Prior to Feb 1, 2020 reporting for US included only state, since
+    then, city and state. This drops the (duplicated)
+    province/state-only values beginning Feb 1.
 
 ```{r cleaningcorona}
 
@@ -132,7 +168,10 @@ write_csv(coronaData,"coronaData.csv")
 
 ### eleven months later: the code still runs!
 
-The above code runs without apparent error, and leads to a dataset of `r nrow(coronaData)` rows by `r ncol(coronaData)` columns. Here's a quick peek (Note that I use the group\_by and summarize functions to collapse the file to one line per date):
+The above code runs without apparent error, and leads to a dataset of
+`r nrow(coronaData)` rows by `r ncol(coronaData)` columns. Here's a
+quick peek (Note that I use the group_by and summarize functions to
+collapse the file to one line per date):
 
 ```{r}
 coronaData %>% group_by(reportDate) %>% 
@@ -142,7 +181,9 @@ coronaData %>% group_by(reportDate) %>%
 
 ### shall we graph it? (Feb 2021)
 
-So far, so good. Let's plot the whole range. What do we see? This will generate a quick graph in ggPlot which shows the global incidence of confirmed cases.
+So far, so good. Let's plot the whole range. What do we see? This will
+generate a quick graph in ggPlot which shows the global incidence of
+confirmed cases.
 
 ```{r}
 coronaData %>% 
@@ -154,17 +195,30 @@ coronaData %>%
 
 ### too bad
 
-According to the above graph, there have been no additional COVID cases since mid-March or so. Too bad that the data aren't right here - for us and especially the world.
+According to the above graph, there have been no additional COVID cases
+since mid-March or so. Too bad that the data aren't right here - for us
+and especially the world.
 
-> **Exercise 8\_1** *How would we find the exact date when the file stopped updating? In class, we'll consider this question (we'll use pre-downloaded data to save time and computer resources). Use whatever method you like for this - kludgy or clever - but you should describe your results in explicit language or code so that anyone else would get the same results.*
+> **Exercise 8_1** *How would we find the exact date when the file
+> stopped updating? In class, we'll consider this question (we'll use
+> pre-downloaded data to save time and computer resources). Use whatever
+> method you like for this - kludgy or clever - but you should describe
+> your results in explicit language or code so that anyone else would
+> get the same results.*
 
 ### what now?
 
-I want to make sure that the rest of my code still works, so I'll look more closely at the valid data. I'll generate a new variable ('firstbaddate,' which sounds like a corny romcom), and filter by it.
+I want to make sure that the rest of my code still works, so I'll look
+more closely at the valid data. I'll generate a new variable
+('firstbaddate,' which sounds like a corny romcom), and filter by it.
 
-When the code was written a year ago, the COVID outbreak was largely contained to the Hubei province (which includes the city of Wuhan). So I tried breaking down the data into three locations, breaking down China into Hubei, other China, and the rest of the world.
+When the code was written a year ago, the COVID outbreak was largely
+contained to the Hubei province (which includes the city of Wuhan). So I
+tried breaking down the data into three locations, breaking down China
+into Hubei, other China, and the rest of the world.
 
-And I generated summaries for three measures - Confirmed, Deaths, and Recovered cases
+And I generated summaries for three measures - Confirmed, Deaths, and
+Recovered cases
 
 ```{r threelocationscorona}
 
@@ -190,7 +244,9 @@ coronaDataSimple <- coronaData %>%
 
 ### an initial plot (Feb 2020)
 
-The first plot is simple, including data for only deaths. A caption is added to show the source of the data. Here's what the data looked like last February 11:
+The first plot is simple, including data for only deaths. A caption is
+added to show the source of the data. Here's what the data looked like
+last February 11:
 
 ```{r simpleplot}
 myCaption <- " Data courtesy JHU/CSSE http://bit.ly/ncvdata"
@@ -206,7 +262,8 @@ coronaPlot0
 
 ### five weeks later (Mar 2020)
 
-About five weeks later our data would stop updating. But the world had already changed: Here's the same graph, through March 21, 2020:
+About five weeks later our data would stop updating. But the world had
+already changed: Here's the same graph, through March 21, 2020:
 
 ```{r simpleplot2 }
 coronaPlot0 <- coronaDataSimple %>% 
@@ -216,11 +273,16 @@ coronaPlot0 <- coronaDataSimple %>%
 coronaPlot0
 ```
 
-It's apparent that the coding for Wuhan versus the rest of China is off for some of the newer data, as one of these increases while the other reaches a plateau. Still, the overall picture is clear.
+It's apparent that the coding for Wuhan versus the rest of China is off
+for some of the newer data, as one of these increases while the other
+reaches a plateau. Still, the overall picture is clear.
 
 ### adding recovered cases (code from Feb, data through Mar 2020)
 
-Similar results are obtained if we examine two other populations of interest, recovered and confirmed cases. Here, recovered cases and deaths are included on a single plot, as these are roughly on the same scale. Additional changes to the graph are self-evident.
+Similar results are obtained if we examine two other populations of
+interest, recovered and confirmed cases. Here, recovered cases and
+deaths are included on a single plot, as these are roughly on the same
+scale. Additional changes to the graph are self-evident.
 
 ```{r deathsrecovered}
 mySubtitle <- paste0(
@@ -279,32 +341,82 @@ coronaPlot1
 
 ## status (Feb 2021)
 
-The code above works ok, but the March 2020 data need further cleaning, and no new data have been added in 11 months. In that time, as the pandemic has spread, numerous other resources for tracking COVID have been developed, most of which are far more sophisticated and less cumbersome than the code above.
+The code above works ok, but the March 2020 data need further cleaning,
+and no new data have been added in 11 months. In that time, as the
+pandemic has spread, numerous other resources for tracking COVID have
+been developed, most of which are far more sophisticated and less
+cumbersome than the code above.
 
-There are new datasets, new R packages, and, perhaps most importantly, new questions that we might consider about variables such as vaccination rates, test-positivity rates, and hospital capacity.
+There are new datasets, new R packages, and, perhaps most importantly,
+new questions that we might consider about variables such as vaccination
+rates, test-positivity rates, and hospital capacity.
 
-### an assignment
+### An assignment
 
-**for Wednesday, please study and be prepared to report on at least one of the following packages for studying COVID data using R:**
+Please study and be prepared to briefly discuss one of the following
+packages or datasets:
 
-> If the last digit of your Z number is 1 or 2, begin with [covid19datahub/COVID19: Unified dataset for a better understanding of COVID-19 (github.com)](https://github.com/covid19datahub/COVID19)
->
-> If the last digit of your Z number is 3 or 4, begin with [aedobbyn/covid19us: R package for the COVID Tracking Project API providing US COVID-19 data (github.com)](https://github.com/aedobbyn/covid19us)
->
-> If the last digit of your Z number is 5 or 6, begin with [RamiKrispin/coronavirus: The coronavirus dataset (github.com)](https://github.com/RamiKrispin/coronavirus)
->
-> If the last digit of your Z number is 7 or 8, begin with [Covid19R/covid19nytimes: Pulls the covid-19 data from the New York Times Public Data Source (github.com)](https://github.com/Covid19R/covid19nytimes)
->
-> If the last digit of your Z number is 9 or 0, begin with [joachim-gassen/tidycovid19: {tidycovid19}: An R Package to Download, Tidy and Visualize Covid-19 Related Data (github.com)](https://github.com/joachim-gassen/tidycovid19)
+#### Packages for studying and visualizing COVID data
 
-Review the GitHub page, especially the README.md section to get a sense of what is available in the data. How current is it (when was the code last modified?). How popular is it (look at the number of 'watches' 'stars' and 'forks' in the upper right hand corner of the webpage)? How buggy is it (look at the 'issues' tab, then look at 'Open' and 'Closed' issues? Is it worth looking further at this library)?
+[covid19datahub/COVID19: Unified dataset for a better understanding of
+COVID-19 (github.com)](https://github.com/covid19datahub/COVID19)
 
-If you get this far, consider looking at a second package, Googling 'R COVID data', and/or installing and playing with a package on your home machine. We'll discuss your findings and work together on this in class on Wednesday.
+[aedobbyn/covid19us: R package for the COVID Tracking Project API
+providing US COVID-19 data
+(github.com)](https://github.com/aedobbyn/covid19us)
+
+[RamiKrispin/coronavirus: The coronavirus dataset
+(github.com)](https://github.com/RamiKrispin/coronavirus)
+
+[Covid19R/covid19nytimes: Pulls the covid-19 data from the New York
+Times Public Data Source
+(github.com)](https://github.com/Covid19R/covid19nytimes)
+
+[joachim-gassen/tidycovid19: {tidycovid19}: An R Package to Download,
+Tidy and Visualize Covid-19 Related Data
+(github.com)](https://github.com/joachim-gassen/tidycovid19)
+
+#### (Fall 2021) COVID long-haulers aren't the only one's suffering from COVID fatigue
+
+For those who want to focus on something else, please look at either
+
+a) one or more datasets in the mdsr package.
+
+b) and/or one of the (1500) datasets described on still another github
+page, i.e., [vincentarelbundock/Rdatasets: A collection of datasets
+originally distributed in R packages
+(github.com)](https://github.com/vincentarelbundock/Rdatasets)
+
+For the GitHub pages, review the README.md section to get a sense of
+what is available in the data. How current is it (when was the code last
+modified?). How popular is it (look at the number of 'watches' 'stars'
+and 'forks' in the upper right hand corner of the webpage)? How buggy is
+it (look at the 'issues' tab, then look at 'Open' and 'Closed' issues?
+Is it worth looking further at this library)?
+
+For the other datasets - what could you study in these data? Why would
+it be cool to look at this data more closely? You'll be doing a more
+thorough data pitch in a few weeks - this is just a warm-up. But be
+prepared to share your thoughts in class on Wednesday.
 
 ## how to create new knowledge
 
-One thing to keep in mind as we move forward is that, despite the fact that hundreds if not thousands of statisticians, data scientists, epidemiologists, policy makers, and journalists have looked at COVID data, there are still unanswered questions.
+One thing to keep in mind as we move forward is that, despite the fact
+that hundreds if not thousands of statisticians, data scientists,
+epidemiologists, policy makers, and journalists have looked at COVID
+data, there are still unanswered questions.
 
-> For example, here in Florida, there was recently some controversy as the Governor chose to disperse COVID vaccinations at Publix pharmacies; the controversy arose, in large part, because poorer communities (including those in the Western part of Palm Beach County) appear less likely to have a Publix supermarket. Is it the case that there is a relationship between COVID disease rates and the number of Publix/per capita by city or zip code (Florida data by Zip code is available at [https://covid19-usflibrary.hub.arcgis.com/datasets/)?](https://covid19-usflibrary.hub.arcgis.com/datasets/)?) If so, what would this tell us?
+> For example, here in Florida, there was recently some controversy as
+> the Governor chose to disperse COVID vaccinations at Publix
+> pharmacies; the controversy arose, in large part, because poorer
+> communities (including those in the Western part of Palm Beach County)
+> appear less likely to have a Publix supermarket. Is it the case that
+> there is a relationship between COVID disease rates and the number of
+> Publix/per capita by city or zip code (Florida data by Zip code is
+> available at
+> [https://covid19-usflibrary.hub.arcgis.com/datasets/)?](https://covid19-usflibrary.hub.arcgis.com/datasets/)?)
+> If so, what would this tell us?
 
-In data science, we can often create new knowledge by putting together two data sources which haven't been combined before, together with an interesting and potentially important question.
+In data science, we can often create new knowledge by putting together
+two data sources which haven't been combined before, together with an
+interesting and potentially important question.

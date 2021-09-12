@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8 examining local COVID data in R | Data science for the liberal arts</title>
   <meta name="description" content="Test" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 examining local COVID data in R | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2021-08-29" />
+<meta name="date" content="2021-09-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -35,6 +35,7 @@
 <link rel="next" href="on-probability-and-statistics.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,10 +51,9 @@
 
 
 
-
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 
@@ -251,7 +251,7 @@ div.csl-indent {
 <li class="chapter" data-level="8.2" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#plotting-confirmed-cases-feb-mar-2020"><i class="fa fa-check"></i><b>8.2</b> plotting confirmed cases (Feb-Mar 2020)</a></li>
 <li class="chapter" data-level="8.3" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#status-feb-2021"><i class="fa fa-check"></i><b>8.3</b> status (Feb 2021)</a>
 <ul>
-<li class="chapter" data-level="8.3.1" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#an-assignment"><i class="fa fa-check"></i><b>8.3.1</b> an assignment</a></li>
+<li class="chapter" data-level="8.3.1" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#an-assignment"><i class="fa fa-check"></i><b>8.3.1</b> An assignment</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#how-to-create-new-knowledge"><i class="fa fa-check"></i><b>8.4</b> how to create new knowledge</a></li>
 </ul></li>
@@ -429,13 +429,32 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="examining-local-covid-data-in-r" class="section level1" number="8">
 <h1><span class="header-section-number">8</span> examining local COVID data in R</h1>
-<p>In Winter 2020, as the COVID-19 pandemic began to take hold, I began chronicling the course of the virus. What follows is an archive, followed by a consideration of some possible new directions.</p>
+<p>In Winter 2020, as the COVID-19 pandemic began to take hold, I began
+chronicling the course of the virus. What follows is an archive,
+followed by a consideration of some possible new directions for COVID
+analysis (suggested in Spring of 2021) - and finally, some other
+datasets to continue (suggested in Fall 2021).</p>
 <div id="tracking-the-novel-coronavirus-from-feb-2020" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> tracking the Novel Coronavirus (from Feb 2020)</h2>
 <p>Here, I want to consider a timely (but challenging) dataset.</p>
-<p>The Novel Coronavirus is an emerging health crisis, particularly in Wuhan (a Chinese city larger than New York City) and the surrounding province of Hubei. <strong>It is not yet a threat in the United States - there have, at this writing (02/11/20) been zero cases in Florida.</strong> Still, tracking the spread of the virus - the unfolding number of people infected and recovered, as well as the number of deaths - is a fascinating exercise.</p>
-<p>This is an educational script for students learning R with the Tidyverse. It reads data provided by the Johns Hopkins Center for Systems Science and Engineering (JHU/CSSE).</p>
-<p>It was modified February 3 because of a new GoogleSheet link and altered variable names, on Feb 5 because of a new URL for the data and additional changes in the variable name for date, and Feb 7 to (a) remove need for OAuth and (b) separate Wuhan from ‘other China.’ On Feb 9, additional data cleaning was performed and interactive plots were added. On February 11, the code was rewritten to read files from a Github repo rather than Google Sheets. Consequently, this does not use an API or require authorization from Github.</p>
+<p>The Novel Coronavirus is an emerging health crisis, particularly in
+Wuhan (a Chinese city larger than New York City) and the surrounding
+province of Hubei. <strong>It is not yet a threat in the United States - there
+have, at this writing (02/11/20) been zero cases in Florida.</strong> Still,
+tracking the spread of the virus - the unfolding number of people
+infected and recovered, as well as the number of deaths - is a
+fascinating exercise.</p>
+<p>This is an educational script for students learning R with the
+Tidyverse. It reads data provided by the Johns Hopkins Center for
+Systems Science and Engineering (JHU/CSSE).</p>
+<p>It was modified February 3 because of a new GoogleSheet link and altered
+variable names, on Feb 5 because of a new URL for the data and
+additional changes in the variable name for date, and Feb 7 to (a)
+remove need for OAuth and (b) separate Wuhan from ‘other China.’ On Feb
+9, additional data cleaning was performed and interactive plots were
+added. On February 11, the code was rewritten to read files from a
+Github repo rather than Google Sheets. Consequently, this does not use
+an API or require authorization from Github.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="examining-local-covid-data-in-r.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get list of files</span></span>
 <span id="cb2-2"><a href="examining-local-covid-data-in-r.html#cb2-2" aria-hidden="true" tabindex="-1"></a>filelist <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="st">&quot;https://api.github.com/repos/CSSEGISandData/2019-nCoV/git/trees/master?recursive=1&quot;</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb2-3"><a href="examining-local-covid-data-in-r.html#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">content</span>() <span class="sc">%&gt;%</span> </span>
@@ -452,7 +471,8 @@ div.csl-indent {
 <span id="cb2-14"><a href="examining-local-covid-data-in-r.html#cb2-14" aria-hidden="true" tabindex="-1"></a>rawGitFiles <span class="ot">&lt;-</span> <span class="st">&quot;https://raw.githubusercontent.com/CSSEGISandData/2019-nCoV/master/&quot;</span></span></code></pre></div>
 <div id="reading-the-data-feb-2020" class="section level3" number="8.1.1">
 <h3><span class="header-section-number">8.1.1</span> reading the data (Feb 2020)</h3>
-<p>The Novel Coronavirus data consists of a series of csv files in a Github repository. This combines them into a single sheet in R.</p>
+<p>The Novel Coronavirus data consists of a series of csv files in a Github
+repository. This combines them into a single sheet in R.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="examining-local-covid-data-in-r.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># variables to retain or create</span></span>
 <span id="cb3-2"><a href="examining-local-covid-data-in-r.html#cb3-2" aria-hidden="true" tabindex="-1"></a>numvars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Confirmed&quot;</span>, <span class="st">&quot;Deaths&quot;</span>, <span class="st">&quot;Recovered&quot;</span>)</span>
 <span id="cb3-3"><a href="examining-local-covid-data-in-r.html#cb3-3" aria-hidden="true" tabindex="-1"></a>varlist <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Province/State&quot;</span>, <span class="st">&quot;Country/Region&quot;</span>,</span>
@@ -486,26 +506,35 @@ div.csl-indent {
 ## 6 Guizhou          Mainland China   2020-01-21 22:00:00        NA     NA
 ## # ... with 1 more variable: Recovered &lt;dbl&gt;</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="examining-local-covid-data-in-r.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(coronaData)</span></code></pre></div>
-<pre><code>## tibble [2,062,514 x 6] (S3: tbl_df/tbl/data.frame)
-##  $ Province/State: chr [1:2062514] &quot;Anhui&quot; &quot;Beijing&quot; &quot;Chongqing&quot; &quot;Guangdong&quot; ...
-##  $ Country/Region: chr [1:2062514] &quot;Mainland China&quot; &quot;Mainland China&quot; &quot;Mainland China&quot; &quot;Mainland China&quot; ...
-##  $ Last Update   : POSIXct[1:2062514], format: &quot;2020-01-21 22:00:00&quot; &quot;2020-01-21 22:00:00&quot; ...
-##  $ Confirmed     : num [1:2062514] NA 10 5 17 NA NA NA NA 1 NA ...
-##  $ Deaths        : num [1:2062514] NA NA NA NA NA NA NA NA NA NA ...
-##  $ Recovered     : num [1:2062514] NA NA NA NA NA NA NA NA NA NA ...</code></pre>
+<pre><code>## tibble [2,119,144 x 6] (S3: tbl_df/tbl/data.frame)
+##  $ Province/State: chr [1:2119144] &quot;Anhui&quot; &quot;Beijing&quot; &quot;Chongqing&quot; &quot;Guangdong&quot; ...
+##  $ Country/Region: chr [1:2119144] &quot;Mainland China&quot; &quot;Mainland China&quot; &quot;Mainland China&quot; &quot;Mainland China&quot; ...
+##  $ Last Update   : POSIXct[1:2119144], format: &quot;2020-01-21 22:00:00&quot; &quot;2020-01-21 22:00:00&quot; ...
+##  $ Confirmed     : num [1:2119144] NA 10 5 17 NA NA NA NA 1 NA ...
+##  $ Deaths        : num [1:2119144] NA NA NA NA NA NA NA NA NA NA ...
+##  $ Recovered     : num [1:2119144] NA NA NA NA NA NA NA NA NA NA ...</code></pre>
 </div>
 <div id="cleaning-wrangling-munging-the-data-feb-2020" class="section level3" number="8.1.2">
 <h3><span class="header-section-number">8.1.2</span> cleaning (wrangling, munging) the data (Feb 2020)</h3>
-<p>Cleaning the data includes not just finding “errors,” but adapting it for our own use. It’s generally time consuming, as was the case here. The following letters refer to sections of the code below.</p>
+<p>Cleaning the data includes not just finding “errors,” but adapting it
+for our own use. It’s generally time consuming, as was the case here.
+The following letters refer to sections of the code below.</p>
 <ul>
-<li>a - fix a few missing values outside of China for province and country</li>
+<li>a - fix a few missing values outside of China for province and
+country</li>
 <li>b - the earliest cases, all in China, did not include country</li>
-<li>c - because province/state is included inconsistently, an unambiguous place variable is created</li>
+<li>c - because province/state is included inconsistently, an
+unambiguous place variable is created</li>
 <li>d - reportdate is standardized (above) and renamed</li>
-<li>e - in some cases, multiple reports are issued for each day. only the last of these is used for each place.</li>
-<li>f - for dates where no data was supplied, the most recent (previous) data are used</li>
-<li>g - values of NA for Deaths, Confirmed, and Recovered cases are replaced by zero.</li>
-<li>h - Prior to Feb 1, 2020 reporting for US included only state, since then, city and state. This drops the (duplicated) province/state-only values beginning Feb 1.</li>
+<li>e - in some cases, multiple reports are issued for each day. only
+the last of these is used for each place.</li>
+<li>f - for dates where no data was supplied, the most recent (previous)
+data are used</li>
+<li>g - values of NA for Deaths, Confirmed, and Recovered cases are
+replaced by zero.</li>
+<li>h - Prior to Feb 1, 2020 reporting for US included only state, since
+then, city and state. This drops the (duplicated)
+province/state-only values beginning Feb 1.</li>
 </ul>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="examining-local-covid-data-in-r.html#cb7-1" aria-hidden="true" tabindex="-1"></a>coronaData <span class="ot">&lt;-</span> coronaData <span class="sc">%&gt;%</span> </span>
 <span id="cb7-2"><a href="examining-local-covid-data-in-r.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># a </span></span>
@@ -565,7 +594,10 @@ div.csl-indent {
 </div>
 <div id="eleven-months-later-the-code-still-runs" class="section level3" number="8.1.3">
 <h3><span class="header-section-number">8.1.3</span> eleven months later: the code still runs!</h3>
-<p>The above code runs without apparent error, and leads to a dataset of 245095 rows by 5 columns. Here’s a quick peek (Note that I use the group_by and summarize functions to collapse the file to one line per date):</p>
+<p>The above code runs without apparent error, and leads to a dataset of
+251353 rows by 5 columns. Here’s a
+quick peek (Note that I use the group_by and summarize functions to
+collapse the file to one line per date):</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="examining-local-covid-data-in-r.html#cb10-1" aria-hidden="true" tabindex="-1"></a>coronaData <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(reportDate) <span class="sc">%&gt;%</span> </span>
 <span id="cb10-2"><a href="examining-local-covid-data-in-r.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Confirmed =</span> <span class="fu">sum</span>(Confirmed)) <span class="sc">%&gt;%</span> </span>
 <span id="cb10-3"><a href="examining-local-covid-data-in-r.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>() </span></code></pre></div>
@@ -581,7 +613,9 @@ div.csl-indent {
 </div>
 <div id="shall-we-graph-it-feb-2021" class="section level3" number="8.1.4">
 <h3><span class="header-section-number">8.1.4</span> shall we graph it? (Feb 2021)</h3>
-<p>So far, so good. Let’s plot the whole range. What do we see? This will generate a quick graph in ggPlot which shows the global incidence of confirmed cases.</p>
+<p>So far, so good. Let’s plot the whole range. What do we see? This will
+generate a quick graph in ggPlot which shows the global incidence of
+confirmed cases.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="examining-local-covid-data-in-r.html#cb12-1" aria-hidden="true" tabindex="-1"></a>coronaData <span class="sc">%&gt;%</span> </span>
 <span id="cb12-2"><a href="examining-local-covid-data-in-r.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(reportDate) <span class="sc">%&gt;%</span> </span>
 <span id="cb12-3"><a href="examining-local-covid-data-in-r.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Confirmed =</span> <span class="fu">sum</span>(Confirmed)) <span class="sc">%&gt;%</span> </span>
@@ -591,16 +625,29 @@ div.csl-indent {
 </div>
 <div id="too-bad" class="section level3" number="8.1.5">
 <h3><span class="header-section-number">8.1.5</span> too bad</h3>
-<p>According to the above graph, there have been no additional COVID cases since mid-March or so. Too bad that the data aren’t right here - for us and especially the world.</p>
+<p>According to the above graph, there have been no additional COVID cases
+since mid-March or so. Too bad that the data aren’t right here - for us
+and especially the world.</p>
 <blockquote>
-<p><strong>Exercise 8_1</strong> <em>How would we find the exact date when the file stopped updating? In class, we’ll consider this question (we’ll use pre-downloaded data to save time and computer resources). Use whatever method you like for this - kludgy or clever - but you should describe your results in explicit language or code so that anyone else would get the same results.</em></p>
+<p><strong>Exercise 8_1</strong> <em>How would we find the exact date when the file
+stopped updating? In class, we’ll consider this question (we’ll use
+pre-downloaded data to save time and computer resources). Use whatever
+method you like for this - kludgy or clever - but you should describe
+your results in explicit language or code so that anyone else would
+get the same results.</em></p>
 </blockquote>
 </div>
 <div id="what-now" class="section level3" number="8.1.6">
 <h3><span class="header-section-number">8.1.6</span> what now?</h3>
-<p>I want to make sure that the rest of my code still works, so I’ll look more closely at the valid data. I’ll generate a new variable (‘firstbaddate,’ which sounds like a corny romcom), and filter by it.</p>
-<p>When the code was written a year ago, the COVID outbreak was largely contained to the Hubei province (which includes the city of Wuhan). So I tried breaking down the data into three locations, breaking down China into Hubei, other China, and the rest of the world.</p>
-<p>And I generated summaries for three measures - Confirmed, Deaths, and Recovered cases</p>
+<p>I want to make sure that the rest of my code still works, so I’ll look
+more closely at the valid data. I’ll generate a new variable
+(‘firstbaddate,’ which sounds like a corny romcom), and filter by it.</p>
+<p>When the code was written a year ago, the COVID outbreak was largely
+contained to the Hubei province (which includes the city of Wuhan). So I
+tried breaking down the data into three locations, breaking down China
+into Hubei, other China, and the rest of the world.</p>
+<p>And I generated summaries for three measures - Confirmed, Deaths, and
+Recovered cases</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="examining-local-covid-data-in-r.html#cb13-1" aria-hidden="true" tabindex="-1"></a>firstbaddate <span class="ot">&lt;-</span> <span class="st">&#39;2020-03-22&#39;</span> <span class="co"># This line is added in 2021</span></span>
 <span id="cb13-2"><a href="examining-local-covid-data-in-r.html#cb13-2" aria-hidden="true" tabindex="-1"></a>coronaDataSimple <span class="ot">&lt;-</span> coronaData <span class="sc">%&gt;%</span> </span>
 <span id="cb13-3"><a href="examining-local-covid-data-in-r.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(reportDate <span class="sc">&lt;</span> firstbaddate) <span class="sc">%&gt;%</span>  <span class="co"># added in 2021</span></span>
@@ -623,7 +670,9 @@ div.csl-indent {
 </div>
 <div id="an-initial-plot-feb-2020" class="section level3" number="8.1.7">
 <h3><span class="header-section-number">8.1.7</span> an initial plot (Feb 2020)</h3>
-<p>The first plot is simple, including data for only deaths. A caption is added to show the source of the data. Here’s what the data looked like last February 11:</p>
+<p>The first plot is simple, including data for only deaths. A caption is
+added to show the source of the data. Here’s what the data looked like
+last February 11:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="examining-local-covid-data-in-r.html#cb15-1" aria-hidden="true" tabindex="-1"></a>myCaption <span class="ot">&lt;-</span> <span class="st">&quot; Data courtesy JHU/CSSE http://bit.ly/ncvdata&quot;</span></span>
 <span id="cb15-2"><a href="examining-local-covid-data-in-r.html#cb15-2" aria-hidden="true" tabindex="-1"></a>oldData <span class="ot">&lt;-</span> coronaDataSimple <span class="sc">%&gt;%</span> </span>
 <span id="cb15-3"><a href="examining-local-covid-data-in-r.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(reportDate <span class="sc">&lt;</span> <span class="st">&#39;2020-02-12&#39;</span>)</span>
@@ -637,18 +686,24 @@ div.csl-indent {
 </div>
 <div id="five-weeks-later-mar-2020" class="section level3" number="8.1.8">
 <h3><span class="header-section-number">8.1.8</span> five weeks later (Mar 2020)</h3>
-<p>About five weeks later our data would stop updating. But the world had already changed: Here’s the same graph, through March 21, 2020:</p>
+<p>About five weeks later our data would stop updating. But the world had
+already changed: Here’s the same graph, through March 21, 2020:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="examining-local-covid-data-in-r.html#cb16-1" aria-hidden="true" tabindex="-1"></a>coronaPlot0 <span class="ot">&lt;-</span> coronaDataSimple <span class="sc">%&gt;%</span> </span>
 <span id="cb16-2"><a href="examining-local-covid-data-in-r.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>reportDate)) <span class="sc">+</span></span>
 <span id="cb16-3"><a href="examining-local-covid-data-in-r.html#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>Deaths, <span class="at">color =</span> location)) <span class="sc">+</span></span>
 <span id="cb16-4"><a href="examining-local-covid-data-in-r.html#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">caption =</span> myCaption)</span>
 <span id="cb16-5"><a href="examining-local-covid-data-in-r.html#cb16-5" aria-hidden="true" tabindex="-1"></a>coronaPlot0</span></code></pre></div>
 <p><img src="DataSciLibArts_files/figure-html/simpleplot2-1.png" width="672" /></p>
-<p>It’s apparent that the coding for Wuhan versus the rest of China is off for some of the newer data, as one of these increases while the other reaches a plateau. Still, the overall picture is clear.</p>
+<p>It’s apparent that the coding for Wuhan versus the rest of China is off
+for some of the newer data, as one of these increases while the other
+reaches a plateau. Still, the overall picture is clear.</p>
 </div>
 <div id="adding-recovered-cases-code-from-feb-data-through-mar-2020" class="section level3" number="8.1.9">
 <h3><span class="header-section-number">8.1.9</span> adding recovered cases (code from Feb, data through Mar 2020)</h3>
-<p>Similar results are obtained if we examine two other populations of interest, recovered and confirmed cases. Here, recovered cases and deaths are included on a single plot, as these are roughly on the same scale. Additional changes to the graph are self-evident.</p>
+<p>Similar results are obtained if we examine two other populations of
+interest, recovered and confirmed cases. Here, recovered cases and
+deaths are included on a single plot, as these are roughly on the same
+scale. Additional changes to the graph are self-evident.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="examining-local-covid-data-in-r.html#cb17-1" aria-hidden="true" tabindex="-1"></a>mySubtitle <span class="ot">&lt;-</span> <span class="fu">paste0</span>(</span>
 <span id="cb17-2"><a href="examining-local-covid-data-in-r.html#cb17-2" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;Recovered cases (solid line) and deaths (dotted) by region through &quot;</span>,</span>
 <span id="cb17-3"><a href="examining-local-covid-data-in-r.html#cb17-3" aria-hidden="true" tabindex="-1"></a>         firstbaddate)</span>
@@ -704,29 +759,78 @@ div.csl-indent {
 </div>
 <div id="status-feb-2021" class="section level2" number="8.3">
 <h2><span class="header-section-number">8.3</span> status (Feb 2021)</h2>
-<p>The code above works ok, but the March 2020 data need further cleaning, and no new data have been added in 11 months. In that time, as the pandemic has spread, numerous other resources for tracking COVID have been developed, most of which are far more sophisticated and less cumbersome than the code above.</p>
-<p>There are new datasets, new R packages, and, perhaps most importantly, new questions that we might consider about variables such as vaccination rates, test-positivity rates, and hospital capacity.</p>
+<p>The code above works ok, but the March 2020 data need further cleaning,
+and no new data have been added in 11 months. In that time, as the
+pandemic has spread, numerous other resources for tracking COVID have
+been developed, most of which are far more sophisticated and less
+cumbersome than the code above.</p>
+<p>There are new datasets, new R packages, and, perhaps most importantly,
+new questions that we might consider about variables such as vaccination
+rates, test-positivity rates, and hospital capacity.</p>
 <div id="an-assignment" class="section level3" number="8.3.1">
-<h3><span class="header-section-number">8.3.1</span> an assignment</h3>
-<p><strong>for Wednesday, please study and be prepared to report on at least one of the following packages for studying COVID data using R:</strong></p>
-<blockquote>
-<p>If the last digit of your Z number is 1 or 2, begin with <a href="https://github.com/covid19datahub/COVID19">covid19datahub/COVID19: Unified dataset for a better understanding of COVID-19 (github.com)</a></p>
-<p>If the last digit of your Z number is 3 or 4, begin with <a href="https://github.com/aedobbyn/covid19us">aedobbyn/covid19us: R package for the COVID Tracking Project API providing US COVID-19 data (github.com)</a></p>
-<p>If the last digit of your Z number is 5 or 6, begin with <a href="https://github.com/RamiKrispin/coronavirus">RamiKrispin/coronavirus: The coronavirus dataset (github.com)</a></p>
-<p>If the last digit of your Z number is 7 or 8, begin with <a href="https://github.com/Covid19R/covid19nytimes">Covid19R/covid19nytimes: Pulls the covid-19 data from the New York Times Public Data Source (github.com)</a></p>
-<p>If the last digit of your Z number is 9 or 0, begin with <a href="https://github.com/joachim-gassen/tidycovid19">joachim-gassen/tidycovid19: {tidycovid19}: An R Package to Download, Tidy and Visualize Covid-19 Related Data (github.com)</a></p>
-</blockquote>
-<p>Review the GitHub page, especially the README.md section to get a sense of what is available in the data. How current is it (when was the code last modified?). How popular is it (look at the number of ‘watches’ ‘stars’ and ‘forks’ in the upper right hand corner of the webpage)? How buggy is it (look at the ‘issues’ tab, then look at ‘Open’ and ‘Closed’ issues? Is it worth looking further at this library)?</p>
-<p>If you get this far, consider looking at a second package, Googling ‘R COVID data,’ and/or installing and playing with a package on your home machine. We’ll discuss your findings and work together on this in class on Wednesday.</p>
+<h3><span class="header-section-number">8.3.1</span> An assignment</h3>
+<p>Please study and be prepared to briefly discuss one of the following
+packages or datasets:</p>
+<div id="packages-for-studying-and-visualizing-covid-data" class="section level4" number="8.3.1.1">
+<h4><span class="header-section-number">8.3.1.1</span> Packages for studying and visualizing COVID data</h4>
+<p><a href="https://github.com/covid19datahub/COVID19">covid19datahub/COVID19: Unified dataset for a better understanding of
+COVID-19 (github.com)</a></p>
+<p><a href="https://github.com/aedobbyn/covid19us">aedobbyn/covid19us: R package for the COVID Tracking Project API
+providing US COVID-19 data
+(github.com)</a></p>
+<p><a href="https://github.com/RamiKrispin/coronavirus">RamiKrispin/coronavirus: The coronavirus dataset
+(github.com)</a></p>
+<p><a href="https://github.com/Covid19R/covid19nytimes">Covid19R/covid19nytimes: Pulls the covid-19 data from the New York
+Times Public Data Source
+(github.com)</a></p>
+<p><a href="https://github.com/joachim-gassen/tidycovid19">joachim-gassen/tidycovid19: {tidycovid19}: An R Package to Download,
+Tidy and Visualize Covid-19 Related Data
+(github.com)</a></p>
+</div>
+<div id="fall-2021-covid-long-haulers-arent-the-only-ones-suffering-from-covid-fatigue" class="section level4" number="8.3.1.2">
+<h4><span class="header-section-number">8.3.1.2</span> (Fall 2021) COVID long-haulers aren’t the only one’s suffering from COVID fatigue</h4>
+<p>For those who want to focus on something else, please look at either</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>one or more datasets in the mdsr package.</p></li>
+<li><p>and/or one of the (1500) datasets described on still another github
+page, i.e., <a href="https://github.com/vincentarelbundock/Rdatasets">vincentarelbundock/Rdatasets: A collection of datasets
+originally distributed in R packages
+(github.com)</a></p></li>
+</ol>
+<p>For the GitHub pages, review the README.md section to get a sense of
+what is available in the data. How current is it (when was the code last
+modified?). How popular is it (look at the number of ‘watches’ ‘stars’
+and ‘forks’ in the upper right hand corner of the webpage)? How buggy is
+it (look at the ‘issues’ tab, then look at ‘Open’ and ‘Closed’ issues?
+Is it worth looking further at this library)?</p>
+<p>For the other datasets - what could you study in these data? Why would
+it be cool to look at this data more closely? You’ll be doing a more
+thorough data pitch in a few weeks - this is just a warm-up. But be
+prepared to share your thoughts in class on Wednesday.</p>
+</div>
 </div>
 </div>
 <div id="how-to-create-new-knowledge" class="section level2" number="8.4">
 <h2><span class="header-section-number">8.4</span> how to create new knowledge</h2>
-<p>One thing to keep in mind as we move forward is that, despite the fact that hundreds if not thousands of statisticians, data scientists, epidemiologists, policy makers, and journalists have looked at COVID data, there are still unanswered questions.</p>
+<p>One thing to keep in mind as we move forward is that, despite the fact
+that hundreds if not thousands of statisticians, data scientists,
+epidemiologists, policy makers, and journalists have looked at COVID
+data, there are still unanswered questions.</p>
 <blockquote>
-<p>For example, here in Florida, there was recently some controversy as the Governor chose to disperse COVID vaccinations at Publix pharmacies; the controversy arose, in large part, because poorer communities (including those in the Western part of Palm Beach County) appear less likely to have a Publix supermarket. Is it the case that there is a relationship between COVID disease rates and the number of Publix/per capita by city or zip code (Florida data by Zip code is available at <a href="https://covid19-usflibrary.hub.arcgis.com/datasets/">https://covid19-usflibrary.hub.arcgis.com/datasets/)?</a>?) If so, what would this tell us?</p>
+<p>For example, here in Florida, there was recently some controversy as
+the Governor chose to disperse COVID vaccinations at Publix
+pharmacies; the controversy arose, in large part, because poorer
+communities (including those in the Western part of Palm Beach County)
+appear less likely to have a Publix supermarket. Is it the case that
+there is a relationship between COVID disease rates and the number of
+Publix/per capita by city or zip code (Florida data by Zip code is
+available at
+<a href="https://covid19-usflibrary.hub.arcgis.com/datasets/">https://covid19-usflibrary.hub.arcgis.com/datasets/)?</a>?)
+If so, what would this tell us?</p>
 </blockquote>
-<p>In data science, we can often create new knowledge by putting together two data sources which haven’t been combined before, together with an interesting and potentially important question.</p>
+<p>In data science, we can often create new knowledge by putting together
+two data sources which haven’t been combined before, together with an
+interesting and potentially important question.</p>
 
 </div>
 </div>
@@ -740,7 +844,6 @@ div.csl-indent {
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -781,7 +884,7 @@ gitbook.start({
 },
 "download": null,
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

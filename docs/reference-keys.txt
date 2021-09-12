@@ -62,6 +62,8 @@ adding-recovered-cases-code-from-feb-data-through-mar-2020
 plotting-confirmed-cases-feb-mar-2020
 status-feb-2021
 an-assignment
+packages-for-studying-and-visualizing-covid-data
+fall-2021-covid-long-haulers-arent-the-only-ones-suffering-from-covid-fatigue
 how-to-create-new-knowledge
 on-probability-and-statistics
 on-probability

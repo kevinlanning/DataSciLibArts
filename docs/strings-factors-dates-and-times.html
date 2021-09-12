@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>15 strings, factors, dates, and times | Data science for the liberal arts</title>
   <meta name="description" content="Test" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="15 strings, factors, dates, and times | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2021-08-29" />
+<meta name="date" content="2021-09-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -35,6 +35,7 @@
 <link rel="next" href="lists.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,10 +51,9 @@
 
 
 
-
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 
@@ -251,7 +251,7 @@ div.csl-indent {
 <li class="chapter" data-level="8.2" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#plotting-confirmed-cases-feb-mar-2020"><i class="fa fa-check"></i><b>8.2</b> plotting confirmed cases (Feb-Mar 2020)</a></li>
 <li class="chapter" data-level="8.3" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#status-feb-2021"><i class="fa fa-check"></i><b>8.3</b> status (Feb 2021)</a>
 <ul>
-<li class="chapter" data-level="8.3.1" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#an-assignment"><i class="fa fa-check"></i><b>8.3.1</b> an assignment</a></li>
+<li class="chapter" data-level="8.3.1" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#an-assignment"><i class="fa fa-check"></i><b>8.3.1</b> An assignment</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#how-to-create-new-knowledge"><i class="fa fa-check"></i><b>8.4</b> how to create new knowledge</a></li>
 </ul></li>
@@ -454,8 +454,8 @@ div.csl-indent {
 <span id="cb42-2"><a href="strings-factors-dates-and-times.html#cb42-2" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Revenge o&#39; </span><span class="sc">\&#39;</span><span class="st">McSlashy&#39;&quot;</span>, </span>
 <span id="cb42-3"><a href="strings-factors-dates-and-times.html#cb42-3" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Star Wars: Episode </span><span class="sc">\\</span><span class="st">slash&quot;</span>)</span>
 <span id="cb42-4"><a href="strings-factors-dates-and-times.html#cb42-4" aria-hidden="true" tabindex="-1"></a>dumbSlashMovieTitles <span class="sc">%&gt;%</span> <span class="fu">str_view</span> (<span class="st">&quot;sh&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-b1ca145fad145227b9d5" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b1ca145fad145227b9d5">{"x":{"html":"<ul>\n  <li>Crasla<span class='match'>sh<\/span><\/li>\n  <li>Revenge o' 'McSla<span class='match'>sh<\/span>y'<\/li>\n  <li>Star Wars: Episode \\sla<span class='match'>sh<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-fe1127f9b0a1d610567f" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fe1127f9b0a1d610567f">{"x":{"html":"<ul>\n  <li>Crasla<span class='match'>sh<\/span><\/li>\n  <li>Revenge o' 'McSla<span class='match'>sh<\/span>y'<\/li>\n  <li>Star Wars: Episode \\sla<span class='match'>sh<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Note the effects of the backslash: For example, the Star Wars movie has two slashes in the input, but only one in the output, as the backslash is the escape character that tells R to take the next character literally (as in the ‘Revenge’ movie).</p>
 <blockquote>
 <p>So. How would you use str_view to find strings which include the backslash character in our dumbSlashMovieTitles? [Experiment. Google. Ask your classmates.]</p>
@@ -586,7 +586,6 @@ div.csl-indent {
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -627,7 +626,7 @@ gitbook.start({
 },
 "download": null,
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {
