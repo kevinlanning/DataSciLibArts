@@ -4,5 +4,7 @@ output_dir: docs
 delete_merged_file: true
 bibliography: references.bib
 biblio-style: apalike
+# documentclass: book
 link-citations: true
-# urlcolor: blue
+
+

@@ -10,15 +10,15 @@
 
   <meta property="og:title" content="2 getting started | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
+  <meta property="og:image" content="/chihuahuamuffin.png" />
   
-  
-  
+  <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="2 getting started | Data science for the liberal arts" />
   
   
-  
+  <meta name="twitter:image" content="/chihuahuamuffin.png" />
 
 <meta name="author" content="Kevin Lanning" />
 
@@ -58,6 +58,29 @@
 <style type="text/css">
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 </head>
@@ -156,12 +179,12 @@
 <p>pour coffee into cup</p>
 <p>enjoy</p>
 </blockquote>
-<p>As a post-millennial student from a WEIRD culture, or Western, Educated, Industrialized, Rich Democracy <span class="citation">[@henrich2010]</span>, you’ve ‘programmed’ computers, too, if only to enter a password, open an app, and upload a photo on your cell phone.</p>
+<p>As a post-millennial student from a WEIRD culture, or Western, Educated, Industrialized, Rich Democracy <span class="citation">(<a href="#ref-henrich2010">Henrich, Heine, and Norenzayan 2010</a>)</span>, you’ve ‘programmed’ computers, too, if only to enter a password, open an app, and upload a photo on your cell phone.</p>
 <p><strong>Statistics</strong> is of fundamental importance, not just for understanding abstract trends, but for making decisions about everyday life. Consider the case of a senior undergraduate who wants to go to med school. How many schools should she apply to?</p>
 <blockquote>
 <p><strong>Exercise 2_1</strong> <em>Susie is applying to two med schools. At School A, 25% of students are accepted, and at School B, 25% are accepted as well. You are Susie. Are you going to get in to at least one of these programs? What is the probability? Does your estimate depend upon any assumptions?</em></p>
 </blockquote>
-<p>Questions such as these are important for us. If the combined probability is low, it will <em>likely</em> (another probability concept) make sense for Susie to spend the time, money, energy, and ego-involvement to apply to additional programs. If the probability is higher, it may not. But problems like this are hard - our estimates of probability are frequently poorly calibrated, and combining probability estimates is challenging (see, e.g., <span class="citation">[@tversky1974]</span>, and consider taking a course in <em>Behavioral Economics</em> or <em>Thinking and Decision Making</em> to learn more).</p>
+<p>Questions such as these are important for us. If the combined probability is low, it will <em>likely</em> (another probability concept) make sense for Susie to spend the time, money, energy, and ego-involvement to apply to additional programs. If the probability is higher, it may not. But problems like this are hard - our estimates of probability are frequently poorly calibrated, and combining probability estimates is challenging (see, e.g., <span class="citation">(<a href="#ref-tversky1974">Tversky and Kahneman 1974</a>)</span>, and consider taking a course in <em>Behavioral Economics</em> or <em>Thinking and Decision Making</em> to learn more).</p>
 </div>
 <div id="spreadsheets---some-best-practices" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> spreadsheets - some best practices<a href="getting-started.html#spreadsheets---some-best-practices" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -173,7 +196,7 @@
 <p>Now <strong>copy cell B7 to C7</strong></p>
 <p>What happens? Is this the result you expected?</p>
 </blockquote>
-<p>Spreadsheets are great tools - the first one, VisiCalc, was the first “killer app” to usher in the personal computer revolution. But spreadsheets have limitations as well. <strong>Best practices</strong> have been proposed for using spreadsheets in data science such as, for example, including only data (and not calculations) in spreadsheets, using what we will recognize as a ‘tidy’ format in which data are in a simple rectangle (that is, avoid combining cells and using multi-line headers), and saving spreadsheets as simple text files, typically in comma-delimited or CSV format <span class="citation">[@broman2018]</span>. Typically, this means that each worksheet will be in a separate file, rather than in workbooks with multiple tabs.</p>
+<p>Spreadsheets are great tools - the first one, VisiCalc, was the first “killer app” to usher in the personal computer revolution. But spreadsheets have limitations as well. <strong>Best practices</strong> have been proposed for using spreadsheets in data science such as, for example, including only data (and not calculations) in spreadsheets, using what we will recognize as a ‘tidy’ format in which data are in a simple rectangle (that is, avoid combining cells and using multi-line headers), and saving spreadsheets as simple text files, typically in comma-delimited or CSV format <span class="citation">(<a href="#ref-broman2018">Broman and Woo 2018</a>)</span>. Typically, this means that each worksheet will be in a separate file, rather than in workbooks with multiple tabs.</p>
 <p>There are good reasons for these recommendations: When we manipulate data in spreadsheets, we typically will not have a record of what was (and wasn’t) changed, and this compromises the reproducibility of our work. Similarly, when we sort data in spreadsheets, we risk chaos, for example, if we sort only certain columns, the integrity of spreadsheet-rows will be lost.</p>
 <p><strong>In general, spreadsheets should generally be used to store data rather than to analyze it.</strong> But don’t be a slave to this - if you are making some quick calculations that are inconsequential and/or to be used on just one occasion, working in Excel or Google Sheets is often the way to go.</p>
 </div>
@@ -197,6 +220,18 @@
 <h2><span class="header-section-number">2.5</span> installing R and RStudio desktop<a href="getting-started.html#installing-r-and-rstudio-desktop" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Finally, if you have not already done so, install the latest version of R on your own Windows or Mac laptop. Then install RStudio Desktop. (RStudio is our interface, the environment we will use to write, test, and run R code).</p>
 
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-broman2018" class="csl-entry">
+Broman, Karl W., and Kara H. Woo. 2018. <span>“Data <span>Organization</span> in <span>Spreadsheets</span>.”</span> <em>The American Statistician</em> 72 (1): 2–10. <a href="https://doi.org/10.1080/00031305.2017.1375989">https://doi.org/10.1080/00031305.2017.1375989</a>.
+</div>
+<div id="ref-henrich2010" class="csl-entry">
+Henrich, Joseph, Steven J. Heine, and Ara Norenzayan. 2010. <span>“The Weirdest People in the World?”</span> <em>Behavioral and Brain Sciences</em> 33 (2-3): 61–83. <a href="https://doi.org/c9j35b">https://doi.org/c9j35b</a>.
+</div>
+<div id="ref-tversky1974" class="csl-entry">
+Tversky, Amos, and Daniel Kahneman. 1974. <span>“Judgment Under <span>Uncertainty</span>: <span>Heuristics</span> and <span>Biases</span>.”</span> <em>Science</em> 185 (4157): 1124–31. <a href="https://doi.org/gwh">https://doi.org/gwh</a>.
 </div>
 </div>
             </section>
@@ -231,7 +266,7 @@ gitbook.start({
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "white",
+"theme": "sepia",
 "family": "sans",
 "size": 2
 },

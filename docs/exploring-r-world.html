@@ -10,15 +10,15 @@
 
   <meta property="og:title" content="4 exploring R world | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
+  <meta property="og:image" content="/chihuahuamuffin.png" />
   
-  
-  
+  <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="4 exploring R world | Data science for the liberal arts" />
   
   
-  
+  <meta name="twitter:image" content="/chihuahuamuffin.png" />
 
 <meta name="author" content="Kevin Lanning" />
 
@@ -58,6 +58,29 @@
 <style type="text/css">
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 </head>
@@ -183,7 +206,7 @@ date: &quot;1/12/2025&quot;
 output: html_document
 ---</code></pre>
 <p>Go ahead and click on the clever “knit” icon in the bar just above the source window to create a sample document. You’ll need to save the file with a new name, then R will finally create an HTML (Hyper Text Markdown Language ) page. Compare the R Markdown document (your code) with the result (the HTML).</p>
-<p>The second chapter of <a href="https://socviz.co/">Healy’s online book about Data visualizations</a> provides a more thorough explanation of R Markdown as well as an introduction to R and R studio which largely parallels the discussions here and in the <a href="https://r4ds.had.co.nz/index.html">Wickham and Grolemund text</a> <span class="citation">[@healy2017; @wickham2023]</span>.</p>
+<p>The second chapter of <a href="https://socviz.co/">Healy’s online book about Data visualizations</a> provides a more thorough explanation of R Markdown as well as an introduction to R and R studio which largely parallels the discussions here and in the <a href="https://r4ds.had.co.nz/index.html">Wickham and Grolemund text</a> <span class="citation">(<a href="#ref-healy2017">Healy 2017</a>; <a href="#ref-wickham2023">Wickham, Çetinkaya-Rundel, and Grolemund 2023</a>)</span>.</p>
 </div>
 <div id="older-approaches" class="section level2 hasAnchor" number="4.6">
 <h2><span class="header-section-number">4.6</span> older approaches<a href="exploring-r-world.html#older-approaches" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -218,11 +241,23 @@ output: html_document
 </div>
 <div id="readingwatching-roger-pengs-text-andor-videos" class="section level3 hasAnchor" number="4.6.2">
 <h3><span class="header-section-number">4.6.2</span> reading/watching Roger Peng’s text and/or videos<a href="exploring-r-world.html#readingwatching-roger-pengs-text-andor-videos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Finally, you might consider the text and videos from the Coursera R class. Most of the material from that class can be found in Roger Peng’s <span class="citation">[-@peng2014]</span> text, a slightly updated version of which can be found <a href="https://bookdown.org/rdpeng/rprogdatascience/">here</a>. The videos in the series may be found in this <a href="https://www.youtube.com/watch?v=wy0h1f5awRI&amp;list=PL_bgmYHGITt-8Noh1fZpxTHJ-GrBb626R">playlist</a>. Here’s an introduction:</p>
+<p>Finally, you might consider the text and videos from the Coursera R class. Most of the material from that class can be found in Roger Peng’s <span class="citation">(<a href="#ref-peng2014">2014</a>)</span> text, a slightly updated version of which can be found <a href="https://bookdown.org/rdpeng/rprogdatascience/">here</a>. The videos in the series may be found in this <a href="https://www.youtube.com/watch?v=wy0h1f5awRI&amp;list=PL_bgmYHGITt-8Noh1fZpxTHJ-GrBb626R">playlist</a>. Here’s an introduction:</p>
 <p><a href="https://youtu.be/wy0h1f5awRI"><img src="https://img.youtube.com/vi/wy0h1f5awRI/0.jpg" alt="Roger Peng" /></a>.</p>
 <p><em>Video 4.1: Roger Peng introducing R</em></p>
 
 </div>
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-healy2017" class="csl-entry">
+Healy, Kieran. 2017. <span>“Data Visualization for Social Science: <span>A</span> Practical Introduction with r and Ggplot2.”</span>
+</div>
+<div id="ref-peng2014" class="csl-entry">
+Peng, Roger D. 2014. <em>R <span>Programming</span> for <span>Data Science</span></em>.
+</div>
+<div id="ref-wickham2023" class="csl-entry">
+Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for Data Science 2e</em>. " O’Reilly Media, Inc.".
 </div>
 </div>
             </section>
@@ -257,7 +292,7 @@ gitbook.start({
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "white",
+"theme": "sepia",
 "family": "sans",
 "size": 2
 },

@@ -10,15 +10,15 @@
 
   <meta property="og:title" content="3 what R stands for … | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
+  <meta property="og:image" content="/chihuahuamuffin.png" />
   
-  
-  
+  <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="3 what R stands for … | Data science for the liberal arts" />
   
   
-  
+  <meta name="twitter:image" content="/chihuahuamuffin.png" />
 
 <meta name="author" content="Kevin Lanning" />
 
@@ -58,6 +58,29 @@
 <style type="text/css">
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 </head>
@@ -143,19 +166,19 @@
             <section class="normal" id="section-">
 <div id="what-r-stands-for" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number">3</span> what R stands for …<a href="what-r-stands-for.html#what-r-stands-for" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>R was initially developed by Ross Ihaka and Robert Gentleman as a tool to help teach university-level statistics at the University of Auckland. At one level, the name ‘R’ simply stands for the first initial of these two founders <span class="citation">[@hornik2022]</span>. But, just as we noted that the ‘C’ in Type C Data Analysis stands for concepts such as concentration, communication, collaboration, the ‘R’ in our programming language means much more:</p>
+<p>R was initially developed by Ross Ihaka and Robert Gentleman as a tool to help teach university-level statistics at the University of Auckland. At one level, the name ‘R’ simply stands for the first initial of these two founders <span class="citation">(<a href="#ref-hornik2022">Hornik and Team 2022</a>)</span>. But, just as we noted that the ‘C’ in Type C Data Analysis stands for concepts such as concentration, communication, collaboration, the ‘R’ in our programming language means much more:</p>
 <p>R is a system for <strong>reproducible</strong> analysis, and reproducibility is essential. When we write R code, we’ll use R markdown documents. An R markdown document can include text (comments or explanations), ‘chunks’ of code, and output including graphs and tables. Having explanations, code, and results in a single document facilitates reproducible work. (Jupyter notebooks in the Python world are similar in this respect).</p>
 <p>R is for <strong>research</strong>. Research is not just an end-product, not just a published paper or book:</p>
 <blockquote>
-<p>… these documents are not the research [rather] these documents are the “advertising”. The research is the “full software environment, code, and data that produced the results” <span class="citation">[@buckheit1995; @donoho2010, 385]</span>.</p>
+<p>… these documents are not the research [rather] these documents are the “advertising”. The research is the “full software environment, code, and data that produced the results” <span class="citation">(<a href="#ref-buckheit1995">Buckheit and Donoho 1995</a>; <a href="#ref-donoho2010">D. L. Donoho 2010, 385</a>)</span>.</p>
 </blockquote>
-<p>Published works (including theses as well as books, scholarly papers, and business reports) are summaries; R markdown documents are the raw materials from which these are derived. When we consider only summaries (or the ‘advertising’), we make it difficult for others to verify, or build upon, the findings by reproducing them <span class="citation">[@gandrud2013]</span>.</p>
+<p>Published works (including theses as well as books, scholarly papers, and business reports) are summaries; R markdown documents are the raw materials from which these are derived. When we consider only summaries (or the ‘advertising’), we make it difficult for others to verify, or build upon, the findings by reproducing them <span class="citation">(<a href="#ref-gandrud2013">Gandrud 2013</a>)</span>.</p>
 <p>R is a system for <strong>representing</strong> data in cool, insight-facilitating ways, a tool for creating (reproducible) data visualizations which can provide insights and communicate results. The power of R to make clear, honest, and reproducible data visualizations is widely seen as a major strength of the language.</p>
 <p>R is <strong>really popular</strong>, and this matters, because learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.</p>
 <p>Because R is popular, there are many <strong>resources</strong>, including, for example -</p>
 <blockquote>
 <p>Online resources include the simple (and less simple) lessons of SwirlR, which offers the possibility of “learning R in R,” as well as DataCamp, the Data Science Certificate Program at Johns Hopkins, and other MOOCs.</p>
-<p>Books include <span class="citation">[@peng2014]</span> - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and <span class="citation">[@wickham2023]</span></p>
+<p>Books include <span class="citation">(<a href="#ref-peng2014">Peng 2014</a>)</span> - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and <span class="citation">(<a href="#ref-wickham2023">Wickham, Çetinkaya-Rundel, and Grolemund 2023</a>)</span></p>
 </blockquote>
 <p>You’ll also learn (more directly) from people, including your classmates, as well as the broader community of people around the world. There are hundreds if not thousands of people, young and old, who are on the road with you. I am as well, just a step or two (hopefully) ahead.</p>
 <p>R might stand for <strong>relatively high level</strong>. Programming languages can be described along a continuum from high to low level, the former (like R) are more accessible to humans, the latter (like assembly language) more accessible to machines. Python, Java, and C++ are all more towards the middle of this continuum.</p>
@@ -166,7 +189,7 @@
 <div id="base-r-and-packages" class="section level3 hasAnchor" number="3.1.1">
 <h3><span class="header-section-number">3.1.1</span> base R and packages<a href="what-r-stands-for.html#base-r-and-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R is a programming language. It can be seen as including two parts, a simple core (Base R) and a large number of additional packages. These packages (libraries) are customized add-ons which simplify certain tasks, such as text analysis. There are, at this writing, 21,861 available packages on the CRAN package repository (as well as additional useful packages that, for one reason or another, do not appear on CRAN. Packages on CRAN are partially indexed by “task view pages.” The <a href="https://cran.r-project.org/web/views/NaturalLanguageProcessing.html">task view page for natural language processing</a> or text analysis includes, at this writing, over 60 separate packages.</p>
-<p>So how do you choose, and where do you begin? For our purposes, we will start with the curated list of packages which jointly comprise the tidyverse <span class="citation">[@wickham2019]</span>, which is effectively a dialect of R.</p>
+<p>So how do you choose, and where do you begin? For our purposes, we will start with the curated list of packages which jointly comprise the tidyverse <span class="citation">(<a href="#ref-wickham2019">Wickham et al. 2019</a>)</span>, which is effectively a dialect of R.</p>
 <p>To download the tidyverse package from the ‘net, open RStudio, find the ’console’ window on the left side of your screen, and enter the command followed by &lt;enter&gt; or &lt;return&gt;</p>
 <blockquote>
 <p>install.packages(“tidyverse”)</p>
@@ -183,7 +206,7 @@
 <h2><span class="header-section-number">3.3</span> some technical characteristics<a href="what-r-stands-for.html#some-technical-characteristics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R is an object-oriented language - one conceptually organized around objects and data rather than actions and logic.</p>
 <p>In R, at the most basic or atomic level, “objects” include characters, real numbers, integers, complex numbers, and logicals.</p>
-<p>These atomic objects may be combined into vectors, which generally include objects of the same type [one kind of object, ‘lists,’ is an exception to this; <span class="citation">@peng2014</span>]. Vectors can be further combined into data frames, which are two-dimensional tables or arrays. A <em>tibble</em> is a particular type of data frame which is used in the tidyverse. Tibbles are, in some ways, handier to work with than other data frames. We’ll be working extensively with data frames in general, and tibbles in particular, as we move forward.</p>
+<p>These atomic objects may be combined into vectors, which generally include objects of the same type [one kind of object, ‘lists,’ is an exception to this; <span class="citation">Peng (<a href="#ref-peng2014">2014</a>)</span>]. Vectors can be further combined into data frames, which are two-dimensional tables or arrays. A <em>tibble</em> is a particular type of data frame which is used in the tidyverse. Tibbles are, in some ways, handier to work with than other data frames. We’ll be working extensively with data frames in general, and tibbles in particular, as we move forward.</p>
 <p>Objects have attributes. Attributes of R include such things as name, dimensions (for vectors and arrays), class (that’s the type of object described in the previous paragraph), length, etc.</p>
 <p>Real world data sets are messy, and frequently have missing values. In R, missing values may be represented by NA (not available) or NaN (not a number, implying an undefined or impossible value).</p>
 </div>
@@ -199,9 +222,33 @@
 </div>
 <div id="wickham-and-r-for-data-science-2e" class="section level2 hasAnchor" number="3.5">
 <h2><span class="header-section-number">3.5</span> Wickham and R for Data Science 2e<a href="what-r-stands-for.html#wickham-and-r-for-data-science-2e" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The introduction to the Wickham text <span class="citation">[@wickham2023]</span> provides both a framework for his approach and a brief introduction to the tidyverse.</p>
+<p>The introduction to the Wickham text <span class="citation">(<a href="#ref-wickham2023">Wickham, Çetinkaya-Rundel, and Grolemund 2023</a>)</span> provides both a framework for his approach and a brief introduction to the tidyverse.</p>
 <p>Please read it now.</p>
 
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-buckheit1995" class="csl-entry">
+Buckheit, Jonathan B., and David L. Donoho. 1995. <span>“Wavelab and Reproducible Research.”</span> In <em>Wavelets and Statistics</em>, 55–81. Springer.
+</div>
+<div id="ref-donoho2010" class="csl-entry">
+Donoho, David L. 2010. <span>“An Invitation to Reproducible Computational Research.”</span> <em>Biostatistics</em> 11 (3): 385–88. <a href="https://doi.org/bxwkns">https://doi.org/bxwkns</a>.
+</div>
+<div id="ref-gandrud2013" class="csl-entry">
+Gandrud, Christopher. 2013. <em>Reproducible <span>Research</span> with <span>R</span> and <span>R Studio</span></em>. CRC Press.
+</div>
+<div id="ref-hornik2022" class="csl-entry">
+Hornik, Kurt, and The R Core Team. 2022. <span>“R <span>FAQ</span>: <span>The Comprehensive R Archive Network</span>.”</span>
+</div>
+<div id="ref-peng2014" class="csl-entry">
+Peng, Roger D. 2014. <em>R <span>Programming</span> for <span>Data Science</span></em>.
+</div>
+<div id="ref-wickham2019" class="csl-entry">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span>Tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-wickham2023" class="csl-entry">
+Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for Data Science 2e</em>. " O’Reilly Media, Inc.".
 </div>
 </div>
 <div class="footnotes">
@@ -242,7 +289,7 @@ gitbook.start({
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "white",
+"theme": "sepia",
 "family": "sans",
 "size": 2
 },

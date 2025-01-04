@@ -10,15 +10,15 @@
 
   <meta property="og:title" content="1 what is “data science for the liberal arts?” | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
+  <meta property="og:image" content="/chihuahuamuffin.png" />
   
-  
-  
+  <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="1 what is “data science for the liberal arts?” | Data science for the liberal arts" />
   
   
-  
+  <meta name="twitter:image" content="/chihuahuamuffin.png" />
 
 <meta name="author" content="Kevin Lanning" />
 
@@ -58,6 +58,29 @@
 <style type="text/css">
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 </head>
@@ -143,7 +166,7 @@
             <section class="normal" id="section-">
 <div id="what-is-data-science-for-the-liberal-arts" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">1</span> what is “data science for the liberal arts?”<a href="what-is-data-science-for-the-liberal-arts.html#what-is-data-science-for-the-liberal-arts" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Hochster, in <span class="citation">[@hicks2018]</span>, describes two broad types of data scientists: Type A (Analysis) data scientists, whose skills are like those of an applied <strong>statistician</strong>, and Type B (Building) data scientists, whose skills lie in problem solving or coding, using the skills of the <strong>computer scientist</strong>. This view arguably omits a critical component of the field, as data science is driven not just by statistics and computer science, but also by “domain expertise:”</p>
+<p>Hochster, in <span class="citation">(<a href="#ref-hicks2018">Hicks and Irizarry 2018</a>)</span>, describes two broad types of data scientists: Type A (Analysis) data scientists, whose skills are like those of an applied <strong>statistician</strong>, and Type B (Building) data scientists, whose skills lie in problem solving or coding, using the skills of the <strong>computer scientist</strong>. This view arguably omits a critical component of the field, as data science is driven not just by statistics and computer science, but also by “domain expertise:”</p>
 <div class="float">
 <img src="images/dataVenn.png" alt="Fig 1.1 - The iconic data science Venn diagram" />
 <div class="figcaption"><em>Fig 1.1 - The iconic data science Venn diagram</em></div>
@@ -163,7 +186,7 @@
 <h3><span class="header-section-number">1.1.1</span> additional domains<a href="what-is-data-science-for-the-liberal-arts.html#additional-domains" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For the liberal arts data scientist, we can note at least three additional important domains, that is, <strong>communication</strong>, <strong>collaboration</strong>, and <strong>citizenship</strong>.</p>
 <p><strong>Communication,</strong> including writing and the design and display of quantitative data, is central to data science because results are inconsequential unless they are recognized, understood, and built upon. Facets of communication include oral presentations, written texts and good data visualizations.</p>
-<p><strong>Collaboration</strong> is important because problems in data science are sufficiently complex so that any single individual will typically have expertise in some, but not all, facets of the area. Collaboration, even more than statistical and technical sophistication, is arguably the most distinctive feature of contemporary scholarship in the natural and social sciences as well as in the private sector <span class="citation">[@isaacson2014]</span>.</p>
+<p><strong>Collaboration</strong> is important because problems in data science are sufficiently complex so that any single individual will typically have expertise in some, but not all, facets of the area. Collaboration, even more than statistical and technical sophistication, is arguably the most distinctive feature of contemporary scholarship in the natural and social sciences as well as in the private sector <span class="citation">(<a href="#ref-isaacson2014">Isaacson 2014</a>)</span>.</p>
 <p><strong>Citizenship</strong> is important because we are humans living in a social world; it includes serving the public good, overcoming the digital divide, furthering social justice, increasing public health, diminishing human suffering, and making the world a more beautiful place. The Type C data scientist is aware of the fact that the world and workforce are undergoing massive <strong>change</strong>: This puts the classic liberal arts focus of “learning how to learn” (as opposed to memorization) at center stage. Finally, the Type C data scientist is sensitive to the <strong>creepiness</strong> of living increasingly in a measured, observed world. These real-world goals should be informed by <strong>ethical concerns</strong> including a respect for the privacy and autonomy of our fellow humans.</p>
 <p>Reproducibility is related to communication, collaboration, and citizenship. There has been something of a crisis in recent years in the social and natural sciences as many results initially characterized as “statistically significant” have been found not to replicate. The reasons for this are multiple and presently contentious, but one path towards better science includes the public sharing of methods and data, ideally before experiments are undertaken. With the large datasets that are often available in contemporary data science, statistical significance is rarely a concern and other indices, including measures of effect size, are typically of primary interest.</p>
 </div>
@@ -179,8 +202,8 @@
 </div>
 <div id="tmi" class="section level2 hasAnchor" number="1.3">
 <h2><span class="header-section-number">1.3</span> TMI<a href="what-is-data-science-for-the-liberal-arts.html#tmi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A primary difference between traditional statistics and data science is that the former is typically concerned with making inferences from datasets that are too <em>small</em>, while the latter is concerned with making sense of data that is or are too <em>big</em> <span class="citation">[@donoho2017]</span>. Data science is fundamentally concerned with the problem of “too much information,” or TMI.</p>
-<p>In one sense, the idea of TMI is not new. In the 19th Century, Wilhelm Wundt argued that attention was the distinguishing act of the human mind <span class="citation">[@blumenthal1975]</span>. In attending to (or focusing on) something, we must overlook everything else, consequently, <em>selection</em> is the essence of human perception <span class="citation">[@erdelyi1974]</span>. Selection is important not just in psychology, but in the arts as well, for <em>editing,</em> or choosing what not to write or show, is at the core of the creation of works including novels and film <span class="citation">[@ondaatje2002]</span>.</p>
+<p>A primary difference between traditional statistics and data science is that the former is typically concerned with making inferences from datasets that are too <em>small</em>, while the latter is concerned with making sense of data that is or are too <em>big</em> <span class="citation">(<a href="#ref-donoho2017">D. Donoho 2017</a>)</span>. Data science is fundamentally concerned with the problem of “too much information,” or TMI.</p>
+<p>In one sense, the idea of TMI is not new. In the 19th Century, Wilhelm Wundt argued that attention was the distinguishing act of the human mind <span class="citation">(<a href="#ref-blumenthal1975">Blumenthal 1975</a>)</span>. In attending to (or focusing on) something, we must overlook everything else, consequently, <em>selection</em> is the essence of human perception <span class="citation">(<a href="#ref-erdelyi1974">Erdelyi 1974</a>)</span>. Selection is important not just in psychology, but in the arts as well, for <em>editing,</em> or choosing what not to write or show, is at the core of the creation of works including novels and film <span class="citation">(<a href="#ref-ondaatje2002">Ondaatje and Murch 2002</a>)</span>.</p>
 <p>So the problem of TMI is not new. Yet today, this problem exists at a much greater scale, for there is simply more information around us. Indeed, over the last 20 years, the amount of digital information in the world has increased roughly 200-fold.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 <p>Like perception in psychology and editing in the arts, data science is concerned with extracting meaning from information. Because the amount of information around us has mushroomed and its nature has become more important, our need to extract meaning has become more ubiquitous and more urgent. For these reasons, data science is a foundational discipline in 21st century inquiry.</p>
 </div>
@@ -189,10 +212,34 @@
 
 </div>
 </div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-blumenthal1975" class="csl-entry">
+Blumenthal, Arthur L. 1975. <span>“A Reappraisal of <span>Wilhelm Wundt</span>.”</span> <em>American Psychologist</em> 30 (11): 1081.
+</div>
+<div id="ref-donoho2017" class="csl-entry">
+Donoho, David. 2017. <span>“50 <span>Years</span> of <span>Data Science</span>.”</span> <em>Journal of Computational and Graphical Statistics</em> 26 (4): 745–66. <a href="https://doi.org/10.1080/10618600.2017.1384734">https://doi.org/10.1080/10618600.2017.1384734</a>.
+</div>
+<div id="ref-erdelyi1974" class="csl-entry">
+Erdelyi, Matthew H. 1974. <span>“A New Look at the New Look: <span>Perceptual</span> Defense and Vigilance.”</span> <em>Psychological Review</em> 81 (1): 1–25. <a href="https://doi.org/cs5c5q">https://doi.org/cs5c5q</a>.
+</div>
+<div id="ref-hicks2018" class="csl-entry">
+Hicks, Stephanie C., and Rafael A. Irizarry. 2018. <span>“A <span>Guide</span> to <span>Teaching Data Science</span>.”</span> <em>The American Statistician</em> 72 (4): 382–91. <a href="https://doi.org/gfr5tf">https://doi.org/gfr5tf</a>.
+</div>
+<div id="ref-isaacson2014" class="csl-entry">
+Isaacson, Walter. 2014. <em>The <span>Innovators</span>: <span>How</span> a <span>Group</span> of <span>Hackers</span>, <span>Geniuses</span>, and <span>Geeks Created</span> the <span>Digital Revolution</span></em>. <span>Simon and Schuster</span>.
+</div>
+<div id="ref-ondaatje2002" class="csl-entry">
+Ondaatje, Michael, and Walter Murch. 2002. <em>The Conversations: <span>Walter Murch</span> and the Art of Editing Film</em>. A&amp;C Black.
+</div>
+<div id="ref-reinsel2025" class="csl-entry">
+Reinsel, David, John Gantz, and John Rydning. 2025. <span>“The <span>Digitization</span> of the <span>World</span>.”</span>
+</div>
+</div>
 <div class="footnotes">
 <hr />
 <ol start="2">
-<li id="fn2"><p>According to Wikipedia, the Zettabyte (ZB) Era began in 2012, when the amount of digital information in the world first exceeded 1 ZB (or 10<sup>21</sup> bytes). In 2025, it is estimated that the world will house 175 ZBs of digital data <span class="citation">[@reinsel2025]</span>, hence a 175X increase in in 13 years. My estimate of a 200X increase in 20 years is a conservative extrapolation from these numbers. Incidentally, one ZB = 1,000,000,000,000,000,000,000 bytes, which could be stored on roughly 250 billion DVDs, or 500 million 2 TB hard drives.<a href="what-is-data-science-for-the-liberal-arts.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>According to Wikipedia, the Zettabyte (ZB) Era began in 2012, when the amount of digital information in the world first exceeded 1 ZB (or 10<sup>21</sup> bytes). In 2025, it is estimated that the world will house 175 ZBs of digital data <span class="citation">(<a href="#ref-reinsel2025">Reinsel, Gantz, and Rydning 2025</a>)</span>, hence a 175X increase in in 13 years. My estimate of a 200X increase in 20 years is a conservative extrapolation from these numbers. Incidentally, one ZB = 1,000,000,000,000,000,000,000 bytes, which could be stored on roughly 250 billion DVDs, or 500 million 2 TB hard drives.<a href="what-is-data-science-for-the-liberal-arts.html#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -227,7 +274,7 @@ gitbook.start({
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "white",
+"theme": "sepia",
 "family": "sans",
 "size": 2
 },
