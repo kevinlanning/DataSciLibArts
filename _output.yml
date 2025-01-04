@@ -1,0 +1,9 @@
+# this code does nothing
+# bookdown::gitbook:
+#    fontsettings:
+#        theme: sepia
+#        config:
+#            fontsettings:
+# output_dir: docs
+# cover-image: "/images/InkedrCr9A_LI.jpg"
+# urlcolor: blue

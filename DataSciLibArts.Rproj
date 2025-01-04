@@ -1,4 +1,5 @@
 Version: 1.0
+ProjectId: 6860d558-dfea-4513-a034-a00c99e82dc7
 
 RestoreWorkspace: Default
 SaveWorkspace: Default
@@ -13,7 +14,3 @@ RnwWeave: Sweave
 LaTeX: pdfLaTeX
 
 BuildType: Website
-
-PythonType: system
-PythonVersion: 3.8.4
-PythonPath: C:/Python38//python.exe

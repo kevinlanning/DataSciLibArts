@@ -5,35 +5,33 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 now draw the rest of the owl | Data science for the liberal arts</title>
-  <meta name="description" content="Test" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="description" content="5 now draw the rest of the owl | Data science for the liberal arts" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 now draw the rest of the owl | Data science for the liberal arts" />
   <meta property="og:type" content="book" />
-  
   <meta property="og:image" content="/chihuahuamuffin.png" />
-  <meta property="og:description" content="Test" />
+  
   <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="5 now draw the rest of the owl | Data science for the liberal arts" />
   
-  <meta name="twitter:description" content="Test" />
+  
   <meta name="twitter:image" content="/chihuahuamuffin.png" />
 
 <meta name="author" content="Kevin Lanning" />
 
 
-<meta name="date" content="2021-09-12" />
+<meta name="date" content="2025-01-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="r-stands-for.html"/>
-<link rel="next" href="principles-of-data-visualization.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<link rel="prev" href="exploring-r-world.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,83 +49,22 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
-<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
-
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -158,256 +95,64 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="index.html#section"></a></li>
+<li><a href="index.html#section" id="toc-section"></a></li>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>preface</a>
 <ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#the-role-of-the-liberal-arts-in-data-science"><i class="fa fa-check"></i>the role of the liberal arts in data science</a></li>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#some-features-of-the-text"><i class="fa fa-check"></i>some features of the text</a></li>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#the-book-is-for-you"><i class="fa fa-check"></i>the book is for you</a></li>
 </ul></li>
-<li class="part"><span><b>I Introduction</b></span></li>
-<li class="chapter" data-level="1" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html"><i class="fa fa-check"></i><b>1</b> data science for the liberal arts</a>
+<li class="part"><span><b>Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="what-is-data-science-for-the-liberal-arts.html"><a href="what-is-data-science-for-the-liberal-arts.html"><i class="fa fa-check"></i><b>1</b> what is “data science for the liberal arts?”</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#type-c-data-science-data-science-for-the-liberal-arts"><i class="fa fa-check"></i><b>1.1</b> type C data science = data science for the liberal arts</a></li>
-<li class="chapter" data-level="1.2" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#the-incompleteness-of-the-data-science-venn-diagram"><i class="fa fa-check"></i><b>1.2</b> the incompleteness of the data science Venn diagram</a></li>
-<li class="chapter" data-level="1.3" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#a-dimension-of-depth"><i class="fa fa-check"></i><b>1.3</b> a dimension of depth</a></li>
-<li class="chapter" data-level="1.4" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#google-and-the-liberal-arts"><i class="fa fa-check"></i><b>1.4</b> Google and the liberal arts</a></li>
-<li class="chapter" data-level="1.5" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#data-sci-and-tmi"><i class="fa fa-check"></i><b>1.5</b> data sci and TMI</a></li>
-<li class="chapter" data-level="1.6" data-path="data-science-for-the-liberal-arts.html"><a href="data-science-for-the-liberal-arts.html#discussion-what-will-you-do-with-data-science"><i class="fa fa-check"></i><b>1.6</b> discussion: what will you do with data science?</a></li>
+<li class="chapter" data-level="1.1" data-path="what-is-data-science-for-the-liberal-arts.html"><a href="what-is-data-science-for-the-liberal-arts.html#the-incompleteness-of-the-data-science-venn-diagram"><i class="fa fa-check"></i><b>1.1</b> the incompleteness of the data science Venn diagram</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="what-is-data-science-for-the-liberal-arts.html"><a href="what-is-data-science-for-the-liberal-arts.html#additional-domains"><i class="fa fa-check"></i><b>1.1.1</b> additional domains</a></li>
+<li class="chapter" data-level="1.1.2" data-path="what-is-data-science-for-the-liberal-arts.html"><a href="what-is-data-science-for-the-liberal-arts.html#an-additional-dimension"><i class="fa fa-check"></i><b>1.1.2</b> an additional dimension</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="what-is-data-science-for-the-liberal-arts.html"><a href="what-is-data-science-for-the-liberal-arts.html#google-and-the-liberal-arts"><i class="fa fa-check"></i><b>1.2</b> Google and the liberal arts</a></li>
+<li class="chapter" data-level="1.3" data-path="what-is-data-science-for-the-liberal-arts.html"><a href="what-is-data-science-for-the-liberal-arts.html#tmi"><i class="fa fa-check"></i><b>1.3</b> TMI</a></li>
+<li class="chapter" data-level="1.4" data-path="what-is-data-science-for-the-liberal-arts.html"><a href="what-is-data-science-for-the-liberal-arts.html#discussion-what-are-your-objectives-in-data-science"><i class="fa fa-check"></i><b>1.4</b> discussion: what are your objectives in data science?</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>2</b> getting started</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="getting-started.html"><a href="getting-started.html#are-you-already-a-programmer-and-statistician"><i class="fa fa-check"></i><b>2.1</b> are you already a programmer and statistician?</a></li>
-<li class="chapter" data-level="2.2" data-path="getting-started.html"><a href="getting-started.html#some-best-practices-for-spreadsheets"><i class="fa fa-check"></i><b>2.2</b> some best practices for spreadsheets</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started.html"><a href="getting-started.html#spreadsheets---some-best-practices"><i class="fa fa-check"></i><b>2.2</b> spreadsheets - some best practices</a></li>
 <li class="chapter" data-level="2.3" data-path="getting-started.html"><a href="getting-started.html#setting-up-your-machine-some-basic-tools"><i class="fa fa-check"></i><b>2.3</b> setting up your machine: some basic tools</a></li>
-<li class="chapter" data-level="2.4" data-path="getting-started.html"><a href="getting-started.html#a-modified-15-minute-rule"><i class="fa fa-check"></i><b>2.4</b> a modified 15-minute rule</a></li>
-<li class="chapter" data-level="2.5" data-path="getting-started.html"><a href="getting-started.html#discussion-who-deserves-a-good-grade"><i class="fa fa-check"></i><b>2.5</b> discussion: who deserves a good grade?</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started.html"><a href="getting-started.html#a-modified-15-minute-rule"><i class="fa fa-check"></i><b>2.4</b> a (modified) 15-minute rule</a></li>
+<li class="chapter" data-level="2.5" data-path="getting-started.html"><a href="getting-started.html#installing-r-and-rstudio-desktop"><i class="fa fa-check"></i><b>2.5</b> installing R and RStudio desktop</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="welcome-to-r-world.html"><a href="welcome-to-r-world.html"><i class="fa fa-check"></i><b>3</b> welcome to R world</a>
+<li class="chapter" data-level="3" data-path="what-r-stands-for.html"><a href="what-r-stands-for.html"><i class="fa fa-check"></i><b>3</b> what R stands for …</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="welcome-to-r-world.html"><a href="welcome-to-r-world.html#using-rstudio-cloud"><i class="fa fa-check"></i><b>3.1</b> Using RStudio cloud</a></li>
-<li class="chapter" data-level="3.2" data-path="welcome-to-r-world.html"><a href="welcome-to-r-world.html#using-r-studio-on-your-laptop"><i class="fa fa-check"></i><b>3.2</b> Using R Studio on your laptop</a></li>
+<li class="chapter" data-level="3.1" data-path="what-r-stands-for.html"><a href="what-r-stands-for.html#some-key-characteristics-of-r"><i class="fa fa-check"></i><b>3.1</b> some key characteristics of R</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="what-r-stands-for.html"><a href="what-r-stands-for.html#base-r-and-packages"><i class="fa fa-check"></i><b>3.1.1</b> base R and packages</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="r-stands-for.html"><a href="r-stands-for.html"><i class="fa fa-check"></i><b>4</b> R stands for …</a>
+<li class="chapter" data-level="3.2" data-path="what-r-stands-for.html"><a href="what-r-stands-for.html#cha-cha-cha-changes"><i class="fa fa-check"></i><b>3.2</b> cha-cha-cha-changes</a></li>
+<li class="chapter" data-level="3.3" data-path="what-r-stands-for.html"><a href="what-r-stands-for.html#some-technical-characteristics"><i class="fa fa-check"></i><b>3.3</b> some technical characteristics</a></li>
+<li class="chapter" data-level="3.4" data-path="what-r-stands-for.html"><a href="what-r-stands-for.html#finding-help"><i class="fa fa-check"></i><b>3.4</b> finding help</a></li>
+<li class="chapter" data-level="3.5" data-path="what-r-stands-for.html"><a href="what-r-stands-for.html#wickham-and-r-for-data-science-2e"><i class="fa fa-check"></i><b>3.5</b> Wickham and R for Data Science 2e</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="exploring-r-world.html"><a href="exploring-r-world.html"><i class="fa fa-check"></i><b>4</b> exploring R world</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="r-stands-for.html"><a href="r-stands-for.html#a-few-characteristics-of-r"><i class="fa fa-check"></i><b>4.1</b> a few characteristics of R</a></li>
-<li class="chapter" data-level="4.2" data-path="r-stands-for.html"><a href="r-stands-for.html#finding-help"><i class="fa fa-check"></i><b>4.2</b> finding help</a></li>
-<li class="chapter" data-level="4.3" data-path="r-stands-for.html"><a href="r-stands-for.html#wickham-and-r-for-data-science"><i class="fa fa-check"></i><b>4.3</b> Wickham and R for Data Science</a></li>
+<li class="chapter" data-level="4.1" data-path="exploring-r-world.html"><a href="exploring-r-world.html#go-to-the-movies"><i class="fa fa-check"></i><b>4.1</b> go to the movies</a></li>
+<li class="chapter" data-level="4.2" data-path="exploring-r-world.html"><a href="exploring-r-world.html#go-into-the-clouds"><i class="fa fa-check"></i><b>4.2</b> go into the clouds</a></li>
+<li class="chapter" data-level="4.3" data-path="exploring-r-world.html"><a href="exploring-r-world.html#open-the-box"><i class="fa fa-check"></i><b>4.3</b> open the box</a></li>
+<li class="chapter" data-level="4.4" data-path="exploring-r-world.html"><a href="exploring-r-world.html#go-to-datacamp"><i class="fa fa-check"></i><b>4.4</b> go to (data)camp</a></li>
+<li class="chapter" data-level="4.5" data-path="exploring-r-world.html"><a href="exploring-r-world.html#learn-to-knit"><i class="fa fa-check"></i><b>4.5</b> learn to knit</a></li>
+<li class="chapter" data-level="4.6" data-path="exploring-r-world.html"><a href="exploring-r-world.html#older-approaches"><i class="fa fa-check"></i><b>4.6</b> older approaches</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="exploring-r-world.html"><a href="exploring-r-world.html#using-swirl"><i class="fa fa-check"></i><b>4.6.1</b> <strong>using Swirl</strong></a></li>
+<li class="chapter" data-level="4.6.2" data-path="exploring-r-world.html"><a href="exploring-r-world.html#readingwatching-roger-pengs-text-andor-videos"><i class="fa fa-check"></i><b>4.6.2</b> reading/watching Roger Peng’s text and/or videos</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html"><i class="fa fa-check"></i><b>5</b> now draw the rest of the owl</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#review-the-rstudio-cloud-primers"><i class="fa fa-check"></i><b>5.1</b> Review the RStudio cloud primers</a></li>
-<li class="chapter" data-level="5.2" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#play-with-rstudio-on-your-laptop"><i class="fa fa-check"></i><b>5.2</b> Play with RStudio on your laptop</a>
-<ul>
-<li class="chapter" data-level="5.2.1" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#create-a-new-r-markdown-document-and-knit-it-to-a-pdf-or-a-word-doc"><i class="fa fa-check"></i><b>5.2.1</b> Create a new R Markdown document and knit it to a PDF or a Word doc</a></li>
-<li class="chapter" data-level="5.2.2" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#play-with-and-explore-the-movies-data"><i class="fa fa-check"></i><b>5.2.2</b> Play with and explore the movies data</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#take-a-datacamp-class"><i class="fa fa-check"></i><b>5.3</b> Take a DataCamp class</a></li>
-<li class="chapter" data-level="5.4" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#swirl-swirlstats"><i class="fa fa-check"></i><b>5.4</b> Swirl (Swirlstats)</a></li>
-<li class="chapter" data-level="5.5" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#read-pengs-text-andor-watch-the-associated-videos"><i class="fa fa-check"></i><b>5.5</b> Read Peng’s text and/or watch the associated videos</a></li>
-<li class="chapter" data-level="5.6" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#code-along-with-a-tidy-webinar-or-attend-a-virtual-conference"><i class="fa fa-check"></i><b>5.6</b> Code along with a tidy webinar, or attend a virtual conference</a></li>
-<li class="chapter" data-level="5.7" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#something-else"><i class="fa fa-check"></i><b>5.7</b> Something else</a></li>
-</ul></li>
-<li class="part"><span><b>II Part II Towards data literacy</b></span></li>
-<li class="chapter" data-level="6" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html"><i class="fa fa-check"></i><b>6</b> principles of data visualization</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#some-opening-thoughts"><i class="fa fa-check"></i><b>6.1</b> some opening thoughts</a></li>
-<li class="chapter" data-level="6.2" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#some-early-graphs"><i class="fa fa-check"></i><b>6.2</b> some early graphs</a></li>
-<li class="chapter" data-level="6.3" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#tukey-and-eda"><i class="fa fa-check"></i><b>6.3</b> Tukey and EDA</a></li>
-<li class="chapter" data-level="6.4" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#approaches-to-graphs"><i class="fa fa-check"></i><b>6.4</b> approaches to graphs</a></li>
-<li class="chapter" data-level="6.5" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#tufte-first-principles"><i class="fa fa-check"></i><b>6.5</b> Tufte: first principles</a></li>
-<li class="chapter" data-level="6.6" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#the-politics-of-data-visualization"><i class="fa fa-check"></i><b>6.6</b> the politics of data visualization</a>
-<ul>
-<li class="chapter" data-level="6.6.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#poor-design-leads-to-an-uninformed-or-misinformed-world"><i class="fa fa-check"></i><b>6.6.1</b> poor design leads to an uninformed or misinformed world</a></li>
-<li class="chapter" data-level="6.6.2" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#poor-design-can-be-a-tool-to-deceive"><i class="fa fa-check"></i><b>6.6.2</b> poor design can be a tool to deceive</a></li>
-</ul></li>
-<li class="chapter" data-level="6.7" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#the-psychology-of-data-visualization"><i class="fa fa-check"></i><b>6.7</b> the psychology of data visualization</a>
-<ul>
-<li class="chapter" data-level="6.7.1" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#the-power-of-animation"><i class="fa fa-check"></i><b>6.7.1</b> the power of animation</a></li>
-<li class="chapter" data-level="6.7.2" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#telling-the-truth-when-the-truth-is-unclear"><i class="fa fa-check"></i><b>6.7.2</b> telling the truth when the truth is unclear</a></li>
-<li class="chapter" data-level="6.7.3" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#visualizing-uncertainty"><i class="fa fa-check"></i><b>6.7.3</b> visualizing uncertainty</a></li>
-</ul></li>
-<li class="chapter" data-level="6.8" data-path="principles-of-data-visualization.html"><a href="principles-of-data-visualization.html#further-reading-and-resources"><i class="fa fa-check"></i><b>6.8</b> further reading and resources</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html"><i class="fa fa-check"></i><b>7</b> visualization in R with ggplot</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#a-picture-words-numbers"><i class="fa fa-check"></i><b>7.1</b> a picture &gt; (words, numbers)?</a></li>
-<li class="chapter" data-level="7.2" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#read-hadley-ggplots"><i class="fa fa-check"></i><b>7.2</b> Read Hadley ggplots</a></li>
-<li class="chapter" data-level="7.3" data-path="visualization-in-r-with-ggplot.html"><a href="visualization-in-r-with-ggplot.html#exploring-more-data"><i class="fa fa-check"></i><b>7.3</b> exploring more data</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html"><i class="fa fa-check"></i><b>8</b> examining local COVID data in R</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#tracking-the-novel-coronavirus-from-feb-2020"><i class="fa fa-check"></i><b>8.1</b> tracking the Novel Coronavirus (from Feb 2020)</a>
-<ul>
-<li class="chapter" data-level="8.1.1" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#reading-the-data-feb-2020"><i class="fa fa-check"></i><b>8.1.1</b> reading the data (Feb 2020)</a></li>
-<li class="chapter" data-level="8.1.2" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#cleaning-wrangling-munging-the-data-feb-2020"><i class="fa fa-check"></i><b>8.1.2</b> cleaning (wrangling, munging) the data (Feb 2020)</a></li>
-<li class="chapter" data-level="8.1.3" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#eleven-months-later-the-code-still-runs"><i class="fa fa-check"></i><b>8.1.3</b> eleven months later: the code still runs!</a></li>
-<li class="chapter" data-level="8.1.4" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#shall-we-graph-it-feb-2021"><i class="fa fa-check"></i><b>8.1.4</b> shall we graph it? (Feb 2021)</a></li>
-<li class="chapter" data-level="8.1.5" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#too-bad"><i class="fa fa-check"></i><b>8.1.5</b> too bad</a></li>
-<li class="chapter" data-level="8.1.6" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#what-now"><i class="fa fa-check"></i><b>8.1.6</b> what now?</a></li>
-<li class="chapter" data-level="8.1.7" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#an-initial-plot-feb-2020"><i class="fa fa-check"></i><b>8.1.7</b> an initial plot (Feb 2020)</a></li>
-<li class="chapter" data-level="8.1.8" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#five-weeks-later-mar-2020"><i class="fa fa-check"></i><b>8.1.8</b> five weeks later (Mar 2020)</a></li>
-<li class="chapter" data-level="8.1.9" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#adding-recovered-cases-code-from-feb-data-through-mar-2020"><i class="fa fa-check"></i><b>8.1.9</b> adding recovered cases (code from Feb, data through Mar 2020)</a></li>
-</ul></li>
-<li class="chapter" data-level="8.2" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#plotting-confirmed-cases-feb-mar-2020"><i class="fa fa-check"></i><b>8.2</b> plotting confirmed cases (Feb-Mar 2020)</a></li>
-<li class="chapter" data-level="8.3" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#status-feb-2021"><i class="fa fa-check"></i><b>8.3</b> status (Feb 2021)</a>
-<ul>
-<li class="chapter" data-level="8.3.1" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#an-assignment"><i class="fa fa-check"></i><b>8.3.1</b> An assignment</a></li>
-</ul></li>
-<li class="chapter" data-level="8.4" data-path="examining-local-covid-data-in-r.html"><a href="examining-local-covid-data-in-r.html#how-to-create-new-knowledge"><i class="fa fa-check"></i><b>8.4</b> how to create new knowledge</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html"><i class="fa fa-check"></i><b>9</b> on probability and statistics</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#on-probability"><i class="fa fa-check"></i><b>9.1</b> on probability</a></li>
-<li class="chapter" data-level="9.2" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#the-rules-of-probability"><i class="fa fa-check"></i><b>9.2</b> the rules of probability</a>
-<ul>
-<li class="chapter" data-level="9.2.1" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#keeping-conditional-probabilities-straight"><i class="fa fa-check"></i><b>9.2.1</b> keeping conditional probabilities straight</a></li>
-</ul></li>
-<li class="chapter" data-level="9.3" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#continuous-probability-distributions"><i class="fa fa-check"></i><b>9.3</b> continuous probability distributions</a></li>
-<li class="chapter" data-level="9.4" data-path="on-probability-and-statistics.html"><a href="on-probability-and-statistics.html#the-most-dangerous-equation"><i class="fa fa-check"></i><b>9.4</b> the most dangerous equation</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html"><i class="fa fa-check"></i><b>10</b> reproducibility and the replication crisis</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis"><i class="fa fa-check"></i><b>10.1</b> Answers to the reproducibility crisis</a>
-<ul>
-<li class="chapter" data-level="10.1.1" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#tweak-or-abandon-nhst"><i class="fa fa-check"></i><b>10.1.1</b> Tweak or abandon NHST</a></li>
-<li class="chapter" data-level="10.1.2" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#keep-a-log-of-every-step-of-every-analysis-in-r-markdown-or-jupyter-notebooks"><i class="fa fa-check"></i><b>10.1.2</b> keep a log of every step of every analysis in R markdown or Jupyter notebooks</a></li>
-</ul></li>
-<li class="chapter" data-level="10.2" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#answers-to-the-reproducibility-crisis-iii-pre-registration"><i class="fa fa-check"></i><b>10.2</b> answers to the reproducibility crisis III: Pre-registration</a></li>
-<li class="chapter" data-level="10.3" data-path="reproducibility-and-the-replication-crisis.html"><a href="reproducibility-and-the-replication-crisis.html#further-readings"><i class="fa fa-check"></i><b>10.3</b> further readings</a></li>
-</ul></li>
-<li class="part"><span><b>III Part III Towards data proficiency</b></span></li>
-<li class="chapter" data-level="11" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html"><i class="fa fa-check"></i><b>11</b> literate programming with R markdown</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#scripts-are-files-of-code"><i class="fa fa-check"></i><b>11.1</b> scripts are files of code</a>
-<ul>
-<li class="chapter" data-level="11.1.1" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#some-elements-of-coding-style"><i class="fa fa-check"></i><b>11.1.1</b> some elements of coding style</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#projects-are-directories-containing-related-scripts"><i class="fa fa-check"></i><b>11.2</b> projects are directories containing related scripts</a></li>
-<li class="chapter" data-level="11.3" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#r-markdown-documents-integrate-rationale-script-and-results"><i class="fa fa-check"></i><b>11.3</b> R markdown documents integrate rationale, script, and results</a></li>
-<li class="chapter" data-level="11.4" data-path="literate-programming-with-r-markdown.html"><a href="literate-programming-with-r-markdown.html#what-to-do-when-you-are-stuck"><i class="fa fa-check"></i><b>11.4</b> What to do when you are stuck</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="the-tidyverse.html"><a href="the-tidyverse.html"><i class="fa fa-check"></i><b>12</b> the tidyverse</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="the-tidyverse.html"><a href="the-tidyverse.html#some-simple-principles"><i class="fa fa-check"></i><b>12.1</b> some simple principles</a></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html"><i class="fa fa-check"></i><b>13</b> finding, exploring, and cleaning data</a>
-<ul>
-<li class="chapter" data-level="13.1" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#data-in-r-libraries"><i class="fa fa-check"></i><b>13.1</b> Data in R libraries</a></li>
-<li class="chapter" data-level="13.2" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#other-prepared-datasets"><i class="fa fa-check"></i><b>13.2</b> Other prepared datasets</a>
-<ul>
-<li class="chapter" data-level="13.2.1" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#keep-it-manageable"><i class="fa fa-check"></i><b>13.2.1</b> Keep it manageable</a></li>
-</ul></li>
-<li class="chapter" data-level="13.3" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#makeextractcombine-your-own-data"><i class="fa fa-check"></i><b>13.3</b> Make/extract/combine your own data</a></li>
-<li class="chapter" data-level="13.4" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#exploring-data"><i class="fa fa-check"></i><b>13.4</b> exploring data</a></li>
-<li class="chapter" data-level="13.5" data-path="finding-exploring-and-cleaning-data.html"><a href="finding-exploring-and-cleaning-data.html#messy-data-cleaning-and-curation"><i class="fa fa-check"></i><b>13.5</b> messy data: Cleaning and curation</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html"><i class="fa fa-check"></i><b>14</b> transforming and joining data</a>
-<ul>
-<li class="chapter" data-level="14.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#from-data-on-the-web-to-data-in-r"><i class="fa fa-check"></i><b>14.1</b> from data on the web to data in R</a></li>
-<li class="chapter" data-level="14.2" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#working-with-geodata-a-function-to-get-us-states-from-latitudelongitude"><i class="fa fa-check"></i><b>14.2</b> working with geodata: a function to get US states from latitude/longitude</a>
-<ul>
-<li class="chapter" data-level="14.2.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#applying-the-function-to-the-music-data"><i class="fa fa-check"></i><b>14.2.1</b> applying the function to the music data</a></li>
-</ul></li>
-<li class="chapter" data-level="14.3" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#drowning-in-the-sea-of-songs-with-apologies-to-artist-arivoim1187b990643"><i class="fa fa-check"></i><b>14.3</b> drowning in the sea of songs (with apologies to Artist #<em>ARIVOIM1187B990643</em>)</a>
-<ul>
-<li class="chapter" data-level="14.3.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#combining-the-song-titles-with-our-us-artists"><i class="fa fa-check"></i><b>14.3.1</b> combining the song titles with our US artists</a></li>
-<li class="chapter" data-level="14.3.2" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#exercises"><i class="fa fa-check"></i><b>14.3.2</b> exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="14.4" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#review-of-munging-tools"><i class="fa fa-check"></i><b>14.4</b> review of munging tools</a></li>
-<li class="chapter" data-level="14.5" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#more-about-joining"><i class="fa fa-check"></i><b>14.5</b> more about joining</a>
-<ul>
-<li class="chapter" data-level="14.5.1" data-path="transforming-and-joining-data.html"><a href="transforming-and-joining-data.html#more-about-munging"><i class="fa fa-check"></i><b>14.5.1</b> more about munging</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="15" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html"><i class="fa fa-check"></i><b>15</b> strings, factors, dates, and times</a>
-<ul>
-<li class="chapter" data-level="15.1" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#strings"><i class="fa fa-check"></i><b>15.1</b> strings</a></li>
-<li class="chapter" data-level="15.2" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#factors"><i class="fa fa-check"></i><b>15.2</b> factors</a>
-<ul>
-<li class="chapter" data-level="15.2.1" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#types-of-babies"><i class="fa fa-check"></i><b>15.2.1</b> types of babies</a></li>
-<li class="chapter" data-level="15.2.2" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#types-of-grown-ups"><i class="fa fa-check"></i><b>15.2.2</b> types of grown-ups</a></li>
-</ul></li>
-<li class="chapter" data-level="15.3" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#dates"><i class="fa fa-check"></i><b>15.3</b> dates</a></li>
-<li class="chapter" data-level="15.4" data-path="strings-factors-dates-and-times.html"><a href="strings-factors-dates-and-times.html#times"><i class="fa fa-check"></i><b>15.4</b> times</a></li>
-</ul></li>
-<li class="chapter" data-level="16" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>16</b> lists</a></li>
-<li class="chapter" data-level="17" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html"><i class="fa fa-check"></i><b>17</b> loops, functions, and beyond</a>
-<ul>
-<li class="chapter" data-level="17.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#loops"><i class="fa fa-check"></i><b>17.1</b> loops</a></li>
-<li class="chapter" data-level="17.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#from-loop-to-apply-to-purrrmap"><i class="fa fa-check"></i><b>17.2</b> from loop to apply to purrr::map</a></li>
-<li class="chapter" data-level="17.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#some-examples-of-functions"><i class="fa fa-check"></i><b>17.3</b> some examples of functions</a>
-<ul>
-<li class="chapter" data-level="17.3.1" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#preliminaries"><i class="fa fa-check"></i><b>17.3.1</b> preliminaries</a></li>
-<li class="chapter" data-level="17.3.2" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#the-function"><i class="fa fa-check"></i><b>17.3.2</b> the function</a></li>
-<li class="chapter" data-level="17.3.3" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#applying-the-function"><i class="fa fa-check"></i><b>17.3.3</b> applying the function</a></li>
-</ul></li>
-<li class="chapter" data-level="17.4" data-path="loops-functions-and-beyond.html"><a href="loops-functions-and-beyond.html#how-many-bottles-of-what"><i class="fa fa-check"></i><b>17.4</b> how many bottles of what?</a></li>
-</ul></li>
-<li class="chapter" data-level="18" data-path="from-correlation-to-regression.html"><a href="from-correlation-to-regression.html"><i class="fa fa-check"></i><b>18</b> from correlation to regression</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="from-correlation-to-regression.html"><a href="from-correlation-to-regression.html#correlation"><i class="fa fa-check"></i><b>18.1</b> correlation</a></li>
-<li class="chapter" data-level="18.2" data-path="from-correlation-to-regression.html"><a href="from-correlation-to-regression.html#correlations-based-on-small-samples-are-unstable-a-monte-carlo-demonstration"><i class="fa fa-check"></i><b>18.2</b> correlations based on small samples are unstable: A Monte Carlo demonstration</a>
-<ul>
-<li class="chapter" data-level="18.2.1" data-path="from-correlation-to-regression.html"><a href="from-correlation-to-regression.html#the-regression-line"><i class="fa fa-check"></i><b>18.2.1</b> The regression line</a></li>
-<li class="chapter" data-level="18.2.2" data-path="from-correlation-to-regression.html"><a href="from-correlation-to-regression.html#warning-there-are-two-regression-lines"><i class="fa fa-check"></i><b>18.2.2</b> Warning: there are two regression lines</a></li>
-</ul></li>
-<li class="chapter" data-level="18.3" data-path="from-correlation-to-regression.html"><a href="from-correlation-to-regression.html#multiple-regression"><i class="fa fa-check"></i><b>18.3</b> multiple regression</a></li>
-<li class="chapter" data-level="18.4" data-path="from-correlation-to-regression.html"><a href="from-correlation-to-regression.html#swiss-fertility-data"><i class="fa fa-check"></i><b>18.4</b> Swiss fertility data</a></li>
-<li class="chapter" data-level="18.5" data-path="from-correlation-to-regression.html"><a href="from-correlation-to-regression.html#marital-affairs-data"><i class="fa fa-check"></i><b>18.5</b> marital affairs data</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="cross-validation.html"><a href="cross-validation.html"><i class="fa fa-check"></i><b>19</b> cross-validation</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="cross-validation.html"><a href="cross-validation.html#revisiting-the-affairs-data"><i class="fa fa-check"></i><b>19.1</b> revisiting the affairs data</a></li>
-<li class="chapter" data-level="19.2" data-path="cross-validation.html"><a href="cross-validation.html#avoiding-capitalizing-on-chance"><i class="fa fa-check"></i><b>19.2</b> avoiding capitalizing on chance</a>
-<ul>
-<li class="chapter" data-level="19.2.1" data-path="cross-validation.html"><a href="cross-validation.html#splitting-the-data-into-training-and-test-subsamples"><i class="fa fa-check"></i><b>19.2.1</b> splitting the data into training and test subsamples</a></li>
-</ul></li>
-<li class="chapter" data-level="19.3" data-path="cross-validation.html"><a href="cross-validation.html#an-example-of-cross-validated-linear-regression"><i class="fa fa-check"></i><b>19.3</b> an example of cross-validated linear regression</a>
-<ul>
-<li class="chapter" data-level="19.3.1" data-path="cross-validation.html"><a href="cross-validation.html#applying-logistic-regression-analysis-to-the-training-data"><i class="fa fa-check"></i><b>19.3.1</b> applying logistic regression analysis to the training data</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="20" data-path="prediction-and-classification.html"><a href="prediction-and-classification.html"><i class="fa fa-check"></i><b>20</b> prediction and classification</a>
-<ul>
-<li class="chapter" data-level="20.1" data-path="prediction-and-classification.html"><a href="prediction-and-classification.html#from-regression-to-classification-selection-of-a-threshold"><i class="fa fa-check"></i><b>20.1</b> from regression to classification: selection of a threshold</a>
-<ul>
-<li class="chapter" data-level="20.1.1" data-path="prediction-and-classification.html"><a href="prediction-and-classification.html#applying-the-model-to-the-test-data"><i class="fa fa-check"></i><b>20.1.1</b> applying the model to the test data</a></li>
-<li class="chapter" data-level="20.1.2" data-path="prediction-and-classification.html"><a href="prediction-and-classification.html#changing-our-decision-threshold"><i class="fa fa-check"></i><b>20.1.2</b> changing our decision threshold</a></li>
-<li class="chapter" data-level="20.1.3" data-path="prediction-and-classification.html"><a href="prediction-and-classification.html#more-confusion"><i class="fa fa-check"></i><b>20.1.3</b> more confusion</a></li>
-<li class="chapter" data-level="20.1.4" data-path="prediction-and-classification.html"><a href="prediction-and-classification.html#rocs-and-auc"><i class="fa fa-check"></i><b>20.1.4</b> ROCs and AUC</a></li>
-</ul></li>
-<li class="chapter" data-level="20.2" data-path="prediction-and-classification.html"><a href="prediction-and-classification.html#another-approach-to-classification-k-nearest-neighbor"><i class="fa fa-check"></i><b>20.2</b> another approach to classification: k-nearest neighbor</a>
-<ul>
-<li class="chapter" data-level="20.2.1" data-path="prediction-and-classification.html"><a href="prediction-and-classification.html#application-the-affairs-data"><i class="fa fa-check"></i><b>20.2.1</b> application: the affairs data</a></li>
-<li class="chapter" data-level="20.2.2" data-path="prediction-and-classification.html"><a href="prediction-and-classification.html#from-one-doppelganger-to-many"><i class="fa fa-check"></i><b>20.2.2</b> from one doppelganger to many</a></li>
-<li class="chapter" data-level="20.2.3" data-path="prediction-and-classification.html"><a href="prediction-and-classification.html#the-bayesian-classifier"><i class="fa fa-check"></i><b>20.2.3</b> the Bayesian classifier</a></li>
-<li class="chapter" data-level="20.2.4" data-path="prediction-and-classification.html"><a href="prediction-and-classification.html#back-to-the-affairs-data"><i class="fa fa-check"></i><b>20.2.4</b> Back to the affairs data</a></li>
-<li class="chapter" data-level="20.2.5" data-path="prediction-and-classification.html"><a href="prediction-and-classification.html#avoiding-capitalization-on-chance-again"><i class="fa fa-check"></i><b>20.2.5</b> avoiding capitalization on chance (again)</a></li>
-<li class="chapter" data-level="20.2.6" data-path="prediction-and-classification.html"><a href="prediction-and-classification.html#the-multinomial-case"><i class="fa fa-check"></i><b>20.2.6</b> the multinomial case</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="21" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><i class="fa fa-check"></i><b>21</b> machine learning: chihuahuas vs muffins, and other distinctions and ideas</a>
-<ul>
-<li class="chapter" data-level="21.1" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#supervised-versus-unsupervised"><i class="fa fa-check"></i><b>21.1</b> supervised versus unsupervised</a></li>
-<li class="chapter" data-level="21.2" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#prediction-versus-classification"><i class="fa fa-check"></i><b>21.2</b> prediction versus classification</a></li>
-<li class="chapter" data-level="21.3" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#understanding-versus-prediction"><i class="fa fa-check"></i><b>21.3</b> understanding versus prediction</a></li>
-<li class="chapter" data-level="21.4" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#bias-versus-variability"><i class="fa fa-check"></i><b>21.4</b> bias versus variability</a>
-<ul>
-<li class="chapter" data-level="21.4.1" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#resampling-beyond-test-training-and-validation-samples"><i class="fa fa-check"></i><b>21.4.1</b> resampling: beyond test, training, and validation samples</a></li>
-</ul></li>
-<li class="chapter" data-level="21.5" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#compensatory-versus-non-compensatory-problems"><i class="fa fa-check"></i><b>21.5</b> compensatory versus non-compensatory problems</a></li>
-<li class="chapter" data-level="21.6" data-path="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html"><a href="machine-learning-chihuahuas-vs-muffins-and-other-distinctions-and-ideas.html#a-postscript-the-tidymodels-packages"><i class="fa fa-check"></i><b>21.6</b> a postscript: The Tidymodels packages</a></li>
-</ul></li>
-<li class="chapter" data-level="22" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html"><i class="fa fa-check"></i><b>22</b> some ethical concerns for the data scientist</a>
-<ul>
-<li class="chapter" data-level="22.1" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#ethics-and-personality-harvesting"><i class="fa fa-check"></i><b>22.1</b> ethics and personality harvesting</a></li>
-<li class="chapter" data-level="22.2" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#the-law-of-unintended-consequences"><i class="fa fa-check"></i><b>22.2</b> the law of unintended consequences</a></li>
-<li class="chapter" data-level="22.3" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#your-privacy-is-my-concern"><i class="fa fa-check"></i><b>22.3</b> your privacy is my concern</a></li>
-<li class="chapter" data-level="22.4" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#who-should-hold-the-digital-keys"><i class="fa fa-check"></i><b>22.4</b> who should hold the digital keys?</a></li>
-<li class="chapter" data-level="22.5" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#contact-tracing-and-covid-19"><i class="fa fa-check"></i><b>22.5</b> contact-tracing and COVID-19</a></li>
-<li class="chapter" data-level="22.6" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#the-digital-divide"><i class="fa fa-check"></i><b>22.6</b> the digital divide</a></li>
-<li class="chapter" data-level="22.7" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#still-more-case-studies"><i class="fa fa-check"></i><b>22.7</b> still more case studies</a></li>
-<li class="chapter" data-level="22.8" data-path="some-ethical-concerns-for-the-data-scientist.html"><a href="some-ethical-concerns-for-the-data-scientist.html#some-potential-remedies"><i class="fa fa-check"></i><b>22.8</b> some potential remedies</a></li>
+<li class="chapter" data-level="5.1" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#using-rstudio-cloud"><i class="fa fa-check"></i><b>5.1</b> Using RStudio cloud</a></li>
+<li class="chapter" data-level="5.2" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#using-r-studio-on-your-laptop"><i class="fa fa-check"></i><b>5.2</b> Using R Studio on your laptop</a></li>
+<li class="chapter" data-level="5.3" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#a-few-characteristics-of-r"><i class="fa fa-check"></i><b>5.3</b> a few characteristics of R</a></li>
+<li class="chapter" data-level="5.4" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#finding-help-1"><i class="fa fa-check"></i><b>5.4</b> finding help</a></li>
+<li class="chapter" data-level="5.5" data-path="now-draw-the-rest-of-the-owl.html"><a href="now-draw-the-rest-of-the-owl.html#wickham-and-r-for-data-science"><i class="fa fa-check"></i><b>5.5</b> Wickham and R for Data Science</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -427,108 +172,93 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="now-draw-the-rest-of-the-owl" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> now draw the rest of the owl</h1>
-<div class="figure">
-<img src="images/InkedrCr9A_LI.jpg" alt="" />
-<p class="caption">Fig 5.1: Draw the rest of the owl.</p>
+<div id="now-draw-the-rest-of-the-owl" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> now draw the rest of the owl<a href="now-draw-the-rest-of-the-owl.html#now-draw-the-rest-of-the-owl" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><img src="images/InkedrCr9A_LI.jpg" alt="Fig 5.1: Draw the rest of the owl." /> In the process of learning R, you’ll reach</p>
+<p># exploring R world</p>
+<p>DataCamp:</p>
+<p><a href="https://www.datacamp.com/groups/shared_links/682a281360c528c8ae0a717d43fc349f2fa7580305a10157ff2d26ef075320bd" class="uri">https://www.datacamp.com/groups/shared_links/682a281360c528c8ae0a717d43fc349f2fa7580305a10157ff2d26ef075320bd</a></p>
+<p>Swirl (Swirlstats): Install: <a href="https://swirlstats.com/students.html" class="uri">https://swirlstats.com/students.html</a> then see <a href="https://swirlstats.com/scn/rprog.html" class="uri">https://swirlstats.com/scn/rprog.html</a></p>
+<p>Posit recipes: download a csv file from canvas</p>
+<p><a href="https://posit.cloud/learn/recipes" class="uri">https://posit.cloud/learn/recipes</a> then</p>
+<p>Hints: biggest obstacle for noobs is finding where you are on your disk. - set up a directory for this class, then a subdirectory you can call Assignment01.</p>
+<p>working with rprojects</p>
+<p>In this chapter, we’ll learn how to install and use R in two ways - in the cloud and on your own laptop. For each of these, we’ll use RStudio</p>
+<div id="using-rstudio-cloud" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Using RStudio cloud<a href="now-draw-the-rest-of-the-owl.html#using-rstudio-cloud" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Using the link provided to you by your instructor, set up a new account in RStudio (it is free for you). Then click on the Join Space button. It will bring you to the Welcome page. (Not much to see here as yet). Click on the <a href="https://en.wikipedia.org/wiki/Hamburger_button">hamburger menu</a>. You should see, on the left side of the screen, a menu with three sections: Spaces, Learn, and Help.</p>
+<p>The <strong>Spaces</strong> menu will likely include three options. The first will be “Your Workspace,” the second will be the workspace for this class (e.g., IntroDataSciSpring21), and the third will allow you to create a “New Space.”</p>
+<p>Click on the class workspace, then on the first assignment. After a few seconds, you’ll see a screen that looks something like the following:</p>
+<div class="float">
+<img src="images/03-R_insertimage_4.png" alt="Fig 3.1 - R Studio Cloud." />
+<div class="figcaption">Fig 3.1 - R Studio Cloud.</div>
 </div>
-<p>There are many sources for learning the basics of R. A few of these follow. Please <strong>spend at least 90 mins exploring at least two of the following.</strong> Be prepared to discuss your progress next class (you will be asked which source(s) you used, what you struggled with, and whether you would recommend it to your classmates. (Note that all of these are free, though you may choose to make a donation to the author if you use the Peng text).</p>
+<p><strong>Click on the assignment</strong>, and you’ll see that there are now four windows on the screen (note that these windows are fully customizable, so that the locations and characterizations I am giving here are just a starting point):</p>
+<p>In the upper left is the <strong>source</strong> window - the code you are working on.. This is where we will be doing much of our work, typically in R markdown documents like this one. R markdown is, not surprisingly, a ‘flavor’ of markdown. Other tabs in this quadrant may include displays of your data and other scripts that you may be working on.</p>
+<p>The <strong>console</strong>, by default in the lower left quadrant, can be used to execute single lines of code. You may occasionally use the terminal tab here as well.</p>
+<p>The <strong>environment</strong>, in the upper right, includes datasets, variables, and functions that are available to us. The Build and Git tabs are useful for producing documents and version control/collaboration, respectively. The history tab is useful to go back and look at the syntax you used in a prior chunk of code.</p>
+<p>The <strong>files</strong> in our directory are listed in the lower right; additional tabs include a list of available packages (libraries) and some resources for help.</p>
+<p>Now read the code in the console, and follow the instructions to complete your first homework assignment. Congratulations, you’ve just run your first code in R.</p>
+</div>
+<div id="using-r-studio-on-your-laptop" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Using R Studio on your laptop<a href="now-draw-the-rest-of-the-owl.html#using-r-studio-on-your-laptop" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Install the latest version of <a href="https://www.r-project.org/">R</a> on your own Windows or Mac laptop. Then install <a href="https://www.rstudio.com/products/rstudio/download/#download">RStudio Desktop</a>.</p>
+<p><strong>Feeling ambitious?</strong> Once this is loaded, (a) set up a directory for this class, then (b) a subdirectory you can call Assignment01.</p>
+<p>Go back to your Rstudio.cloud / Assignment01, and check the boxes next to Assiignment01.Rmd, movies.Rdata, and project.rproj. Then click on ‘More’, then ‘Export…’ and put these in your new subdirectory.</p>
+<p>Now go back to your desktop environment, and try to run the same code on your home machine. (Note that to be successful, you will need to first execute the command on your laptop).</p>
 <blockquote>
-<p><strong>Hint:</strong> If you find the material too challenging - if you feel like you are drawing the rest of the owl - take a break away from your machine and other screens, clear your head, then try a different approach.</p>
+<p>install.packages(“tidyverse”)</p>
 </blockquote>
-<div id="review-the-rstudio-cloud-primers" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Review the RStudio cloud primers</h2>
-<p>A series of up-to-date, interactive tutorials may be found for working with RStudio.cloud <a href="https://rstudio.cloud/learn/primers">here</a>. There are two basic tutorials - one on data visualization, the other on programming.</p>
-</div>
-<div id="play-with-rstudio-on-your-laptop" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Play with RStudio on your laptop</h2>
-<p>Last week, we began exploring <a href="http://www2.stat.duke.edu/~mc301/">Mine Çetinkaya-Rundel</a>’s movies dataset in RStudio.cloud. Were you successful in getting this to run on your laptop as well?</p>
-<div id="create-a-new-r-markdown-document-and-knit-it-to-a-pdf-or-a-word-doc" class="section level3" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> Create a new R Markdown document and knit it to a PDF or a Word doc</h3>
-<p>In <em>literate programming</em>, comments, code, and results are integrated in a clear and reproducible way - they <em>document</em> our work. R markdown is built around this idea. To create an R markdown (Rmd) document in Rstudio (on your laptop) or Rstudio.cloud, begin with (<strong>File -&gt; New File -&gt; R Markdown</strong>). A window will open up with a file that begins with some <em>YAML</em> (Yet Another Markdown Language). You can edit this as needed:</p>
-<pre><code>---
-title: &quot;Your movies in R Markdown Document&quot;
-author: &quot;Frankie McFrank Frank&quot;
-date: &quot;1/27/2020&quot;
-output: html_document
----</code></pre>
-<p>Go ahead and click on the clever “knit” icon in the bar just above the source window to create a sample document. You’ll need to save the file with a new name, then R will finally create an HTML (Hyper Text Markdown Language - see the pattern?) page. Compare the R Markdown document (your code) with the result (the HTML). Now, try to knit the document into different output formats (click on the down arrow next to knit, and see if you can knit to PDF and Word). It may take a while the first time you do this, as you may need to load some additional formatting tools or packages (e.g., TinyTex) to successfully render these files.</p>
+<p>In this chapter, we’ll learn how to install and use R in two ways - in the cloud and on your own laptop. For each of these, we’ll use RStudio as a front end (an ‘integrated development environment’, or IDE).</p>
+<p><strong>Click on the assignment</strong>, and you’ll see that there are now four windows on the screen (note that these windows are fully customizable, so that the locations and characterizations I am giving here are just a starting point):</p>
+<p>In the upper left is the <strong>source</strong> window - the code you are working on.. This is where we will be doing much of our work, typically in R markdown documents like this one. R markdown is, not surprisingly, a ‘flavor’ of markdown. Other tabs in this quadrant may include displays of your data and other scripts that you may be working on.</p>
+<p>The <strong>console</strong>, by default in the lower left quadrant, can be used to execute single lines of code. You may occasionally use the terminal tab here as well.</p>
+<p>The <strong>environment</strong>, in the upper right, includes datasets, variables, and functions that are available to us. The Build and Git tabs are useful for producing documents and version control/collaboration, respectively. The history tab is useful to go back and look at the syntax you used in a prior chunk of code.</p>
+<p>The <strong>files</strong> in our directory are listed in the lower right; additional tabs include a list of available packages (libraries) and some resources for help.</p>
+<p>Get as far as you can, but remember the 15 minute rule. How far did you get? Be prepared to share your frustrations, discoveries, and accomplishments with your classmates.R stands for …</p>
+<p>Historically, R grew out of S which could stand for Statistics. But what does R stand for?</p>
+<p>R is a system for <strong>Reproducible</strong> analysis, and reproducibility is essential. R markdown documents, like Jupyter notebooks in the Python world, facilitate reproducible work, as they include comments or explanations, code, links to data, and results.</p>
+<p>R is for <strong>Research.</strong> Research is not just an end-product, not just a published paper or book:</p>
 <blockquote>
-<p>Can you knit directly to a PDF document on your laptop? A Word document? If you struggle, you are not alone here - an advantage of RStudio.cloud over RStudio on the desktop is that, on your own machine, you may run into system-specific problems associated with the pandoc document converter.</p>
-<p>If, after spending 15 minutes on this problem, you cannot knit directly to a PDF, stop and think about the problem.</p>
+<p>… these documents are not the research [rather] these documents are the “advertising”. The research is the “full software environment, code, and data that produced the results”</p>
 </blockquote>
+<p><span class="citation">(<a href="#ref-buckheit1995"><strong>buckheit1995?</strong></a>; <a href="#ref-donoho2010"><strong>donoho2010?</strong></a>)</span>. When we separate the research from its advertisement we are making it difficult for others to verify the findings by reproducing them <span class="citation">(<a href="#ref-gandrud2013"><strong>gandrud2013?</strong></a>)</span>.</p>
+<p>R is a system for <strong>Representing</strong> data in cool, insight-facilitating ways, a tool for creating (reproducible) data visualizations which can provide insights and communicate results.</p>
+<p>R is <strong>Really popular</strong>, and this matters, because learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.</p>
+<p>Because R is popular, there are many <strong>Resources</strong>, including, for example -</p>
+<ul>
+<li>Online resources include the simple (and less simple) lessons of <a href="http://swirlstats.com/">SwirlR</a>, which offers the possibility of “learning R in R,” as well as <a href="https://www.datacamp.com/home">DataCamp</a>, the <a href="https://www.coursera.org/specializations/jhu-data-science">Data Science Certificate Program at Johns Hopkins,</a> and other MOOCs.<br />
+</li>
+<li>Books include <span class="citation">(<a href="#ref-peng2014"><strong>peng2014?</strong></a>)</span> - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and <span class="citation">(<a href="#ref-wickham2016"><strong>wickham2016?</strong></a>)</span>.</li>
+<li>You’ll also learn (more directly) from people, including your classmates, as well as the broader community of people around the world. There are hundreds if not thousands of people, young and old, who are on the road with you. I am as well, just a step or two (hopefully) ahead.</li>
+</ul>
+<p>R might stand for <em>Relatively high level.</em> Programming languages can be described along a continuum from high to low level, the former (like R) are more accessible to humans, the latter (like assembly language) more accessible to machines. Python, Java, and C++ are all more towards the middle of this continuum.</p>
+<p>R does not stand for ‘<strong>[arggh]</strong>(<a href="https://www.urbandictionary.com/define.php?term=ARGH" class="uri">https://www.urbandictionary.com/define.php?term=ARGH</a>),’ although you may proclaim this in frustration (‘arggh, why can’t I get this to work?) or, perhaps, in satisfaction (’arggh, matey, that be a clever way of doing this’).</p>
+<p>But R does stand for <strong><em>Rewarding</em></strong>. A language is a way of thinking about the world, and this is true for computer languages as well. You’ll be challenged by its complexity, its idiosyncracy, its alien logic. But you will succeed, and you will find that you can do things that you did not believe possible.</p>
 </div>
-<div id="play-with-and-explore-the-movies-data" class="section level3" number="5.2.2">
-<h3><span class="header-section-number">5.2.2</span> Play with and explore the movies data</h3>
-<p>Iain Carmichael used these data to introduce R for his students several years ago; you may wish to use his <a href="https://idc9.github.io/stor390/notes/getting_started/getting_started.html">code</a> as a starting point. Continue to ask interesting questions about the data - can you see any way in which movies appear to have changed over time? What does “spilled” mean? Write up your results as an R markdown document.</p>
+<div id="a-few-characteristics-of-r" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> a few characteristics of R<a href="now-draw-the-rest-of-the-owl.html#a-few-characteristics-of-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R includes the base together with <strong>packages</strong>. These packages (libraries) are customized add-ons which simplify certain tasks, such as text analysis. There are, at this writing, 15,373 available packages on the CRAN package repository - and though there is not yet an R package for ordering pizza <span class="citation">(<a href="#ref-peng2014"><strong>peng2014?</strong></a>)</span>, there are many for most data tasks, including, for example, <a href="https://cran.r-project.org/web/views/NaturalLanguageProcessing.html">over 50 different packages for text analysis</a>. So how do you choose, and where do you begin? We will start with the curated list of packages which jointly comprise the <strong>tidyverse</strong> <span class="citation">(<a href="#ref-wickham2016"><strong>wickham2016?</strong></a>)</span>, which is effectively a dialect of R.</p>
+<p>R is an <strong>object-oriented</strong> language - one conceptually organized around objects and data rather than actions and logic. In R, at the atomic level, objects include <em>characters, real numbers, integers, complex numbers, and logical.</em> These atoms are combined into vectors, which generally include objects of the same type [one kind of object, ‘lists,’ is an exception to this; <span class="citation">(<a href="#ref-peng2014"><strong>peng2014?</strong></a>)</span>]. Vectors can be further combined into <strong>data frames</strong>, which are two-dimensional tables or arrays. A <strong>tibble</strong> is a particular type of data frame which is used in the tidyverse. It is, in some ways, handier to work with than other data frames. We’ll be working extensively with data frames in general, and tibbles in particular, as we move forward.</p>
+<p>Objects have <strong>attributes</strong>. Attributes of R include such things as name, dimensions (for vectors and arrays), class (that’s the type of object described in the previous paragraph), length, etc.</p>
+<p>Real world data sets are messy, and frequently have <strong>missing values.</strong> In R, missing values may be characterized by NA (not available) or NaN (not a number, implying an undefined or impossible value).</p>
+<p><strong>RStudio,</strong> the environment we will use to write, test, and run R code, is a commercial enterprise whose business model, judged from afar, is an important one in the world of technology. Most of what RStudio offers is free (97% according to Garrett Grolemund in the video below). The commercial product they offer makes sense for a relative few, but it is sufficiently lucrative to fund the enterprise. The free product helps to drive the popularity of Rstudio; this widespread use, in turn, makes it increasingly essential for businesses to use. This mixed free/premium, or ‘freemium,’ model characterizes Slack as well, but while <a href="https://www.statista.com/statistics/652779/worldwide-slack-users-total-vs-paid/">the ratio of free to paid users of Slack is on the order of 3:1</a>, for R it is, I am guessing, an order of magnitude higher than this.</p>
 </div>
+<div id="finding-help-1" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> finding help<a href="now-draw-the-rest-of-the-owl.html#finding-help-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>One does not simply ‘learn R.’</strong> Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one can be said to have mastered and from which one then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn. And, the complexity of R syntax is such that, for almost all of us, we will need help for coding on any non-trivial task.</p>
+<p>For us, the key ideas in “looking for help” will include not just the tools on the RStudio IDE, but also (a) using Google searches wisely, and (b) reaching out to your classmates on Slack.</p>
+<p>Here, as in the real world, there is an etiquette for help-seeking which is based on consideration. Your search for help should begin by making sure that others will encounter the same result, then by stripping the problem down to its essence. Once you have reduced the problem to this <em>minimal, reproducible</em> essence, you will often be able to spot the problem yourself - and, if not, you will make it easier for others to help you. There is an R package (reprex) which will likely facilitate this, but I haven’t tried it yet. <a href="https://www.tidyverse.org/help/">Here</a> is a good introduction.</p>
+<p>Again, remember the 15 minute rule - we all need <a href="https://youtu.be/2YapAxPfRyI">somebody to lean on</a>.</p>
+<p>Finally, to get a sense of some of the ways you can get help in RStudio (and to see how a master uses the R Studio interface), consider this video:</p>
+<p><a href="https://rstudio.com/resources/webinars/programming-part-1-writing-code-in-rstudio/?wvideo=k8kz4e0p2v"><img src="https://embed-fastly.wistia.com/deliveries/85f90f89c20cf329c8e6091508fe44c045e70167.jpg?image_play_button_size=2x&amp;image_crop_resized=960x585&amp;image_play_button=1&amp;image_play_button_color=4287c7e0" /></a></p>
+<p><em>video 4.1: Garrett Grolemund of <a href="https://www.rstudio.com/">RStudio</a></em></p>
 </div>
-<div id="take-a-datacamp-class" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Take a DataCamp class</h2>
-<p>Many folks swear by (and others, I presume, at) DataCamp, which kind of gamifies learning software. As a student in this class, you have access to all of their stuff… free. You can even do lessons on your phone. Use the link given to you in class to enroll.</p>
-</div>
-<div id="swirl-swirlstats" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Swirl (Swirlstats)</h2>
-<p>I, like thousands of others, learned R in the process of completing the Johns Hopkins <a href="https://jhudatascience.org/courses.html">Data Science Specialization</a> offered through <a href="https://www.coursera.org/">Coursera</a>. The sequence can be challenging, but their introduction to R used an accessible, interactive R package called <em>Swirl.</em> You can read about swirl (“learn R in R”) at <a href="https://swirlstats.com/" class="uri">https://swirlstats.com/</a>.</p>
-<p><strong>Using Swirl.</strong> After loading R (and opening R studio), you will get to the Swirl lessons with the following steps:</p>
-<ol style="list-style-type: decimal">
-<li>Install the Swirl package on your computer (you only need to do this once). Type the following into your console window in R studio (typically left hand side of your screen or lower left)</li>
-</ol>
-<blockquote>
-<p>install.packages(“swirl”)</p>
-</blockquote>
-<ol start="2" style="list-style-type: decimal">
-<li>Then load the package into your workspace (you’ll need to do this at the beginning of every session you use Swirl)</li>
-</ol>
-<blockquote>
-<p>library (swirl)</p>
-</blockquote>
-<ol start="2" style="list-style-type: decimal">
-<li>Then run it!</li>
-</ol>
-<blockquote>
-<p>swirl ()</p>
-</blockquote>
-<p>Swirl will ask a few questions then give you the option of choosing one of several courses. You’ll choose the R Programming option, which leads to 15 separate lessons.</p>
-<p>At the end of each lesson, you’ll be asked</p>
-<blockquote>
-<p><em>Would you like to receive credit for completing this course on Coursera.org?</em></p>
-</blockquote>
-<p>Answer no… then do another lesson.</p>
-</div>
-<div id="read-pengs-text-andor-watch-the-associated-videos" class="section level2" number="5.5">
-<h2><span class="header-section-number">5.5</span> Read Peng’s text and/or watch the associated videos</h2>
-<p>Finally, consider the text and videos from the Coursera R class. Most of the material from that class can be found in the Peng text <span class="citation">(<a href="#ref-peng2014" role="doc-biblioref">2014</a>)</span>. A slightly updated version of the text can be found at <a href="https://bookdown.org/rdpeng/rprogdatascience/" class="uri">https://bookdown.org/rdpeng/rprogdatascience/</a>, and the videos in the series may be found by clicking on the following:</p>
-<p><a href="https://youtu.be/wy0h1f5awRI"><img src="https://img.youtube.com/vi/wy0h1f5awRI/0.jpg" alt="Roger Peng" /></a>.</p>
-<p><em>Video 5.2: Roger Peng introducing R</em></p>
-</div>
-<div id="code-along-with-a-tidy-webinar-or-attend-a-virtual-conference" class="section level2" number="5.6">
-<h2><span class="header-section-number">5.6</span> Code along with a tidy webinar, or attend a virtual conference</h2>
-<p>Among these <a href="https://education.rstudio.com/learn/beginner/">resources for R studio beginners</a>, you will find <a href="https://rstudio.com/resources/webinars/a-gentle-introduction-to-tidy-statistics-in-r/">Thomas Mock’s introduction to Tidy statistics in R</a>. It includes a link to the code used in the seminar at the bottom of the launch screen.</p>
-<p>The second chapter of <a href="https://socviz.co/">Healy’s online book about Data visualizations</a> provides an introduction to R and R studio which largely parallels the discussions here and in the <a href="https://r4ds.had.co.nz/index.html">Wickham and Grolemund text</a> <span class="citation">(<a href="#ref-healy2017" role="doc-biblioref">Healy 2017</a>; <a href="#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span></p>
-<p>The Grolemund video linked in the prior chapter is part of <a href="https://rstudio.com/resources/webinars/programming-part-1-writing-code-in-rstudio/?wvideo=k8kz4e0p2v">a series of videos on programming in RStudio</a>. It’s a little out of date now (from 2015), but still likely to be useful.</p>
-<p>Most of the offerings at the Rstudio::global conference are aimed at more experienced R users, some are aimed at (relative) noobs, including <a href="https://gbr01.safelinks.protection.outlook.com/?url=https%3A%2F%2Finfo.rstudio.com%2Ff00xY0S0YZ017X2eNCNtb0r&amp;data=04%7C01%7Cdavid.a.egan%40merseyside.police.uk%7C0bcfc46873594beb93b408d8b7002ba3%7Cf3955ea24c5d4e27ab8df6f577fa122d%7C0%7C0%7C637460558642128429%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&amp;sdata=m1xysQw%2F9Y1VwGVgSa0Q0DS2Y2UAdCbtE245ccMo1GE%3D&amp;reserved=0">Learning R with Humorous Side Projects</a>. The 2021 conference, to be held on January 21, 2021, is free; you can enroll and explore <a href="https://global.rstudio.com/student/catalog">here</a></p>
-</div>
-<div id="something-else" class="section level2" number="5.7">
-<h2><span class="header-section-number">5.7</span> Something else</h2>
-<p>The “something else” category includes Datacarpentry.org, which is aimed at fostering data literacy and provides free lessons for learning and applying R in areas such as <a href="https://datacarpentry.org/R-ecology-lesson/">Ecology</a>, <a href="https://datacarpentry.org/genomics-r-intro/">Genomics</a> and <a href="https://datacarpentry.org/r-intro-geospatial/">Geospatial data analysis</a>. Of particular interest are the <a href="https://datacarpentry.org/r-socialsci/">social science</a> lessons, as well as a workshop in data science based on the "<a href="https://datacarpentry.org/socialsci-workshop/">Studying African Farmer-led Irrigation (SAFI)" dataset</a>.</p>
+<div id="wickham-and-r-for-data-science" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Wickham and R for Data Science<a href="now-draw-the-rest-of-the-owl.html#wickham-and-r-for-data-science" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://r4ds.had.co.nz/introduction.html">The first chapter of the Wickham text</a> <span class="citation">(<a href="#ref-wickham2016"><strong>wickham2016?</strong></a>)</span> provides both a framework for his approach and a brief introduction to the <em>tidyverse</em> which will be the dialect of R we will study in the weeks ahead.</p>
+<p>Please read it now.</p>
 
-</div>
-</div>
-
-
-
-<h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-healy2017" class="csl-entry">
-Healy, Kieran. 2017. <span>“Data Visualization for Social Science: <span>A</span> Practical Introduction with r and Ggplot2.”</span>
-</div>
-<div id="ref-peng2014" class="csl-entry">
-Peng, Roger D. 2014. <em>R <span>Programming</span> for <span>Data Science</span></em>.
-</div>
-<div id="ref-wickham2016" class="csl-entry">
-Wickham, Hadley, and Garrett Grolemund. 2016. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. <span>" O’Reilly Media, Inc."</span>.
 </div>
 </div>
             </section>
@@ -536,8 +266,8 @@ Wickham, Hadley, and Garrett Grolemund. 2016. <em>R for Data Science: Import, Ti
           </div>
         </div>
       </div>
-<a href="r-stands-for.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="principles-of-data-visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="exploring-r-world.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -591,20 +321,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

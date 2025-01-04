@@ -1,8 +1,11 @@
+```{r setup, include=FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 # getting started
 
 ------------------------------------------------------------------------
 
-We begin with a brief self-assessment, asking you to reflect on your own knowledge of data science, including the necessary-but-not-sufficient areas of computer programming and statistics. We then move to a description of some rudimentary tools that we will be using.
+We begin with a brief self-assessment, asking you to reflect on your own knowledge of data science, including the necessary-but-not-sufficient areas of computer programming and statistics. We then move to a description of some rudimentary tools that we will be using, then install the R programming environment on our laptops.
 
 ## are you already a programmer and statistician?
 
@@ -22,15 +25,17 @@ Regarding **programming**, you may know more than you think you do. Here's a sim
 
 As a post-millennial student from a WEIRD culture, or Western, Educated, Industrialized, Rich Democracy [@henrich2010], you've 'programmed' computers, too, if only to enter a password, open an app, and upload a photo on your cell phone.
 
-**Statistics** is of fundamental importance, not just for understanding abstract trends, but for making decisions about everyday life. Consider the case of Susie, a college senior:
+**Statistics** is of fundamental importance, not just for understanding abstract trends, but for making decisions about everyday life. Consider the case of a senior undergraduate who wants to go to med school. How many schools should she apply to?
 
-> **Exercise 2\_1** *Susie is applying to two med schools. At School A, 25% of students are accepted, and at School B, 25% are accepted as well. You are Susie. Are you going to get in to at least one of these programs? What is the probability? Does your estimate depend upon any assumptions?*
+> **Exercise 2_1** *Susie is applying to two med schools. At School A, 25% of students are accepted, and at School B, 25% are accepted as well. You are Susie. Are you going to get in to at least one of these programs? What is the probability? Does your estimate depend upon any assumptions?*
 
-Questions such as these are important for us. If the combined probability is low, it will *likely* (another probability concept) make sense for Susie to spend time, money, and energy to apply to additional programs. If the probability is higher, it may not. But problems like this are hard - our estimates of probability are frequently poorly calibrated, and combining probability estimates is challenging (see, e.g., [@tversky1974], and consider taking a course in *Behavioral Economics* or *Thinking and Decision Making* to learn more).
+Questions such as these are important for us. If the combined probability is low, it will *likely* (another probability concept) make sense for Susie to spend the time, money, energy, and ego-involvement to apply to additional programs. If the probability is higher, it may not. But problems like this are hard - our estimates of probability are frequently poorly calibrated, and combining probability estimates is challenging (see, e.g., [@tversky1974], and consider taking a course in *Behavioral Economics* or *Thinking and Decision Making* to learn more).
 
-You may have worked with data in spreadsheets such as Excel or Google Sheets.
+## spreadsheets - some best practices
 
-> **Exercise 2\_2** Open the Google Sheet at <http://bit.ly/dslaX2_1>. Save a copy and edit it, entering the following in cell B7:
+Spreadsheets are handy tools, particularly for smaller datasets. You may have worked with data in spreadsheets such as Microsoft Excel or Google Sheets. If you haven't here's a start:
+
+> **Exercise 2_2** Open the Google Sheet at <http://bit.ly/dslaX2_1>. Save a copy and edit it, entering the following in cell B7:
 >
 > *=SUM (B2:B6)*
 >
@@ -38,40 +43,32 @@ You may have worked with data in spreadsheets such as Excel or Google Sheets.
 >
 > Now **copy cell B7 to C7**
 >
-> What happens? Is this the result you expected? Would another approach be more useful?
+> What happens? Is this the result you expected?
 
-## some best practices for spreadsheets
+Spreadsheets are great tools - the first one, VisiCalc, was the first "killer app" to usher in the personal computer revolution. But spreadsheets have limitations as well. **Best practices** have been proposed for using spreadsheets in data science such as, for example, including only data (and not calculations) in spreadsheets, using what we will recognize as a 'tidy' format in which data are in a simple rectangle (that is, avoid combining cells and using multi-line headers), and saving spreadsheets as simple text files, typically in comma-delimited or CSV format [@broman2018]. Typically, this means that each worksheet will be in a separate file, rather than in workbooks with multiple tabs.
 
-**Spreadsheets** are great tools - the first one, Visi-Calc, was the first "killer app" to usher in the personal computer revolution. But they have limitations as well. **Best practices** have been proposed for using spreadsheets in data science such as, for example, include only data (and not calculations) in spreadsheets, use what we will recognize as a 'tidy' format in which data are in a simple rectangle (avoid combining cells and using multi-line headers), and save spreadsheets as simple text files, typically in comma-delimited or CSV format [@broman2018]. Typically, this means that each worksheet will be in a separate file, rather than in workbooks with multiple tabs.
+There are good reasons for these recommendations: When we manipulate data in spreadsheets, we typically will not have a record of what was (and wasn't) changed, and this compromises the reproducibility of our work. Similarly, when we sort data in spreadsheets, we risk chaos, for example, if we sort only certain columns, the integrity of spreadsheet-rows will be lost.
 
-There are good reasons for these recommendations: For example, when we sort data in spreadsheets, we risk chaos, for example, only certain columns may be sorted. When we manipulate data in spreadsheets, we typically will not have a record of what was (and wasn't) changed, and this compromises the reproducibility of our work.
-
-**The bottom line is that spreadsheets should generally be used to store data rather than to analyze it.** But don't be a slave to this - if you are making some quick calculations that are inconsequential and/or to be used on just one occasion, working in Excel or Google Sheets is often the way to go.
+**In general, spreadsheets should generally be used to store data rather than to analyze it.** But don't be a slave to this - if you are making some quick calculations that are inconsequential and/or to be used on just one occasion, working in Excel or Google Sheets is often the way to go.
 
 ## setting up your machine: some basic tools
 
-Collaboration and communication are integral to data science. In the world beyond universities, the most important messaging and collaboration platform is [Slack](https://slack.com/). Slack is a commercial app, but it has a free tier. Slack is handy for group work of all forms, but most students in full-time programs will be expected to use a Learning Management System such as Canvas so that all of their classes are on the same platform.
+Documents produced in word processors typically include invisible characters used for formatting, security, etc. These characters, when fed into a computer program, lead to unpredictable results. *Markdown* (MD) is a simple syntax for producing documents that are easily read by both humans and machines. Most of the documents you will produce and work with this term, including the present chapter, are and will be written in some version of Markdown. Three markdown editors are worth considering. The newest is [Obsidian](https://obsidian.md/), which is free and includes an extended version of Markdown that allows the drawing of simple network graphs. [Typora](https://www.typora.io/) has an attractive minimalist interface, but is no longer free (\$15). Finally, RStudio - the environment within which we will be using R - has a built in visual markdown editor as well.
 
-Documents produced in word processors typically include invisible characters used for formatting, security, etc. These characters, when fed into a computer program, lead to unpredictable results. *Markdown* is a simple syntax for producing documents that are easily read by both humans and machines. Most of the documents you will produce and work with this term, including the present chapter, are and will be written in some version of Markdown.
+Collaboration and communication are integral to data science. In the world beyond universities, the most important messaging and collaboration platform is [Slack](https://slack.com/). Slack is a commercial app, but it has a free tier. Slack is handy for group work of all forms, but most universities use collaborative tools embedded in Learning Management Systems such as Canvas instead.
 
-You can find an introduction to markdown syntax in Chapter 3 of [@freeman2017]. I use [Typora](https://www.typora.io/) (currently free for both Windows and Mac), but there are many alternatives. Install this or another Markdown editor on your laptop and play with it.
-
-**Google Docs** is free and is convenient for collaborative work. One other important feature of Google Docs is that it provides a framework for *version control,* a critical skill in information management. You can learn more about how to see and revert to prior versions of a project in Google Docs [here](https://sites.google.com/site/scriptsexamples/home/announcements/named-versions-new-version-history-google-docs). Version control can help you avoid the chaos and confusion of having a computer (or several computers) full of files that look like Cham's (2012) comic:
+While Microsoft Word has the advantages of familiarity, ease-of-use offline, and extensive formatting capabilities, **Google Docs** has several advantages over Word. Google Docs is free, it is convenient for collaborative work (as it allows simultaneous editing), and it provides a solid framework for *version control,* a critical skill in information management. Version control can help you avoid the chaos and confusion of having a computer (or several computers) full of files that look like Cham's (2012) comic:
 
 ![*Fig 2.1: Never call anything 'final.doc'.*](images/final.jpg)
 
 Version control is an important concept in data science. Collaboratively built programs and platforms, including most of the add-ons (libraries, packages) which make R so powerful, are open-source projects built by many individuals over time. For projects such as these, both the current build and its associated history are typically maintained on [GitHub](https://github.com/), a website for hosting code. When we contribute to these projects, we will first mirror the web-based GitHub site using a program on our own Macs or Windows PCs called [Git](https://git-scm.com/), then upload our proposed changes. Keeping remote and local branches of files in sync can be challenging, however, and you will not be expected to use this technology in this class. But if you are curious, or want to learn more, an introduction to using Git and R together may be found [here](https://happygitwithr.com/).
 
-## a modified 15-minute rule
+## a (modified) 15-minute rule
 
-You will run into problems, if not here, then elsewhere. An important determinant of your success will be the balance you maintain between persistence and help-seeking.
+While AI tools for coding, including Microsoft Copilot, are helpful for addressing the idiosyncacies of coding syntax, at some point, you will run into problems - if you don't you aren't learning enough. An important determinant of your success will be the balance you maintain between persistence and help-seeking.
 
 The 15-minute rule is one guideline for this balance: It has been cleverly summarized as "[You must try, and then you must ask](https://blogs.akamai.com/2013/10/you-must-try-and-then-you-must-ask.html)." That is, if you get stuck, keep trying for 15 minutes, then reach out to others. I think that this rule is basically sound, particularly if it is applied with cognitive flexibility, social sensitivity, and reciprocity. So when you get stuck, make a note of the problem, then move to another part of your project (that's the cognitive flexibility part): This allows your problem to percolate and still make progress. When you ask others for help, ask in a way that shows an awareness of the demands on their time (social sensitivity): Part of this means that you should explain your problem in as detailed a fashion as possible - in technical terms, a "reprex" or reproducible example. Finally, you should be willing to provide as well as give help (reciprocity).
 
-## discussion: who deserves a good grade?
+## installing R and RStudio desktop
 
-In an introductory class in data science, students invariably come to class with different backgrounds. Should this be taken into account in assigning grades? That is, would it be possible (and desirable) to assign grades in a class based not just on what students know at the end of the term, but also on how much they have learned?
-
-A formal, statistical approach to this could use regression analysis. That is, one could predict final exam scores from pretest scores, and use the residuals - the extent to which students did better or worse than expected - as a contributor to final exam grades. Interestingly, there would be an unusual incentive for students on this 'pretest' to do, seemingly perversely, as poorly as possible. How could this be addressed?
-
-Another problem with this approach is that there may be 'ceiling effects' - students who are the strongest coming in to the class can't improve as much as those who have more room to grow. Again, how might this be addressed? Should it?
+Finally, if you have not already done so, install the latest version of R on your own Windows or Mac laptop. Then install RStudio Desktop. (RStudio is our interface, the environment we will use to write, test, and run R code).

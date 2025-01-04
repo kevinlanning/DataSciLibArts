@@ -1,0 +1,99 @@
+```{r exploring, include=FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# exploring R world
+
+There are many sources for learning the basics of R. A few of these follow. Please **spend at least 180 mins exploring at least two of the following.** Be prepared to discuss your progress next class: You will be asked which source(s) you used, what you struggled with, what questions you have, and what you would recommend to your classmates. **Hint:** If you find the material too challenging, remember the 15 minute rule, take a break away from your machine and other screens, clear your head, then try a different approach.
+
+## go to the movies
+
+About seven years ago, Iain Carmichael used data from the Internet Movies Database (IMDB) to introduce R. You can see his introduction [here](https://idc9.github.io/stor390/notes/getting_started/getting_started.html).
+
+You can consider his report from the standpoint of style (formatting, organization), coding (how he did this), data (the part of the IMDB data he is looking at), and his results (plots of distributions and relationships).
+
+Do you have any questions about the movie data? How might you ask these?
+
+A minimal amount of sleuthing - a click on the STOR 390 link at the top of the page, then a quick scroll - reveals that "all of [Carmichael's] course material is on the github repo" - or repository.
+
+-   Can you find the Rmd document that generated his work?
+
+-   Can you download it on to your machine?
+
+-   If you try to run it, what happens?
+
+-   If you were working on your thesis and came across a problem like this, what would you do next?
+
+## go into the clouds
+
+In addition to the desktop version of R (and Rstudio) we will be using in this class, there is a cloud-based environment as well. Go to the website [posit.cloud](https://posit.cloud), click on "learn more" in the "Free" column, then sign up.
+
+When you open posit.cloud, you should see a column on the left of the screen that includes four sections - spaces, learn, help, and info. (If you don't see these, click on the hamburger menu in the upper left corner and it will appear). Browse through the recipes tab, particularly the ones in the left most column, to start to get a sense of how you might solve some common challenges in R.
+
+## open the box
+
+Go to [datasciencebox/content](https://datasciencebox.org/content). Click on the "Hello world" link; this will take you to the beginning of Mine Çetinkaya-Rundel's introductory lessons on R. These include slides, the source code for the slides (these are written in R markdown), and videos of her lectures, including the one we watched on the first day of class.
+
+Midway down this page, you'll find a link to "the RStudio Cloud workspace for Data Science Course in a Box project." Open it up and begin to explore the code and data behind her presentation.
+
+## go to (data)camp
+
+Many folks swear by (and others, I presume, at) DataCamp, which kind of gamifies learning software. As a student in this class, you have access to all of their stuff... free. You can even do lessons on your phone. Use the link given to you in class to enroll, then explore the introductory-level classes in R at <https://www.datacamp.com/category/r>
+
+## learn to knit
+
+In *literate programming*, comments, code, and results are integrated in a clear and reproducible way - they *document* our work.
+
+'Markdown' is a simple language for adding formatting to text. 'R' is a statistical language. 'R Markdown' is a variant of R that you can use to produce or publish complex documents like this one, as well as the Carmichael page described above.
+
+To create an R markdown (Rmd) document, open up Rstudio, click on (**File -\> New File -\> R Markdown**). A window will open up with a file that begins with a block of *YAML* (Yet Another Markdown Language). You can edit this as needed:
+
+```         
+---
+title: "Here's an R Markdown Document"
+author: "Frankie McFrank Frank"
+date: "1/12/2025"
+output: html_document
+---
+```
+
+Go ahead and click on the clever "knit" icon in the bar just above the source window to create a sample document. You'll need to save the file with a new name, then R will finally create an HTML (Hyper Text Markdown Language ) page. Compare the R Markdown document (your code) with the result (the HTML).
+
+The second chapter of [Healy's online book about Data visualizations](https://socviz.co/) provides a more thorough explanation of R Markdown as well as an introduction to R and R studio which largely parallels the discussions here and in the [Wickham and Grolemund text](https://r4ds.had.co.nz/index.html) [@healy2017; @wickham2023].
+
+## older approaches
+
+I, like thousands of others, learned R in the process of completing the Johns Hopkins [Data Science Specialization](https://jhudatascience.org/courses.html) offered through [Coursera](https://www.coursera.org/). The sequence can be challenging, but their introduction to R used an accessible, interactive R package called *Swirl.* You can read about swirl ("learn R in R") at <https://swirlstats.com/>.
+
+### **using Swirl**
+
+After loading R (and opening R studio), you will get to the Swirl lessons with the following steps:
+
+1)  Install the Swirl package on your computer (you only need to do this once). Type the following into your console window in R studio (typically left hand side of your screen or lower left)
+
+> install.packages("swirl")
+
+2)  Then load the package into your workspace (you'll need to do this at the beginning of every session you use Swirl)
+
+> library (swirl)
+
+2)  Then run it!
+
+> swirl ()
+
+Swirl will ask a few questions then give you the option of choosing one of several courses. You'll choose the R Programming option, which leads to 15 separate lessons.
+
+At the end of each lesson, you'll be asked
+
+> *Would you like to receive credit for completing this course on Coursera.org?*
+
+Answer no... then do another lesson.
+
+### reading/watching Roger Peng's text and/or videos
+
+Finally, you might consider the text and videos from the Coursera R class. Most of the material from that class can be found in Roger Peng's [-@peng2014] text, a slightly updated version of which can be found [here](https://bookdown.org/rdpeng/rprogdatascience/). The videos in the series may be found in this [playlist](https://www.youtube.com/watch?v=wy0h1f5awRI&list=PL_bgmYHGITt-8Noh1fZpxTHJ-GrBb626R). Here's an introduction:
+
+[![Roger Peng](https://img.youtube.com/vi/wy0h1f5awRI/0.jpg)](https://youtu.be/wy0h1f5awRI).
+
+*Video 4.1: Roger Peng introducing R*
+

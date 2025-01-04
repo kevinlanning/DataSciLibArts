@@ -1,0 +1,88 @@
+```{r standsfor, include=FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# what R stands for ...
+
+R was initially developed by Ross Ihaka and Robert Gentleman as a tool to help teach university-level statistics at the University of Auckland. At one level, the name 'R' simply stands for the first initial of these two founders [@hornik2022]. But, just as we noted that the 'C' in Type C Data Analysis stands for concepts such as concentration, communication, collaboration, the 'R' in our programming language means much more:
+
+R is a system for **reproducible** analysis, and reproducibility is essential. When we write R code, we'll use R markdown documents. An R markdown document can include text (comments or explanations), 'chunks' of code, and output including graphs and tables. Having explanations, code, and results in a single document facilitates reproducible work. (Jupyter notebooks in the Python world are similar in this respect).
+
+R is for **research**. Research is not just an end-product, not just a published paper or book:
+
+> ... these documents are not the research [rather] these documents are the "advertising". The research is the "full software environment, code, and data that produced the results" [@buckheit1995; @donoho2010, 385].
+
+Published works (including theses as well as books, scholarly papers, and business reports) are summaries; R markdown documents are the raw materials from which these are derived. When we consider only summaries (or the 'advertising'), we make it difficult for others to verify, or build upon, the findings by reproducing them [@gandrud2013].
+
+R is a system for **representing** data in cool, insight-facilitating ways, a tool for creating (reproducible) data visualizations which can provide insights and communicate results. The power of R to make clear, honest, and reproducible data visualizations is widely seen as a major strength of the language.
+
+R is **really popular**, and this matters, because learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.
+
+Because R is popular, there are many **resources**, including, for example -
+
+> Online resources include the simple (and less simple) lessons of SwirlR, which offers the possibility of "learning R in R," as well as DataCamp, the Data Science Certificate Program at Johns Hopkins, and other MOOCs.
+>
+> Books include [@peng2014] - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and [@wickham2023]
+
+You'll also learn (more directly) from people, including your classmates, as well as the broader community of people around the world. There are hundreds if not thousands of people, young and old, who are on the road with you. I am as well, just a step or two (hopefully) ahead.
+
+R might stand for **relatively high level**. Programming languages can be described along a continuum from high to low level, the former (like R) are more accessible to humans, the latter (like assembly language) more accessible to machines. Python, Java, and C++ are all more towards the middle of this continuum.
+
+R does not stand for '[**arggh**](https://www.urbandictionary.com/define.php?term=ARGH),' although you may proclaim this in frustration ('arggh, why can't I get this to work?) or, perhaps, in satisfaction ('arggh, matey, that be a clever way of doing this').[^03-welcometor-1]
+
+[^03-welcometor-1]: Actually, pirates have little use for R, as pirates love the C (programming language).
+
+But R does stand for **rewarding**. A language is a way of thinking about the world, and this is true for computer languages as well. You'll be challenged by its complexity, its idiosyncracy, its alien logic. But you will succeed, and you will find that you can do things that you did not believe possible.
+
+## some key characteristics of R
+
+### base R and packages
+
+R is a programming language. It can be seen as including two parts, a simple core (Base R) and a large number of additional packages. These packages (libraries) are customized add-ons which simplify certain tasks, such as text analysis. There are, at this writing, 21,861 available packages on the CRAN package repository (as well as additional useful packages that, for one reason or another, do not appear on CRAN. Packages on CRAN are partially indexed by "task view pages." The [task view page for natural language processing](https://cran.r-project.org/web/views/NaturalLanguageProcessing.html) or text analysis includes, at this writing, over 60 separate packages.
+
+So how do you choose, and where do you begin? For our purposes, we will start with the curated list of packages which jointly comprise the tidyverse [@wickham2019], which is effectively a dialect of R.
+
+To download the tidyverse package from the 'net, open RStudio, find the 'console' window on the left side of your screen, and enter the command followed by \<enter\> or \<return\>
+
+> install.packages("tidyverse")
+
+## cha-cha-cha-changes
+
+R is constantly changing, not just in the proliferation of packages, but also in the organization of the R community. While R is free and open source, RStudio is a commercial product. The company (and website) that develops the RStudio IDE is undergoing a name change (from RStudio to Posit). This is motivated, in part, by the need to make the RStudio platform more welcoming for other languages including Python.
+
+Similarly, the R markdown programming language is slowly being replaced with newer, and ultimately more capable, software called Quarto. Quarto is back-compatible with R markdown, but can be used with other languages including Python as well. A description of the differences between R markdown and Quarto may be found [here](https://quarto.org/docs/faq/rmarkdown.html). For our purposes, you can treat Quarto files (.qmd suffix) as R markdown files (.rmd), and vice-versa.
+
+One more change: Posit (the company) is developing a new IDE called 'Positron.' Positron may ultimately be a more useful environment for data science than the RStudio IDE, but it is in the beta testing stage at this writing. The RStudio environment, and the Rmarkdown documents that are produced within it, will continue to be available, and widely used, for the foreseeable future.
+
+## some technical characteristics
+
+R is an object-oriented language - one conceptually organized around objects and data rather than actions and logic.
+
+In R, at the most basic or atomic level, "objects" include characters, real numbers, integers, complex numbers, and logicals.
+
+These atomic objects may be combined into vectors, which generally include objects of the same type [one kind of object, 'lists,' is an exception to this; @peng2014]. Vectors can be further combined into data frames, which are two-dimensional tables or arrays. A *tibble* is a particular type of data frame which is used in the tidyverse. Tibbles are, in some ways, handier to work with than other data frames. We'll be working extensively with data frames in general, and tibbles in particular, as we move forward.
+
+Objects have attributes. Attributes of R include such things as name, dimensions (for vectors and arrays), class (that's the type of object described in the previous paragraph), length, etc.
+
+Real world data sets are messy, and frequently have missing values. In R, missing values may be represented by NA (not available) or NaN (not a number, implying an undefined or impossible value).
+
+## finding help
+
+One does not simply 'learn R.' Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one can be said to have mastered and from which one then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn. And, the complexity of R syntax is such that, for almost all of us, we will need help for coding on any non-trivial task.
+
+For us, the key ideas in "looking for help" will include not just the tools on the RStudio IDE, but also (a) using Google searches wisely, (b) judicious use of AI assistance, and (c) reaching out to your classmates and instructor.
+
+Here, as in the real world, there is an etiquette for help-seeking which is based on consideration. Your search for help should begin by making sure that others will encounter the same result, then by stripping the problem down to its essence. Once you have reduced the problem to this minimal, reproducible essence, you will often be able to spot the problem yourself - and, if not, you will make it easier for others to help you. There is an R package (reprex) which will likely facilitate this, but I haven't tried it yet. [Here](https://www.tidyverse.org/help/) is a good introduction.
+
+Again, remember the 15 minute rule - [we all need somebody to lean on](https://youtu.be/2YapAxPfRyI).
+
+Finally, to get a sense of some of the ways you can get help in RStudio (and to see how a master uses the R Studio interface), consider this video:
+
+[![](https://embed-fastly.wistia.com/deliveries/85f90f89c20cf329c8e6091508fe44c045e70167.jpg?image_play_button_size=2x&image_crop_resized=960x585&image_play_button=1&image_play_button_color=4287c7e0)](https://rstudio.com/resources/webinars/programming-part-1-writing-code-in-rstudio/?wvideo=k8kz4e0p2v)
+
+*video 3.1: Garrett Grolemund of [RStudio](https://www.rstudio.com/)*
+
+## Wickham and R for Data Science 2e
+
+The introduction to the Wickham text [@wickham2023] provides both a framework for his approach and a brief introduction to the tidyverse.
+
+Please read it now.

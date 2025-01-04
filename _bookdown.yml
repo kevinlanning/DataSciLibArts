@@ -1,3 +1,8 @@
 book_filename: "DataSciLibArts"
-delete_merged_file: true
+github-repo: kevinlanning/DataSciLibArts
 output_dir: docs
+delete_merged_file: true
+bibliography: references.bib
+biblio-style: apalike
+link-citations: true
+# urlcolor: blue
