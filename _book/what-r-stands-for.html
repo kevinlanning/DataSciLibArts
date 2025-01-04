@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 what R stands for … | Data science for the liberal arts</title>
+  <meta name="description" content="3 what R stands for … | Data science for the liberal arts" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 what R stands for … | Data science for the liberal arts" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="kevinlanning/DataSciLibArts" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 what R stands for … | Data science for the liberal arts" />
+  
+  
+  
+
+<meta name="author" content="Kevin Lanning" />
+
+
+<meta name="date" content="2025-01-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="getting-started.html"/>
+<link rel="next" href="exploring-r-world.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#section" id="toc-section"></a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#the-role-of-the-liberal-arts-in-data-science"><i class="fa fa-check"></i>the role of the liberal arts in data science</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#some-features-of-the-text"><i class="fa fa-check"></i>some features of the text</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#the-book-is-for-you"><i class="fa fa-check"></i>the book is for you</a></li>
+</ul></li>
+<li class="part"><span><b>Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="what-is-data-science-for-the-liberal-arts.html"><a href="what-is-data-science-for-the-liberal-arts.html"><i class="fa fa-check"></i><b>1</b> what is “data science for the liberal arts?”</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="what-is-data-science-for-the-liberal-arts.html"><a href="what-is-data-science-for-the-liberal-arts.html#the-incompleteness-of-the-data-science-venn-diagram"><i class="fa fa-check"></i><b>1.1</b> the incompleteness of the data science Venn diagram</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="what-is-data-science-for-the-liberal-arts.html"><a href="what-is-data-science-for-the-liberal-arts.html#additional-domains"><i class="fa fa-check"></i><b>1.1.1</b> additional domains</a></li>
+<li class="chapter" data-level="1.1.2" data-path="what-is-data-science-for-the-liberal-arts.html"><a href="what-is-data-science-for-the-liberal-arts.html#an-additional-dimension"><i class="fa fa-check"></i><b>1.1.2</b> an additional dimension</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="what-is-data-science-for-the-liberal-arts.html"><a href="what-is-data-science-for-the-liberal-arts.html#google-and-the-liberal-arts"><i class="fa fa-check"></i><b>1.2</b> Google and the liberal arts</a></li>
+<li class="chapter" data-level="1.3" data-path="what-is-data-science-for-the-liberal-arts.html"><a href="what-is-data-science-for-the-liberal-arts.html#tmi"><i class="fa fa-check"></i><b>1.3</b> TMI</a></li>
+<li class="chapter" data-level="1.4" data-path="what-is-data-science-for-the-liberal-arts.html"><a href="what-is-data-science-for-the-liberal-arts.html#discussion-what-are-your-objectives-in-data-science"><i class="fa fa-check"></i><b>1.4</b> discussion: what are your objectives in data science?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>2</b> getting started</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started.html"><a href="getting-started.html#are-you-already-a-programmer-and-statistician"><i class="fa fa-check"></i><b>2.1</b> are you already a programmer and statistician?</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started.html"><a href="getting-started.html#spreadsheets---some-best-practices"><i class="fa fa-check"></i><b>2.2</b> spreadsheets - some best practices</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started.html"><a href="getting-started.html#setting-up-your-machine-some-basic-tools"><i class="fa fa-check"></i><b>2.3</b> setting up your machine: some basic tools</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started.html"><a href="getting-started.html#a-modified-15-minute-rule"><i class="fa fa-check"></i><b>2.4</b> a (modified) 15-minute rule</a></li>
+<li class="chapter" data-level="2.5" data-path="getting-started.html"><a href="getting-started.html#installing-r-and-rstudio-desktop"><i class="fa fa-check"></i><b>2.5</b> installing R and RStudio desktop</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="what-r-stands-for.html"><a href="what-r-stands-for.html"><i class="fa fa-check"></i><b>3</b> what R stands for …</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="what-r-stands-for.html"><a href="what-r-stands-for.html#some-key-characteristics-of-r"><i class="fa fa-check"></i><b>3.1</b> some key characteristics of R</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="what-r-stands-for.html"><a href="what-r-stands-for.html#base-r-and-packages"><i class="fa fa-check"></i><b>3.1.1</b> base R and packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="what-r-stands-for.html"><a href="what-r-stands-for.html#cha-cha-cha-changes"><i class="fa fa-check"></i><b>3.2</b> cha-cha-cha-changes</a></li>
+<li class="chapter" data-level="3.3" data-path="what-r-stands-for.html"><a href="what-r-stands-for.html#some-technical-characteristics"><i class="fa fa-check"></i><b>3.3</b> some technical characteristics</a></li>
+<li class="chapter" data-level="3.4" data-path="what-r-stands-for.html"><a href="what-r-stands-for.html#finding-help"><i class="fa fa-check"></i><b>3.4</b> finding help</a></li>
+<li class="chapter" data-level="3.5" data-path="what-r-stands-for.html"><a href="what-r-stands-for.html#wickham-and-r-for-data-science-2e"><i class="fa fa-check"></i><b>3.5</b> Wickham and R for Data Science 2e</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="exploring-r-world.html"><a href="exploring-r-world.html"><i class="fa fa-check"></i><b>4</b> exploring R world</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="exploring-r-world.html"><a href="exploring-r-world.html#go-to-the-movies"><i class="fa fa-check"></i><b>4.1</b> go to the movies</a></li>
+<li class="chapter" data-level="4.2" data-path="exploring-r-world.html"><a href="exploring-r-world.html#go-into-the-clouds"><i class="fa fa-check"></i><b>4.2</b> go into the clouds</a></li>
+<li class="chapter" data-level="4.3" data-path="exploring-r-world.html"><a href="exploring-r-world.html#open-the-box"><i class="fa fa-check"></i><b>4.3</b> open the box</a></li>
+<li class="chapter" data-level="4.4" data-path="exploring-r-world.html"><a href="exploring-r-world.html#go-to-datacamp"><i class="fa fa-check"></i><b>4.4</b> go to (data)camp</a></li>
+<li class="chapter" data-level="4.5" data-path="exploring-r-world.html"><a href="exploring-r-world.html#learn-to-knit"><i class="fa fa-check"></i><b>4.5</b> learn to knit</a></li>
+<li class="chapter" data-level="4.6" data-path="exploring-r-world.html"><a href="exploring-r-world.html#older-approaches"><i class="fa fa-check"></i><b>4.6</b> older approaches</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="exploring-r-world.html"><a href="exploring-r-world.html#using-swirl"><i class="fa fa-check"></i><b>4.6.1</b> <strong>using Swirl</strong></a></li>
+<li class="chapter" data-level="4.6.2" data-path="exploring-r-world.html"><a href="exploring-r-world.html#readingwatching-roger-pengs-text-andor-videos"><i class="fa fa-check"></i><b>4.6.2</b> reading/watching Roger Peng’s text and/or videos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data science for the liberal arts</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="what-r-stands-for" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> what R stands for …<a href="what-r-stands-for.html#what-r-stands-for" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>R was initially developed by Ross Ihaka and Robert Gentleman as a tool to help teach university-level statistics at the University of Auckland. At one level, the name ‘R’ simply stands for the first initial of these two founders <span class="citation">(<a href="#ref-hornik2022">Hornik and Team 2022</a>)</span>. But, just as we noted that the ‘C’ in Type C Data Analysis stands for concepts such as concentration, communication, collaboration, the ‘R’ in our programming language means much more:</p>
+<p>R is a system for <strong>reproducible</strong> analysis, and reproducibility is essential. When we write R code, we’ll use R markdown documents. An R markdown document can include text (comments or explanations), ‘chunks’ of code, and output including graphs and tables. Having explanations, code, and results in a single document facilitates reproducible work. (Jupyter notebooks in the Python world are similar in this respect).</p>
+<p>R is for <strong>research</strong>. Research is not just an end-product, not just a published paper or book:</p>
+<blockquote>
+<p>… these documents are not the research [rather] these documents are the “advertising”. The research is the “full software environment, code, and data that produced the results” <span class="citation">(<a href="#ref-buckheit1995">Buckheit and Donoho 1995</a>; <a href="#ref-donoho2010">D. L. Donoho 2010, 385</a>)</span>.</p>
+</blockquote>
+<p>Published works (including theses as well as books, scholarly papers, and business reports) are summaries; R markdown documents are the raw materials from which these are derived. When we consider only summaries (or the ‘advertising’), we make it difficult for others to verify, or build upon, the findings by reproducing them <span class="citation">(<a href="#ref-gandrud2013">Gandrud 2013</a>)</span>.</p>
+<p>R is a system for <strong>representing</strong> data in cool, insight-facilitating ways, a tool for creating (reproducible) data visualizations which can provide insights and communicate results. The power of R to make clear, honest, and reproducible data visualizations is widely seen as a major strength of the language.</p>
+<p>R is <strong>really popular</strong>, and this matters, because learning R will make you a more attractive candidate for many graduate programs as well as jobs in the private sector.</p>
+<p>Because R is popular, there are many <strong>resources</strong>, including, for example -</p>
+<blockquote>
+<p>Online resources include the simple (and less simple) lessons of SwirlR, which offers the possibility of “learning R in R,” as well as DataCamp, the Data Science Certificate Program at Johns Hopkins, and other MOOCs.</p>
+<p>Books include <span class="citation">(<a href="#ref-peng2014">Peng 2014</a>)</span> - which includes not only videos of his lectures in the program at Hopkins, but also a brief list of still more resources - and <span class="citation">(<a href="#ref-wickham2023">Wickham, Çetinkaya-Rundel, and Grolemund 2023</a>)</span></p>
+</blockquote>
+<p>You’ll also learn (more directly) from people, including your classmates, as well as the broader community of people around the world. There are hundreds if not thousands of people, young and old, who are on the road with you. I am as well, just a step or two (hopefully) ahead.</p>
+<p>R might stand for <strong>relatively high level</strong>. Programming languages can be described along a continuum from high to low level, the former (like R) are more accessible to humans, the latter (like assembly language) more accessible to machines. Python, Java, and C++ are all more towards the middle of this continuum.</p>
+<p>R does not stand for ‘<a href="https://www.urbandictionary.com/define.php?term=ARGH"><strong>arggh</strong></a>,’ although you may proclaim this in frustration (‘arggh, why can’t I get this to work?) or, perhaps, in satisfaction (’arggh, matey, that be a clever way of doing this’).<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<p>But R does stand for <strong>rewarding</strong>. A language is a way of thinking about the world, and this is true for computer languages as well. You’ll be challenged by its complexity, its idiosyncracy, its alien logic. But you will succeed, and you will find that you can do things that you did not believe possible.</p>
+<div id="some-key-characteristics-of-r" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> some key characteristics of R<a href="what-r-stands-for.html#some-key-characteristics-of-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="base-r-and-packages" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> base R and packages<a href="what-r-stands-for.html#base-r-and-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R is a programming language. It can be seen as including two parts, a simple core (Base R) and a large number of additional packages. These packages (libraries) are customized add-ons which simplify certain tasks, such as text analysis. There are, at this writing, 21,861 available packages on the CRAN package repository (as well as additional useful packages that, for one reason or another, do not appear on CRAN. Packages on CRAN are partially indexed by “task view pages.” The <a href="https://cran.r-project.org/web/views/NaturalLanguageProcessing.html">task view page for natural language processing</a> or text analysis includes, at this writing, over 60 separate packages.</p>
+<p>So how do you choose, and where do you begin? For our purposes, we will start with the curated list of packages which jointly comprise the tidyverse <span class="citation">(<a href="#ref-wickham2019">Wickham et al. 2019</a>)</span>, which is effectively a dialect of R.</p>
+<p>To download the tidyverse package from the ‘net, open RStudio, find the ’console’ window on the left side of your screen, and enter the command followed by &lt;enter&gt; or &lt;return&gt;</p>
+<blockquote>
+<p>install.packages(“tidyverse”)</p>
+</blockquote>
+</div>
+</div>
+<div id="cha-cha-cha-changes" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> cha-cha-cha-changes<a href="what-r-stands-for.html#cha-cha-cha-changes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R is constantly changing, not just in the proliferation of packages, but also in the organization of the R community. While R is free and open source, RStudio is a commercial product. The company (and website) that develops the RStudio IDE is undergoing a name change (from RStudio to Posit). This is motivated, in part, by the need to make the RStudio platform more welcoming for other languages including Python.</p>
+<p>Similarly, the R markdown programming language is slowly being replaced with newer, and ultimately more capable, software called Quarto. Quarto is back-compatible with R markdown, but can be used with other languages including Python as well. A description of the differences between R markdown and Quarto may be found <a href="https://quarto.org/docs/faq/rmarkdown.html">here</a>. For our purposes, you can treat Quarto files (.qmd suffix) as R markdown files (.rmd), and vice-versa.</p>
+<p>One more change: Posit (the company) is developing a new IDE called ‘Positron.’ Positron may ultimately be a more useful environment for data science than the RStudio IDE, but it is in the beta testing stage at this writing. The RStudio environment, and the Rmarkdown documents that are produced within it, will continue to be available, and widely used, for the foreseeable future.</p>
+</div>
+<div id="some-technical-characteristics" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> some technical characteristics<a href="what-r-stands-for.html#some-technical-characteristics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R is an object-oriented language - one conceptually organized around objects and data rather than actions and logic.</p>
+<p>In R, at the most basic or atomic level, “objects” include characters, real numbers, integers, complex numbers, and logicals.</p>
+<p>These atomic objects may be combined into vectors, which generally include objects of the same type [one kind of object, ‘lists,’ is an exception to this; <span class="citation">Peng (<a href="#ref-peng2014">2014</a>)</span>]. Vectors can be further combined into data frames, which are two-dimensional tables or arrays. A <em>tibble</em> is a particular type of data frame which is used in the tidyverse. Tibbles are, in some ways, handier to work with than other data frames. We’ll be working extensively with data frames in general, and tibbles in particular, as we move forward.</p>
+<p>Objects have attributes. Attributes of R include such things as name, dimensions (for vectors and arrays), class (that’s the type of object described in the previous paragraph), length, etc.</p>
+<p>Real world data sets are messy, and frequently have missing values. In R, missing values may be represented by NA (not available) or NaN (not a number, implying an undefined or impossible value).</p>
+</div>
+<div id="finding-help" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> finding help<a href="what-r-stands-for.html#finding-help" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>One does not simply ‘learn R.’ Unlike, say, learning to ride a bicycle, fry an egg, or drive a car with a manual transmission, learning R is not a discrete accomplishment that one can be said to have mastered and from which one then moves on. Rather, R is an evolving, open system of applications and tools which is so vast that there is always more that one can achieve, new lessons that one can learn. And, the complexity of R syntax is such that, for almost all of us, we will need help for coding on any non-trivial task.</p>
+<p>For us, the key ideas in “looking for help” will include not just the tools on the RStudio IDE, but also (a) using Google searches wisely, (b) judicious use of AI assistance, and (c) reaching out to your classmates and instructor.</p>
+<p>Here, as in the real world, there is an etiquette for help-seeking which is based on consideration. Your search for help should begin by making sure that others will encounter the same result, then by stripping the problem down to its essence. Once you have reduced the problem to this minimal, reproducible essence, you will often be able to spot the problem yourself - and, if not, you will make it easier for others to help you. There is an R package (reprex) which will likely facilitate this, but I haven’t tried it yet. <a href="https://www.tidyverse.org/help/">Here</a> is a good introduction.</p>
+<p>Again, remember the 15 minute rule - <a href="https://youtu.be/2YapAxPfRyI">we all need somebody to lean on</a>.</p>
+<p>Finally, to get a sense of some of the ways you can get help in RStudio (and to see how a master uses the R Studio interface), consider this video:</p>
+<p><a href="https://rstudio.com/resources/webinars/programming-part-1-writing-code-in-rstudio/?wvideo=k8kz4e0p2v"><img src="https://embed-fastly.wistia.com/deliveries/85f90f89c20cf329c8e6091508fe44c045e70167.jpg?image_play_button_size=2x&amp;image_crop_resized=960x585&amp;image_play_button=1&amp;image_play_button_color=4287c7e0" /></a></p>
+<p><em>video 3.1: Garrett Grolemund of <a href="https://www.rstudio.com/">RStudio</a></em></p>
+</div>
+<div id="wickham-and-r-for-data-science-2e" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Wickham and R for Data Science 2e<a href="what-r-stands-for.html#wickham-and-r-for-data-science-2e" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The introduction to the Wickham text <span class="citation">(<a href="#ref-wickham2023">Wickham, Çetinkaya-Rundel, and Grolemund 2023</a>)</span> provides both a framework for his approach and a brief introduction to the tidyverse.</p>
+<p>Please read it now.</p>
+
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-buckheit1995" class="csl-entry">
+Buckheit, Jonathan B., and David L. Donoho. 1995. <span>“Wavelab and Reproducible Research.”</span> In <em>Wavelets and Statistics</em>, 55–81. Springer.
+</div>
+<div id="ref-donoho2010" class="csl-entry">
+Donoho, David L. 2010. <span>“An Invitation to Reproducible Computational Research.”</span> <em>Biostatistics</em> 11 (3): 385–88. <a href="https://doi.org/bxwkns">https://doi.org/bxwkns</a>.
+</div>
+<div id="ref-gandrud2013" class="csl-entry">
+Gandrud, Christopher. 2013. <em>Reproducible <span>Research</span> with <span>R</span> and <span>R Studio</span></em>. CRC Press.
+</div>
+<div id="ref-hornik2022" class="csl-entry">
+Hornik, Kurt, and The R Core Team. 2022. <span>“R <span>FAQ</span>: <span>The Comprehensive R Archive Network</span>.”</span>
+</div>
+<div id="ref-peng2014" class="csl-entry">
+Peng, Roger D. 2014. <em>R <span>Programming</span> for <span>Data Science</span></em>.
+</div>
+<div id="ref-wickham2019" class="csl-entry">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span>Tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-wickham2023" class="csl-entry">
+Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for Data Science 2e</em>. " O’Reilly Media, Inc.".
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>Actually, pirates have little use for R, as pirates love the C (programming language).<a href="what-r-stands-for.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="getting-started.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exploring-r-world.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
